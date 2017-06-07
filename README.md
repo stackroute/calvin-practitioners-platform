@@ -26,3 +26,10 @@ Before running the tests make sure you are serving the app via `ng serve`.
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+## Command used to generate this project
+Project is originally generated usign Angular CLI, and was added the express part manually
+
+Below is the command used to generate the code
+`ng new --directory calvinCommunities --source-dir webapp --prefix calvin --routing true --skip-install true calvinCommunities`
+
