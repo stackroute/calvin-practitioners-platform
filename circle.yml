@@ -1,0 +1,10 @@
+## Customize the test machine
+machine:
+  node:
+    version: 8.0.0
+## Customize dependencies
+dependencies:
+  pre:
+    - npm install -g @angular/cli
+  cache_directories:
+    - node_modules
