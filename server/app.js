@@ -13,6 +13,10 @@ app.get('/welcome', (req, res) => {
   res.send({ msg: 'Welcome to app' });
 });
 
+app.get('/users', (req, res) => {
+  res.send({ msg: 'welcomes users' });
+});
+
 app.use((req, res) => {
   res.status(404).send({ error: 'Resource not found' });
 });
