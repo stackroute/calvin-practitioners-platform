@@ -3,7 +3,7 @@ const path = require('path');
 
 const app = express();
 
-const clientPath = path.resolve(__dirname, '..', 'webclient', 'dist');
+const clientPath = path.resolve(__dirname, '..', 'dist');
 
 app.use(express.static(clientPath));
 
