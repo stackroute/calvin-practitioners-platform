@@ -1,4 +1,4 @@
-# CalvinCommunities
+# CalvinPractitionersPlatform
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.3.
 
@@ -32,4 +32,3 @@ Project is originally generated usign Angular CLI, and was added the express par
 
 Below is the command used to generate the code
 `ng new --directory calvinCommunities --source-dir webapp --prefix calvin --routing true --skip-install true calvinCommunities`
-

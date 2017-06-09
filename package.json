@@ -1,12 +1,12 @@
 {
-  "name": "calvin-communities",
-  "version": "0.0.0",
+  "name": "calvin-practioners-platform",
+  "version": "1.0.0",
   "license": "MIT",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "test": "ng test",
+    "test": "node_modules/.bin/eslint server/**/*.js && cd webapp/ && yarn && ng lint",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "serve": "concurrently \"ng build --watch\" \"nodemon bin/www\""
@@ -35,6 +35,9 @@
     "@types/node": "~6.0.60",
     "codelyzer": "~2.0.0",
     "concurrently": "^3.4.0",
+    "eslint": "^3.19.0",
+    "eslint-config-airbnb-base": "^11.2.0",
+    "eslint-plugin-import": "^2.3.0",
     "jasmine-core": "~2.5.2",
     "jasmine-spec-reporter": "~3.2.0",
     "karma": "~1.4.1",
