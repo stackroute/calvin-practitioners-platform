@@ -11,7 +11,7 @@ app.get('/hello', (req, res) => res.send({ msg: 'Howdy partner ' }));
 
 app.get('/welcome', (req, res) => {
   res.send({ msg: 'Welcome to app' });
-});
+})
 
 app.use((req, res) => {
   res.status(404).send({ error: 'Resource not found' });
