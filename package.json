@@ -6,7 +6,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "test": "node_modules/.bin/eslint server/**/*.js && cd webapp/ && yarn && ng lint",
+    "test": "yarn && node_modules/.bin/eslint server/**/*.js && cd webapp/ && ng lint",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "serve": "concurrently \"ng build --watch\" \"nodemon bin/www\""
