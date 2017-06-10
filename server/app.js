@@ -11,7 +11,7 @@ app.get('/hello', (req, res) => res.send({ msg: 'Howdy partner ' }));
 
 app.get('/welcome', (req, res) => {
   res.send({ msg: 'Welcome to app' });
-});
+})
 
 app.get('/users', (req, res) => {
   res.send({ msg: 'welcomes users' });
