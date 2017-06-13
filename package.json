@@ -5,19 +5,22 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "ng build --watch",
     "test": "yarn && node_modules/.bin/eslint server/**/*.js && cd webapp/ && ng lint",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "serve": "concurrently \"ng build --watch\" \"nodemon bin/www\""
+    "serve": "nodemon bin/www"
   },
   "private": true,
   "dependencies": {
+    "@angular/animations": "^4.2.2",
     "@angular/common": "^4.0.0",
     "@angular/compiler": "^4.0.0",
     "@angular/core": "^4.0.0",
+    "@angular/flex-layout": "^2.0.0-beta.8",
     "@angular/forms": "^4.0.0",
     "@angular/http": "^4.0.0",
+    "@angular/material": "^2.0.0-beta.6",
     "@angular/platform-browser": "^4.0.0",
     "@angular/platform-browser-dynamic": "^4.0.0",
     "@angular/router": "^4.0.0",

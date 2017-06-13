@@ -1,0 +1,63 @@
+
+
+.containerX {
+  border: solid 1px #009688;
+  background:url('../../assets/image/new1.gif') no-repeat;
+  background-size: cover;
+  height:600px;
+  
+}
+md-card {
+
+  width:200px;
+height:100px;
+margin-top:15%;
+}
+.btn{
+  background-color:white;
+  color:blue;
+}
+
+html, body {
+      height:100%;
+      min-height:100vh;
+}
+.container-list,a{
+  padding-top:20px;
+  padding-left:10px;
+  color:red;
+
+}
+a{
+  text-decoration: none;
+}
+
+.container-lan{
+  margin-top: 2%;
+  
+}
+.material-icons{
+  
+  color:red;
+  
+}
+.language{
+  color: red;
+}
+@media (max-width: 600px) {
+  .containerX{
+    border: solid 1px #009688;
+  /*background:url('./images/blue.gif');*/
+  }
+  .btn{
+    margin-left: 12%;
+    background-color:white;
+  }
+  md-card {
+
+  
+
+margin-top:50%;
+}
+}
+
