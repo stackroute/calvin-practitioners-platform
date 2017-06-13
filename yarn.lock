@@ -2,6 +2,12 @@
 # yarn lockfile v1
 
 
+"@angular/animations@^4.2.2":
+  version "4.2.2"
+  resolved "https://registry.yarnpkg.com/@angular/animations/-/animations-4.2.2.tgz#4b00dd3414d55cf7a486686c548680c2fc93425e"
+  dependencies:
+    tslib "^1.7.1"
+
 "@angular/cli@1.0.3":
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/@angular/cli/-/cli-1.0.3.tgz#73a4b43f2ea8e720f52f1041e5e833cae1fb291f"
@@ -92,6 +98,10 @@
   dependencies:
     tslib "^1.7.1"
 
+"@angular/flex-layout@^2.0.0-beta.8":
+  version "2.0.0-rc.1"
+  resolved "https://registry.yarnpkg.com/@angular/flex-layout/-/flex-layout-2.0.0-rc.1.tgz#96fa7f85b2c4bacf2784913a2d607e2ed23dc7f1"
+
 "@angular/forms@^4.0.0":
   version "4.2.0"
   resolved "https://registry.yarnpkg.com/@angular/forms/-/forms-4.2.0.tgz#cb3ae69172e254452fa77578605ebc1bb72138c9"
@@ -101,6 +111,12 @@
 "@angular/http@^4.0.0":
   version "4.2.0"
   resolved "https://registry.yarnpkg.com/@angular/http/-/http-4.2.0.tgz#484af53639e04a68834c5167a1955d2d0cde8e1c"
+  dependencies:
+    tslib "^1.7.1"
+
+"@angular/material@^2.0.0-beta.6":
+  version "2.0.0-beta.6"
+  resolved "https://registry.yarnpkg.com/@angular/material/-/material-2.0.0-beta.6.tgz#83bfdf00f540a8c7db900a1e7b8ed2cff49df821"
   dependencies:
     tslib "^1.7.1"
 
@@ -2395,6 +2411,10 @@ graceful-fs@^4.1.11, graceful-fs@^4.1.2, graceful-fs@^4.1.6:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/graceful-readlink/-/graceful-readlink-1.0.1.tgz#4cafad76bc62f02fa039b2f94e9a3dd3a391a725"
 
+hammerjs@^2.0.8:
+  version "2.0.8"
+  resolved "https://registry.yarnpkg.com/hammerjs/-/hammerjs-2.0.8.tgz#04ef77862cff2bb79d30f7692095930222bf60f1"
+
 handle-thing@^1.2.5:
   version "1.2.5"
   resolved "https://registry.yarnpkg.com/handle-thing/-/handle-thing-1.2.5.tgz#fd7aad726bf1a5fd16dfc29b2f7a6601d27139c4"
@@ -3522,6 +3542,10 @@ matcher-collection@^1.0.0:
   resolved "https://registry.yarnpkg.com/matcher-collection/-/matcher-collection-1.0.4.tgz#2f66ae0869996f29e43d0b62c83dd1d43e581755"
   dependencies:
     minimatch "^3.0.2"
+
+material-design-icons@^3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/material-design-icons/-/material-design-icons-3.0.1.tgz#9a71c48747218ebca51e51a66da682038cdcb7bf"
 
 math-expression-evaluator@^1.2.14:
   version "1.2.17"

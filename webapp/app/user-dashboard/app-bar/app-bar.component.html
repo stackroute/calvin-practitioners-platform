@@ -1,0 +1,32 @@
+
+
+  <md-toolbar color="primary">
+
+    <md-card-title fxLayout="row">
+      Calvin
+    </md-card-title>
+
+    <md-input-container class="example-full-width">
+
+      <input mdInput placeholder="Search for communities">
+
+      <i class="material-icons">search</i>
+
+    </md-input-container>
+
+    <button md-icon-button [md-menu-trigger-for]="menu">
+
+      <md-icon>face</md-icon>
+
+    </button>
+
+  </md-toolbar>
+
+  <md-menu x-position="before" #menu="mdMenu">
+
+    <button md-menu-item><a routerLink="/profile">Profile</a></button>
+
+    <button md-menu-item (click)="logout()">Logout</button>
+
+  </md-menu>
+
