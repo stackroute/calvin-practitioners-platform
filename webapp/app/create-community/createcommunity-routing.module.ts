@@ -11,7 +11,6 @@ const adminRoutes: Routes = [
   }
 ];
 
-
 @NgModule({
   imports: [
     RouterModule.forChild(adminRoutes)
