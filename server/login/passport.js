@@ -25,7 +25,7 @@ module.exports = function (passport) {
       const userToken = jwt.sign(userDetails, 'secret key', { expiresIn: 60 * 30 });
       client.execute('select * from sampleuser where email=:email', params, (err, result) => {
         if (err) {
-          done(err);
+          return done(err);
         } else {
           const x = result.rows;
           if (!Array.isArray(x) || !x.length) {
@@ -45,6 +45,6 @@ module.exports = function (passport) {
         }
       });
     });
-  },
+  }
     ));
 };
