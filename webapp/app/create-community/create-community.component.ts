@@ -43,6 +43,7 @@ export class CreateCommunityComponent implements OnInit {
 
   ngOnInit() {
     
-  }
 
+
+}
 }
