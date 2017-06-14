@@ -42,3 +42,19 @@ md-toolbar.mat-toolbar {
   padding: 21px 0;
   text-decoration: none;
 }
+.searchAlgin {
+  position: relative;
+  color: #fff;
+}
+.searchAlgin input {
+  min-height: 30px;
+  border: none;
+  border-radius: 2px;
+  padding:10px;
+}
+.searchBtn {
+  position: absolute;
+  right: 3px;
+  top:7px;
+  color: #666;
+}

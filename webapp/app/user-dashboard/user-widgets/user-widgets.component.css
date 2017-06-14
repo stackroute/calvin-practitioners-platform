@@ -1,5 +1,19 @@
 
 
-md-list {
-	border-bottom: 1px solid #ddd
+md-list-item {
+	border-bottom: 1px dashed #ddd
+}
+md-list-item:last-child {
+  border-bottom: 1px transparent;
+}
+.mycommunity md-card-title {
+  border-bottom: 5px double #666;
+  padding-bottom: 25px;
+}
+.mycommunity md-card-title i {
+  background-color: #3f51b5;
+  color: #fff;
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
 }
