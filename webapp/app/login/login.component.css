@@ -5,24 +5,12 @@
   background:url('../../assets/image/new1.gif') no-repeat;
   background-size: cover;
   height:600px;
-  
-}
-md-card {
-
-  width:400px;
-height:200px;
-margin-top:10%;
- background-color:white; 
-}
-md-card-action{
-  margin-top:50%;
-  background-color:black;
-}
+  }
 .loginbtn{
   
   /*margin-left:-10px;*/
   width:10%;
-  height:30px;
+  height:20px;
   margin-top:18%;
   color:red;
   text-align: center;
@@ -31,8 +19,10 @@ md-card-action{
   
 }
 .button{
-    
-    margin-top:50%;
+    text-align: center;
+   
+    margin-top:-50px;
+    /*padding-top:10px;*/
     
 }
 
@@ -71,8 +61,6 @@ a{
     margin-left: 12%;
     background-color:white;
   }
-  md-card { 
-    margin-top:50%;
-   }
+  
 }
 
