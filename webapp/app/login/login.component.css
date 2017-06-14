@@ -9,13 +9,31 @@
 }
 md-card {
 
-  width:200px;
-height:100px;
-margin-top:15%;
+  width:400px;
+height:200px;
+margin-top:10%;
+ background-color:white; 
 }
-.btn{
-  background-color:white;
-  color:blue;
+md-card-action{
+  margin-top:50%;
+  background-color:black;
+}
+.loginbtn{
+  
+  /*margin-left:-10px;*/
+  width:10%;
+  height:30px;
+  margin-top:18%;
+  color:red;
+  text-align: center;
+  background-color: white;
+  padding-bottom: 1px;
+  
+}
+.button{
+    
+    margin-top:50%;
+    
 }
 
 html, body {
@@ -53,11 +71,8 @@ a{
     margin-left: 12%;
     background-color:white;
   }
-  md-card {
-
-  
-
-margin-top:50%;
-}
+  md-card { 
+    margin-top:50%;
+   }
 }
 
