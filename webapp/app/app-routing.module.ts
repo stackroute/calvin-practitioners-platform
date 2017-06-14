@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import {ModuleWithProviders, NgModule} from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
@@ -10,7 +10,7 @@ import { AuthGuard } from './auth-guard.service';
 import {AuthService} from './auth.service';
 
 // Calvin routes
-const routes: Routes = [
+const routes : ModuleWithProviders = RouterModule.forRoot([
   { path: 'login', component: LoginComponent },
   { path: 'home', component: UserDashboardComponent },
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -18,11 +18,11 @@ const routes: Routes = [
   { path: 'manageCommunity', component: ManageCommunityComponent, canLoad: [AuthGuard] },
   { path: 'profile', component: UserProfileComponent },
   { path: '**', component: NotfoundComponent }
-];
+], { useHash: true });
 
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [routes],
   exports: [RouterModule],
   providers: [
     CanDeactivateGuard,
