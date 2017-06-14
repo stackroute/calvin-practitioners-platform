@@ -1,39 +1,42 @@
-  <button (click)="login()"  *ngIf="!authService.isLoggedIn">Login</button>
-  <button (click)="logout()" *ngIf="authService.isLoggedIn">Logout</button>
+<div fxLayoutAlign="center" class="containerX">
+  <!--<button (click)="login()"  *ngIf="!authService.isLoggedIn">Login</button>
+  <button (click)="logout()" *ngIf="authService.isLoggedIn">Logout</button>-->
 
 <div  fxLayoutAlign="center" class="containerX" >
+>>>>>>> 3f8e71012e948e75dc4e342eea2ebf85de8c7bf5
 
   <md-card>
-  <img md-card-image src="">
-  <!--<md-card-subtitle>Calvin logo</md-card-subtitle>-->
+    <img md-card-image src="">
+    <!--<md-card-subtitle>Calvin logo</md-card-subtitle>-->
     <md-card-actions>
-    <!--<button md-button class='btn'>Login with Google</button>-->
-    <div class="g-signin2" data-width="300" data-height="40" data-longtitle="true" style="color:red;"> </div>
+      <!--<button md-button class='btn'>Login with Google</button>-->
+      <!--<button class="g-signin2" data-width="300" data-height="40" data-longtitle="true" (click)="login();"> Google Login </button>-->
+      <a href="/auth/google">Login  </a>
     </md-card-actions>
-   </md-card>
+  </md-card>
 </div>
 <div fxLayoutAlign="center" class="container-list">
-   <md-toolbar-row>
-    <span class="example-spacer"><a href="https://material.io/guidelines/components/lists.html">About</a></span>
-    <span class="example-spacer"><a href="https://material.io/guidelines/components/lists.html">Calvin</a></span>
-    <span class="example-spacer"><a href="https://material.io/guidelines/components/lists.html">Safety Center</a></span>
-    <span class="example-spacer"><a href="https://material.io/guidelines/components/lists.html">Help</a></span>
-    <span class="example-spacer"><a href="https://material.io/guidelines/components/lists.html">Community</a></span>
-    <span class="example-spacer"><a href="https://material.io/guidelines/components/lists.html">GuidLines</a></span>
-    <span class="example-spacer"><a href="https://material.io/guidelines/components/lists.html">Terms of use</a></span>
-    <span class="example-spacer"><a href="https://material.io/guidelines/components/lists.html">Privacy Policy</a></span>
-    <span class="example-spacer"><a href="https://material.io/guidelines/components/lists.html">Cookies policy</a></span>
-    <span class="example-spacer"><a href="https://material.io/guidelines/components/lists.html">Advertising</a></span>
-
+  <md-toolbar-row>
+    <span class="example-spacer"><a href="#">About</a></span>
+    <span class="example-spacer"><a href="#">Calvin</a></span>
+    <span class="example-spacer"><a href="#">Safety Center</a></span>
+    <span class="example-spacer"><a href="#">Help</a></span>
+    <span class="example-spacer"><a href="#">Community</a></span>
+    <span class="example-spacer"><a href="#">GuidLines</a></span>
+    <span class="example-spacer"><a href="#">Terms of use</a></span>
+    <span class="example-spacer"><a href="#">Privacy Policy</a></span>
+    <span class="example-spacer"><a href="#">Cookies policy</a></span>
+    <span class="example-spacer"><a href="#">Advertising</a></span>
   </md-toolbar-row>
 
 
 </div>
 <div fxLayoutAlign="center" class="container-lan">
-  <i class="material-icons md-24">language</i><md-select class="language" placeholder="Language">
-  <md-option *ngFor="let lan of language" [value]="lan.value">
-    {{ lan.viewValue }}
-  </md-option>
+  <i class="material-icons md-24">language</i>
+  <md-select class="language" placeholder="Language">
+    <md-option *ngFor="let lan of language" [value]="lan.value">
+      {{ lan.viewValue }}
+    </md-option>
   </md-select>
 </div>
-
+</div>

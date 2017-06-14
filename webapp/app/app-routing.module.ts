@@ -13,7 +13,7 @@ import {AuthService} from './auth.service';
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'home', component: UserDashboardComponent },
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'createCommunity', loadChildren: './create-community/create-community.module#CreateCommuniyModule', canLoad: [AuthGuard] },
   { path: 'manageCommunity', component: ManageCommunityComponent, canLoad: [AuthGuard] },
   { path: 'profile', component: UserProfileComponent },
