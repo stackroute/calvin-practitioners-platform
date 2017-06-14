@@ -11,45 +11,30 @@
   <div class="mat-button-ripple mat-ripple" md-ripple=""></div>
   <div class="mat-button-focus-overlay"></div>
 </button>
-  <a class="nav-link logoAlgin" href="/">
-    CALVIN
-  </a>
+  <div fxFlex="20%" fxLayout="row" >
+    <a class="nav-link logoAlgin" href="/">
+      CALVIN
+    </a>
+  </div>
 
-  <md-input-container fxFlex="40%" fxLayout="row" fxLayoutAlign="center center">
-    <input mdInput aria-label="search" placeholder="Search" type="search" dividerColor="accent">
-    <i class="material-icons" fxLayoutAlign="center end">search</i>
-  </md-input-container>
+  <div fxFlex="40%" fxLayout="row" class="searchAlgin">
+    <input mdInput aria-label="search" fxFlex="100%" placeholder="Search" type="search" fxLayout="column" dividerColor="accent">
+    <i class="material-icons searchBtn"  fxLayout="column">search</i>
+  </div>
 
-</md-toolbar>
+  <div fxFlex="40%" fxLayout="row" class="searchAlgin" fxLayoutAlign="end">
+    <md-list>
+      <md-list-item >
+        <img md-list-avatar [md-menu-trigger-for]="menu" src="http://lorempixel.com/100/100/" alt="User">
+      </md-list-item>
+    </md-list>
+  </div>
+  <md-menu xPosition="before" [overlapTrigger]="false"  #menu="mdMenu">
 
-<!--
-  <md-toolbar color="primary">
-
-    <md-card-title fxLayout="row">
-      Calvin
-    </md-card-title>
-
-    <md-input-container class="example-full-width">
-
-      <input mdInput placeholder="Search for communities">
-
-      <i class="material-icons">search</i>
-
-    </md-input-container>
-
-    <button md-icon-button [md-menu-trigger-for]="menu">
-
-      <md-icon>face</md-icon>
-
-    </button>
-
-  </md-toolbar>
-
-  <md-menu x-position="before" #menu="mdMenu">
-
-    <button md-menu-item><a routerLink="/profile">Profile</a></button>
+    <button md-menu-item routerLink="/profile">Profile</button>
 
     <button md-menu-item (click)="logout()">Logout</button>
 
-  </md-menu>-->
+  </md-menu>
 
+</md-toolbar>
