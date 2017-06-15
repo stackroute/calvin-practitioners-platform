@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../../core/auth.service';
+
+import {NavigationExtras, Router} from '@angular/router';
 
 @Component({
   selector: 'calvin-app-bar',
@@ -7,9 +10,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppBarComponent implements OnInit {
 
-  constructor() { }
+  constructor(public authService:AuthService, public router: Router) { }
 
   ngOnInit() {
+  }
+
+  logout() {
+    this.authService.logout();
+    this.router.navigate(['/login']);
   }
 
 }

@@ -1,3 +1,9 @@
+<p>{{message}}</p>
+<p>
+  <button (click)="login2()"  *ngIf="!authService.isLoggedIn">Login</button>
+  <button (click)="logout()" *ngIf="authService.isLoggedIn">Logout</button>
+</p>
+
 <div  fxLayoutAlign="center" class="containerX" >  
  
   <!--<md-card>-->

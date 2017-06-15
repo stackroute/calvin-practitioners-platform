@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import { AppRoutingModule } from './app-routing.module';
+import { AppRoutingModule } from './core/app-routing.module';
 import { AppComponent } from './app.component';
 import {RouterModule, Routes} from '@angular/router';
 import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
@@ -12,30 +12,28 @@ import { ActivityLogComponent } from './user-dashboard/activity-log/activity-log
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MaterialModule, MdButtonModule, MdCheckboxModule, MdCardModule, MdMenuModule, MdToolbarModule, MdIconModule, MdInputModule} from '@angular/material';
 import { LoginComponent } from './login/login.component';
-import { NotfoundComponent } from './notfound/notfound.component';
-import { ManageCommunityComponent } from './manage-community/manage-community.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
-import {LoginRoutingModule} from './login/login-routing.module';
+import { CreateCommunityComponent } from './create-community/create-community.component';
 import 'hammerjs';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MdSelectModule} from '@angular/material';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MdSelectModule } from '@angular/material';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     UserDashboardComponent,
+    CreateCommunityComponent,
     AppBarComponent,
     UserWidgetsComponent,
     ActivityLogComponent,
     LoginComponent,
-    NotfoundComponent,
-    ManageCommunityComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    PageNotFoundComponent,
   ],
   imports: [
     BrowserModule,
-    LoginRoutingModule,
     BrowserAnimationsModule,
     FormsModule,
     HttpModule,
