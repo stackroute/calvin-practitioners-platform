@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { AppRoutingModule } from './app-routing.module';
-import{ AppComponent } from './app.component';
+import { AppComponent } from './app.component';
 import { FlexLayoutModule} from '@angular/flex-layout';
 import { MaterialModule, MdButtonModule, MdCardModule, MdMenuModule } from '@angular/material';
 import { MdToolbarModule, MdIconModule, MdInputModule } from '@angular/material';
@@ -15,10 +15,9 @@ import { AppbarComponent } from './appbar/appbar.component';
 
 @NgModule({
   declarations: [
-   AppComponent,
-    UserProfileComponent,
-   
-    AppbarComponent
+  AppComponent,
+  UserProfileComponent,
+  AppbarComponent
   ],
   imports: [
     BrowserModule,
