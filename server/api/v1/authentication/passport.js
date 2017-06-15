@@ -57,7 +57,6 @@ module.exports = (passport) => {
               return done(null, userToken);
             });
         }
-          // console.log('5.insiede return token of exising user');
         return done(null, userToken);
       });
     });

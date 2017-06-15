@@ -1,11 +1,9 @@
-.community-layout-style
-{
+.community-layout-style {
     height: 100%;
     width: 100%;
 }
 
-.paper-style
-{
+.paper-style {
     transition: box-shadow 280ms cubic-bezier(.4,0,.2,1);
     will-change: box-shadow;
     display: block;
@@ -16,41 +14,37 @@
     font-family: Roboto,"Helvetica Neue",sans-serif;
     background: #009688 !important;
     color: rgba(0,0,0,.87);
-    box-shadow:0 3px 1px -2px rgba(0,0,0,.3),0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.4), 0 1px 5px 0 rgba(0,0,0,.3);    
+    box-shadow:0 3px 1px -2px rgba(0,0,0,.3),
+                0 3px 1px -2px rgba(0,0,0,.2),
+                 0 2px 2px 0 rgba(0,0,0,.4), 
+                  0 1px 5px 0 rgba(0,0,0,.3);    
 }
 
-.form-style
-{
+.form-style {
     padding: 50px 50px;
     background-color: #E0F2F1;
-
 }
 
-md-card-title
-{
+md-card-title {
     padding-right: 20px;
     padding-left: 20px;
     padding-bottom: 10px;
     padding-top:10px;
     font-size: 26px;
     text-align: initial;
-    font-family: 'El Messiri';
+    font-family: Roboto,"Helvetica Neue",sans-serif;
     color:  rgba(0, 0, 0, 0.8);
-}
+} 
 
-
-.text-field-style
-{
+.text-field-style {
     padding: 20px ;
     font-size: 14px;
     text-align: justify;
-    font-family: 'El Messiri';
-    color:  rgba(0, 0, 0, 0.8);
-   
+    font-family: Roboto,"Helvetica Neue",sans-serif;
+    color:  rgba(0, 0, 0, 0.8);   
 }
 
-.select-field-style
-{
+.select-field-style {
     /*width: 100%;*/
     padding-bottom: 3px;
     padding-left: 20px;
@@ -58,322 +52,287 @@ md-card-title
     padding-top: 6px;
     font-size: 14px;
     text-align: justify;
-    font-family: 'El Messiri';
-    color:  rgba(0, 0, 0, 0.8);
-   
+    font-family: Roboto,"Helvetica Neue",sans-serif;
+    color:  rgba(0, 0, 0, 0.8);   
 }
 
-.radio-field-style
-{
+.radio-field-style {
     padding-bottom: 3px;
     padding-left: 20px;
     padding-right: 20px;
     padding-top: 3px;
     font-size: 14px;
     text-align: justify;
-    font-family: 'El Messiri'; 
+    font-family: Roboto,"Helvetica Neue",sans-serif;
     color:  rgba(0, 0, 0, 0.8);
-
 }
 
-.text-style
-{
+.text-style {
     padding-right: 20px ;
-    padding-top: 20px;
+    padding-top: 11px;
     padding-bottom: 3px;
     padding-left: 3px;
     text-align: justify;
-    font-family: 'El Messiri'; 
+    font-family: Roboto,"Helvetica Neue",sans-serif;
     font-size: 18px;
     text-align: justify;
-    font-family: 'El Messiri';
     color:  rgba(0, 0, 0, 0.6);
-
 }
 
-.text-area-bg
-{
+.text-area-bg {
     padding-right: 20px ;
-    padding-top: 20px;
-    padding-bottom: 3px;
-    padding-left: 3px;
+    padding-left: 3px;   
+    font-size: 14px;
     text-align: justify;
-    font-family: 'El Messiri'; 
-    font-size: 20px;
-    text-align: justify;
-    font-family: 'El Messiri';
+    font-family: Roboto,"Helvetica Neue",sans-serif;
     color:  rgba(0, 0, 0, 0.8);
-   background-color:#EEEEEE !important;
-   width: 100%;
+    background-color:#EEEEEE !important;
+    width: 100%;
 }
 
-.tbody-text-style
-{
+.tbody-text-style {
    padding-right: 20px ;
     padding-top: 20px;
     padding-bottom: 20px;
     padding-left: 3px;
     text-align: justify;
-    font-family: 'El Messiri'; 
+    font-family: Roboto,"Helvetica Neue",sans-serif;
     font-size: 14px;
-    color:  rgba(0, 0, 0, 0.6);
-
+    color:  rgba(0, 0, 0, 0.6); 
 }
 
-.text-area-style
-{
+.text-area-style {
     padding-bottom: 3px;
     padding-left: 20px;
     padding-right: 20px;
     padding-top: 3px;
     font-size: 14px;
     text-align: justify;
-    font-family: 'El Messiri'; 
+    font-family: Roboto,"Helvetica Neue",sans-serif;
     color:  rgba(0, 0, 0, 0.8);
 }
 
-.check-box-style
-{
+.check-box-style {
     padding-bottom: 20px;
     padding-left: 20px;
     padding-right: 20px;
     padding-top: 3px;
     font-size: 14px;
     text-align: justify;
-    font-family: 'El Messiri'; 
+    font-family: Roboto,"Helvetica Neue",sans-serif;
     color:  rgba(0, 0, 0, 0.8);
 }
 
-.md-fab-button
-{
+.md-fab-button {
      width: 45px;
-    height: 50px;
+     height: 50px;
 }
 
-.template-area-style
-{
+.template-area-style {
     padding-bottom: 20px;
     padding-left: 20px;
     padding-right: 20px;
     padding-top: 3px;
     font-size: 14px;
     text-align: justify;
-    font-family: 'El Messiri'; 
+    font-family: Roboto,"Helvetica Neue",sans-serif;
     color:  rgba(0, 0, 0, 0.8);
+}
+
+.terms-condition-style {
+    padding-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 3px;
+    font-size: 14px;
+    text-align: justify;
+    font-family: Roboto,"Helvetica Neue",sans-serif;
+    color:  rgba(0, 0, 0, 0.8);
+}
+
+.item {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.raised-button-style {
+    float:right;
+    overflow: hidden;
 }
 
 
 /*media query for material components*/
 
-@media (max-width:461px) and (min-width:440px)
-{
-    .paper-style
-    {
+@media (max-width:461px) and (min-width:440px) {
+    .paper-style     {
        padding: 25px;
-       border-radius: 2px;
+       border-radius: 2px; 
     }
 }
 
 
-@media (max-width:420px) and (min-width:280px)
-{
-    .paper-style
-    {
+@media (max-width:420px) and (min-width:280px) {
+    .paper-style {
        padding: 30px;
        border-radius: 2px;
-       width: 440px;
+       width: 440px; 
     }
 }
 
 
 
-@media (max-width:450px) and (min-width:380px)
-{
-    md-card-title
-    {
+@media (max-width:450px) and (min-width:380px) {
+    md-card-title {
         font-size: 15px;
         text-align: justify;
-        font-family: 'El Messiri';
+        font-family: Roboto,"Helvetica Neue",sans-serif;
         color:  rgba(0, 0, 0, 0.8);
-
     }
 }
 
-@media (max-width:380px)
-{
-    md-card-title
-    {
+@media (max-width:380px) {
+    md-card-title {
         font-size: 14px;
         text-align: justify;
-        font-family: 'El Messiri';
+        font-family: Roboto,"Helvetica Neue",sans-serif;
         color:  rgba(0, 0, 0, 0.8);
-
     }
 }
 
 
-@media (max-width:350px) and (min-width:270px)
-{
-    md-card-title
-    {
+@media (max-width:350px) and (min-width:270px) {
+    md-card-title {
         font-size: 10px;
         text-align: justify;
-        font-family: 'El Messiri';
+        font-family: Roboto,"Helvetica Neue",sans-serif;
         color:  rgba(0, 0, 0, 0.8);
-
     }
 }
 
-@media (max-width:260px)
-{
-    md-card-title
-    {
+@media (max-width:260px) {
+    md-card-title {
         font-size: 12px;
         text-align: justify;
-        font-family: 'El Messiri';
+        font-family: Roboto,"Helvetica Neue",sans-serif;
         color:  rgba(0, 0, 0, 0.8);
-
     }
 }
 
-@media (max-width:310px)
-{
-    .community-layout-style
-     {
+@media (max-width:310px) {
+    .community-layout-style {
         width: 310px;
     }
 }
 
-@media (max-width:410px) and (min-width:390px)
-{
-    .text-style 
-    {
+@media (max-width:410px) and (min-width:390px) {
+    .text-style {
         font-size: 12px;
-         text-align: justify;
-        font-family: 'El Messiri';
+        text-align: justify;
+        font-family: Roboto,"Helvetica Neue",sans-serif;
         color:  rgba(0, 0, 0, 0.7);
     }
 }
 
-@media (max-width:388px) and (min-width:340px)
-{
-    .text-style
-    {
-       font-size: 10px;
+@media (max-width:388px) and (min-width:340px) {
+    .text-style {
+        font-size: 10px;
         padding: 4px;
-         text-align: justify;
-        font-family: 'El Messiri';
+        text-align: justify;
+        font-family: Roboto,"Helvetica Neue",sans-serif;
         color:  rgba(0, 0, 0, 0.7);
     }
 }
 
-@media (max-width:340px)
-{
-    .text-style
-    {
-       font-size: 8px;
+@media (max-width:340px) {
+    .text-style {
+        font-size: 8px;
         padding: 4px;
-         text-align: justify;
-        font-family: 'El Messiri';
+        text-align: justify;
+        font-family: Roboto,"Helvetica Neue",sans-serif;
         color:  rgba(0, 0, 0, 0.7);
     }
 }
 
-@media (max-width:600px) and (min-width:360px)
-{
-    .text-field-style 
-    {
+@media (max-width:600px) and (min-width:360px) {
+    .text-field-style {
         width: 80%;
         padding-left:1px;
         padding-bottom: 20px;
         padding-right: 20px;
         padding-top: 20px;
         font-size: 10px;
-         text-align: justify;
-        font-family: 'El Messiri';
+        text-align: justify;
+        font-family: Roboto,"Helvetica Neue",sans-serif;
         color:  rgba(0, 0, 0, 0.7);
     }
 }
 
-@media (max-width:360px) and (min-width:340px)
-{
-    .text-field-style 
-    {
+@media (max-width:360px) and (min-width:340px) {
+    .text-field-style {
         padding-left:1px;
         padding-bottom: 20px;
         padding-right: 20px;
         padding-top: 20px;
-       font-size: 10px;
-       
-         text-align: justify;
-        font-family: 'El Messiri';
+        font-size: 10px;
+        text-align: justify;
+        font-family: Roboto,"Helvetica Neue",sans-serif;
         color:  rgba(0, 0, 0, 0.7);
     }
 }
 
-@media (max-width:340px)
-{
-    .text-field-style 
-    {
+@media (max-width:340px) {
+    .text-field-style {
         padding-left:10px;
         padding-bottom: 20px;
         padding-right: 20px;
         padding-top: 20px;
-       font-size: 8px;
-      
-         text-align: justify;
-        font-family: 'El Messiri';
+        font-size: 8px;      
+        text-align: justify;
+        font-family: Roboto,"Helvetica Neue",sans-serif;
         color:  rgba(0, 0, 0, 0.7);
     }
 }
 
 
 
-@media (max-width:950px) and (min-width:770px) 
-{
-    .select-field-style 
-    {
+@media (max-width:950px) and (min-width:770px) {
+    .select-field-style {
         padding-left:18px;
         padding-bottom: 20px;
         padding-right: 20px;
         padding-top: 20px;
         font-size: 8px;
         width:100%;
-         text-align: justify;
-        font-family: 'El Messiri';
+        text-align: justify;
+        font-family: Roboto,"Helvetica Neue",sans-serif;
         color:  rgba(0, 0, 0, 0.7);
     }
 }
 
-@media  (max-width:1210px) and (min-width:960px)
-{
-    .select-field-style 
-    {
+@media  (max-width:1210px) and (min-width:960px) {
+    .select-field-style {
         padding-left:15px;
         padding-bottom: 20px;
         padding-right: 20px;
         padding-top: 20px;
         font-size: 8px;
         width:100%;
-         text-align: justify;
-        font-family: 'El Messiri';
+        text-align: justify;
+        font-family: Roboto,"Helvetica Neue",sans-serif;
         color:  rgba(0, 0, 0, 0.7);
     }
 }
 
 
-@media  (max-width:1350px) and (min-width:1212px)
-{
-    .select-field-style 
-    {
+@media  (max-width:1350px) and (min-width:1212px) {
+    .select-field-style {
         padding-left:15px;
         padding-bottom: 20px;
         padding-right: 20px;
         padding-top: 20px;
         font-size: 8px;
         width:100%;
-         text-align: justify;
-        font-family: 'El Messiri';
+        text-align: justify;
+        font-family: Roboto,"Helvetica Neue",sans-serif;
         color:  rgba(0, 0, 0, 0.7);
     }
 }

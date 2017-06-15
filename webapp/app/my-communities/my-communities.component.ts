@@ -2,14 +2,13 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'calvin-user-widgets',
-  templateUrl: './user-widgets.component.html',
-  styleUrls: ['./user-widgets.component.css']
+  templateUrl: './my-communities.component.html',
+  styleUrls: ['./my-communities.component.css']
 })
 export class UserWidgetsComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
 }
