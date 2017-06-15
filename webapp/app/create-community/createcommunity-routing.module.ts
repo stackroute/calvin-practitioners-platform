@@ -5,7 +5,7 @@ import { CreateCommunityComponent } from './create-community.component';
 
 const adminRoutes: Routes = [
   {
-    path: '',
+    path: 'createCommunity',
     component: CreateCommunityComponent,
     canActivate: [AuthGuard]
   }

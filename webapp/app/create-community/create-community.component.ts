@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
+
 @Component({
-  selector: 'calvin-create-new-community',
+ // selector: 'create-community',
   templateUrl: './create-community.component.html',
   styleUrls: ['./create-community.component.css']
 })
@@ -23,27 +24,6 @@ export class CreateCommunityComponent implements OnInit {
     {value: 'Technology', viewValue: 'Technology'},
     {value:'digital',viewValue:'digital'}
     ]
-    
- values = '';
-  onKey(value: string) {
-    this.values=value;
-    console.log(this.values);
-    console.log(this.domainname[value]);
-    for(let domain in this.domainname[value]) {
-      console.log(domain);
-      if(domain===this.values)
-      {
-        console.log(this.values);
-        console.log('false');
-        return false;
-      }
-    }
-  }
 
-
-  ngOnInit() {
-    
-
-
-}
+  ngOnInit() { }
 }

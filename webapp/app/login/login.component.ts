@@ -19,17 +19,17 @@ export class LoginComponent {
    message: string;
 
   constructor(public authService: AuthService, public router: Router,private loginservice: LoginService) {
-   // this.setMessage();
+    this.setMessage();
   }
 
 
-  login() {
+  // login() {
 
-    alert('login clicked');
-    this.loginservice.loginapp().subscribe(data => {
-      console.log("login doine");
-    });
-  }
+  //   alert('login clicked');
+  //   this.loginservice.loginapp().subscribe(data => {
+  //     console.log("login doine");
+  //   });
+  // }
  
 
   setMessage() {

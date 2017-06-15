@@ -20,9 +20,7 @@ import {LoginRoutingModule} from './login/login-routing.module';
 import 'hammerjs';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MdSelectModule} from '@angular/material';
-
-import { CreateCommunityComponent } from './create-community/create-community.component';
-
+import { CreateCommunityComponent} from './create-community/create-community.component';
 
 @NgModule({
   declarations: [

@@ -8,13 +8,15 @@ import { NotfoundComponent } from './notfound/notfound.component';
 import { CanDeactivateGuard } from './can-deactivate-guard.service';
 import { AuthGuard } from './auth-guard.service';
 import {AuthService} from './auth.service';
+import { CreateCommunityComponent} from './create-community/create-community.component';
 
 // Calvin routes
 const routes : ModuleWithProviders = RouterModule.forRoot([
   { path: 'login', component: LoginComponent },
   { path: 'home', component: UserDashboardComponent },
   { path: '', redirectTo: 'login', pathMatch: 'full' },
-  { path: 'createCommunity', loadChildren: './create-community/create-community.module#CreateCommuniyModule', canLoad: [AuthGuard] },
+  { path: 'createCommunity', component: CreateCommunityComponent },
+ // { path: 'createCommunity', loadChildren: './create-community/create-community.module#CreateCommuniyModule', canLoad: [AuthGuard] },
   { path: 'manageCommunity', component: ManageCommunityComponent, canLoad: [AuthGuard] },
   { path: 'profile', component: UserProfileComponent },
   { path: '**', component: NotfoundComponent }
