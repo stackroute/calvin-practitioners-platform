@@ -4,11 +4,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
-
-
-
-
 import { AppbarComponent } from './appbar/appbar.component';
 
 import {RouterModule, Routes} from '@angular/router';
@@ -31,12 +26,16 @@ import {MdSelectModule} from '@angular/material';
 
 import { CreateCommunityComponent } from './create-community/create-community.component';
 
-
 @NgModule({
   declarations: [
   AppComponent,
   UserProfileComponent,
-  AppbarComponent
+  AppbarComponent,
+  LoginComponent,
+  UserProfileComponent,
+  UserDashboardComponent,
+  ManageCommunityComponent,
+  NotfoundComponent
   ],
   imports: [
     BrowserModule,
@@ -47,16 +46,7 @@ import { CreateCommunityComponent } from './create-community/create-community.co
     ReactiveFormsModule,
     MaterialModule,
     BrowserAnimationsModule,
-    AppComponent,
-    UserDashboardComponent,
-    CreateCommunityComponent,
-    AppBarComponent,
-    UserWidgetsComponent,
-    ActivityLogComponent,
-    LoginComponent,
-    NotfoundComponent,
-    ManageCommunityComponent,
-    UserProfileComponent,
+    
     LoginRoutingModule,
     MdCheckboxModule,
      MdButtonModule,

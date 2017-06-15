@@ -1,14 +1,7 @@
 import {ModuleWithProviders, NgModule} from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-<<<<<<< HEAD
-import {UserProfileComponent} from './user-profile/user-profile.component';
-const routes: Routes = [
-  {
-    path: 'profile', component: UserProfileComponent,
-    children: []
-  }
-];
-=======
+import { AppbarComponent } from './appbar/appbar.component';
+
 import { LoginComponent } from './login/login.component';
 import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
@@ -20,6 +13,7 @@ import {AuthService} from './auth.service';
 
 // Calvin routes
 const routes : ModuleWithProviders = RouterModule.forRoot([
+  { path: 'appbar', component: AppbarComponent },
   { path: 'login', component: LoginComponent },
   { path: 'home', component: UserDashboardComponent },
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -29,7 +23,6 @@ const routes : ModuleWithProviders = RouterModule.forRoot([
   { path: '**', component: NotfoundComponent }
 ], { useHash: true });
 
->>>>>>> 43c9bfb4871e0588686eb2396c760794fbffd1bd
 
 @NgModule({
   imports: [routes],
