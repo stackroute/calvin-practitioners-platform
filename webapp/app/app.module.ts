@@ -2,12 +2,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { AppbarComponent } from './appbar/appbar.component';
+
 import {RouterModule, Routes} from '@angular/router';
 import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
-import { AppBarComponent } from './user-dashboard/app-bar/app-bar.component';
+
 import { UserWidgetsComponent } from './user-dashboard/user-widgets/user-widgets.component';
 import { ActivityLogComponent } from './user-dashboard/activity-log/activity-log.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -22,41 +23,43 @@ import {LoginRoutingModule} from './login/login-routing.module';
 import 'hammerjs';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MdSelectModule} from '@angular/material';
-import { CreateCommunityComponent} from './create-community/create-community.component';
+
+import { CreateCommunityComponent } from './create-community/create-community.component';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    UserDashboardComponent,
-    CreateCommunityComponent,
-    AppBarComponent,
-    UserWidgetsComponent,
-    ActivityLogComponent,
-    LoginComponent,
-    NotfoundComponent,
-    ManageCommunityComponent,
-    UserProfileComponent
+  AppComponent,
+  UserProfileComponent,
+  AppbarComponent,
+  LoginComponent,
+  UserProfileComponent,
+  UserDashboardComponent,
+  ManageCommunityComponent,
+  NotfoundComponent
   ],
   imports: [
     BrowserModule,
-    LoginRoutingModule,
-    BrowserAnimationsModule,
-    FormsModule,
     HttpModule,
-    FlexLayoutModule,
     AppRoutingModule,
-    MdCheckboxModule,
+    FlexLayoutModule,
+    FormsModule,
+    ReactiveFormsModule,
     MaterialModule,
+    BrowserAnimationsModule,
+    LoginRoutingModule,
+    MdCheckboxModule,
     MdButtonModule,
     MdCardModule,
     MdMenuModule,
     MdToolbarModule,
     MdIconModule,
+    MdInputModule,
     MdSelectModule,
     MdInputModule,
     MdSlideToggleModule,
     ReactiveFormsModule
   ],
+
   providers: [],
   bootstrap: [AppComponent]
 })

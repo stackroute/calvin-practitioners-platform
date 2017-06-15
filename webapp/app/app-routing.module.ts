@@ -1,5 +1,7 @@
 import {ModuleWithProviders, NgModule} from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AppbarComponent } from './appbar/appbar.component';
+
 import { LoginComponent } from './login/login.component';
 import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
@@ -12,6 +14,7 @@ import { CreateCommunityComponent} from './create-community/create-community.com
 
 // Calvin routes
 const routes: ModuleWithProviders = RouterModule.forRoot([
+  { path: 'appbar', component: AppbarComponent },
   { path: 'login', component: LoginComponent },
   { path: 'home', component: UserDashboardComponent },
   { path: '', redirectTo: 'login', pathMatch: 'full' },

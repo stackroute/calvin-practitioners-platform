@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from "@angular/forms";
-
+import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
  // selector: 'create-community',
@@ -18,7 +17,7 @@ export class CreateCommunityComponent implements OnInit {
     {value: 'Technology', viewValue: 'Technology'}
     ];
 
-    userForm=new FormGroup({
+    userForm = new FormGroup({
       domainName: new FormControl(),
       communityName: new FormControl(),
       coreactivity: new FormControl()

@@ -19,7 +19,7 @@ export class LoginComponent {
 
    message: string;
 
-  constructor(public authService: AuthService, public router: Router,){// private loginservice: LoginService) {
+  constructor(public authService: AuthService, public router: Router) {// private loginservice: LoginService) {
     this.setMessage();
   }
 
