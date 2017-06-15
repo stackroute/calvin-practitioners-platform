@@ -1,17 +1,13 @@
+
 <p>{{message}}</p>
 <p>
   <button (click)="login2()"  *ngIf="!authService.isLoggedIn">Login</button>
   <button (click)="logout()" *ngIf="authService.isLoggedIn">Logout</button>
 </p>
-<div  fxLayoutAlign="center" class="containerX" > 
+<div  fxLayoutAlign="center" class="containerX" >
+
+<div  fxLayoutAlign="center" class="containerX" >  
+ 
     <p class='loginbtn'> <a href="auth/google" class="button">Login with Google</a> </p>
 
-</div>
-
-<div fxLayoutAlign="center" class="container-lan">
-  <i class="material-icons md-24">language</i><md-select class="language" placeholder="Language">
-  <md-option *ngFor="let lan of language" [value]="lan.value">
-    {{ lan.viewValue }}
-  </md-option>
-  </md-select>
 </div>

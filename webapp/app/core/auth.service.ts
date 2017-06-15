@@ -15,7 +15,6 @@ export class AuthService {
   login(): Observable<boolean> {
     return Observable.of(true).do(val =>
     { this.isLoggedIn = true; localStorage.setItem("isLogginUser", "true"); });
-
   }
 
   logout(): void {
