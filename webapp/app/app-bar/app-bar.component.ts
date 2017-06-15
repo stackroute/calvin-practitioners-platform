@@ -10,7 +10,7 @@ import {NavigationExtras, Router} from '@angular/router';
 })
 export class AppBarComponent implements OnInit {
 
-  constructor(public authService:AuthService, public router: Router) { }
+  constructor(public authService: AuthService, public router: Router) { }
 
   ngOnInit() {
   }

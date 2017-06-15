@@ -10,14 +10,14 @@ import { AuthGuard } from './auth-guard.service';
 import { AuthService } from './auth.service';
 
 // Calvin routes
-const routes : ModuleWithProviders = RouterModule.forRoot([
+const routes: ModuleWithProviders = RouterModule.forRoot([
   { path: 'login', component: LoginComponent },
   { path: 'app', canActivate: [AuthGuard],
     children: [
             { path: 'home', component: UserDashboardComponent },
-            { path: "", redirectTo: "/app/home", pathMatch: "full" },
-            { path: "createCommunity", component: CreateCommunityComponent },
-            { path: "profile", component: UserProfileComponent }
+            { path: '', redirectTo: '/app/home', pathMatch: 'full' },
+            { path: 'createCommunity', component: CreateCommunityComponent },
+            { path: 'profile', component: UserProfileComponent }
         ]
   },
   { path: '', redirectTo: '/app/home', pathMatch: 'full' },
