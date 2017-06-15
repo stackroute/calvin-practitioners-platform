@@ -2,7 +2,7 @@
 
    <div class="container paper-style" fxLayoutAlign="center center">
 
-      <form class="form-style">
+      <form class="form-style" [formGroup]="userForm" (ngSubmit)="onsubmit()" >
 
         <md-card-title>Create New Community</md-card-title>
 
@@ -11,7 +11,7 @@
 
             <div class="text-field-style" fxFlex="50%">              
                <md-input-container>
-                  <input mdInput placeholder="Enter Domain Name"  #domainName (keyup)="onKey(domainName.value)">
+                  <input mdInput placeholder="Enter Domain Name" formControlName="domainName" >
                 </md-input-container>
 
             </div>
@@ -20,7 +20,7 @@
 
             <div class="text-field-style" fxFlex="50%">
                 <md-input-container>
-                  <input mdInput placeholder="Enter community Name" #communityName (keyup)="onKey(communityName.value)">
+                  <input mdInput placeholder="Enter community Name" formControlName="communityName">
                 </md-input-container>
             </div>
         </div>
@@ -30,8 +30,8 @@
             <div fxLayout fxLayout.md="column" fxLayoutAlign="center center" fxLayoutGap="10px" fxLayoutGap.md="0">
                 <div class="select-field-style" fxFlex="100%">
                   <!--<label class="text-style">Select</label>-->
-                  <md-select placeholder="Core Activity" class="selected-value-style" >
-                    <md-option *ngFor="let core of coreactivity" [value]="core.value">
+                  <md-select placeholder="Core Activity" class="selected-value-style" formControlName="coreactivity">
+                    <md-option *ngFor="let core of coreActivity" [value]="core.value">
                       {{ core.viewValue }}
                     </md-option>
                   </md-select>
@@ -39,7 +39,7 @@
              </div>
 
 <!--choose visibitity mode-->
-            <div class="radio-field-style">
+            <div class="radio-field-style" >
               <table>
                 <thead>
                   <td><label class="text-style">Select visibility mode:</label></td>
@@ -91,10 +91,13 @@
                 fxLayout.xs="column"
                 fxLayoutAlign="center"
                 fxLayoutGap="0px"
-                *ngFor="let core of coreactivity"
+                *ngFor="let core of coreActivity"
                  class="template-area-style">
-                 <div class="item item-1" fxFlex="100%">{{core.value}}</div>
+                 <div class="item item-1" fxFlex="100%">
+                   <md-card (click)="navigate(core.value)">{{core.value}}</md-card>                     
+                  </div>
               </div>
+
 
 <!--terms and condition-->
             <div class="terms-condition-style">
@@ -112,8 +115,8 @@
 
 <!--submit the form using raised button-->
             <div class="raised-button-style">
-              <button md-raised-button>Submit</button>
-              <button md-raised-button>Cancel</button>
+              <button md-raised-button ng-value="submit">submit</button>
+              <button md-raised-button ng-value="cancel">cancel</button>
             </div>
 
         </form>

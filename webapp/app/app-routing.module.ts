@@ -11,7 +11,7 @@ import {AuthService} from './auth.service';
 import { CreateCommunityComponent} from './create-community/create-community.component';
 
 // Calvin routes
-const routes : ModuleWithProviders = RouterModule.forRoot([
+const routes: ModuleWithProviders = RouterModule.forRoot([
   { path: 'login', component: LoginComponent },
   { path: 'home', component: UserDashboardComponent },
   { path: '', redirectTo: 'login', pathMatch: 'full' },
