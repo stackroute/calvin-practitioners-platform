@@ -1,0 +1,40 @@
+<md-toolbar class="app-toolbar mat-primary mat-toolbar" color="primary" role="toolbar">
+
+<button class="hamburger mat-button" md-button="" title="Docs menu">
+  <span class="mat-button-wrapper">
+    <md-icon role="img" svgicon="menu" aria-label="menu" class="mat-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" focusable="false" viewBox="0 0 24 24">
+        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path>
+      </svg>
+    </md-icon>
+  </span>
+  <div class="mat-button-ripple mat-ripple" md-ripple=""></div>
+  <div class="mat-button-focus-overlay"></div>
+</button>
+  <div fxFlex="20%" fxLayout="row" >
+    <a class="nav-link logoAlgin" href="/">
+      CALVIN
+    </a>
+  </div>
+
+  <div fxFlex="40%" fxLayout="row" class="searchAlgin">
+    <input mdInput aria-label="search" fxFlex="100%" placeholder="Search" type="search" fxLayout="column" dividerColor="accent">
+    <i class="material-icons searchBtn"  fxLayout="column">search</i>
+  </div>
+
+  <div fxFlex="40%" fxLayout="row" class="searchAlgin" fxLayoutAlign="end">
+    <md-list>
+      <md-list-item >
+        <img md-list-avatar [md-menu-trigger-for]="menu" src="http://lorempixel.com/100/100/" alt="User">
+      </md-list-item>
+    </md-list>
+  </div>
+  <md-menu xPosition="before" [overlapTrigger]="false"  #menu="mdMenu">
+
+    <button md-menu-item routerLink="/profile">Profile</button>
+
+    <button md-menu-item (click)="logout()">Logout</button>
+
+  </md-menu>
+
+</md-toolbar>
