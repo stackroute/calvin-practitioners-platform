@@ -1,20 +1,20 @@
 
-// import { Injectable } from '@angular/core';
-// import { Http } from '@angular/http';
+import { Injectable } from '@angular/core';
+import { Http } from '@angular/http';
 
 
-// @Injectable()
-// export class LoginService {
+@Injectable()
+export class LoginService {
 
 
-//    constructor(private http: Http){
+   constructor(private http: Http){
 
-//    }
+   }
 
-//    loginapp(){
+   loginapp(){
 
-//          const url='auth/google';
-//          return this.http.get(url);
-//    }
+         const url='auth/google';
+         return this.http.get(url);
+   }
 
-// }
+}
