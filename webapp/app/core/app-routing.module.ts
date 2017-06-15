@@ -12,7 +12,7 @@ import { AuthService } from './auth.service';
 // Calvin routes
 const routes : ModuleWithProviders = RouterModule.forRoot([
   { path: 'login', component: LoginComponent },
-  { path: 'app', canActivateChild: [AuthGuard],
+  { path: 'app', canActivate: [AuthGuard],
     children: [
             { path: 'home', component: UserDashboardComponent },
             { path: "", redirectTo: "/app/home", pathMatch: "full" },

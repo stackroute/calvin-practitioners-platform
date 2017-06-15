@@ -13,10 +13,13 @@ export class AuthService {
   redirectUrl: string;
 
   login(): Observable<boolean> {
-    return Observable.of(true).do(val => this.isLoggedIn = true);
+    return Observable.of(true).do(val =>
+    { this.isLoggedIn = true; localStorage.setItem("isLogginUser", "true"); });
+
   }
 
   logout(): void {
+    localStorage.removeItem("isLogginUser");
     this.isLoggedIn = false;
   }
 }

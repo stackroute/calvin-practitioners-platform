@@ -18,12 +18,24 @@
   padding-bottom: 1px;
   
 }
+
+md-card {
+
+width:500px;
+height:100px;
+margin-top:15%;
+}
+.btn{
+
+  color:blue;
+}
 .button{
     text-align: center;
    
     margin-top:-50px;
     /*padding-top:10px;*/
     
+
 }
 
 html, body {

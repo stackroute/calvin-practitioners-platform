@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { LoginService } from './login.service';
-import {AuthService} from '../core/auth.service';
+import { AuthService} from '../core/auth.service';
+
 import {NavigationExtras, Router} from '@angular/router';
 
 @Component({
@@ -8,6 +9,7 @@ import {NavigationExtras, Router} from '@angular/router';
   styleUrls: ['./login.component.css'],
   providers: [LoginService]
 })
+
 export class LoginComponent {
   title = 'app';
   language = [
