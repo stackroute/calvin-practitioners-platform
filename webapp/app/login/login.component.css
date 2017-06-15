@@ -5,8 +5,20 @@
   background:url('../../assets/image/new1.gif') no-repeat;
   background-size: cover;
   height:600px;
+  }
+.loginbtn{
+  
+  /*margin-left:-10px;*/
+  width:10%;
+  height:20px;
+  margin-top:18%;
+  color:red;
+  text-align: center;
+  background-color: white;
+  padding-bottom: 1px;
   
 }
+
 md-card {
 
 width:500px;
@@ -16,6 +28,14 @@ margin-top:15%;
 .btn{
 
   color:blue;
+}
+.button{
+    text-align: center;
+   
+    margin-top:-50px;
+    /*padding-top:10px;*/
+    
+
 }
 
 html, body {
@@ -53,11 +73,6 @@ a{
     margin-left: 12%;
     background-color:white;
   }
-  md-card {
-
   
-
-margin-top:50%;
-}
 }
 
