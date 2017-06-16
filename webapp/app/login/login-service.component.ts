@@ -11,10 +11,11 @@ export class LoginService {
 
    }
 
-   loginapp(){
-
-         const url='auth/google';
-         return this.http.get(url);
+   loginapps(){
+         console.log('insied service');
+      //    window.location = 'http://localhost:3000/auth/google';
+         window.location.replace("http://localhost:3000/auth/google");
+      //    return this.http.get(url);
    }
 
 }

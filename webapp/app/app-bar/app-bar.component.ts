@@ -16,8 +16,13 @@ export class AppBarComponent implements OnInit {
   }
 
   logout() {
-    this.authService.logout();
-    this.router.navigate(['/login']);
+    console.log('logout clicked');
+    this.authService.logout().subscribe(data=>{
+
+      console.log('logout done');
+      this.router.navigate(['/login']);
+    });
+    // this.router.navigate(['/login']);
   }
 
 }
