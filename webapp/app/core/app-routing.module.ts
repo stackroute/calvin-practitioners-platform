@@ -6,6 +6,7 @@ import { UserDashboardComponent } from '../user-dashboard/user-dashboard.compone
 import { UserProfileComponent } from '../user-profile/user-profile.component';
 import { CanDeactivateGuard } from './can-deactivate-guard.service';
 import { PageNotFoundComponent } from '../page-not-found/page-not-found.component';
+import { ManageCommunityComponent } from "../manageCommunity/manage-community.component";
 import { AppBarComponent } from '../app-bar/app-bar.component';
 import { RoleManagementComponent } from '../role-management/role-management.component';
 import { AuthGuard } from './auth-guard.service';
@@ -20,7 +21,9 @@ const routes: ModuleWithProviders = RouterModule.forRoot([
             { path: '', redirectTo: '/app/home', pathMatch: 'full' },
             { path: 'createCommunity', component: CreateCommunityComponent },
             { path: 'profile', component: UserProfileComponent },
-            { path: 'role', component: RoleManagementComponent}
+            { path: 'role', component: RoleManagementComponent},
+            { path: 'managecommunity', component: ManageCommunityComponent}
+            
         ]
   },
   { path: '', redirectTo: '/app/home', pathMatch: 'full' },
