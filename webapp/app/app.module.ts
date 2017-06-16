@@ -20,6 +20,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MdSelectModule } from '@angular/material';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { CreateCommunityComponent } from './create-community/create-community.component';
+import { RoleActionsComponent } from './role-actions/role-actions.component';
+import { RoleManagementComponent } from './role-management/role-management.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +33,8 @@ import { CreateCommunityComponent } from './create-community/create-community.co
     LoginComponent,
     UserProfileComponent,
     PageNotFoundComponent,
+    RoleActionsComponent,
+    RoleManagementComponent,
   ],
   imports: [
     BrowserModule,
