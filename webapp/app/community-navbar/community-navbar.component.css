@@ -1,4 +1,25 @@
-.flex{
+/*.flex{
      width: 100%;
      height: 100%;
+}
+.toolbar{
+    margin-top:-80px;
+}
+.list{
+    margin-top:-90px;
+}
+.owner{
+    margin-top:-30px;
+}
+.time{
+    margin:0px 0px 0px -50px;
+    }
+.status-btn{
+     background-color: green;
+}*/
+.tools{
+    width: 350px;
+}
+.apps{
+    margin-top:40px;
 }

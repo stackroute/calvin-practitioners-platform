@@ -20,7 +20,7 @@ const routes: ModuleWithProviders = RouterModule.forRoot([
             { path: '', redirectTo: '/app/home', pathMatch: 'full' },
             { path: 'createCommunity', component: CreateCommunityComponent },
             { path: 'profile', component: UserProfileComponent },
-            { path: 'userDashBoard', component:CommunityNavbarComponent },
+            { path: 'communityDashBoard', component: CommunityNavbarComponent },
         ]
   },
   { path: '', redirectTo: '/app/home', pathMatch: 'full' },

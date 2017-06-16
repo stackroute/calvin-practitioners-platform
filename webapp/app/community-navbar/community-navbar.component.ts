@@ -8,7 +8,12 @@ import { Component, OnInit } from '@angular/core';
 export class CommunityNavbarComponent implements OnInit {
 
   constructor() { }
-
+      setSaving( element, text ) {
+  if ( element.textContent === 'JOIN') {
+  element.textContent = text;
+     }else {
+       element.textContent = 'JOIN';
+    }}
   ngOnInit() {
   }
 

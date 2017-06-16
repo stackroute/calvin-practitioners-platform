@@ -1,25 +1,108 @@
-<div fxLayout fxLayoutAlign="center">
+<div fxLayout fxLayoutAlign="start">
 
   <div class="item" fxLayout.xs="row" fxFlex="100%" class="flex">
-    <md-toolbar color="primary">
-      <md-toolbar-row>
-        <span style="margin-top:-80px;">
-    <md-list>
-   <md-list-item >
-   <img md-list-avatar  src="assets/img/pic3.png" alt="User">
-      </md-list-item>
+    <!--<md-toolbar>-->
+      <md-list>
+        <md-list-item>
+          <img md-list-avatar src="assets/img/dog.jpg" alt="User">
+        </md-list-item>
       </md-list>
-     </span>
-        <span style="margin-top:-90px">
-      <md-list><md-list-item> <input placeholder="Community name"><i class="material-icons">create</i></md-list-item>
+      <span class="list">
+      <md-list><md-list-item> <md-input-container class="form-width">
+   <input mdInput placeholder="community name"/>
+ </md-input-container><i class="material-icons">create</i></md-list-item>
       <md-list-item>
-   <label style="margin-top:-30px;">Owner</label>
-  <label style="margin:0px 0px 0px -50px" >Created time</label>
+   <!--<label class="owner">Owner</label>-->
+  <label class="time" >Created time</label>
       </md-list-item></md-list></span>
-        <md-icon class="example-icon">favorite</md-icon>
-        <md-icon class="example-icon">delete</md-icon>
-      </md-toolbar-row>
-    </md-toolbar>
-  </div>
+      <span fxLayoutAlign="end center"> <button md-button  (click)="setSaving($event.target, 'Member')">JOIN</button></span>
+      <span>
+      <button md-icon-button [mdMenuTriggerFor]="menu">
+  <i class="material-icons">settings</i>
+</button>
+<md-menu #menu="mdMenu">
+   <button md-menu-item>
+    <md-icon>notifications_off</md-icon>
+    <span>Disable alerts</span>
+      </button>
+      </md-menu>
+      </span>
 
+      <span></span>
+    <!--</md-toolbar>-->
+  </div>
 </div>
+
+<div fxLayout fxLayout.xs="column" fxLayoutAlign="start">
+  <!--<md-sidenav mode="side" #sidenav opened="true" fxflex="55%" style="width:350px">-->
+    <label fxLayoutAlign="center"><h3>Tools</h3></label>
+    <md-card fxLayoutAlign="start">
+      <span fxLayoutAlign="center" style="margin-top:40px">
+    <a href="https://myaccount.google.com/?utm_source=OGB&utm_medium=app"><md-list-item >
+          <img md-list-avatar src="assets/img/gmail.png" alt="User">
+          <p>Email</p>
+        </md-list-item></a>
+     
+     </span>
+      <span fxLayoutAlign="center">
+    <a md-list-item href="https://myaccount.google.com/?utm_source=OGB&utm_medium=app"><md-list-item>
+          <img md-list-avatar src="assets/img/instagram.png" alt="User">
+          <p>instagram</p>
+        </md-list-item></a>
+    </span>
+      <span fxLayoutAlign="center">
+      <a md-list-item href="https://www.youtube.com"><md-list-item>
+          <img md-list-avatar src="assets/img/youtube.png" alt="User">
+           <p>YouTube</p>
+        </md-list-item></a>
+     
+   </span>
+
+      <span fxLayoutAlign="end" style="margin-top:-190px;">
+      <a md-list-item href="https://www.youtube.com"><md-list-item>
+          <img md-list-avatar src="assets/img/account.png" alt="User">
+           <p>MyAccount</p>
+        </md-list-item></a>
+     
+   </span>
+      <span fxLayoutAlign="end">
+      <a md-list-item href="https://www.youtube.com"><md-list-item>
+          <img md-list-avatar src="assets/img/wall-calendar.png" alt="User">
+           <p>Calendar</p>
+        </md-list-item></a>
+     
+   </span>
+      <span fxLayoutAlign="end">
+      <a md-list-item href="https://www.youtube.com"><md-list-item>
+          <img md-list-avatar src="assets/img/drive.png" alt="User">
+           <p>MyDrive</p>
+        </md-list-item></a>
+     
+   </span>
+      <span fxLayoutAlign="start" style="margin-top:-180px;">
+      <a md-list-item href="https://www.youtube.com"><md-list-item>
+          <img md-list-avatar src="assets/img/news-report.png" alt="User">
+           <p>News</p>
+        </md-list-item></a>
+     
+   </span>
+
+      <span fxLayoutAlign="start">
+      <a md-list-item href="https://www.youtube.com"><md-list-item>
+          <img md-list-avatar src="assets/img/placeholder.png" alt="User">
+           <p>PlaceHolder</p>
+        </md-list-item></a>
+     
+   </span>
+      <span fxLayoutAlign="start">
+      <a md-list-item href="https://www.youtube.com"><md-list-item>
+          <img md-list-avatar src="assets/img/search.png" alt="User">
+           <p>Search</p>
+        </md-list-item></a>
+     
+   </span>
+    </md-card>
+  <!--</md-sidenav>-->
+</div>
+
+<!--memebers-->

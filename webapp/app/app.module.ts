@@ -36,8 +36,7 @@ import { CommunitySidenavComponent } from './community-sidenav/community-sidenav
     CommunityActivitylogsComponent,
     CommunityNavbarComponent,
     CommunitySidenavComponent
-    
-  ],
+    ],
   imports: [
     BrowserModule,
     HttpModule,
