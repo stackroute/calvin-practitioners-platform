@@ -12,7 +12,6 @@ import { LoginService } from './login-service.component';
 //    // this.setMessage();
 //   }
 
-  
 //   setMessage() {
 //     this.message = 'Logged ' + (this.authService.isLoggedIn ? 'in' : 'out');
 //   }
