@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { ManageCommunityComponent } from './manageCommunity/manage-community.component';
 import { AppRoutingModule } from './core/app-routing.module';
 import { AppComponent } from './app.component';
 import { MdSidenavModule } from '@angular/material';
@@ -12,7 +13,7 @@ import { UserWidgetsComponent } from './my-communities/my-communities.component'
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MaterialModule, MdButtonModule, } from '@angular/material';
 import { MdCheckboxModule, MdCardModule, MdMenuModule } from '@angular/material';
-import { MdToolbarModule, MdIconModule, MdInputModule, MdSlideToggleModule } from '@angular/material';
+import { MdToolbarModule, MdIconModule, MdInputModule, MdSlideToggleModule, MdDialogModule } from '@angular/material';
 import { LoginComponent } from './login/login.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import 'hammerjs';
@@ -20,12 +21,19 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MdSelectModule } from '@angular/material';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { CreateCommunityComponent } from './create-community/create-community.component';
+
 import { SideNavComponent } from './side-nav/side-nav.component';
+
+
+import { SelectTemplateComponent } from './select-template/select-template.component';
+import { RoleActionsComponent } from './role-actions/role-actions.component';
+import { RoleManagementComponent } from './role-management/role-management.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
+    ManageCommunityComponent,
     UserDashboardComponent,
     CreateCommunityComponent,
     AppBarComponent,
@@ -33,7 +41,13 @@ import { SideNavComponent } from './side-nav/side-nav.component';
     LoginComponent,
     UserProfileComponent,
     PageNotFoundComponent,
+<<<<<<< HEAD
     SideNavComponent
+=======
+    SelectTemplateComponent,
+    RoleActionsComponent,
+    RoleManagementComponent,
+>>>>>>> bee5ba90ec49a8afeae50d3332d49d9c1400d089
   ],
   imports: [
     MdSidenavModule,
@@ -55,6 +69,7 @@ import { SideNavComponent } from './side-nav/side-nav.component';
     MdSelectModule,
     MdInputModule,
     MdSlideToggleModule,
+    MdDialogModule,
     ReactiveFormsModule
   ],
 

@@ -1,0 +1,95 @@
+<<<<<<< HEAD
+=======
+<div fxLayout fxLayoutAlign="start end" class="community-layout-style" >
+
+      <form class="form-style  paper-style" [formGroup]="userForm" (ngSubmit)="onsubmit()" >
+
+        <h3 class="md-headline">Create New Community</h3>
+
+<!--domain name text field-->
+          <div fxLayout.md="column">
+           <div fxFlex="100%">
+               <md-input-container  mdTooltip="Unique Name" mdTooltipPosition="right">
+                  <input mdInput placeholder="Domain Name" formControlName="domainName" >
+                </md-input-container>
+            </div>
+          </div>
+
+<!--community text field-->
+          <div fxLayout.md="column">
+            <div fxFlex="100%">
+                <md-input-container>
+                  <input mdInput placeholder="community Name" formControlName="communityName">
+                </md-input-container>
+            </div>
+        </div>
+
+<!--select core-activity-->
+            <div fxLayout.md="column">
+                <div fxFlex="100%">
+                  <md-select placeholder="Purpose of the community" formControlName="coreactivity">
+                    <md-option *ngFor="let core of coreActivity" [value]="core.value">
+                      {{ core.viewValue }}
+                    </md-option>
+                  </md-select>
+                </div>  
+             </div>
+
+<!--choose visibitity mode-->
+             <div  fxLayout.md="column" >
+               <div fxFlex="100%">
+                <label class="text-style">Visibility:</label>
+                <div  class="radio-field-style" *ngFor="let mode of visibility" ng-value="mode.value" >
+                  <md-radio-button>{{mode.viewValue}}</md-radio-button>
+                </div>
+             </div>
+             </div>
+
+<!--get description from user using text-area -->
+             <div fxLayout.md="column">
+                <div fxFlex="100%">
+                  <label class="text-style">Description:</label>
+                  <div><textarea rows="5" class="text-area-style"></textarea></div>
+                </div> 
+             </div>
+
+<!--select tag container-->
+            <div fxLayout.md="column" fxLayoutAlign="start" fxLayoutGap="5px" fxLayoutGap.xs="2" fxFlex="100%">
+                 <label id="select-label-style">Select Tags:</label>
+                    <md-chip-list *ngFor='let tag of tags' ng-value="tag.value">
+                      <md-chip (click)="flagDetails(tag.value)">{{tag.value}}</md-chip>
+                    </md-chip-list>
+            </div>
+
+
+
+<!--select template -->
+            <!--<div fxLayout.md="column" fxLayoutAlign="center center" fxLayoutGap="0px" fxLayoutGap.md="0">
+                 <div class="item" fxFlex="100%" *ngFor="let core of coreActivity">
+                     <md-card (click)="navigate(core.value)">{{core.value}}</md-card> 
+                 </div>
+              </div>-->
+
+
+<!--terms and condition-->
+            <div fxFlex="100%" class="terms-condition-style">
+              <button md-button (click)="openDialog()">Terms and conditon</button>
+            </div>
+
+<!--submit the form using raised button-->
+            <div class="raised-button-style">
+              <button md-raised-button ng-value="submit" color="primary">submit</button>
+              <button md-raised-button ng-value="cancel" color="primary">cancel</button>
+            </div>
+
+        </form>
+</div>
+
+<calvin-select-template></calvin-select-template>
+
+<router-outlet></router-outlet>
+  
+
+
+
+>>>>>>> bee5ba90ec49a8afeae50d3332d49d9c1400d089

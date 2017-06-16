@@ -6,7 +6,10 @@ import { UserDashboardComponent } from '../user-dashboard/user-dashboard.compone
 import { UserProfileComponent } from '../user-profile/user-profile.component';
 import { CanDeactivateGuard } from './can-deactivate-guard.service';
 import { PageNotFoundComponent } from '../page-not-found/page-not-found.component';
+import { ManageCommunityComponent } from '../manageCommunity/manage-community.component';
 import { AppBarComponent } from '../app-bar/app-bar.component';
+import { RoleManagementComponent } from '../role-management/role-management.component';
+import { RoleActionsComponent } from '../role-actions/role-actions.component';
 import { AuthGuard } from './auth-guard.service';
 import { AuthService } from './auth.service';
 import {  SideNavComponent } from '../side-nav/side-nav.component';
@@ -17,11 +20,13 @@ const routes: ModuleWithProviders = RouterModule.forRoot([
     children: [
             { path: 'home', component: UserDashboardComponent },
             { path: '', redirectTo: '/app/home', pathMatch: 'full' },
-            // { path: 'createCommunity', component: CreateCommunityComponent },
+            { path: 'createCommunity', component: CreateCommunityComponent },
             { path: 'profile', component: UserProfileComponent },
-              { path: 'profile', component: UserProfileComponent },
-                { path: 'SideNavComponent', component:  SideNavComponent  },
-
+            { path: 'SideNavComponent', component: SideNavComponent },
+            { path: 'createCommunity', component: CreateCommunityComponent },
+            { path: 'role', component: RoleManagementComponent},
+            { path: 'actions', component: RoleActionsComponent},
+            { path: 'managecommunity', component: ManageCommunityComponent}
         ]
   },
   { path: '', redirectTo: '/app/home', pathMatch: 'full' },
