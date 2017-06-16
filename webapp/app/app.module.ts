@@ -5,7 +5,7 @@ import { HttpModule } from '@angular/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AppbarComponent } from './appbar/appbar.component';
-
+import { MdSidenavModule } from '@angular/material'
 import {RouterModule, Routes} from '@angular/router';
 import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
 
