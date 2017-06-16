@@ -1,14 +1,6 @@
 import { Component } from '@angular/core';
-// import { LoginService } from './login-service.component';
-import {AuthService} from '../auth.service';
-import {NavigationExtras, Router} from '@angular/router';
+import { LoginService } from './login-service.component';
 
-@Component({
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css'],
-  // providers: [LoginService]
-})
-export class LoginComponent {}
 //   title = 'app';
 //   language = [
 //     { value: 'E0', viewValue: 'English' },
@@ -19,12 +11,7 @@ export class LoginComponent {}
 //   constructor(public authService: AuthService, public router: Router,private loginservice: LoginService) {
 //    // this.setMessage();
 //   }
-//   login() {
-//     alert('login clicked');
-//     this.loginservice.loginapp().subscribe(data => {
-//       console.log("login doine");
-//     });
-//   }
+
 //   setMessage() {
 //     this.message = 'Logged ' + (this.authService.isLoggedIn ? 'in' : 'out');
 //   }
@@ -52,3 +39,26 @@ export class LoginComponent {}
 //     this.setMessage();
 //   }
 // }
+import { AuthService } from '../core/auth.service';
+import { NavigationExtras, Router } from '@angular/router';
+
+@Component({
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.css']
+})
+
+export class LoginComponent {
+  constructor(public authService: AuthService, public router: Router) { }
+  login() {
+    this.authService.login().subscribe((result) => {
+      if (result) {
+        const redirect = this.authService.redirectUrl ? this.authService.redirectUrl : '/app/home';
+        this.router.navigate([redirect]);
+      }
+    });
+  };
+
+  logout() {
+    this.authService.logout();
+  }
+}

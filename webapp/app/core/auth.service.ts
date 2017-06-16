@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
 import 'rxjs/add/operator/do';
@@ -13,10 +12,12 @@ export class AuthService {
   redirectUrl: string;
 
   login(): Observable<boolean> {
-    return Observable.of(true).delay(1000).do(val => this.isLoggedIn = true);
+    return Observable.of(true).do(val => {
+      this.isLoggedIn = true; localStorage.setItem('isLogginUser', 'true'); });
   }
 
   logout(): void {
+    localStorage.removeItem('isLogginUser');
     this.isLoggedIn = false;
   }
 }
