@@ -1,0 +1,15 @@
+<md-card>
+  <md-card-title>Template</md-card-title>
+     <div fxLayout fxLayoutAlign="center center" fxLayout.md="column">
+         <div fxFlex="100%">
+             <md-card-subtitle>
+                <md-input-container>
+                   <input mdInput disabled value="Template_Name">
+                 </md-input-container>
+              </md-card-subtitle>
+          </div>
+     </div>
+    <md-grid-list cols="3" rowHeight="100px">
+         <md-grid-tile *ngFor="let core of coreActivity">{{core.value}}</md-grid-tile>
+    </md-grid-list>
+</md-card>

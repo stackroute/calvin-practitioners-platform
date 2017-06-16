@@ -2,9 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import {MdDialog} from '@angular/material';
 
+import { SelectTemplateComponent } from '../select-template/select-template.component';
+
 
 @Component({
- // selector: 'create-community',
   templateUrl: './create-community.component.html',
   styleUrls: ['./create-community.component.css']
 })
