@@ -19,8 +19,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MdSelectModule } from '@angular/material';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { CreateCommunityComponent } from './create-community/create-community.component';
-
-@NgModule({
+import { CommunityActivitylogsComponent } from './community-activitylogs/community-activitylogs.component';
+import { CommunityNavbarComponent } from './community-navbar/community-navbar.component';
+import { CommunitySidenavComponent } from './community-sidenav/community-sidenav.component';
+ @NgModule({
   declarations: [
     AppComponent,
     UserDashboardComponent,
@@ -30,6 +32,10 @@ import { CreateCommunityComponent } from './create-community/create-community.co
     LoginComponent,
     UserProfileComponent,
     PageNotFoundComponent,
+    CommunityActivitylogsComponent,
+    CommunityNavbarComponent,
+    CommunitySidenavComponent
+    
   ],
   imports: [
     BrowserModule,
