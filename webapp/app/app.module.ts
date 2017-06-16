@@ -41,13 +41,10 @@ import { RoleManagementComponent } from './role-management/role-management.compo
     LoginComponent,
     UserProfileComponent,
     PageNotFoundComponent,
-<<<<<<< HEAD
-    SideNavComponent
-=======
+    SideNavComponent,
     SelectTemplateComponent,
     RoleActionsComponent,
-    RoleManagementComponent,
->>>>>>> bee5ba90ec49a8afeae50d3332d49d9c1400d089
+    RoleManagementComponent
   ],
   imports: [
     MdSidenavModule,
