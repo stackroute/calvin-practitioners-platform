@@ -1,0 +1,36 @@
+<md-toolbar class="app-toolbar mat-primary mat-toolbar" color="primary" role="toolbar">
+ 
+<button class="hamburger mat-button" md-button="" title="Docs menu" (click)="sidenav.toggle()">
+  <span class="mat-button-wrapper">
+    <md-icon class="md-24" >menu</md-icon>
+  </span>
+</button>
+
+  <div fxFlex="20%" fxLayout="row" >
+    <a class="nav-link logoAlgin" href="/">
+      CALVIN
+    </a>
+  </div>
+
+  <div fxFlex="40%" fxLayout="row" class="searchAlgin">
+    <input mdInput aria-label="search" fxFlex="100%" placeholder="Search" type="search" fxLayout="column" dividerColor="accent">
+    <i class="material-icons searchBtn"  fxLayout="column">search</i>
+  </div>
+
+  <div fxFlex="40%" fxLayout="row" class="searchAlgin" fxLayoutAlign="end">
+    <md-list>
+      <md-list-item >
+        <img md-list-avatar [md-menu-trigger-for]="menu" src="http://lorempixel.com/100/100/" alt="User">
+      </md-list-item>
+    </md-list>
+  </div>
+  <md-menu xPosition="before" [overlapTrigger]="false"  #menu="mdMenu">
+
+    <button md-menu-item routerLink="/app/profile">Profile</button>
+
+    <button md-menu-item (click)="logout()">Logout</button>
+
+  </md-menu>
+
+</md-toolbar>
+<router-outlet></router-outlet>

@@ -1,0 +1,74 @@
+<div class="container"
+     fxLayout
+     fxLayout.xs="column"
+     fxLayoutAlign="center"
+     fxLayoutGap="10px"
+     fxLayoutGap.xs="0">
+  <div class="item item-1" fxFlex="2%">Item 1</div>
+  <div class="item item-2" fxFlex="2%" fxFlexOrder="3">Item 2</div>
+  <div class="item item-3"  fxFlex class="form-div">
+
+
+<form class="placing" >
+    
+    <md-list>
+    <md-list-item >
+    <h1 align="center">Profile Edit</h1>
+    
+    <img md-list-avatar  src="assets/img/pic3.png" alt="User">
+        
+        </md-list-item>
+      </md-list>
+  <div>
+  <i class="material-icons prefix">account_circle</i>
+    <md-input-container class="example-full-width">
+  
+      <input mdInput placeholder="First name"> 
+    </md-input-container>
+  
+    <md-input-container class="example-full-width">
+      <input mdInput placeholder="Last name">
+    </md-input-container>
+  </div>
+
+  <div>
+   <i class="material-icons">email</i>
+    <md-input-container class="example-full-width">
+    <input mdInput placeholder="Email"> 
+    </md-input-container>
+  </div>
+  <div>
+    <i class="material-icons">location_on</i>
+    <md-input-container class="example-full-width">
+      <input mdInput placeholder="Location"> 
+    </md-input-container>
+  </div>
+  
+    
+   
+<div>
+  <i class="material-icons prefix">phone</i>
+    <md-input-container class="example-full-width">
+      <input mdInput #postalCode maxlength="5" placeholder="Phone Number">
+      <md-hint align="end"></md-hint>
+    </md-input-container></div>
+
+      <div>
+      <i class="material-icons">favorite</i>
+    <md-input-container class="example-full-width">
+      <input mdInput placeholder="Interests"> 
+      <md-hint align="end"></md-hint>
+    </md-input-container></div>
+
+    <div>
+    <button  md-mini-fab color="primary" align="right">
+      <md-icon>send</md-icon>
+  </button>
+    </div>
+</form>
+  </div>
+</div>
+
+
+<router-outlet></router-outlet>
+

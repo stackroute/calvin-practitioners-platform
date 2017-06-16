@@ -3,15 +3,14 @@ import { Component, OnInit } from '@angular/core';
   import {MdDialog} from '@angular/material';
 
 @Component({
-  selector: 'calvinManagecommunity',
+  // selector: 'calvinManagecommunity',
   templateUrl: './manage-community.component.html',
   styleUrls: ['./manage-community.component.css']
 })
-export class manageCommunityComponent implements OnInit {
-selectedValue: string;
+export class ManageCommunityComponent implements OnInit {
+  selectedValue: string;
 
-  folders = [
-    {
+  folders = [{
       name: 'Kavipriya',
       updated: new Date('1/1/16'),
     },
@@ -22,15 +21,9 @@ selectedValue: string;
     {
       name: 'Kiran',
       updated: new Date('1/28/16'),
-    }
-  ];
- 
+    }];
 
-    constructor() {      
-  }
-
-  
- ngOnInit() {
-  }
+  constructor() {}
+ngOnInit() { }
 
 }
