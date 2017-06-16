@@ -14,7 +14,7 @@ import { ActivityLogComponent } from './user-dashboard/activity-log/activity-log
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MaterialModule, MdButtonModule, } from '@angular/material';
 import { MdCheckboxModule, MdCardModule, MdMenuModule } from '@angular/material';
-import { MdToolbarModule, MdIconModule, MdInputModule, MdSlideToggleModule } from '@angular/material';
+import { MdToolbarModule, MdIconModule, MdInputModule, MdSlideToggleModule, MdDialogModule } from '@angular/material';
 import { LoginComponent } from './login/login.component';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { ManageCommunityComponent } from './manage-community/manage-community.component';
@@ -35,6 +35,7 @@ import { CreateCommunityComponent } from './create-community/create-community.co
   UserProfileComponent,
   UserDashboardComponent,
   ManageCommunityComponent,
+  CreateCommunityComponent,
   NotfoundComponent
   ],
   imports: [
@@ -57,6 +58,7 @@ import { CreateCommunityComponent } from './create-community/create-community.co
     MdSelectModule,
     MdInputModule,
     MdSlideToggleModule,
+    MdDialogModule,
     ReactiveFormsModule
   ],
 
