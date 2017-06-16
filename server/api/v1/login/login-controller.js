@@ -13,6 +13,7 @@
 //     console.log('error is', err);
 //   });
 // };
+
 const passport = require('passport');
 
 const generateToken = (req, res, next) => {

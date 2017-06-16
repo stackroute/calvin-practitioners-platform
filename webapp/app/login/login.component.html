@@ -1,11 +1,11 @@
 <button (click)="login()"  *ngIf="!authService.isLoggedIn">Login</button>
 <button (click)="logout()" *ngIf="authService.isLoggedIn">Logout</button>
 
-<!--<div  fxLayoutAlign="center" class="containerX" >
+<div  fxLayoutAlign="center" class="containerX" >
 
 <div  fxLayoutAlign="center" class="containerX" >  
  
     <p class='loginbtn'> <a href="auth/google" class="button">Login with Google</a> </p>
 
-</div>-->
+</div>
 <router-outlet></router-outlet>

@@ -6,13 +6,14 @@ import { UserDashboardComponent } from '../user-dashboard/user-dashboard.compone
 import { UserProfileComponent } from '../user-profile/user-profile.component';
 import { CanDeactivateGuard } from './can-deactivate-guard.service';
 import { PageNotFoundComponent } from '../page-not-found/page-not-found.component';
+import { AppBarComponent } from '../app-bar/app-bar.component';
 import { AuthGuard } from './auth-guard.service';
 import { AuthService } from './auth.service';
 
 // Calvin routes
 const routes: ModuleWithProviders = RouterModule.forRoot([
   { path: 'login', component: LoginComponent },
-  { path: 'app', canActivate: [AuthGuard],
+  { path: 'app', component: AppBarComponent, canActivate: [AuthGuard],
     children: [
             { path: 'home', component: UserDashboardComponent },
             { path: '', redirectTo: '/app/home', pathMatch: 'full' },
@@ -21,7 +22,7 @@ const routes: ModuleWithProviders = RouterModule.forRoot([
         ]
   },
   { path: '', redirectTo: '/app/home', pathMatch: 'full' },
-  { path: '**', component: PageNotFoundComponent }
+  { path: '**', redirectTo: '/app/home', pathMatch: 'full' }
 ], { useHash: true });
 
 

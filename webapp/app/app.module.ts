@@ -4,7 +4,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { AppRoutingModule } from './core/app-routing.module';
 import { AppComponent } from './app.component';
-import {RouterModule, Routes} from '@angular/router';
 import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
 import { AppBarComponent } from './app-bar/app-bar.component';
 import { UserWidgetsComponent } from './my-communities/my-communities.component';
