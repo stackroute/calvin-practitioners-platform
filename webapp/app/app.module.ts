@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { ManageCommunityComponent } from './manageCommunity/manage-community.component';
 import { AppRoutingModule } from './core/app-routing.module';
 import { AppComponent } from './app.component';
 import { MdSidenavModule } from '@angular/material';
@@ -21,10 +22,13 @@ import { MdSelectModule } from '@angular/material';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { CreateCommunityComponent } from './create-community/create-community.component';
 import { SelectTemplateComponent } from './select-template/select-template.component';
+import { RoleActionsComponent } from './role-actions/role-actions.component';
+import { RoleManagementComponent } from './role-management/role-management.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    ManageCommunityComponent,
     UserDashboardComponent,
     CreateCommunityComponent,
     AppBarComponent,
@@ -33,6 +37,8 @@ import { SelectTemplateComponent } from './select-template/select-template.compo
     UserProfileComponent,
     PageNotFoundComponent,
     SelectTemplateComponent,
+    RoleActionsComponent,
+    RoleManagementComponent,
   ],
   imports: [
     BrowserModule,
