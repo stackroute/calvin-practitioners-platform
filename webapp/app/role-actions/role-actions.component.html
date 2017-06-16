@@ -1,0 +1,19 @@
+<h1 md-dialog-title>Choose Actions:</h1>
+<form>
+<div md-dialog-content>
+  <md-select [(ngModel)]="actions">
+    <md-checkbox *ngFor="let action of actions" [value]="action">
+      {{ action }}
+    </md-checkbox>
+  </md-select>
+</div>
+
+<div md-dialog-actions>
+  <button md-button (click)="confirmSelection()" color="primary">
+    Add
+  </button>
+  <button md-button (click)="dialogRef.close()">
+    Cancel
+  </button>
+</div>
+</form>

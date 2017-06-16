@@ -12,7 +12,6 @@ import { Cookie } from 'ng2-cookies/ng2-cookies';
 //    // this.setMessage();
 //   }
 
-  
 //   setMessage() {
 //     this.message = 'Logged ' + (this.authService.isLoggedIn ? 'in' : 'out');
 //   }

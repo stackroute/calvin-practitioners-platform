@@ -120,6 +120,12 @@
   dependencies:
     tslib "^1.7.1"
 
+"@angular/material@^2.0.0-beta.6":
+  version "2.0.0-beta.6"
+  resolved "https://registry.yarnpkg.com/@angular/material/-/material-2.0.0-beta.6.tgz#83bfdf00f540a8c7db900a1e7b8ed2cff49df821"
+  dependencies:
+    tslib "^1.7.1"
+
 "@angular/platform-browser-dynamic@^4.0.0":
   version "4.2.2"
   resolved "https://registry.yarnpkg.com/@angular/platform-browser-dynamic/-/platform-browser-dynamic-4.2.2.tgz#00f4b8d1ce415f432bcc5ab2bb90b0b069036287"
@@ -3686,13 +3692,23 @@ matcher-collection@^1.0.0:
   dependencies:
     minimatch "^3.0.2"
 
+
+material-avatar@^0.3.4:
+  version "0.3.4"
+  resolved "https://registry.yarnpkg.com/material-avatar/-/material-avatar-0.3.4.tgz#baf0c4aea3121c5c2aed779748f5d8a0295995d1"
+
 material-design-icons@^3.0.1:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/material-design-icons/-/material-design-icons-3.0.1.tgz#9a71c48747218ebca51e51a66da682038cdcb7bf"
 
+
 math-expression-evaluator@^1.2.14:
   version "1.2.17"
   resolved "https://registry.yarnpkg.com/math-expression-evaluator/-/math-expression-evaluator-1.2.17.tgz#de819fdbcd84dccd8fae59c6aeb79615b9d266ac"
+
+md2-dialog@0.0.1-alpha.0:
+  version "0.0.1-alpha.0"
+  resolved "https://registry.yarnpkg.com/md2-dialog/-/md2-dialog-0.0.1-alpha.0.tgz#b7dcb5cbc457266e52cc88e5a7e2d8b6cd000b38"
 
 media-typer@0.3.0:
   version "0.3.0"
