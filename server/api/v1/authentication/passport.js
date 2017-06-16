@@ -60,11 +60,11 @@ module.exports = (passport) => {
             });
         }
         // client.execute('')
-        client.execute('update users set lastlogin=:lastlogin where email=:email',params,(err,result)=>{
-
-          if(err){
-             return err;
-          }              
+        client.execute('update users set lastlogin=:lastlogin where email=:email', params, (er) => {
+          if (er) {
+            return er;
+          }
+          return 'user updated';
         });
         return done(null, userToken);
       });

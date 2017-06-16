@@ -3,9 +3,7 @@ const controller = require('./login-controller');
 const passport = require('passport');
 
 // router.get('/app/home',(req,res)=>{
-     
 // });
-
 router.get('/logout', (req, res) => {
   // console.log('logout called');
   res.clearCookie('currentUser');

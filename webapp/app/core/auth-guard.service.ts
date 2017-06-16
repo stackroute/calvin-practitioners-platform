@@ -1,7 +1,7 @@
 import { ActivatedRouteSnapshot, CanActivate, CanActivateChild, CanLoad,  Route, Router, RouterStateSnapshot } from '@angular/router';
 import {Injectable} from '@angular/core';
 import { AuthService } from './auth.service';
-import { Cookie } from "ng2-cookies/ng2-cookies";
+import { Cookie } from 'ng2-cookies/ng2-cookies';
 
 @Injectable()
 export class AuthGuard implements CanActivate, CanActivateChild, CanLoad {

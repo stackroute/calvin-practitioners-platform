@@ -17,7 +17,7 @@ export class AppBarComponent implements OnInit {
 
   logout() {
     console.log('logout clicked');
-    this.authService.logout().subscribe(data=>{
+    this.authService.logout().subscribe(  data => {
 
       console.log('logout done');
       this.router.navigate(['/login']);
