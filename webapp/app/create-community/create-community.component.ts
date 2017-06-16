@@ -20,15 +20,15 @@ export class CreateCommunityComponent implements OnInit {
     ];
 
     visibility = [
-      {value:'public', viewValue: 'Public'},
-      {value:'private', viewValue: 'Private'},
-      {value:'moderate', viewValue: 'Moderate'}
+      {value: 'public', viewValue: 'Public'},
+      {value: 'private', viewValue: 'Private'},
+      {value: 'moderate', viewValue: 'Moderate'}
     ];
 
     tags = [
-      {value: 'tag-one', viewValue:'tagone'},
-      {value:'tag-two', viewValue:'tagtwo' },
-      {value: 'tag-three', viewValue:'tagthree'}
+      {value: 'tag-one', viewValue: 'tagone'},
+      {value: 'tag-two', viewValue: 'tagtwo' },
+      {value: 'tag-three', viewValue: 'tagthree'}
     ];
 
     userForm = new FormGroup({
@@ -49,7 +49,7 @@ export class CreateCommunityComponent implements OnInit {
     flagDetails(tag) {
       // console.log(tag);
     }
-// open dialog 
+// open dialog
    openDialog() {
     this.dialog.open(CreateCommunityComponent);
   }
