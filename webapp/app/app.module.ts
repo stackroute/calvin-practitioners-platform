@@ -20,6 +20,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MdSelectModule } from '@angular/material';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { CreateCommunityComponent } from './create-community/create-community.component';
+import { SelectTemplateComponent } from './select-template/select-template.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { CreateCommunityComponent } from './create-community/create-community.co
     LoginComponent,
     UserProfileComponent,
     PageNotFoundComponent,
+    SelectTemplateComponent,
   ],
   imports: [
     BrowserModule,
