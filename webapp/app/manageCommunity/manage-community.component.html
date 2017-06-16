@@ -1,0 +1,167 @@
+
+<!--Setting the header for the cover image of community administration   -->
+
+<div fxLayout fxLayout.xl="row"  class="community-layout-style" >
+    
+   <div fxFlex="20%" class="border" id="communityInfo">
+     
+<!--Fething the Username and domain name to be displayed at left corner of header  -->
+
+      <md-input-container>
+        <input mdInput placeholder="User name" value="" disabled>
+       </md-input-container>
+       <md-input-container>
+         <input mdInput placeholder="Domain name" value="" disabled>
+       </md-input-container>
+       
+    </div>
+  </div>  
+
+<!--Using Flex for dividing the page into side nav,content and side nav  -->
+  <div 
+     fxLayout
+     fxLayout.xs="column"
+     fxLayoutAlign="center"
+     fxLayoutGap="30px"
+     fxLayoutGap.xs="0">
+  <div class="item item-1" fxFlex="20%"  fxFlexOrder="1">
+
+<!--Community Avatar in side nav  -->
+
+    
+    <md-list><md-list-item class="community-image"> 
+      
+     
+  <md-icon class="community-display-pic" mdTooltip="Edit">add_a_photo</md-icon>
+        <img md-list-avatar src='/assets/images/try1.jpg'>
+       
+             </md-list-item>
+    </md-list>
+
+   
+<!--Fething the Community name and Community access to be displayed below avatar of community  -->
+
+   <md-input-container class="community-details">
+         <input mdInput placeholder="Community Name" value="" disabled>
+    </md-input-container>
+    <md-input-container  class="community-access-details">
+         <md-icon class="example-icon-access">lock</md-icon>
+         <input mdInput placeholder="Private Community" value="" disabled>
+    </md-input-container>
+
+
+<!--adding the toolbar of Side Navigation bar  -->
+  
+  <md-toolbar class="example-spacer">
+    
+          <a href="#">Manage Members</a>
+          <span class="example-spacer"></span>
+          <md-icon class="example-icon">group_add</md-icon>
+     
+  
+      <md-toolbar-row>
+          <a href="#">Manage Tools</a>
+          <span class="example-spacer"></span>
+          <md-icon class="example-icon">settings</md-icon>
+      </md-toolbar-row>
+
+       <md-toolbar-row>
+          <a href="#">Community Info</a>
+          <span class="example-spacer"></span>
+           <md-icon class="example-icon">info</md-icon>
+     </md-toolbar-row>
+
+      <md-toolbar-row>
+          <a href="#">Home</a>
+          <span class="example-spacer"></span>
+           <md-icon class="example-icon">home</md-icon>
+     </md-toolbar-row>
+
+      <md-toolbar-row>
+           <input type="search"  placeholder="Search in this community">
+           <span></span>
+           <a href="#"><md-icon class="example-icon-search">search</md-icon></a>
+
+      </md-toolbar-row>
+ </md-toolbar>
+</div>
+
+ <!--Using Flex for main content of the page -->
+
+  <div class="item item-2" fxFlex="60%" fxFlexOrder="2">
+
+  <div class="community-layout-administration" >
+    <md-card-title class="context">
+       Manage Community
+    </md-card-title>
+
+    <!--Displaying the community domain details in form structure(not editable) using <md-input-container>    -->
+
+    <form class="container example-form">
+      <md-input-container class="example-full-width">
+         <input mdInput placeholder="Domain (disabled)" disabled value="domain">
+      </md-input-container>
+
+       <!--Displaying the community Core Activity in form structure(not editable) using <md-input-container>  -->
+
+      <md-input-container class="example-full-width">
+         <input mdInput placeholder="Purpose (disabled)" disabled value="sharing ideas">
+      </md-input-container>
+       
+        <!--Displaying the community Community Name in form structure(editable) using <md-input-container>  -->
+    
+      <md-input-container class="example-full-width">
+         <input mdInput placeholder="Community Name">
+      </md-input-container>
+
+      <!--Displaying the community Description in form structure(editable) using <md-input-container> -->
+
+      <md-input-container class="example-full-width">
+         <input mdInput placeholder="Description">
+      </md-input-container>
+
+      <!--Displaying the community Access in form structure(editable) using Radio buttons -->
+    
+    <md-input-container class="example-full-width">
+         <input mdInput placeholder="Access" disabled>
+        <md-radio-group>
+             <md-radio-button value="1">Public</md-radio-button>
+             <md-radio-button value="2">Private</md-radio-button>
+             <md-radio-button value="2">Moderate</md-radio-button>
+        </md-radio-group>
+    </md-input-container>
+
+    
+<!--Displaying the community tags and managing tags in form structure(editable) using <md-autocomplete>-->
+
+       <md-input-container class="example-full-width">  
+            <input mdInput placeholder="Tags">
+       </md-input-container>   
+
+
+<!--Save button  -->
+
+      <a md-raised-button color="primary"   routerLink=".">Save</a>
+   </form>
+</div>
+</div>
+
+<!--Using Flex for right nav of the page  -->
+
+<div class="item item-3" fxFlex="20%" fxFlexOrder="3">
+<md-list class="members">
+  <a href="#" md-subheader>Members</a>
+  <md-list-item *ngFor="let folder of folders">
+    <img md-list-avatar src='/assets/images/try1.jpg'>
+    <h4 md-line>{{folder.name}}</h4>
+    <p md-line> {{folder.updated | date}} </p>
+  </md-list-item>
+</md-list>
+     <md-input-container  class="community-access-details">
+         <md-icon class="view-more-icon">arrow_drop_down</md-icon>
+         <input mdInput placeholder="View More" value="" disabled>
+    </md-input-container>
+ 
+
+
+
