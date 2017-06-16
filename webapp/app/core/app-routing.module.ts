@@ -9,7 +9,7 @@ import { PageNotFoundComponent } from '../page-not-found/page-not-found.componen
 import { AppBarComponent } from '../app-bar/app-bar.component';
 import { AuthGuard } from './auth-guard.service';
 import { AuthService } from './auth.service';
-
+import {  SideNavComponent } from '../side-nav/side-nav.component';
 // Calvin routes
 const routes: ModuleWithProviders = RouterModule.forRoot([
   { path: 'login', component: LoginComponent },
@@ -17,8 +17,11 @@ const routes: ModuleWithProviders = RouterModule.forRoot([
     children: [
             { path: 'home', component: UserDashboardComponent },
             { path: '', redirectTo: '/app/home', pathMatch: 'full' },
-            { path: 'createCommunity', component: CreateCommunityComponent },
-            { path: 'profile', component: UserProfileComponent }
+            // { path: 'createCommunity', component: CreateCommunityComponent },
+            { path: 'profile', component: UserProfileComponent },
+              { path: 'profile', component: UserProfileComponent },
+                { path: 'SideNavComponent', component:  SideNavComponent  },
+
         ]
   },
   { path: '', redirectTo: '/app/home', pathMatch: 'full' },
