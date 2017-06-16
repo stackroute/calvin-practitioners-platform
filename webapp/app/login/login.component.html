@@ -1,10 +1,15 @@
 <button (click)="login()"  *ngIf="!authService.isLoggedIn">Login</button>
 <button (click)="logout()" *ngIf="authService.isLoggedIn">Logout</button>
 
-<div  fxLayoutAlign="center" class="containerX" >
 
+<div  fxLayoutAlign="center" class="containerX" >
 <div  fxLayoutAlign="center" class="containerX" >  
  
+  <!--<md-card>-->
+  <!--<img md-card-image src="">-->
+  <!--<md-card-subtitle>Calvin logo</md-card-subtitle>-->
+    <!--<md-card-actions>-->
+    <!--<button md-button class='btn' (click)='login();'>Login with Google</button>-->
     <p class='loginbtn'> <a href="auth/google" class="button">Login with Google</a> </p>
 
 </div>
