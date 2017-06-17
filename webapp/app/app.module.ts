@@ -21,9 +21,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MdSelectModule } from '@angular/material';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { CreateCommunityComponent } from './create-community/create-community.component';
-import { SelectTemplateComponent } from './select-template/select-template.component';
 import { RoleActionsComponent } from './role-actions/role-actions.component';
 import { RoleManagementComponent } from './role-management/role-management.component';
+import { TemplateBrowserComponent } from './template-browser/template-browser.component';
+
 
 @NgModule({
   declarations: [
@@ -36,9 +37,9 @@ import { RoleManagementComponent } from './role-management/role-management.compo
     LoginComponent,
     UserProfileComponent,
     PageNotFoundComponent,
-    SelectTemplateComponent,
     RoleActionsComponent,
     RoleManagementComponent,
+    TemplateBrowserComponent,
   ],
   imports: [
     BrowserModule,

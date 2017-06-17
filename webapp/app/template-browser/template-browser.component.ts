@@ -1,13 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 
-@Component({
-  selector: 'calvin-select-template',
-  templateUrl: './select-template.component.html',
-  styleUrls: ['./select-template.component.css']
-})
-export class SelectTemplateComponent implements OnInit {
+import { CreateCommunityComponent } from "../create-community/create-community.component";
 
-   coreActivity = [
+@Component({
+  selector: 'calvin-template-browser',
+  templateUrl: './template-browser.component.html',
+  styleUrls: ['./template-browser.component.css']
+})
+export class TemplateBrowserComponent implements OnInit {
+
+  coreActivity = [
     {value: 'Professional', viewValue: 'Professional'},
     {value: 'Travel', viewValue: 'Travel'},
     {value: 'Arts', viewValue: 'Arts'},
@@ -17,7 +19,8 @@ export class SelectTemplateComponent implements OnInit {
     {value: 'Education', viewValue: 'Education'}
   ];
 
-  constructor() { }
+
+  constructor(private community: CreateCommunityComponent ) { }
 
   ngOnInit() {
   }

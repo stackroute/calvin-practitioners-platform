@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators, FormBuilder} from '@angular/forms';
 import {MdDialog} from '@angular/material';
 
-import { SelectTemplateComponent } from '../select-template/select-template.component';
+import { TemplateBrowserComponent } from '../template-browser/template-browser.component';
 
 
 @Component({
@@ -13,6 +13,8 @@ import { SelectTemplateComponent } from '../select-template/select-template.comp
 
 export class CreateCommunityComponent implements OnInit {
 
+  userForm: FormGroup;
+
   coreActivity = [
     {value: 'Professional', viewValue: 'Professional'},
     {value: 'Travel', viewValue: 'Travel'},
@@ -21,10 +23,10 @@ export class CreateCommunityComponent implements OnInit {
     ];
 
     visibility = [
-      {value: 'public', viewValue: 'Public'},
-      {value: 'private', viewValue: 'Private'},
-      {value: 'moderate', viewValue: 'Moderate'}
-    ];
+      {value: 'Public', viewValue: 'Public'},
+      {value: 'Private', viewValue: 'Private'},
+      {value: 'Moderate', viewValue: 'Moderate'}
+    ]
 
     tags = [
       {value: 'tag-one', viewValue: 'tagone'},
@@ -32,14 +34,22 @@ export class CreateCommunityComponent implements OnInit {
       {value: 'tag-three', viewValue: 'tagthree'}
     ];
 
-    userForm = new FormGroup({
-      domainName: new FormControl(),
-      communityName: new FormControl(),
-      coreactivity: new FormControl()
-    });
 
-  constructor(public dialog: MdDialog) { }
 
+  constructor(private dialog: MdDialog, private fb:FormBuilder) {
+    this.createForm();
+   }
+   
+    createForm() {
+        this.userForm=this.fb.group({
+           domainName: ['', [Validators.required, Validators.pattern('[a-z.]{8,20}')]],
+          communityName: ['', Validators.required],
+          Purpose: ['', Validators.required],
+          // visibility: ['',Validators.required],          
+          tagSelection: ['', Validators.required],
+          // termsCondition: ['',Validators.required]
+        })
+    }
 //  check whether the card is clickable or not
 
    navigate(thing) {
@@ -58,8 +68,16 @@ export class CreateCommunityComponent implements OnInit {
 // sample code for form validation
 
     onsubmit() {
-      // console.log(this.userForm.value);
+       console.log(this.userForm.value);
     }
+// bind text box value
+    onKey(tag:string) {
+        console.log(tag);
+    }
+// display drop-down value
+    selectedCoreActivity(core: any) {
+      return core;
+}
 
 
   ngOnInit() { }
