@@ -25,6 +25,15 @@ import { RoleActionsComponent } from './role-actions/role-actions.component';
 import { RoleManagementComponent } from './role-management/role-management.component';
 import { TemplateBrowserComponent } from './template-browser/template-browser.component';
 
+import { CommunityActivitylogsComponent } from './community-activitylogs/community-activitylogs.component';
+import { CommunityNavbarComponent } from './community-navbar/community-navbar.component';
+import { CommunitySidenavComponent } from './community-sidenav/community-sidenav.component';
+
+import { SideNavComponent } from './side-nav/side-nav.component';
+
+
+import { CommunityDashboardComponent } from './community-dashboard/community-dashboard.component';
+
 
 @NgModule({
   declarations: [
@@ -37,11 +46,18 @@ import { TemplateBrowserComponent } from './template-browser/template-browser.co
     LoginComponent,
     UserProfileComponent,
     PageNotFoundComponent,
+    TemplateBrowserComponent,
+    CommunityActivitylogsComponent,
+    CommunityNavbarComponent,
+    CommunitySidenavComponent,
+    SideNavComponent,
     RoleActionsComponent,
     RoleManagementComponent,
-    TemplateBrowserComponent,
+    CommunityDashboardComponent
   ],
+
   imports: [
+    MdSidenavModule,
     BrowserModule,
     HttpModule,
     AppRoutingModule,

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { CreateCommunityComponent } from "../create-community/create-community.component";
+import { CreateCommunityComponent } from '../create-community/create-community.component';
 
 @Component({
   selector: 'calvin-template-browser',

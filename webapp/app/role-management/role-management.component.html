@@ -1,25 +1,62 @@
-<div class="container">
-  <form>
-  <md-card>
-  <md-input-container class="form-width">
-    <input mdInput placeholder="Enter Role">
-    <button md-mini-fab class="button-align"><i class="material-icons">delete</i></button>
-   <button md-mini-fab class="button-align" ><i class="material-icons">mode_edit</i></button>
+<div class="container" fxLayout="column">
+  <div fxLayout="row" fxLayoutAlign="start end">
 
-    
-  </md-input-container>
+    <md-card>
+      <div fxLayoutAlign="start stretch">
+        <md-input-container fxFlex="80">
+          <input mdInput placeholder="Enter Role" />
+        </md-input-container>
+        <div fxFlex="20">
+          <button><i class="material-icons">delete</i></button>
+          <button><i class="material-icons">edit</i></button>
+        </div>
+      </div>
 
-<md-chip-list> 
-  <md-chip>Action 1</md-chip>
-  <md-chip>Action 2</md-chip>
-  <md-chip>Action 3</md-chip>
- 
+      <md-chip-list>
+        <md-chip>Action 1</md-chip>
+        <md-chip>Action 2</md-chip>
+        <md-chip>Action 3</md-chip>
+        <md-chip>Action 4</md-chip>
+        <md-chip>Action 5</md-chip>
+        <md-chip>Action 6</md-chip>
+        <md-chip>Action 7</md-chip>
+        <!--<md-chip *ngIf="selectedActions">{{ selectedActions }}</md-chip>-->
+      </md-chip-list>
 
-<md-chip *ngIf="selectedActions">{{ selectedActions }}</md-chip>
-</md-chip-list>
-<button md-raised-button (click)="openDialog()">Modify Actions</button>
-</md-card>
-<button md-mini-fab class="button-align"><md-icon>add</md-icon></button>
-  </form>
+      <button fxLayoutAlign="left" md-raised-button (click)="openDialog()">Modify Actions</button>
+
+
+    </md-card>
+  </div>
+  <div fxLayout="row">
+
+    <md-card>
+      <div fxLayoutAlign="start stretch">
+        <md-input-container fxFlex="80">
+          <input mdInput placeholder="Enter Role" />
+        </md-input-container>
+        <div fxFlex="20">
+          <button><i class="material-icons">delete</i></button>
+          <button><i class="material-icons">edit</i></button>
+        </div>
+      </div>
+
+      <md-chip-list>
+        <md-chip>Action 1</md-chip>
+        <md-chip>Action 2</md-chip>
+        <md-chip>Action 3</md-chip>
+        <md-chip>Action 4</md-chip>
+        <md-chip>Action 5</md-chip>
+        <md-chip>Action 6</md-chip>
+        <md-chip>Action 7</md-chip>
+        <!--<md-chip *ngIf="selectedActions">{{ selectedActions }}</md-chip>-->
+      </md-chip-list>
+
+      <button fxLayoutAlign="left" md-raised-button (click)="openDialog()">Modify Actions</button>
+    </md-card>
+
+  </div>
+  <button md-mini-fab fxFlexAlign='end'><md-icon >add</md-icon></button>
 </div>
+
 <router-outlet></router-outlet>

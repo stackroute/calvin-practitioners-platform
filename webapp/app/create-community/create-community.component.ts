@@ -26,7 +26,7 @@ export class CreateCommunityComponent implements OnInit {
       {value: 'Public', viewValue: 'Public'},
       {value: 'Private', viewValue: 'Private'},
       {value: 'Moderate', viewValue: 'Moderate'}
-    ]
+    ];
 
     tags = [
       {value: 'tag-one', viewValue: 'tagone'},
@@ -36,19 +36,19 @@ export class CreateCommunityComponent implements OnInit {
 
 
 
-  constructor(private dialog: MdDialog, private fb:FormBuilder) {
+  constructor(private dialog: MdDialog, private fb: FormBuilder) {
     this.createForm();
    }
-   
-    createForm() {
-        this.userForm=this.fb.group({
+
+  createForm() {
+        this.userForm = this.fb.group({
            domainName: ['', [Validators.required, Validators.pattern('[a-z.]{8,20}')]],
           communityName: ['', Validators.required],
           Purpose: ['', Validators.required],
-          // visibility: ['',Validators.required],          
+          // visibility: ['', Validators.required],
           tagSelection: ['', Validators.required],
-          // termsCondition: ['',Validators.required]
-        })
+          // termsCondition: ['', Validators.required]
+        });
     }
 //  check whether the card is clickable or not
 
@@ -71,7 +71,7 @@ export class CreateCommunityComponent implements OnInit {
        console.log(this.userForm.value);
     }
 // bind text box value
-    onKey(tag:string) {
+    onKey(tag: string) {
         console.log(tag);
     }
 // display drop-down value
