@@ -20,12 +20,14 @@ module.exports = (passport) => {
       // console.log('2.inside process next');
       const time = new Date();
       const namees = profile.displayName;
+      // const comm=[{'name':'anis','role':'user','type':'true'}];
       // console.log('name', namees);
       const params = {
         email: profile.emails[0].value,
         image: profile.photos[0].value,
         name: namees,
         role: 'consumer',
+        // comms:comm,
         // comm:[{
         //       'groupname':'cdonealvin',
         //       'role': 'user',
@@ -57,6 +59,13 @@ module.exports = (passport) => {
               return done(null, userToken);
             });
         }
+        // client.execute('')
+        client.execute('update users set lastlogin=:lastlogin where email=:email', params, (er) => {
+          if (er) {
+            return er;
+          }
+          return 'user updated';
+        });
         return done(null, userToken);
       });
     });

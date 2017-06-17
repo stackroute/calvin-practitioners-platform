@@ -1,0 +1,12 @@
+.containerX{
+
+    background: url('../../assets/image/bgimage-b.jpg');
+    background-size: cover;
+    height: 700px;
+}
+.bn{
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

@@ -1,16 +1,31 @@
-<button (click)="login()"  *ngIf="!authService.isLoggedIn">Login</button>
-<button (click)="logout()" *ngIf="authService.isLoggedIn">Logout</button>
+<!--<button (click)="login()"  *ngIf="!authService.isLoggedIn">Login</button>
+<button (click)="logout()" *ngIf="authService.isLoggedIn">Logout</button>-->
 
 
-<div  fxLayoutAlign="center" class="containerX" >   
+ 
 <div  fxLayoutAlign="center" class="containerX" >  
  
   <!--<md-card>-->
   <!--<img md-card-image src="">-->
   <!--<md-card-subtitle>Calvin logo</md-card-subtitle>-->
     <!--<md-card-actions>-->
-    <!--<button md-button class='btn' (click)='login();'>Login with Google</button>-->
-    <p class='loginbtn'> <a href="auth/google" class="button">Login with Google</a> </p>
-
+    <!--<button md-button (click)='login();'>Login with Google</button>-->
+    
+   <div class="bn">
+     <!--<p class='loginbtn'> <a href="auth/google" class="button">Login with Google</a> </p>-->
+    <!--<h1> Calvin </h1>  -->
+   <button md-raised-button (click)='login();'>Login With Google</button>
+   </div>
+</div>
+<div fxLayoutAlign="center">
+   <a md-button routerLink=".">Community Guidelines</a>
+   <i class="material-icons">language</i>
+   <form>
+  <md-select placeholder="Select Language" [(ngModel)]="selectedLanguage" name="language">
+    <md-option *ngFor="let language of languages" [value]="language.value">
+      {{language.viewValue}}
+    </md-option>
+  </md-select>
+</form>
 </div>
 <router-outlet></router-outlet>

@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { ManageCommunityComponent } from './manageCommunity/manage-community.component';
 import { AppRoutingModule } from './core/app-routing.module';
 import { AppComponent } from './app.component';
 import { MdSidenavModule } from '@angular/material';
@@ -20,12 +21,23 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MdSelectModule } from '@angular/material';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { CreateCommunityComponent } from './create-community/create-community.component';
+
 import { CommunityActivitylogsComponent } from './community-activitylogs/community-activitylogs.component';
 import { CommunityNavbarComponent } from './community-navbar/community-navbar.component';
 import { CommunitySidenavComponent } from './community-sidenav/community-sidenav.component';
- @NgModule({
+
+import { SideNavComponent } from './side-nav/side-nav.component';
+
+
+import { SelectTemplateComponent } from './select-template/select-template.component';
+import { RoleActionsComponent } from './role-actions/role-actions.component';
+import { RoleManagementComponent } from './role-management/role-management.component';
+
+
+@NgModule({
   declarations: [
     AppComponent,
+    ManageCommunityComponent,
     UserDashboardComponent,
     CreateCommunityComponent,
     AppBarComponent,
@@ -35,9 +47,15 @@ import { CommunitySidenavComponent } from './community-sidenav/community-sidenav
     PageNotFoundComponent,
     CommunityActivitylogsComponent,
     CommunityNavbarComponent,
-    CommunitySidenavComponent
-    ],
+    CommunitySidenavComponent,
+    SideNavComponent,
+    SelectTemplateComponent,
+    RoleActionsComponent,
+    RoleManagementComponent
+  ],
+
   imports: [
+    MdSidenavModule,
     BrowserModule,
     HttpModule,
     AppRoutingModule,
