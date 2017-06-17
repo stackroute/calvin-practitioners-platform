@@ -32,6 +32,7 @@ import { SideNavComponent } from './side-nav/side-nav.component';
 import { SelectTemplateComponent } from './select-template/select-template.component';
 import { RoleActionsComponent } from './role-actions/role-actions.component';
 import { RoleManagementComponent } from './role-management/role-management.component';
+import { CommunityDashboardComponent } from './community-dashboard/community-dashboard.component';
 
 
 @NgModule({
@@ -51,7 +52,8 @@ import { RoleManagementComponent } from './role-management/role-management.compo
     SideNavComponent,
     SelectTemplateComponent,
     RoleActionsComponent,
-    RoleManagementComponent
+    RoleManagementComponent,
+    CommunityDashboardComponent
   ],
 
   imports: [

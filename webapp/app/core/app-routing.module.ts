@@ -14,7 +14,8 @@ import { AuthGuard } from './auth-guard.service';
 import { AuthService } from './auth.service';
 
 import { CommunityNavbarComponent } from '../community-navbar/community-navbar.component';
-
+import { CommunitySidenavComponent } from '../community-sidenav/community-sidenav.component';
+import { CommunityDashboardComponent } from '../community-dashboard/community-dashboard.component';
 
 import {  SideNavComponent } from '../side-nav/side-nav.component';
 
@@ -27,16 +28,13 @@ const routes: ModuleWithProviders = RouterModule.forRoot([
             { path: '', redirectTo: '/app/home', pathMatch: 'full' },
             { path: 'createCommunity', component: CreateCommunityComponent },
             { path: 'profile', component: UserProfileComponent },
-
-            { path: 'communityDashBoard', component: CommunityNavbarComponent },
-
+            { path: 'communityDashBoard', component: CommunityDashboardComponent},
             { path: 'SideNavComponent', component: SideNavComponent },
             { path: 'createCommunity', component: CreateCommunityComponent },
             { path: 'role', component: RoleManagementComponent},
             { path: 'actions', component: RoleActionsComponent},
             { path: 'managecommunity', component: ManageCommunityComponent}
-
-        ]
+            ]
   },
   { path: '', redirectTo: '/app/home', pathMatch: 'full' },
   { path: '**', redirectTo: '/app/home', pathMatch: 'full' }
