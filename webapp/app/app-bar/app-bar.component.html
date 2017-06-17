@@ -1,23 +1,26 @@
 <md-toolbar class="app-toolbar mat-primary mat-toolbar" color="primary" role="toolbar">
  
-<button class="hamburger mat-button" md-button="" title="Docs menu" (click)="sidenav.toggle()">
+<button fxFlex="5%" class="hamburger mat-button" md-button="" title="Docs menu" (click)="sidenav.toggle()">
   <span class="mat-button-wrapper">
     <md-icon class="md-24" >menu</md-icon>
   </span>
 </button>
 
-  <div fxFlex="20%" fxLayout="row" >
+  <div fxFlex="15%" fxLayout="row" fxLayoutAlign="center center"  >
     <a class="nav-link logoAlgin" href="/">
-      CALVIN
+       <img md-list-avatar src="/assets/img/logo/logo-landing.png" alt="logo" />
+       Calvin
     </a>
   </div>
 
-  <div fxFlex="40%" fxLayout="row" class="searchAlgin">
-    <input mdInput aria-label="search" fxFlex="100%" placeholder="Search" type="search" fxLayout="column" dividerColor="accent">
-    <i class="material-icons searchBtn"  fxLayout="column">search</i>
+  <div fxFlex="60%" fxLayout="row" fxLayoutAlign="center center">
+    <div fxFlex="60%" fxLayout="row" class="searchAlgin" fxLayoutAlign="center center">
+      <input mdInput aria-label="search" fxFlex="100%" fxLayout="row" placeholder="Search Community" type="search" />
+      <i class="material-icons searchBtn"  fxLayout="column">search</i>
+    </div>
   </div>
 
-  <div fxFlex="40%" fxLayout="row" class="searchAlgin" fxLayoutAlign="end">
+  <div fxFlex="20%" fxLayout="row"  fxLayoutAlign="end">
     <md-list>
       <md-list-item >
         <img md-list-avatar [md-menu-trigger-for]="menu" src="http://lorempixel.com/100/100/" alt="User">

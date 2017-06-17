@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { LoginService } from './login-service.component';
 
+import { Cookie } from 'ng2-cookies/ng2-cookies';
+
 //   title = 'app';
 //   language = [
 //     { value: 'E0', viewValue: 'English' },
@@ -50,12 +52,7 @@ import { NavigationExtras, Router } from '@angular/router';
 export class LoginComponent {
   constructor(public authService: AuthService, public router: Router) { }
   login() {
-    this.authService.login().subscribe((result) => {
-      if (result) {
-        const redirect = this.authService.redirectUrl ? this.authService.redirectUrl : '/app/home';
-        this.router.navigate([redirect]);
-      }
-    });
+    this.authService.login();
   };
 
   logout() {

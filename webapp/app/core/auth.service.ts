@@ -11,13 +11,23 @@ export class AuthService {
   // store the URL so we can redirect after logging in
   redirectUrl: string;
 
+  // login(): Observable<boolean> {
+  //   return Observable.of(true).do(val => {
+  //     this.isLoggedIn = true; localStorage.setItem('isLogginUser', 'true'); });
+  // }  http://localhost:3000/abc
+
   login(): Observable<boolean> {
+    window.location.replace('http://localhost:3000/app');
     return Observable.of(true).do(val => {
-      this.isLoggedIn = true; localStorage.setItem('isLogginUser', 'true'); });
-  }
+      this.isLoggedIn = true;      
+    });
+  } 
+
+  
 
   logout(): void {
-    localStorage.removeItem('isLogginUser');
+    //localStorage.removeItem('isLogginUser');
+    window.location.replace('http://localhost:3000/logout2');
     this.isLoggedIn = false;
   }
 }

@@ -2,6 +2,8 @@ import { ActivatedRouteSnapshot, CanActivate, CanActivateChild, CanLoad,  Route,
 import {Injectable} from '@angular/core';
 import { AuthService } from './auth.service';
 
+import { Cookie } from 'ng2-cookies/ng2-cookies';
+
 @Injectable()
 export class AuthGuard implements CanActivate, CanActivateChild, CanLoad {
   constructor(private authService: AuthService, private router: Router) {}
@@ -21,9 +23,7 @@ export class AuthGuard implements CanActivate, CanActivateChild, CanLoad {
   }
 
   checkLogin(url: string): boolean {
-    if (localStorage.getItem('isLogginUser') === 'true') { return true; }
-    this.authService.redirectUrl = url;
-    const sessionId = 123456789;
+    if (Cookie.get('isLogginUser') === 'true') { return true; }
     this.router.navigate(['/login']);
     return false;
   }

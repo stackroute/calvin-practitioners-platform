@@ -7,6 +7,14 @@ router.get('/logout', (req, res) => {
   res.clearCookie('currentUser');
   res.redirect('/');
 });
+router.get('/logout2', (req, res) => {
+  res.clearCookie('isLogginUser');
+  res.redirect('/');
+});
+router.get('/app', (req, res) => { 
+  res.cookie('isLogginUser', 'true');
+  res.redirect('/#/app/home');
+});
 router.get('/auth/google', passport.authenticate('google', { scope: ['profile', 'email'] }));
 router.get('/auth/google/callback', (req, res, next) => {
   controller.generateToken(req, res, next).then((result) => {

@@ -34,12 +34,15 @@ md-toolbar.mat-toolbar {
 }
 .logoAlgin {
   font-size: 16px;
-  font-weight: 400;
+  font-weight: 600;
   color: #fff;
   font-family: Roboto,Helvetica Neue Light,Helvetica Neue,Helvetica,Arial,Lucida Grande,sans-serif;
   text-transform: uppercase;
   padding: 21px 0;
   text-decoration: none;
+}
+.logoAlgin img {
+  width: 40px
 }
 .searchAlgin {
   position: relative;
@@ -49,11 +52,13 @@ md-toolbar.mat-toolbar {
   min-height: 30px;
   border: none;
   border-radius: 2px;
-  padding:10px;
+  padding: 4px 10px;
+  color: #999;
 }
 .searchBtn {
   position: absolute;
   right: 3px;
   top:7px;
   color: #666;
+  cursor: pointer;
 }
