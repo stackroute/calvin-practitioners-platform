@@ -1,11 +1,14 @@
 
-      <div fxFlex="20%" fxLatout="column"></div>
 
       <div fxLayout fxLayoutAlign="start end" class="community-layout-style" >
+     
+      <div fxFlex="20%" fxLatout="column"></div>
+
 
       <div class="container" fxLayout="row">      
 
-      <form class="container" fxFlex="60%" fxLayout="column" fxFlexAlign="center center" fxFlexFill [formGroup]="userForm" (ngSubmit)="onsubmit(userForm.value)"  >
+      <form class="container" fxFlex="60%" fxLayout="column" fxFlexAlign="center center"
+                 fxFlexFill [formGroup]="userForm"  >
        
 
             <h4 class="md-headline">Create New Community</h4>
@@ -41,7 +44,7 @@
 
 <!--select core-activity-->
             <div fxLayout.md="column">
-                  <md-select placeholder="Purpose" (click)="selectedCoreActivity(core.value)" formControlName="Purpose">
+                  <md-select placeholder="Purpose"  formControlName="Purpose">
                     <md-option *ngFor="let core of coreActivity" [value]="core.value" >
                       {{ core.value }}
                     </md-option>                 
@@ -57,22 +60,19 @@
 <!--choose visibitity mode-->
           <div>
               <md-input-container class="example-full-width">
-                  <input mdInput placeholder="Access" disabled>
-                       <md-radio-group name="access">
+                  <input mdInput placeholder="visibility" disabled>
+                       <md-radio-group name="visibility" formControlName="visibility">
                           <md-radio-button value="Public" >Public</md-radio-button>
-                          <md-radio-button value="Private">Private</md-radio-button>
-                          <md-radio-button value="Moderate">Moderate</md-radio-button>
+                          <md-radio-button value="Private" >Private</md-radio-button>
+                          <md-radio-button value="Moderate" >Moderate</md-radio-button>
                        </md-radio-group>
               </md-input-container>
            </div>
 <!--get description from user using text-area -->
-             <div fxLayout.md="row">
-                 <div fxLayout.md="column"> 
+            
                   <label>Description:</label>
                   <div><textarea rows="6"></textarea></div>
-                 </div>
-             </div>
-
+          
 <!--select tag container-->
           
            <div fxLayout.md="column">
@@ -86,9 +86,7 @@
 
 <!--select template -->
 
-            <div fxLayout.md="column" fxFlexFill>
                  <calvin-template-browser></calvin-template-browser>
-            </div>
 
 <!--terms and condition-->
               <span>
@@ -96,7 +94,8 @@
               </span>
 <!--submit the form using raised button-->
             <div>
-              <button md-raised-button ng-value="submit" color="primary" [disabled]="!userForm.valid">submit</button>
+              <button md-raised-button ng-value="submit" type="submit" color="primary" [disabled]="!userForm.valid"
+                                 (click)="onsubmit(userForm)">submit</button>
               <button md-raised-button ng-value="cancel" color="primary">cancel</button>
             </div>
           <!--</div>-->

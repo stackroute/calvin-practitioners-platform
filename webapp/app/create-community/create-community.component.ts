@@ -45,7 +45,7 @@ export class CreateCommunityComponent implements OnInit {
            domainName: ['', [Validators.required, Validators.pattern('[a-z.]{8,20}')]],
           communityName: ['', Validators.required],
           Purpose: ['', Validators.required],
-          // visibility: ['', Validators.required],
+          visibility: ['Public', Validators.required],
           tagSelection: ['', Validators.required],
           // termsCondition: ['', Validators.required]
         });
@@ -67,18 +67,13 @@ export class CreateCommunityComponent implements OnInit {
 
 // sample code for form validation
 
-    onsubmit() {
-       console.log(this.userForm.value);
+    onsubmit(userdata:any) {
+       console.log(userdata.value);
     }
 // bind text box value
     onKey(tag: string) {
-        console.log(tag);
+        // console.log(tag);
     }
-// display drop-down value
-    selectedCoreActivity(core: any) {
-      return core;
-}
-
 
   ngOnInit() { }
 }
