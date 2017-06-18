@@ -33,11 +33,64 @@
   <!--</div>
 </div>-->
 
-<div fxLayout fxLayout.xs="column" fxLayoutAlign="start">
+<div  fxLayout  fxLayoutAlign="start">
+  <div fxFlex="30%">
+   <!--<label fxLayoutAlign="center"><h3>Tools</h3></label>-->
+    <md-card>
+     
+  <md-card-header style="background-color:red;margin-top:-10px">
+    <p>App&Tools</p> 
+    <p>Tool bars</p>
+    
+  </md-card-header>
+  <button md-mini-fab routerLink="."  style="background-color:blue;margin-left:80%;margin-top:-20px"><md-icon>add</md-icon></button>
+  <md-card-content  style="margin-top:20px" fxLayoutAlign.xs="row">
+    <div fxFlex="33%">
+      <a href="https://myaccount.google.com/?utm_source=OGB&utm_medium=app"><md-list-item >
+          <img md-list-avatar src="assets/img/gmail.png" alt="User">
+          <p>Email</p>
+        </md-list-item></a>
+        <a md-list-item href="https://myaccount.google.com/?utm_source=OGB&utm_medium=app"><md-list-item>
+          <img md-list-avatar src="assets/img/instagram.png" alt="User">
+          <p>instagram</p>
+        </md-list-item></a>
+        <a md-list-item href="https://www.youtube.com"><md-list-item>
+          <img md-list-avatar src="assets/img/account.png" alt="User">
+           <p>MyAccount</p>
+        </md-list-item></a>
+    </div>
+    <div fxFlex="33%">
+      <a md-list-item href="https://www.youtube.com"><md-list-item>
+          <img md-list-avatar src="assets/img/account.png" alt="User">
+           <p>MyAccount</p>
+        </md-list-item></a>
+        <a md-list-item href="https://www.youtube.com"><md-list-item>
+          <img md-list-avatar src="assets/img/wall-calendar.png" alt="User">
+           <p>Calendar</p>
+        </md-list-item></a>
+        <a md-list-item href="https://www.youtube.com"><md-list-item>
+          <img md-list-avatar src="assets/img/drive.png" alt="User">
+           <p>MyDrive</p>
+        </md-list-item></a>
+    </div>
+    <div fxFlex="33%">
+        <a md-list-item href="https://www.youtube.com"><md-list-item>
+          <img md-list-avatar src="assets/img/drive.png" alt="User">
+           <p>MyDrive</p>
+        </md-list-item></a>
+        <a md-list-item href="https://www.youtube.com"><md-list-item>
+          <img md-list-avatar src="assets/img/search.png" alt="User">
+           <p>Search</p>
+        </md-list-item></a>
+        <a md-list-item href="https://www.youtube.com"><md-list-item>
+          <img md-list-avatar src="assets/img/news-report.png" alt="User">
+           <p>News</p>
+        </md-list-item></a>
+     
+    </div>
+  </md-card-content>
   
-    <!--<label fxLayoutAlign="center"><h3>Tools</h3></label>-->
-    <md-card fxLayoutAlign="start end">
-      <span fxLayoutAlign="center" style="margin-top:40px">
+      <!--<span fxLayoutAlign="center" style="margin-top:40px">
     <a href="https://myaccount.google.com/?utm_source=OGB&utm_medium=app"><md-list-item >
           <img md-list-avatar src="assets/img/gmail.png" alt="User">
           <p>Email</p>
@@ -99,9 +152,9 @@
            <p>Search</p>
         </md-list-item></a>
      
-   </span>
+   </span>-->
     </md-card>
-  <!--</md-sidenav>-->
-</div>
+  </div>
+<div fxflex></div>
+  </div>
 
-<!--memebers-->

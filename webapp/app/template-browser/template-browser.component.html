@@ -1,13 +1,11 @@
 <md-card>
-  <md-card-title>Template</md-card-title>
+  <md-card-title>Template Browser</md-card-title>
      <div fxLayout fxLayoutAlign="center center" fxLayout.md="column">
-         <div fxFlex="100%">
-             <md-card-subtitle>
+           <md-card-subtitle>
                 <md-input-container>
                    <input mdInput disabled value="Template_Name">
                  </md-input-container>
-              </md-card-subtitle>
-          </div>
+           </md-card-subtitle>
      </div>
     <md-grid-list cols="3" rowHeight="100px">
          <md-grid-tile *ngFor="let core of coreActivity">{{core.value}}</md-grid-tile>
