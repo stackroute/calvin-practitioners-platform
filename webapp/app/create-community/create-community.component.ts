@@ -67,7 +67,7 @@ export class CreateCommunityComponent implements OnInit {
 
 // sample code for form validation
 
-    onsubmit(userdata:any) {
+    onsubmit(userdata: any) {
        console.log(userdata.value);
     }
 // bind text box value
