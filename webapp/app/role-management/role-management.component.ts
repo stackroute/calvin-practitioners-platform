@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {MdDialog} from '@angular/material';
-import { RoleActionsComponent } from '../role-actions/role-actions.component';
+import { MdDialog } from '@angular/material';
 
 @Component({
   selector: 'calvin-role-management',
@@ -8,21 +7,19 @@ import { RoleActionsComponent } from '../role-actions/role-actions.component';
   styleUrls: ['./role-management.component.css']
 })
 export class RoleManagementComponent implements OnInit {
-selectedActions: string;
+  selectedActions: string;
   constructor(public dialog: MdDialog) { }
 
 
-openDialog() {
-    const dialog = this.dialog.open(RoleActionsComponent);
+  openDialog() {
+    const dialog = this.dialog.open(RoleManagementComponent);
 
-    dialog.afterClosed()
-      .subscribe(selection => {
-        if (selection) {
-          this.selectedActions = selection;
-        } else {
-          // User clicked 'Cancel' or clicked outside the dialog
-        }
-      });
+    // dialog.afterClosed()
+    //   .subscribe(selection => {
+    //     if (selection) {
+    //       this.selectedActions = selection;
+    //     } else{}
+    //   });
   }
 
   ngOnInit() {

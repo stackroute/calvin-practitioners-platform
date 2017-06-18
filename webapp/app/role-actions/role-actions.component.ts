@@ -8,8 +8,8 @@ import { MdDialogRef } from '@angular/material';
 })
 export class RoleActionsComponent implements OnInit {
 
-actions= ['read', 'write', 'reply', 'post', 'share'];
-chosenActions: string;
+  actions = ['read', 'write', 'reply', 'post', 'share'];
+  chosenActions: string;
   constructor(public dialogRef: MdDialogRef<RoleActionsComponent>) { }
 
   confirmSelection() {

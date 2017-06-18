@@ -1,16 +1,19 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators, FormBuilder} from '@angular/forms';
 import {MdDialog} from '@angular/material';
+
+import { TemplateBrowserComponent } from '../template-browser/template-browser.component';
 
 
 @Component({
- // selector: 'create-community',
   templateUrl: './create-community.component.html',
   styleUrls: ['./create-community.component.css']
 })
 
 
 export class CreateCommunityComponent implements OnInit {
+
+  userForm: FormGroup;
 
   coreActivity = [
     {value: 'Professional', viewValue: 'Professional'},
@@ -20,9 +23,9 @@ export class CreateCommunityComponent implements OnInit {
     ];
 
     visibility = [
-      {value: 'public', viewValue: 'Public'},
-      {value: 'private', viewValue: 'Private'},
-      {value: 'moderate', viewValue: 'Moderate'}
+      {value: 'Public', viewValue: 'Public'},
+      {value: 'Private', viewValue: 'Private'},
+      {value: 'Moderate', viewValue: 'Moderate'}
     ];
 
     tags = [
@@ -31,14 +34,22 @@ export class CreateCommunityComponent implements OnInit {
       {value: 'tag-three', viewValue: 'tagthree'}
     ];
 
-    userForm = new FormGroup({
-      domainName: new FormControl(),
-      communityName: new FormControl(),
-      coreactivity: new FormControl()
-    });
 
-  constructor(public dialog: MdDialog) { }
 
+  constructor(private dialog: MdDialog, private fb: FormBuilder) {
+    this.createForm();
+   }
+
+  createForm() {
+        this.userForm = this.fb.group({
+           domainName: ['', [Validators.required, Validators.pattern('[a-z.]{8,20}')]],
+          communityName: ['', Validators.required],
+          Purpose: ['', Validators.required],
+          visibility: ['Public', Validators.required],
+          tagSelection: ['', Validators.required],
+          // termsCondition: ['', Validators.required]
+        });
+    }
 //  check whether the card is clickable or not
 
    navigate(thing) {
@@ -56,10 +67,13 @@ export class CreateCommunityComponent implements OnInit {
 
 // sample code for form validation
 
-    onsubmit() {
-      // console.log(this.userForm.value);
+    onsubmit(userdata: any) {
+       console.log(userdata.value);
     }
-
+// bind text box value
+    onKey(tag: string) {
+        // console.log(tag);
+    }
 
   ngOnInit() { }
 }

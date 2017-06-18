@@ -1,9 +1,8 @@
 <h1 md-dialog-title>Choose Actions:</h1>
-<form>
-<div md-dialog-content>
+<div *ngIf="actions" md-dialog-content>
   <md-select [(ngModel)]="actions">
     <md-checkbox *ngFor="let action of actions" [value]="action">
-      {{ action }}
+      {{action.value}}
     </md-checkbox>
   </md-select>
 </div>
@@ -16,4 +15,4 @@
     Cancel
   </button>
 </div>
-</form>
+<router-outlet></router-outlet>
