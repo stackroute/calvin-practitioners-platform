@@ -1,0 +1,17 @@
+<div fxLayout='column'>
+    <div *ngIf='dummy'>
+        <div md-dialog-content *ngFor='let value of dummy'>
+            <div fxLayoutAlign='start stretch'>
+                <md-input-container fxFlex='80%'>
+                    <input mdInput placeholder={{value.role}}/>
+                </md-input-container>
+            </div>
+            <div *ngFor='let actions of value.actions'>
+                <md-checkbox>{{actions}}</md-checkbox>
+            </div>
+        </div>
+    </div>
+</div>
+<div md-dialog-actions fxLayoutAlign='end'>
+    <button md-raised-button md-dialog-close>Apply</button>
+</div>

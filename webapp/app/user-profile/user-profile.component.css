@@ -1,11 +1,9 @@
-.form-div
-{
 
-border:2px solid black;
-}
 .placing
 {
-    margin-top:5%;
-    margin-left:5%;
-    margin-bottom:5%;
+    margin:5% 0% 5% 5%;
+}
+.form-div
+{
+ margin:5% 0% 5% 15%;
 }

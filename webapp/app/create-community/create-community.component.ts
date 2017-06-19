@@ -15,12 +15,16 @@ export class CreateCommunityComponent implements OnInit {
 
   userForm: FormGroup;
 
-  coreActivity = [
-    {value: 'Professional', viewValue: 'Professional'},
-    {value: 'Travel', viewValue: 'Travel'},
-    {value: 'Arts', viewValue: 'Arts'},
-    {value: 'Technology', viewValue: 'Technology'}
-    ];
+   coreActivity = [
+    {value: 'Professional', viewValue: 'Professional', tool: 'Forum' },
+    {value: 'Travel', viewValue: 'Travel', tool: 'quora'},
+    {value: 'Arts', viewValue: 'Arts', tool: 'stackoverflow'},
+    {value: 'Technology', viewValue: 'Technology', tool: 'quora'},
+    {value: 'Business', viewValue: 'Business', tool: 'Forum'},
+    {value: 'Science', viewValue: 'Science', tool: 'quora'},
+    {value: 'Education', viewValue: 'Education', tool: 'quora'}
+  ];
+
 
     visibility = [
       {value: 'Public', viewValue: 'Public'},
