@@ -32,7 +32,6 @@ import { ActivityCardComponent } from './activity-card/activity-card.component';
 import { ActivityPageComponent } from './activity-page/activity-page.component';
 import { CommunityToolsWidgetComponent } from './community-tools-widget/community-tools-widget.component';
 import { CommunityMembersWidgetComponent } from './community-members-widget/community-members-widget.component';
-
 import { InfiniteScrollModule } from 'angular2-infinite-scroll';
 
 @NgModule({
@@ -60,7 +59,7 @@ import { InfiniteScrollModule } from 'angular2-infinite-scroll';
     CommunityRoleManagementComponent,
     CommunityRoleActionsComponent,
     CommunityToolActionsComponent,
-    ActivityPageComponent
+    ActivityPageComponent,
   ],
 
   imports: [
