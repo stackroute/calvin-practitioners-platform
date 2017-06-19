@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { CommunityNavbarComponent } from '../community-navbar/community-navbar.component';
-import { CommunitySidenavComponent } from '../community-sidenav/community-sidenav.component';
+import { CommunityToolsWidgetComponent } from '../community-tools-widget/community-tools-widget.component';
+import { CommunityMembersWidgetComponent } from '../community-members-widget/community-members-widget.component';
 
 @Component({
   selector: 'calvin-community-dashboard',
