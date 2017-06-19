@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { RoleManagementComponent } from './role-management.component';
+import { TemplateBrowserComponent } from './template-browser.component';
 
-describe('RoleManagementComponent', () => {
-  let component: RoleManagementComponent;
-  let fixture: ComponentFixture<RoleManagementComponent>;
+describe('TemplateBrowserComponent', () => {
+  let component: TemplateBrowserComponent;
+  let fixture: ComponentFixture<TemplateBrowserComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ RoleManagementComponent ]
+      declarations: [ TemplateBrowserComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(RoleManagementComponent);
+    fixture = TestBed.createComponent(TemplateBrowserComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

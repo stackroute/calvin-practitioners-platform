@@ -1,11 +1,10 @@
-const router = require('express').Router();
-const controller = require('./login-controller');
+const loginCtrl = require('./login.controller');
+const express = require('express');
 const passport = require('passport');
 
-// router.get('/app/home',(req,res)=>{
-// });
-router.get('/logout', (req, res) => {
-  // console.log('logout called');
+const router = express.Router();
+
+router.get('/auth/logout', (req, res) => {
   res.clearCookie('currentUser');
   res.redirect('/');
 });
@@ -19,12 +18,13 @@ router.get('/app', (req, res) => {
 });
 router.get('/auth/google', passport.authenticate('google', { scope: ['profile', 'email'] }));
 router.get('/auth/google/callback', (req, res, next) => {
-  controller.generateToken(req, res, next).then((result) => {
+  loginCtrl.redirectGoogle(req, res, next).then((result) => {
+    // console.log('result is ', result);
     res.cookie('currentUser', result);
     res.redirect('/#/app/home');
-    // res.send(200);
   }, (err) => {
-    res.send(err);
+    res.json(err);
   });
 });
+
 module.exports = router;

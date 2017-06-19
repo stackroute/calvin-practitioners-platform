@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SelectTemplateComponent } from './select-template.component';
+import { ActivityPageComponent } from './activity-page.component';
 
-describe('SelectTemplateComponent', () => {
-  let component: SelectTemplateComponent;
-  let fixture: ComponentFixture<SelectTemplateComponent>;
+describe('ActivityPageComponent', () => {
+  let component: ActivityPageComponent;
+  let fixture: ComponentFixture<ActivityPageComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SelectTemplateComponent ]
+      declarations: [ ActivityPageComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SelectTemplateComponent);
+    fixture = TestBed.createComponent(ActivityPageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

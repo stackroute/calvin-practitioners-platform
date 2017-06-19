@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { RoleActionsComponent } from './role-actions.component';
+import { ActivityCardComponent } from './activity-card.component';
 
-describe('RoleActionsComponent', () => {
-  let component: RoleActionsComponent;
-  let fixture: ComponentFixture<RoleActionsComponent>;
+describe('ActivityCardComponent', () => {
+  let component: ActivityCardComponent;
+  let fixture: ComponentFixture<ActivityCardComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ RoleActionsComponent ]
+      declarations: [ ActivityCardComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(RoleActionsComponent);
+    fixture = TestBed.createComponent(ActivityCardComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
