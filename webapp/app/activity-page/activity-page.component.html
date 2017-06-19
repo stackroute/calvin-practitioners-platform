@@ -6,13 +6,11 @@
     fxLayoutGap="10px"
     fxLayoutGap.xs="0">
   <div class="item item-1" fxFlex="30%"><calvin-user-widgets></calvin-user-widgets></div>
-      <div class="item item-3" fxFlex="70%">
-        <div *ngIf="dummy">
-                  <h2>Activity Logs</h2>
 
-          <div *ngFor="let sample of dummy">
+<div class="item item-3" fxFlex="70%">
+        <div *ngIf="dummy">
+              <div *ngFor="let sample of dummy">
             <calvin-activity-card [activity]="sample"></calvin-activity-card>
           </div>
         </div>
       </div>
-    </div>

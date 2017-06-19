@@ -1,14 +1,24 @@
 import { Component, OnInit } from '@angular/core';
+import { MyCommunities } from './my-communities.services';
 
 @Component({
   selector: 'calvin-user-widgets',
   templateUrl: './my-communities.component.html',
-  styleUrls: ['./my-communities.component.css']
+  styleUrls: ['./my-communities.component.css'],
+  providers: [ MyCommunities ]
 })
 export class UserWidgetsComponent implements OnInit {
-
-  constructor() { }
+  items = 0;
+  communities = [];
+  constructor(private moviesearchservice: MyCommunities) { }
 
   ngOnInit() { }
 
+  onScroll () {
+    this.items += 10;
+    console.log(this.items);
+    this.getMyCommunity();
+  }
+  getMyCommunity() {
+  }
 }
