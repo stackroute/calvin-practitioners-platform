@@ -1,0 +1,160 @@
+<!--<div fxLayout fxLayoutAlign="start">
+
+  <div class="item" fxLayout.xs="row" fxFlex="100%" class="flex">
+    <!--<md-toolbar>-->
+      <!--<md-list>
+        <md-list-item>
+          <img md-list-avatar src="assets/img/dog.jpg" alt="User">
+        </md-list-item>
+      </md-list>
+      <span class="list">
+      <md-list><md-list-item> <md-input-container class="form-width">
+   <input mdInput placeholder="community name"/>
+ </md-input-container><i class="material-icons">create</i></md-list-item>
+      <md-list-item>-->
+   <!--<label class="owner">Owner</label>-->
+  <!--<label class="time" >Created time</label>
+      </md-list-item></md-list></span>
+      <span fxLayoutAlign="end center"> <button md-button  (click)="setSaving($event.target, 'Member')">JOIN</button></span>
+      <span>
+      <button md-icon-button [mdMenuTriggerFor]="menu">
+  <i class="material-icons">settings</i>
+</button>
+<md-menu #menu="mdMenu">
+   <button md-menu-item>
+    <md-icon>notifications_off</md-icon>
+    <span>Disable alerts</span>
+      </button>
+      </md-menu>
+      </span>
+
+      <span></span>
+    <!--</md-toolbar>-->
+  <!--</div>
+</div>-->
+
+<div  fxLayout  fxLayoutAlign="start">
+  <div fxFlex="30%">
+   <!--<label fxLayoutAlign="center"><h3>Tools</h3></label>-->
+    <md-card>
+     
+  <md-card-header style="background-color:red;margin-top:-10px">
+    <p>App&Tools</p> 
+    <p>Tool bars</p>
+    
+  </md-card-header>
+  <button md-mini-fab routerLink="."  style="background-color:blue;margin-left:80%;margin-top:-20px"><md-icon>add</md-icon></button>
+  <md-card-content  style="margin-top:20px" fxLayoutAlign.xs="row">
+    <div fxFlex="33%">
+      <a href="https://myaccount.google.com/?utm_source=OGB&utm_medium=app"><md-list-item >
+          <img md-list-avatar src="assets/img/gmail.png" alt="User">
+          <p>Email</p>
+        </md-list-item></a>
+        <a md-list-item href="https://myaccount.google.com/?utm_source=OGB&utm_medium=app"><md-list-item>
+          <img md-list-avatar src="assets/img/instagram.png" alt="User">
+          <p>instagram</p>
+        </md-list-item></a>
+        <a md-list-item href="https://www.youtube.com"><md-list-item>
+          <img md-list-avatar src="assets/img/account.png" alt="User">
+           <p>MyAccount</p>
+        </md-list-item></a>
+    </div>
+    <div fxFlex="33%">
+      <a md-list-item href="https://www.youtube.com"><md-list-item>
+          <img md-list-avatar src="assets/img/account.png" alt="User">
+           <p>MyAccount</p>
+        </md-list-item></a>
+        <a md-list-item href="https://www.youtube.com"><md-list-item>
+          <img md-list-avatar src="assets/img/wall-calendar.png" alt="User">
+           <p>Calendar</p>
+        </md-list-item></a>
+        <a md-list-item href="https://www.youtube.com"><md-list-item>
+          <img md-list-avatar src="assets/img/drive.png" alt="User">
+           <p>MyDrive</p>
+        </md-list-item></a>
+    </div>
+    <div fxFlex="33%">
+        <a md-list-item href="https://www.youtube.com"><md-list-item>
+          <img md-list-avatar src="assets/img/drive.png" alt="User">
+           <p>MyDrive</p>
+        </md-list-item></a>
+        <a md-list-item href="https://www.youtube.com"><md-list-item>
+          <img md-list-avatar src="assets/img/search.png" alt="User">
+           <p>Search</p>
+        </md-list-item></a>
+        <a md-list-item href="https://www.youtube.com"><md-list-item>
+          <img md-list-avatar src="assets/img/news-report.png" alt="User">
+           <p>News</p>
+        </md-list-item></a>
+     
+    </div>
+  </md-card-content>
+  
+      <!--<span fxLayoutAlign="center" style="margin-top:40px">
+    <a href="https://myaccount.google.com/?utm_source=OGB&utm_medium=app"><md-list-item >
+          <img md-list-avatar src="assets/img/gmail.png" alt="User">
+          <p>Email</p>
+        </md-list-item></a>
+     
+     </span>
+      <span fxLayoutAlign="center">
+    <a md-list-item href="https://myaccount.google.com/?utm_source=OGB&utm_medium=app"><md-list-item>
+          <img md-list-avatar src="assets/img/instagram.png" alt="User">
+          <p>instagram</p>
+        </md-list-item></a>
+    </span>
+      <span fxLayoutAlign="center">
+      <a md-list-item href="https://www.youtube.com"><md-list-item>
+          <img md-list-avatar src="assets/img/youtube.png" alt="User">
+           <p>YouTube</p>
+        </md-list-item></a>
+      </span>
+
+      <span fxLayoutAlign="end" style="margin-top:-190px;">
+      <a md-list-item href="https://www.youtube.com"><md-list-item>
+          <img md-list-avatar src="assets/img/account.png" alt="User">
+           <p>MyAccount</p>
+        </md-list-item></a>
+     
+   </span>
+      <span fxLayoutAlign="end">
+      <a md-list-item href="https://www.youtube.com"><md-list-item>
+          <img md-list-avatar src="assets/img/wall-calendar.png" alt="User">
+           <p>Calendar</p>
+        </md-list-item></a>
+     
+   </span>
+      <span fxLayoutAlign="end">
+      <a md-list-item href="https://www.youtube.com"><md-list-item>
+          <img md-list-avatar src="assets/img/drive.png" alt="User">
+           <p>MyDrive</p>
+        </md-list-item></a>
+     
+   </span>
+      <span fxLayoutAlign="start" style="margin-top:-180px;">
+      <a md-list-item href="https://www.youtube.com"><md-list-item>
+          <img md-list-avatar src="assets/img/news-report.png" alt="User">
+           <p>News</p>
+        </md-list-item></a>
+     
+   </span>
+
+      <span fxLayoutAlign="start">
+      <a md-list-item href="https://www.youtube.com"><md-list-item>
+          <img md-list-avatar src="assets/img/placeholder.png" alt="User">
+           <p>PlaceHolder</p>
+        </md-list-item></a>
+     
+   </span>
+      <span fxLayoutAlign="start">
+      <a md-list-item href="https://www.youtube.com"><md-list-item>
+          <img md-list-avatar src="assets/img/search.png" alt="User">
+           <p>Search</p>
+        </md-list-item></a>
+     
+   </span>-->
+    </md-card>
+  </div>
+<div fxflex></div>
+  </div>
+

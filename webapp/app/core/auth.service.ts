@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
+import { Http, Response } from '@angular/http';
 import 'rxjs/add/observable/of';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/delay';
@@ -7,27 +8,19 @@ import 'rxjs/add/operator/delay';
 @Injectable()
 export class AuthService {
   isLoggedIn = false;
-
   // store the URL so we can redirect after logging in
   redirectUrl: string;
-
-  // login(): Observable<boolean> {
-  //   return Observable.of(true).do(val => {
-  //     this.isLoggedIn = true; localStorage.setItem('isLogginUser', 'true'); });
-  // }  http://localhost:3000/abc
-
-  login(): Observable<boolean> {
-    window.location.replace('http://localhost:3000/app');
+  constructor(private http: Http) { }
+  login() {
+    window.location.replace('http://localhost:3000/auth/google');
     return Observable.of(true).do(val => {
-      this.isLoggedIn = true;      
+      this.isLoggedIn = true;
     });
-  } 
+  }
 
-  
-
-  logout(): void {
-    //localStorage.removeItem('isLogginUser');
-    window.location.replace('http://localhost:3000/logout2');
-    this.isLoggedIn = false;
+  logout() {
+    // localStorage.removeItem('isLogginUser');
+    // this.isLoggedIn = false;
+    return this.http.get('http://localhost:3000/logout').map((res: Response) => { res = res; });
   }
 }
