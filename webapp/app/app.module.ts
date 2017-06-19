@@ -44,7 +44,7 @@ import { RoleManagementComponent } from './role-management/role-management.compo
     SideNavComponent,
     SelectTemplateComponent,
     RoleActionsComponent,
-    RoleManagementComponent
+    RoleManagementComponent,
   ],
   imports: [
     MdSidenavModule,
