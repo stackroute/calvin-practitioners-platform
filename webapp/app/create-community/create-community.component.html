@@ -8,7 +8,7 @@
       <div class="container" fxLayout="row">      
 
       <form class="container" fxFlex="60%" fxLayout="column" fxFlexAlign="center center"
-                 fxFlexFill [formGroup]="userForm"  >
+                 fxFlexFill [formGroup]="userForm">
        
 
             <h4 class="md-headline">Create New Community</h4>
@@ -85,9 +85,7 @@
               </md-chip-list>
 
 <!--select template -->
-
-                 <calvin-template-browser></calvin-template-browser>
-
+                 <calvin-template-browser  [template]="coreActivity"></calvin-template-browser>
 <!--terms and condition-->
               <span>
               <button md-button (click)="openDialog()">Terms and conditon</button>
