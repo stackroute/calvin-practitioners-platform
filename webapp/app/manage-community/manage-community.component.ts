@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
   import {FormControl} from '@angular/forms';
   import {MdDialog} from '@angular/material';
- import {NgForm} from '@angular/forms'
+ import {NgForm} from '@angular/forms';
 
 @Component({
   // selector: 'calvinManagecommunity',
@@ -38,7 +38,6 @@ export class ManageCommunityComponent implements OnInit {
     openDialog() {
     this.dialog.open(ManageCommunityComponent);
   }
-   
-ngOnInit() { }
+  ngOnInit() { }
 
 }
