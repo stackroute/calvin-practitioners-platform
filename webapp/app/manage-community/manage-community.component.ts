@@ -2,9 +2,10 @@ import { Component, OnInit } from '@angular/core';
   import {FormControl} from '@angular/forms';
   import {MdDialog} from '@angular/material';
  import {NgForm} from '@angular/forms';
+ import { Router } from '@angular/router';
 
 @Component({
-  // selector: 'calvinManagecommunity',
+  selector: 'calvinManagecommunity',
   templateUrl: './manage-community.component.html',
   styleUrls: ['./manage-community.component.css']
 })
@@ -34,7 +35,7 @@ export class ManageCommunityComponent implements OnInit {
 
   }
 
-  constructor(public dialog: MdDialog) {}
+  constructor(private dialog: MdDialog, private router:Router) {}
     openDialog() {
     this.dialog.open(ManageCommunityComponent);
   }

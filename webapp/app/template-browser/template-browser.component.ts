@@ -10,8 +10,14 @@ import { CreateCommunityComponent } from '../create-community/create-community.c
   styleUrls: ['./template-browser.component.css']
 })
 export class TemplateBrowserComponent implements OnInit {
+
   @Input() template;
+
+   
+
+
   constructor(private community: CreateCommunityComponent ) { }
+
   ngOnInit() {
   }
 

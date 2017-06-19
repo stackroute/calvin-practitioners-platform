@@ -3,6 +3,7 @@ import { FormGroup, FormControl, Validators, FormBuilder} from '@angular/forms';
 import {MdDialog} from '@angular/material';
 
 import { TemplateBrowserComponent } from '../template-browser/template-browser.component';
+import { ManageCommunityComponent } from '../manage-community/manage-community.component';
 
 
 @Component({
@@ -14,6 +15,8 @@ import { TemplateBrowserComponent } from '../template-browser/template-browser.c
 export class CreateCommunityComponent implements OnInit {
 
   userForm: FormGroup;
+
+  tag=[{}];
 
    coreActivity = [
     {value: 'Professional', viewValue: 'Professional', tool: 'Forum' },
@@ -50,15 +53,14 @@ export class CreateCommunityComponent implements OnInit {
           communityName: ['', Validators.required],
           Purpose: ['', Validators.required],
           visibility: ['Public', Validators.required],
+          // template: ['',Validators.required],
           tagSelection: ['', Validators.required],
-          // termsCondition: ['', Validators.required]
+          termscondition: ['', Validators.required]
         });
     }
 //  check whether the card is clickable or not
 
-   navigate(thing) {
-    //  console.log(thing);
-    }
+ 
 
 // sample method to display tag name
     flagDetails(tag) {
@@ -75,8 +77,12 @@ export class CreateCommunityComponent implements OnInit {
        console.log(userdata.value);
     }
 // bind text box value
-    onKey(tag: string) {
-        // console.log(tag);
+    chipvalue(tag: any) {
+     if(tag) {
+       this.tag.push(tag.value);
+     }
+            console.log(tag.value);
+
     }
 
   ngOnInit() { }

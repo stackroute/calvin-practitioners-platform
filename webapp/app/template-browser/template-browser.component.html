@@ -1,6 +1,6 @@
 
 <md-card>
-  <md-card-title>Template Browser</md-card-title>
+  <md-card-title><h4>Template Browser</h4></md-card-title>
      <div fxLayout fxLayoutAlign="center center" fxLayout.md="column">
            <md-card-subtitle>
                 <md-input-container>
@@ -9,6 +9,8 @@
               </md-card-subtitle>
      </div>
     <md-grid-list cols="3" rowHeight="100px">
-         <md-grid-tile *ngFor="let core of template" >{{core.value}}</md-grid-tile>
+         <md-grid-tile *ngFor="let core of template" (click)="selectcore(core)">
+            {{core.value}}
+           </md-grid-tile>
     </md-grid-list>
 </md-card>
