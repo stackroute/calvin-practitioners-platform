@@ -22,8 +22,9 @@ import { MdSelectModule } from '@angular/material';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { CreateCommunityComponent } from './create-community/create-community.component';
 import { SelectTemplateComponent } from './select-template/select-template.component';
-import { RoleActionsComponent } from './role-actions/role-actions.component';
-import { RoleManagementComponent } from './role-management/role-management.component';
+import { CommunityRoleActionsComponent } from './community-role-actions/community-role-actions.component';
+import { CommunityRoleManagementComponent } from './community-role-management/community-role-management.component';
+import { CommunityToolActionsComponent } from './community-tool-actions/community-tool-actions.component';
 
 @NgModule({
   declarations: [
@@ -37,8 +38,9 @@ import { RoleManagementComponent } from './role-management/role-management.compo
     UserProfileComponent,
     PageNotFoundComponent,
     SelectTemplateComponent,
-    RoleActionsComponent,
-    RoleManagementComponent,
+    CommunityRoleActionsComponent,
+    CommunityRoleManagementComponent,
+    CommunityToolActionsComponent,
   ],
   imports: [
     BrowserModule,
@@ -62,6 +64,7 @@ import { RoleManagementComponent } from './role-management/role-management.compo
     MdDialogModule,
     ReactiveFormsModule
   ],
+  entryComponents: [CommunityToolActionsComponent],
 
   providers: [],
   bootstrap: [AppComponent]
