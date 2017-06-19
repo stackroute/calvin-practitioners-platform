@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import { ManageCommunityComponent } from './manageCommunity/manage-community.component';
+import { ManageCommunityComponent } from './manage-community/manage-community.component';
 import { AppRoutingModule } from './core/app-routing.module';
 import { AppComponent } from './app.component';
 import { MdSidenavModule } from '@angular/material';
@@ -21,21 +21,17 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MdSelectModule } from '@angular/material';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { CreateCommunityComponent } from './create-community/create-community.component';
-import { RoleActionsComponent } from './role-actions/role-actions.component';
-import { RoleManagementComponent } from './role-management/role-management.component';
+import { CommunityRoleActionsComponent } from './community-role-actions/community-role-actions.component';
+import { CommunityRoleManagementComponent } from './community-role-management/community-role-management.component';
+import { CommunityToolActionsComponent } from './community-tool-actions/community-tool-actions.component';
 import { TemplateBrowserComponent } from './template-browser/template-browser.component';
-
 import { CommunityActivitylogsComponent } from './community-activitylogs/community-activitylogs.component';
 import { CommunityNavbarComponent } from './community-navbar/community-navbar.component';
 import { CommunitySidenavComponent } from './community-sidenav/community-sidenav.component';
-
 import { SideNavComponent } from './side-nav/side-nav.component';
-
-
 import { CommunityDashboardComponent } from './community-dashboard/community-dashboard.component';
 import { ActivityCardComponent } from './activity-card/activity-card.component';
 import { ActivityPageComponent } from './activity-page/activity-page.component';
-
 
 @NgModule({
   declarations: [
@@ -48,16 +44,18 @@ import { ActivityPageComponent } from './activity-page/activity-page.component';
     LoginComponent,
     UserProfileComponent,
     PageNotFoundComponent,
+    CommunityRoleActionsComponent,
+    CommunityRoleManagementComponent,
+    CommunityToolActionsComponent,
     TemplateBrowserComponent,
     CommunityActivitylogsComponent,
     CommunityNavbarComponent,
     CommunitySidenavComponent,
     SideNavComponent,
-    RoleActionsComponent,
-    RoleManagementComponent,
     CommunityDashboardComponent,
     ActivityCardComponent,
     ActivityPageComponent
+
   ],
 
   imports: [
@@ -83,6 +81,7 @@ import { ActivityPageComponent } from './activity-page/activity-page.component';
     MdDialogModule,
     ReactiveFormsModule
   ],
+  entryComponents: [CommunityToolActionsComponent],
 
   providers: [],
   bootstrap: [AppComponent]
