@@ -1,7 +1,7 @@
-<<<<<<< HEAD
-=======
+
 
 <!--Using Flex for dividing the page into side nav,content and side nav  -->
+
   <div 
          fxLayout
          fxLayout.xs="column"
@@ -13,6 +13,9 @@
 
    <md-list>
          <md-list-item class="community-image"> 
+
+                  
+                <md-icon  (click)="openDialog()" class="community-display-pic" mdTooltip="Edit">add_a_photo</md-icon>
                 <img md-list-avatar src='/assets/images/try1.jpg'>
          </md-list-item>
    </md-list>
@@ -33,9 +36,9 @@
 
   <div class="item item-2" fxFlex="60%" fxFlexAlign="start">
         <md-tab-group>
-                <md-tab label="CommunityInfo">
+                <md-tab label="Community">   
                   <!--Form for displaying community info in community info tab-->
-                        <form class="example-form">
+                        <form #userForm="ngForm" (ngSubmit)="onFormSubmit(userForm)" class="try">
                              <div>
                                    <md-input-container class="example-full-width">
                                           <input mdInput placeholder="Domain (disabled)" disabled value="domain">
@@ -52,22 +55,22 @@
 
                               <div>
                                     <md-input-container class="example-full-width">
-                                          <input mdInput placeholder="Community Name">
+                                          <input mdInput placeholder="Community Name" name="Community name" [ngModel]="Community">
                                     </md-input-container>
                               </div>
 
                               <div>
                                     <md-input-container class="example-full-width">
-                                         <input mdInput placeholder="Description">
+                                         <input mdInput placeholder="Description" name="Description" ngModel >
                                     </md-input-container></div>
 
                               <div>
                                     <md-input-container class="example-full-width">
                                         <input mdInput placeholder="Access" disabled>
-                                        <md-radio-group>
-                                              <md-radio-button value="1">Public</md-radio-button>
-                                              <md-radio-button value="2">Private</md-radio-button>
-                                              <md-radio-button value="2">Moderate</md-radio-button>
+                                        <md-radio-group name="access"ngModel>
+                                              <md-radio-button value="Public">Public</md-radio-button>
+                                              <md-radio-button value="Private">Private</md-radio-button>
+                                              <md-radio-button value="Moderate">Moderate</md-radio-button>
                                         </md-radio-group>
                                    </md-input-container>
                               </div>
@@ -75,23 +78,21 @@
 
                               <div>
                                     <md-input-container class="example-full-width"> 
-                                        <input mdInput placeholder="Tags">
+                                        <input mdInput placeholder="Tags" name="Tags"[(ngModel)]="Tags">
                                     </md-input-container> 
                               </div>
+                              <button md-raised-button color="primary" type="submit" [disabled]="!userForm.valid">Save</button>
 
 
                     </form><!--closing form-->
 
-                       <i md-raised-button color="primary" routerLink=".">Save</i>
-        
+                  
               </md-tab><!--Closing community info tab-->
 
-                    <md-tab label="Manage Members"></md-tab><!--tab for manage member component-->
-                    <md-tab label="Manage Roles"></md-tab><!--tab for manage role component-->
-                   <md-tab label="Manage Tools"></md-tab><!--tab for manage tools component-->
+                    <md-tab label="Members"></md-tab><!--tab for manage member component-->
+                    <md-tab label="Roles" ><calvin-community-role-managements></calvin-community-role-managements></md-tab><!--tab for manage role component-->
+                   <md-tab label="Tools"></md-tab><!--tab for manage tools component-->
         </md-tab-group>
-    
+  </div>
+  </div>
  <div class="item item-4" fxFlex="20%" fxFlexOrder="4"></div>
-
-
->>>>>>> f8e74ed6556604c020f9983d8cfd8009b82c1d9c

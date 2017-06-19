@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import { ManageCommunityComponent } from './manageCommunity/manage-community.component';
+import { ManageCommunityComponent } from './manage-community/manage-community.component';
 import { AppRoutingModule } from './core/app-routing.module';
 import { AppComponent } from './app.component';
 import { MdSidenavModule } from '@angular/material';
@@ -26,12 +26,12 @@ import { CommunityRoleManagementComponent } from './community-role-management/co
 import { CommunityToolActionsComponent } from './community-tool-actions/community-tool-actions.component';
 import { TemplateBrowserComponent } from './template-browser/template-browser.component';
 import { CommunityActivitylogsComponent } from './community-activitylogs/community-activitylogs.component';
-import { CommunityNavbarComponent } from './community-navbar/community-navbar.component';
-import { CommunitySidenavComponent } from './community-sidenav/community-sidenav.component';
 import { SideNavComponent } from './side-nav/side-nav.component';
 import { CommunityDashboardComponent } from './community-dashboard/community-dashboard.component';
 import { ActivityCardComponent } from './activity-card/activity-card.component';
 import { ActivityPageComponent } from './activity-page/activity-page.component';
+import { CommunityToolsWidgetComponent } from './community-tools-widget/community-tools-widget.component';
+import { CommunityMembersWidgetComponent } from './community-members-widget/community-members-widget.component';
 
 import { InfiniteScrollModule } from 'angular2-infinite-scroll';
 
@@ -51,13 +51,16 @@ import { InfiniteScrollModule } from 'angular2-infinite-scroll';
     CommunityToolActionsComponent,
     TemplateBrowserComponent,
     CommunityActivitylogsComponent,
-    CommunityNavbarComponent,
-    CommunitySidenavComponent,
     SideNavComponent,
     CommunityDashboardComponent,
     ActivityCardComponent,
+    ActivityPageComponent,
+    CommunityToolsWidgetComponent,
+    CommunityMembersWidgetComponent,
+    CommunityRoleManagementComponent,
+    CommunityRoleActionsComponent,
+    CommunityToolActionsComponent,
     ActivityPageComponent
-
   ],
 
   imports: [

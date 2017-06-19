@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { MdDialog } from '@angular/material';
 import { CommunityToolActionsComponent } from '../community-tool-actions/community-tool-actions.component';
 @Component({
@@ -7,13 +7,12 @@ import { CommunityToolActionsComponent } from '../community-tool-actions/communi
   styleUrls: ['./community-role-actions.component.css']
 })
 export class CommunityRoleActionsComponent implements OnInit {
-dummy= [{'role': 'Member', 'actions': ['share', 'write', 'comment']},
-       {'role': 'Admin', 'actions': ['post', 'add', 'remove', 'manage']},
-       {'role': 'Secretary', 'actions': ['post', 'add', 'remove', 'manage', 'reply']}];
-constructor(public dialog: MdDialog) { }
-openDialog() {
-    const dialog = this.dialog.open(CommunityToolActionsComponent); }
+ @Input() dummy;
+  constructor(public dialog: MdDialog) { }
+  openDialog() {
+    const dialog = this.dialog.open(CommunityToolActionsComponent);
+  }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
 }

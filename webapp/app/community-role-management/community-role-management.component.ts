@@ -9,12 +9,13 @@ import { CommunityToolActionsComponent } from '../community-tool-actions/communi
 
 })
 export class CommunityRoleManagementComponent implements OnInit {
-dummy= [{'role': 'Member', 'actions': ['share', 'write', 'comment']},
-       {'role': 'Admin', 'actions': ['post', 'add', 'remove', 'manage']},
-       {'role': 'Secretary', 'actions': ['post', 'add', 'remove', 'manage', 'reply']}];
-       constructor(public dialog: MdDialog) {}
+  sample = [{ 'role': 'Member', 'actions': ['share', 'write', 'comment'] },
+  { 'role': 'Admin', 'actions': ['post', 'add', 'remove', 'manage'] },
+  { 'role': 'Secretary', 'actions': ['post', 'add', 'remove', 'manage', 'reply'] }];
+  constructor(public dialog: MdDialog) { }
   openDialog() {
-    const dialog = this.dialog.open(CommunityToolActionsComponent); }
+    const dialog = this.dialog.open(CommunityToolActionsComponent);
+  }
   ngOnInit() {
   }
 

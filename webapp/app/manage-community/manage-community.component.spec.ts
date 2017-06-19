@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CommunitySidenavComponent } from './community-sidenav.component';
+import { ManageCommunityComponent } from './manage-community.component';
 
-describe('CommunitySidenavComponent', () => {
-  let component: CommunitySidenavComponent;
-  let fixture: ComponentFixture<CommunitySidenavComponent>;
+describe('CreateCommunityComponent', () => {
+  let component: ManageCommunityComponent;
+  let fixture: ComponentFixture<ManageCommunityComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CommunitySidenavComponent ]
+      declarations: [ ManageCommunityComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CommunitySidenavComponent);
+    fixture = TestBed.createComponent(ManageCommunityComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
