@@ -21,6 +21,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MdSelectModule } from '@angular/material';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { CreateCommunityComponent } from './create-community/create-community.component';
+import { RoleActionsComponent } from './role-actions/role-actions.component';
+import { RoleManagementComponent } from './role-management/role-management.component';
+import { TemplateBrowserComponent } from './template-browser/template-browser.component';
 
 import { CommunityActivitylogsComponent } from './community-activitylogs/community-activitylogs.component';
 import { CommunityNavbarComponent } from './community-navbar/community-navbar.component';
@@ -29,10 +32,9 @@ import { CommunitySidenavComponent } from './community-sidenav/community-sidenav
 import { SideNavComponent } from './side-nav/side-nav.component';
 
 
-import { SelectTemplateComponent } from './select-template/select-template.component';
-import { RoleActionsComponent } from './role-actions/role-actions.component';
-import { RoleManagementComponent } from './role-management/role-management.component';
 import { CommunityDashboardComponent } from './community-dashboard/community-dashboard.component';
+import { ActivityCardComponent } from './activity-card/activity-card.component';
+import { ActivityPageComponent } from './activity-page/activity-page.component';
 
 
 @NgModule({
@@ -46,14 +48,16 @@ import { CommunityDashboardComponent } from './community-dashboard/community-das
     LoginComponent,
     UserProfileComponent,
     PageNotFoundComponent,
+    TemplateBrowserComponent,
     CommunityActivitylogsComponent,
     CommunityNavbarComponent,
     CommunitySidenavComponent,
     SideNavComponent,
-    SelectTemplateComponent,
     RoleActionsComponent,
     RoleManagementComponent,
-    CommunityDashboardComponent
+    CommunityDashboardComponent,
+    ActivityCardComponent,
+    ActivityPageComponent
   ],
 
   imports: [
