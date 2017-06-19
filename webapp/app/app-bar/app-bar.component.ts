@@ -14,6 +14,7 @@ export class AppBarComponent implements OnInit {
   ngOnInit() { }
 
   logout() {
+    // alert('logout clciked');
     this.authService.logout();
   }
 }

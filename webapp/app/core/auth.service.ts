@@ -13,14 +13,9 @@ export class AuthService {
   constructor(private http: Http) { }
   login() {
     window.location.replace('http://localhost:3000/api/v1/login/auth/google');
-    return Observable.of(true).do(val => {
-      this.isLoggedIn = true;
-    });
   }
-
   logout() {
-    // localStorage.removeItem('isLogginUser');
-    // this.isLoggedIn = false;
-    return this.http.get('http://localhost:3000/api/v1/login/auth/logout').map((res: Response) => { res = res; });
+    // alert('inside logout service');
+    window.location.replace('http://localhost:3000/api/v1/logout');
     }
   }
