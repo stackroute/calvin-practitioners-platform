@@ -63,6 +63,7 @@ import { InfiniteScrollModule } from 'angular2-infinite-scroll';
   ],
 
   imports: [
+    InfiniteScrollModule,
     MdSidenavModule,
     BrowserModule,
     HttpModule,
@@ -84,7 +85,6 @@ import { InfiniteScrollModule } from 'angular2-infinite-scroll';
     MdSlideToggleModule,
     MdDialogModule,
     ReactiveFormsModule,
-    InfiniteScrollModule
   ],
   entryComponents: [CommunityToolActionsComponent],
 
