@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import { ManageCommunityComponent } from './manageCommunity/manage-community.component';
+import { ManageCommunityComponent } from './manage-community/manage-community.component';
 import { AppRoutingModule } from './core/app-routing.module';
 import { AppComponent } from './app.component';
 import { MdSidenavModule } from '@angular/material';
