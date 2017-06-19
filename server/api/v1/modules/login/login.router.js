@@ -5,13 +5,13 @@ const passport = require('passport');
 const router = express.Router();
 
 router.get('/auth/logout', (req, res) => {
-  res.clearCookie('currentUser');
   res.redirect('/');
+  res.clearCookie('currentUser');
 });
 router.get('/auth/google', passport.authenticate('google', { scope: ['profile', 'email'] }));
+
 router.get('/auth/google/callback', (req, res, next) => {
   loginCtrl.redirectGoogle(req, res, next).then((result) => {
-    // console.log('result is ', result);
     res.cookie('currentUser', result);
     res.redirect('/#/app/home');
   }, (err) => {
