@@ -26,7 +26,6 @@ import { CommunityRoleManagementComponent } from './community-role-management/co
 import { CommunityToolActionsComponent } from './community-tool-actions/community-tool-actions.component';
 import { TemplateBrowserComponent } from './template-browser/template-browser.component';
 import { CommunityActivitylogsComponent } from './community-activitylogs/community-activitylogs.component';
-
 import { SideNavComponent } from './side-nav/side-nav.component';
 import { CommunityDashboardComponent } from './community-dashboard/community-dashboard.component';
 import { ActivityCardComponent } from './activity-card/activity-card.component';
@@ -54,15 +53,9 @@ import { CommunityMembersWidgetComponent } from './community-members-widget/comm
     CommunityDashboardComponent,
     ActivityCardComponent,
     ActivityPageComponent,
-<<<<<<< HEAD:webapp/app/app.module.ts
     CommunityToolsWidgetComponent,
     CommunityMembersWidgetComponent
-=======
-    CommunityRoleManagementComponent,
-    CommunityRoleActionsComponent,
-    CommunityToolActionsComponent,
-    ActivityPageComponent
->>>>>>> a3801fa1ecd3a90fa4c7dca27c31e3e3eeda2be7:webapp/app/app.module.ts
+    
   ],
 
   imports: [

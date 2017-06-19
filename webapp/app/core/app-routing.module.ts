@@ -12,7 +12,6 @@ import { CommunityRoleActionsComponent } from '../community-role-actions/communi
 import { CommunityRoleManagementComponent } from '../community-role-management/community-role-management.component';
 import { AuthGuard } from './auth-guard.service';
 import { AuthService } from './auth.service';
-import { CommunitySidenavComponent } from '../community-sidenav/community-sidenav.component';
 import { CommunityDashboardComponent } from '../community-dashboard/community-dashboard.component';
 import {  SideNavComponent } from '../side-nav/side-nav.component';
 import { ActivityPageComponent} from '../activity-page/activity-page.component';
