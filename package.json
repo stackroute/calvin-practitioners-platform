@@ -9,7 +9,7 @@
     "test": "yarn && node_modules/.bin/eslint server/**/*.js && cd webapp/ && ng lint",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "serve": "nodemon bin/www"
+    "serve": "concurrently \"ng build --watch\" \"nodemon bin/www\""
   },
   "private": true,
   "dependencies": {
@@ -63,6 +63,7 @@
     "karma-coverage-istanbul-reporter": "^0.2.0",
     "karma-jasmine": "~1.1.0",
     "karma-jasmine-html-reporter": "^0.2.2",
+    "log4js": "^1.1.1",
     "nodemon": "^1.11.0",
     "protractor": "~5.1.0",
     "ts-node": "~2.0.0",

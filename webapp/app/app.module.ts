@@ -21,8 +21,20 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MdSelectModule } from '@angular/material';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { CreateCommunityComponent } from './create-community/create-community.component';
-import { RoleActionsComponent } from './role-actions/role-actions.component';
-import { RoleManagementComponent } from './role-management/role-management.component';
+
+import { CommunityRoleActionsComponent } from './community-role-actions/community-role-actions.component';
+import { CommunityRoleManagementComponent } from './community-role-management/community-role-management.component';
+import { CommunityToolActionsComponent } from './community-tool-actions/community-tool-actions.component';
+
+import { TemplateBrowserComponent } from './template-browser/template-browser.component';
+import { CommunityActivitylogsComponent } from './community-activitylogs/community-activitylogs.component';
+import { CommunityNavbarComponent } from './community-navbar/community-navbar.component';
+import { CommunitySidenavComponent } from './community-sidenav/community-sidenav.component';
+
+import { SideNavComponent } from './side-nav/side-nav.component';
+import { CommunityDashboardComponent } from './community-dashboard/community-dashboard.component';
+import { ActivityCardComponent } from './activity-card/activity-card.component';
+import { ActivityPageComponent } from './activity-page/activity-page.component';
 
 @NgModule({
   declarations: [
@@ -35,10 +47,22 @@ import { RoleManagementComponent } from './role-management/role-management.compo
     LoginComponent,
     UserProfileComponent,
     PageNotFoundComponent,
-    RoleActionsComponent,
-    RoleManagementComponent,
+    CommunityRoleActionsComponent,
+    CommunityRoleManagementComponent,
+    CommunityToolActionsComponent,
+    TemplateBrowserComponent,
+    CommunityActivitylogsComponent,
+    CommunityNavbarComponent,
+    CommunitySidenavComponent,
+    SideNavComponent,
+    CommunityDashboardComponent,
+    ActivityCardComponent,
+    ActivityPageComponent
+
   ],
+
   imports: [
+    MdSidenavModule,
     BrowserModule,
     HttpModule,
     AppRoutingModule,
@@ -60,6 +84,7 @@ import { RoleManagementComponent } from './role-management/role-management.compo
     MdDialogModule,
     ReactiveFormsModule
   ],
+  entryComponents: [CommunityToolActionsComponent],
 
   providers: [],
   bootstrap: [AppComponent]
