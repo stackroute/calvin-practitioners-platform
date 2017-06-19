@@ -1,19 +1,41 @@
-
-
 md-list-item {
-	border-bottom: 1px dashed #ddd
+	border-bottom: 1px dashed #ddd;
+  cursor: pointer;
+}
+md-list-item img {
+  transition: all 0.5s ease;
+}
+md-list-item:hover {
+  background-color: #eee;
+}
+md-list-item:hover img {
+  width: 42px;
+  height: 42px;
 }
 md-list-item:last-child {
   border-bottom: 1px transparent;
 }
-.mycommunity md-card-title {
-  border-bottom: 5px double #666;
-  padding-bottom: 25px;
+.mycommunity-head {
+  border-bottom: 3px double #666;
+  margin-top: -40px;
 }
-.mycommunity md-card-title i {
+.mycommunity::-webkit-scrollbar { 
+    display: none; 
+}
+.mycommunity-head i {
   background-color: #3f51b5;
   color: #fff;
   padding: 10px;
   border-radius: 50%;
   cursor: pointer;
+  position: relative;
+  top: 22px;
+  left: 80%;
+}
+.mycommunity {
+  padding: 30px;
+  max-height: 70%;
+  overflow-y: scroll;
+  background-color: #fff;
+  border: 1px solid #ddd;
 }

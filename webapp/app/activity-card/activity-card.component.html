@@ -1,0 +1,19 @@
+<div *ngIf="dummy">
+<div *ngFor="let sample of dummy">
+<md-card>
+  <md-card-header>
+    <img md-card-avatar src="{{sample.image}}">
+    <md-card-title>{{sample.title}}</md-card-title>
+    <md-card-subtitle>Dog Breed</md-card-subtitle>
+  </md-card-header>
+  <img md-card-image src="{{sample.poster_path}}">
+  <md-card-content>
+     {{sample.overview}}
+     </md-card-content>
+  <md-card-actions>
+    <button md-button>LIKE</button>
+    <button md-button>SHARE</button>
+  </md-card-actions>
+</md-card>
+</div>
+</div>
