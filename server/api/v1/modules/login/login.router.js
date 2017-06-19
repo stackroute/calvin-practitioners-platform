@@ -8,6 +8,14 @@ router.get('/auth/logout', (req, res) => {
   res.redirect('/');
   res.clearCookie('currentUser');
 });
+router.get('/logout2', (req, res) => {
+  res.clearCookie('isLogginUser');
+  res.redirect('/');
+});
+router.get('/app', (req, res) => {
+  res.cookie('isLogginUser', 'true');
+  res.redirect('/#/app/home');
+});
 router.get('/auth/google', passport.authenticate('google', { scope: ['profile', 'email'] }));
 
 router.get('/auth/google/callback', (req, res, next) => {

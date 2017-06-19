@@ -1,0 +1,11 @@
+<div class='container' fxLayout='column'>
+  <div *ngIf='sample'>
+    <div *ngFor='let value of sample'>
+      <calvin-community-role-actions [dummy]='value'>
+      </calvin-community-role-actions>
+    </div>
+  </div>
+   <button fxFlexAlign="end" md-mini-fab class='button-style'><md-icon>add</md-icon></button>
+</div>
+
+<router-outlet></router-outlet>
