@@ -12,7 +12,7 @@ router.get('/logout2', (req, res) => {
   res.clearCookie('isLogginUser');
   res.redirect('/');
 });
-router.get('/app', (req, res) => { 
+router.get('/app', (req, res) => {
   res.cookie('isLogginUser', 'true');
   res.redirect('/#/app/home');
 });

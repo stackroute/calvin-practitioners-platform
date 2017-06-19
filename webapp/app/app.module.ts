@@ -47,7 +47,6 @@ import { ActivityPageComponent } from './activity-page/activity-page.component';
     LoginComponent,
     UserProfileComponent,
     PageNotFoundComponent,
-    SelectTemplateComponent,
     CommunityRoleActionsComponent,
     CommunityRoleManagementComponent,
     CommunityToolActionsComponent,
@@ -56,8 +55,6 @@ import { ActivityPageComponent } from './activity-page/activity-page.component';
     CommunityNavbarComponent,
     CommunitySidenavComponent,
     SideNavComponent,
-    RoleActionsComponent,
-    RoleManagementComponent,
     CommunityDashboardComponent,
     ActivityCardComponent,
     ActivityPageComponent

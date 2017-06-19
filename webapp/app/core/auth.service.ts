@@ -22,4 +22,5 @@ export class AuthService {
     // localStorage.removeItem('isLogginUser');
     // this.isLoggedIn = false;
     return this.http.get('http://localhost:3000/api/v1/login/auth/logout').map((res: Response) => { res = res; });
-}
+    }
+  }
