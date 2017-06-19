@@ -32,6 +32,7 @@ import { ActivityCardComponent } from './activity-card/activity-card.component';
 import { ActivityPageComponent } from './activity-page/activity-page.component';
 import { CommunityToolsWidgetComponent } from './community-tools-widget/community-tools-widget.component';
 import { CommunityMembersWidgetComponent } from './community-members-widget/community-members-widget.component';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 
 @NgModule({
   declarations: [
@@ -54,8 +55,13 @@ import { CommunityMembersWidgetComponent } from './community-members-widget/comm
     ActivityCardComponent,
     ActivityPageComponent,
     CommunityToolsWidgetComponent,
-    CommunityMembersWidgetComponent
-    
+    CommunityMembersWidgetComponent,
+    CommunityRoleManagementComponent,
+    CommunityRoleActionsComponent,
+    CommunityToolActionsComponent,
+    ActivityPageComponent,
+    InfiniteScrollModule
+
   ],
 
   imports: [
@@ -79,7 +85,8 @@ import { CommunityMembersWidgetComponent } from './community-members-widget/comm
     MdInputModule,
     MdSlideToggleModule,
     MdDialogModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    InfiniteScrollModule
   ],
   entryComponents: [CommunityToolActionsComponent],
 
