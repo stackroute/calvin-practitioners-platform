@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ToolsService } from './community-tools-widget.service';
 
 @Component({
   selector: 'calvin-community-tools-widget',
@@ -6,10 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./community-tools-widget.component.css']
 })
 export class CommunityToolsWidgetComponent implements OnInit {
-
-  constructor() { }
+tools;
+  constructor(private toolsWidget:ToolsService) { }
 
   ngOnInit() {
-  }
+        this.toolsWidget.getTools().subscribe(data => {
+        this.tools = data.Tools;
+         
+       });
+
+}
 
 }

@@ -6,9 +6,18 @@
       </md-card-header>
       <!--<button md-mini-fab routerLink="." class="button"><md-icon>add</md-icon></button>-->
       <md-card-content class="content" fxLayoutAlign.xs="column">
+        <md-list>
+          <div *ngFor="let val of this.members" fxLayoutAlign.xs="column">
+       
+         
+         <!--<li>{{val.photo}}</li>-->
+        <md-list-item> <img md-list-avatar class="img-responsive center-block" src={{val.photo}}></md-list-item>
+         <md-list-item>{{val.Tool}}</md-list-item>
+         </div>
+         </md-list>
         <!--style="margin-top:20px"-->
         <!--<div fxFlex="50%">-->
-        <md-list>
+        <!--<md-list>
           <md-list-item>
             <img md-list-avatar src="assets/img/pic1.jpg" alt="User">
             <md-list-item>
@@ -41,7 +50,7 @@
         <!--</div>
         <div fxFlex="50%">
           <md-list>-->
-          <md-list-item>
+          <!--<md-list-item>
             <img md-list-avatar src="assets/img/pic9.jpg" alt="User">
             <span>vishnu</span>
           </md-list-item>
@@ -55,7 +64,7 @@
           </md-list-item>
           <!--</md-list>
           <md-list>-->
-          <md-list-item>
+          <!--<md-list-item>
             <img md-list-avatar src="assets/img/pic9.jpg" alt="User">
             <span>kayal</span>
           </md-list-item>
@@ -98,8 +107,8 @@
           <md-list-item>
             <img md-list-avatar src="assets/img/pic3.jpg" alt="User">
             <span>jupiter23</span>
-          </md-list-item>
-        </md-list>
+          </md-list-item>-->
+        <!--</md-list>-->
       </md-card-content>
     </md-card>
   </div>

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MembersService } from './community-members-widget.service';
+
 
 @Component({
   selector: 'calvin-community-members-widget',
@@ -6,10 +8,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./community-members-widget.component.css']
 })
 export class CommunityMembersWidgetComponent implements OnInit {
-
-  constructor() { }
+members;
+  constructor(private membersWidget:MembersService ) { }
 
   ngOnInit() {
+    
+        this.membersWidget.getMember().subscribe(data => {
+        this.members = data.Tools;
+         
+       });
+
+
   }
 
 }
