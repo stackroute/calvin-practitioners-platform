@@ -32,6 +32,7 @@ import { SideNavComponent } from './side-nav/side-nav.component';
 import { CommunityDashboardComponent } from './community-dashboard/community-dashboard.component';
 import { ActivityCardComponent } from './activity-card/activity-card.component';
 import { ActivityPageComponent } from './activity-page/activity-page.component';
+import { CommunityProfileComponent } from './community-profile/community-profile.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,8 @@ import { ActivityPageComponent } from './activity-page/activity-page.component';
     SideNavComponent,
     CommunityDashboardComponent,
     ActivityCardComponent,
-    ActivityPageComponent
+    ActivityPageComponent,
+    CommunityProfileComponent
 
   ],
 

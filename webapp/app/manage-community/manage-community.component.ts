@@ -4,12 +4,14 @@ import { Component, OnInit } from '@angular/core';
  import {NgForm} from '@angular/forms';
 
 @Component({
-  // selector: 'calvinManagecommunity',
+  selector: 'calvinManagecommunity',
   templateUrl: './manage-community.component.html',
   styleUrls: ['./manage-community.component.css']
 })
 export class ManageCommunityComponent implements OnInit {
   selectedValue: string;
+ 
+ public tagarray= [];
 
   folders = [{
       name: 'Kavipriya',
@@ -28,7 +30,7 @@ export class ManageCommunityComponent implements OnInit {
     console.log('Community name:' + userForm.controls['Community name'].value);
      console.log('Description:' + userForm.controls['Description'].value);
       console.log('access:' + userForm.controls['access'].value);
-      console.log('Tags:' + userForm.controls['Tags'].value);
+      console.log('chip:' + userForm.controls['chip'].value);
     console.log('Form Valid:' + userForm.valid);
     console.log('Form Submitted:' + userForm.submitted);
 
@@ -38,6 +40,13 @@ export class ManageCommunityComponent implements OnInit {
     openDialog() {
     this.dialog.open(ManageCommunityComponent);
   }
+  chipValue(tag:any)
+   {
+    this.tagarray.push(tag);
+    alert(tag)
+    tag=' ';
+    alert(tag)
+   }
   ngOnInit() { }
 
 }
