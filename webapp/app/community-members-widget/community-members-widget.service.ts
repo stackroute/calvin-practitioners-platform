@@ -9,7 +9,7 @@ export class MembersService{
  constructor(private http:Http){}
    getMember() {
        return this.http
-                  .get('http://localhost:3000/api/v1/tools/tools')
+                  .get('/api/v1/members/members')
                   .map((response:Response) => response.json());
    }
 }

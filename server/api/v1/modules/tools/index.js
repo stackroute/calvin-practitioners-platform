@@ -1,1 +1,1 @@
-module.exports=require('./tools.router');;
+module.exports = require('./tools.router');

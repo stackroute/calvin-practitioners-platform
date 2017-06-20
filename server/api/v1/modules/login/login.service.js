@@ -8,9 +8,8 @@ const client = new cassandra.Client({
   keyspace: db.dbconfig.keyspacename,
 });
 
-
+// this function is to check if user record is already present in database
 function checkIfUserExists(email, done) {
-  // console.log('inside user exist');
   const chkQuery = `SELECT * FROM ${USERS_TABLE} where email = '${email}'`;
   client.execute(chkQuery, (err, results) => {
     if (err) {
@@ -18,23 +17,21 @@ function checkIfUserExists(email, done) {
     }
 
     const x = results.rows;
-      // console.log("rows", x);
     if (!Array.isArray(x) || !x.length) {
       return done(null, false);
     }
     return done(null, true);
   });
 }
-
+// this function is to update last login time in database
 function updateLastLoginTime(profile, done) {
-  // console.log('inside last login');
   const updateQuery = (`UPDATE ${USERS_TABLE} set lastlogin=:lastlogin where email=:email`);
   client.execute(updateQuery, profile, (err) => {
     if (err) { return done(err, 'db err'); }
     return done();
   });
 }
-
+// this function is to insert new user in database
 function insertUserInDb(profile, done) {
   const insertQuery = `INSERT into ${USERS_TABLE}(userhandle,email,lastlogin,role,name,profilepic) VALUES (:uh,:email,:lastlogin,:role,:name,:image)`;
   client.execute(insertQuery, profile, (err) => {
@@ -45,10 +42,10 @@ function insertUserInDb(profile, done) {
     return done();
   });
 }
-
-
+// this function is  to handle a user after login successfull login .
+// If user already exists in database , last login time gets updated
+// else new recorded in inserted in database
 function updateUser(profile, done) {
-  // console.log("4. inside update user");
   const userDetails = {
     username: profile.name,
     email: profile.email,
@@ -56,14 +53,12 @@ function updateUser(profile, done) {
   };
 
   const userToken = jwt.sign(userDetails, 'secret key', { expiresIn: 60 * 30 });
-
+  // console.log('userToken', userToken);
   checkIfUserExists(profile.email, (error, userExists) => {
-    // console.log('user existr? :', userExists);
     if (userExists) {
       if (error) {
         return done(error, 'db error');
       }
-
       updateLastLoginTime(profile, (err) => {
         if (err) {
           return done(err, 'db error');
@@ -71,7 +66,6 @@ function updateUser(profile, done) {
         return done(null, userToken);
       });
     } else {
-      // console.log('inside insert user');
       insertUserInDb(profile, (err) => {
         if (err) { done(err); return; }
         done(null, userToken);
@@ -84,35 +78,3 @@ function updateUser(profile, done) {
 module.exports = {
   updateUser,
 };
-
-
-//   client.execute(chkQuery, (err, results) => {
-  //   console.log("5.insidde ckhk query");
-
-
-  //   if (err) {
-  //     return done(err, 'db error');
-  //   }
-  //   const x = results.rows;
-  //   if (!Array.isArray(x) || !x.length) {
-  //     client.execute(insertQuery, profile, (error) => {
-  //       console.log("6.inside insert");
-  //       if (error) {
-  //          done(error, 'db error');
-  //          return;
-  //       }
-
-  //        done(null, userToken);
-  //     });
-  //   }
-  //    client.execute(updateQuery, profile, (er) => {
-  //     console.log('6.inside update');
-  //     if (er) {
-  //       console.log(er);
-  //       done(er, 'Db error');
-  //       return;
-  //     }
-  //      done(null, userToken);
-  //   });
-  //   // return done(null, userToken);
-  // });

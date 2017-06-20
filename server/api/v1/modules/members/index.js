@@ -1,1 +1,1 @@
-module.exports=require('./members.router');
+module.exports = require('./members.router');
