@@ -1,134 +1,101 @@
-
-<div fxLayout fxLayout.md="row">
-
-</div>
-
-<md-sidenav-container fullscreen class="">
-    <md-sidenav #start>
-        <md-nav-list>
-              
-               <div class="container1">
-                   <img  src="../assets/img/bg.jpg">
-                    <div> <button md-icon-button  class="bottomright" (click)="start.close()" align="end">
-                    <i class="material-icons">close</i></button></div>       
-               
-               </div>
-               <!--<a md-list-item routerLink="/dashboard">Dashboard
-               <button md-icon-button (click)="start.close()">
-                    <i class="material-icons">close</i></button></a></span>-->
-            <a md-list-item routerLink="/app/">Home</a>
-             <a md-list-item routerLink="/app/communityDashBoard">Communities</a>
-              <a md-list-item routerLink="/app/createCommunity">create Community</a>
-        </md-nav-list>
-        <hr>
-    </md-sidenav>
-
-        <!--<md-toolbar fxLayout fxFlex.md="100%" fxLayout="row" fxLayoutGap="0" fxFlexGap="0">
-            <div fxFlex="5%" fxLayout="column">
-              
-                <button md-icon-button (click)="start.open()">
-                    <md-icon>menu</md-icon>
-                </button>
-
-                 
-             
+<!-- Side nav -->
+<md-sidenav-container fullscreen>
+   <md-sidenav #start>
+      <md-nav-list>
+         <div class="container1">
+            <img  src="../assets/img/bg.jpg">
+            <div> <button md-icon-button  class="bottomright" (click)="start.close()" align="end">
+               <i class="material-icons">close</i></button>
             </div>
-            <div fxFlex="10%" fxLayout="column">
-                <a href="/">
-                    <img src="../assets/img/logo1.png" md-tooltip="home page"
-          tooltip-position="below" alt="logo" />
-                </a>
-               </div>
-                  
+         </div>
+         <a md-list-item routerLink="/app/">Home</a>
+         <a md-list-item routerLink="/app/communityDashBoard">Communities</a>
+         <a md-list-item routerLink="/app/createCommunity">New Community</a>
+      </md-nav-list>
+      <hr>
+   </md-sidenav>
+   <div class="header" >
+<md-toolbar class="app-toolbar mat-primary mat-toolbar" color="primary" role="toolbar">
+<button class="hamburger mat-button" md-button="" (click)="start.open()" title="Docs menu">
+  <span class="mat-button-wrapper">
+   <md-icon>menu</md-icon>
+  </span>
+  <div class="mat-button-ripple mat-ripple" md-ripple=""></div>
+  <div class="mat-button-focus-overlay"></div>
+</button>
+  <div fxFlex="20%" fxLayout="row" >
+    <a class="nav-link logoAlgin" href="/">
+        <img src="/assets/img/logo/logo.png" >CALVIN      
+    </a>
+  </div>
 
-                    <div fxFlex="65%" class="box-color" fxLayout="column">
-                       
-                        <input type="search" class="search" placeholder="Search..." />
-                        <i class="material-icons searchBtn">search</i>
-                    </div>
-                    <div fxFlex="2%"  class="searchAlgin" fxLayoutAlign="end">
-                       
-                        <i class="material-icons">notifications_active</i>
-                    </div>
+  <div fxFlex="40%" fxLayout="row" class="searchAlgin">
+    <input mdInput aria-label="search" fxFlex="100%" placeholder="Search" type="search" fxLayout="column" dividerColor="accent">
+    <i class="material-icons searchBtn"  fxLayout="column">search</i>
+  </div>
 
-                    <div fxFlex="2%" fxLayout="column" class="searchAlgin" fxLayoutAlign="end">
-                        <md-list>
-                            <md-list-item>
-                                <img md-list-avatar src="../assets/img/pic3.png" [md-menu-trigger-for]="menu" alt="User">
-   
-                            </md-list-item>
-                        </md-list>
+  <div fxFlex="40%" fxLayout="row" class="searchAlgin" fxLayoutAlign="end center">
+    <md-chip-list>
+        <md-chip md-button (click)="openDialog()" color="accent" selected="true">
+            <i class="material-icons">notifications_active</i>
+        </md-chip>
+    </md-chip-list>
+    
+    <md-list>
+      <md-list-item >
+        <img md-list-avatar [md-menu-trigger-for]="menu" src="http://lorempixel.com/100/100/" alt="User">
+      </md-list-item>
+    </md-list>
+  </div>
+  <md-menu xPosition="before" [overlapTrigger]="false"  #menu="mdMenu">
+    <button md-menu-item routerLink="/app/profile">Profile</button>
+    <button md-menu-item (click)="logout()">Logout</button>
+  </md-menu>  
+</md-toolbar>
+   </div>
+      <router-outlet></router-outlet>
 
-                    </div>
-
-                    <md-menu xPosition="before" [overlapTrigger]="false" #menu="mdMenu">
-
-                        <button md-menu-item routerLink="/app/profile">Profile
-                        </button>
-
-                        <button md-menu-item (click)="logout()">Logout</button>
-
-                        <md-menu xPosition="before" [overlapTrigger]="false" #menu1="mdMenu">
-
-                            <button md-menu-item routerLink="/profile">My communities</button>
-
-                            <button md-menu-item (click)="logout()">New communities</button>
-                            <button md-menu-item (click)="logout()">User Profile</button>
-                        </md-menu>
-                    </md-menu>
-            
-        </md-toolbar>-->
-            <md-toolbar fxFlex.md="100%" fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.lg="100%">
-            <div fxFlex="3%" fxLayout="row">
-              
-                <button md-icon-button (click)="start.open()">
-                    <md-icon>menu</md-icon>
-                </button>
-                <!--<button md-icon-button (click)="start.open()">
-            <md-icon>menu</md-icon>
-        </button> -->
-            </div>
-           
-            <div fxFlex="22%" fxLayout="row">
-                <!--<a href="/">-->
-                    
-               <!--<img src="../assets/img/calvin-logo.png" alt="logo" />-->
-               <h1>Calvin</h1>
-                </div>
-                    <!--<img src='/assets/image/logo1.png' md-tooltip="homepage"
-          tooltip-position="below"></a></div>-->
-
-                    <div fxFlex="40%" fxLayout="row" >
-                        <!--<input mdInput aria-label="search" fxFlex="100%" placeholder="Search" type="search" fxLayout="column" class="box-color">-->
-                        <input type="search" class="search" placeholder="Search..." />
-                        <i class="material-icons searchBtn">search</i>
-                    </div>
-                    <div fxFlex="27%" fxFlex.md="80%" fxFlex.sm="100%" fxLayout="row"  fxLayoutAlign="end">
-                   
-                        <i class="material-icons">notifications_active</i>
-                    </div>
-
-                    <div fxFlex="8%" fxLayout="row"  fxLayoutAlign="end">
-                        <md-list>
-                            <md-list-item>
-                                <img md-list-avatar src="../assets/img/pic3.png"  [md-menu-trigger-for]="menu" alt="User">
-                              
-                            </md-list-item>
-                        </md-list>
-
-                    </div>
-
-                    <md-menu xPosition="before" [overlapTrigger]="false" #menu="mdMenu">
-
-                        <button md-menu-item routerLink="/app/profile">Profile
-                        </button>
-
-                        <button md-menu-item (click)="logout();">Logout</button>
-
-                    </md-menu>
-            
-        </md-toolbar>
-        <div class="main-content">
-            <router-outlet></router-outlet>
-        </div>
 </md-sidenav-container>
+
+<!--
+   <md-toolbar fxFlex.md="100%" fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.lg="100%">
+      <div fxFlex="3%" fxLayout="row">
+         <button md-icon-button (click)="start.open()">
+            <md-icon>menu</md-icon>
+         </button>
+      </div>
+      <img src="../assets/img/calvin-logo.png" alt="logo" />
+      <div fxFlex="22%" fxLayout="row">
+          
+         <img src="../assets/img/logo1.png" alt="logo" />
+      </div>
+      <div fxFlex="40%" fxLayout="row" class="box-color">
+          <input type="search" class="search" placeholder="Search..." />
+         <i class="material-icons searchBtn">search</i>
+      </div>
+      <div fxFlex="27%" fxFlex.md="80%" fxFlex.sm="100%" fxLayout="row" class="searchAlgin" fxLayoutAlign="end">
+         <i class="material-icons">notifications_active</i>
+      </div>
+      <div fxFlex="8%" fxLayout="row" class="searchAlgin" fxLayoutAlign="end">
+         <md-list>
+            <md-list-item>
+               <img md-list-avatar src="../assets/img/pic3.png"  [md-menu-trigger-for]="menu" alt="User">
+            </md-list-item>
+         </md-list>
+      </div>
+      <md-menu xPosition="before" [overlapTrigger]="false" #menu="mdMenu">
+      <button md-menu-item routerLink="/app/profile">Profile
+      </button>
+      <button md-menu-item (click)="logout()">Logout
+      </button>
+      <md-menu xPosition="before" [overlapTrigger]="false" #menu1="mdMenu">
+      <button md-menu-item routerLink="/profile">My communities</button>
+      <button md-menu-item (click)="logout()">New communities</button>
+      <button md-menu-item (click)="logout()">User Profile</button>
+      </md-menu>
+      </md-menu>
+   </md-toolbar>
+   <div class="main-content">
+      
+   </div>
+</md-sidenav-container>-->

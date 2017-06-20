@@ -1,31 +1,14 @@
-<!--<button (click)="login()"  *ngIf="!authService.isLoggedIn">Login</button>
-<button (click)="logout()" *ngIf="authService.isLoggedIn">Logout</button>-->
-
-
- 
-<div  fxLayoutAlign="center" class="containerX" >  
- 
-  <!--<md-card>-->
-  <!--<img md-card-image src="">-->
-  <!--<md-card-subtitle>Calvin logo</md-card-subtitle>-->
-    <!--<md-card-actions>-->
-    <!--<button md-button (click)='login();'>Login with Google</button>-->
-    
-   <div class="bn">
-     <!--<p class='loginbtn'> <a href="auth/google" class="button">Login with Google</a> </p>-->
-    <!--<h1> Calvin </h1>  -->
-   <button md-raised-button (click)='login();'>Login With Google</button>
-   </div>
-</div>
-<div fxLayoutAlign="center">
-   <a md-button routerLink=".">Community Guidelines</a>
-   <i class="material-icons">language</i>
-   <form>
-  <md-select placeholder="Select Language" [(ngModel)]="selectedLanguage" name="language">
-    <md-option *ngFor="let language of languages" [value]="language.value">
-      {{language.viewValue}}
-    </md-option>
-  </md-select>
-</form>
+<div class="launching" fxLayoutAlign="center center" > 
+  <div  fxFlex="40%"  fxLayoutAlign="center center" fxLayout="column">
+    <img fxFlex="100%" src="/assets/img/logo/logo.png"/>
+    <h3 fxFlex="100%">CALVIN</h3>
+    <h1>Welcome to Calvin Practitioners</h1>
+    <p>We included all you may need to build the best social network! Things like profile pages, newsfeed, friend groups, statistics, birthdays, community badges, events calendar, full music player and unique iconography! Have fun customizing it!</p>
+    <div fxFlex="100%">
+      <button class="loginBtn loginBtn--google" (click)="login()">
+        Login with Google
+      </button>
+    </div>
+  </div> 
 </div>
 <router-outlet></router-outlet>

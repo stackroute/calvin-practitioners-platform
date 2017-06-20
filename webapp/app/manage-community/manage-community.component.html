@@ -1,5 +1,11 @@
-
-
+<calvin-community-profile></calvin-community-profile>
+         <div fxLayout fxLayout.xs="row" fxLayoutGap="0px" fxLayoutGap.xs="0">
+           <div fxFlex="20%" fxLayout="row"  > </div>
+           <div fxFlex="80%" fxLayout="row" >
+             <md-tab-group  class="manage-community" fxFlex="100%">
+                  <md-tab  label="Community" fxFlex="20%">
+                        <!--Form for displaying community info in community info tab-->
+                        
 
 
 <!--Using Flex for dividing the page into side nav,content and side nav  -->
@@ -41,8 +47,8 @@
                 <md-tab label="Community">   
                   <!--Form for displaying community info in community info tab-->
                         <form #userForm="ngForm" (ngSubmit)="onFormSubmit(userForm)" class="try">
-                             <div>
-                                   <md-input-container class="example-full-width">
+                              <div>
+                                    <md-input-container class="example-full-width">
                                           <input mdInput placeholder="Domain (disabled)" disabled value="domain">
                                     </md-input-container>
                               </div>
@@ -63,40 +69,71 @@
 
                               <div>
                                     <md-input-container class="example-full-width">
-                                         <input mdInput placeholder="Description" name="Description" ngModel >
-                                    </md-input-container></div>
+                                          <input mdInput placeholder="Description" name="Description" ngModel>
+                                    </md-input-container>
+                              </div>
 
                               <div>
                                     <md-input-container class="example-full-width">
-                                        <input mdInput placeholder="Access" disabled>
-                                        <md-radio-group name="access"ngModel>
-                                              <md-radio-button value="Public">Public</md-radio-button>
-                                              <md-radio-button value="Private">Private</md-radio-button>
-                                              <md-radio-button value="Moderate">Moderate</md-radio-button>
-                                        </md-radio-group>
-                                   </md-input-container>
+                                          <input mdInput placeholder="Access" disabled>
+                                          <md-radio-group name="access" ngModel>
+                                                <md-radio-button value="Public">Public</md-radio-button>
+                                                <md-radio-button value="Private">Private</md-radio-button>
+                                                <md-radio-button value="Moderate">Moderate</md-radio-button>
+                                          </md-radio-group>
+                                    </md-input-container>
                               </div>
 
-
-                              <div>
-                                    <md-input-container class="example-full-width"> 
-                                        <input mdInput placeholder="Tags" name="Tags"[(ngModel)]="Tags">
-                                    </md-input-container> 
+<div>
+                                          <md-input-container>
+                     <input mdInput placeholder="Tag" name="chip" [(ngModel)]="tagname" (keyup.enter)="chipValue(tagname)" >
+                </md-input-container>
+              </div>
+                <div fxLayout="row"  *ngFor="let tag of tagarray">
+                <md-chip-list ng-disabled="!tag.value">
+                <span>  <md-chip>{{tag}}<i class="material-icons">clear</i></md-chip></span>
+             </md-chip-list>
                               </div>
                               <button md-raised-button color="primary" type="submit" [disabled]="!userForm.valid">Save</button>
 
 
+                        </form>
+                        
+                        <!--closing form-->
+
+
+                  </md-tab>
+                  
+                  <!--Closing community info tab-->
+
+                  <md-tab label="Members"></md-tab>
+                  <!--tab for manage member component-->
+                  <md-tab label="Roles">
+                        <calvin-community-role-actions>
+                        </calvin-community-role-actions>
+                  </md-tab>
+                  <!--tab for manage role component-->
+                  <md-tab label="Tools"></md-tab>
+                  <!--tab for manage tools component-->
+                  
+            </md-tab-group>
+           </div> 
+           </div>
+         
+        
+
+      
+      
+                   
                     </form><!--closing form-->
 
                   
               </md-tab><!--Closing community info tab-->
 
                     <md-tab label="Members"></md-tab><!--tab for manage member component-->
-                    <md-tab label="Roles" ></md-tab><!--tab for manage role component-->
+                    <md-tab label="Roles" ><calvin-community-role-managements></calvin-community-role-managements></md-tab><!--tab for manage role component-->
                    <md-tab label="Tools"></md-tab><!--tab for manage tools component-->
         </md-tab-group>
   </div>
   </div>
  <div class="item item-4" fxFlex="20%" fxFlexOrder="4"></div>
-
-

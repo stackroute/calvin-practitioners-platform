@@ -3,12 +3,11 @@ const passport = require('passport');
 const loginservice = require('./login.service');
 
 const redirectGoogle = (req, res, next) => {
-  // console.log('1.inside redirect');
+  // this function called by google callback to verify code
   const promise = new Promise((resolve, reject) => {
     passport.authenticate('google', (err, token) => {
-      // console.log('8.token is called ', token);
+      // console.log('token', token);
       if (err) {
-        // console.log('err is ', err);
         reject(err);
       }
       resolve(token);
@@ -18,7 +17,6 @@ const redirectGoogle = (req, res, next) => {
 };
 
 function getUser(userinfo, done) {
-  // console.log('3.inside get user');
   loginservice.updateUser(userinfo, done);
 }
 
