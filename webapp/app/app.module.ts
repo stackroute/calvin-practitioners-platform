@@ -9,7 +9,6 @@ import { MdSidenavModule } from '@angular/material';
 import {RouterModule, Routes} from '@angular/router';
 import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
 import { AppBarComponent } from './app-bar/app-bar.component';
-import { UserWidgetsComponent } from './my-communities/my-communities.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MaterialModule, MdButtonModule, } from '@angular/material';
 import { MdCheckboxModule, MdCardModule, MdMenuModule } from '@angular/material';
@@ -32,7 +31,9 @@ import { ActivityCardComponent } from './activity-card/activity-card.component';
 import { ActivityPageComponent } from './activity-page/activity-page.component';
 import { CommunityToolsWidgetComponent } from './community-tools-widget/community-tools-widget.component';
 import { CommunityMembersWidgetComponent } from './community-members-widget/community-members-widget.component';
-import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+import { RoleServices } from './community-role-management/community-role-management.service';
+
+
 
 @NgModule({
   declarations: [
@@ -41,7 +42,6 @@ import { InfiniteScrollModule } from 'ngx-infinite-scroll';
     UserDashboardComponent,
     CreateCommunityComponent,
     AppBarComponent,
-    UserWidgetsComponent,
     LoginComponent,
     UserProfileComponent,
     PageNotFoundComponent,
@@ -59,8 +59,8 @@ import { InfiniteScrollModule } from 'ngx-infinite-scroll';
     CommunityRoleManagementComponent,
     CommunityRoleActionsComponent,
     CommunityToolActionsComponent,
-    ActivityPageComponent,
-    InfiniteScrollModule
+    ActivityPageComponent
+   
 
   ],
 
@@ -85,12 +85,11 @@ import { InfiniteScrollModule } from 'ngx-infinite-scroll';
     MdInputModule,
     MdSlideToggleModule,
     MdDialogModule,
-    ReactiveFormsModule,
-    InfiniteScrollModule
+    ReactiveFormsModule
   ],
   entryComponents: [CommunityToolActionsComponent],
 
-  providers: [],
+  providers: [RoleServices],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
