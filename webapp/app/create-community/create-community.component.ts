@@ -3,17 +3,20 @@ import { FormGroup, FormControl, Validators, FormBuilder} from '@angular/forms';
 import {MdDialog} from '@angular/material';
 
 import { TemplateBrowserComponent } from '../template-browser/template-browser.component';
-import { createCommunityService } from './create-community.service'
+import { CreateCommunityService } from './create-community.service';
 
 @Component({
   templateUrl: './create-community.component.html',
-  styleUrls: ['./create-community.component.css']
+  styleUrls: ['./create-community.component.css'],
+  providers: [CreateCommunityService]
 })
 
 
 export class CreateCommunityComponent implements OnInit {
 
   userForm: FormGroup;
+
+ // template: FormGroup;
 
   public tagarray= [];
 
@@ -39,7 +42,7 @@ export class CreateCommunityComponent implements OnInit {
       {value: 'tag-two', viewValue: 'tagtwo' },
       {value: 'tag-three', viewValue: 'tagthree'}
     ];
-  constructor(private dialog: MdDialog, private fb: FormBuilder,private newcommunity: createCommunityService) {
+  constructor(private dialog: MdDialog, private fb: FormBuilder, private newcommunity: CreateCommunityService) {
 
     this.createForm();
 
@@ -57,48 +60,45 @@ export class CreateCommunityComponent implements OnInit {
         });
     }
 
+
+
 //  check whether the card is clickable or not
 
- onselect(selectedTemplate: any)
- {
-   console.log(selectedTemplate);
+ onselect(selectedTemplate: any) {
+   console.log(selectedTemplate);  
+  //  this.template=new FormGroup({
+  //       templatevalue: new FormControl()
+  //  })
    return selectedTemplate;
  }
 
 // bind text box value
-    chipValue(tag:any) 
-    {
+    chipValue(tag: any) {
      this.tagarray.push(tag);
-     
     }
 
 // submit userForm values
+           onsubmit(userdata: any) { 
+            const values= userdata.value;
+            const domainName =values.domainName;
+            const Purpose=values.Purpose;
+            const communityName=values.communityName;
+            const tagSelection = values.tagSelection;
+            const termscondition=values.termscondition;
+            const visibility=values.visibility;
+                  const value = { domainName, Purpose, communityName, tagSelection, termscondition, visibility };
+                  console.log(value);
+                  this.newcommunity.postfavdata(value).subscribe(
+                   (data) => console.log('Post data'),
+                    error => alert(error),
+                    () => console.log('data posted successfully'));
+        }
 
-    onsubmit(userdata: any) {
-       
-       console.log(userdata.value);
-    }
-// cancel for redirect to userdashboard  
+      
+// cancel for redirect to userdashboard
 
-  oncancel() {
-
-  }
-
-// post data through api
-
-     postdata(Purpose,communityName,domainName,tagSelection,termscondition,visibility)
-   {
-     let domain=String(domainName);
-      let value={domain,Purpose,communityName,tagSelection,termscondition,visibility};
-      this.newcommunity.postfavdata(value).subscribe(
-        (data)=>console.log("Post data"),
-        
-          error=>alert(error),
-          ()=>console.log("data posted successfully")
-      );
-   } 
-
+  oncancel() { }
   ngOnInit() {
   }
-  
 }
+

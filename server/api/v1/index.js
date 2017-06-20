@@ -3,10 +3,10 @@ const jwt = require('jsonwebtoken');
 
 // middleware to validate token
 router.use((req, res, next) => {
-   console.log('inside middle ware');
+ //  console.log('inside middle ware');
   const url = req.url;
 //   console.log('url', url);
-  if (url.includes('google')) {
+  if (url.includes('google') || url.includes('logout')) {
     next();
   } else {
     const user = req.cookies.currentUser;

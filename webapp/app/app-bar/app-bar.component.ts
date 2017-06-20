@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from './../core/auth.service';
-
-import {NavigationExtras, Router} from '@angular/router';
+import { MdDialog } from '@angular/material';
+import { NavigationExtras, Router } from '@angular/router';
 
 @Component({
   templateUrl: './app-bar.component.html',
@@ -9,9 +9,12 @@ import {NavigationExtras, Router} from '@angular/router';
 })
 export class AppBarComponent implements OnInit {
 
-  constructor(public authService: AuthService, public router: Router) { }
+  constructor(public dialog: MdDialog, public authService: AuthService, public router: Router) { }
 
   ngOnInit() { }
+  openDialog() {
+    alert('No new notification');
+  }
 
   logout() {
     // alert('logout clciked');

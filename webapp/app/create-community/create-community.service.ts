@@ -1,25 +1,17 @@
-import {Injectable,Input} from '@angular/core';
-import { Http,RequestOptions,Response,Headers} from "@angular/http";
+import { Injectable, Input} from '@angular/core';
+import { Http, RequestOptions, Response, Headers} from '@angular/http';
 import 'rxjs/add/operator/map';
 
 @Injectable()
-export class createCommunityService
-{
+export class CreateCommunityService {
     @Input()
-    communityDetails=[];
-    constructor(private _http:Http){}
-    // getcurrentData()
-    // {
-    //     let headers = new Headers({ 'Content-Type': 'application/json','Access-Control-Allow-Methods':' GET, POST, PATCH, PUT, DELETE, OPTIONS' });
-    //     let options = new RequestOptions({ headers: headers });
-    //     return this._http.get('http://localhost:3000/api/bear').map(res=>res.json());
-    // }  
+    communityDetails= [];
+    constructor(private _http: Http) { }
 
-        postfavdata(val)
-    {
-        let headers = new Headers({ 'Content-Type': 'application/json','Access-Control-Allow-Methods':' GET, POST, PATCH, PUT, DELETE, OPTIONS' });
-        let options = new RequestOptions({ headers: headers });
-        return this._http.post('http://localhost:3000/api/vi',val).map(()=>console.log('fav movie posted'));
-    }   
-      
+    postfavdata(val) {
+        const headers = new Headers(
+            { 'Content-Type': 'application/json', 'Access-Control-Allow-Methods': ' GET, POST, PATCH, PUT, DELETE, OPTIONS' });
+        const options = new RequestOptions({ headers: headers });
+        return this._http.post('http://localhost:4200/api/bear', val).map(() => console.log('New community details posted'));
+    }
 }

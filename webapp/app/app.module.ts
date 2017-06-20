@@ -30,6 +30,7 @@ import { SideNavComponent } from './side-nav/side-nav.component';
 import { CommunityDashboardComponent } from './community-dashboard/community-dashboard.component';
 import { ActivityCardComponent } from './activity-card/activity-card.component';
 import { ActivityPageComponent } from './activity-page/activity-page.component';
+import { CommunityProfileComponent } from './community-profile/community-profile.component';
 import { CommunityToolsWidgetComponent } from './community-tools-widget/community-tools-widget.component';
 import { CommunityMembersWidgetComponent } from './community-members-widget/community-members-widget.component';
 import { InfiniteScrollModule } from 'angular2-infinite-scroll';
@@ -54,6 +55,7 @@ import { InfiniteScrollModule } from 'angular2-infinite-scroll';
     CommunityDashboardComponent,
     ActivityCardComponent,
     ActivityPageComponent,
+    CommunityProfileComponent,
     CommunityToolsWidgetComponent,
     CommunityMembersWidgetComponent,
     CommunityRoleManagementComponent,
