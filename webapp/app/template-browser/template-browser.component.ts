@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 
 import { CreateCommunityComponent } from '../create-community/create-community.component';
 
@@ -12,11 +12,15 @@ import { CreateCommunityComponent } from '../create-community/create-community.c
 export class TemplateBrowserComponent implements OnInit {
 
   @Input() template;
-
-   
+  
+ @Output() notify: EventEmitter<string> = new EventEmitter<string>();
 
 
   constructor(private community: CreateCommunityComponent ) { }
+
+  selectcore(core: any) {
+    this.notify.emit(core.value);
+  }
 
   ngOnInit() {
   }

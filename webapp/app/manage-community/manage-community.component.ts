@@ -35,7 +35,7 @@ export class ManageCommunityComponent implements OnInit {
 
   }
 
-  constructor(private dialog: MdDialog, private router:Router) {}
+  constructor(private dialog: MdDialog, private router: Router) {}
     openDialog() {
     this.dialog.open(ManageCommunityComponent);
   }

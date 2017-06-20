@@ -1,10 +1,7 @@
 
-
-
-
       <div fxLayout fxLayoutAlign="start end" class="community-layout-style" >
      
-      <div fxFlex="10%" fxLatout="column"></div>
+      <div fxFlex="10%" fxLayout="column"></div>
 
 
       <div class="container" fxLayout="row">      
@@ -37,7 +34,7 @@
                 <md-input-container>
                   <input mdInput placeholder="Community name" formControlName="communityName">
                   <md-hint align="start" class="full-width">
-                       <div *ngIf="userForm.get('communityName').hasError('required') && userForm.get('communityName').touched" class="errorStyle">
+                       <div *ngIf="userForm.get('communityName').hasError('required') && userForm.get('communityName').touched">
                            Community Name is required
                       </div> 
                     </md-hint>
@@ -79,20 +76,16 @@
           
            <div fxLayout.md="column">
                  <md-input-container>
-                      <input mdInput placeholder="Tag" #tag (keyup.enter)="chipValue(tag)"  formControlName="tagSelection" >
+                      <input mdInput placeholder="Tag"  [(ngModel)]="tagname" (keyup.enter)="chipValue(tagname)"  formControlName="tagSelection"  >
                  </md-input-container>
-                 <div *ngIf="tag">
-                    <md-chip-list *ngFor="let tags of tag">
-                  <md-chip>{{tags.value}}<i class="material-icons">clear</i></md-chip>
+               </div>
+                 <div fxLayout="row"  *ngFor="let tag of tagarray">
+                 <md-chip-list ng-disabled="!tag.value">
+                 <span><md-chip>{{tag}}<i class="material-icons md-15">clear</i></md-chip></span>
               </md-chip-list>
-                 </div>
            </div>
-             
-             <input #box (keyup.enter)="values=box.value">
-    <p>nitin{{values}}</p>
-
 <!--select template -->
-                 <calvin-template-browser  [template]="coreActivity" ></calvin-template-browser>
+                 <calvin-template-browser (notify)="onselect($event)"  [template]="coreActivity" (onselect)="onselect($event)" ></calvin-template-browser>
 <!--terms and condition-->
               <!--<span>
               <button md-button (click)="openDialog()">Terms and conditon</button>
@@ -103,16 +96,15 @@
       </md-checkbox>
               </div>
 <!--submit the form using raised button-->
-            <div fxLayout.md="column" fxLayoutAlign="end end">
-             <a routerLink="/manage-community/managecommunity"> <button fxFlex="12%" md-raised-button ng-value="submit" type="submit" color="primary" [disabled]="!userForm.valid"
-                                 (click)="onsubmit(userForm)">submit</button></a>
-              <button fxFlex="10%" md-raised-button ng-value="cancel">cancel</button>
-            </div>
+            <span fxLayout.md="column" fxLayoutAlign="end end">
+            <button fxFlex="10%" md-raised-button ng-value="submit" type="submit" color="primary" [disabled]="!userForm.valid"
+                                 (click)="onsubmit(userForm)">submit</button>
+             <button fxFlex="10%" md-raised-button><a routerLink="/managecommunity">cancel</a></button>
+            </span>
         </form>
       </div>
 
       <div fxLayout="column" fxFlex="10%"></div>
-
 
 <router-outlet></router-outlet>
 

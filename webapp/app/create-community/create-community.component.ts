@@ -1,10 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input} from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder} from '@angular/forms';
 import {MdDialog} from '@angular/material';
 
 import { TemplateBrowserComponent } from '../template-browser/template-browser.component';
-import { ManageCommunityComponent } from '../manage-community/manage-community.component';
-
+import { createCommunityService } from './create-community.service'
 
 @Component({
   templateUrl: './create-community.component.html',
@@ -16,7 +15,7 @@ export class CreateCommunityComponent implements OnInit {
 
   userForm: FormGroup;
 
-  tag=[{}];
+  public tagarray= [];
 
    coreActivity = [
     {value: 'Professional', viewValue: 'Professional', tool: 'Forum' },
@@ -40,16 +39,15 @@ export class CreateCommunityComponent implements OnInit {
       {value: 'tag-two', viewValue: 'tagtwo' },
       {value: 'tag-three', viewValue: 'tagthree'}
     ];
+  constructor(private dialog: MdDialog, private fb: FormBuilder,private newcommunity: createCommunityService) {
 
-
-
-  constructor(private dialog: MdDialog, private fb: FormBuilder) {
     this.createForm();
-   }
 
+   }
+// reactive form validation for userForm
   createForm() {
         this.userForm = this.fb.group({
-           domainName: ['', [Validators.required, Validators.pattern('[a-z.]{8,20}')]],
+          domainName: ['', [Validators.required, Validators.pattern('[a-z.]{8,20}')]],
           communityName: ['', Validators.required],
           Purpose: ['', Validators.required],
           visibility: ['Public', Validators.required],
@@ -58,32 +56,49 @@ export class CreateCommunityComponent implements OnInit {
           termscondition: ['', Validators.required]
         });
     }
+
 //  check whether the card is clickable or not
 
- 
+ onselect(selectedTemplate: any)
+ {
+   console.log(selectedTemplate);
+   return selectedTemplate;
+ }
 
-// sample method to display tag name
-    flagDetails(tag) {
-      // console.log(tag);
+// bind text box value
+    chipValue(tag:any) 
+    {
+     this.tagarray.push(tag);
+     
     }
-// open dialog
-   openDialog() {
-    this.dialog.open(CreateCommunityComponent);
-  }
 
-// sample code for form validation
+// submit userForm values
 
     onsubmit(userdata: any) {
+       
        console.log(userdata.value);
     }
-// bind text box value
-    chipvalue(tag: any) {
-     if(tag) {
-       this.tag.push(tag.value);
-     }
-            console.log(tag.value);
+// cancel for redirect to userdashboard  
 
-    }
+  oncancel() {
 
-  ngOnInit() { }
+  }
+
+// post data through api
+
+     postdata(Purpose,communityName,domainName,tagSelection,termscondition,visibility)
+   {
+     let domain=String(domainName);
+      let value={domain,Purpose,communityName,tagSelection,termscondition,visibility};
+      this.newcommunity.postfavdata(value).subscribe(
+        (data)=>console.log("Post data"),
+        
+          error=>alert(error),
+          ()=>console.log("data posted successfully")
+      );
+   } 
+
+  ngOnInit() {
+  }
+  
 }
