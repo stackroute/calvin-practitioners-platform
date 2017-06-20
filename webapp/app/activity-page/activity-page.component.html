@@ -1,7 +1,7 @@
-
+<!--collect activity cards for display activity page-->
 <div class="activity-board item item-3">
         <div *ngIf="dummy">
-          <div *ngFor="let sample of dummy">
+              <div *ngFor="let sample of dummy">
             <calvin-activity-card [activity]="sample"></calvin-activity-card>
           </div>
         </div>

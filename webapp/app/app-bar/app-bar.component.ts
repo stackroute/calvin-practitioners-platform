@@ -9,7 +9,7 @@ import { NavigationExtras, Router } from '@angular/router';
 })
 export class AppBarComponent implements OnInit {
 
-  constructor(public dialog: MdDialog,public authService: AuthService, public router: Router) { }
+  constructor(public dialog: MdDialog, public authService: AuthService, public router: Router) { }
 
   ngOnInit() { }
   openDialog() {
@@ -17,6 +17,7 @@ export class AppBarComponent implements OnInit {
   }
 
   logout() {
+    // alert('logout clciked');
     this.authService.logout();
   }
 }
