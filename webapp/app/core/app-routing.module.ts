@@ -19,7 +19,8 @@ import { CommunityMembersWidgetComponent } from '../community-members-widget/com
 // Calvin routes
 const routes: ModuleWithProviders = RouterModule.forRoot([
   { path: 'login', component: LoginComponent },
-  { path: 'app', component: AppBarComponent, // canActivate: [AuthGuard],
+  { path: 'app', component: AppBarComponent, canActivateChild: [AuthGuard],
+
   children: [
             { path: 'home', component: UserDashboardComponent },
             { path: '', redirectTo: '/app/home', pathMatch: 'full' },

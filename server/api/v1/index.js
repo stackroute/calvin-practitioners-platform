@@ -30,6 +30,7 @@ router.use('/login', require('./modules/login'));
 
 router.use('/community', require('./modules/community'));
 
+router.use('/community-role-action', require('./modules/community-role-action'));
 
 router.use('/logout', (req, res) => {
   res.clearCookie('currentUser');
@@ -38,4 +39,7 @@ router.use('/logout', (req, res) => {
 router.use('/test', (req, res) => {
   res.send('To test middle ware');
 });
+router.use('/userCommunities', require('./modules/community'));
+
+
 module.exports = router;

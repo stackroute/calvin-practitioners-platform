@@ -7,3 +7,4 @@ router.get('/getcom', communityCtrl.getcommunity);
 
 
 module.exports = router;
+

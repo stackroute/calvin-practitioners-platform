@@ -24,3 +24,7 @@
     module.exports = {
         getcommunity: getcommunity
     };
+
+module.exports = {
+  getUserCommunity,
+};
