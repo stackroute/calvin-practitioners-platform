@@ -1,8 +1,8 @@
-<div class="mycommunity" color="primary">
+<!--<div class="mycommunity">
 	<h3 md-subheader fxLayout="row">
-			My Communities				
+		Communities				
 	</h3>
-	<p class="mycommunity-head"><i class="material-icons" routerLink="/app/createCommunity">note_add</i></p>
+	<button md-mini-fab routerLink="/app/createCommunity" class="button"><md-icon>add</md-icon></button>
 	<md-list infinite-scroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="100" (scrolled)="onScroll()" [scrollWindow]="false">
 		<md-list-item>
 			<img md-list-avatar src="http://lorempixel.com/200/200/" alt="Desc 1">
@@ -481,20 +481,20 @@
 		</md-list-item>
 	</md-list>	
 
-</div>
+</div>-->
 
 
 
-<!--
 
 
-	<md-card fxFlex="50%" fxLayout="column" color="primary">
-		<md-card-title fxLayout="row" class="new-community">
-				My Communities
-				<i class="material-icons" routerLink="/app/createCommunity">note_add</i>
-		</md-card-title>			
 
-	  <md-list>
+<md-card fxFlex="100%">
+	<md-card-title fxLayout="row" class="new-community">
+		Communities
+	</md-card-title>
+	<button md-mini-fab routerLink="/app/createCommunity" class="button"><md-icon>add</md-icon></button>			
+	<div class="community-list" >
+	  <md-list align="start">
 	    <md-list-item >
 	      <img md-list-avatar src="http://lorempixel.com/200/200/" alt="Desc 1">
 	      <h3 md-line>Doctors</h3>
@@ -591,5 +591,5 @@
 	      </p>
 	    </md-list-item>
 	  </md-list>
-	</md-card>
-</aside>-->
+	</div>
+</md-card>
