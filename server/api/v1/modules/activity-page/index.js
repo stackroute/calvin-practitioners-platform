@@ -1,1 +1,1 @@
-module.exports=require('./activity-page.routes');
+module.exports = require('./activity-page.routes');

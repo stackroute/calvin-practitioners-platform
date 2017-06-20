@@ -9,7 +9,6 @@ import { MdSidenavModule } from '@angular/material';
 import {RouterModule, Routes} from '@angular/router';
 import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
 import { AppBarComponent } from './app-bar/app-bar.component';
-import { UserWidgetsComponent } from './my-communities/my-communities.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MaterialModule, MdButtonModule, } from '@angular/material';
 import { MdCheckboxModule, MdCardModule, MdMenuModule } from '@angular/material';
@@ -26,14 +25,22 @@ import { CommunityRoleManagementComponent } from './community-role-management/co
 import { CommunityToolActionsComponent } from './community-tool-actions/community-tool-actions.component';
 import { TemplateBrowserComponent } from './template-browser/template-browser.component';
 import { CommunityActivitylogsComponent } from './community-activitylogs/community-activitylogs.component';
-import { SideNavComponent } from './side-nav/side-nav.component';
+
 import { CommunityDashboardComponent } from './community-dashboard/community-dashboard.component';
 import { ActivityCardComponent } from './activity-card/activity-card.component';
 import { ActivityPageComponent } from './activity-page/activity-page.component';
+import { CommunityProfileComponent } from './community-profile/community-profile.component';
 import { CommunityToolsWidgetComponent } from './community-tools-widget/community-tools-widget.component';
 import { CommunityMembersWidgetComponent } from './community-members-widget/community-members-widget.component';
+// import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+import { ToolsService } from './community-tools-widget/community-tools-widget.service';
+import { MembersService } from './community-members-widget/community-members-widget.service';
+import { RoleServices } from './community-role-management/community-role-management.service';
 import { InfiniteScrollModule } from 'angular2-infinite-scroll';
+<<<<<<< HEAD
 import { ActivityService } from './activity-page/activity-page.service';
+=======
+>>>>>>> 3bdbf4e84b6bd489e969d5af2f2cfcc6dce97204
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,7 +48,6 @@ import { ActivityService } from './activity-page/activity-page.service';
     UserDashboardComponent,
     CreateCommunityComponent,
     AppBarComponent,
-    UserWidgetsComponent,
     LoginComponent,
     UserProfileComponent,
     PageNotFoundComponent,
@@ -50,17 +56,24 @@ import { ActivityService } from './activity-page/activity-page.service';
     CommunityToolActionsComponent,
     TemplateBrowserComponent,
     CommunityActivitylogsComponent,
-    SideNavComponent,
     CommunityDashboardComponent,
     ActivityCardComponent,
     ActivityPageComponent,
+    CommunityProfileComponent,
     CommunityToolsWidgetComponent,
     CommunityMembersWidgetComponent,
     CommunityRoleManagementComponent,
     CommunityRoleActionsComponent,
     CommunityToolActionsComponent,
+<<<<<<< HEAD
     ActivityPageComponent
      ],
+=======
+    ActivityPageComponent,
+  ],
+>>>>>>> 3bdbf4e84b6bd489e969d5af2f2cfcc6dce97204
+
+
 
   imports: [
     InfiniteScrollModule,
@@ -84,12 +97,22 @@ import { ActivityService } from './activity-page/activity-page.service';
     MdInputModule,
     MdSlideToggleModule,
     MdDialogModule,
+<<<<<<< HEAD
     ReactiveFormsModule,
   
   ],
   entryComponents: [CommunityToolActionsComponent],
 
   providers: [ActivityService],
+=======
+    ReactiveFormsModule
+    
+ 
+  ],
+  entryComponents: [CommunityToolActionsComponent],
+
+  providers: [RoleServices],
+>>>>>>> 3bdbf4e84b6bd489e969d5af2f2cfcc6dce97204
   bootstrap: [AppComponent]
 })
 export class AppModule { }

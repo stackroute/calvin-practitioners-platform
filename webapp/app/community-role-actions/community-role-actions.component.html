@@ -1,9 +1,9 @@
 <md-card>
   <div fxLayoutAlign='start stretch'>
     <md-input-container fxFlex='80%'>
-      <input mdInput placeholder={{dummy.role}}/>
+      <input mdInput placeholder={{dummy.role}} [(ngModel)]='dummy.role'/>
       </md-input-container>
-    <button md-mini-fab class='button-style'><md-icon>edit</md-icon></button>
+    <button md-mini-fab class='button-style' (click)='update(dummy.id,dummy.role,dummy.actions)'><md-icon>edit</md-icon></button>
     <button md-mini-fab class='button-style'><md-icon>delete</md-icon></button>
   </div>
   <md-chip-list>

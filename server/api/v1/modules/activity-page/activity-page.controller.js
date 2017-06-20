@@ -1,6 +1,5 @@
 const arr = {
-'Tools':
-  [{
+  "Tools":[{
 'contentType':'image',   
 'title': 'teach',
 'overview': 'Profile of the producer and former studio head of 20th Century Fox in the 1970s, Alan Ladd Jr',
