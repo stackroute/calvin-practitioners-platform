@@ -54,11 +54,11 @@ import { ActivityPageComponent } from './activity-page/activity-page.component';
     SideNavComponent,
     CommunityDashboardComponent,
     ActivityCardComponent,
-    ActivityPageComponent
-
+    ActivityPageComponent,
   ],
 
   imports: [
+
     MdSidenavModule,
     BrowserModule,
     HttpModule,
@@ -79,7 +79,7 @@ import { ActivityPageComponent } from './activity-page/activity-page.component';
     MdInputModule,
     MdSlideToggleModule,
     MdDialogModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   entryComponents: [CommunityToolActionsComponent],
 

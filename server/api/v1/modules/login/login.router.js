@@ -5,6 +5,7 @@ const passport = require('passport');
 const router = express.Router();
 
 router.get('/auth/logout', (req, res) => {
+  // console.log('inside logout');
   res.clearCookie('currentUser');
   res.redirect('/');
 });

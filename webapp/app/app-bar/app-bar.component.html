@@ -1,8 +1,9 @@
+
 <div fxLayout fxLayout.md="row">
 
 </div>
 
-<md-sidenav-container fullscreen>
+<md-sidenav-container fullscreen class="">
     <md-sidenav #start>
         <md-nav-list>
               
@@ -17,11 +18,11 @@
                     <i class="material-icons">close</i></button></a></span>-->
             <a md-list-item routerLink="/app/">Home</a>
              <a md-list-item routerLink="/app/communityDashBoard">Communities</a>
-              <a md-list-item routerLink="/app/createCommunity">New Community</a>
+              <a md-list-item routerLink="/app/createCommunity">create Community</a>
         </md-nav-list>
         <hr>
     </md-sidenav>
-       
+
         <!--<md-toolbar fxLayout fxFlex.md="100%" fxLayout="row" fxLayoutGap="0" fxFlexGap="0">
             <div fxFlex="5%" fxLayout="column">
               
@@ -87,26 +88,27 @@
             <md-icon>menu</md-icon>
         </button> -->
             </div>
-            <img src="../assets/img/calvin-logo.png" alt="logo" />
+           
             <div fxFlex="22%" fxLayout="row">
                 <!--<a href="/">-->
                     
-                       <img src="../assets/img/logo1.png" alt="logo" />
+               <!--<img src="../assets/img/calvin-logo.png" alt="logo" />-->
+               <h1>Calvin</h1>
                 </div>
                     <!--<img src='/assets/image/logo1.png' md-tooltip="homepage"
           tooltip-position="below"></a></div>-->
 
-                    <div fxFlex="40%" fxLayout="row" class="box-color">
+                    <div fxFlex="40%" fxLayout="row" >
                         <!--<input mdInput aria-label="search" fxFlex="100%" placeholder="Search" type="search" fxLayout="column" class="box-color">-->
                         <input type="search" class="search" placeholder="Search..." />
                         <i class="material-icons searchBtn">search</i>
                     </div>
-                    <div fxFlex="27%" fxFlex.md="80%" fxFlex.sm="100%" fxLayout="row" class="searchAlgin" fxLayoutAlign="end">
+                    <div fxFlex="27%" fxFlex.md="80%" fxFlex.sm="100%" fxLayout="row"  fxLayoutAlign="end">
                    
                         <i class="material-icons">notifications_active</i>
                     </div>
 
-                    <div fxFlex="8%" fxLayout="row" class="searchAlgin" fxLayoutAlign="end">
+                    <div fxFlex="8%" fxLayout="row"  fxLayoutAlign="end">
                         <md-list>
                             <md-list-item>
                                 <img md-list-avatar src="../assets/img/pic3.png"  [md-menu-trigger-for]="menu" alt="User">
@@ -121,16 +123,8 @@
                         <button md-menu-item routerLink="/app/profile">Profile
                         </button>
 
-                        <button md-menu-item (click)="logout()">Logout
-                        </button>
+                        <button md-menu-item (click)="logout();">Logout</button>
 
-                        <md-menu xPosition="before" [overlapTrigger]="false" #menu1="mdMenu">
-
-                            <button md-menu-item routerLink="/profile">My communities</button>
-
-                            <button md-menu-item (click)="logout()">New communities</button>
-                            <button md-menu-item (click)="logout()">User Profile</button>
-                        </md-menu>
                     </md-menu>
             
         </md-toolbar>
