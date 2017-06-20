@@ -1,2 +1,1 @@
- module.exports = require('./community-role-action.router');
- 
+module.exports = require('./community-role-action.router');

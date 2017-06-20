@@ -9,19 +9,17 @@ import { RoleServices } from '../community-role-management/community-role-manage
 })
 export class CommunityRoleActionsComponent implements OnInit {
  @Input() dummy;
- constructor(public dialog: MdDialog,private role:RoleServices) { 
-    }
+ constructor(public dialog: MdDialog, private role: RoleServices) {}
   openDialog() {
     const dialog = this.dialog.open(CommunityToolActionsComponent);
   }
 
-  update(id,role,actions) {
-     let obj={id,role,actions};
+  update(id, role, actions) {
+     const obj = {id, role, actions};
      console.log(obj);
-  this.role.updateRole(obj).subscribe(data => {this.dummy=data})
+  this.role.updateRole(obj).subscribe(data => {this.dummy = data; });
   console.log(this.dummy);
-  }
-  
-  ngOnInit() { }
+}
+ngOnInit() { }
 
 }

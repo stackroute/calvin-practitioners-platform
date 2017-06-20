@@ -60,9 +60,7 @@ import { RoleServices } from './community-role-management/community-role-managem
     CommunityRoleActionsComponent,
     CommunityToolActionsComponent,
     ActivityPageComponent
-   
-
-  ],
+    ],
 
   imports: [
     MdSidenavModule,
