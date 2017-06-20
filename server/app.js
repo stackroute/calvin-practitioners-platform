@@ -4,9 +4,10 @@ const bodyParser = require('body-parser');
 const passport = require('passport');
 const express = require('express');
 const path = require('path');
+const app = express();
+
 require('./api/v1/modules/login/strategy/google/passport.js')(passport);
 
-const app = express();
 app.use(morgan('dev'));
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: false }));

@@ -14,39 +14,27 @@ import { CreateCommunityService } from './create-community.service';
 
 export class CreateCommunityComponent implements OnInit {
 
-  userForm: FormGroup;
+  templatevalue;
 
- // template: FormGroup;
+  userForm: FormGroup;
+  
+//  template: FormGroup;
 
   public tagarray= [];
 
-   coreActivity = [
-    {value: 'Professional', viewValue: 'Professional', tool: 'Forum' },
-    {value: 'Travel', viewValue: 'Travel', tool: 'quora'},
-    {value: 'Arts', viewValue: 'Arts', tool: 'stackoverflow'},
-    {value: 'Technology', viewValue: 'Technology', tool: 'quora'},
-    {value: 'Business', viewValue: 'Business', tool: 'Forum'},
-    {value: 'Science', viewValue: 'Science', tool: 'quora'},
-    {value: 'Education', viewValue: 'Education', tool: 'quora'}
-  ];
-
-
-    visibility = [
-      {value: 'Public', viewValue: 'Public'},
-      {value: 'Private', viewValue: 'Private'},
-      {value: 'Moderate', viewValue: 'Moderate'}
+  visibility = [
+    {"value": "Public", "viewValue": "Public"},
+      {"value": "Private", "viewValue": "Private"},
+      {"value": "Moderate", "viewValue": "Moderate"}
     ];
-
-    tags = [
-      {value: 'tag-one', viewValue: 'tagone'},
-      {value: 'tag-two', viewValue: 'tagtwo' },
-      {value: 'tag-three', viewValue: 'tagthree'}
-    ];
+   value:string;
   constructor(private dialog: MdDialog, private fb: FormBuilder, private newcommunity: CreateCommunityService) {
 
     this.createForm();
 
-   }
+    
+    }
+
 // reactive form validation for userForm
   createForm() {
         this.userForm = this.fb.group({
@@ -54,39 +42,43 @@ export class CreateCommunityComponent implements OnInit {
           communityName: ['', Validators.required],
           Purpose: ['', Validators.required],
           visibility: ['Public', Validators.required],
-          // template: ['',Validators.required],
+          template: ['',Validators.required],
           tagSelection: ['', Validators.required],
           termscondition: ['', Validators.required]
         });
     }
 
-
-
 //  check whether the card is clickable or not
 
  onselect(selectedTemplate: any) {
-   console.log(selectedTemplate);  
-  //  this.template=new FormGroup({
+
+   this.value=selectedTemplate;
+      console.log(selectedTemplate);
+
+  //   this.template=new FormGroup({
   //       templatevalue: new FormControl()
   //  })
-   return selectedTemplate;
+   return this.value;
  }
 
 // bind text box value
+
     chipValue(tag: any) {
      this.tagarray.push(tag);
     }
 
 // submit userForm values
-           onsubmit(userdata: any) { 
-            const values= userdata.value;
-            const domainName =values.domainName;
-            const Purpose=values.Purpose;
-            const communityName=values.communityName;
+
+           onsubmit(userdata: any) {
+            const values = userdata.value;
+            const domainName = values.domainName;
+            const Purpose = values.Purpose;
+            const communityName = values.communityName;
             const tagSelection = values.tagSelection;
-            const termscondition=values.termscondition;
-            const visibility=values.visibility;
-                  const value = { domainName, Purpose, communityName, tagSelection, termscondition, visibility };
+            const termscondition = values.termscondition;
+            const visibility = values.visibility;
+            const description = values.description;
+                  const value = { domainName, Purpose, communityName, tagSelection, termscondition, visibility, description };
                   console.log(value);
                   this.newcommunity.postfavdata(value).subscribe(
                    (data) => console.log('Post data'),
@@ -94,11 +86,20 @@ export class CreateCommunityComponent implements OnInit {
                     () => console.log('data posted successfully'));
         }
 
-      
-// cancel for redirect to userdashboard
+ // cancel for redirect to userdashboard
 
-  oncancel() { }
+  oncancel() {
+
+   }
   ngOnInit() {
+    this.newcommunity.getcurrentData()
+        .subscribe(
+            data=>{this.templatevalue=data.community;
+              console.log(this.templatevalue);
+            },            
+            error=>alert(error),
+            ()=>console.log("finished")
+        );
   }
 }
 

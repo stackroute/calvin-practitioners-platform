@@ -26,7 +26,7 @@ import { CommunityRoleManagementComponent } from './community-role-management/co
 import { CommunityToolActionsComponent } from './community-tool-actions/community-tool-actions.component';
 import { TemplateBrowserComponent } from './template-browser/template-browser.component';
 import { CommunityActivitylogsComponent } from './community-activitylogs/community-activitylogs.component';
-import { SideNavComponent } from './side-nav/side-nav.component';
+
 import { CommunityDashboardComponent } from './community-dashboard/community-dashboard.component';
 import { ActivityCardComponent } from './activity-card/activity-card.component';
 import { ActivityPageComponent } from './activity-page/activity-page.component';
@@ -51,18 +51,16 @@ import { InfiniteScrollModule } from 'angular2-infinite-scroll';
     CommunityToolActionsComponent,
     TemplateBrowserComponent,
     CommunityActivitylogsComponent,
-    SideNavComponent,
     CommunityDashboardComponent,
     ActivityCardComponent,
     ActivityPageComponent,
     CommunityProfileComponent,
     CommunityToolsWidgetComponent,
     CommunityMembersWidgetComponent,
-    CommunityRoleManagementComponent,
-    CommunityRoleActionsComponent,
-    CommunityToolActionsComponent,
-    ActivityPageComponent,
+
+
   ],
+
 
   imports: [
     InfiniteScrollModule,

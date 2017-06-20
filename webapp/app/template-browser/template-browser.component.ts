@@ -11,9 +11,13 @@ import { CreateCommunityComponent } from '../create-community/create-community.c
 })
 export class TemplateBrowserComponent implements OnInit {
 
+  count: 0;
+
   @Input() template;
 
   @Output() notify: EventEmitter<string> = new EventEmitter<string>();
+
+
 
 
   constructor(private community: CreateCommunityComponent ) { }

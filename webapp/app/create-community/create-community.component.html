@@ -14,11 +14,11 @@
                </div>
                <div *ngIf="userForm.get('domainName').hasError('pattern') && userForm.get('domainName')" class="errorStyle">
                   Invalid DomainName,must contain 8 to 20 char with one special character(.)
-               </div>
+                </div>
             </md-hint>
          </md-input-container>
       </div>
-      <!--community text field-->
+      <!--community name text field-->
       <div fxLayout.md="column">
          <md-input-container>
             <input mdInput placeholder="Community name" formControlName="communityName">
@@ -31,20 +31,21 @@
       </div>
       <!--select core-activity-->
       <div fxLayout.md="column">
-         <md-select placeholder="Purpose"  formControlName="Purpose">
-            <md-option *ngFor="let core of coreActivity" [value]="core.value" >
-            {{ core.value }}
-            </md-option>                    
-         </md-select>
-         <md-hint align="start" class="full-width">
-            <div *ngIf="userForm.get('Purpose').hasError('required') && userForm.get('Purpose').touched" class="errorStyle">
-               select any one purpose
-            </div>
-         </md-hint>
-      </div>
+                  <md-select placeholder="Purpose"  formControlName="Purpose">
+                    <md-option *ngFor="let core of coreActivity" [value]="core.value" >
+                      {{ core.value }}
+                    </md-option>                 
+                  </md-select>
+                  <!--validtation for purpose-->
+                      <md-hint align="start" class="full-width">
+                       <div *ngIf="userForm.get('Purpose').hasError('required') && userForm.get('Purpose').touched" class="errorStyle">
+                           select any one purpose
+                      </div> 
+                    </md-hint> 
+             </div>
       <!--choose visibitity mode-->
       <div>
-         <md-input-container class="example-full-width">
+         <md-input-container>
             <input mdInput placeholder="Visibility" disabled>
             <md-radio-group name="visibility" formControlName="visibility">
                <md-radio-button value="Public" >Public</md-radio-button>
@@ -61,17 +62,18 @@
          <md-input-container>
             <input mdInput placeholder="Tag"  [(ngModel)]="tagname" (keyup.enter)="chipValue(tagname)"  formControlName="tagSelection"  >
          </md-input-container>
-      </div>
-      <div fxLayout="row"  *ngFor="let tag of tagarray">
+           <div fxLayout="row"  *ngFor="let tag of tagarray">
          <md-chip-list ng-disabled="!tag.value">
             <span>
-               <md-chip>{{tag}}<i class="material-icons md-15">clear</i></md-chip>
+               <md-chip>{{tag}}<i class="material-icons md-12">clear</i></md-chip>
             </span>
          </md-chip-list>
       </div>
+      </div>
+    
       <!--select template -->
-      <!--<div [formGroup]="template">-->
-      <calvin-template-browser (notify)="onselect($event)"  [template]="coreActivity" (onselect)="onselect($event)"></calvin-template-browser>
+      <!--<div [formGroup]="template">  formControlName="templatevalue"-->
+      <calvin-template-browser (notify)="onselect($event)"  [template]="this.templatevalue" (onselect)="onselect($event)"></calvin-template-browser>
       <!--</div>-->
       <!--terms and condition-->
       <div fxLayout="column">
@@ -80,10 +82,10 @@
          </md-checkbox>
       </div>
       <!--submit the form using raised button-->
-      <span fxLayout.md="column" fxLayoutAlign="end end">
-      <button fxFlex="10%" md-raised-button ng-value="submit" type="submit" color="primary" [disabled]="!userForm.valid"
+      <span fxLayout.md="column" fxLayoutAlign="end end">      
+      <button fxFlex="5%" md-raised-button>cancel</button>
+      <button fxFlex="5%" md-raised-button ng-value="submit" type="submit" color="primary" [disabled]="!userForm.valid"
       (click)="onsubmit(userForm)">submit</button>
-      <button fxFlex="10%" md-raised-button>cancel</button>
       </span>
    </form>
 </div>

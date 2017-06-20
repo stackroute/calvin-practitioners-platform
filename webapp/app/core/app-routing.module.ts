@@ -13,21 +13,19 @@ import { CommunityRoleManagementComponent } from '../community-role-management/c
 import { AuthGuard } from './auth-guard.service';
 import { AuthService } from './auth.service';
 import { CommunityDashboardComponent } from '../community-dashboard/community-dashboard.component';
-import {  SideNavComponent } from '../side-nav/side-nav.component';
 import { ActivityPageComponent} from '../activity-page/activity-page.component';
 import { CommunityToolsWidgetComponent } from '../community-tools-widget/community-tools-widget.component';
 import { CommunityMembersWidgetComponent } from '../community-members-widget/community-members-widget.component';
 // Calvin routes
 const routes: ModuleWithProviders = RouterModule.forRoot([
   { path: 'login', component: LoginComponent },
-  { path: 'app', component: AppBarComponent, canActivate: [AuthGuard],
+  { path: 'app', component: AppBarComponent, // canActivate: [AuthGuard],
   children: [
             { path: 'home', component: UserDashboardComponent },
             { path: '', redirectTo: '/app/home', pathMatch: 'full' },
             { path: 'createCommunity', component: CreateCommunityComponent },
             { path: 'profile', component: UserProfileComponent },
             { path: 'actions', component: CommunityRoleManagementComponent},
-            { path: 'managecommunity', component: ManageCommunityComponent},
             { path: 'communityDashBoard', component: CommunityDashboardComponent},
             { path: 'createCommunity', component: CreateCommunityComponent },
             { path: 'activity' , component: ActivityPageComponent}

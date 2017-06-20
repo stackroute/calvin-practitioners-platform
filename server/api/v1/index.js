@@ -1,12 +1,13 @@
 const router = require('express').Router();
 const jwt = require('jsonwebtoken');
 
+
 // middleware to validate token
 router.use((req, res, next) => {
  //  console.log('inside middle ware');
   const url = req.url;
 //   console.log('url', url);
-  if (url.includes('google') || url.includes('logout')) {
+  if (url.includes('google') || url.includes('logout') ||('community')) {
     next();
   } else {
     const user = req.cookies.currentUser;
@@ -26,6 +27,9 @@ router.use((req, res, next) => {
 });
 
 router.use('/login', require('./modules/login'));
+
+router.use('/community', require('./modules/community'));
+
 
 router.use('/logout', (req, res) => {
   res.clearCookie('currentUser');
