@@ -6,3 +6,9 @@ before_script:
 cache:
   directories:
     - node_modules
+services:
+ - cassandra
+before_script: |-
+ cqlsh -e "create keyspace calvin with   replication = {'class':'SimpleStrategy','replication_factor':3}"
+
+ cqlsh -e "create table users(userhandle text,email text primary key ,name text,profilepic text,role text,communities map<text,text>,favouriteCommunities set<text>,lastLogin timestamp)"

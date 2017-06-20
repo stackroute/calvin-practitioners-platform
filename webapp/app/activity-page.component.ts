@@ -7,36 +7,36 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ActivityPageComponent implements OnInit {
 dummy = [{
-'title': 'raja',
+'title': 'Laddie',
 'overview': 'Profile of the producer and former studio head of 20th Century Fox in the 1970s, Alan Ladd Jr',
-'poster_path': 'http://medicorerecruiting.com/uploads/images/doctors-home.jpg',
+'poster_path': 'http://image.tmdb.org/t/p/w300//mBLhvwcILzeyCXmRX30Eogkz7F3.jpg',
 'image': 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOLu1xsB5p3fYIGSG06rWNOXau_UJRm5Kx7EqDKibwolZq9U_g',
 },
 {
-'title': 'jerry',
+'title': 'Laddie',
 'overview': 'Profile of the producer and former studio head of 20th Century Fox in the 1970s, Alan Ladd Jr.',
-'poster_path': 'http://ecx.images-amazon.com/images/I/51qNA-UwmIL._SX258_BO1,204,203,200_.jpg',
+'poster_path': 'http://image.tmdb.org/t/p/w300//mBLhvwcILzeyCXmRX30Eogkz7F3.jpg',
 'image': 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOLu1xsB5p3fYIGSG06rWNOXau_UJRm5Kx7EqDKibwolZq9U_g',
 },
 
 {
-'title': 'harry',
+'title': 'Beauty and the Beast',
 'overview': 'A live-action adaptation of Disneys version of the classicBeauty and the Beast',
-'poster_path': 'http://healthypractice.in/wp-content/uploads/2017/05/doctors-community.jpg',
+'poster_path': 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTEyUfPSIFSp5Vt75bhjqmF8pO26z7S8Nwv96S8QROx6j7RGzJ-efZ',
 'image': 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOLu1xsB5p3fYIGSG06rWNOXau_UJRm5Kx7EqDKibwolZq9U_g',
 },
 
 {
 'title': 'Laddie',
 'overview': 'Profile of the producer and former studio head of 20th Century Fox in the 1970s, Alan Ladd Jr',
-'poster_path': 'https://blog.equinix.com/wp-content/uploads/2015/07/Graph2-7-6.jpg',
+'poster_path': 'http://image.tmdb.org/t/p/w300//mBLhvwcILzeyCXmRX30Eogkz7F3.jpg',
 'image': 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOLu1xsB5p3fYIGSG06rWNOXau_UJRm5Kx7EqDKibwolZq9U_g',
 },
 
 {
 'title': 'The Fault in Our Stars',
 'overview': 'Despite the tumor-shrinking medical miracle that has bought her a few years, en a patient named Augustus Waters.',
-'poster_path': 'http://ecx.images-amazon.com/images/I/51qNA-UwmIL._SX258_BO1,204,203,200_.jpg',
+'poster_path': 'http://image.tmdb.org/t/p/w300//sc6XLX6J714LDkVV3Ys3clgypQS.jpg',
 'image': 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOLu1xsB5p3fYIGSG06rWNOXau_UJRm5Kx7EqDKibwolZq9U_g',
 },
 
@@ -50,27 +50,27 @@ dummy = [{
 {
 'title': 'Laddie',
 'overview': 'Profile of the producer and former studio head of 20th Century Fox in the 1970s, Alan Ladd Jr',
-'poster_path': 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRws7mQDNmWo81XBKAgJvSrBCyjBP6ZFCuSx9RfG5QM-cXw1xom',
+'poster_path': 'http://image.tmdb.org/t/p/w300//mBLhvwcILzeyCXmRX30Eogkz7F3.jpg',
 'image': 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOLu1xsB5p3fYIGSG06rWNOXau_UJRm5Kx7EqDKibwolZq9U_g',
 },
 
 {
 'title': 'Video Example',
 'image': 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOLu1xsB5p3fYIGSG06rWNOXau_UJRm5Kx7EqDKibwolZq9U_g',
-'poster_path': 'https://qph.ec.quoracdn.net/main-qimg-7c60ce68379e79e2f379783d460e0323',
+'poster_path': 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTEyUfPSIFSp5Vt75bhjqmF8pO26z7S8Nwv96S8QROx6j7RGzJ-efZ',
 },
 
 {
 'title': 'Beauty and the Beast',
 'overview': 'A live-action adaptation of Disneys version of the classicBeauty and the Beast',
-'poster_path': 'https://i.ytimg.com/vi/6rAKewPkdVM/maxresdefault.jpg',
+'poster_path': 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTEyUfPSIFSp5Vt75bhjqmF8pO26z7S8Nwv96S8QROx6j7RGzJ-efZ',
 'image': 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOLu1xsB5p3fYIGSG06rWNOXau_UJRm5Kx7EqDKibwolZq9U_g',
 },
 
 {
 'title': 'Beauty and the Beast',
 'overview': 'A live-action adaptation of Disneys version of the classicBeauty and the Beast',
-'poster_path': 'https://i.ytimg.com/vi/6rAKewPkdVM/maxresdefault.jpg',
+'poster_path': 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTEyUfPSIFSp5Vt75bhjqmF8pO26z7S8Nwv96S8QROx6j7RGzJ-efZ',
 'image': 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOLu1xsB5p3fYIGSG06rWNOXau_UJRm5Kx7EqDKibwolZq9U_g',
 }
 ];

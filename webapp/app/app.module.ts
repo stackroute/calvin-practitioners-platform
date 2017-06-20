@@ -25,15 +25,20 @@ import { CommunityRoleManagementComponent } from './community-role-management/co
 import { CommunityToolActionsComponent } from './community-tool-actions/community-tool-actions.component';
 import { TemplateBrowserComponent } from './template-browser/template-browser.component';
 import { CommunityActivitylogsComponent } from './community-activitylogs/community-activitylogs.component';
-import { SideNavComponent } from './side-nav/side-nav.component';
+
 import { CommunityDashboardComponent } from './community-dashboard/community-dashboard.component';
 import { ActivityCardComponent } from './activity-card/activity-card.component';
 import { ActivityPageComponent } from './activity-page/activity-page.component';
+import { CommunityProfileComponent } from './community-profile/community-profile.component';
 import { CommunityToolsWidgetComponent } from './community-tools-widget/community-tools-widget.component';
 import { CommunityMembersWidgetComponent } from './community-members-widget/community-members-widget.component';
+<<<<<<< HEAD
 import { RoleServices } from './community-role-management/community-role-management.service';
 
 
+=======
+import { InfiniteScrollModule } from 'angular2-infinite-scroll';
+>>>>>>> 08b91c33ed64207a983fdb1b16f77432e62c6104
 
 @NgModule({
   declarations: [
@@ -50,19 +55,18 @@ import { RoleServices } from './community-role-management/community-role-managem
     CommunityToolActionsComponent,
     TemplateBrowserComponent,
     CommunityActivitylogsComponent,
-    SideNavComponent,
     CommunityDashboardComponent,
     ActivityCardComponent,
     ActivityPageComponent,
+    CommunityProfileComponent,
     CommunityToolsWidgetComponent,
     CommunityMembersWidgetComponent,
-    CommunityRoleManagementComponent,
-    CommunityRoleActionsComponent,
-    CommunityToolActionsComponent,
-    ActivityPageComponent
-    ],
+  ],
+
+
 
   imports: [
+    InfiniteScrollModule,
     MdSidenavModule,
     BrowserModule,
     HttpModule,
