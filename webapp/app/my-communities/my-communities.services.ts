@@ -6,7 +6,7 @@ export class MyCommunities {
 
   constructor (private http: Http) {}
   getCommunity() {
-  const url = '';
+    const url = '';
     return this.http.get(url).map((response: Response) => response.json());
   }
 }

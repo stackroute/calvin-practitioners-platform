@@ -21,9 +21,8 @@ export class AuthGuard implements CanActivate, CanActivateChild, CanLoad {
   }
 
   checkLogin(url: string): boolean {
-    if (Cookie.get('currentUser')) { return true; }
-    this.authService.redirectUrl = url;
-    const sessionId = 123456789;
+    if (Cookie.get('currentUser')) { alert("inside");return true; }
+    alert("outside");
     this.router.navigate(['/login']);
     return false;
   }
