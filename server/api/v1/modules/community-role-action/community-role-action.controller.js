@@ -1,8 +1,6 @@
-const communityRoleService = require('./community-role-action.service');
-const cartoons = [{'id':1,'role':'Member','actions':['add','post','reply']},
-{'id':2,'role':'Admin','actions':['post','add','remove','manage']},
-{'id':3,'role':'Secretary','actions':['post','add','remove','manage','reply']}];
-
+const cartoons =[{ 'id': 1,'role': 'Member', 'actions': ['add', 'post', 'reply']},
+{'id': 2, 'role': 'Admin', 'actions': ['post', 'add', 'remove', 'manage']},
+{'id': 3, 'role': 'Secretary', 'actions': ['post', 'add', 'remove', 'manage', 'reply'] }];
 function retrieveAllUsers(req, res) {
   res.status(200).json(cartoons);
 }
@@ -19,7 +17,6 @@ function retrieveAllUsers(req, res) {
   
 //   communityRoleService.updateActions(request, response);
 // }
-
 module.exports = {
   retrieveAllUsers
   // createNewUser,
