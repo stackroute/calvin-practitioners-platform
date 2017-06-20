@@ -6,7 +6,7 @@ router.use((req, res, next) => {
 //   console.log('inside middle ware');
   const url = req.url;
 //   console.log('url', url);
-  if (url.includes('google')) {
+  if (url.includes('google') || url.includes('logout')) {
     next();
   } else {
     const user = req.cookies.currentUser;
@@ -34,4 +34,7 @@ router.use('/logout', (req, res) => {
 router.use('/test', (req, res) => {
   res.send('To test middle ware');
 });
+
+// Routes to get user Community List
+router.use('/userCommunities', require('./modules/community'));
 module.exports = router;
