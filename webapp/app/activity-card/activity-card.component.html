@@ -1,19 +1,18 @@
-<div *ngIf="dummy">
-<div *ngFor="let sample of dummy">
-<md-card>
+<!--Activity-card design-->
+<md-card fxFlex="100%">
   <md-card-header>
-    <img md-card-avatar src="{{sample.image}}">
-    <md-card-title>{{sample.title}}</md-card-title>
-    <md-card-subtitle>Dog Breed</md-card-subtitle>
+    <img md-card-avatar src="{{activity.image}}">
+      <md-card-title>{{activity.title}}</md-card-title>
+        <md-card-subtitle>Dog Breed</md-card-subtitle>
   </md-card-header>
-  <img md-card-image src="{{sample.poster_path}}">
+    <img md-card-image src="{{activity.poster_path}}">
   <md-card-content>
-     {{sample.overview}}
+     {{activity.overview}}
      </md-card-content>
   <md-card-actions>
-    <button md-button>LIKE</button>
+    <button md-button (click)="likefunction()">LIKE</button>{{counter}}
+    <button md-button (click)="unlike()">UNLIKE</button>
     <button md-button>SHARE</button>
   </md-card-actions>
 </md-card>
-</div>
-</div>
+<!--End of Activity-card design-->

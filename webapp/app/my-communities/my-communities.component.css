@@ -15,27 +15,15 @@ md-list-item:hover img {
 md-list-item:last-child {
   border-bottom: 1px transparent;
 }
-.mycommunity-head {
-  border-bottom: 3px double #666;
-  margin-top: -40px;
+.mat-mini-fab {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
 }
-.mycommunity::-webkit-scrollbar { 
-    display: none; 
-}
-.mycommunity-head i {
-  background-color: #3f51b5;
-  color: #fff;
-  padding: 10px;
-  border-radius: 50%;
-  cursor: pointer;
-  position: relative;
-  top: 22px;
-  left: 80%;
-}
-.mycommunity {
-  padding: 30px;
-  max-height: 70%;
+.community-list {
+  max-height: 600px;
   overflow-y: scroll;
-  background-color: #fff;
-  border: 1px solid #ddd;
+}
+.community-list::-webkit-scrollbar { 
+    display: none; 
 }
