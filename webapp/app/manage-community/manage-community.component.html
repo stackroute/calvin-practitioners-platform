@@ -1,50 +1,23 @@
 <calvin-community-profile></calvin-community-profile>
-         <div fxLayout fxLayout.xs="row" fxLayoutGap="0px" fxLayoutGap.xs="0">
-           <div fxFlex="20%" fxLayout="row"  > </div>
-           <div fxFlex="80%" fxLayout="row" >
-             <md-tab-group  class="manage-community" fxFlex="100%">
-                  <md-tab  label="Community" fxFlex="20%">
+        
+             <!--<md-tab-group  class="manage-community" fxFlex="100%">
+                  <md-tab  label="Community" fxFlex="20%">-->
                         <!--Form for displaying community info in community info tab-->
                         
 
 
 <!--Using Flex for dividing the page into side nav,content and side nav  -->
-
-  <div 
-         fxLayout
-         fxLayout.xs="column"
-         fxLayoutGap="0px"
-         fxLayoutGap.xs="0">
-        <div class="item item-1" fxFlex="20%" fxFlexAlign='start'>
-
+         <div fxLayout fxLayout.xs="row" fxLayoutGap="0px" fxLayoutGap.xs="0">
+         <div fxFlex="20%" fxLayout="row"  > </div>
+           <div fxFlex="80%" fxLayout="row" >
+            <md-tab-group  class="manage-community" fxFlex="100%">
+                 <md-tab  label="Community" fxFlex="20%">
 <!--Community Avatar in side nav  -->
 
-   <md-list>
-         <md-list-item class="community-image"> 
-
-                  
-                <md-icon  (click)="openDialog()" class="community-display-pic" mdTooltip="Edit">add_a_photo</md-icon>
-                <img md-list-avatar src='/assets/images/try1.jpg'>
-         </md-list-item>
-   </md-list>
-
-   <md-input-container class="community-details">
-         <input mdInput placeholder="Community Name" value="" disabled>
-   </md-input-container>
-
-   <md-input-container  class="community-access-details">
-         <input mdInput placeholder="Private Community" value="" disabled>
-   </md-input-container>
-   <span> <md-icon>lock</md-icon></span>
-
-  </div><!--closing div of flex 20% for comunity avatar-->
 
 
    <!--Content area or community info area using tabs-->
-
-  <div class="item item-2" fxFlex="60%" fxFlexAlign="start">
-        <md-tab-group>
-                <md-tab label="Community">   
+   
                   <!--Form for displaying community info in community info tab-->
                         <form #userForm="ngForm" (ngSubmit)="onFormSubmit(userForm)" class="try">
                               <div>
@@ -102,30 +75,12 @@
                         <!--closing form-->
 
 
-                  </md-tab>
-                  
-                  <!--Closing community info tab-->
-
-                  <md-tab label="Members"></md-tab>
-                  <!--tab for manage member component-->
-                  <md-tab label="Roles">
-                        <calvin-community-role-actions>
-                        </calvin-community-role-actions>
-                  </md-tab>
-                  <!--tab for manage role component-->
-                  <md-tab label="Tools"></md-tab>
-                  <!--tab for manage tools component-->
-                  
-            </md-tab-group>
-           </div> 
-           </div>
-         
-        
+     
 
       
       
       
-                    </form><!--closing form-->
+                  <!--closing form-->
 
                   
               </md-tab><!--Closing community info tab-->
@@ -136,4 +91,4 @@
         </md-tab-group>
   </div>
   </div>
- <div class="item item-4" fxFlex="20%" fxFlexOrder="4"></div>
+ 
