@@ -5,5 +5,5 @@ function getUserCommunity(req, res) {
 }
 
 module.exports = {
-  getUserCommunity
+  getUserCommunity,
 };

@@ -34,7 +34,6 @@ router.use('/logout', (req, res) => {
 router.use('/test', (req, res) => {
   res.send('To test middle ware');
 });
-
-// Routes to get user Community List
 router.use('/userCommunities', require('./modules/community'));
+
 module.exports = router;
