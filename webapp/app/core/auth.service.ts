@@ -15,7 +15,14 @@ export class AuthService {
     window.location.replace('http://localhost:3000/api/v1/login/auth/google');
   }
   logout() {
+
+    // localStorage.removeItem('isLogginUser');
+    // this.isLoggedIn = false;httphttphttphttp
+    alert('inside logout service');
+    // return this.http.get('http://localhost:3000/api/v1/login/auth/logout').map((res: Response) => { res = res; });
+
     // alert('inside logout service');
     window.location.replace('http://localhost:3000/api/v1/logout');
+
     }
   }
