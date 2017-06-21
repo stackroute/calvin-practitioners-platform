@@ -32,11 +32,16 @@ import { ActivityPageComponent } from './activity-page/activity-page.component';
 import { CommunityProfileComponent } from './community-profile/community-profile.component';
 import { CommunityToolsWidgetComponent } from './community-tools-widget/community-tools-widget.component';
 import { CommunityMembersWidgetComponent } from './community-members-widget/community-members-widget.component';
+import { UserWidgetsComponent } from './my-communities/my-communities.component';
+
 // import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { ToolsService } from './community-tools-widget/community-tools-widget.service';
 import { MembersService } from './community-members-widget/community-members-widget.service';
 import { RoleServices } from './community-role-management/community-role-management.service';
 import { InfiniteScrollModule } from 'angular2-infinite-scroll';
+import { ActivityService } from './activity-page/activity-page.service';
+import { CreateCommunityService } from './create-community/create-community.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -62,9 +67,8 @@ import { InfiniteScrollModule } from 'angular2-infinite-scroll';
     CommunityRoleActionsComponent,
     CommunityToolActionsComponent,
     ActivityPageComponent,
-  ],
-
-
+    UserWidgetsComponent
+     ],
 
   imports: [
     InfiniteScrollModule,
@@ -88,13 +92,11 @@ import { InfiniteScrollModule } from 'angular2-infinite-scroll';
     MdInputModule,
     MdSlideToggleModule,
     MdDialogModule,
-    ReactiveFormsModule
-    
- 
+    ReactiveFormsModule 
   ],
   entryComponents: [CommunityToolActionsComponent],
 
-  providers: [RoleServices],
+  providers: [RoleServices,ActivityService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,8 +1,25 @@
 <!--collect activity cards for display activity page-->
-<div class="activity-board item item-3" fxLayout="rows">
-  <div *ngIf="dummy" fxFlex="100%"  fxLayoutGap="2%" fxLayoutWrap >
+<div class="container"
+    fxLayout
+    fxLayout.xs="column"
+    fxLayoutAlign="center"
+    fxLayoutGap="10px"
+    fxLayoutGap.xs="0">
+  <div class="item item-1" fxFlex="30%"><calvin-user-widgets></calvin-user-widgets></div>
+
+<div class="item item-3" fxFlex="100%">
+  <md-card>Current Activities</md-card>
+        <div *ngIf="tools">
+              <div *ngFor="let sample of tools">
+             <calvin-activity-card [activity]="sample"></calvin-activity-card>
+          </div>
+        </div>
+      </div>
+</div>
+<!--<div class="activity-board item item-3" fxLayout="rows">
+  <div *ngIf="tools" fxFlex="100%"  fxLayoutGap="2%" fxLayoutWrap >
       <div class="list-activities" fxFlex="31%" *ngFor="let sample of dummy" fx-flex-fill >
         <calvin-activity-card  [activity]="sample"></calvin-activity-card>
       </div>
   </div>
-</div>
+</div>-->

@@ -1,10 +1,9 @@
-const express = require('express');
+const router = require('express').Router();
 
-const router = express.Router();
 const communityCtrl = require('./community.controller');
 
-router.get('/', (req, res) => {
-  communityCtrl.getUserCommunity(req, res);
-});
+router.get('/getcom', communityCtrl.getcommunity);
+
 
 module.exports = router;
+
