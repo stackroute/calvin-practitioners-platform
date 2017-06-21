@@ -4,6 +4,8 @@ const router = express.Router();
 
 const memberCtrl = require('./members.controller');
 
+// router.get('/members', memberCtrl.getMembers);
+
 router.get('/members', (req, res) => {
   try {
     return res.send(memberCtrl.getMembers(req.query.domain));

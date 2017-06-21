@@ -8,6 +8,8 @@ import { ToolsService } from './community-tools-widget.service';
   providers: [ToolsService]
 })
 export class CommunityToolsWidgetComponent implements OnInit {
+
+
   tools;
   constructor(private toolsWidget: ToolsService) { }
 

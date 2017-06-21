@@ -1,3 +1,5 @@
+const communityservice = require('./community.service');
+
   const coreActivity = {
     community: [
     { value: 'Professional', viewValue: 'Professional', tool: 'Forum' },
@@ -11,16 +13,15 @@
   };
 
 
-    // visibility = [
-    //   {"value": "Public", "viewValue": "Public"},
-    //   {"value": "Private", "viewValue": "Private"},
-    //   {"value": "Moderate", "viewValue": "Moderate"}
-    // ];
-
   function getcommunity(req, res) {
     res.status(200).json(coreActivity);
   }
 
-  module.exports = {
-    getcommunity,
-  };
+function getUserCommunity(req, res) {
+  communityservice.getAllUserCommunities(req, res);
+}
+
+module.exports = {
+  getUserCommunity,
+  getcommunity
+};
