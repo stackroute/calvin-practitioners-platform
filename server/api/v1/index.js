@@ -11,7 +11,8 @@ router.use((req, res, next) => {
     //   console.log('url', url);
   if (url.includes('google') || url.includes('logout')) {
       next();
-    } else {
+    } 
+    else {
         const user = req.cookies.currentUser;
     if (user) {
         jwt.verify(user, 'secret key', (err) => {
