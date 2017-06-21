@@ -8,20 +8,24 @@ import 'rxjs/add/operator/switchMap';
   selector: 'calvin-user-widgets',
   templateUrl: './my-communities.component.html',
   styleUrls: ['./my-communities.component.css'],
-  providers: [ UserCommunities ]
+  providers: [UserCommunities]
 })
 export class UserWidgetsComponent implements OnInit {
   userCommunityListArray = [ ];
   constructor(private userCommunities: UserCommunities, private router: Router) { }
-
+  
   ngOnInit() { 
     this.getUserCommunity();
   }
+
+  onScroll() {
+  }
+
   routeToCommunity (communityDomain){
     this.router.navigate(['/app/userCommunity', communityDomain]);
   }
 
-  // Get user community list
+   // Get user community list
   getUserCommunity() {
     this.userCommunities
       .getCommunity()
@@ -30,5 +34,6 @@ export class UserWidgetsComponent implements OnInit {
           this.userCommunityListArray.push(element)
         });
       });
-  }
+   }
+   
 }

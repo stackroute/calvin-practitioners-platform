@@ -1,22 +1,14 @@
-<!--Activity-card design-->
 <md-card fxFlex="100%">
-  <md-card-header>
-    <img md-card-avatar src="{{activity.image}}">
-      <md-card-title>{{activity.title}}</md-card-title>
-        <md-card-subtitle>Dog Breed</md-card-subtitle>
-  </md-card-header>
-    <img md-card-image src="{{activity.poster_path}}">
-    
-  <md-card-content [ngSwitch]="raja2w">
-    <div *ngSwitchCase="raja"> hi </div>
-    <div *ngSwitchCase="raja2"> hello </div>
-    <div *ngSwitchDefault> Default Template </div>
-  </md-card-content>
-   
-  <md-card-actions>
-    <button md-button (click)="likefunction()">LIKE</button>{{counter}}
-    <button md-button (click)="unlike()">UNLIKE</button>
-    <button md-button>SHARE</button>
-  </md-card-actions>
+ <md-card-header>
+   <img md-card-avatar src="{{activity.image}}">
+   <md-card-title>{{activity.title}}</md-card-title>
+ </md-card-header>
+ <img md-card-image src="{{activity.poster_path}}">
+ <md-card-content>
+   {{activity.overview}}
+ </md-card-content>
+ <md-card-actions>
+   <button md-button>LIKE</button>
+   <button md-button>SHARE</button>
+ </md-card-actions>
 </md-card>
-<!--End of Activity-card design-->

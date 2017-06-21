@@ -20,8 +20,7 @@ import { UserCommunities } from '../my-communities/my-communities.services';
 // Calvin routes
 const routes: ModuleWithProviders = RouterModule.forRoot([
   { path: 'login', component: LoginComponent },
-  {
-    path: 'app', component: AppBarComponent, canActivateChild: [AuthGuard],
+  { path: 'app', component: AppBarComponent, canActivateChild: [AuthGuard],
     children: [
       { path: 'home', component: UserDashboardComponent },
       { path: '', redirectTo: '/app/home', pathMatch: 'full' },

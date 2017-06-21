@@ -1,5 +1,5 @@
 <div fxLayout fxLayoutAlign="start">
-  <div fxFlex="25%">
+  <div fxFlex="22%">
     <md-card>
       <md-card-header class="header" fxLayoutAlign="center">
         <p>Tool bars</p>
@@ -8,9 +8,21 @@
       <md-card-content fxLayoutAlign.xs="column" class="content">
         <!--style="margin-top:20px" -->
         <!--<div fxFlex="100%">-->
-        <md-list>
+          <md-list>
+          <div *ngFor="let val of this.tools" fxLayoutAlign.xs="column">
+       
+         
+         <!--<li>{{val.photo}}</li>-->
+        <md-list-item> <img md-list-avatar class="img-responsive center-block" src={{val.photo}}></md-list-item>
+         <md-list-item>{{val.Tool}}</md-list-item>
+         </div>
+         </md-list>
+     
+        <!--<md-list>
           <md-list-item>
-            <a href="https://myaccount.google.com/?utm_source=OGB&utm_medium=app">
+            
+          </md-list-item>-->
+            <!--<a href="https://myaccount.google.com/?utm_source=OGB&utm_medium=app">
               <md-list-item>
                 <img md-list-avatar src="assets/img/gmail.png" alt="User">
                 <p>Email</p>
@@ -64,7 +76,7 @@
                 <p>Calendar</p>
               </md-list-item>
             </a>
-          </md-list-item>
+          </md-list-item>-->
 
           <!--</md-list-item>
           <a md-list-item href="https://myaccount.google.com/?utm_source=OGB&utm_medium=app">
@@ -139,7 +151,7 @@
             </md-list-item>
           </a>
         </div>-->
-        </md-list>
+        <!--</md-list>-->
       </md-card-content>
     </md-card>
   </div>
