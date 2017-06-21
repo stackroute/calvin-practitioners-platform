@@ -1,21 +1,22 @@
 const router = require('express').Router();
 const authCtrl = require('./auth.controller');
 
-router.use((req, res, next) => {
+router.use((req, res, next) => {        // eslint-disable-line consistent-return
   try {
     const token = req.cookies.currentUser;
-    // console.log('cookie', token);
+        // console.log('cookie', token);
         // to  decode token
     if (token) {
       authCtrl.verifyToken(token, (err) => {
         if (err) {
-        //   console.log('Internal error occurred', err);
-          return res.status(500).send({ error: 'Internal error occurred, please try later..!', message: 'UnAuthorised User' });
+          res.status(401);
+          res.redirect('/#/login');
+          return;
         }
 
-                 // console.log('Token verified');
-                // res.cookie(config.cookie.name,successResult.authToken);
         next();
+             // console.log('Token verified');
+                // res.cookie(config.cookie.name,successResult.authToken);
       });
     } else {
             // if there is no token
@@ -25,7 +26,7 @@ router.use((req, res, next) => {
       });
     }
   } catch (error) {
-    // console.log(error);
+        // console.log(error);
     return error;
   }
 });

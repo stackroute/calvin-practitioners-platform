@@ -13,16 +13,16 @@ router.use('/activity', require('./modules/activity-page'));
 
 router.use('/userCommunities', require('./modules/community'));
 
-// router.use('/community', require('./modules/community'));
+router.use('/community', require('./modules/community'));
 
 
-// router.use('/members', require('./modules/members'));
+router.use('/members', require('./modules/members'));
 
-// router.use('/tools', require('./modules/tools'));
+router.use('/tools', require('./modules/tools'));
 
 
-// router.use('/community-role-action', require('./modules/community-role-action'));
+router.use('/community-role-action', require('./modules/community-role-action'));
 
-// router.use('/userCommunities', require('./modules/community'));
+router.use('/userCommunities', require('./modules/community'));
 
 module.exports = router;

@@ -5,7 +5,7 @@ module.exports = {
   },
   appConstants: {
     secret: 'secret key',
-    expiryTime: 60 * 30,
+    expiryTime: 60 * 60,
   },
   cookie: {
     name: 'currentUser',
