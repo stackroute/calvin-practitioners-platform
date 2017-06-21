@@ -20,6 +20,8 @@ router.get('/userCommunities', (req, res) => {
 
 });
 
+
 // get Community
 router.get('/getcom', communityCtrl.getcommunity);
 module.exports = router;
+

@@ -1,4 +1,3 @@
-  
 const communityservice = require('./community.service');
 
   const coreActivity = {

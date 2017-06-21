@@ -17,7 +17,7 @@ export class UserWidgetsComponent implements OnInit {
   ngOnInit() { 
     this.getUserCommunity();
   }
-
+  
   onScroll() {
   }
 
@@ -35,5 +35,4 @@ export class UserWidgetsComponent implements OnInit {
         });
       });
    }
-   
 }
