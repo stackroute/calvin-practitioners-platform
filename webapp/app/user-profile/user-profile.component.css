@@ -1,11 +1,11 @@
 
-.placing
+/*.placing
 {
     margin:5% 0% 5% 5%;
-}
+}*/
 .form-div
 {
- margin:5% 0% 5% 10%;
+ margin:5% 0% 5% 5%;
 }
 .list-div
 {
@@ -17,12 +17,11 @@
     background-repeat: repeat-x;
     background-repeat: repeat;
 }
-.img-div
-{
-    background-color:blue;
-    height:10%;
-}
 .chip-div
 {
     padding-top:30%;
+}
+.img-placing
+{
+padding-bottom:0%;
 }
