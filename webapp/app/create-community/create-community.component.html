@@ -1,94 +1,88 @@
-<div class="nitin" fxFlex="100%" fxLayout="row" fxLayoutAlign="start end">
-<div fxFlex="10%" fxLayout="column"></div>
-<div class="container" fxLayout="row">
-   <form class="container" fxFlex="80%" fxLayout="column" fxFlexAlign="center center"
-      fxFlexFill [formGroup]="userForm">
-      <h4 class="md-headline">Create new community</h4>
-      <!--domain name text field-->
-      <div fxLayout.md="column">
-         <md-input-container>
-            <input mdInput placeholder="Domain name" formControlName="domainName">
-            <md-hint align="start" class="full-width">
-               <div *ngIf="userForm.get('domainName').hasError('required') && userForm.get('domainName').touched" class="errorStyle">
-                  Domain Name is required
-               </div>
-               <div *ngIf="userForm.get('domainName').hasError('pattern') && userForm.get('domainName')" class="errorStyle">
-                  Invalid DomainName,must contain 8 to 20 char with one special character(.)
-                </div>
-            </md-hint>
-         </md-input-container>
+<div fxFlex="100" fxLayout="row" fxLayoutAlign="start end" fxLayoutWrap>
+  <div fxFlex="10" fxLayout="column"></div>
+  <form class="container" fxFlex="80" fxLayout="column" fxFlexAlign="center center"
+    fxFlexFill [formGroup]="userForm">
+    <h4 class="md-headline">Create new community</h4>
+    <!--domain name text field-->
+    <div fxLayout.md="column">
+      <md-input-container>
+        <input mdInput placeholder="Domain name" formControlName="domainName">
+        <md-hint align="start" class="full-width">
+          <div *ngIf="userForm.get('domainName').hasError('required') && userForm.get('domainName').touched" class="errorStyle">
+            Domain Name is required
+          </div>
+          <div *ngIf="userForm.get('domainName').hasError('pattern') && userForm.get('domainName')" class="errorStyle">
+            Invalid DomainName,must contain 8 to 20 char with one special character(.)
+          </div>
+        </md-hint>
+      </md-input-container>
+    </div>
+    <!--community text field-->
+    <div fxLayout.md="column">
+      <md-input-container>
+        <input mdInput placeholder="Community name" formControlName="communityName">
+        <md-hint align="start" class="full-width">
+          <div *ngIf="userForm.get('communityName').hasError('required') && userForm.get('communityName').touched">
+            Community Name is required
+          </div>
+        </md-hint>
+      </md-input-container>
+    </div>
+    <!--choose visibitity mode-->
+    <div>
+      <md-input-container>
+        <input mdInput placeholder="Visibility" disabled>
+        <md-radio-group name="visibility" formControlName="visibility">
+          <md-radio-button value="Public" >Public</md-radio-button>
+          <md-radio-button value="Private" >Private</md-radio-button>
+          <md-radio-button value="Moderate" >Moderate</md-radio-button>
+        </md-radio-group>
+      </md-input-container>
+    </div>
+    <!--get description from user using text-area -->
+    <md-input-container >
+      <textarea mdInput placeholder="Description" formControlName="description"></textarea>
+    </md-input-container>
+    <!--select core-activity-->
+    <div fxLayout.md="column">
+      <md-select placeholder="Purpose"  formControlName="Purpose">
+        <md-option *ngFor="let core of this.newcommunity.communityDetails" [value]="core.purpose" >
+        {{core.purpose}}
+        </md-option>                    
+      </md-select>
+      <md-hint align="start" class="full-width">
+        <div *ngIf="userForm.get('Purpose').hasError('required') && userForm.get('Purpose').touched" class="errorStyle">
+          select any one purpose
+        </div>
+      </md-hint>
+    </div>
+    <!--select template -->
+    <!--<div fxLayout.md="column">-->
+    <calvin-template-browser (notify)="onselect($event)"  [template]="this.newcommunity.communityDetails" (onselect)="onselect($event)">
+    </calvin-template-browser>
+    <!--</div>-->
+    <!--select tag container-->
+    <div fxLayout.md="column">
+      <md-input-container>
+        <input mdInput placeholder="Tag"  [(ngModel)]="tagname" (keyup.enter)="chipValue(tagname)"  formControlName="tagSelection"  >
+      </md-input-container>
+    </div>
+    <md-chip-list>
+      <div fxLayout.md="column" ng-disabled="!tag.value" *ngFor="let tag of tagarray" (click)="clearTag(tag.value)" >
+      <md-chip>{{tag}}<i class="material-icons">clear</i></md-chip>
       </div>
-      <!--community name text field-->
-      <div fxLayout.md="column">
-         <md-input-container>
-            <input mdInput placeholder="Community name" formControlName="communityName">
-            <md-hint align="start" class="full-width">
-               <div *ngIf="userForm.get('communityName').hasError('required') && userForm.get('communityName').touched">
-                  Community Name is required
-               </div>
-            </md-hint>
-         </md-input-container>
-      </div>
-      <!--select core-activity-->
-      <div fxLayout.md="column">
-                  <md-select placeholder="Purpose"  formControlName="Purpose">
-                    <md-option *ngFor="let core of coreActivity" [value]="core.value" >
-                      {{ core.value }}
-                    </md-option>                 
-                  </md-select>
-                  <!--validtation for purpose-->
-                      <md-hint align="start" class="full-width">
-                       <div *ngIf="userForm.get('Purpose').hasError('required') && userForm.get('Purpose').touched" class="errorStyle">
-                           select any one purpose
-                      </div> 
-                    </md-hint> 
-             </div>
-      <!--choose visibitity mode-->
-      <div>
-         <md-input-container>
-            <input mdInput placeholder="Visibility" disabled>
-            <md-radio-group name="visibility" formControlName="visibility">
-               <md-radio-button value="Public" >Public</md-radio-button>
-               <md-radio-button value="Private" >Private</md-radio-button>
-               <md-radio-button value="Moderate" >Moderate</md-radio-button>
-            </md-radio-group>
-         </md-input-container>
-      </div>
-      <!--get description from user using text-area -->
-      <label>Description:</label>
-      <div><textarea rows="6"></textarea></div>
-      <!--select tag container-->
-      <div fxLayout.md="column">
-         <md-input-container>
-            <input mdInput placeholder="Tag"  [(ngModel)]="tagname" (keyup.enter)="chipValue(tagname)"  formControlName="tagSelection"  >
-         </md-input-container>
-           <div fxLayout="row"  *ngFor="let tag of tagarray">
-         <md-chip-list ng-disabled="!tag.value">
-            <span>
-               <md-chip>{{tag}}<i class="material-icons md-12">clear</i></md-chip>
-            </span>
-         </md-chip-list>
-      </div>
-      </div>
-    
-      <!--select template -->
-      <!--<div [formGroup]="template">  formControlName="templatevalue"-->
-      <calvin-template-browser (notify)="onselect($event)"  [template]="this.templatevalue" (onselect)="onselect($event)"></calvin-template-browser>
-      <!--</div>-->
-      <!--terms and condition-->
-      <div fxLayout="column">
-         <md-checkbox formControlName="termscondition">
-            I agree!Terms and Condition.
-         </md-checkbox>
-      </div>
-      <!--submit the form using raised button-->
-      <span fxLayout.md="column" fxLayoutAlign="end end">      
-      <button fxFlex="5%" md-raised-button>cancel</button>
-      <button fxFlex="5%" md-raised-button ng-value="submit" type="submit" color="primary" [disabled]="!userForm.valid"
-      (click)="onsubmit(userForm)">submit</button>
-      </span>
-   </form>
-</div>
-<div fxLayout="column" fxFlex="10%"></div>
-</div>
+    </md-chip-list>      
+<!--terms and condition-->
+    <div fxLayout="column">
+      <md-checkbox color="primary" formControlName="termscondition">I agree!Terms and Condition.</md-checkbox>
+    </div>
+<!--submit the form using raised button-->
+    <span fxLayout.md="row" fxLayoutAlign="end end">
+      <button fxLayout.md="column" fxFlex="10" md-raised-button>cancel</button>
+      <button fxLayout.md="column" fxFlex="10" md-raised-button ng-value="submit" type="submit" color="primary" [disabled]="!userForm.valid"
+          (click)="onsubmit(userForm)">submit</button>
+    </span>
+</form>
+<div fxLayout="column" fxFlex="10"></div>
+
 <router-outlet></router-outlet>

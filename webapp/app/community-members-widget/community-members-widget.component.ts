@@ -9,17 +9,13 @@ import { MembersService } from './community-members-widget.service';
   providers: [MembersService]
 })
 export class CommunityMembersWidgetComponent implements OnInit {
-members;
+  members;
   constructor(private membersWidget:MembersService ) { }
-
+  
   ngOnInit() {
-    
-        this.membersWidget.getMember().subscribe(data => {
-        this.members = data.Tools;
-         
-       });
-
-
+    this.membersWidget.getMember().subscribe(data => {
+    this.members = data.Tools;
+    });
   }
 
 }

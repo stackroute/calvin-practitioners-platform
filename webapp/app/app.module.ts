@@ -67,7 +67,7 @@ import { CreateCommunityService } from './create-community/create-community.serv
     CommunityRoleActionsComponent,
     CommunityToolActionsComponent,
     ActivityPageComponent,
-    UserWidgetsComponent
+    UserWidgetsComponent,
      ],
 
   imports: [
