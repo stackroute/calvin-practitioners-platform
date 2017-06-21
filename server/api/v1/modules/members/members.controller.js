@@ -1,30 +1,95 @@
 // const fs = require('fs');
-    const cartoons ={
-   "Tools":
-      [
-        {
-      "Tool":"github",
-      "photo": "https://pbs.twimg.com/profile_images/735509975649378305/B81JwLT7.jpg"
-        },
-        {
-      "Tool":"github",
-      "photo": "https://pbs.twimg.com/profile_images/3424509849/bfa1b9121afc39d1dcdb53cfc423bf12.jpeg"
-       },
-       {
-      "Tool":"github",
-      "photo": "https://pbs.twimg.com/profile_images/664886718559076352/M00cOLrh.jpg"
-       },
-       {
-        "Tool":"github",
+const cartoons = {
+  "Members":
+    [
+      {
+        "username": "Aravindh",
+        "domain": "Wipro",
+        "role": "Digital-Developer",
         "photo": "https://pbs.twimg.com/profile_images/735509975649378305/B81JwLT7.jpg"
       },
-    
+      {
+        "username": "Keerthi",
+        "domain": "Wipro",
+        "role": "Digital-Developer",
+        "photo": "https://pbs.twimg.com/profile_images/735509975649378305/B81JwLT7.jpg"
+      },
+      {
+        "username": "Aswini",
+        "domain": "Wipro",
+        "role": "Digital-Developer",
+        "photo": "https://pbs.twimg.com/profile_images/735509975649378305/B81JwLT7.jpg"
+      },
+      {
+        "username": "Suresh",
+        "domain": "Wipro",
+        "role": "Digital-Developer",
+        "photo": "https://pbs.twimg.com/profile_images/735509975649378305/B81JwLT7.jpg"
+      },
+      {
+        "username": "Ashok",
+        "domain": "Wipro",
+        "role": "Digital-Developer",
+        "photo": "https://pbs.twimg.com/profile_images/735509975649378305/B81JwLT7.jpg"
+      },
+      {
+        "username": "Karthikeyan",
+        "domain": "Wipro",
+        "role": "Digital-Manager",
+        "photo": "https://pbs.twimg.com/profile_images/735509975649378305/B81JwLT7.jpg"
+      },
+      {
+        "username": "AnithaJaganathan",
+        "domain": "Wipro",
+        "role": "Digital-Retainer",
+        "photo": "https://pbs.twimg.com/profile_images/735509975649378305/B81JwLT7.jpg"
+      },
+      {
+        "username": "Basavaraj",
+        "domain": "Wipro",
+        "role": "Digital-Mentor",
+        "photo": "https://pbs.twimg.com/profile_images/735509975649378305/B81JwLT7.jpg"
+      },
+      {
+        "username": "Sagaar",
+        "domain": "Wipro",
+        "role": "Digital-Mentor",
+        "photo": "https://pbs.twimg.com/profile_images/735509975649378305/B81JwLT7.jpg"
+      },
+      {
+        "username": "Nelanjan",
+        "domain": "Wipro",
+        "role": "Digital-Mentor",
+        "photo": "https://pbs.twimg.com/profile_images/735509975649378305/B81JwLT7.jpg"
+      },
+      {
+        "username": "Himani",
+        "domain": "Wipro",
+        "role": "Digital-Mentor",
+        "photo": "https://pbs.twimg.com/profile_images/735509975649378305/B81JwLT7.jpg"
+      }
     ]
- }
-function getMembers(req,res) {
-    res.status(200).json(cartoons);
-    };
-module.exports= {
-
-    getMembers:getMembers
+  //   {
+  //     "Tool": "github",
+  //     "photo": "https://pbs.twimg.com/profile_images/735509975649378305/B81JwLT7.jpg"
+  //   },
+  //   {
+  //     "Tool": "github",
+  //     "photo": "https://pbs.twimg.com/profile_images/3424509849/bfa1b9121afc39d1dcdb53cfc423bf12.jpeg"
+  //   },
+  //   {
+  //     "Tool": "github",
+  //     "photo": "https://pbs.twimg.com/profile_images/664886718559076352/M00cOLrh.jpg"
+  //   },
+  //   {
+  //     "Tool": "github",
+  //     "photo": "https://pbs.twimg.com/profile_images/735509975649378305/B81JwLT7.jpg"
+  //   },
+  //  ]
+}
+function getMembers(domain) {
+  return cartoons;
+};
+module.exports = {
+  getMembers
 };
