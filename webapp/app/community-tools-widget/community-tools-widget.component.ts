@@ -8,15 +8,12 @@ import { ToolsService } from './community-tools-widget.service';
   providers: [ToolsService]
 })
 export class CommunityToolsWidgetComponent implements OnInit {
-tools;
-  constructor(private toolsWidget:ToolsService) { }
+  tools;
+  constructor(private toolsWidget: ToolsService) { }
 
   ngOnInit() {
-        this.toolsWidget.getTools().subscribe(data => {
-        this.tools = data.Tools;
-         
-       });
-
-}
-
+    this.toolsWidget.getTools().subscribe(data => {
+      this.tools = data.Tools;
+    });
+  }
 }
