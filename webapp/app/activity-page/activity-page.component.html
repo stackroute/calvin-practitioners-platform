@@ -1,8 +1,8 @@
 <!--collect activity cards for display activity page-->
 <div class="activity-board item item-3" fxLayout="rows">
   <div *ngIf="dummy" fxFlex="100%"  fxLayoutGap="2%" fxLayoutWrap >
-      <div class="list-activities" fxFlex="31%" *ngFor="let sample of dummy" fx-flex-fill >
-        <calvin-activity-card  [activity]="sample"></calvin-activity-card>
+      <div class="list-activities" fxFlex="31%" *ngFor="let sample of dummy"  fx-flex-fill >
+        <calvin-activity-card  [activity]="sample"  ></calvin-activity-card>
       </div>
   </div>
 </div>

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserCommunities } from './my-communities.services';
+import { Route, Router } from '@angular/router';
+import 'rxjs/add/operator/switchMap';
 
 @Component({
 
@@ -10,10 +12,13 @@ import { UserCommunities } from './my-communities.services';
 })
 export class UserWidgetsComponent implements OnInit {
   userCommunityListArray = [ ];
-  constructor(private userCommunities: UserCommunities) { }
+  constructor(private userCommunities: UserCommunities, private router: Router) { }
 
   ngOnInit() { 
     this.getUserCommunity();
+  }
+  routeToCommunity (communityDomain){
+    this.router.navigate(['/app/userCommunity', communityDomain]);
   }
 
   // Get user community list

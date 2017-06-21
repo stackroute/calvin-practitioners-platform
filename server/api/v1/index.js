@@ -1,6 +1,9 @@
 const router = require('express').Router();
 const jwt = require('jsonwebtoken');
 
+
+router.use('/communities', require('./modules/community'));
+
 // middleware to validate token
 router.use((req, res, next) => {
 //   console.log('inside middle ware');
@@ -34,6 +37,5 @@ router.use('/logout', (req, res) => {
 router.use('/test', (req, res) => {
   res.send('To test middle ware');
 });
-router.use('/userCommunities', require('./modules/community'));
 
 module.exports = router;

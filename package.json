@@ -9,7 +9,8 @@
     "test": "yarn && node_modules/.bin/eslint server/**/*.js && cd webapp/ && ng lint",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "serve": "concurrently \"ng build --watch\" \"nodemon bin/www\""
+    "serve": "concurrently \"ng build --watch\" \"nodemon bin/www\"",
+    "dbsetup": "node server/dbsetup.js"
   },
   "private": true,
   "dependencies": {
