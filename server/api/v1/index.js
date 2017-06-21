@@ -19,9 +19,6 @@ router.use('/userCommunities', require('./modules/community'));
 router.use('/community', require('./modules/community'));
 
 
-
-
-
 router.use('/community-role-action', require('./modules/community-role-action'));
 
 router.use('/userCommunities', require('./modules/community'));

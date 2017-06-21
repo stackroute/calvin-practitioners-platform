@@ -1,33 +1,32 @@
 // const fs = require('fs');
 
 const tools = {
-  "Tools":
+  Tools:
   [
     {
-      "toolId": "GitHub",
-      "actions": ["postmesage", "read", "Likemessage", "edit", "share"],
-      "activityEvents": ["newannouncement", "like", "remove"],
-      "domain": "doctor.ny"
+      toolId: 'GitHub',
+      actions: ['postmesage', 'read', 'Likemessage', 'edit', 'share'],
+      activityEvents: ['newannouncement', 'like', 'remove'],
+      domain: 'doctor.ny',
     },
     {
-      "toolId": "quora",
-      "actions": ["postmesage", "read", "Likemessage", "edit", "share"],
-      "activityEvents": ["newannouncement", "like", "remove"],
-      "domain": "doctor.ny"
+      toolId: 'quora',
+      actions: ['postmesage', 'read', 'Likemessage', 'edit', 'share'],
+      activityEvents: ['newannouncement', 'like', 'remove'],
+      domain: 'doctor.ny',
     },
     {
-      "toolId": "WeMedUp",
-      "actions": ["postmesage", "read", "Likemessage", "edit", "share"],
-      "activityEvents": ["newannouncement", "like", "remove"],
-      "domain": "doctor.ny"
-    }
-  ]
-}
-function getTool(domain) {
+      toolId: 'WeMedUp',
+      actions: ['postmesage', 'read', 'Likemessage', 'edit', 'share'],
+      activityEvents: ['newannouncement', 'like', 'remove'],
+      domain: 'doctor.ny',
+    },
+  ],
+};
+function getTool() {
   return tools;
-};
+}
 module.exports = {
-  getTool: getTool
+  getTool,
 };
-
 
