@@ -1,29 +1,28 @@
 import { Component, OnInit } from '@angular/core';
-import { UserCommunities } from './my-communities.services';
+import { MyCommunities } from './my-communities.services';
 
 @Component({
 
   selector: 'calvin-user-widgets',
   templateUrl: './my-communities.component.html',
   styleUrls: ['./my-communities.component.css'],
-  providers: [ UserCommunities ]
+  providers: [MyCommunities]
 })
 export class UserWidgetsComponent implements OnInit {
-  userCommunityListArray = [ ];
-  constructor(private userCommunities: UserCommunities) { }
+  items = 0;
+  communities = [];
+  constructor(private moviesearchservice: MyCommunities) { }
 
-  ngOnInit() { 
-    this.getUserCommunity();
+  ngOnInit() { }
+
+  onScroll() {
+    this.items = this.items + 10;
+
+    console.log(this.items);
+    this.getMyCommunity();
   }
+  getMyCommunity() {
 
-  // Get user community list
-  getUserCommunity() {
-    this.userCommunities
-      .getCommunity()
-      .subscribe(userCommunityList => {
-        userCommunityList.forEach(element => {
-          this.userCommunityListArray.push(element)
-        });
-      });
+
   }
 }
