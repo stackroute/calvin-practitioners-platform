@@ -65,7 +65,8 @@ import { CreateCommunityService } from './create-community/create-community.serv
     CommunityToolsWidgetComponent,
     CommunityMembersWidgetComponent,
     KeysPipe,
-    UserWidgetsComponent
+    UserWidgetsComponent,
+    ActivityPageComponent
      ],
 
 

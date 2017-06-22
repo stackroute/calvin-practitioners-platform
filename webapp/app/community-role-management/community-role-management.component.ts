@@ -10,33 +10,33 @@ import { RoleServices } from './community-role-management.service';
 
 })
 export class CommunityRoleManagementComponent implements OnInit {
- sample = [];
- constructor(public dialog: MdDialog, private role: RoleServices) {
-  this.role.listRoles().subscribe(res => {
-   this.sample = res;
-  });
- }
- openDialog() {
-  const dialog = this.dialog.open(CommunityToolActionsComponent);
- }
- ngOnInit() {}
+  sample = [];
+  constructor(public dialog: MdDialog, private role: RoleServices) {
+    this.role.listRoles().subscribe(res => {
+      this.sample = res;
+    });
+  }
+  openDialog() {
+    const dialog = this.dialog.open(CommunityToolActionsComponent);
+  }
+  ngOnInit() { }
 
- ondelete() {}
+  ondelete() { }
 }
 @Pipe({
- name: 'keys'
+  name: 'keys'
 })
 export class KeysPipe implements PipeTransform {
- transform(sample, args: string[]): any {
-  const keys = [];
-  for (const key in sample) {
-   if (sample.hasOwnProperty(key)) {
-    keys.push({
-     key: key,
-     value: sample[key]
-    });
-   }
-   return keys;
+  transform(sample, args: string[]): any {
+    const keys = [];
+    for (const key in sample) {
+      if (sample.hasOwnProperty(key)) {
+        keys.push({
+          key: key,
+          value: sample[key]
+        });
+      }
+      return keys;
+    }
   }
- }
 }

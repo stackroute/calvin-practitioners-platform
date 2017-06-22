@@ -10,8 +10,8 @@ import { KeysPipe } from './community-role-actions.pipe';
   styleUrls: ['./community-role-actions.component.css'],
 })
 export class CommunityRoleActionsComponent implements OnInit {
- @Input() dummy;
- constructor(public dialog: MdDialog, private role: RoleServices, private action: CommunityRoleManagementComponent) {}
+  @Input() dummy;
+  constructor(public dialog: MdDialog, private role: RoleServices, private action: CommunityRoleManagementComponent) { }
   openDialog() {
     const dialog = this.dialog.open(CommunityToolActionsComponent);
   }
