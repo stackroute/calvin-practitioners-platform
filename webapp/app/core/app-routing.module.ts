@@ -17,6 +17,7 @@ import { UserWidgetsComponent } from '../my-communities/my-communities.component
 import { CommunityToolsWidgetComponent } from '../community-tools-widget/community-tools-widget.component';
 import { CommunityMembersWidgetComponent } from '../community-members-widget/community-members-widget.component';
 import { UserCommunities } from '../my-communities/my-communities.services';
+
 // Calvin routes
 const routes: ModuleWithProviders = RouterModule.forRoot([
   { path: 'login', component: LoginComponent },
@@ -31,7 +32,9 @@ const routes: ModuleWithProviders = RouterModule.forRoot([
       { path: 'communityDashBoard', component: CommunityDashboardComponent },
       { path: 'createCommunity', component: CreateCommunityComponent },
       { path: 'managecommunity', component: ManageCommunityComponent },
-      { path: 'activity', component: ActivityPageComponent }
+      { path: 'activity', component: ActivityPageComponent },
+      
+
     ]
 
   },

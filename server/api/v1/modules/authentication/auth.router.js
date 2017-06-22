@@ -13,7 +13,7 @@ router.use((req, res, next) => {        // eslint-disable-line consistent-return
           res.redirect('/#/login');
           return;
         }
-
+       
         next();
              // console.log('Token verified');
                 // res.cookie(config.cookie.name,successResult.authToken);

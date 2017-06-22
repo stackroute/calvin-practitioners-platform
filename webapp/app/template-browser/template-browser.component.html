@@ -1,16 +1,15 @@
-
-<md-card fxFlex="100%">
-  <md-card-title><h4>Template Browser</h4></md-card-title>
-     <div fxLayout fxLayoutAlign="center center" fxLayout.md="column">
-           <md-card-subtitle>
-                <md-input-container>
-                   <input mdInput disabled value="Template_Name">
-                 </md-input-container>
-              </md-card-subtitle>
+<md-card>
+  <md-card-title><h4>Template</h4></md-card-title>
+     <!--<div fxLayout fxLayoutAlign="center center" fxLayout.md="column"></div>-->
+     <div>
+    <md-card-content class="content" fxFlex="20">
+     <md-list *ngFor="let core of template" (click)="selectcore(core.purpose)" class="border">
+       <span>
+         <md-list-item>{{core.purpose}}</md-list-item>
+         <md-list-item *ngFor="let key of core.tools">{{key.toolId}}</md-list-item>
+       </span>   
+      </md-list>
+    </md-card-content>
      </div>
-    <md-grid-list cols="3" rowHeight="100px">
-         <md-grid-tile *ngFor="let core of template" (click)="selectcore(core)">
-            {{core.value}}
-           </md-grid-tile>
-    </md-grid-list>
 </md-card>
+
