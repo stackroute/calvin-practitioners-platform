@@ -3,6 +3,7 @@ const jwt = require('jsonwebtoken');
 
 router.use('/members', require('./modules/members'));
 router.use('/tools', require('./modules/tools'));
+
 // middleware to validate token
 router.use((req, res, next) => {
     //   console.log('inside middle ware');
@@ -27,10 +28,7 @@ const url = req.url;
     }
 });
 router.use('/login', require('./modules/login'));
-
 router.use('/activity',require('./modules/activity-page'));
-
-
 router.use('/community-role-action', require('./modules/community-role-action'));
 router.use('/logout', (req, res) => {
     res.clearCookie('currentUser');
