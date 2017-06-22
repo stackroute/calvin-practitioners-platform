@@ -38,7 +38,7 @@ import { ToolsService } from './community-tools-widget/community-tools-widget.se
 import { MembersService } from './community-members-widget/community-members-widget.service';
 import { RoleServices } from './community-role-management/community-role-management.service';
 import { InfiniteScrollModule } from 'angular2-infinite-scroll';
-// import { ActivityService } from './activity-page/activity-page.service';
+import { ActivityService } from './activity-page/activity-page.service';
 import { CreateCommunityService } from './create-community/create-community.service';
 
 @NgModule({
@@ -94,7 +94,7 @@ import { CreateCommunityService } from './create-community/create-community.serv
   ],
   entryComponents: [CommunityToolActionsComponent],
 
-  providers: [RoleServices],
+  providers: [RoleServices,ActivityService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

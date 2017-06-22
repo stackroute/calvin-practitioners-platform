@@ -6,17 +6,7 @@
   bottom: 0;
   right: 0;
 }
-.container1 {
-    position: relative;
-}
 
-.bottomright {
-    position: absolute;
-    margin-left: 85%;
-    margin-top: -100%;
-    color:white;
- 
-}
 .hamburger.mat-button {
   height: 100%;
   margin: 0;
@@ -57,11 +47,9 @@ md-chip-list , md-list-item {
 md-chip-list :focus , md-list-item:focus {
     outline: none
 }
-.menu-icon
-{
-  padding-right:0%;
-}
-.search-style
-{
-  font:white;
+.bottomright {
+    position: absolute;
+    top: 0;
+    right: 0px;
+    color: #fff;
 }

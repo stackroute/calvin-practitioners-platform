@@ -1,4 +1,5 @@
 const communityservice = require('./community.service');
+
 const coreActivity = [{
   name: 'surgeon',
   purpose: 'medical',
@@ -168,7 +169,6 @@ function getUserCommunity(req, res) {
 
 module.exports = {
   getcommunity,
-  getUserCommunity
+  getUserCommunity,
 };
-
 

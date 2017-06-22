@@ -28,7 +28,7 @@ calvin-root {
 }
 calvin-root img {
     display: block;
-    margin: 40px auto 20px;
+    /*margin: 40px auto 20px;*/
     width: 200px;
 }
 

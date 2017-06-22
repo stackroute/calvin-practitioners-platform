@@ -17,7 +17,7 @@ router.use('/test', (req, res) => {
 
 
 router.use('/user', require('./modules/user'));
-// router.use('/activity', require('./modules/activity-page'));
+router.use('/activity', require('./modules/activity-page'));
 
 router.use('/userCommunities', require('./modules/community'));
 router.use('/community', require('./modules/community'));
