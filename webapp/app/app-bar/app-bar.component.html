@@ -2,8 +2,8 @@
 <md-sidenav-container fullscreen>
    <md-sidenav #start>
       <md-nav-list>
-         <div class="container1">
-            <img  src="../assets/img/bg.jpg">
+         <div class="container1" *ngIf="flag===1">
+            <img  src={{maximizepic(user.avatar)}}>
             <div> <button md-icon-button  class="bottomright" (click)="start.close()" align="end">
                <i class="material-icons">close</i></button>
             </div>
@@ -25,7 +25,7 @@
 </button>
   <div fxFlex="20%" fxLayout="row" >
     <a class="nav-link logoAlgin" href="/">
-        <img src="/assets/img/logo/logo.png" >CALVIN      
+        <strong> CALVIN</strong>      
     </a>
   </div>
 
@@ -34,16 +34,16 @@
     <i class="material-icons searchBtn"  fxLayout="column">search</i>
   </div>
 
-  <div fxFlex="40%" fxLayout="row" class="searchAlgin" fxLayoutAlign="end center">
+  <div fxFlex="40%" fxLayout="row" class="searchAlgin" *ngIf="flag===1" fxLayoutAlign="end center">
     <md-chip-list>
-        <md-chip md-button (click)="openDialog()" color="accent" selected="true">
+        <md-chip md-button (click)="openDialog()" selected="true">
             <i class="material-icons">notifications_active</i>
         </md-chip>
     </md-chip-list>
     
     <md-list>
       <md-list-item >
-        <img md-list-avatar [md-menu-trigger-for]="menu" src="http://lorempixel.com/100/100/" alt="User">
+        <img md-list-avatar [md-menu-trigger-for]="menu" src={{user.avatar}} alt="User">
       </md-list-item>
     </md-list>
   </div>

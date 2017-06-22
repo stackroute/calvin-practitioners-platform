@@ -13,32 +13,20 @@ const content = [
     roles: ['Admin', ' moderator'],
     tags: [
       'first',
-      'second'
+      'second',
     ],
     status: 'Active',
     template: 'surgeon',
     updatedby: 'prakhar',
     updatedon: '2017-06-22T03:32:11.413Z',
-    visibility: 'Public'
-  }
+    visibility: 'Public',
+  },
 ];
 
-
-
-
-
-
-
-// const content = [
-
-//     { avatar: '/assets/images/try1.jpg', created: '13.08.09', Domain: 'Professional', CommunityName: 'Professional', Purpose: 'Forum', Description: 'sharing', Access: 'A' },
-
-// ];
 function GetCommunity(done) {
-  console.log("inside get community");
-  return done(null,content);
-  
+  // console.log('inside get community');
+  return done(null, content);
 }
 module.exports = {
-  GetCommunity:GetCommunity
+  GetCommunity,
 };

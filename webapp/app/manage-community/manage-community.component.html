@@ -2,43 +2,35 @@
 
 <div fxLayout fxLayout.xs="row" fxLayoutGap="0px" fxLayoutGap.xs="0">
       <div fxFlex="20%" fxLayout="row"> </div>
-
       <div fxFlex="100%" fxLayout="column" fxLayoutAlign=" start">
-
             <md-tab-group class="manage-community" fxFlex="100%">
 
-                  <md-tab label="Community">
+                
 
+                  <md-tab label="Community">
                         <div *ngIf="samples">
                               <div *ngFor="let sample of samples">
                                     <form #userForm="ngForm" (ngSubmit)="onFormSubmit(userForm)" class="try">
-
                                           <div>
                                                 <md-input-container fxLayoutAlign="start">
                                                       <input mdInput placeholder="Domain (disabled)" disabled value={{content.domain}>
                                                 </md-input-container>
                                           </div>
-
-
                                           <div>
                                                 <md-input-container fxLayoutAlign="start">
                                                       <input mdInput placeholder="Purpose (disabled)" disabled value={{content.purpose}}>
                                                 </md-input-container>
                                           </div>
-
-
                                           <div>
                                                 <md-input-container fxLayoutAlign="start">
                                                       <input mdInput placeholder="Community Name" name="Community name" value={{content.name}}>
                                                 </md-input-container>
                                           </div>
-
                                           <div>
                                                 <md-input-container fxLayoutAlign="start">
                                                       <input mdInput placeholder="Description" name="Description" value={{content.description}}>
                                                 </md-input-container>
                                           </div>
-
                                           <div>
                                                 <md-input-container fxLayoutAlign="start">
                                                       <input mdInput  name="access">
@@ -47,12 +39,13 @@
                                                             <md-radio-button value="public">Public</md-radio-button>
                                                             <md-radio-button value="private">Private</md-radio-button>
                                                             <md-radio-button value="moderate">Moderate</md-radio-button>
+                                                      <md-radio-group value={{sample.Access}}>
+                                                            <md-radio-button value="A">Public</md-radio-button>
+                                                            <md-radio-button value="B">Private</md-radio-button>
+                                                            <md-radio-button value="C">Moderate</md-radio-button>
                                                       </md-radio-group>
                                                 </md-input-container>
                                           </div>
-
-
-
                                           <div>
                                                 <md-input-container fxLayoutAlign="start">
                                                       <input mdInput placeholder="Tag" name="chip" [(ngModel)]="tagname" (keyup.enter)="chipValue(tagname)">
@@ -67,17 +60,11 @@
                                           </md-chip-list>
 
                                           <button md-raised-button color="primary" type="submit" [disabled]="!userForm.valid">Save</button>
-
-
                                     </form>
                               </div>
                         </div>
-
-
                   </md-tab>
                   <!--Closing community info tab-->
-
-
                   <md-tab label="Members"></md-tab>
                   <!--tab for manage member component-->
                   <md-tab label="Roles">
@@ -87,7 +74,5 @@
                   <md-tab label="Tools"></md-tab>
                   <!--tab for manage tools component-->
             </md-tab-group>
-
-
       </div>
 </div>
