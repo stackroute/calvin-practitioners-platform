@@ -16,8 +16,6 @@ router.use('/test', (req, res) => {
   res.send('To test middle ware');
 });
 
-
-
 router.use('/user', require('./modules/user'));
 router.use('/activity', require('./modules/activity-page'));
 

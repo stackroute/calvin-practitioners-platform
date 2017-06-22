@@ -37,12 +37,12 @@ export class UserProfileComponent implements OnInit {
 
  // }
  ngOnInit() {
-  console.log('1.hi');
+  // console.log('1.hi');
   this.value.getuserinfo()
    .subscribe(res => {
-    console.log('3.hi');
+    // console.log('3.hi');
     this.user = res;
-    console.log('4.hi', this.user);
+    // console.log('4.hi', this.user);
     this.flag = 1;
    });
 
