@@ -25,7 +25,8 @@ router.get('/auth/google/callback', (req, res, next) => {
     res.cookie(config.cookie.name, result);
     res.redirect('/#/app/home');
   }, (err) => {
-    res.json(err);
+    // res.json(err);
+    res.redirect(500,"/#/login");
   });
 });
 

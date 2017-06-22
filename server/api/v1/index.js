@@ -1,13 +1,15 @@
 const router = require('express').Router();
+const config = require('./modules/common/config');
 
 router.use('/login', require('./modules/login'));
 
 router.use('/logout', (req, res) => {
-  res.clearCookie('currentUser');
+  res.clearCookie(config.cookie.name);
   res.redirect('/');
 });
 
 router.use(require('./modules/authentication'));
+//Each Module to Be placed after this
 
 router.use('/activity', require('./modules/activity-page'));
 

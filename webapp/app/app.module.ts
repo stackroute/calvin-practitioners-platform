@@ -41,6 +41,8 @@ import { RoleServices } from './community-role-management/community-role-managem
 import { InfiniteScrollModule } from 'angular2-infinite-scroll';
 import { ActivityService } from './activity-page/activity-page.service';
 import { CreateCommunityService } from './create-community/create-community.service';
+import { ManageCommunityToolsComponent } from './manage-community-tools/manage-community-tools.component';
+import { AddToolComponent } from './add-tool/add-tool.component';
 
 @NgModule({
   declarations: [
@@ -67,7 +69,9 @@ import { CreateCommunityService } from './create-community/create-community.serv
     CommunityRoleActionsComponent,
     CommunityToolActionsComponent,
     ActivityPageComponent,
-    UserWidgetsComponent
+    UserWidgetsComponent,
+    ManageCommunityToolsComponent,
+    AddToolComponent
      ],
 
   imports: [
