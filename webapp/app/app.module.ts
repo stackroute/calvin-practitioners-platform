@@ -37,10 +37,8 @@ import { ToolsService } from './community-tools-widget/community-tools-widget.se
 import { MembersService } from './community-members-widget/community-members-widget.service';
 import { RoleServices } from './community-role-management/community-role-management.service';
 import { InfiniteScrollModule } from 'angular2-infinite-scroll';
-<<<<<<< HEAD
 import { ActivityService } from './activity-page/activity-page.service';
-=======
->>>>>>> 3bdbf4e84b6bd489e969d5af2f2cfcc6dce97204
+import {UserWidgetsComponent} from './my-communities/my-communities.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -65,13 +63,9 @@ import { ActivityService } from './activity-page/activity-page.service';
     CommunityRoleManagementComponent,
     CommunityRoleActionsComponent,
     CommunityToolActionsComponent,
-<<<<<<< HEAD
-    ActivityPageComponent
-     ],
-=======
     ActivityPageComponent,
-  ],
->>>>>>> 3bdbf4e84b6bd489e969d5af2f2cfcc6dce97204
+    UserWidgetsComponent,
+     ],
 
 
 
@@ -97,23 +91,13 @@ import { ActivityService } from './activity-page/activity-page.service';
     MdInputModule,
     MdSlideToggleModule,
     MdDialogModule,
-<<<<<<< HEAD
     ReactiveFormsModule,
   
   ],
   entryComponents: [CommunityToolActionsComponent],
 
-  providers: [ActivityService],
-=======
-    ReactiveFormsModule
-    
- 
-  ],
-  entryComponents: [CommunityToolActionsComponent],
-
-  providers: [RoleServices],
->>>>>>> 3bdbf4e84b6bd489e969d5af2f2cfcc6dce97204
-  bootstrap: [AppComponent]
+  providers: [ActivityService,RoleServices],
+  bootstrap: [AppComponent],
 })
 export class AppModule { }
 
