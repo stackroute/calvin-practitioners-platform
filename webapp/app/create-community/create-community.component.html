@@ -29,7 +29,7 @@
       </md-input-container>
     </div>
     <!--choose visibitity mode-->
-    <div>
+    <div fxLayout.md="column">
       <md-input-container>
         <input mdInput placeholder="Visibility" disabled>
         <md-radio-group name="visibility" formControlName="visibility">
@@ -73,7 +73,7 @@
       </div>
     </md-chip-list>      
 <!--terms and condition-->
-    <div fxLayout="column">
+    <div fxLayout.md="column">
       <md-checkbox color="primary" formControlName="termscondition">I agree!Terms and Condition.</md-checkbox>
     </div>
 <!--submit the form using raised button-->

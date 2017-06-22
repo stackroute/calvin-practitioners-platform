@@ -8,7 +8,7 @@ import { ActivityService } from './activity-page.service';
 export class ActivityPageComponent implements OnInit {
 
   constructor(private activitypage: ActivityService) { }
-  const tools = [];
+  tools = [];
   ngOnInit() {
     this.activitypage.getTools().subscribe(data => {
         this.tools = data.Tools;

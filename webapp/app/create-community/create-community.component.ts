@@ -18,7 +18,7 @@ export class CreateCommunityComponent implements OnInit {
 
   public tagarray = [];  // to insert chip value from textfield
 
-  const value: string; // to store selected template value
+  value: string; // to store selected template value
 
   visibility = [
     {'value': 'Public', 'viewValue': 'Public'},
