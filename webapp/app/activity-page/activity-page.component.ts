@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivityService } from './activity-page.service';
+
 @Component({
   selector: 'calvin-activity-page',
   templateUrl: './activity-page.component.html',
@@ -7,11 +8,11 @@ import { ActivityService } from './activity-page.service';
 })
 export class ActivityPageComponent implements OnInit {
 
-  constructor(private activitypage:ActivityService) { }
-  tools=[];
+ constructor(private activitypage: ActivityService) { }
+  tools = [];
   ngOnInit() {
     this.activitypage.getTools().subscribe(data => {
-        this.tools = data.Tools;
-      });  
+      this.tools = data.Tools;
+    });
   }
 }

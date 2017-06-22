@@ -3,7 +3,7 @@
 
 @import '~https://fonts.googleapis.com/icon?family=Material+Icons';
 @import '~@angular/material/prebuilt-themes/indigo-pink.css';
-@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+/*@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';*/
 
 
 
@@ -21,5 +21,14 @@ body {
  bottom: 20px;
  right: 20px;
  color: white;
+}
+calvin-root {    
+    text-align: center;
+    display: block;
+}
+calvin-root img {
+    display: block;
+    /*margin: 40px auto 20px;*/
+    width: 200px;
 }
 

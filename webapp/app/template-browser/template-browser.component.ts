@@ -1,8 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
-
 import { CreateCommunityComponent } from '../create-community/create-community.component';
-
-
 
 @Component({
   selector: 'calvin-template-browser',
@@ -11,22 +8,16 @@ import { CreateCommunityComponent } from '../create-community/create-community.c
 })
 export class TemplateBrowserComponent implements OnInit {
 
-  count: 0;
-
   @Input() template;
 
   @Output() notify: EventEmitter<string> = new EventEmitter<string>();
 
-
-
-
   constructor(private community: CreateCommunityComponent ) { }
 
   selectcore(core: any) {
-    this.notify.emit(core.value);
+
+    this.notify.emit(core);
   }
 
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }

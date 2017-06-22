@@ -9,9 +9,8 @@ const verifyToken = (usertoken, done) => {
     if (err) {
       return done(err);
     }
-    else {
+
     return done(null, usertoken);
-    }
   });
 };
 

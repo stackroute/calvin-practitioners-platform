@@ -18,7 +18,6 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
 import 'hammerjs';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MdSelectModule } from '@angular/material';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { CreateCommunityComponent } from './create-community/create-community.component';
 import { CommunityRoleActionsComponent } from './community-role-actions/community-role-actions.component';
 import { CommunityRoleManagementComponent } from './community-role-management/community-role-management.component';
@@ -53,7 +52,6 @@ import { AddToolComponent } from './add-tool/add-tool.component';
     AppBarComponent,
     LoginComponent,
     UserProfileComponent,
-    PageNotFoundComponent,
     CommunityRoleActionsComponent,
     CommunityRoleManagementComponent,
     CommunityToolActionsComponent,

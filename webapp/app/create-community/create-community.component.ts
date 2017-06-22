@@ -14,26 +14,22 @@ import { CreateCommunityService } from './create-community.service';
 
 export class CreateCommunityComponent implements OnInit {
 
-  templatevalue;
+ userForm: FormGroup;
 
-  userForm: FormGroup;
-  
-//  template: FormGroup;
+ public tagarray = [];  // to insert chip value from textfield
 
-  public tagarray= [];
+ value: string; // to store selected template value
 
-  visibility = [
-    {"value": "Public", "viewValue": "Public"},
-      {"value": "Private", "viewValue": "Private"},
-      {"value": "Moderate", "viewValue": "Moderate"}
+ visibility = [
+    {'value': 'Public', 'viewValue': 'Public'},
+      {'value': 'Private', 'viewValue': 'Private'},
+      {'value': 'Moderate', 'viewValue': 'Moderate'}
     ];
-   value:string;
-  constructor(private dialog: MdDialog, private fb: FormBuilder, private newcommunity: CreateCommunityService) {
 
-    this.createForm();
+ constructor(private fb: FormBuilder, private newcommunity: CreateCommunityService) {
 
-    
-    }
+   this.createForm();
+  }
 
 // reactive form validation for userForm
   createForm() {
@@ -42,7 +38,8 @@ export class CreateCommunityComponent implements OnInit {
           communityName: ['', Validators.required],
           Purpose: ['', Validators.required],
           visibility: ['Public', Validators.required],
-          template: ['',Validators.required],
+          description: [''],
+          // template: ['md',Validators.required],
           tagSelection: ['', Validators.required],
           termscondition: ['', Validators.required]
         });
@@ -50,26 +47,28 @@ export class CreateCommunityComponent implements OnInit {
 
 //  check whether the card is clickable or not
 
- onselect(selectedTemplate: any) {
+onselect(selectedTemplate: any) {
+    this.value = selectedTemplate;
+    console.log(selectedTemplate);
+        console.log(typeof(selectedTemplate));
 
-   this.value=selectedTemplate;
-      console.log(selectedTemplate);
-
-  //   this.template=new FormGroup({
-  //       templatevalue: new FormControl()
-  //  })
-   return this.value;
- }
+   //   this.template=new FormGroup({
+    //       templatevalue: new FormControl() })
+    return this.value;
+  }
 
 // bind text box value
 
-    chipValue(tag: any) {
-     this.tagarray.push(tag);
-    }
+chipValue(tag: any) {
+   this.tagarray.push(tag);
+ }
+
+cleartag(tag) {
+ }
 
 // submit userForm values
 
-           onsubmit(userdata: any) {
+          onsubmit(userdata: any) {
             const values = userdata.value;
             const domainName = values.domainName;
             const Purpose = values.Purpose;
@@ -82,24 +81,30 @@ export class CreateCommunityComponent implements OnInit {
                   console.log(value);
                   this.newcommunity.postfavdata(value).subscribe(
                    (data) => console.log('Post data'),
-                    error => alert(error),
+                    error => console.log(error),
                     () => console.log('data posted successfully'));
+                    this.reset();
         }
 
- // cancel for redirect to userdashboard
+       reset() {
+          this.createForm();
+        }
 
-  oncancel() {
+// cancel for redirect to userdashboard
 
-   }
-  ngOnInit() {
+ oncancel() {
+
+  }
+
+
+ ngOnInit() {
     this.newcommunity.getcurrentData()
         .subscribe(
-            data=>{this.templatevalue=data.community;
-              console.log(this.templatevalue);
-            },            
-            error=>alert(error),
-            ()=>console.log("finished")
+            data => {this.newcommunity.communityDetails = data;
+              console.log(this.newcommunity.communityDetails);
+            },
+            error => console.log(error),
+            () => console.log('finished')
         );
+    }
   }
-}
-

@@ -11,15 +11,13 @@ router.use((req, res, next) => {        // eslint-disable-line consistent-return
       authCtrl.verifyToken(token, (err) => {
         if (err) {
           res.clearCookie(config.cookie.name);
-          res.status(401).json({error :' Session Timeout... Please login again'});
+          res.status(401).json({ error: ' Session Timeout... Please login again' });
           // console.log('token expired');
-          
+
           // res.redirect('/#/login');
-          return;
+        } else {
+          next();
         }
-          else {
-        next();
-          }
                 // console.log('Token verified');
                 // res.cookie(config.cookie.name,successResult.authToken);
       });
@@ -31,7 +29,7 @@ router.use((req, res, next) => {        // eslint-disable-line consistent-return
       });
     }
   } catch (error) {
-        console.log(error);
+    // console.log(error);
     return error;
   }
 });

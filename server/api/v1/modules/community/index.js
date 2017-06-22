@@ -1,2 +1,2 @@
+module.exports = require('./community.router');
 
- module.exports = require('./community.router');
