@@ -19,17 +19,16 @@ import { CommunityMembersWidgetComponent } from '../community-members-widget/com
 // Calvin routes
 const routes: ModuleWithProviders = RouterModule.forRoot([
   { path: 'login', component: LoginComponent },
-  { path: 'app', component: AppBarComponent, canActivate: [AuthGuard],
+  { path: 'app', component: AppBarComponent, canActivateChild: [AuthGuard],
+
   children: [
             { path: 'home', component: UserDashboardComponent },
             { path: '', redirectTo: '/app/home', pathMatch: 'full' },
             { path: 'createCommunity', component: CreateCommunityComponent },
             { path: 'profile', component: UserProfileComponent },
             { path: 'actions', component: CommunityRoleManagementComponent},
-            { path: 'managecommunity', component: ManageCommunityComponent},
             { path: 'communityDashBoard', component: CommunityDashboardComponent},
             { path: 'createCommunity', component: CreateCommunityComponent },
-            { path: 'managecommunity', component: ManageCommunityComponent},
             { path: 'activity' , component: ActivityPageComponent}
             ]
   },

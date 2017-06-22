@@ -1,147 +1,21 @@
 <div fxLayout fxLayoutAlign="start">
-  <div fxFlex="25%">
+  <div fxFlex="22%">
     <md-card>
-      <md-card-header class="header" fxLayoutAlign="center">
-        <p>Tool bars</p>
+      <md-card-header class="header" fxLayoutAlign="start">
+        <h3>Tool bars</h3>
       </md-card-header>
-      <!--<button md-mini-fab routerLink="." class="btn"><md-icon>add</md-icon></button>-->
       <md-card-content fxLayoutAlign.xs="column" class="content">
-        <!--style="margin-top:20px" -->
-        <!--<div fxFlex="100%">-->
         <md-list>
-          <md-list-item>
-            <a href="https://myaccount.google.com/?utm_source=OGB&utm_medium=app">
-              <md-list-item>
-                <img md-list-avatar src="assets/img/gmail.png" alt="User">
-                <p>Email</p>
-              </md-list-item>
-            </a>
+          <md-list-item *ngFor="let val of this.tools" fxLayoutAlign.xs="column">
+            <img md-list-avatar class="img-responsive center-block" src={{val.photo}}>
+            <!--<md-list-item>{{val.toolId}}</md-list-item>-->
+            <h3 md-line>{{val.toolId}}</h3>
+            <p md-line>
+              <span>{{val.domain}}</span>
+            </p>
           </md-list-item>
-          <md-list-item>
-            <a href="https://myaccount.google.com/?utm_source=OGB&utm_medium=app">
-              <md-list-item>
-                <img md-list-avatar src="assets/img/account.png" alt="User">
-                <p>MyAccount</p>
-              </md-list-item>
-            </a>
-          </md-list-item>
-          <md-list-item>
-            <a href="https://www.youtube.com">
-              <md-list-item>
-                <img md-list-avatar src="assets/img/drive.png" alt="User">
-                <p>MyDrive</p>
-              </md-list-item>
-            </a>
-          </md-list-item>
-          <md-list-item>
-            <a href="https://www.youtube.com">
-              <md-list-item>
-                <img md-list-avatar src="assets/img/drive.png" alt="User">
-                <p>MyDrive</p>
-              </md-list-item>
-            </a>
-          </md-list-item>
-          <md-list-item>
-            <a href="https://myaccount.google.com/?utm_source=OGB&utm_medium=app">
-              <md-list-item>
-                <img md-list-avatar src="assets/img/gmail.png" alt="User">
-                <p>Email</p>
-              </md-list-item>
-            </a>
-          </md-list-item>
-          <md-list-item>
-            <a href="https://myaccount.google.com/?utm_source=OGB&utm_medium=app">
-              <md-list-item>
-                <img md-list-avatar src="assets/img/gmail.png" alt="User">
-                <p>Email</p>
-              </md-list-item>
-            </a>
-          </md-list-item>
-          <md-list-item>
-            <a href="https://www.youtube.com">
-              <md-list-item>
-                <img md-list-avatar src="assets/img/wall-calendar.png" alt="User">
-                <p>Calendar</p>
-              </md-list-item>
-            </a>
-          </md-list-item>
-
-          <!--</md-list-item>
-          <a md-list-item href="https://myaccount.google.com/?utm_source=OGB&utm_medium=app">
-            <md-list-item>
-              <img md-list-avatar src="assets/img/instagram.png" alt="User">
-              <p>instagram</p>
-            </md-list-item>
-          </a>
-          <a md-list-item href="https://myaccount.google.com/?utm_source=OGB&utm_medium=app">
-            <md-list-item>
-              <img md-list-avatar src="assets/img/account.png" alt="User">
-              <p>MyAccount</p>
-            </md-list-item>
-          </a>
-          <a md-list-item href="https://www.youtube.com">
-            <md-list-item>
-              <img md-list-avatar src="assets/img/account.png" alt="User">
-              <p>MyAccount</p>
-            </md-list-item>
-          </a>
-          <a md-list-item href="https://www.youtube.com">
-            <md-list-item>
-              <img md-list-avatar src="assets/img/wall-calendar.png" alt="User">
-              <p>Calendar</p>
-            </md-list-item>
-          </a>
-          <a md-list-item href="https://www.youtube.com">
-            <md-list-item>
-              <img md-list-avatar src="assets/img/drive.png" alt="User">
-              <p>MyDrive</p>
-            </md-list-item>
-          </a>-->
-          <!--</div>-->
-          <!--</div>-->
-          <!--<div fxFlex="33%">-->
-          <!--<a md-list-item href="https://www.youtube.com">
-            <md-list-item>
-              <img md-list-avatar src="assets/img/account.png" alt="User">
-              <p>MyAccount</p>
-            </md-list-item>
-          </a>
-          <a md-list-item href="https://www.youtube.com">
-            <md-list-item>
-              <img md-list-avatar src="assets/img/wall-calendar.png" alt="User">
-              <p>Calendar</p>
-            </md-list-item>
-          </a>
-          <a md-list-item href="https://www.youtube.com">
-            <md-list-item>
-              <img md-list-avatar src="assets/img/drive.png" alt="User">
-              <p>MyDrive</p>
-            </md-list-item>
-          </a>
-        </div>-->
-          <!--<div fxFlex="33%">
-          <a md-list-item href="https://www.youtube.com">
-            <md-list-item>
-              <img md-list-avatar src="assets/img/drive.png" alt="User">
-              <p>MyDrive</p>
-            </md-list-item>
-          </a>
-          <a md-list-item href="https://www.google.co.in/webhp?tab=ww&ei=l25HWY_1OcH3vAT2kbq4Cg&ved=0EKkuCAIoAQ">
-            <md-list-item>
-              <img md-list-avatar src="assets/img/search.png" alt="User">
-              <p>Search</p>
-            </md-list-item>
-          </a>
-          <a md-list-item href="https://www.youtube.com">
-            <md-list-item>
-              <img md-list-avatar src="assets/img/news-report.png" alt="User">
-              <p>News</p>
-            </md-list-item>
-          </a>
-        </div>-->
         </md-list>
       </md-card-content>
     </md-card>
   </div>
-  <!--<div fxflex></div>-->
 </div>

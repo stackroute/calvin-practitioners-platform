@@ -1,11 +1,11 @@
-const db = require('../../../../config');
+const config = require('../common/config');
 const cassandra = require('cassandra-driver');
 const jwt = require('jsonwebtoken');
 
 const USERS_TABLE = 'users';
 const client = new cassandra.Client({
-  contactPoints: [db.dbconfig.dburl],
-  keyspace: db.dbconfig.keyspacename,
+  contactPoints: [config.dbconfig.dburl],
+  keyspace: config.dbconfig.keyspacename,
 });
 
 // this function is to check if user record is already present in database
@@ -52,7 +52,8 @@ function updateUser(profile, done) {
     avatar: profile.image,
   };
 
-  const userToken = jwt.sign(userDetails, 'secret key', { expiresIn: 60 * 30 });
+  const userToken = jwt.sign(userDetails, config.appConstants.secret,
+                             { expiresIn: config.appConstants.expiryTime });
   // console.log('userToken', userToken);
   checkIfUserExists(profile.email, (error, userExists) => {
     if (userExists) {
