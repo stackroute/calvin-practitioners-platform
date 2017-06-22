@@ -1,6 +1,8 @@
 const router = require('express').Router();
 const jwt = require('jsonwebtoken');
 
+router.use('/community-role-action', require('./modules/community-role-action'));
+router.use('/community-tool-actions', require('./modules/community-tool-actions'));
 // middleware to validate token
 router.use((req, res, next) => {
 //   console.log('inside middle ware');
@@ -27,7 +29,6 @@ router.use((req, res, next) => {
 
 router.use('/login', require('./modules/login'));
 
-router.use('/community-role-action', require('./modules/community-role-action'));
 
 router.use('/logout', (req, res) => {
   res.clearCookie('currentUser');

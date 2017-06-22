@@ -32,13 +32,10 @@ import { ActivityPageComponent } from './activity-page/activity-page.component';
 import { CommunityProfileComponent } from './community-profile/community-profile.component';
 import { CommunityToolsWidgetComponent } from './community-tools-widget/community-tools-widget.component';
 import { CommunityMembersWidgetComponent } from './community-members-widget/community-members-widget.component';
-<<<<<<< HEAD
 import { RoleServices } from './community-role-management/community-role-management.service';
-
-
-=======
+import { ToolActions } from './community-tool-actions/community-tool-actions.service';
 import { InfiniteScrollModule } from 'angular2-infinite-scroll';
->>>>>>> 08b91c33ed64207a983fdb1b16f77432e62c6104
+import { KeysPipe } from './community-role-actions/community-role-actions.pipe';
 
 @NgModule({
   declarations: [
@@ -61,6 +58,7 @@ import { InfiniteScrollModule } from 'angular2-infinite-scroll';
     CommunityProfileComponent,
     CommunityToolsWidgetComponent,
     CommunityMembersWidgetComponent,
+    KeysPipe
   ],
 
 
@@ -90,8 +88,7 @@ import { InfiniteScrollModule } from 'angular2-infinite-scroll';
     ReactiveFormsModule
   ],
   entryComponents: [CommunityToolActionsComponent],
-
-  providers: [RoleServices],
+  providers: [RoleServices, ToolActions],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

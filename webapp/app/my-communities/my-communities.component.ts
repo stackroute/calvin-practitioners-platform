@@ -3,27 +3,26 @@ import { UserCommunities } from './my-communities.services';
 
 @Component({
 
-  selector: 'calvin-user-widgets',
-  templateUrl: './my-communities.component.html',
-  styleUrls: ['./my-communities.component.css'],
-  providers: [ UserCommunities ]
+ selector: 'calvin-user-widgets',
+ templateUrl: './my-communities.component.html',
+ styleUrls: ['./my-communities.component.css'],
+ providers: [UserCommunities]
 })
 export class UserWidgetsComponent implements OnInit {
-  userCommunityListArray = [ ];
-  constructor(private userCommunities: UserCommunities) { }
+ userCommunityListArray = [];
+ constructor(private userCommunities: UserCommunities) {}
+ ngOnInit() {
+  this.getUserCommunity();
+ }
 
-  ngOnInit() { 
-    this.getUserCommunity();
-  }
-
-  // Get user community list
-  getUserCommunity() {
-    this.userCommunities
-      .getCommunity()
-      .subscribe(userCommunityList => {
-        userCommunityList.forEach(element => {
-          this.userCommunityListArray.push(element)
-        });
-      });
-  }
+ // Get user community list
+ getUserCommunity() {
+  this.userCommunities
+   .getCommunity()
+   .subscribe(userCommunityList => {
+    userCommunityList.forEach(element => {
+     this.userCommunityListArray.push(element);
+    });
+   });
+ }
 }

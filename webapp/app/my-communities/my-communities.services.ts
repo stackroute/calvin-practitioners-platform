@@ -3,11 +3,11 @@ import { Http, Response } from '@angular/http';
 import 'rxjs/add/operator/map';
 @Injectable()
 export class UserCommunities {
-  serverUrl = 'http://localhost:3000/api/v1/userCommunities/';
-  
-  constructor (private http: Http) { }
+ serverUrl = 'http://localhost:3000/api/v1/userCommunities/';
 
-  getCommunity () { 
-    return this.http.get(this.serverUrl).map((response: Response) => response.json());
-  }
+ constructor(private http: Http) {}
+
+ getCommunity() {
+  return this.http.get(this.serverUrl).map((response: Response) => response.json());
+ }
 }
