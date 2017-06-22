@@ -1,5 +1,6 @@
 // const fs = require('fs');
 
+
 const tools = {
   Tools:
   [
@@ -26,7 +27,7 @@ const tools = {
 function getTool() {
   return tools;
 }
-module.exports = {
-  getTool,
-};
 
+module.exports = {
+  getTool
+};

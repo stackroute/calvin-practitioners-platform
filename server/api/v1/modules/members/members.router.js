@@ -11,4 +11,5 @@ router.get('/members', (req, res) => {
     return res.status(500).send({ error: 'Internal error occurred....!' });
   }
 });
+
 module.exports = router;

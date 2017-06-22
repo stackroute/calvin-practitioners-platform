@@ -18,7 +18,6 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
 import 'hammerjs';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MdSelectModule } from '@angular/material';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { CreateCommunityComponent } from './create-community/create-community.component';
 import { CommunityRoleActionsComponent } from './community-role-actions/community-role-actions.component';
 import { CommunityRoleManagementComponent } from './community-role-management/community-role-management.component';
@@ -39,7 +38,7 @@ import { ToolsService } from './community-tools-widget/community-tools-widget.se
 import { MembersService } from './community-members-widget/community-members-widget.service';
 import { RoleServices } from './community-role-management/community-role-management.service';
 import { InfiniteScrollModule } from 'angular2-infinite-scroll';
-import { ActivityService } from './activity-page/activity-page.service';
+// import { ActivityService } from './activity-page/activity-page.service';
 import { CreateCommunityService } from './create-community/create-community.service';
 
 @NgModule({
@@ -51,7 +50,6 @@ import { CreateCommunityService } from './create-community/create-community.serv
     AppBarComponent,
     LoginComponent,
     UserProfileComponent,
-    PageNotFoundComponent,
     CommunityRoleActionsComponent,
     CommunityRoleManagementComponent,
     CommunityToolActionsComponent,
@@ -67,7 +65,7 @@ import { CreateCommunityService } from './create-community/create-community.serv
     CommunityRoleActionsComponent,
     CommunityToolActionsComponent,
     ActivityPageComponent,
-    UserWidgetsComponent
+    UserWidgetsComponent,
      ],
 
   imports: [
@@ -96,7 +94,7 @@ import { CreateCommunityService } from './create-community/create-community.serv
   ],
   entryComponents: [CommunityToolActionsComponent],
 
-  providers: [RoleServices,ActivityService],
+  providers: [RoleServices],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
