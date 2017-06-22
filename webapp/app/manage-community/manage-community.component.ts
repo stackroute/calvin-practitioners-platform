@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
   import {MdDialog} from '@angular/material';
  import {NgForm} from '@angular/forms';
  import {GetCommunity} from './manage-community.service';
+ import {Http,Response} from '@angular/http';
+
 
 @Component({
   selector: 'calvin-manage-community',
@@ -11,14 +13,23 @@ import { Component, OnInit } from '@angular/core';
   providers: [GetCommunity]
 })
 export class ManageCommunityComponent implements OnInit {
-  selectedValue: string;
-  public tagarray= [];
+samples=[];
+   constructor(public dialog: MdDialog, private comm: GetCommunity) {
+     this.comm.getCommunity().subscribe(res =>{this.samples=res;});
+    }
 
+   ngOnInit() {
+   
+    
+   }
 
-     onFormSubmit(userForm: NgForm) {
+   selectedValue: string;
+   public tagarray= [];
+
+      onFormSubmit(userForm: NgForm) {
     console.log(userForm.value);
     console.log('Community name:' + userForm.controls['Community name'].value);
-     console.log('Description:' + userForm.controls['Description'].value);
+      console.log('Description:' + userForm.controls['Description'].value);
       console.log('access:' + userForm.controls['access'].value);
       console.log('chip:' + userForm.controls['chip'].value);
     console.log('Form Valid:' + userForm.valid);
@@ -26,13 +37,19 @@ export class ManageCommunityComponent implements OnInit {
 
   }
 
-  constructor(public dialog: MdDialog, private comm: GetCommunity) {}
+ 
     openDialog() {
     this.dialog.open(ManageCommunityComponent);
   }
   chipValue(tag: any) {
    this.tagarray.push(tag);
-   }
-  ngOnInit() { }
+  }
+  
+  // GetCommunity(){
+
+  //   const url=`http://localhost:4200/`;
+  //   return this.http.get(url).map(res => res.json());
+  // }
+
 
 };

@@ -1,12 +1,16 @@
 const router = require('express').Router();
 const jwt = require('jsonwebtoken');
-
+router.use('/manage-community',require('./modules/community'));
 // middleware to validate token
 router.use((req, res, next) => {
 //   console.log('inside middle ware');
   const url = req.url;
 //   console.log('url', url);
-  if (url.includes('google') || url.includes('logout')) {
+
+
+
+
+  if (url.includes('google') || url.includes('logout')||('community')) {
     next();
   } else {
     const user = req.cookies.currentUser;
@@ -31,7 +35,9 @@ router.use('/logout', (req, res) => {
   res.clearCookie('currentUser');
   res.redirect('/');
 });
+
 router.use('/test', (req, res) => {
   res.send('To test middle ware');
 });
+
 module.exports = router;
