@@ -9,6 +9,7 @@ import { MembersService } from './community-members-widget.service';
  providers: [MembersService]
 })
 export class CommunityMembersWidgetComponent implements OnInit {
+ 
  members;
  constructor(private membersWidget: MembersService) { }
    ngOnInit() {

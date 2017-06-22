@@ -1,17 +1,14 @@
-const samples =  [
- 
-    {'avatar':'/assets/images/try1.jpg','created':'13.08.09','Domain': 'Professional', 'CommunityName': 'Professional', 'Purpose': 'Forum','Description':'sharing','Access': 'A'},
-    
-  ];
-function GetCommunity(community) 
-{ 
+const samples = [
+
+    { avatar: '/assets/images/try1.jpg', created: '13.08.09', Domain: 'Professional', CommunityName: 'Professional', Purpose: 'Forum', Description: 'sharing', Access: 'A' },
+
+];
+function GetCommunity() {
   return samples;
-  
- 
+}
+module.exports = {
+  GetCommunity,
 };
-module.exports={
-    GetCommunity  
-} 
 // const communityservice = require('./community.service');
 
 //   const coreActivity = {

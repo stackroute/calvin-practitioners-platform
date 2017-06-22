@@ -1,11 +1,11 @@
-<div *ngIf="samples" class="sample">
-    <div *ngFor="let sample of samples">
+<div *ngIf="samples" class="sample"> 
+    <div *ngFor="let sample of samples" >
          <div fxLayout fxLayout.xs="row" fxLayoutGap="0px" fxLayoutGap.xs="0" *ngIf="samples" class="sample">
               <div fxFlex="20%" fxFlexAlign='start' *ngFor="let sample of samples">
 
 
 
-        <md-list>
+        <md-list fxLayoutAlign="start">
           <md-list-item class="community-image">
             <!--<md-icon (click)="openDialog()" class="community-display-pic" mdTooltip="Edit">add_a_photo</md-icon>-->
                        <img md-list-avatar src={{sample.avatar}}>
@@ -33,23 +33,23 @@
 
       <div fxLayout fxLayout.xs="row" fxLayoutGap="0px" fxLayoutGap.xs="0" fxFlex="60%">
 
-        <div fxFlex="60%" class="community-profile">
+        <div fxFlex="60%" class="community-profile" >
            <div>
-                    <h1>{{sample.Domain}}</h1>
+                    <h1 fxLayoutAlign="start">{{sample.Domain}}</h1>
           </div>
          
-            <h4>{{sample.Domain}}</h4>
+            <h4 fxLayoutAlign="start">{{sample.Domain}}</h4>
           <!--<md-input-container >
 
             <input mdInput placeholder="" value={{sample.Domain}} disabled>
 
           </md-input-container>-->
            <md-chip-list class="tags">
-                             <md-chip>Chip 1</md-chip>
-                            <md-chip>Chip 2</md-chip>
-                            <md-chip>Chip 2</md-chip>
-                            <md-chip>Chip 2</md-chip>
-                            <md-chip>Chip 2</md-chip>
+                             <md-chip>Code</md-chip>
+                            <md-chip>learning</md-chip>
+                            <md-chip>developing</md-chip>
+                            <md-chip>testing</md-chip>
+                            <md-chip>integrating</md-chip>
               </md-chip-list>
             
         

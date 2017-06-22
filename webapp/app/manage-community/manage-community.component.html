@@ -5,44 +5,44 @@
 <div fxLayout fxLayout.xs="row" fxLayoutGap="0px" fxLayoutGap.xs="0">
       <div fxFlex="20%" fxLayout="row"> </div>
 
-      <div fxFlex="80%" fxLayout="row">
+      <div fxFlex="100%" fxLayout="column" fxLayoutAlign=" start">
 
             <md-tab-group class="manage-community" fxFlex="100%">
                   
-                  <md-tab label="Community" fxFlex="100%">
+                  <md-tab label="Community" >
                       
                         <div *ngIf="samples">
-                              <div *ngFor="let sample of samples">
-                                    <form #userForm="ngForm" (ngSubmit)="onFormSubmit(userForm)" class="try">
+                              <div *ngFor="let sample of samples" >
+                                    <form #userForm="ngForm" (ngSubmit)="onFormSubmit(userForm)" class="try" >
 
                                           <div>
-                                                <md-input-container class="example-full-width">
+                                                <md-input-container fxLayoutAlign="start">
                                                       <input mdInput placeholder="Domain (disabled)" disabled value={{sample.Domain}}>
                                                 </md-input-container>
                                           </div>
 
 
                                           <div>
-                                                <md-input-container class="example-full-width">
+                                                <md-input-container fxLayoutAlign="start">
                                                       <input mdInput placeholder="Purpose (disabled)" disabled value="jjj">
                                                 </md-input-container>
                                           </div>
 
 
                                           <div>
-                                                <md-input-container class="example-full-width">
+                                                <md-input-container fxLayoutAlign="start">
                                                       <input mdInput placeholder="Community Name" name="Community name" value={{sample.CommunityName}}>
                                                 </md-input-container>
                                           </div>
 
                                           <div>
-                                                <md-input-container class="example-full-width">
+                                                <md-input-container fxLayoutAlign="start">
                                                       <input mdInput placeholder="Description" name="Description" value={{sample.Description}}>
                                                 </md-input-container>
                                           </div>
 
                                           <div>
-                                                <md-input-container class="example-full-width">
+                                                <md-input-container fxLayoutAlign="start">
                                                       <input mdInput placeholder="Access" disabled>
                                                       <md-radio-group name="access" [(ngModel)]="sample.Access"> 
                
@@ -56,7 +56,7 @@
 
 
                                           <div>
-                                                <md-input-container>
+                                                <md-input-container fxLayoutAlign="start">
                                                       <input mdInput placeholder="Tag" name="chip" [(ngModel)]="tagname" (keyup.enter)="chipValue(tagname)">
                                                 </md-input-container>
                                           </div>
@@ -64,7 +64,7 @@
 
                                           <div fxLayout="row" *ngFor="let tag of tagarray">
                                                 <md-chip-list ng-disabled="!tag.value">
-                                                      <span>  <md-chip>{{sample.tag}}<i class="material-icons">clear</i></md-chip></span>
+                                                      <span>  <md-chip>{{sample.Tag}}<i class="material-icons">clear</i></md-chip></span>
                                                 </md-chip-list>
                                           </div>
 
@@ -90,11 +90,6 @@
                   <!--tab for manage tools component-->
             </md-tab-group>
 
-      
-      
-      
-                    <!--</form>closing form-->
-                  <!--closing form-->
 
       </div>
 </div>

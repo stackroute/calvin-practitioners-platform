@@ -16,7 +16,8 @@ margin-top:0%;
 
            width:30%;
            height:130%;
-           margin-top: 4%;
+           margin-top: 10%;
+           margin-left:2%;
        }
 .tags{
 
@@ -25,10 +26,10 @@ margin-top:0%;
 }
 .community-details-name{
 
-    margin-left: 5%;
+     margin-right:60%;
     margin-top:10%;
 }
 .community-details{
-margin-left: 5%;
+ margin-right:60%;
 
 }
