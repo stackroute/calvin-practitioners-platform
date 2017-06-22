@@ -1,51 +1,32 @@
 <!--Using Flex for dividing the page into side nav,content and side nav  -->
 <div fxLayout fxLayout.xs="row" fxLayoutGap="0px" fxLayoutGap.xs="0">
       <div class="item item-1" fxFlex="20%" fxFlexAlign='start'>
-
-            <!--Community Avatar in side nav  -->
-
             <md-list>
                   <md-list-item class="community-image">
-
-
                         <md-icon (click)="openDialog()" class="community-display-pic" mdTooltip="Edit">add_a_photo</md-icon>
                         <img md-list-avatar src='/assets/images/try1.jpg'>
                   </md-list-item>
             </md-list>
-
             <md-input-container class="community-details">
                   <input mdInput placeholder="" value="13.May.2010" disabled>
             </md-input-container>
-            <!--<md-input-container class="community-details">
-                  <input mdInput placeholder="" value="Sports Community" disabled>
-            </md-input-container>-->
-<!--
-            <md-input-container class="community-access-details">
-                  <input mdInput placeholder="Private Community" value="" disabled>
-            </md-input-container>
-            <span> <md-icon>lock</md-icon></span>-->
-
       </div>
-      <!--closing div of flex 20% for comunity avatar-->
-
-
-      <!--Content area or community info area using tabs-->
-
-      <div fxFlex="75%" >
-            <div fxFlex="100%" fxFlexAlign='end'> 
-            <h1 >
-            Digital Hackathon Community-Bangalore</h1></div><div fxFlex="100%" fxFlexAlign="left"> 
-            <h4>Domain of the community<span> <md-icon>lock</md-icon></span></h4>
+      <div fxFlex="75%">
+            <div fxFlex="100%" fxFlexAlign='end'>
+                  <h1>
+                        Digital Hackathon Community-Bangalore</h1>
             </div>
-            
-
-               </div>
-
+            <div fxFlex="100%" fxFlexAlign="left">
+                  <h4>{{this.ans}}<span> <md-icon>lock</md-icon></span></h4>
+            </div>
+      </div>
       <div class="item item-4" fxFlex="7%" fxFlexOrder="4">
-         <div class="manage-community-info">   <md-icon >settings</md-icon></div>
-
-
-      <h6 > <md-icon class="try1">person</md-icon>    200 members</h6>
-      <h6 > <md-icon class="try1">build</md-icon>     200 tools</h6>
-       
-      </div></div>
+            <div class="manage-community-info">
+                  <md-icon>settings</md-icon>
+            </div>
+            <h6>
+                  <md-icon class="try1">person</md-icon> 200 members</h6>
+            <h6>
+                  <md-icon class="try1">build</md-icon> 200 tools</h6>
+      </div>
+</div>

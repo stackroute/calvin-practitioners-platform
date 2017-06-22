@@ -1,7 +1,5 @@
 const router = require('express').Router();
-router.use('/members', require('./modules/members'));
 
-router.use('/tools', require('./modules/tools'));
 router.use('/login', require('./modules/login'));
 
 router.use('/logout', (req, res) => {
@@ -14,6 +12,9 @@ router.use('/test', (req, res) => {
   res.send('To test middle ware');
 });
 router.use(require('./modules/authentication'));
+router.use('/members', require('./modules/members'));
+
+router.use('/tools', require('./modules/tools'));
 
 router.use('/activity', require('./modules/activity-page'));
 

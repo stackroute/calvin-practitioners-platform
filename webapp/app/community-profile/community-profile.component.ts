@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Params, RouterModule, Routes, Router } from '@angular/router';
 
 @Component({
   selector: 'calvin-community-profile',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CommunityProfileComponent implements OnInit {
 
-  constructor() { }
-
+  url: string;
+  param = [];
+  ans;
+  constructor(private router: Router) {
+  }
   ngOnInit() {
+    this.url = this.router.url;
+    this.param = this.url.split('/');
+    this.ans = this.param[this.param.length - 1];
   }
 
 }
