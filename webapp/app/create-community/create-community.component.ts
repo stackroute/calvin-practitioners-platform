@@ -14,21 +14,21 @@ import { CreateCommunityService } from './create-community.service';
 
 export class CreateCommunityComponent implements OnInit {
 
-  userForm: FormGroup;
+ userForm: FormGroup;
 
-  public tagarray = [];  // to insert chip value from textfield
+ public tagarray = [];  // to insert chip value from textfield
 
-  value: string; // to store selected template value
+ value: string; // to store selected template value
 
-  visibility = [
+ visibility = [
     {'value': 'Public', 'viewValue': 'Public'},
       {'value': 'Private', 'viewValue': 'Private'},
       {'value': 'Moderate', 'viewValue': 'Moderate'}
     ];
 
-  constructor(private fb: FormBuilder, private newcommunity: CreateCommunityService) {
+ constructor(private fb: FormBuilder, private newcommunity: CreateCommunityService) {
 
-    this.createForm();
+   this.createForm();
   }
 
 // reactive form validation for userForm
@@ -47,28 +47,28 @@ export class CreateCommunityComponent implements OnInit {
 
 //  check whether the card is clickable or not
 
- onselect(selectedTemplate: any) {
+onselect(selectedTemplate: any) {
     this.value = selectedTemplate;
     console.log(selectedTemplate);
         console.log(typeof(selectedTemplate));
 
-    //   this.template=new FormGroup({
+   //   this.template=new FormGroup({
     //       templatevalue: new FormControl() })
     return this.value;
   }
 
 // bind text box value
 
- chipValue(tag: any) {
+chipValue(tag: any) {
    this.tagarray.push(tag);
  }
 
- cleartag(tag) {
+cleartag(tag) {
  }
 
 // submit userForm values
 
-           onsubmit(userdata: any) {
+          onsubmit(userdata: any) {
             const values = userdata.value;
             const domainName = values.domainName;
             const Purpose = values.Purpose;
@@ -86,18 +86,18 @@ export class CreateCommunityComponent implements OnInit {
                     this.reset();
         }
 
-        reset() {
+       reset() {
           this.createForm();
         }
 
- // cancel for redirect to userdashboard
+// cancel for redirect to userdashboard
 
-  oncancel() {
+ oncancel() {
 
-   }
+  }
 
 
-  ngOnInit() {
+ ngOnInit() {
     this.newcommunity.getcurrentData()
         .subscribe(
             data => {this.newcommunity.communityDetails = data;
@@ -108,5 +108,3 @@ export class CreateCommunityComponent implements OnInit {
         );
     }
   }
-
-

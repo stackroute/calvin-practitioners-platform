@@ -42,6 +42,10 @@ import { ToolActions } from './community-tool-actions/community-tool-actions.ser
 import { InfiniteScrollModule } from 'angular2-infinite-scroll';
 import { ActivityService } from './activity-page/activity-page.service';
 import { CreateCommunityService } from './create-community/create-community.service';
+import { CommunityMemberManagementComponent } from './community-member-management/community-member-management.component';
+
+import { ManageCommunityToolsComponent } from './manage-community-tools/manage-community-tools.component';
+import { AddToolComponent } from './add-tool/add-tool.component';
 
 
 @NgModule({
@@ -66,7 +70,10 @@ import { CreateCommunityService } from './create-community/create-community.serv
     CommunityMembersWidgetComponent,
     KeysPipe,
     UserWidgetsComponent,
-    ActivityPageComponent
+    ActivityPageComponent,
+    CommunityMemberManagementComponent,
+    ManageCommunityToolsComponent,
+    AddToolComponent
      ],
 
 

@@ -42,7 +42,7 @@ function insertUserInDb(profile, done) {
     return done();
   });
 }
-// this function is  to handle a user after login successfull login .
+// this function is  to handle a user after  successfull login .
 // If user already exists in database , last login time gets updated
 // else new recorded in inserted in database
 function updateUser(profile, done) {
@@ -53,7 +53,7 @@ function updateUser(profile, done) {
   };
 
   const userToken = jwt.sign(userDetails, config.appConstants.secret,
-                             { expiresIn: config.appConstants.expiryTime });
+    { expiresIn: config.appConstants.expiryTime });
   // console.log('userToken', userToken);
   checkIfUserExists(profile.email, (error, userExists) => {
     if (userExists) {
