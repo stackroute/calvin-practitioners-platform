@@ -1,3 +1,8 @@
 .material-icons {
     font-size: 15px;
 }
+
+h4 {
+    float: left;
+    overflow: hidden;
+}

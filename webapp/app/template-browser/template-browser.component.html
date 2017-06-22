@@ -1,15 +1,16 @@
-<md-card>
-  <md-card-title><h4>Template</h4></md-card-title>
-     <!--<div fxLayout fxLayoutAlign="center center" fxLayout.md="column"></div>-->
-     <div>
+<md-card class="templateArea">
+  <md-card-title class="cardTitle"><h4>Template</h4></md-card-title>
+
     <md-card-content class="content" fxFlex="20">
-     <md-list *ngFor="let core of template" (click)="selectcore(core.purpose)" class="border">
-       <span>
-         <md-list-item>{{core.purpose}}</md-list-item>
-         <md-list-item *ngFor="let key of core.tools">{{key.toolId}}</md-list-item>
-       </span>   
+     <md-list *ngFor="let core of template" (click)="selectcore(core.purpose)" class="listTemplateItem">
+       <span><md-list-item>Name: {{core.name}}</md-list-item></span>
+       <span><md-list-item>Description: {{core.description}}</md-list-item></span>
+      <span><md-list-item >Tools: </md-list-item>
+      <md-list-item *ngFor="let tool of core.tools">
+        <ul><li>{{tool.toolId}}</li></ul>
+          </md-list-item></span>  
+      <span> <md-list-item *ngFor="let role of core.roleActions">Role: {{role.role}}</md-list-item></span>      
       </md-list>
     </md-card-content>
-     </div>
 </md-card>
 
