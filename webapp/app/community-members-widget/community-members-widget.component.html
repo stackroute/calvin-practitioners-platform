@@ -1,106 +1,21 @@
 <div fxLayout fxLayoutAlign="start">
-  <div fxFlex="25%">
+  <div fxFlex="22%">
     <md-card>
-      <md-card-header class="header" fxLayoutAlign="center">
-        <p>Members</p>
+      <md-card-header class="header" fxLayoutAlign="start">
+        <h2>Members</h2>
       </md-card-header>
-      <!--<button md-mini-fab routerLink="." class="button"><md-icon>add</md-icon></button>-->
       <md-card-content class="content" fxLayoutAlign.xs="column">
-        <!--style="margin-top:20px"-->
-        <!--<div fxFlex="50%">-->
         <md-list>
-          <md-list-item>
-            <img md-list-avatar src="assets/img/pic1.jpg" alt="User">
-            <md-list-item>
-              <i class="material-icons">grade</i>
-              <span>mad</span>
-            </md-list-item>
-            <span></span>
-          </md-list-item>
-          <md-list-item>
-            <img md-list-avatar src="assets/img/pic2.jpg" alt="User">
-            <span>rans</span>
-          </md-list-item>
-          <md-list-item>
-            <img md-list-avatar src="assets/img/pic3.jpg" alt="User">
-            <span>rani</span>
-          </md-list-item>
-          <md-list-item>
-            <img md-list-avatar src="assets/img/pic4.jpg" alt="User">
-            <span>cherry</span>
-          </md-list-item>
-          <md-list-item>
-            <img md-list-avatar src="assets/img/pic5.jpg" alt="User">
-            <span>joe</span>
-          </md-list-item>
-          <md-list-item>
-            <img md-list-avatar src="assets/img/pic8.jpg" alt="User">
-            <span>maddy</span>
-          </md-list-item>
-          <!--</md-list>
-        <!--</div>
-        <div fxFlex="50%">
-          <md-list>-->
-          <md-list-item>
-            <img md-list-avatar src="assets/img/pic9.jpg" alt="User">
-            <span>vishnu</span>
-          </md-list-item>
-          <md-list-item>
-            <img md-list-avatar src="assets/img/pic2.jpg" alt="User">
-            <span>mark</span>
-          </md-list-item>
-          <md-list-item>
-            <img md-list-avatar src="assets/img/pic3.jpg" alt="User">
-            <span>danny</span>
-          </md-list-item>
-          <!--</md-list>
-          <md-list>-->
-          <md-list-item>
-            <img md-list-avatar src="assets/img/pic9.jpg" alt="User">
-            <span>kayal</span>
-          </md-list-item>
-          <md-list-item>
-            <img md-list-avatar src="assets/img/pic2.jpg" alt="User">
-            <span>jone</span>
-          </md-list-item>
-          <md-list-item>
-            <img md-list-avatar src="assets/img/pic3.jpg" alt="User">
-            <span>jupiter</span>
-          </md-list-item>
-          <md-list-item>
-            <img md-list-avatar src="assets/img/pic3.jpg" alt="User">
-            <span>jupiter</span>
-          </md-list-item>
-          <md-list-item>
-            <img md-list-avatar src="assets/img/pic3.jpg" alt="User">
-            <span>jupiter</span>
-          </md-list-item>
-          <md-list-item>
-            <img md-list-avatar src="assets/img/pic3.jpg" alt="User">
-            <span>jupiter</span>
-          </md-list-item>
-          <md-list-item>
-            <img md-list-avatar src="assets/img/pic3.jpg" alt="User">
-            <span>jupiter</span>
-          </md-list-item>
-          <md-list-item>
-            <img md-list-avatar src="assets/img/pic3.jpg" alt="User">
-            <span>jupiter</span>
-          </md-list-item>
-          <md-list-item>
-            <img md-list-avatar src="assets/img/pic3.jpg" alt="User">
-            <span>jupiter</span>
-          </md-list-item>
-          <md-list-item>
-            <img md-list-avatar src="assets/img/pic3.jpg" alt="User">
-            <span>jupiter</span>
-          </md-list-item>
-          <md-list-item>
-            <img md-list-avatar src="assets/img/pic3.jpg" alt="User">
-            <span>jupiter23</span>
+          <md-list-item *ngFor="let val of this.members" fxLayoutAlign.xs="column">
+            <img md-list-avatar class="img-responsive center-block" src={{val.photo}}>
+            <!--<md-list-item>{{val.toolId}}</md-list-item>-->
+            <h3 md-line>{{val.username}}</h3>
+            <p md-line>
+              <span>{{val.domain}}</span>
+            </p>
           </md-list-item>
         </md-list>
       </md-card-content>
     </md-card>
-  </div>
+ </div>
 </div>

@@ -1,13 +1,10 @@
 .header{
-    
     margin-top:-10px;
-}
-.btn{
-    
-    margin-left:80%;
-    margin-top:-20px;
 }
 .content{
     height:300px;
     overflow-y: auto;
+}
+.content::-webkit-scrollbar {
+   display: none;
 }

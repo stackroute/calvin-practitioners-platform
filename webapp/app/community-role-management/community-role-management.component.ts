@@ -29,7 +29,7 @@ export class CommunityRoleManagementComponent implements OnInit {
 export class KeysPipe implements PipeTransform {
  transform(sample, args: string[]): any {
   const keys = [];
-  for (let key; key < sample; key++) {
+  for (const key in sample) {
    if (sample.hasOwnProperty(key)) {
     keys.push({
      key: key,

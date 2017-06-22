@@ -1,9 +1,6 @@
+
 .header{
     
-}
-
-.button{
-    margin:-20px 0px 0px 80% ;
 }
 i{
  color:red;
@@ -12,4 +9,7 @@ i{
 .content{
     height:300px;
     overflow-y:auto;
+}
+.content::-webkit-scrollbar {
+   display: none;
 }

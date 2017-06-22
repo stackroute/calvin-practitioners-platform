@@ -1,10 +1,23 @@
-const express = require('express');
-
-const router = express.Router();
+const router = require('express').Router();
 const communityCtrl = require('./community.controller');
 
-router.get('/', (req, res) => {
-  communityCtrl.getUserCommunity(req, res);
+// get User community List
+router.get('/userCommunities', (req, res) => {
+  try {
+  // communityCtrl.getUserCommunity(req, res);
+    communityCtrl.getUserCommunity(req, res).then((successResult) => {
+      // console.log('successResult', successResult);
+      return res.status(201).send(successResult);
+    })
+  } catch (error) {
+  // Log the Error for internal use
+    res.send({
+      error: 'Failed to complete successfully, please check the request and try again..!',
+    });
+  }
 });
 
+
+// get Community
+router.get('/getcom', communityCtrl.getcommunity);
 module.exports = router;

@@ -2,13 +2,14 @@ import { Component, OnInit } from '@angular/core';
   import {FormControl} from '@angular/forms';
   import {MdDialog} from '@angular/material';
  import {NgForm} from '@angular/forms';
- import {GetCommunity} from './manage-community.service';
+ import { Router } from '@angular/router';
+//  import {GetCommunity} from './manage-community.service';
 
 @Component({
   selector: 'calvin-manage-community',
   templateUrl: './manage-community.component.html',
   styleUrls: ['./manage-community.component.css'],
-  providers: [GetCommunity]
+  // providers: [GetCommunity]
 })
 export class ManageCommunityComponent implements OnInit {
   selectedValue: string;
@@ -26,7 +27,8 @@ export class ManageCommunityComponent implements OnInit {
 
   }
 
-  constructor(public dialog: MdDialog, private comm: GetCommunity) {}
+
+  constructor(public dialog: MdDialog) {}
     openDialog() {
     this.dialog.open(ManageCommunityComponent);
   }
