@@ -45,6 +45,7 @@ import { CommunityMemberManagementComponent } from './community-member-managemen
 
 import { ManageCommunityToolsComponent } from './manage-community-tools/manage-community-tools.component';
 import { AddToolComponent } from './add-tool/add-tool.component';
+import { MemberInvitationComponent } from './member-invitation/member-invitation.component';
 
 
 @NgModule({
@@ -76,7 +77,8 @@ import { AddToolComponent } from './add-tool/add-tool.component';
     CommunityMemberManagementComponent,
 
     ManageCommunityToolsComponent,
-    AddToolComponent
+    AddToolComponent,
+    MemberInvitationComponent
 
      ],
 
