@@ -20,5 +20,4 @@ app.use('/api/v1', require('./api/v1'));
 app.use((req, res) => {
   res.status(404).send({ error: 'resource not found' });
 });
-
 module.exports = app;

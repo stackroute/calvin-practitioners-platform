@@ -6,19 +6,9 @@ import { Component, OnInit , Input} from '@angular/core';
 })
 export class ActivityCardComponent implements OnInit {
  @Input() activity;
- public counter= 0;
- constructor() { }
-  ngOnInit() {
+constructor() { 
+  
+} 
+ ngOnInit() {
   }
-  likefunction() {
-    this.counter = 1;
-  }
-    unlike() {
-    if (this.counter > 0) {
-      this.counter -= 1;
-    } else {
-      return this.counter;
-    }
-  }
-
 }

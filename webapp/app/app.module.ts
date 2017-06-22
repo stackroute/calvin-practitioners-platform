@@ -9,7 +9,6 @@ import { MdSidenavModule } from '@angular/material';
 import {RouterModule, Routes} from '@angular/router';
 import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
 import { AppBarComponent } from './app-bar/app-bar.component';
-import { UserWidgetsComponent } from './my-communities/my-communities.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MaterialModule, MdButtonModule, } from '@angular/material';
 import { MdCheckboxModule, MdCardModule, MdMenuModule } from '@angular/material';
@@ -19,7 +18,6 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
 import 'hammerjs';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MdSelectModule } from '@angular/material';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { CreateCommunityComponent } from './create-community/create-community.component';
 import { CommunityRoleActionsComponent } from './community-role-actions/community-role-actions.component';
 import { CommunityRoleManagementComponent } from './community-role-management/community-role-management.component';
@@ -33,7 +31,15 @@ import { ActivityPageComponent } from './activity-page/activity-page.component';
 import { CommunityProfileComponent } from './community-profile/community-profile.component';
 import { CommunityToolsWidgetComponent } from './community-tools-widget/community-tools-widget.component';
 import { CommunityMembersWidgetComponent } from './community-members-widget/community-members-widget.component';
+import { UserWidgetsComponent } from './my-communities/my-communities.component';
+
+// import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+import { ToolsService } from './community-tools-widget/community-tools-widget.service';
+import { MembersService } from './community-members-widget/community-members-widget.service';
+import { RoleServices } from './community-role-management/community-role-management.service';
 import { InfiniteScrollModule } from 'angular2-infinite-scroll';
+import { ActivityService } from './activity-page/activity-page.service';
+import { CreateCommunityService } from './create-community/create-community.service';
 
 @NgModule({
   declarations: [
@@ -42,10 +48,8 @@ import { InfiniteScrollModule } from 'angular2-infinite-scroll';
     UserDashboardComponent,
     CreateCommunityComponent,
     AppBarComponent,
-    UserWidgetsComponent,
     LoginComponent,
     UserProfileComponent,
-    PageNotFoundComponent,
     CommunityRoleActionsComponent,
     CommunityRoleManagementComponent,
     CommunityToolActionsComponent,
@@ -57,10 +61,12 @@ import { InfiniteScrollModule } from 'angular2-infinite-scroll';
     CommunityProfileComponent,
     CommunityToolsWidgetComponent,
     CommunityMembersWidgetComponent,
-
-
-  ],
-
+    CommunityRoleManagementComponent,
+    CommunityRoleActionsComponent,
+    CommunityToolActionsComponent,
+    ActivityPageComponent,
+    UserWidgetsComponent
+     ],
 
   imports: [
     InfiniteScrollModule,
@@ -84,11 +90,11 @@ import { InfiniteScrollModule } from 'angular2-infinite-scroll';
     MdInputModule,
     MdSlideToggleModule,
     MdDialogModule,
-    ReactiveFormsModule,
+    ReactiveFormsModule 
   ],
   entryComponents: [CommunityToolActionsComponent],
 
-  providers: [],
+  providers: [RoleServices,ActivityService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

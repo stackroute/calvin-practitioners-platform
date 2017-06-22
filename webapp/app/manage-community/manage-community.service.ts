@@ -7,13 +7,19 @@ import 'rxjs/Rx';
 @Injectable()
 export class GetCommunity {
 
-
- constructor(private http: Http) { }
+constructor(private http: Http) { }
  getCommunity() {
    
-  const url = 'http://localhost:3000/api/v1/manage-community/community';
+  const url = 'http://localhost:3000/api/v1/community-details/community-details';
  return this.http.get(url).map(response =>response.json());
   }
 }
 
 
+//  page = 1;
+//  constructor(private http: Http) { }
+//  getCommunity(domain: string) {
+//   const url = `http://localhost:3000/api/vi`;
+//  return this.http.get(url).map(res => res.json());
+//   }
+// }
