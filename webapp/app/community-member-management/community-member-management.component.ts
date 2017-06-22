@@ -11,18 +11,16 @@ import { MemberInvitationComponent } from '../member-invitation/member-invitatio
 })
 export class CommunityMemberManagementComponent implements OnInit {
    userCommunityListArray = [ ];
-  constructor(private userCommunities: UserCommunities, private router: Router,public dialog: MdDialog) { }
-  
-  ngOnInit() { 
+  constructor(private userCommunities: UserCommunities, private router: Router, public dialog: MdDialog) { }
+  ngOnInit() {
     this.getUserCommunity();
   }
-  
   onScroll() {
   }
 openDialog() {
     const dialog = this.dialog.open(MemberInvitationComponent);
   }
-  routeToCommunity (communityDomain){
+  routeToCommunity (communityDomain) {
     this.router.navigate(['/app/userCommunity', communityDomain]);
   }
 
@@ -32,7 +30,7 @@ openDialog() {
       .getCommunity()
       .subscribe(userCommunityList => {
         userCommunityList.forEach(element => {
-          this.userCommunityListArray.push(element)
+          this.userCommunityListArray.push(element);
         });
       });
    }

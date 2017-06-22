@@ -104,11 +104,11 @@ import { MemberInvitationComponent } from './member-invitation/member-invitation
     MdInputModule,
     MdSlideToggleModule,
     MdDialogModule,
-    ReactiveFormsModule 
-  ],
+    ReactiveFormsModule
+    ],
   entryComponents: [CommunityToolActionsComponent],
 
-  providers: [RoleServices,ActivityService],
+  providers: [RoleServices, ActivityService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
