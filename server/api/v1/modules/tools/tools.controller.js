@@ -29,7 +29,6 @@ function getTool() {
 }
 
 module.exports = {
-
   getTool,
 };
 

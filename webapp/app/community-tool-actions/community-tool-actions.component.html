@@ -1,17 +1,17 @@
-<div fxLayout='column' md-dialog-content *ngIf='dummy'>
-    <div *ngFor='let value of dummy'>
-           <md-input-container fxLayoutAlign='start stretch'>
-                <input mdInput placeholder={{value.role}}/>
+<div fxLayout="column" md-dialog-content *ngIf="sample">
+    <div *ngFor="let core of sample">
+        <div *ngFor="let value of core.tools">
+            <md-input-container fxLayoutAlign="start stretch">
+                <input mdInput placeholder="" value={{value.toolId}}/>
             </md-input-container>
-        
-        <md-checkbox  *ngFor='let actions of value.actions' fxFlexLayout.xs='row'>{{actions}}</md-checkbox>
+            <!--<md-checkbox *ngFor="let value of value.actions"  (change)="getCheckoxValue(value, checked)" fxFlexLayout.xs="row">{{value}}</md-checkbox>-->
+            <md-checkbox *ngFor="let key of value.actions"  (checked)="exists(value.toolId,key)" (click)="getCheckoxValue(value.toolId,key)" fxFlexLayout.xs="row">{{key}}</md-checkbox>
+            <!--<md-checkbox *ngFor="let value of value.actions" [checked]="exists(value.toolId,value)" (click)="getCheckoxValue(value.toolId,value)" fxFlexLayout.xs="row">{{value}}</md-checkbox>-->
+        </div>
     </div>
 </div>
 
-
-
-<div md-dialog-actions fxLayoutAlign='end'>
+<div md-dialog-actions fxLayoutAlign="end">
     <button md-button md-dialog-close>Cancel</button>
-    <button md-raised-button md-dialog-close color="primary">Apply</button>
-
+    <button md-raised-button md-dialog-close color="primary" (click)=update(key)>Apply</button>
 </div>

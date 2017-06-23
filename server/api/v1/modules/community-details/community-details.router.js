@@ -14,18 +14,18 @@ const communityCtrl = require('./community-details.controller');
 // });
 router.get('/community-details', (req, res) => { // eslint-disable-line consistent-return
   try {
-    console.log('1.inside tools.....');
+    // console.log('1.inside tools.....');
     communityCtrl.GetCommunity((err, result) => {
       if (err) {
-        console.log('error');
+        // console.log('error');
         res.status(500).send({ error: 'Internal error occurred....!' });
       } else {
-        console.log('got tool as : ', result);
+        // console.log('got tool as : ', result);
         res.status(200).send(result);
       }
     });
   } catch (err) {
-    console.log('catch ewrr');
+    // console.log('catch ewrr');
     return res.status(500).send({
       error: 'Internal error occurred....!' });
   }

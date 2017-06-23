@@ -44,11 +44,9 @@
             <input mdInput placeholder="" value={{sample.Domain}} disabled>
 
           </md-input-container>-->
-
-          <md-chip-list class="tag" *ngFor="let tags of contents">
-            <div *ngFor="let tag of tags">
-            <md-chip>{{ tag.tags }}</md-chip>
-            </div>           
+          <md-chip-list class="tag" *ngFor="let tag of contents ">
+            <md-chip>{{tag.tags}}</md-chip>
+            
           </md-chip-list>
 
 
@@ -78,11 +76,11 @@
         <md-list class="try1">
           <md-list-item>
             <md-icon>person</md-icon>
-            <h5>{{content.domain}}</h5>
+            <h6>{{content.domain}}</h6>
           </md-list-item>
-          <md-list-item class="try2"> 
+          <md-list-item> 
             <md-icon>build</md-icon>
-            <h5>{{content.domain}}</h5>
+            <h6>{{content.domain}}</h6>
           </md-list-item>
 
 

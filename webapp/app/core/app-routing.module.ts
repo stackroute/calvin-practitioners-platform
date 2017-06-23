@@ -16,12 +16,19 @@ import { ActivityPageComponent } from '../activity-page/activity-page.component'
 import { UserWidgetsComponent } from '../my-communities/my-communities.component';
 import { CommunityToolsWidgetComponent } from '../community-tools-widget/community-tools-widget.component';
 import { CommunityMembersWidgetComponent } from '../community-members-widget/community-members-widget.component';
+import { ManageCommunityToolsComponent } from '../manage-community-tools/manage-community-tools.component';
+import { AddToolComponent } from '../add-tool/add-tool.component';
 import { UserCommunities } from '../my-communities/my-communities.services';
+
+import { CommunityMemberManagementComponent } from '../community-member-management/community-member-management.component';
+
+
 
 // Calvin routes
 const routes: ModuleWithProviders = RouterModule.forRoot([
   { path: 'login', component: LoginComponent },
   { path: 'app', component: AppBarComponent, canActivateChild: [AuthGuard],
+
     children: [
       { path: 'home', component: UserDashboardComponent },
       { path: '', redirectTo: '/app/home', pathMatch: 'full' },
@@ -30,10 +37,11 @@ const routes: ModuleWithProviders = RouterModule.forRoot([
       { path: 'userCommunity/:string', component: CommunityDashboardComponent },
       { path: 'actions', component: CommunityRoleManagementComponent },
       { path: 'communityDashBoard', component: CommunityDashboardComponent },
-      { path: 'createCommunity', component: CreateCommunityComponent },
       { path: 'managecommunity', component: ManageCommunityComponent },
       { path: 'activity', component: ActivityPageComponent },
-      
+      { path: 'members', component: CommunityMemberManagementComponent },
+      { path: 'managetools', component: ManageCommunityToolsComponent},
+      { path: 'addtool', component: AddToolComponent},     
 
     ]
 
