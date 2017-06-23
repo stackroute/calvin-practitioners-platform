@@ -46,7 +46,7 @@
     <!--select core-activity-->
     <div fxLayout.md="column">
       <md-select placeholder="Purpose" formControlName="Purpose">
-        <md-option *ngFor="let core of this.newcommunity.communityDetails" [value]="core.purpose" >
+        <md-option *ngFor="let core of this.newcommunity.communityDetails" [value]="core.purpose" (click)="getPurpose(core.purpose)" >
         {{core.purpose}}
         </md-option>                    
       </md-select>
@@ -78,7 +78,7 @@
     </div>
 <!--submit the form using raised button-->
     <span fxLayout.md="row" fxLayoutAlign="end end" fxLayoutGap="10px" fxLayoutGap.md="0" >
-      <button fxLayout.md="column"  fxFlex="10" md-raised-button >cancel</button>
+      <button fxLayout.md="column"  fxFlex="10" md-raised-button (onclick)="routeToUserPage()" >cancel</button>
       <button fxLayout.md="column" fxFlex="10" md-raised-button ng-value="submit" type="submit" color="primary" [disabled]="!userForm.valid"
           (click)="onsubmit(userForm)">submit</button>
     </span>

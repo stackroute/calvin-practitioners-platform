@@ -18,6 +18,6 @@ export class CreateCommunityService {
         const headers = new Headers(
             { 'Content-Type': 'application/json', 'Access-Control-Allow-Methods': ' GET, POST, PATCH, PUT, DEconstE, OPTIONS' });
         const options = new RequestOptions({ headers: headers });
-        return this._http.post('http://localhost:3000/api/v1/community', val).map(() => console.log('New community details posted',val));
+        return this._http.post('http://localhost:3000/api/v1/community', val).map(() => console.log('New community details posted', val));
     }
 }

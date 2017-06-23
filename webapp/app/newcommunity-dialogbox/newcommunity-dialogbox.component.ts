@@ -1,5 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Route, Router } from '@angular/router';
+
 import { CreateCommunityComponent } from '../create-community/create-community.component';
+
 
 @Component({
   selector: 'calvin-newcommunity-dialogbox',
@@ -9,12 +12,12 @@ import { CreateCommunityComponent } from '../create-community/create-community.c
 
 export class NewcommunityDialogboxComponent implements OnInit {
 
+constructor(private router: Router) { }
 
-  constructor() { 
+routeToManage() {
+    this.router.navigate(['/app/managecommunity']);
   }
- 
 
-  ngOnInit() {
-  }
+ngOnInit() { }
 
 }

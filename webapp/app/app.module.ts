@@ -42,6 +42,9 @@ import { ToolActions } from './community-tool-actions/community-tool-actions.ser
 import { InfiniteScrollModule } from 'angular2-infinite-scroll';
 import { ActivityService } from './activity-page/activity-page.service';
 import { CreateCommunityService } from './create-community/create-community.service';
+
+import { MarkdownModule } from 'angular2-markdown';
+
 import { CommunityMemberManagementComponent } from './community-member-management/community-member-management.component';
 
 import { ManageCommunityToolsComponent } from './manage-community-tools/manage-community-tools.component';
@@ -80,6 +83,7 @@ import { NewcommunityDialogboxComponent } from './newcommunity-dialogbox/newcomm
 
 
   imports: [
+    MarkdownModule,
     InfiniteScrollModule,
     MdSidenavModule,
     BrowserModule,
@@ -108,4 +112,3 @@ import { NewcommunityDialogboxComponent } from './newcommunity-dialogbox/newcomm
   bootstrap: [AppComponent]
 })
 export class AppModule { }
-
