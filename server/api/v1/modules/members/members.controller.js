@@ -72,7 +72,6 @@ const cartoons = {
   ],
 };
 function getMembers(member, done) {
-  //if(cartoons[0].domain==domain)
   return done(null, cartoons);
 }
 module.exports = {

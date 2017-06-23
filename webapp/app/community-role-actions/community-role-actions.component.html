@@ -1,15 +1,15 @@
 <md-card>
   <div fxLayoutAlign='start stretch'>
-    <md-input-container fxFlex='80%'>
-      <input mdInput placeholder={{dummy.role}} [(ngModel)]='dummy.role'/>
-      </md-input-container>
-    <button md-mini-fab class='button-style' (click)='update(dummy.id,dummy.role,dummy.actions)'><md-icon>edit</md-icon></button>
-    <button md-mini-fab class='button-style'><md-icon>delete</md-icon></button>
+    <md-input-container fxFlex='90'>
+      <input mdInput placeholder={{dummy.role}} [(ngModel)]='dummy.role' />
+    </md-input-container>
+    <button md-button class='button-style' (click)='update(dummy.id,dummy.role,dummy.actions)'><md-icon>edit</md-icon></button>
+    <button md-button class='button-style'><md-icon>delete</md-icon></button>
   </div>
   <md-chip-list>
-    <div *ngFor='let actions of dummy.actions' fxFlexLayout.xs='row'>
-      <md-chip>{{actions}}<i class='material-icons'>clear</i></md-chip>
+    <div *ngFor='let key of (dummy.actions | keys)' fxFlexLayout.xs='row'>
+      <md-chip>{{key.key}}</md-chip>
     </div>
   </md-chip-list>
   <button fxLayoutAlign='left' md-raised-button (click)='openDialog()'>Modify Actions</button>
-  </md-card>
+</md-card>

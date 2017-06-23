@@ -42,7 +42,7 @@
         <md-list fxLayoutAlign="start">
           <md-list-item class="community-image">
             <!--<md-icon (click)="openDialog()" class="community-display-pic" mdTooltip="Edit">add_a_photo</md-icon>-->
-                       <img md-list-avatar src={{sample.avatar}}>
+                       <img md-list-avatar src={{content.avatar}}>
           </md-list-item>
         </md-list>
 
@@ -52,8 +52,8 @@
                     <input mdInput placeholder="" value={{sample.Domain}} disabled>
 
           </md-input-container>-->
-          <h5 class="community-details-name">{{sample.CommunityName}}</h5>
-          <h5 class="community-details">{{sample.created}}</h5>
+          <h5 class="community-details-name">{{content.name}}</h5>
+          <h5 class="community-details">{{content.createdon}}</h5>
 
            <!--<md-input-container class="community-details">
 
@@ -69,10 +69,11 @@
 
         <div fxFlex="60%" class="community-profile" >
            <div>
-                    <h1 fxLayoutAlign="start">{{sample.Domain}}</h1>
+                    <h1 fxLayoutAlign="start">{{content.name}}</h1>
           </div>
          
-            <h4 fxLayoutAlign="start">{{this.ans}}</h4>
+            <h4 fxLayoutAlign="start">{{this.domain}}</h4>
+
           <!--<md-input-container >
 
             <input mdInput placeholder="" value={{sample.Domain}} disabled>

@@ -8,7 +8,9 @@ import { ActivityService } from './activity-page.service';
 })
 export class ActivityPageComponent implements OnInit {
 
- constructor(private activitypage: ActivityService) { }
+  public textData = `## Markdown content data`;
+  constructor(private activitypage: ActivityService) { }
+
   tools = [];
   ngOnInit() {
     this.activitypage.getTools().subscribe(data => {

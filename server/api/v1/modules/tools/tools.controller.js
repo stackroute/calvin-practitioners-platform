@@ -31,7 +31,6 @@ function getTool(tool, done) {
 }
 
 module.exports = {
-
   getTool,
 };
 

@@ -14,7 +14,7 @@ export class CommunityProfileComponent implements OnInit {
   samples = [];
   url: string;
   param = [];
-  ans;
+  domain;
   constructor(private router: Router, private comm: GetCommunity) {
     this.comm.getCommunity().subscribe(res => { this.samples = res; })
   }
@@ -22,7 +22,7 @@ export class CommunityProfileComponent implements OnInit {
   ngOnInit() {
     this.url = this.router.url;
     this.param = this.url.split('/');
-    this.ans = this.param[this.param.length - 1];
+    this.domain = this.param[this.param.length - 1];
   }
-
 }
+
