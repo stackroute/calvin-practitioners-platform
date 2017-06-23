@@ -6,7 +6,6 @@
 @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
 
 
-
 body {
  margin: 0;
  font-family: Roboto, sans-serif;
@@ -22,13 +21,3 @@ body {
  right: 20px;
  color: white;
 }
-calvin-root {    
-    text-align: center;
-    display: block;
-}
-calvin-root img {
-    display: block;
-    margin: 40px auto 20px;
-    width: 200px;
-}
-

@@ -6,7 +6,7 @@ import { ActivityService } from './activity-page.service';
   styleUrls: ['./activity-page.component.css']
 })
 export class ActivityPageComponent implements OnInit {
-
+  public textData = `## Markdown content data`;
   constructor(private activitypage: ActivityService) { }
   tools = [];
   ngOnInit() {

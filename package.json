@@ -26,6 +26,7 @@
     "@angular/platform-browser-dynamic": "^4.0.0",
     "@angular/router": "^4.0.0",
     "angular2-infinite-scroll": "^0.3.5",
+    "angular2-markdown": "^1.6.0",
     "body-parser": "^1.17.2",
     "cassandra-driver": "^3.2.2",
     "connect-flash": "^0.1.1",

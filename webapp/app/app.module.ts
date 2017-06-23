@@ -40,6 +40,7 @@ import { RoleServices } from './community-role-management/community-role-managem
 import { InfiniteScrollModule } from 'angular2-infinite-scroll';
 import { ActivityService } from './activity-page/activity-page.service';
 import { CreateCommunityService } from './create-community/create-community.service';
+import { MarkdownModule } from 'angular2-markdown';
 
 @NgModule({
   declarations: [
@@ -69,6 +70,7 @@ import { CreateCommunityService } from './create-community/create-community.serv
      ],
 
   imports: [
+    MarkdownModule,
     InfiniteScrollModule,
     MdSidenavModule,
     BrowserModule,
