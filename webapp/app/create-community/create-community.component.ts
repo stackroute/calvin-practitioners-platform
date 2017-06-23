@@ -61,7 +61,7 @@ onselect(selectedTemplate: any) {
 }
 
 // bind text box value with chip
-chipValue(tag: any) {
+chipValue(tag) {
   this.tagarray.push(tag);
 }
 
@@ -97,7 +97,8 @@ onsubmit(userdata: any) {
 
 // cancel for redirect to userdashboard
 // routeToUserPage() {
-//     this.router.navigate(['/app/userCommunity']);
+//   console.log('cancel button');
+//     this.router.navigate(['/app/Home']);
 // }
 
 ngOnInit() {
