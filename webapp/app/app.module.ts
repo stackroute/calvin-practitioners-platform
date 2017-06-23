@@ -48,6 +48,7 @@ import { CommunityMemberManagementComponent } from './community-member-managemen
 
 import { ManageCommunityToolsComponent } from './manage-community-tools/manage-community-tools.component';
 import { AddToolComponent } from './add-tool/add-tool.component';
+import { NewcommunityDialogboxComponent } from './newcommunity-dialogbox/newcommunity-dialogbox.component';
 import { MemberInvitationComponent } from './member-invitation/member-invitation.component';
 
 
@@ -77,6 +78,7 @@ import { MemberInvitationComponent } from './member-invitation/member-invitation
     CommunityMemberManagementComponent,
     ManageCommunityToolsComponent,
     AddToolComponent,
+    NewcommunityDialogboxComponent,
     MemberInvitationComponent
      ],
 
@@ -90,7 +92,6 @@ import { MemberInvitationComponent } from './member-invitation/member-invitation
     AppRoutingModule,
     FlexLayoutModule,
     FormsModule,
-    ReactiveFormsModule,
     MaterialModule,
     BrowserAnimationsModule,
     MdCheckboxModule,
@@ -105,12 +106,11 @@ import { MemberInvitationComponent } from './member-invitation/member-invitation
     MdSlideToggleModule,
     MdDialogModule,
     ReactiveFormsModule
-    ],
-  entryComponents: [CommunityToolActionsComponent, MemberInvitationComponent],
+  ],
+  entryComponents: [CommunityToolActionsComponent, NewcommunityDialogboxComponent, MemberInvitationComponent],
 
   providers: [RoleServices, ToolActions, ActivityService],
 
   bootstrap: [AppComponent]
 })
 export class AppModule { }
-

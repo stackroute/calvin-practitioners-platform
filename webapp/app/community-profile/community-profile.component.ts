@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-
-import { Params, RouterModule, Router, Routes} from '@angular/router';
  import {GetCommunity} from '../manage-community/manage-community.service';
 
 @Component({
@@ -10,18 +8,20 @@ import { Params, RouterModule, Router, Routes} from '@angular/router';
    providers: [GetCommunity]
 })
 export class CommunityProfileComponent implements OnInit {
-  samples = [];
-  url: string;
-  param = [];
-  ans;
-  constructor(private router: Router, private comm: GetCommunity) {
-    this.comm.getCommunity().subscribe(res => { this.samples = res; })
-  }
+  contents=[];
+  arr=[];
+  constructor(private comm: GetCommunity) {
+   
+   }
 
- ngOnInit() {
-    this.url = this.router.url;
-    this.param = this.url.split('/');
-    this.ans = this.param[this.param.length - 1];
+  ngOnInit() {
+     console.log('.................');
+     this.comm.getCommunity().subscribe(res =>{this.contents=res;
+      
+      this.arr=this.contents[0].tags;
+    //  console.log('.................',this.tags); 
+    });
+    
   }
 
 }
