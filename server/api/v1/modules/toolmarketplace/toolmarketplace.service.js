@@ -20,6 +20,12 @@ function checkIfToolExists(toolid, done) {
     return done(null, true);
   });
 }
+
+function addToolinDB(tool) {
+  const insertQry = `INSERT into tools (toolid,toolname,toolactions,toolevents)
+                 VALUES(:toolid,:toolname,:toolaction,:toolevents);`;
+
+}
 // this function is to add a new tool in marketplace
 function AddToolinMarketplace(tool, done) {
   const insertQry = `INSERT into tools (toolid,toolname,toolactions,toolevents)
@@ -30,6 +36,7 @@ function AddToolinMarketplace(tool, done) {
       if (error) {
         return done(error, 'DB Error');
       }
+      
     }
   })) {
 
