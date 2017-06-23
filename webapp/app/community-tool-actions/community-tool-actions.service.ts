@@ -5,11 +5,12 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/Rx';
 
 @Injectable()
-export class RoleServices {
+export class ToolActions {
   constructor(private http: Http) { }
-  listRoles() {
+
+  listTools() {
     console.log('In service');
-    const url = '/api/v1/community-role-action/roles';
+    const url = 'http://localhost:3000/api/v1/community-tool-actions/tools';
     return this.http.get(url).map(res => res.json());
   }
 }
