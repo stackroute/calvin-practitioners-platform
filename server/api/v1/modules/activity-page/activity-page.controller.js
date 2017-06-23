@@ -1,10 +1,9 @@
-
 const arr = {
   Tools: [
     {
       activityEventId: '6c84fb90-12c4-11e1-840d-7b25c5ee775a',
       community: {
-        domain: 'sport.cricket.sachin.fans',
+        domain: 'sports.cricket.sachin.fans',
         name: 'Fans of Sachin - God of cricket',
         avatar: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNyCYituHy0U24-UskCeehz5aW_0X0kAHxBAsJkBzsB2acaLIC',
         visibility: ' Public',
@@ -31,7 +30,7 @@ const arr = {
         actions: [
           {
             buttons: 'Answer',
-            link: 'http://www.leedsbeckett.ac.uk/sport/-/media/images/sport-active-lifestyles/sports/sportcricket.jpg?mw=768',
+            link: 'http://cdn.deccanchronicle.com/sites/default/files/mediaimages/gallery/2013/Nov/sachinbanner.jpg',
           },
         ],
         embeds: [
@@ -81,7 +80,8 @@ const arr = {
         embeds: [
           {
             link: 'https://imasters.com/wp-content/uploads/sites/24/2016/09/9_computer-programmer.jpg',
-            title: 'How to use activity cards in activity page?',
+           title: 'How to use activity cards in activity page?',
+
           },
           {
             link: 'http://dzone.com/howto-be-a-fullstackprogrammer.jpg',
