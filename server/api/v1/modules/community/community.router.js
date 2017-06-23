@@ -1,5 +1,5 @@
  const router = require('express').Router();
-// const communityCtrl = require('./community.controller');
+ const communityCtrl = require('./community.controller');
 
 // create Community
 router.get('/', (req, res) => {

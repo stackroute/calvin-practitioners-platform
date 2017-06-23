@@ -11,8 +11,9 @@ import { RoleServices } from './community-role-management.service';
 })
 export class CommunityRoleManagementComponent implements OnInit {
   sample = [];
+  domain='medical';
   constructor(public dialog: MdDialog, private role: RoleServices) {
-    this.role.listRoles().subscribe(res => {
+    this.role.listRoles(this.domain).subscribe(res => {
       this.sample = res;
     });
   }

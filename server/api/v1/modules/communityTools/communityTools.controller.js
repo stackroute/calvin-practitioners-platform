@@ -7,15 +7,15 @@ const sample = [{
     // tools available for the surgeon medical community
   tools: [{
     toolId: 'forum',
-    actions: ['postmessage', 'read', 'Likemessage', 'edit', 'share'],
+    actions: ["postmessage","read","LikeMessage","edit","share"],
     activityEvents: ['newannouncement', 'like', 'remove'],
   }, {
     toolId: 'WeMedUp',
-    actions: ['postmessage', 'read', 'Likemessage'],
+    actions: ["postmessage","read","Likemessage"],
     activityEvents: ['newannouncement', 'remove'],
   }, {
     toolId: 'sermo',
-    actions: ['postmesage', 'read', 'Likemessage', 'edit'],
+    actions: ["postmessage","read","edit"],
     activityEvents: ['like', 'remove'],
   }],
     // role actions for the surgeon medical community
@@ -23,18 +23,20 @@ const sample = [{
     role: 'admin',
     toolsActions: [{
       toolId: 'sermo',
-      actions: { edit: 'self', post: 'post_self' },
+      actions: { edit: 'true', post: 'true' },
     }, {
       toolId: 'WeMedUp',
-      actions: { bookmark: 'self', post: 'post_self' },
+      actions: { bookmark: 'true', post: 'true' },
     }, {
       toolId: 'forum',
-      actions: { edit: 'self', post: 'post_self' },
+      actions: { edit: 'true', post: 'true' },
     }],
   }],
 }];
-function retrieveAllTools() {
-  return sample;
+function retrieveAllTools(domain) {
+  if (sample[0].purpose==domain)
+       return sample;
+  
 }
 module.exports = {
   retrieveAllTools,

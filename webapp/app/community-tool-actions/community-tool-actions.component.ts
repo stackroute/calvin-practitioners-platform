@@ -10,6 +10,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 export class CommunityToolActionsComponent implements OnInit {
  selected = [];
  getresults = [];
+ domain='medical';
  checkBoxValue: boolean = false;
  sample = [];
  constructor(private role: ToolActions) {}
@@ -28,7 +29,7 @@ export class CommunityToolActionsComponent implements OnInit {
   return this.selected.indexOf(toolName + status) > -1;
  }
  ngOnInit() {
-  this.role.listTools().subscribe(res => {
+  this.role.listTools(this.domain).subscribe(res => {
    this.sample = res;
   });
  }

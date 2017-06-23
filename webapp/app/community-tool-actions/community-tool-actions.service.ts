@@ -8,9 +8,9 @@ import 'rxjs/Rx';
 export class ToolActions {
   constructor(private http: Http) { }
 
-  listTools() {
+  listTools(domain) {
     console.log('In service');
-    const url = 'http://localhost:3000/api/v1/community-tool-actions/tools';
+    const url = '/api/v1/communityTools/';
     return this.http.get(url).map(res => res.json());
   }
 }

@@ -1,6 +1,8 @@
 const router = require('express').Router();
 const jwt = require('jsonwebtoken');
 
+router.use('/communityRoles', require('./modules/communityRoles'));
+router.use('/communityTools', require('./modules/communityTools'));
 // middleware to validate token
 router.use((req, res, next) => {
 //   console.log('inside middle ware');
@@ -24,14 +26,13 @@ router.use((req, res, next) => {
     } else { res.redirect('/'); }
   }
 });
-
 const config = require('./modules/common/config');
+
 
 router.use('/members', require('./modules/members'));
 router.use('/tools', require('./modules/tools'));
 router.use('/login', require('./modules/login'));
-router.use('/community-role-action', require('./modules/community-role-action'));
-router.use('/community-tool-actions', require('./modules/community-tool-actions'));
+
 
 
 router.use('/logout', (req, res) => {
@@ -54,7 +55,6 @@ router.use('/user', require('./modules/user'));
 router.use('/activity', require('./modules/activity-page'));
 // router.use('/userCommunities', require('./modules/community'));
 router.use('/community', require('./modules/community'));
-router.use('/community-role-action', require('./modules/community-role-action'));
+
 
 module.exports = router;
-
