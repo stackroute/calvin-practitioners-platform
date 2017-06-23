@@ -33,7 +33,6 @@ import { CommunityToolsWidgetComponent } from './community-tools-widget/communit
 import { CommunityMembersWidgetComponent } from './community-members-widget/community-members-widget.component';
 import { KeysPipe } from './community-role-actions/community-role-actions.pipe';
 import { UserWidgetsComponent } from './my-communities/my-communities.component';
-
 // import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { ToolsService } from './community-tools-widget/community-tools-widget.service';
 import { MembersService } from './community-members-widget/community-members-widget.service';
