@@ -1,7 +1,6 @@
-const router = require('express').Router();
-const jwt = require('jsonwebtoken');
-
 router.use('/login', require('./modules/login'));
+
+
 
 router.use('/logout', (req, res) => {
 
@@ -10,6 +9,7 @@ router.use('/logout', (req, res) => {
   res.redirect('/');
 
 });
+
 
 
 router.use(require('./modules/authentication'));
@@ -30,13 +30,13 @@ router.use('/community', require('./modules/community'));
 
 router.use('/community-role-action', require('./modules/community-role-action'));
 
-// router.use('/toolmarketplace', require('./modules/toolmarketplace'));
+router.use('/toolmarketplace', require('./modules/toolmarketplace'));
 
 router.use('/community-tool-actions', require('./modules/community-tool-actions'));
 
-router.use('/members', require('./modules/members'));
+router
+
+.use('/members', require('./modules/members'));
 
 router.use('/tools', require('./modules/tools'));
-
-module.exports = router;
 
