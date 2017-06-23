@@ -1,7 +1,6 @@
 const router = require('express').Router();
 const config = require('./modules/common/config');
 
-
 router.use('/login', require('./modules/login'));
 
 router.use('/logout', (req, res) => {
@@ -10,7 +9,7 @@ router.use('/logout', (req, res) => {
 });
 
 router.use(require('./modules/authentication'));
-// Each Module to Be placed after this
+
 router.use('/community-details', require('./modules/community-details'));
 
 router.use('/members', require('./modules/members'));
@@ -25,7 +24,7 @@ router.use('/community', require('./modules/community'));
 
 router.use('/communityRoles', require('./modules/communityRoles'));
 
-router.use('/toolmarketplace', require('./modules/toolmarketplace'));
+// router.use('/toolmarketplace', require('./modules/toolmarketplace'));
 
 router.use('/communityTools', require('./modules/communityTools'));
 
