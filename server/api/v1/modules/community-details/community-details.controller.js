@@ -1,5 +1,3 @@
-
-
 const content = [
   {
     domain: 'illuminati',
@@ -11,8 +9,7 @@ const content = [
     owner: 'prakhar',
     purpose: 'medical',
     roles: ['Admin', ' moderator'],
-    tags: [
-      'first',
+    tags: ['first',
       'second',
     ],
     status: 'Active',
@@ -24,9 +21,9 @@ const content = [
 ];
 
 function GetCommunity(done) {
-  // console.log('inside get community');
   return done(null, content);
 }
+
 module.exports = {
   GetCommunity,
 };
