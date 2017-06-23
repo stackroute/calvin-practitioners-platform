@@ -13,17 +13,7 @@ router.get('/', (req, res) => {
 
 // get User community List
 router.get('/userCommunities', (req, res) => {
-  try {
-    // communityCtrl.getUserCommunity(req, res);
-    communityCtrl.getUserCommunity(req, res).then(successResult =>
-      // console.log('successResult', successResult);
-      res.status(201).send(successResult));
-  } catch (error) {
-    // Log the Error for internal use
-    res.send({
-      error: 'Failed to complete successfully, please check the request and try again..!',
-    });
-  }
+  return res.send(communityCtrl.getUserCommunity(req, res));
 });
 
 // get Community
