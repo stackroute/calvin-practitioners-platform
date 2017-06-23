@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { KeysPipe } from './activity-card.pipe';
 
 @Component({
   selector: 'calvin-activity-card',

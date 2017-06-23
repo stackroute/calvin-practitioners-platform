@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit ,Pipe ,PipeTransform} from '@angular/core';
 import { ActivityService } from './activity-page.service';
 
 @Component({
@@ -14,5 +14,15 @@ export class ActivityPageComponent implements OnInit {
     this.activitypage.getTools().subscribe(data => {
       this.tools = data.Tools;
     });
+  }
+}
+@Pipe({name: 'keys'})
+export class KeysPipe implements PipeTransform {
+  transform(tools, args:string[]) : any {
+    let keys = [];
+    for (let key in tools) {
+      keys.push({key: key, value: tools[key]});
+    }
+    return keys;
   }
 }

@@ -32,7 +32,7 @@ import { CommunityProfileComponent } from './community-profile/community-profile
 import { CommunityToolsWidgetComponent } from './community-tools-widget/community-tools-widget.component';
 import { CommunityMembersWidgetComponent } from './community-members-widget/community-members-widget.component';
 import { UserWidgetsComponent } from './my-communities/my-communities.component';
-
+import { KeysPipe } from './activity-card/activity-card.pipe';
 // import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { ToolsService } from './community-tools-widget/community-tools-widget.service';
 import { MembersService } from './community-members-widget/community-members-widget.service';
@@ -66,6 +66,7 @@ import { CreateCommunityService } from './create-community/create-community.serv
     CommunityToolActionsComponent,
     ActivityPageComponent,
     UserWidgetsComponent,
+    KeysPipe
      ],
 
   imports: [

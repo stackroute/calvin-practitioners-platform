@@ -1,9 +1,51 @@
 <md-card fxFlex="100%">
+  
+  <md-card-header fxFlex="100%" fxLayout="row">
+    <div fxFlex="20%">
+      <img md-card-avatar src="{{activity.community.avatar}}">
+    </div>
+    <div fxFlex="80%" align="start">
+      <md-card-title>{{activity.community.domain}}</md-card-title>
+      <md-card-subtitle><a href="{{activity.community.url}}">{{activity.community.name}}</a></md-card-subtitle>
+    </div>
+  </md-card-header>
+ 
+  <!--<hr fxFlex="100%">-->
+  <md-card-header fxFlex="100%" fxLayout="row">
+    <div fxFlex="20%">
+      <img md-card-avatar src="{{activity.member.avatar}}">
+    </div>
+    <div fxFlex="80%" align="start">
+      <md-card-title>{{activity.member.name}} posted <a href="{{activity.activity.actionUrl}}">
+        {{activity.activity.eventType}}</a> in {{activity.tool.name}}
+      </md-card-title>
+    </div>
+  </md-card-header>
+  
+  <md-card-content>
+    {{activity.message.title}}
+  </md-card-content>
+  <hr fxFlex="100%">
+  
+  <md-card-content>
+    <!--<img md-card-image src="{{activity.message.actions[0].link}}">-->
+    {{activity.message.embeds[0].title}}
+  </md-card-content>
+</md-card>
+
+
+
+
+
+
+
+<!--fxFlex="100%" fxLayout="row" *ngFor='let cardDetails of (activity.community | keys)'-->
+<!--<md-card fxFlex="100%">
   <md-card-header>
     <img md-card-avatar src="{{activity.image}}">
     <md-card-title>{{activity.title}}</md-card-title>
   </md-card-header>
-  <img md-card-image src="{{activity.poster_path}}">
+    <img md-card-image src="{{activity.poster_path}}">
   <md-card-content>
     {{activity.overview}}
   </md-card-content>
@@ -11,5 +53,4 @@
     <button md-button>LIKE</button>{{counter}}
     <button md-button>SHARE</button>
   </md-card-actions>
-</md-card>
-
+<</md-card>-->
