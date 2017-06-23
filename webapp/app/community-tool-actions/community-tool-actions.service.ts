@@ -10,11 +10,7 @@ export class ToolActions {
 
  listTools(domain) {
     console.log('In service');
-<<<<<<< HEAD
-    const url = 'http://localhost:3000/api/v1/communityTools/';
-=======
     const url = '/api/v1/communityTools/';
->>>>>>> ff95ee252485682f0b2eb7132660297fdbee7d31
     return this.http.get(url).map(res => res.json());
   }
 

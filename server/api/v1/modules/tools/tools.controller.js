@@ -28,10 +28,6 @@ const tools = {
   ],
 };
 function getTool(tool, done) {
-<<<<<<< HEAD
-  // console.log('2. inside gettool');
-=======
->>>>>>> ff95ee252485682f0b2eb7132660297fdbee7d31
   return done(null, tools);
 }
 
