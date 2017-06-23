@@ -6,7 +6,13 @@ const memberCtrl = require('./members.controller');
 
 router.get('/members', (req, res) => {
   try {
-    return res.send(memberCtrl.getMembers(req.query.domain));
+    memberCtrl.getMembers(req.query.domain, (err, result) => {
+      if (err) {
+        res.status(500).send({ error: 'Internal error occurred....!' });
+      } else {
+        res.status(200).send(result);
+      }
+     });
   } catch (err) {
     return res.status(500).send({ error: 'Internal error occurred....!' });
   }
