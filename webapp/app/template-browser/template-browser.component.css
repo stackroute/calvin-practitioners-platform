@@ -18,6 +18,7 @@
     overflow-y: auto;
     /*font-size: 13px;*/
 }
+
 /*.content::-webkit-scrollbar {
    display: none;
 }*/
@@ -25,14 +26,13 @@
     border-bottom: 1.5px solid gray;
     font-size: 13px;
     padding: 2px;
+    text-decoration-style: none;    
+}
+
+.listTemplateItem :hover {
+   color:red;
 }
 .descFontStyle {
     font-size: 10px;
 }
-ul li {
-    display: inline;
-    text-decoration-style: none;
-}
-ul li :hover {
-   color: gray;
-}
+

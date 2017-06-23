@@ -8,7 +8,7 @@ export class CreateCommunityService {
     communityDetails = [];
     constructor(private _http: Http) { }
 
-    getcurrentData() {
+   getcurrentData() {
         const headers = new Headers(
             { 'Content-Type': 'application/json', 'Access-Control-Allow-Methods' : ' GET, POST, PATCH, PUT, DEconstE, OPTIONS' });
         const options = new RequestOptions({ headers: headers });

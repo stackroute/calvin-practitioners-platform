@@ -6,28 +6,33 @@
      fxLayoutGap="10px"
      fxLayoutGap.xs="0">
 	<div class="item item-1" fxFlex="2%"></div>
-	<div class="item item-2" fxFlex="2%" fxFlexOrder="3"></div>
-	<div class="item item-3"  fxFlex class="form-div">
+	<div class="item item-2" fxFlex="2%" fxFlexOrder="3">
+
+
+		
+	</div>
+	<div class="item item-3" fxFlex class="form-div" *ngIf="flag===1">
+		<md-card>
 		<md-list>
 			<md-list-item >
-				<h1 align="center">Profile Edit</h1>
-				<img md-list-avatar  src="assets/img/pic3.png" alt="User">
+				<h1>Profile Edit</h1>
+				<img md-list-avatar class="img-placing" src={{(user.avatar)}} alt="User">
 				</md-list-item>
 			</md-list>
-			<form class="placing" color="primary"  [formGroup]="profileForm">
+			<form class="placing"  [formGroup]="profileForm">
 				<div>
 					<i class="material-icons prefix">account_circle</i>
 					<md-input-container>
-						<input mdInput placeholder="First name" formControlName='firstname'>
+						<input mdInput placeholder="username" formControlName="firstname" [(ngModel)]='user.username'/>
 						</md-input-container>
-						<md-input-container>
-							<input mdInput placeholder="Last name" formControlName='secondname'>
-							</md-input-container>
+						<!--<md-input-container>
+							<input mdInput placeholder="Last name" formControlName="secondname">
+							</md-input-container>-->
 						</div>
 						<div>
 							<i class="material-icons">email</i>
 							<md-input-container >
-								<input mdInput placeholder="Email" formControlName='email'>
+								<input mdInput placeholder="Email" formControlName="email" [(ngModel)]='user.email'/>
 								</md-input-container>
 							</div>
 							<div>
@@ -54,10 +59,12 @@
 											<!--<button  md-mini-fab color="primary" align="right">
 												<md-icon>send</md-icon>
 											</button>-->
+											 <button md-raised-button >cancel</button>
 											<button md-raised-button color="primary">save</button>
-                                             <button md-raised-button >cancel</button>
+                                            
 										</div>
 									</form>
+		</md-card>
 								</div>
 							</div>
 							<router-outlet></router-outlet>

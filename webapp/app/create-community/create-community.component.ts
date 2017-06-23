@@ -1,8 +1,9 @@
 import { Component, OnInit, Input} from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder} from '@angular/forms';
-import {MdDialog} from '@angular/material';
+import { MdDialog } from '@angular/material';
 
 import { TemplateBrowserComponent } from '../template-browser/template-browser.component';
+import { NewcommunityDialogboxComponent } from '../newcommunity-dialogbox/newcommunity-dialogbox.component';
 import { CreateCommunityService } from './create-community.service';
 
 @Component({
@@ -28,9 +29,10 @@ export class CreateCommunityComponent implements OnInit {
   
   selectedPurpose ={};
   
-  constructor(private fb: FormBuilder, private newcommunity: CreateCommunityService) {
+  constructor(private fb: FormBuilder, private newcommunity: CreateCommunityService, public dialog: MdDialog) {
     
     this.createForm();
+
   }
   
   // reactive form validation for userForm
@@ -51,8 +53,7 @@ export class CreateCommunityComponent implements OnInit {
   
   onselect(selectedTemplate: any) {
     this.value = selectedTemplate;
-    console.log(selectedTemplate);
-    
+    console.log(selectedTemplate);    
     return this.value;
   }
   
@@ -80,11 +81,16 @@ export class CreateCommunityComponent implements OnInit {
     (data) => console.log('Post data'),
     error => console.log(error),
     () => console.log('data posted successfully'));
+    this.openDialog();
     this.reset();
   }
   
   reset() {
     this.createForm();
+  }
+
+  openDialog() {
+    const dialog = this.dialog.open(NewcommunityDialogboxComponent);
   }
   
   // cancel for redirect to userdashboard
@@ -109,5 +115,3 @@ export class CreateCommunityComponent implements OnInit {
     );
   }
 }
-
-

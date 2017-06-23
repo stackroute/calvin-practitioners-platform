@@ -1,4 +1,5 @@
 const communityservice = require('./community.service');
+
 const coreActivity = [{
   /* template for the surgeon -- medical community*/
   name: 'surgeon',
@@ -169,7 +170,5 @@ function getUserCommunity(req, res) {
 
 module.exports = {
   getcommunity,
-  getUserCommunity
+  getUserCommunity,
 };
-
-

@@ -24,8 +24,9 @@ router.get('/auth/google/callback', (req, res, next) => {
     // console.log('result in cookie', result);
     res.cookie(config.cookie.name, result);
     res.redirect('/#/app/home');
-  }, (err) => {
-    res.json(err);
+  }, (err) => { // eslint-disable-line no-unused-vars
+    // res.json(err);
+    res.redirect(500, '/#/login');
   });
 });
 

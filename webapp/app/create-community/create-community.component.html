@@ -2,7 +2,7 @@
   <div fxFlex="10" fxLayout="column"></div>
   <form class="container" fxFlex="80" fxLayout="column" 
     fxFlexFill [formGroup]="userForm">
-    <h4 class="md-headline">Create new community</h4>
+    <h3 class="md-headline">Create new community</h3>
     <!--domain name text field-->
     <div fxLayout.md="column">
       <md-input-container>
@@ -68,7 +68,7 @@
       </md-input-container>
     </div>
     <md-chip-list>
-      <div fxLayout.md="column" ng-disabled="!tag.value" *ngFor="let tag of tagarray" (click)="clearTag(tag.value)" >
+      <div fxLayout.md="column" ng-disabled="!tag.value" *ngFor="let tag of tagarray" >
       <md-chip>{{tag}}<i class="material-icons">clear</i></md-chip>
       </div>
     </md-chip-list>      
