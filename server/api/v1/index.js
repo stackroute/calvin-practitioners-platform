@@ -12,8 +12,6 @@ router.use(require('./modules/authentication'));
 
 router.use('/community-details', require('./modules/community-details'));
 
-router.use('/members', require('./modules/members'));
-
 router.use('/community', require('./modules/community'));
 
 router.use('/user', require('./modules/user'));

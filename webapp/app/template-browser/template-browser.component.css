@@ -1,10 +1,38 @@
-.content{
-    height:300px;
-    overflow-y:auto;
+/*.cardTitle {
+    float: left;
+    overflow: hidden;
+    height: 100%;
+}*/
+
+.titleTemplate {
+    height: 100%;
 }
-.content::-webkit-scrollbar {
+
+.templateArea {
+    float: left;
+    overflow: hidden;
+}
+
+.content {
+    height: 300px;
+    overflow-y: auto;
+    /*font-size: 13px;*/
+}
+
+/*.content::-webkit-scrollbar {
    display: none;
+}*/
+.listTemplateItem {
+    border-bottom: 1.5px solid gray;
+    font-size: 13px;
+    padding: 2px;
+    text-decoration-style: none;    
 }
-.border {
-    border: 1px dotted grey;
+
+.listTemplateItem :hover {
+   color:red;
 }
+.descFontStyle {
+    font-size: 10px;
+}
+

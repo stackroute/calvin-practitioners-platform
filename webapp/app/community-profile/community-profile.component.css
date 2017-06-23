@@ -1,6 +1,6 @@
     .manage-community-info{
 
-        margin-left: 30%;
+        margin-left: 58%;
         }
 
         .community-profile{
@@ -14,22 +14,86 @@ margin-top:0%;
 
        .community-image img{
 
-           width:30%;
-           height:130%;
-           margin-top: 10%;
-           margin-left:2%;
+           width:400%;
+           height:120%;
+           margin-top: 40%;
+           margin-left:280%;
        }
 .tags{
 
-    margin-top: 20%;
-    margin-right:80%;
+    margin-top: 10%;
+    margin-left:80%;
 }
 .community-details-name{
 
-     margin-right:60%;
+     margin-left:22%;
     margin-top:10%;
 }
 .community-details{
- margin-right:60%;
+ margin-left:12%;
 
+}
+
+.try1{
+
+margin-left:38%;
+}
+
+
+@media(max-width:760px){
+    .community-details-name 
+    {
+        font-size: 20px;
+    }
+}
+@media(max-width:460px){
+   .community-details-name
+    {
+        font-size: 10px;
+    }
+}
+
+
+
+
+@media(max-width:760px){
+    #heading 
+    {
+        font-size: 40px;
+    }
+}
+@media(max-width:460px){
+   #heading
+    {
+        font-size: 20px;
+    }
+}
+
+@media(max-width:760px){
+    .community-image img
+    {
+        width: 150%;
+        height:80%
+    }
+}
+@media(max-width:460px){
+   .community-image img
+    {
+        width:50%;
+        height:40%;
+    }
+}
+
+
+@media(max-width:760px){
+    .community-details
+    {
+        font-size: 10px;
+    }
+}
+@media(max-width:460px){
+   .community-details
+    {
+        font-size: 10px;
+    }
 }

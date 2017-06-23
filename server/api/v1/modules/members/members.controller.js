@@ -72,11 +72,7 @@ const cartoons = {
   ],
 };
 function getMembers(member, done) {
-<<<<<<< HEAD
   return done(null, cartoons);
-=======
-  return done(null,cartoons);
->>>>>>> ff95ee252485682f0b2eb7132660297fdbee7d31
 }
 module.exports = {
   getMembers,
