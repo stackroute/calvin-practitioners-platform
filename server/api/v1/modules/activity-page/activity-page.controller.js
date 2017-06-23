@@ -4,7 +4,7 @@ const arr = {
     {
       activityEventId: '6c84fb90-12c4-11e1-840d-7b25c5ee775a',
       community: {
-        domain: 'sports.cricket.sachin.fans',
+        domain: 'sport.cricket.sachin.fans',
         name: 'Fans of Sachin - God of cricket',
         avatar: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNyCYituHy0U24-UskCeehz5aW_0X0kAHxBAsJkBzsB2acaLIC',
         visibility: ' Public',
@@ -31,7 +31,7 @@ const arr = {
         actions: [
           {
             buttons: 'Answer',
-            link: 'http://cdn.deccanchronicle.com/sites/default/files/mediaimages/gallery/2013/Nov/sachinbanner.jpg',
+            link: 'http://www.leedsbeckett.ac.uk/sport/-/media/images/sport-active-lifestyles/sports/sportcricket.jpg?mw=768',
           },
         ],
         embeds: [
@@ -81,7 +81,7 @@ const arr = {
         embeds: [
           {
             link: 'https://imasters.com/wp-content/uploads/sites/24/2016/09/9_computer-programmer.jpg',
-            title: 'How to be a fullstack programmer',
+            title: 'How to use activity cards in activity page?',
           },
           {
             link: 'http://dzone.com/howto-be-a-fullstackprogrammer.jpg',
@@ -114,8 +114,8 @@ const arr = {
         actionUrl: 'https://www.quora.com/',
       },
       message: {
-        text: 'Nitin posted a [what is the use of becoming fullstack programmer](http://quora.com/nitin_godfather3423/qs/3ioewksd)',
-        title: 'Nitin asked what is the use of becoming fullstack programmer',
+        text: 'geetha posted a [what is the use of becoming fullstack programmer](http://quora.com/nitin_godfather3423/qs/3ioewksd)',
+        title: 'geetha asked how to use patch method',
         actions: [
           {
             buttons: 'Answer',
@@ -125,7 +125,7 @@ const arr = {
         embeds: [
           {
             link: 'https://imasters.com/wp-content/uploads/sites/24/2016/09/9_computer-programmer.jpg',
-            title: 'How to be a fullstack programmer',
+            title: 'how to use patch method',
           },
           {
             link: 'http://dzone.com/howto-be-a-fullstackprogrammer.jpg',
@@ -137,19 +137,19 @@ const arr = {
       activityEventId: '6c84fb90-12c4-11e1-840d-7b25c5ee775a',
       community: {
         domain: 'Teacher community',
-        name: 'Fans of Sachin - God of cricket',
+        name: 'Students-teachers association',
         avatar: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9AilWmWZDZY9iKbVUVzpO5fAT9Gyssrg3sOTVA7nz8xtwDliV',
         visibility: 'Public',
         url: 'http://calvin.com/community/sports.cricket.sachin.fans',
       },
       member: {
-        username: 'nitin_godfather3423@gmail.com',
-        name: 'Nitin Joshi',
+        username: 'saransri95@gmail.com',
+        name: 'saranya babu',
         avatar: 'https://cdn.vox-cdn.com/thumbor/x58bYtjAuglgOnzp2sRV7QEyBa0=/3x0:1591x893/1600x900/cdn.vox-cdn.com/uploads/chorus_image/image/55248791/xboxliveavatarsnew.0.png',
       },
       tool: {
         toolid: 'discussions.quora',
-        name: 'Quora',
+        name: 'github',
         avatar: 'https://cdn3.iconfinder.com/data/icons/ultimate-social/150/36_quora-256.png',
         baseurl: 'http://quora.com',
       },
@@ -158,18 +158,18 @@ const arr = {
         actionUrl: 'https://www.quora.com/',
       },
       message: {
-        text: 'Nitin posted a [what is the use of becoming fullstack programmer](http://quora.com/nitin_godfather3423/qs/3ioewksd)',
-        title: 'Nitin asked what is the use of becoming fullstack programmer',
+        text: 'saranya posted a [what is the use of becoming fullstack programmer](http://quora.com/nitin_godfather3423/qs/3ioewksd)',
+        title: 'saranya asked how to compare string value with json objects',
         actions: [
           {
             buttons: 'Answer',
-            link: 'http://www.improgrammer.net/wp-content/uploads/2014/08/article.jpg',
+            link: 'http://www.outlookindia.com/public/uploads/newsimages/teachers_saris20151006.jpg',
           },
         ],
         embeds: [
           {
             link: 'http://dzone.com/howto-be-a-fullstackprogrammer',
-            title: 'How to be a fullstack programmer',
+            title: 'how to compare string value with json objects',
           },
           {
             link: 'http://dzone.com/howto-be-a-fullstackprogrammer.jpg',
@@ -181,19 +181,19 @@ const arr = {
       activityEventId: '6c84fb90-12c4-11e1-840d-7b25c5ee775a',
       community: {
         domain: 'stock market',
-        name: 'Fans of Sachin - God of cricket',
+        name: 'Stock-market in India',
         avatar: 'https://www.verisign.com/en_US/resources/img/domains_grow-portfolio.jpg',
         visibility: 'Public',
         url: 'http://calvin.com/community/sports.cricket.sachin.fans',
       },
       member: {
-        username: 'nitin_godfather3423@gmail.com',
-        name: 'Nitin Joshi',
+        username: 'renukanrj@gmail.com',
+        name: 'renuka nagaraj',
         avatar: 'http://nick.mtvnimages.com/nick/video/images/avatar/avatar-206-full-episode-16x9.jpg',
       },
       tool: {
         toolid: 'discussions.quora',
-        name: 'Quora',
+        name: 'stock-market',
         avatar: 'https://cdn3.iconfinder.com/data/icons/ultimate-social/150/36_quora-256.png',
         baseurl: 'http://quora.com',
       },
@@ -202,18 +202,18 @@ const arr = {
         actionUrl: 'https://www.quora.com/',
       },
       message: {
-        text: 'Nitin posted a [what is the use of becoming fullstack programmer](http://quora.com/nitin_godfather3423/qs/3ioewksd)',
-        title: 'Nitin asked what is the use of becoming fullstack programmer',
+        text: 'Renuka posted a [what is the use of becoming fullstack programmer](http://quora.com/nitin_godfather3423/qs/3ioewksd)',
+        title: 'Renuka asked what is registered share',
         actions: [
           {
             buttons: 'Answer',
-            link: 'http://www.improgrammer.net/wp-content/uploads/2014/08/article.jpg',
+            link: 'http://static-news.moneycontrol.com/static-mcnews/2017/03/stocks_BSE_Nifty_Sensex__stocks_stock_market_1280-378x213.jpg',
           },
         ],
         embeds: [
           {
             link: 'http://dzone.com/howto-be-a-fullstackprogrammer',
-            title: 'How to be a fullstack programmer',
+            title: 'What is registered share?',
           },
           {
             link: 'http://dzone.com/howto-be-a-fullstackprogrammer.jpg',
@@ -251,7 +251,7 @@ const arr = {
         actions: [
           {
             buttons: 'Answer',
-            link: 'http://www.improgrammer.net/wp-content/uploads/2014/08/article.jpg',
+            link: 'https://www.globalcricketcommunity.com/images/Rohit-Mahadik-Graphics/Sri-Cricket-Club/Sri-Cricket-Club-GCC.png',
           },
         ],
         embeds: [
@@ -295,7 +295,7 @@ const arr = {
         actions: [
           {
             buttons: 'Answer',
-            link: 'http://www.improgrammer.net/wp-content/uploads/2014/08/article.jpg',
+            link: 'http://www.gilmorenews.com/uploads/2016/02/Gilmore-Girls-Revival-Actors-15th.jpg',
           },
         ],
         embeds: [
