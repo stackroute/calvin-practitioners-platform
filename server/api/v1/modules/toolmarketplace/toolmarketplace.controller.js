@@ -11,8 +11,7 @@ function getTool() {
 }
 
 function deleteTool(toolid) {
-
-    toolservice.delTool(toolid,done);
+  toolservice.delTool(toolid, done);
 }
 
 module.exports = {
