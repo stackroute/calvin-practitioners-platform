@@ -1,11 +1,6 @@
-<<<<<<< HEAD
  const router = require('express').Router();
  const communityCtrl = require('./community.controller');
 
-=======
-const router = require('express').Router();
-const communityCtrl = require('./community.controller');
->>>>>>> 32943b1db109e454fb18b27a947df5df639c6fe8
 // create Community
 router.get('/', (req, res) => {
   try {
