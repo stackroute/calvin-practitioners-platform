@@ -19,6 +19,3 @@ router.get('/tools', (req, res) => {
 });
 
 module.exports = router;
-
-
-

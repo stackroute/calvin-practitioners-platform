@@ -2,7 +2,7 @@ const router = require('express').Router();
 const authCtrl = require('./auth.controller');
 const config = require('../common/config');
 
-router.use((req, res, next) => {        // eslint-disable-line consistent-return
+ router.use((req, res, next) => {        // eslint-disable-line consistent-return
  try {
    const token = req.cookies.currentUser;
        // console.log('cookie', token);

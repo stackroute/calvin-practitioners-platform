@@ -4,8 +4,8 @@ const config = require('./modules/common/config');
 router.use('/login', require('./modules/login'));
 
 router.use('/logout', (req, res) => {
- res.clearCookie(config.cookie.name);
- res.redirect('/');
+  res.clearCookie(config.cookie.name);
+  res.redirect('/');
 });
 
 router.use(require('./modules/authentication'));
@@ -31,3 +31,4 @@ router.use('/community', require('./modules/members'));
 router.use('/community', require('./modules/tools'));
 
 module.exports = router;
+
