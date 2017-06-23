@@ -20,3 +20,12 @@ body {
  right: 20px;
  color: white;
 }
+calvin-root {    
+    text-align: center;
+    display: block;
+}
+calvin-root img {
+    display: block;
+    width: 200px;
+}
+

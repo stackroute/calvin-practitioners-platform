@@ -10,7 +10,7 @@ router.get('/members', (req, res) => {
       if (err) {
         res.status(500).send({ error: 'Internal error occurred....!' });
       } else {
-        res.status(200).send(result);
+        return res.status(200).send(result);
       }
       return true;
     });
