@@ -19,23 +19,32 @@ import { CommunityMembersWidgetComponent } from '../community-members-widget/com
 import { ManageCommunityToolsComponent } from '../manage-community-tools/manage-community-tools.component';
 import { AddToolComponent } from '../add-tool/add-tool.component';
 import { UserCommunities } from '../my-communities/my-communities.services';
+
+import { CommunityMemberManagementComponent } from '../community-member-management/community-member-management.component';
+
+
+
 // Calvin routes
 const routes: ModuleWithProviders = RouterModule.forRoot([
   { path: 'login', component: LoginComponent },
   { path: 'app', component: AppBarComponent, canActivateChild: [AuthGuard],
-    
-  children: [
-            { path: 'home', component: UserDashboardComponent },
-            { path: '', redirectTo: '/app/home', pathMatch: 'full' },
-            { path: 'createCommunity', component: CreateCommunityComponent },
-            { path: 'profile', component: UserProfileComponent },
-            { path: 'actions', component: CommunityRoleManagementComponent},
-            { path: 'communityDashBoard', component: CommunityDashboardComponent},
-            { path: 'createCommunity', component: CreateCommunityComponent },
-            { path: 'activity' , component: ActivityPageComponent},
-            { path: 'managetools', component: ManageCommunityToolsComponent},
-            { path: 'addtool', component: AddToolComponent},
-            ]
+
+    children: [
+      { path: 'home', component: UserDashboardComponent },
+      { path: '', redirectTo: '/app/home', pathMatch: 'full' },
+      { path: 'createCommunity', component: CreateCommunityComponent },
+      { path: 'profile', component: UserProfileComponent },
+      { path: 'userCommunity/:string', component: CommunityDashboardComponent },
+      { path: 'actions', component: CommunityRoleManagementComponent },
+      { path: 'communityDashBoard', component: CommunityDashboardComponent },
+      { path: 'managecommunity', component: ManageCommunityComponent },
+      { path: 'activity', component: ActivityPageComponent },
+      { path: 'members', component: CommunityMemberManagementComponent },
+      { path: 'managetools', component: ManageCommunityToolsComponent},
+      { path: 'addtool', component: AddToolComponent},     
+
+    ]
+
   },
   { path: '', redirectTo: '/app/home', pathMatch: 'full' },
   { path: '**', redirectTo: '/app/home', pathMatch: 'full' }

@@ -159,7 +159,9 @@ const coreActivity = [{
   }],
 }];
 
-function getcommunity() {
+
+function getcommunity(req, res) {
+  res.status(200).json(coreActivity);
   return coreActivity;
 }
 
@@ -171,4 +173,3 @@ module.exports = {
   getcommunity,
   getUserCommunity,
 };
-

@@ -22,12 +22,12 @@ export class AppBarComponent implements OnInit {
   //        console.log('res',res);
   //        this.user=res;
   //  });
-  console.log('1.hi');
+//   console.log('1.hi');
   this.value.getuserinfo()
    .subscribe(res => {
-    console.log('3.hi');
+    // console.log('3.hi');
     this.user = res;
-    console.log('4.hi', this.user);
+    // console.log('4.hi', this.user);
     this.flag = 1;
    });
   // this.value.getuserinfo().subscribe((res) =>
@@ -40,7 +40,7 @@ export class AppBarComponent implements OnInit {
  maximizepic(imgsrc) {
 
   const x = imgsrc.substring(0, (imgsrc.length - 2)) + '300';
-  console.log('renderd img', x);
+//   console.log('renderd img', x);
   return x;
 
  }
