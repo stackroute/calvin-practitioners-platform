@@ -17,17 +17,4 @@ export class ActivityPageComponent implements OnInit {
       this.tools = data.Tools;
     });
   }
-<<<<<<< HEAD
-}
-@Pipe({name: 'keys'})
-export class KeysPipe implements PipeTransform {
-  transform(tools, args:string[]) : any {
-    let keys = [];
-    for (let key in tools) {
-      keys.push({key: key, value: tools[key]});
-    }
-    return keys;
-  }
-=======
->>>>>>> 32943b1db109e454fb18b27a947df5df639c6fe8
 }

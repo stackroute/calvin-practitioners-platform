@@ -24,12 +24,14 @@ import { CommunityRoleManagementComponent } from './community-role-management/co
 import { CommunityToolActionsComponent } from './community-tool-actions/community-tool-actions.component';
 import { TemplateBrowserComponent } from './template-browser/template-browser.component';
 import { CommunityActivitylogsComponent } from './community-activitylogs/community-activitylogs.component';
+
 import { CommunityDashboardComponent } from './community-dashboard/community-dashboard.component';
 import { ActivityCardComponent } from './activity-card/activity-card.component';
 import { ActivityPageComponent } from './activity-page/activity-page.component';
 import { CommunityProfileComponent } from './community-profile/community-profile.component';
 import { CommunityToolsWidgetComponent } from './community-tools-widget/community-tools-widget.component';
 import { CommunityMembersWidgetComponent } from './community-members-widget/community-members-widget.component';
+import { KeysPipe } from './community-role-actions/community-role-actions.pipe';
 import { UserWidgetsComponent } from './my-communities/my-communities.component';
 // import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { ToolsService } from './community-tools-widget/community-tools-widget.service';
@@ -39,8 +41,11 @@ import { ToolActions } from './community-tool-actions/community-tool-actions.ser
 import { InfiniteScrollModule } from 'angular2-infinite-scroll';
 import { ActivityService } from './activity-page/activity-page.service';
 import { CreateCommunityService } from './create-community/create-community.service';
+
 import { MarkdownModule } from 'angular2-markdown';
+
 import { CommunityMemberManagementComponent } from './community-member-management/community-member-management.component';
+
 import { ManageCommunityToolsComponent } from './manage-community-tools/manage-community-tools.component';
 import { AddToolComponent } from './add-tool/add-tool.component';
 
@@ -65,12 +70,12 @@ import { AddToolComponent } from './add-tool/add-tool.component';
     CommunityProfileComponent,
     CommunityToolsWidgetComponent,
     CommunityMembersWidgetComponent,
+    KeysPipe,
     UserWidgetsComponent,
     ActivityPageComponent,
     CommunityMemberManagementComponent,
     ManageCommunityToolsComponent,
-    AddToolComponent,
-    MarkdownModule
+    AddToolComponent
      ],
 
 
