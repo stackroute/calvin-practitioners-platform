@@ -78,9 +78,9 @@
     </div>
 <!--submit the form using raised button-->
     <span fxLayout.md="row" fxLayoutAlign="end end" fxLayoutGap="10px" fxLayoutGap.md="0" >
-      <button fxLayout.md="column"  fxFlex="10" md-raised-button (onclick)="routeToUserPage()" >cancel</button>
+      <button fxLayout.md="column"  fxFlex="10" md-raised-button routerLink="/app/Home" >cancel</button>
       <button fxLayout.md="column" fxFlex="10" md-raised-button ng-value="submit" type="submit" color="primary" [disabled]="!userForm.valid"
-          (click)="onsubmit(userForm)">submit</button>
+          (onclick)="onsubmit(userForm)">submit</button>
     </span>
 </form>
 <div fxLayout="column" fxFlex="10"></div>

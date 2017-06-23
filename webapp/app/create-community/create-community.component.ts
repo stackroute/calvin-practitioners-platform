@@ -96,9 +96,9 @@ onsubmit(userdata: any) {
   }
 
 // cancel for redirect to userdashboard
-routeToUserPage() {
-      this.router.navigate(['/app/home']);
-}
+// routeToUserPage() {
+//     this.router.navigate(['/app/userCommunity']);
+// }
 
 ngOnInit() {
   this.newcommunity.getcurrentData()
