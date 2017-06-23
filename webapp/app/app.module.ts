@@ -49,6 +49,7 @@ import { CommunityMemberManagementComponent } from './community-member-managemen
 
 import { ManageCommunityToolsComponent } from './manage-community-tools/manage-community-tools.component';
 import { AddToolComponent } from './add-tool/add-tool.component';
+import { MemberInvitationComponent } from './member-invitation/member-invitation.component';
 
 
 @NgModule({
@@ -76,7 +77,8 @@ import { AddToolComponent } from './add-tool/add-tool.component';
     ActivityPageComponent,
     CommunityMemberManagementComponent,
     ManageCommunityToolsComponent,
-    AddToolComponent
+    AddToolComponent,
+    MemberInvitationComponent
      ],
 
 
@@ -103,10 +105,12 @@ import { AddToolComponent } from './add-tool/add-tool.component';
     MdInputModule,
     MdSlideToggleModule,
     MdDialogModule,
-    ReactiveFormsModule 
-  ],
-  entryComponents: [CommunityToolActionsComponent],
+    ReactiveFormsModule
+    ],
+  entryComponents: [CommunityToolActionsComponent, MemberInvitationComponent],
+
   providers: [RoleServices, ToolActions, ActivityService],
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }
