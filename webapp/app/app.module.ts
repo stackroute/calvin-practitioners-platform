@@ -108,7 +108,7 @@ import { MemberInvitationComponent } from './member-invitation/member-invitation
     MdDialogModule,
     ReactiveFormsModule
   ],
-  entryComponents: [CommunityToolActionsComponent, NewcommunityDialogboxComponent],
+  entryComponents: [CommunityToolActionsComponent, NewcommunityDialogboxComponent, MemberInvitationComponent],
 
   providers: [RoleServices, ToolActions, ActivityService],
 
