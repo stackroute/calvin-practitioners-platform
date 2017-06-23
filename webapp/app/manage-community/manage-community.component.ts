@@ -14,7 +14,7 @@ import { Router } from '@angular/router';
   providers: [GetCommunity]
 })
 export class ManageCommunityComponent implements OnInit {
-content=[];
+contents=[];
  selectedValue: string;
    public tagarray= [];
 
@@ -24,8 +24,8 @@ content=[];
 
    ngOnInit() {
    
-    this.comm.getCommunity().subscribe(res =>{this.content=res;});
-   console.log(this.content);
+    this.comm.getCommunity().subscribe(res =>{this.contents=res;});
+   console.log(this.contents);
    }
 
   

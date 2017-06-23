@@ -15,12 +15,3 @@ constructor(private http: Http) { }
   // console.log("inside community service");
   }
 }
-
-
-//  page = 1;
-//  constructor(private http: Http) { }
-//  getCommunity(domain: string) {
-//   const url = `http://localhost:3000/api/vi`;
-//  return this.http.get(url).map(res => res.json());
-//   }
-// }
