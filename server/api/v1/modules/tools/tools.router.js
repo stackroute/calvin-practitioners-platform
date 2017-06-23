@@ -9,12 +9,13 @@ router.get('/tools', (req, res) => {
       } else {
         res.status(200).send(result);
       }
+      return true;
     });
   } catch (err) {
     return res.status(500).send({
-      error: 'Internal error occurred....!'
-    });
+      error: 'Internal error occurred....!' });
   }
+  return true;
 });
 
 module.exports = router;

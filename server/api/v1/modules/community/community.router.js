@@ -6,16 +6,13 @@ router.get('/', (req, res) => {
   try {
     return res.send(communityCtrl.getcommunity(req.query.domain));
   } catch (err) {
-    return res.status(500).send({
-      error: 'Internal error occurred....!',
-    });
+    return res.status(500).send({ error: 'Internal error occurred....!' });
   }
 });
 
 // get User community List
 router.get('/userCommunities', (req, res) => {
   try {
-    // communityCtrl.getUserCommunity(req, res);
     communityCtrl.getUserCommunity(req, res).then(successResult =>
       // console.log('successResult', successResult);
       res.status(201).send(successResult));
@@ -27,6 +24,4 @@ router.get('/userCommunities', (req, res) => {
   }
 });
 
-// get Community
-router.get('/getcom', communityCtrl.getcommunity);
 module.exports = router;

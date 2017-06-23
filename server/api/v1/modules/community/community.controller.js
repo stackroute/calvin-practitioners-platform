@@ -1,6 +1,7 @@
 const communityservice = require('./community.service');
 
 const coreActivity = [{
+  /* template for the surgeon -- medical community*/
   name: 'surgeon',
   purpose: 'medical',
   description: 'This template will provides you the required tools and roles to create a medical community',
@@ -20,7 +21,7 @@ const coreActivity = [{
     activityEvents: ['like', 'remove'],
   }],
   // role actions for the surgeon medical community
-  rolesActions: [{
+  roleActions: [{
     role: 'admin',
     toolsActions: [{
       toolId: 'sermo',
@@ -144,7 +145,7 @@ const coreActivity = [{
     activityEvents: ['newannouncement', 'remove'],
   }],
   // role actions for the artist community
-  rolesActions: [{
+  roleActions: [{
     role: 'admin',
     toolsActions: [{
       toolId: 'forum',
@@ -159,9 +160,7 @@ const coreActivity = [{
   }],
 }];
 
-
-function getcommunity(req, res) {
-  res.status(200).json(coreActivity);
+function getcommunity() {
   return coreActivity;
 }
 
