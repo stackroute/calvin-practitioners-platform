@@ -1,4 +1,4 @@
-import { Component, OnInit ,Pipe ,PipeTransform} from '@angular/core';
+import { Component, OnInit , Pipe , PipeTransform} from '@angular/core';
 import { ActivityService } from './activity-page.service';
 
 @Component({
@@ -7,14 +7,13 @@ import { ActivityService } from './activity-page.service';
   styleUrls: ['./activity-page.component.css']
 })
 export class ActivityPageComponent implements OnInit {
-
+  tools = [];
   public textData = `## Markdown content data`;
   constructor(private activitypage: ActivityService) { }
 
-  tools = [];
   ngOnInit() {
-    this.activitypage.getTools().subscribe(data => {
-      this.tools = data.Tools;
+this.activitypage.getTools().subscribe(data => {
+this.tools = data.Tools;
     });
   }
 }

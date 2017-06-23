@@ -80,7 +80,7 @@ const arr = {
         embeds: [
           {
             link: 'https://imasters.com/wp-content/uploads/sites/24/2016/09/9_computer-programmer.jpg',
-           title: 'How to use activity cards in activity page?',
+            title: 'How to use activity cards in activity page?',
 
           },
           {
