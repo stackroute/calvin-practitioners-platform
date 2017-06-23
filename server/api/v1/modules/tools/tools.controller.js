@@ -25,12 +25,13 @@ const tools = {
     },
   ],
 };
-function getTool(tool,done) {
-  //console.log('2. inside gettool');
-  return done(null,tools);
+function getTool(tool, done) {
+  // console.log('2. inside gettool');
+  return done(null, tools);
 }
 
 module.exports = {
+
   getTool,
 };
 

@@ -1,85 +1,59 @@
-
 <calvin-community-profile>
 </calvin-community-profile>
-
 <div fxLayout fxLayout.xs="row" fxLayoutGap="0px" fxLayoutGap.xs="0">
       <div fxFlex="20%" fxLayout="row"> </div>
-
       <div fxFlex="100%" fxLayout="column" fxLayoutAlign=" start">
-
             <md-tab-group class="manage-community" fxFlex="100%">
-                  
-                  <md-tab label="Community" >
-                      
+                  <md-tab label="Community">
                         <div *ngIf="samples">
-                              <div *ngFor="let sample of samples" >
-                                    <form #userForm="ngForm" (ngSubmit)="onFormSubmit(userForm)" class="try" >
-
+                              <div *ngFor="let sample of samples">
+                                    <form #userForm="ngForm" (ngSubmit)="onFormSubmit(userForm)" class="try">
                                           <div>
                                                 <md-input-container fxLayoutAlign="start">
                                                       <input mdInput placeholder="Domain (disabled)" disabled value={{sample.Domain}}>
                                                 </md-input-container>
                                           </div>
-
-
                                           <div>
                                                 <md-input-container fxLayoutAlign="start">
                                                       <input mdInput placeholder="Purpose (disabled)" disabled value="jjj">
                                                 </md-input-container>
                                           </div>
-
-
                                           <div>
                                                 <md-input-container fxLayoutAlign="start">
                                                       <input mdInput placeholder="Community Name" name="Community name" value={{sample.CommunityName}}>
                                                 </md-input-container>
                                           </div>
-
                                           <div>
                                                 <md-input-container fxLayoutAlign="start">
                                                       <input mdInput placeholder="Description" name="Description" value={{sample.Description}}>
                                                 </md-input-container>
                                           </div>
-
                                           <div>
                                                 <md-input-container fxLayoutAlign="start">
-                                                      <input mdInput placeholder="Access" disabled>
-                                                      <md-radio-group name="access" [(ngModel)]="sample.Access"> 
-               
+                                                      <input mdInput  name="access">
+                                                      <md-radio-group value={{sample.Access}}>
                                                             <md-radio-button value="A">Public</md-radio-button>
                                                             <md-radio-button value="B">Private</md-radio-button>
                                                             <md-radio-button value="C">Moderate</md-radio-button>
                                                       </md-radio-group>
                                                 </md-input-container>
                                           </div>
-
-
-
                                           <div>
                                                 <md-input-container fxLayoutAlign="start">
                                                       <input mdInput placeholder="Tag" name="chip" [(ngModel)]="tagname" (keyup.enter)="chipValue(tagname)">
                                                 </md-input-container>
                                           </div>
-
-
-                                          <div fxLayout="row" *ngFor="let tag of tagarray">
-                                                <md-chip-list ng-disabled="!tag.value">
-                                                      <span>  <md-chip>{{sample.Tag}}<i class="material-icons">clear</i></md-chip></span>
-                                                </md-chip-list>
-                                          </div>
-
+                                          <md-chip-list>
+                                                <div fxLayout.md="column" ng-disabled="!tag.value" *ngFor="let tag of tagarray" (click)="clearTag(tag.value)">
+                                                      <md-chip>{{tag}}<i class="material-icons">clear</i></md-chip>
+                                                </div>
+                                          </md-chip-list>
                                           <button md-raised-button color="primary" type="submit" [disabled]="!userForm.valid">Save</button>
-
-
                                     </form>
                               </div>
                         </div>
-
-
                   </md-tab>
                   <!--Closing community info tab-->
-
-
                   <md-tab label="Members"></md-tab>
                   <!--tab for manage member component-->
                   <md-tab label="Roles">
@@ -89,7 +63,5 @@
                   <md-tab label="Tools"></md-tab>
                   <!--tab for manage tools component-->
             </md-tab-group>
-
-
       </div>
 </div>

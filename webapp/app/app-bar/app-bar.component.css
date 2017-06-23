@@ -47,3 +47,9 @@ md-chip-list , md-list-item {
 md-chip-list :focus , md-list-item:focus {
     outline: none
 }
+.bottomright {
+    position: absolute;
+    top: 0;
+    right: 0px;
+    color: #fff;
+}
