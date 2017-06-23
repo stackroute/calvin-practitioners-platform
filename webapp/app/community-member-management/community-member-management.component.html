@@ -17,8 +17,8 @@
 	
 	<div class="community-list" >
 	  <md-list align="start">
-	    <md-list-item *ngFor="let userCommunityItem of userCommunityListArray" (click)="routeToCommunity(userCommunityItem.DomainName)" >
-	      <img md-list-avatar src="{{userCommunityItem.CommunityUrl}}" alt="Desc 1">{{userCommunityItem.CommunityName}} {{userCommunityItem.DomainName}}
+	    <md-list-item *ngFor="let val of this.members" (click)="routeToCommunity(userCommunityItem.DomainName)" >
+	      <img md-list-avatar src="{{val.photo}}" alt="Desc 1">{{val.username}} {{val.domain}}
 	    <!--<span>  <h3 md-line>{{userCommunityItem.CommunityName}}</h3>
 	      <p md-line>
 	        {{userCommunityItem.DomainName}}  {{userCommunityItem.DomainName}}
@@ -31,7 +31,7 @@
 	  </md-list>
 	</div>
 </md-card>
-<div><button  md-raised-button color="primary" routerLink="/app/createCommunity" class="bottom-button">invite</button></div>
+<div><button  md-raised-button color="primary"  (click)='openDialog()' class="bottom-button">Invite</button></div>
    
    </div>
 <!--		

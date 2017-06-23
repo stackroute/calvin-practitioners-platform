@@ -22,9 +22,9 @@ export class CreateCommunityComponent implements OnInit {
   public tagarray = [];  // to insert chip value from textfield
 
   value: string; // to store selected template value
-  
+
   selectedPurpose = {}; // to compare selected purpose with json value
-  
+
   visibility = [
   {'value': 'Public', 'viewValue': 'Public'},
   {'value': 'Private', 'viewValue': 'Private'},
@@ -86,11 +86,11 @@ onsubmit(userdata: any) {
     this.openDialog(value);
     this.reset();
   }
-  
+ 
   reset() {
     this.createForm();
   }
-  
+
   openDialog(value) {
     const dialog = this.dialog.open(NewcommunityDialogboxComponent);
   }

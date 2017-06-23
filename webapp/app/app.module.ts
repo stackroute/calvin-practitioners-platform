@@ -50,6 +50,7 @@ import { CommunityMemberManagementComponent } from './community-member-managemen
 import { ManageCommunityToolsComponent } from './manage-community-tools/manage-community-tools.component';
 import { AddToolComponent } from './add-tool/add-tool.component';
 import { NewcommunityDialogboxComponent } from './newcommunity-dialogbox/newcommunity-dialogbox.component';
+import { MemberInvitationComponent } from './member-invitation/member-invitation.component';
 
 
 @NgModule({
@@ -78,7 +79,8 @@ import { NewcommunityDialogboxComponent } from './newcommunity-dialogbox/newcomm
     CommunityMemberManagementComponent,
     ManageCommunityToolsComponent,
     AddToolComponent,
-    NewcommunityDialogboxComponent
+    NewcommunityDialogboxComponent,
+    MemberInvitationComponent
      ],
 
 
@@ -91,7 +93,6 @@ import { NewcommunityDialogboxComponent } from './newcommunity-dialogbox/newcomm
     AppRoutingModule,
     FlexLayoutModule,
     FormsModule,
-    ReactiveFormsModule,
     MaterialModule,
     BrowserAnimationsModule,
     MdCheckboxModule,
@@ -105,10 +106,12 @@ import { NewcommunityDialogboxComponent } from './newcommunity-dialogbox/newcomm
     MdInputModule,
     MdSlideToggleModule,
     MdDialogModule,
-    ReactiveFormsModule 
+    ReactiveFormsModule
   ],
   entryComponents: [CommunityToolActionsComponent, NewcommunityDialogboxComponent],
+
   providers: [RoleServices, ToolActions, ActivityService],
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }

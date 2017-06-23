@@ -71,8 +71,8 @@ const cartoons = {
     },
   ],
 };
-function getMembers() {
-  return cartoons;
+function getMembers(member, done) {
+  return done(null, cartoons);
 }
 module.exports = {
   getMembers,
