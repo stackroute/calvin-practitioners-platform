@@ -166,7 +166,7 @@ function getcommunity(req, res) {
 }
 
 function getUserCommunity(req, res) {
-  res.send(communityservice.getAllUserCommunities(req, res));
+  communityservice.getAllUserCommunities(req, res);
 }
 
 module.exports = {
