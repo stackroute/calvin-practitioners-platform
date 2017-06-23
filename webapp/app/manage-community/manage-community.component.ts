@@ -22,6 +22,7 @@ contents = [];
 
  ngOnInit() {
    this. comm. getCommunity(). subscribe ( res => { this.contents = res; } );
+   
  }
 
 onFormSubmit(userForm: NgForm) {

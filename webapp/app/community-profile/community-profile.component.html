@@ -35,7 +35,7 @@
 
         <div fxFlex="60%" class="community-profile">
           <div>
-            <h1 fxLayoutAlign="start">{{content.name}}</h1>
+            <h1 fxLayoutAlign="start" id="heading">{{content.name}}</h1>
           </div>
 
           <h4 fxLayoutAlign="start">{{content.purpose}}</h4>
@@ -44,10 +44,11 @@
             <input mdInput placeholder="" value={{sample.Domain}} disabled>
 
           </md-input-container>-->
-          <md-chip-list class="tag" *ngFor="let tag of contents ">
-            <md-chip>{{tag.tags}}</md-chip>
+          <span class="tag" *ngFor="let tag of arr ">
+            <md-chip>{{tag}}</md-chip>
             
-          </md-chip-list>
+          </span>
+          
 
 
         </div>
@@ -57,7 +58,7 @@
       <div class="item item-4" fxFlex="20%" fxFlexOrder="4">
         <div class="manage-community-info">
           <button md-icon-button [mdMenuTriggerFor]="menu">
-  <md-icon>settings</md-icon>
+  <md-icon class="setting">settings</md-icon>
 </button>
           <md-menu #menu="mdMenu">
             <button routerLink="/app/managecommunity" md-menu-item>

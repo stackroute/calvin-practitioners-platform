@@ -9,14 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CommunityProfileComponent implements OnInit {
   contents=[];
-
+  arr=[];
   constructor(private comm: GetCommunity) {
    
    }
 
   ngOnInit() {
-     this.comm.getCommunity().subscribe(res =>{this.contents=res;});
-    console.log('................................',this.contents);
+     console.log('.................');
+     this.comm.getCommunity().subscribe(res =>{this.contents=res;
+      
+      this.arr=this.contents[0].tags;
+    //  console.log('.................',this.tags); 
+    });
+    
   }
 
 }
