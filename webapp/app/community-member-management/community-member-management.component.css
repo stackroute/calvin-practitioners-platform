@@ -34,10 +34,10 @@ md-list-item:last-child {
   /*color: #666;*/
 }
 .searchAlgin {
- align-content: right;
+margin-left:600px;
   /*color: #fff;*/
 }
 .bottom-button
-{
-    margin-bottom:10px;
+{  margin-left:500px;
+    margin-bottom:30px;
 }
