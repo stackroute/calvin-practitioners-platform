@@ -8,13 +8,15 @@ import { Component, OnInit } from '@angular/core';
    providers: [GetCommunity]
 })
 export class CommunityProfileComponent implements OnInit {
-  samples=[];
+  content=[];
 
   constructor(private comm: GetCommunity) {
-    this.comm.getCommunity().subscribe(res =>{this.samples=res;});
+   
    }
 
   ngOnInit() {
+     this.comm.getCommunity().subscribe(res =>{this.content=res;});
+    console.log(this.content);
   }
 
 }

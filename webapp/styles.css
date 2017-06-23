@@ -3,8 +3,6 @@
 
 @import '~https://fonts.googleapis.com/icon?family=Material+Icons';
 @import '~@angular/material/prebuilt-themes/indigo-pink.css';
-@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
-
 
 
 body {
@@ -28,7 +26,6 @@ calvin-root {
 }
 calvin-root img {
     display: block;
-    /*margin: 40px auto 20px;*/
     width: 200px;
 }
 

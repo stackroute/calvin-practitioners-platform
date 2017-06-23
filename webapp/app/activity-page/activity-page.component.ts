@@ -8,13 +8,16 @@ import { ActivityService } from './activity-page.service';
 })
 export class ActivityPageComponent implements OnInit {
 
+  public textData = `## Markdown content data`;
   constructor(private activitypage: ActivityService) { }
+
   tools = [];
   ngOnInit() {
     this.activitypage.getTools().subscribe(data => {
       this.tools = data.Tools;
     });
   }
+<<<<<<< HEAD
 }
 @Pipe({name: 'keys'})
 export class KeysPipe implements PipeTransform {
@@ -25,4 +28,6 @@ export class KeysPipe implements PipeTransform {
     }
     return keys;
   }
+=======
+>>>>>>> 32943b1db109e454fb18b27a947df5df639c6fe8
 }

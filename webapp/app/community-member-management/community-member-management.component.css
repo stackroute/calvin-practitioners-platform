@@ -1,0 +1,43 @@
+md-list-item {
+	border-bottom: 1px dashed #ddd;
+  cursor: pointer;
+}
+md-list-item img {
+  transition: all 0.5s ease;
+}
+md-list-item:hover {
+  background-color: #eee;
+}
+md-list-item:hover img {
+  width: 42px;
+  height: 42px;
+}
+md-list-item:last-child {
+  border-bottom: 1px transparent;
+}
+.mat-mini-fab {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+}
+.community-list {
+  max-height: 600px;
+  overflow-y: scroll;
+}
+.community-list::-webkit-scrollbar { 
+    display: none; 
+}
+.searchBtn {
+  position: absolute;
+  right: 3px;
+  top:7px;
+  /*color: #666;*/
+}
+.searchAlgin {
+ align-content: right;
+  /*color: #fff;*/
+}
+.bottom-button
+{
+    margin-bottom:10px;
+}

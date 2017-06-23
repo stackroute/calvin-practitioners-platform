@@ -24,7 +24,6 @@ import { CommunityRoleManagementComponent } from './community-role-management/co
 import { CommunityToolActionsComponent } from './community-tool-actions/community-tool-actions.component';
 import { TemplateBrowserComponent } from './template-browser/template-browser.component';
 import { CommunityActivitylogsComponent } from './community-activitylogs/community-activitylogs.component';
-
 import { CommunityDashboardComponent } from './community-dashboard/community-dashboard.component';
 import { ActivityCardComponent } from './activity-card/activity-card.component';
 import { ActivityPageComponent } from './activity-page/activity-page.component';
@@ -32,14 +31,19 @@ import { CommunityProfileComponent } from './community-profile/community-profile
 import { CommunityToolsWidgetComponent } from './community-tools-widget/community-tools-widget.component';
 import { CommunityMembersWidgetComponent } from './community-members-widget/community-members-widget.component';
 import { UserWidgetsComponent } from './my-communities/my-communities.component';
-import { KeysPipe } from './activity-card/activity-card.pipe';
 // import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { ToolsService } from './community-tools-widget/community-tools-widget.service';
 import { MembersService } from './community-members-widget/community-members-widget.service';
 import { RoleServices } from './community-role-management/community-role-management.service';
+import { ToolActions } from './community-tool-actions/community-tool-actions.service';
 import { InfiniteScrollModule } from 'angular2-infinite-scroll';
 import { ActivityService } from './activity-page/activity-page.service';
 import { CreateCommunityService } from './create-community/create-community.service';
+import { MarkdownModule } from 'angular2-markdown';
+import { CommunityMemberManagementComponent } from './community-member-management/community-member-management.component';
+import { ManageCommunityToolsComponent } from './manage-community-tools/manage-community-tools.component';
+import { AddToolComponent } from './add-tool/add-tool.component';
+
 
 @NgModule({
   declarations: [
@@ -61,15 +65,17 @@ import { CreateCommunityService } from './create-community/create-community.serv
     CommunityProfileComponent,
     CommunityToolsWidgetComponent,
     CommunityMembersWidgetComponent,
-    CommunityRoleManagementComponent,
-    CommunityRoleActionsComponent,
-    CommunityToolActionsComponent,
-    ActivityPageComponent,
     UserWidgetsComponent,
-    KeysPipe
+    ActivityPageComponent,
+    CommunityMemberManagementComponent,
+    ManageCommunityToolsComponent,
+    AddToolComponent,
+    MarkdownModule
      ],
 
+
   imports: [
+    MarkdownModule,
     InfiniteScrollModule,
     MdSidenavModule,
     BrowserModule,
@@ -94,8 +100,7 @@ import { CreateCommunityService } from './create-community/create-community.serv
     ReactiveFormsModule 
   ],
   entryComponents: [CommunityToolActionsComponent],
-
-  providers: [RoleServices,ActivityService],
+  providers: [RoleServices, ToolActions, ActivityService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

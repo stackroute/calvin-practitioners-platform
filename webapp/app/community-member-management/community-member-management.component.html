@@ -1,0 +1,44 @@
+
+<!--<div class="container"
+     fxLayout
+     fxLayout.xs="column"
+     fxLayoutAlign="center"
+     fxLayoutGap="10px"
+     fxLayoutGap.xs="0">
+	<div class="item item-1" fxFlex="2%"></div>
+	<div class="item item-2">-->
+   <div class="container">
+    
+<md-card fxFlex="100%">
+	<md-card-title fxLayout="row" class="new-community">
+		Members<div class="searchAlgin"> <input mdInput aria-label="search" fxFlex="100%" placeholder="Search" type="search"  dividerColor="accent">
+    <i class="material-icons ">search</i></div>
+	</md-card-title>
+	
+	<div class="community-list" >
+	  <md-list align="start">
+	    <md-list-item *ngFor="let userCommunityItem of userCommunityListArray" (click)="routeToCommunity(userCommunityItem.DomainName)" >
+	      <img md-list-avatar src="{{userCommunityItem.CommunityUrl}}" alt="Desc 1">{{userCommunityItem.CommunityName}} {{userCommunityItem.DomainName}}
+	    <!--<span>  <h3 md-line>{{userCommunityItem.CommunityName}}</h3>
+	      <p md-line>
+	        {{userCommunityItem.DomainName}}  {{userCommunityItem.DomainName}}
+	      </p>
+        <p md-line>
+	        {{userCommunityItem.DomainName}}
+	      </p>
+        </span>-->
+	    </md-list-item>	    
+	  </md-list>
+	</div>
+</md-card>
+<div><button  md-raised-button color="primary" routerLink="/app/createCommunity" class="bottom-button">invite</button></div>
+   
+   </div>
+<!--		
+	</div>
+	<div class="item item-3"  fxFlex="2%">-->
+ 
+	<!--</div>
+</div>-->
+<router-outlet></router-outlet>
+

@@ -1,38 +1,32 @@
-const samples = [
 
-    { avatar: '/assets/images/try1.jpg', created: '13.08.09', Domain: 'Professional', CommunityName: 'Professional', Purpose: 'Forum', Description: 'sharing', Access: 'A' },
 
+const content = [
+  {
+    domain: 'illuminati',
+    avatar: '/abcdefghi.jpg',
+    createdby: 'prakhar',
+    createdon: '2017-06-22T03:32:11.413Z',
+    description: 'this is the second community',
+    name: 'Digital by wipro',
+    owner: 'prakhar',
+    purpose: 'medical',
+    roles: ['Admin', ' moderator'],
+    tags: [
+      'first',
+      'second',
+    ],
+    status: 'Active',
+    template: 'surgeon',
+    updatedby: 'prakhar',
+    updatedon: '2017-06-22T03:32:11.413Z',
+    visibility: 'Public',
+  },
 ];
-function GetCommunity() {
-  return samples;
+
+function GetCommunity(done) {
+  // console.log('inside get community');
+  return done(null, content);
 }
 module.exports = {
   GetCommunity,
 };
-// const communityservice = require('./community.service');
-
-//   const coreActivity = {
-//     community: [
-//     { value: 'Professional', viewValue: 'Professional', tool: 'Forum' },
-//     { value: 'Travel', viewValue: 'Travel', tool: 'quora' },
-//     { value: 'Arts', viewValue: 'Arts', tool: 'stackoverflow' },
-//     { value: 'Technology', viewValue: 'Technology', tool: 'quora' },
-//     { value: 'Business', viewValue: 'Business', tool: 'Forum' },
-//     { value: 'Science', viewValue: 'Science', tool: 'quora' },
-//     { value: 'Education', viewValue: 'Education', tool: 'quora' },
-//     ],
-//   };
-
-
-//   function getcommunity(req, res) {
-//     res.status(200).json(coreActivity);
-//   }
-
-// function getUserCommunity(req, res) {
-//   communityservice.getAllUserCommunities(req, res);
-// }
-
-// module.exports = {
-//   getUserCommunity,
-//   getcommunity
-// };

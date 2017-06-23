@@ -14,19 +14,21 @@ import { Router } from '@angular/router';
   providers: [GetCommunity]
 })
 export class ManageCommunityComponent implements OnInit {
-samples=[];
+content=[];
+ selectedValue: string;
+   public tagarray= [];
 
-   constructor(public dialog: MdDialog, private comm: GetCommunity) {
-   this.comm.getCommunity().subscribe(res =>{this.samples=res;});
+   constructor(private comm: GetCommunity) {
+   
     }
 
    ngOnInit() {
    
-    
+    this.comm.getCommunity().subscribe(res =>{this.content=res;});
+   console.log(this.content);
    }
 
-   selectedValue: string;
-   public tagarray= [];
+  
 
       onFormSubmit(userForm: NgForm) {
       console.log(userForm.value);
