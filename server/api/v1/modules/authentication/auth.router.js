@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const authCtrl = require('./auth.controller');
+const config = require('../common/config');
 
 router.use((req, res, next) => {        // eslint-disable-line consistent-return
   try {
@@ -9,13 +10,15 @@ router.use((req, res, next) => {        // eslint-disable-line consistent-return
     if (token) {
       authCtrl.verifyToken(token, (err) => {
         if (err) {
-          res.status(401);
-          res.redirect('/#/login');
-          return;
-        }
+          res.clearCookie(config.cookie.name);
+          res.status(401).json({ error: ' Session Timeout... Please login again' });
+          // console.log('token expired');
 
-        next();
-             // console.log('Token verified');
+          // res.redirect('/#/login');
+        } else {
+          next();
+        }
+                // console.log('Token verified');
                 // res.cookie(config.cookie.name,successResult.authToken);
       });
     } else {
@@ -26,7 +29,7 @@ router.use((req, res, next) => {        // eslint-disable-line consistent-return
       });
     }
   } catch (error) {
-        // console.log(error);
+    // console.log(error);
     return error;
   }
 });

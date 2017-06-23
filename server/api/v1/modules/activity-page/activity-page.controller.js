@@ -66,7 +66,6 @@ function retrieveAllPosters(req, res) {
   res.json(arr);
 }
 
-
 module.exports =
 {
   retrieveAllPosters,
