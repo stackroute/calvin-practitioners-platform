@@ -11,38 +11,38 @@
 
                         <div *ngIf="contents">
                               <div *ngFor="let content of contents">
-                                    <form #userForm="ngForm" (ngSubmit)="onFormSubmit(userForm)" class="try">
+                                    <form #f="ngForm"  (ngSubmit)="onSubmit(f.value)" >
 
                                           <div>
                                                 <md-input-container fxLayoutAlign="start">
-                                                      <input mdInput placeholder="Domain (disabled)" disabled value={{content.domain}}>
+                                                      <input mdInput placeholder="Domain (disabled)" disabled value={{content.domain}} >
                                                 </md-input-container>
                                           </div>
 
 
                                           <div>
                                                 <md-input-container fxLayoutAlign="start">
-                                                      <input mdInput placeholder="Purpose (disabled)" disabled value={{content.purpose}}>
+                                                      <input mdInput placeholder="Purpose (disabled)" disabled value={{content.purpose}} >
                                                 </md-input-container>
                                           </div>
 
 
                                           <div>
-                                                <md-input-container fxLayoutAlign="start">
-                                                      <input mdInput placeholder="Community Name" name="Community name" value={{content.name}}>
+                                                <md-input-container fxLayoutAlign="start" fxLayout="column">
+                                                      <textarea mdInput placeholder="Community Name" rows="2" name="communityName" ngModel={{content.name}} ></textarea>
                                                 </md-input-container>
                                           </div>
 
-                                          <div>
-                                                <md-input-container fxLayoutAlign="start">
-                                                      <input mdInput placeholder="Description" name="Description" value={{content.description}}>
+                                          
+                                                <md-input-container fxLayoutAlign="start"  fxLayout="column">
+                                                      <textarea input mdInput placeholder="Description" rows="2" name="Description" ngModel={{content.description}} ></textarea>
                                                 </md-input-container>
-                                          </div>
+                                          
 
                                           <div>
                                                 <md-input-container fxLayoutAlign="start">
                                                       <input mdInput  name="access">
-                                                      <md-radio-group value={{content.visibility}}>
+                                                      <md-radio-group ngModel={{content.visibility}} name="visibility" >
 
                                                             <md-radio-button value="Public">Public</md-radio-button>
                                                             <md-radio-button value="private">Private</md-radio-button>
@@ -55,18 +55,19 @@
 
                                           <div>
                                                 <md-input-container fxLayoutAlign="start">
-                                                      <input mdInput placeholder="Tag" name="chip" [(ngModel)]="tagname" (keyup.enter)="chipValue(tagname)">
+                                                      <input mdInput placeholder="Tag" name="chip" [(ngModel)]="tagname" (keyup.enter)="chipValue(tagname)"  name="tagSelection" ngModel>
                                                 </md-input-container>
                                           </div>
 
 
                                           <md-chip-list>
-                                                <div fxLayout.md="column" ng-disabled="!tag.value" *ngFor="let tag of tagarray" (click)="clearTag(tag.value)">
-                                                      <md-chip>{{tag}}<i class="material-icons">clear</i></md-chip>
+                                                <div fxLayout.md="column" ng-disabled="!tag.value" *ngFor="let tag of tagarray" (click)="clearTag(tag.value)" >
+                                                      <md-chip>{{tag}}<i class="material-icons" >clear</i></md-chip>
                                                 </div>
                                           </md-chip-list>
 
-                                          <button md-raised-button color="primary" type="submit" [disabled]="!userForm.valid">Save</button>
+                                          <button md-raised-button  type="submit" color="primary" >Save</button>
+                                          <button md-raised-button  routerLink="/app/communityDashboard">Cancel</button>
 
 
                                     </form>

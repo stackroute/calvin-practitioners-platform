@@ -1,4 +1,4 @@
-<div *ngIf="contents" class="sample">
+<div *ngIf="contents" class="sample" >
   <div *ngFor="let content of contents">
     <div fxLayout fxLayout.xs="row" fxLayoutGap="0px" fxLayoutGap.xs="0" *ngIf="contents" class="content">
       <div fxFlex="20%" fxFlexAlign='start' *ngFor="let content of contents">
@@ -56,9 +56,9 @@
       </div>
 
       <div class="item item-4" fxFlex="20%" fxFlexOrder="4">
-        <div class="manage-community-info">
-          <button md-icon-button [mdMenuTriggerFor]="menu">
-  <md-icon class="setting">settings</md-icon>
+        <div class="manage-community-info" >
+          <button md-icon-button [mdMenuTriggerFor]="menu" *ngIf="content.roles =='Admin'">
+  <md-icon class="setting" >settings</md-icon>
 </button>
           <md-menu #menu="mdMenu">
             <button routerLink="/app/managecommunity" md-menu-item>
@@ -77,11 +77,11 @@
         <md-list class="try1">
           <md-list-item>
             <md-icon>person</md-icon>
-            <h6>{{content.domain}}</h6>
+            <h6> Members:   {{content.members}}</h6>
           </md-list-item>
-          <md-list-item> 
+          <md-list-item > 
             <md-icon>build</md-icon>
-            <h6>{{content.domain}}</h6>
+            <h6> Tools:    {{content.tools}}</h6>
           </md-list-item>
 
 
