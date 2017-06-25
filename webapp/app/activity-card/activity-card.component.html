@@ -1,6 +1,5 @@
 <md-card fxFlex="100%">
-  
- <md-card-header fxFlex="100%" fxLayout="row">
+  <md-card-header class="head" fxFlex="100%" fxLayout="row">
     <div fxFlex="20%">
       <img md-card-avatar src="{{activity.community.avatar}}">
     </div>
@@ -9,8 +8,8 @@
       <md-card-subtitle><a href="{{activity.community.url}}">{{activity.community.name}}</a></md-card-subtitle>
     </div>
   </md-card-header>
-
- <!--<hr fxFlex="100%">-->
+ 
+  <hr fxFlex="100%">
   <md-card-header fxFlex="100%" fxLayout="row">
     <div fxFlex="20%">
       <img md-card-avatar src="{{activity.member.avatar}}">
@@ -22,13 +21,13 @@
     </div>
   </md-card-header>
   
- <md-card-content>
+  <md-card-content>
     {{activity.message.title}}
   </md-card-content>
   <hr fxFlex="100%">
   
- <md-card-content>
-    <!--<img md-card-image src="{{activity.message.actions[0].link}}">-->
+  <md-card-content>
+    <img md-card-image src="{{activity.message.actions[0].link}}">
     {{activity.message.embeds[0].title}}
   </md-card-content>
 </md-card>

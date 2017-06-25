@@ -11,13 +11,13 @@ const cartoons = {
     },
     {
       username: 'Keerthi',
-      domain: 'Wipro',
+      domain: 'ewewewe',
       role: 'Digital-Developer',
       photo: 'https://pbs.twimg.com/profile_images/735509975649378305/B81JwLT7.jpg',
     },
     {
       username: 'Aswini',
-      domain: 'Wipro',
+      domain: 'ewewe',
       role: 'Digital-Developer',
       photo: 'https://pbs.twimg.com/profile_images/735509975649378305/B81JwLT7.jpg',
     },

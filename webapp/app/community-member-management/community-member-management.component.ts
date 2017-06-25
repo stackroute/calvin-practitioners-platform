@@ -25,7 +25,5 @@ openDialog() {
   // routeToCommunity (communityDomain) {
   //   this.router.navigate(['/app/userCommunity', communityDomain]);
   // }
-
    // Get user community list
- 
 }

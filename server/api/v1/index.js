@@ -12,8 +12,6 @@ router.use('/logout', (req, res) => {
 
 router.use('/community-details', require('./modules/community-details'));
 
-router.use('/members', require('./modules/members'));
-
 router.use('/community', require('./modules/community'));
 
 router.use('/user', require('./modules/user'));
@@ -33,3 +31,4 @@ router.use('/community', require('./modules/members'));
 router.use('/community', require('./modules/tools'));
 
 module.exports = router;
+

@@ -14,33 +14,36 @@ margin-top:0%;
 
        .community-image img{
 
-           width:30%;
-           height:140%;
+           width:37%;
+           height:170%;
            margin-top: 10%;
-           margin-left:20%;;
+           margin-left:12%;;
        }
 .tags{
 
     margin-top: 10%;
     margin-left:80%;
 }
-.community-details-name{
+.community-details-name h5{
 
-     margin-left:22%;
-    margin-top:10%;
+     margin-right: 38%;
+     margin-top:12%;
+    
 }
-.community-details{
- margin-left:12%;
+.community-details {
+ margin-right: 28%;
+
+
 
 }
 
-.try1{
+.members{
 
-margin-left:32%;
+margin-left:46%;
 font-style: italic;
 }
 
-.try2{
+.tools{
 font-style: italic;
     }
 
