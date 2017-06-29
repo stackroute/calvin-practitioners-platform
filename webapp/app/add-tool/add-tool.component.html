@@ -8,28 +8,36 @@
   <md-card-content>
     <form #addTool="ngForm" (ngSubmit)="registerTool(addTool)">
       <md-input-container class="example-full-width" fxLayout="row">
-        <input mdInput name="toolid" placeholder="Tool ID" ngModel>
+        <input mdInput name="toolid" placeholder="Tool ID" [(ngModel)]="toolid">
       </md-input-container>
       <md-input-container class="example-full-width" fxLayout="row">
-        <input mdInput name="toolname" placeholder="Tool Name" ngModel>
+        <input mdInput name="toolname" placeholder="Tool Name" [(ngModel)]="toolname">
       </md-input-container>
       <md-input-container class="example-full-width" fxLayout="column" rows="2">
-        <textarea mdInput name="tooldesc" placeholder="Description" ngModel>Put Small Description of the tool</textarea>
+        <textarea mdInput name="tooldesc" placeholder="Description" [(ngModel)]="tooldesc">Put Small Description of the tool</textarea>
+      </md-input-container>
+      <div *ngFor="let action of actions">
+           <tr> <td>{{action.name}}</td> <td> {{action.grants}} </td> <td> <i class="material-icons" (click)="remAction()">remove_circle</i> </td> 
+      </div>
+      <div *ngIf="actionFlag===1">
+        <button md-button (click)="enableAction();">ADD MORE</button>
+      </div>
+      <div *ngIf="actionFlag===0">
+      <md-input-container class="example-full-width" fxLayout="row">
+        <input name="action" mdInput placeholder="Action" [(ngModel)]="toolaction">
       </md-input-container>
       <md-input-container class="example-full-width" fxLayout="row">
-        <input name="action" mdInput placeholder="Action" ngModel>
+        <input name="grants" mdInput placeholder="Grants" (focusout)="focusOutFunction()" [(ngModel)]="toolgrants">
+      </md-input-container>
+      </div>
+      <md-input-container class="example-full-width" fxLayout="row">
+        <input name="event" mdInput placeholder="EVENT NAME" [(ngModel)]="tooleventname">
       </md-input-container>
       <md-input-container class="example-full-width" fxLayout="row">
-        <input name="grants" mdInput placeholder="Grants" ngModel>
-      </md-input-container>
-      <md-input-container class="example-full-width" fxLayout="row">
-        <input name="event" mdInput placeholder="EVENT NAME" ngModel>
-      </md-input-container>
-      <md-input-container class="example-full-width" fxLayout="row">
-        <input name="payload" mdInput placeholder="PAYLOAD" ngModel>
+        <input name="payload" mdInput placeholder="PAYLOAD" [(ngModel)]="eventpayload">
       </md-input-container>
       <md-input-container class="example-full-width" fxLayout="column" rows="2">
-        <textarea name="evdesc" mdInput placeholder="DESCRIPTION" ngModel>Nice Lil Description of event</textarea>
+        <textarea name="evdesc" mdInput placeholder="DESCRIPTION" [(ngModel)]="eventDesc">Nice Lil Description of event</textarea>
       </md-input-container>
       <button md-raised-button>Cancel</button>
       <button md-raised-button color="primary" type="submit">Submit</button>
