@@ -1,8 +1,11 @@
 import { Component, OnInit, Input} from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder} from '@angular/forms';
-import {MdDialog} from '@angular/material';
+import { MdDialog } from '@angular/material';
+import { Route, Router } from '@angular/router';
+
 
 import { TemplateBrowserComponent } from '../template-browser/template-browser.component';
+import { NewcommunityDialogboxComponent } from '../newcommunity-dialogbox/newcommunity-dialogbox.component';
 import { CreateCommunityService } from './create-community.service';
 
 @Component({
@@ -14,97 +17,97 @@ import { CreateCommunityService } from './create-community.service';
 
 export class CreateCommunityComponent implements OnInit {
 
- userForm: FormGroup;
+  userForm: FormGroup;
 
- public tagarray = [];  // to insert chip value from textfield
+  public tagarray = [];  // to insert chip value from textfield
 
- value: string; // to store selected template value
+  value: string; // to store selected template value
 
- visibility = [
-    {'value': 'Public', 'viewValue': 'Public'},
-      {'value': 'Private', 'viewValue': 'Private'},
-      {'value': 'Moderate', 'viewValue': 'Moderate'}
-    ];
+  selectedPurpose = {}; // to compare selected purpose with json value
 
- constructor(private fb: FormBuilder, private newcommunity: CreateCommunityService) {
+  visibility = [
+  {'value': 'Public', 'viewValue': 'Public'},
+  {'value': 'Private', 'viewValue': 'Private'},
+  {'value': 'Moderate', 'viewValue': 'Moderate'}
+  ];
 
-   this.createForm();
+
+
+  constructor(private fb: FormBuilder, private newcommunity: CreateCommunityService, public dialog: MdDialog, private router: Router) {
+
+    this.createForm();
   }
 
 // reactive form validation for userForm
   createForm() {
-        this.userForm = this.fb.group({
-          domainName: ['', [Validators.required, Validators.pattern('[a-z.]{8,20}')]],
-          communityName: ['', Validators.required],
-          Purpose: ['', Validators.required],
-          visibility: ['Public', Validators.required],
-          description: [''],
-          // template: ['md',Validators.required],
-          tagSelection: ['', Validators.required],
-          termscondition: ['', Validators.required]
-        });
-    }
+    this.userForm = this.fb.group({
+      domainName: ['', [Validators.required, Validators.pattern('[a-z.]{4,20}')]],
+      communityName: ['', Validators.required],
+      Purpose: ['', Validators.required],
+      visibility: ['Public', Validators.required],
+      description: [''],
+      // template: ['md',Validators.required],
+      tagSelection: ['', Validators.required],
+      termscondition: ['', Validators.required]
+    });
+  }
 
 //  check whether the card is clickable or not
 
 onselect(selectedTemplate: any) {
     this.value = selectedTemplate;
     console.log(selectedTemplate);
-        console.log(typeof(selectedTemplate));
-
-   //   this.template=new FormGroup({
-    //       templatevalue: new FormControl() })
     return this.value;
-  }
+}
 
-// bind text box value
-
+// bind text box value with chip
 chipValue(tag: any) {
-   this.tagarray.push(tag);
- }
+  this.tagarray.push(tag);
+}
 
-cleartag(tag) {
- }
 
 // submit userForm values
 
-          onsubmit(userdata: any) {
-            const values = userdata.value;
-            const domainName = values.domainName;
-            const Purpose = values.Purpose;
-            const communityName = values.communityName;
-            const tagSelection = values.tagSelection;
-            const termscondition = values.termscondition;
-            const visibility = values.visibility;
-            const description = values.description;
-                  const value = { domainName, Purpose, communityName, tagSelection, termscondition, visibility, description };
-                  console.log(value);
-                  this.newcommunity.postfavdata(value).subscribe(
-                   (data) => console.log('Post data'),
-                    error => console.log(error),
-                    () => console.log('data posted successfully'));
-                    this.reset();
-        }
+onsubmit(userdata: any) {
+    const values = userdata.value;
+    const domainName = values.domainName;
+    const Purpose = values.Purpose;
+    const communityName = values.communityName;
+    const tagSelection = values.tagSelection;
+    const termscondition = values.termscondition;
+    const visibility = values.visibility;
+    const description = values.description;
+    const value = { domainName, Purpose, communityName, tagSelection, termscondition, visibility, description };
+    console.log('communityPage', value);
+    this.newcommunity.postcommunitydata(value).subscribe(
+    (data) => console.log('Postdata'),
+    error => console.log(error),
+    () => console.log('data posted successfully'));
+    this.openDialog(value);
+    this.reset();
+  }
 
-       reset() {
-          this.createForm();
-        }
+  reset() {
+    this.createForm();
+  }
+
+  openDialog(value) {
+    const dialog = this.dialog.open(NewcommunityDialogboxComponent);
+  }
 
 // cancel for redirect to userdashboard
+routeToUserPage() {
+      this.router.navigate(['/app/home']);
+}
 
- oncancel() {
-
+ngOnInit() {
+  this.newcommunity.getcurrentData()
+  .subscribe(
+    data => {this.newcommunity.communityDetails = data;
+      console.log(this.newcommunity.communityDetails);
+    },
+    error => console.log(error),
+    () => console.log('finished')
+    );
   }
-
-
- ngOnInit() {
-    this.newcommunity.getcurrentData()
-        .subscribe(
-            data => {this.newcommunity.communityDetails = data;
-              console.log(this.newcommunity.communityDetails);
-            },
-            error => console.log(error),
-            () => console.log('finished')
-        );
-    }
-  }
+}

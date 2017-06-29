@@ -10,10 +10,13 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 export class CommunityToolActionsComponent implements OnInit {
  selected = [];
  getresults = [];
+ domain = 'medical';
  checkBoxValue: boolean = false;
  sample = [];
- constructor(private role: ToolActions) {}
- getCheckoxValue(toolName, status) {
+
+constructor(private role: ToolActions) {}
+
+getCheckboxValue(toolName, status) {
   const id = toolName + status;
   const index = this.selected.indexOf(id);
   if (index === -1) {
@@ -24,19 +27,18 @@ export class CommunityToolActionsComponent implements OnInit {
   console.log(this.selected);
  }
 
- exists(toolName, status) {
+exists(toolName, status) {
   return this.selected.indexOf(toolName + status) > -1;
  }
- ngOnInit() {
-  this.role.listTools().subscribe(res => {
+
+ngOnInit() {
+  this.role.listTools(this.domain).subscribe(res => {
    this.sample = res;
   });
  }
- update(key, value) {
-  const obj = {
-   key,
-   value
-  };
-  return this.getresults.push(obj);
+
+update(data) {
+    return this.getresults.push();
  }
+
 }

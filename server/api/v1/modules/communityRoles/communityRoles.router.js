@@ -1,8 +1,8 @@
 const express = require('express');
-const controller = require('./community-role-action.controller');
+const controller = require('./communityRoles.controller');
 
 const router = express.Router();
-router.get('/roles', (request, response) => {
+router.get('/', (request, response) => {
   try {
     return response.send(controller.retrieveAllUsers(request.query.domain));
   } catch (err) {

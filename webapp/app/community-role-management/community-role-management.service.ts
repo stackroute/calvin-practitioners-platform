@@ -9,7 +9,7 @@ export class RoleServices {
   constructor(private http: Http) { }
   listRoles() {
     console.log('In service');
-    const url = '/api/v1/community-role-action/roles';
+    const url = '/api/v1/communityRoles/';
     return this.http.get(url).map(res => res.json());
   }
 }

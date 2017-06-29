@@ -44,7 +44,7 @@ function insertUserInDb(profile, done) {
 }
 // this function is  to handle a user after  successfull login .
 // If user already exists in database , last login time gets updated
-// else new recorded is inserted in database
+// else new recorded in inserted in database
 function updateUser(profile, done) {
   const userDetails = {
     username: profile.name,

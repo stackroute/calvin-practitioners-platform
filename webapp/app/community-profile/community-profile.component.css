@@ -1,6 +1,6 @@
     .manage-community-info{
 
-        margin-left: 30%;
+        margin-left: 58%;
         }
 
         .community-profile{
@@ -17,20 +17,20 @@ margin-top:0%;
            width:400%;
            height:120%;
            margin-top: 40%;
-           margin-left:300%;
+           margin-left:280%;
        }
 .tags{
 
     margin-top: 10%;
-    margin-right:80%;
+    margin-left:80%;
 }
 .community-details-name{
 
-     margin-right:22%;
+     margin-left:22%;
     margin-top:10%;
 }
 .community-details{
- margin-right:22%;
+ margin-left:12%;
 
 }
 
@@ -39,7 +39,61 @@ margin-top:0%;
 margin-left:38%;
 }
 
-.try2{
 
-    margin-top:2%;
+@media(max-width:760px){
+    .community-details-name 
+    {
+        font-size: 20px;
+    }
+}
+@media(max-width:460px){
+   .community-details-name
+    {
+        font-size: 10px;
+    }
+}
+
+
+
+
+@media(max-width:760px){
+    #heading 
+    {
+        font-size: 40px;
+    }
+}
+@media(max-width:460px){
+   #heading
+    {
+        font-size: 20px;
+    }
+}
+
+@media(max-width:760px){
+    .community-image img
+    {
+        width: 150%;
+        height:80%
+    }
+}
+@media(max-width:460px){
+   .community-image img
+    {
+        width:50%;
+        height:40%;
+    }
+}
+
+
+@media(max-width:760px){
+    .community-details
+    {
+        font-size: 10px;
+    }
+}
+@media(max-width:460px){
+   .community-details
+    {
+        font-size: 10px;
+    }
 }
