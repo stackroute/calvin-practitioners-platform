@@ -1,66 +1,39 @@
-<div fxLayout fxLayout.xs="row" fxLayoutGap="0px" fxLayoutGap.xs="0">
-  <div fxFlex="20%" fxLayout="row"> </div>
-  <div fxFlex="80%" fxLayout="column" fxLayoutAlign=" start"> 
-    <div fxLayout="row">
-    <h2> ADD TOOL </h2>
-    </div>
-    <form class="example-form">
-  <md-input-container class="example-full-width" fxLayout="row">
-    <input mdInput placeholder="Tool ID">
-  </md-input-container>
-  <md-input-container class="example-full-width" fxLayout="row">
-    <input mdInput placeholder="Tool Name">
-  </md-input-container>
-  <p>
-    <md-input-container class="example-full-width" fxLayout="column" rows="2">
-      <textarea mdInput placeholder="Description">Put Small Description of the tool</textarea>
-    </md-input-container>
-  </p>
-  <div fxLayout="row">
-   <P>TOOL ACTIONS : <P>
-    </div>
+<md-card class="example-card">
+  <md-card-header>
+    <div md-card-avatar class="example-header-image"></div>
+    <md-card-title>
+      <h2>ADD TOOL</h2>
+    </md-card-title>
+  </md-card-header>
+  <md-card-content>
+    <form #addTool="ngForm" (ngSubmit)="registerTool(addTool)">
+      <md-input-container class="example-full-width" fxLayout="row">
+        <input mdInput name="toolid" placeholder="Tool ID" ngModel>
+      </md-input-container>
+      <md-input-container class="example-full-width" fxLayout="row">
+        <input mdInput name="toolname" placeholder="Tool Name" ngModel>
+      </md-input-container>
+      <md-input-container class="example-full-width" fxLayout="column" rows="2">
+        <textarea mdInput name="tooldesc" placeholder="Description" ngModel>Put Small Description of the tool</textarea>
+      </md-input-container>
+      <md-input-container class="example-full-width" fxLayout="row">
+        <input name="action" mdInput placeholder="Action" ngModel>
+      </md-input-container>
+      <md-input-container class="example-full-width" fxLayout="row">
+        <input name="grants" mdInput placeholder="Grants" ngModel>
+      </md-input-container>
+      <md-input-container class="example-full-width" fxLayout="row">
+        <input name="event" mdInput placeholder="EVENT NAME" ngModel>
+      </md-input-container>
+      <md-input-container class="example-full-width" fxLayout="row">
+        <input name="payload" mdInput placeholder="PAYLOAD" ngModel>
+      </md-input-container>
+      <md-input-container class="example-full-width" fxLayout="column" rows="2">
+        <textarea name="evdesc" mdInput placeholder="DESCRIPTION" ngModel>Nice Lil Description of event</textarea>
+      </md-input-container>
+      <button md-raised-button>Cancel</button>
+      <button md-raised-button color="primary" type="submit">Submit</button>
+    </form>
+  </md-card-content>
 
-  <table class="example-full-width" cellspacing="0">
-    <tr fxLayout="row">
-      <td>
-        <md-input-container class="example-full-width">
-          <input mdInput placeholder="Action">
-        </md-input-container>
-      </td>
-      <td>
-        <md-input-container class="example-full-width">
-          <input mdInput placeholder="Grants">
-        </md-input-container>
-      </td>
-      <td style> <i class="material-icons">add</i> </td>
-    </tr>
-  </table>
-  <p> TOOL EVENTS : </p>
-  <table class="example-full-width" cellspacing="0">
-    <tr fxLayout="row">
-      <td>
-        <md-input-container class="example-full-width">
-          <input mdInput placeholder="EVENT NAME">
-        </md-input-container>
-      </td>
-      <td>
-        <md-input-container class="example-full-width">
-          <input mdInput placeholder="PAYLOAD">
-        </md-input-container>
-      </td>
-      <td>
-        <md-input-container class="example-full-width">
-          <textarea mdInput placeholder="Address">Nice Lil Description of event</textarea>
-        </md-input-container>
-      </td>
-      <td> <i class="material-icons">add</i> </td>
-    </tr>
-  </table>
-  <div fxLayoutAlign="end end" fxLayoutGap="5px">
-       <button md-raised-button>Cancel</button> 
-       <button md-raised-button color="primary">Submit</button>
-  </div>
-</form>
-  </div>
-  <div fxFlex="10%" fxLayout="row"> </div>
-</div>
+</md-card>

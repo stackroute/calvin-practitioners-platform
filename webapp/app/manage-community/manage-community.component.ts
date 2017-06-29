@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl} from '@angular/forms';
-import {MdDialog} from '@angular/material';
-import {NgForm} from '@angular/forms';
-import {GetCommunity} from './manage-community.service';
-import {Http,Response} from '@angular/http';
+import { MdDialog } from '@angular/material';
+import { NgForm } from '@angular/forms';
+import { GetCommunity } from './manage-community.service';
+import { Http, Response } from '@angular/http';
 import { Router } from '@angular/router';
 //  import {GetCommunity} from './manage-community.service';
 
@@ -14,23 +14,18 @@ import { Router } from '@angular/router';
   providers: [GetCommunity]
 })
 export class ManageCommunityComponent implements OnInit {
-content=[];
+contents = [];
  selectedValue: string;
    public tagarray= [];
 
-   constructor(private comm: GetCommunity) {
+   constructor(private comm: GetCommunity) { }
+
+ ngOnInit() {
+   this. comm. getCommunity(). subscribe ( res => { this.contents = res; } );
    
-    }
+ }
 
-   ngOnInit() {
-   
-    this.comm.getCommunity().subscribe(res =>{this.content=res;});
-   console.log(this.content);
-   }
-
-  
-
-      onFormSubmit(userForm: NgForm) {
+onFormSubmit(userForm: NgForm) {
       console.log(userForm.value);
       console.log('Community name:' + userForm.controls['Community name'].value);
       console.log('Description:' + userForm.controls['Description'].value);
@@ -44,18 +39,4 @@ content=[];
    chipValue(tag: any) {
    this.tagarray.push(tag);
   }
-
-  // constructor(public dialog: MdDialog) {}
-  //   openDialog() {
-  //   this.dialog.open(ManageCommunityComponent);
-  }
-
-  
-  // GetCommunity(){
-
-  //   const url=`http://localhost:4200/`;
-  //   return this.http.get(url).map(res => res.json());
-  // }
-
-
-
+}

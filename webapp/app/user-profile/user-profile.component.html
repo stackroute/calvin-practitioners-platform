@@ -1,70 +1,64 @@
-
-<div class="container"
-     fxLayout
-     fxLayout.xs="column"
-     fxLayoutAlign="center"
-     fxLayoutGap="10px"
-     fxLayoutGap.xs="0">
+<div class="container" fxLayout fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="10px" fxLayoutGap.xs="0">
 	<div class="item item-1" fxFlex="2%"></div>
 	<div class="item item-2" fxFlex="2%" fxFlexOrder="3">
 
 
-		
+
 	</div>
 	<div class="item item-3" fxFlex class="form-div" *ngIf="flag===1">
 		<md-card>
-		<md-list>
-			<md-list-item >
-				<h1>Profile Edit</h1>
-				<img md-list-avatar class="img-placing" src={{(user.avatar)}} alt="User">
+			<md-list>
+				<md-list-item>
+					<h1>Profile Edit</h1>
+					<img md-list-avatar class="img-placing" src={{(user.avatar)}} alt="User">
 				</md-list-item>
 			</md-list>
-			<form class="placing"  [formGroup]="profileForm">
+			<form class="placing" [formGroup]="profileForm">
 				<div>
 					<i class="material-icons prefix">account_circle</i>
 					<md-input-container>
-						<input mdInput placeholder="username" formControlName="firstname" [(ngModel)]='user.username'/>
-						</md-input-container>
-						<!--<md-input-container>
+						<input mdInput placeholder="username" formControlName="firstname" [(ngModel)]='user.username' />
+					</md-input-container>
+					<!--<md-input-container>
 							<input mdInput placeholder="Last name" formControlName="secondname">
 							</md-input-container>-->
-						</div>
-						<div>
-							<i class="material-icons">email</i>
-							<md-input-container >
-								<input mdInput placeholder="Email" formControlName="email" [(ngModel)]='user.email'/>
-								</md-input-container>
-							</div>
-							<div>
-								<i class="material-icons">location_on</i>
-								<md-input-container>
-									<input mdInput placeholder="Location">
-									</md-input-container>
-								</div>
-								<div>
-									<i class="material-icons prefix">phone</i>
-									<md-input-container class="example-full-width">
-										<input mdInput #postalCode maxlength="5" placeholder="Phone Number">
-											<md-hint align="end"></md-hint>
-										</md-input-container>
-									</div>
-									<div>
-										<i class="material-icons">favorite</i>
-										<md-input-container class="example-full-width">
-											<input mdInput placeholder="Interests">
-												<md-hint align="end"></md-hint>
-											</md-input-container>
-										</div>
-										<div>
-											<!--<button  md-mini-fab color="primary" align="right">
+				</div>
+				<div>
+					<i class="material-icons">email</i>
+					<md-input-container>
+						<input mdInput placeholder="Email" formControlName="email" [(ngModel)]='user.email' />
+					</md-input-container>
+				</div>
+				<div>
+					<i class="material-icons">location_on</i>
+					<md-input-container>
+						<input mdInput placeholder="Location">
+					</md-input-container>
+				</div>
+				<div>
+					<i class="material-icons prefix">phone</i>
+					<md-input-container class="example-full-width">
+						<input mdInput #postalCode maxlength="5" placeholder="Phone Number">
+						<md-hint align="end"></md-hint>
+					</md-input-container>
+				</div>
+				<div>
+					<i class="material-icons">favorite</i>
+					<md-input-container class="example-full-width">
+						<input mdInput placeholder="Interests">
+						<md-hint align="end"></md-hint>
+					</md-input-container>
+				</div>
+				<div>
+					<!--<button  md-mini-fab color="primary" align="right">
 												<md-icon>send</md-icon>
 											</button>-->
-											 <button md-raised-button >cancel</button>
-											<button md-raised-button color="primary">save</button>
-                                            
-										</div>
-									</form>
+					<button md-raised-button>cancel</button>
+					<button md-raised-button color="primary">save</button>
+
+				</div>
+			</form>
 		</md-card>
-								</div>
-							</div>
-							<router-outlet></router-outlet>
+	</div>
+</div>
+<router-outlet></router-outlet>

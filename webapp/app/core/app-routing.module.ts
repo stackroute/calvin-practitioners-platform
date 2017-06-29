@@ -41,9 +41,8 @@ const routes: ModuleWithProviders = RouterModule.forRoot([
       { path: 'activity', component: ActivityPageComponent },
       { path: 'members', component: CommunityMemberManagementComponent },
       { path: 'managetools', component: ManageCommunityToolsComponent},
-      { path: 'addtool', component: AddToolComponent},     
-
-    ]
+      { path: 'addtool', component: AddToolComponent},
+      ]
 
   },
   { path: '', redirectTo: '/app/home', pathMatch: 'full' },

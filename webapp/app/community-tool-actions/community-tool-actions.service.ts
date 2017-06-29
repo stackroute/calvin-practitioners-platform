@@ -8,9 +8,18 @@ import 'rxjs/Rx';
 export class ToolActions {
   constructor(private http: Http) { }
 
-  listTools() {
+ listTools(domain) {
     console.log('In service');
-    const url = 'http://localhost:3000/api/v1/community-tool-actions/tools';
+    const url = '/api/v1/communityTools/';
     return this.http.get(url).map(res => res.json());
   }
+
+ updateTools(data) {
+    const headers = new Headers({ 'Content-Type': 'application/json;charset=utf-8' });
+        const options = new RequestOptions({ headers: headers });
+        const body = JSON.stringify(data);
+        const url = 'http://localhost:3000';
+        return this.http.patch(url, body, headers).map(res => res.json());
+  }
+
 }
