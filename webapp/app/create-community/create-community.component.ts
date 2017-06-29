@@ -11,9 +11,8 @@ import { CreateCommunityService } from './create-community.service';
 @Component({
   templateUrl: './create-community.component.html',
   styleUrls: ['./create-community.component.css'],
-  providers: [CreateCommunityService]
+  providers: [CreateCommunityService],
 })
-
 
 export class CreateCommunityComponent implements OnInit {
 
@@ -23,20 +22,16 @@ export class CreateCommunityComponent implements OnInit {
 
   value: string; // to store selected template value
 
-  selectedPurpose = {}; // to compare selected purpose with json value
-
   visibility = [
   {'value': 'Public', 'viewValue': 'Public'},
   {'value': 'Private', 'viewValue': 'Private'},
   {'value': 'Moderate', 'viewValue': 'Moderate'}
   ];
 
-
-
   constructor(private fb: FormBuilder, private newcommunity: CreateCommunityService, public dialog: MdDialog, private router: Router) {
-
     this.createForm();
   }
+
 
 // reactive form validation for userForm
   createForm() {
@@ -53,7 +48,6 @@ export class CreateCommunityComponent implements OnInit {
   }
 
 //  check whether the card is clickable or not
-
 onselect(selectedTemplate: any) {
     this.value = selectedTemplate;
     console.log(selectedTemplate);
@@ -64,7 +58,6 @@ onselect(selectedTemplate: any) {
 chipValue(tag) {
   this.tagarray.push(tag);
 }
-
 
 // submit userForm values
 
@@ -79,7 +72,7 @@ onsubmit(userdata: any) {
     const description = values.description;
     const value = { domainName, Purpose, communityName, tagSelection, termscondition, visibility, description };
     console.log('communityPage', value);
-    this.newcommunity.postcommunitydata(value).subscribe(
+    this.newcommunity.postNewcommunityDetails(value, domainName).subscribe(
     (data) => console.log('Postdata'),
     error => console.log(error),
     () => console.log('data posted successfully'));
@@ -94,21 +87,38 @@ onsubmit(userdata: any) {
   openDialog(value) {
     const dialog = this.dialog.open(NewcommunityDialogboxComponent);
   }
+// deselect chip value
+  deselectchip(tag) {
+   tag =  null;
+   return tag;
+  }
 
-// cancel for redirect to userdashboard
-// routeToUserPage() {
-//   console.log('cancel button');
-//     this.router.navigate(['/app/Home']);
-// }
-
-ngOnInit() {
-  this.newcommunity.getcurrentData()
+  ngOnInit() {
+  this.newcommunity.getTemplates()
   .subscribe(
-    data => {this.newcommunity.communityDetails = data;
-      console.log(this.newcommunity.communityDetails);
-    },
-    error => console.log(error),
+    data => { this.newcommunity.communityDetails = data;
+      console.log('JSON value', data);
+      // const purposeList = [new Set(data.map( item => item.purpose))];
+      // console.log('purpose list type',typeof(purposeList));
+      // let uniquepurpose = purposeList[0];
+      // console.log('unique value',uniquepurpose);
+      const lookup = {};
+      const items = data;
+      const result = [];
+      for (let item, i = 0; item = items[i++]; ) {
+      const name = item.purpose;
+      console.log('name', name);
+      if (!(name in lookup)) {
+        lookup[name] = name;
+      }
+    }
+      result.push(lookup);
+      // this.transform(lookup,name);
+      console.log('result', result);
+      console.log('inside lookup', lookup);
+  },
+  error => console.log(error),
     () => console.log('finished')
-    );
+  );
   }
 }

@@ -10,6 +10,8 @@ router.use('/logout', (req, res) => {
 
 router.use(require('./modules/authentication'));
 
+router.use('/communitytemplates', require('./modules/communitytemplates'));
+
 router.use('/community-details', require('./modules/community-details'));
 
 router.use('/members', require('./modules/members'));

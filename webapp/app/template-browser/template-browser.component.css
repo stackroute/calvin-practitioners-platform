@@ -22,14 +22,14 @@
 /*.content::-webkit-scrollbar {
    display: none;
 }*/
-.listTemplateItem {
+.templateArea {
     border-bottom: 1.5px solid gray;
     font-size: 13px;
     padding: 2px;
     text-decoration-style: none;    
 }
 
-.listTemplateItem :hover {
+.templateArea :hover {
    color:red;
 }
 .descFontStyle {

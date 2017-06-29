@@ -46,8 +46,8 @@
     <!--select core-activity-->
     <div fxLayout.md="column">
       <md-select placeholder="Purpose" formControlName="Purpose">
-        <md-option *ngFor="let core of this.newcommunity.communityDetails" [value]="core.purpose" (click)="getPurpose(core.purpose)" >
-        {{core.purpose}}
+        <md-option *ngFor="let core of result" [value]="core.medical">
+        {{core.medical}}
         </md-option>                    
       </md-select>
       <md-hint align="start" >
@@ -69,7 +69,7 @@
     </div>
     <md-chip-list>
       <div fxLayout.md="column" ng-disabled="!tag.value" *ngFor="let tag of tagarray" >
-      <md-chip>{{tag}}<i class="material-icons">clear</i></md-chip>
+      <md-chip (click)="deselectchip(tag)">{{tag}}<i class="material-icons">clear</i></md-chip>
       </div>
     </md-chip-list>      
 <!--terms and condition-->
