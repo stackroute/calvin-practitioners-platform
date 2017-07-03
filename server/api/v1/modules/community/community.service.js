@@ -2,7 +2,7 @@ const lsitItem = [{ CommunityName: 'countriew', DomainName: 'ARB.1', CommunityUr
 
 
 function getAllUserCommunities(req, res) {
- res.send((lsitItem));
+  res.send((lsitItem));
 }
 
 
