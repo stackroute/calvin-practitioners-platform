@@ -15,6 +15,7 @@ export class CommunityDashboardComponent implements OnInit {
   constructor(private router: Router) {
   }
   ngOnInit() {
+    // console.log("Domain is : ", this.router.snapshot.params.domain)
     this.url = this.router.url;
     this.param = this.url.split('/');
     this.ans = this.param[this.param.length - 1];

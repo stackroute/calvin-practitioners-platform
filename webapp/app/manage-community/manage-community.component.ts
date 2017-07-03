@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Params, RouterModule, Routes, Router, ActivatedRoute } from '@angular/router';
 import { MdDialog } from '@angular/material';
 import { FormGroup, FormControl, Validators, FormBuilder} from '@angular/forms';
-import { GetCommunity } from './manage-community.service';
+// import { GetCommunity } from './manage-community.service';
 import { Http, Response } from '@angular/http';
-import { Router } from '@angular/router';
-//  import {GetCommunity} from './manage-community.service';
+// import { GetCommunity } from '../community-profile/community-profile.service';
+// import { Router } from '@angular/router';
+ import {GetCommunity} from './manage-community.service';
 
 @Component({
   selector: 'calvin-manage-community',
@@ -17,18 +18,29 @@ export class ManageCommunityComponent implements OnInit {
     userForm: FormGroup;
 
 contents = [];
- selectedValue: string;
-   public tagarray= [];
+selectedValue: string;
+public tagarray= [];
+url: string;
+param = [];
+arr=[];
+domain;
+ans;
   
-   constructor(private comm: GetCommunity) { }
+   constructor(private route: ActivatedRoute, private router: Router,private comm: GetCommunity) { }
 
  ngOnInit() {
-   this. comm. getCommunity(). subscribe ( res => { this.contents = res; } );
+   console.log("Current Domain is: ", this.route.snapshot.params['domain']);
+   
+   this. comm. getCommunity(this.route.snapshot.params['domain']). subscribe ( res => { this.contents = res; 
+ 
+   
+  } );
    
  }
 
- onSubmit(form: any): void {  
-    console.log('you submitted value:', form);  
+ onSubmit(Form: any): void {  
+    console.log('you submitted value:', Form);
+
  }
 
    chipValue(tag: any) {
@@ -40,11 +52,12 @@ contents = [];
 // }
 
 
-  // postCommunity(userForm,domain){
+  PatchCommunity(form,domain){
   
-  // this.comm.postCommunity(userForm).subscribe(userForm=>{
+  // this.SaveCommunity.PatchCommunity(form,domain).subscribe(userForm=>{
     
   //   alert("postedCommunity");
   // });
 
 } 
+}

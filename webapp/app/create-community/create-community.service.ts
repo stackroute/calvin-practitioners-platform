@@ -9,15 +9,15 @@ export class CreateCommunityService {
     constructor(private _http: Http) { }
 
    getcurrentData() {
-        const headers = new Headers(
-            { 'Content-Type': 'application/json', 'Access-Control-Allow-Methods' : ' GET, POST, PATCH, PUT, DEconstE, OPTIONS' });
-        const options = new RequestOptions({ headers: headers });
-        return this._http.get('http://localhost:3000/api/v1/community').map(res => res.json());
+        // const headers = new Headers(
+        //     { 'Content-Type': 'application/json', 'Access-Control-Allow-Methods' : ' GET, POST, PATCH, PUT, DEconstE, OPTIONS' });
+        // const options = new RequestOptions({ headers: headers });
+        return this._http.get('/api/v1/community').map(res => res.json());
     }
-    postcommunitydata(val) {
+    postcommunitydata(val,domain) {
         const headers = new Headers(
             { 'Content-Type': 'application/json', 'Access-Control-Allow-Methods': ' GET, POST, PATCH, PUT, DEconstE, OPTIONS' });
         const options = new RequestOptions({ headers: headers });
-        return this._http.post('http://localhost:3000/api/v1/community', val).map(() => console.log('New community details posted', val));
+        return this._http.post('api/v1/community'+domain, val).map(() => console.log('New community details posted', val));
     }
 }

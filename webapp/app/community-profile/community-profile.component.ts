@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { GetCommunity } from './community-profile.service';
 
-import { Params, RouterModule, Routes, Router } from '@angular/router';
-import { GetCommunity } from '../manage-community/manage-community.service';
+import { Params, RouterModule, Routes, Router,ActivatedRoute } from '@angular/router';
+// import { GetCommunity } from '../manage-community/manage-community.service';
 
 @Component({
   selector: 'calvin-community-profile',
@@ -9,25 +10,26 @@ import { GetCommunity } from '../manage-community/manage-community.service';
   styleUrls: ['./community-profile.component.css'],
   providers: [GetCommunity]
 })
+
 export class CommunityProfileComponent implements OnInit {
-  samples = [];
+  // samples = [];
   url: string;
   param = [];
   contents=[];
   arr=[];
   domain;
   ans;
-  constructor(private router: Router, private comm: GetCommunity) {
-    this.comm.getCommunity().subscribe(res => { this.samples = res; })
+  constructor(private route: ActivatedRoute,private router: Router, private comm: GetCommunity) {
+    // this.comm.getCommunity().subscribe(res => { this.samples = res; })
   }
 
   ngOnInit() {
-    this.comm.getCommunity().subscribe(res =>{this.contents=res;
-      
-      this.arr=this.contents[0].tags;
-    this.url = this.router.url;
-    this.param = this.url.split('/');
-    this.domain = this.param[this.param.length - 1];
+    
+    
+     console.log("Current Domain is: ", this.route.snapshot.params['domain']);    
+    this.comm.getCommunity(this.route.snapshot.params['domain']).subscribe(res =>{this.contents=res;
+      // this.comm.getCommunity().subscribe(res =>{this.contents=res;
+    
   });
 }
 }

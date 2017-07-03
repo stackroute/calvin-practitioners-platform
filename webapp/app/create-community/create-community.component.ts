@@ -79,7 +79,7 @@ onsubmit(userdata: any) {
     const description = values.description;
     const value = { domainName, Purpose, communityName, tagSelection, termscondition, visibility, description };
     console.log('communityPage', value);
-    this.newcommunity.postcommunitydata(value).subscribe(
+    this.newcommunity.postcommunitydata(value,domainName).subscribe(
     (data) => console.log('Postdata'),
     error => console.log(error),
     () => console.log('data posted successfully'));
