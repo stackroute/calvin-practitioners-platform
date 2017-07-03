@@ -1,8 +1,8 @@
-// const express = require('express');
+const express = require('express');
 
-// const router = express.Router();
+const router = express.Router();
 
-// const toolCtrl = require('./toolmarketplace.controller');
+const toolCtrl = require('./toolmarketplace.controller');
 
 
 // router.get('/gettools', (req, res) => {
@@ -24,7 +24,10 @@
 // });
 
 
-// router.post('/addtool', (req, res) => {
+router.post('/tool', (req, res) => {
+
+console.log(" printing body :",req.body);
+
 //   try {
 //     toolCtrl.addTool(tool, (err, result) => {
 //       if (err) {
@@ -43,6 +46,8 @@
 //       error: 'Internal server error..! Please try again later',
 //     });
 //   }
-// });
 
-// module.exports = router;
+res.send("tool called");
+});
+
+module.exports = router;
