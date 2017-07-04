@@ -64,7 +64,7 @@ export class CreateCommunityComponent implements OnInit {
   //  check whether the card is clickable or not
   onselect(selectedTemplate: any) {
     this.value = selectedTemplate;
-    alert(selectedTemplate);
+    // alert(selectedTemplate);
     return this.value;
   }
   // bind text box value with chip
@@ -77,7 +77,7 @@ export class CreateCommunityComponent implements OnInit {
   deselectchip(tag) {
     const tagvalue = tag;
     this.tagarray = this.tagarray.filter(item => item !== tagvalue);
-    console.log(this.tagarray);
+    // console.log(this.tagarray);
   }
 
   // submit userForm values
@@ -93,8 +93,8 @@ export class CreateCommunityComponent implements OnInit {
     const tags = newCommunityObj.tags = this.tagarray;
     const owner = newCommunityObj.owner = this.uname;
     const newcommunityDetails = { purpose, name, visibility, description, template, tags, owner  };
-    console.log('new community details', newcommunityDetails);
-    console.log('domain name',domainName);
+    // console.log('new community details', newcommunityDetails);
+    // console.log('domain name',domainName);
     this.newcommunity.postNewcommunityDetails(newcommunityDetails, domainName).subscribe(
     (data) => console.log('Postdata'),
     error =>     this.reset(),
