@@ -1,5 +1,6 @@
 // use superagent to call communities
 const request = require('superagent');
+
 const BASE_COMMUNITY_SERVICE_URL = 'http://calvin-communities.blr.stackroute.in/api/v1';
 
 const communityservice = require('./community.service');
