@@ -1,20 +1,24 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Params, RouterModule, Routes, Router, ActivatedRoute } from '@angular/router';
 import { MdDialog } from '@angular/material';
 import { FormGroup, FormControl, Validators, FormBuilder} from '@angular/forms';
-// import { GetCommunity } from './manage-community.service';
+
 import { Http, Response } from '@angular/http';
-// import { GetCommunity } from '../community-profile/community-profile.service';
-// import { Router } from '@angular/router';
- import {GetCommunity} from './manage-community.service';
+
+import { CommunityProfileService } from '../community-profile/community-profile.service';
+
+import { CommunityProfileComponent } from '../community-profile/community-profile.component';
+
 
 @Component({
   selector: 'calvin-manage-community',
   templateUrl: './manage-community.component.html',
   styleUrls: ['./manage-community.component.css'],
-  providers: [GetCommunity]
+  providers: [CommunityProfileService]
 })
 export class ManageCommunityComponent implements OnInit {
+
+
     userForm: FormGroup;
 
 contents = [];
@@ -24,16 +28,18 @@ url: string;
 param = [];
 arr=[];
 domain;
+ isCounter = true;
+
 ans;
   
-   constructor(private route: ActivatedRoute, private router: Router,private comm: GetCommunity) { }
+   constructor(private route: ActivatedRoute, private router: Router, private commProfileService: CommunityProfileService) { }
 
  ngOnInit() {
    console.log("Current Domain is: ", this.route.snapshot.params['domain']);
    
-   this. comm. getCommunity(this.route.snapshot.params['domain']). subscribe ( res => { this.contents = res; 
- 
-   
+   this.commProfileService.getCommunity(this.route.snapshot.params['domain']). subscribe ( res => {  this.contents = res; 
+    //  this.arr=this.contents[0].tags;
+    console.log(this.contents);
   } );
    
  }
@@ -52,12 +58,12 @@ ans;
 // }
 
 
-  PatchCommunity(form,domain){
+  // PatchCommunity(form,domain){
   
   // this.SaveCommunity.PatchCommunity(form,domain).subscribe(userForm=>{
     
   //   alert("postedCommunity");
   // });
 
-} 
+// } 
 }

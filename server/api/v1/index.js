@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const config = require('./modules/common/config');
+router.use('/communities', require('./modules/communities'));
 
 router.use('/login', require('./modules/login'));
 
@@ -11,7 +12,8 @@ router.use('/logout', (req, res) => {
 router.use(require('./modules/authentication'));
 //Each Module to be placed after this
 
-router.use('/community-details', require('./modules/community-details'));
+
+
 
 router.use('/community', require('./modules/community'));
 
