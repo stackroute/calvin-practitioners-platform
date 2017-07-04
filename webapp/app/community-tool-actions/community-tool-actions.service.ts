@@ -6,11 +6,24 @@ import 'rxjs/Rx';
 
 @Injectable()
 export class ToolActions {
-  constructor(private http: Http) { }
+ constructor(private http: Http) {}
 
-  listTools(domain) {
-    console.log('In service');
-    const url = '/api/v1/communityTools/';
-    return this.http.get(url).map(res => res.json());
-  }
+ listTools(domain) {
+  console.log('In service');
+  const url = '/api/v1/communityTools/';
+  return this.http.get(url).map(res => res.json());
+ }
+
+ updateTools(data:any) {
+  const headers = new Headers({
+   'Content-Type': 'application/json;charset=utf-8'
+  });
+  const options = new RequestOptions({
+   headers: headers
+  });
+  const body = JSON.stringify(data);
+  const url = '/api/v1/communityRoles/';
+  return this.http.patch(url, body, options).map(res => res.json());
+ }
+
 }

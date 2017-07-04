@@ -14,7 +14,7 @@ const sample = [{
     actions: ['postmessage', 'read', 'Likemessage'],
     activityEvents: ['newannouncement', 'remove'],
   }, {
-    toolId: 'sermo',
+    toolId: 'quora',
     actions: ['postmessage', 'read', 'edit'],
     activityEvents: ['like', 'remove'],
   }],
@@ -22,7 +22,7 @@ const sample = [{
   rolesActions: [{
     role: 'admin',
     toolsActions: [{
-      toolId: 'sermo',
+      toolId: 'quora',
       actions: { edit: 'true', post: 'true' },
     }, {
       toolId: 'WeMedUp',
@@ -33,9 +33,9 @@ const sample = [{
     }],
   }],
 }];
-function retrieveAllTools(domain, done) {
+function retrieveAllTools(domain) {
   if (sample[0].purpose === domain) {
-    return done(sample);
+    return sample;
   }
   return sample;
 }

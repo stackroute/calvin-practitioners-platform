@@ -12,6 +12,7 @@ import { RoleServices } from './community-role-management.service';
 export class CommunityRoleManagementComponent implements OnInit {
   sample = [];
   domain='medical';
+  data={'share':'true'}
   constructor(public dialog: MdDialog, private role: RoleServices) {
     this.role.listRoles(this.domain).subscribe(res => {
       this.sample = res;
@@ -23,7 +24,15 @@ export class CommunityRoleManagementComponent implements OnInit {
   ngOnInit() { }
 
   ondelete() { }
+
+  update()
+{
+  return this.role.updateTools(this.data).subscribe(res=>{
+    this.sample=res;
+  });
 }
+}
+
 @Pipe({
   name: 'keys'
 })

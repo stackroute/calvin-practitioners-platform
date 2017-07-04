@@ -13,8 +13,11 @@ export class CommunityToolActionsComponent implements OnInit {
  domain='medical';
  checkBoxValue: boolean = false;
  sample = [];
- constructor(private role: ToolActions) {}
- getCheckoxValue(toolName, status) {
+ data={'share':'true'}
+
+ constructor(private tool: ToolActions) {}
+
+ getCheckboxValue(toolName, status) {
   const id = toolName + status;
   const index = this.selected.indexOf(id);
   if (index === -1) {
@@ -23,21 +26,21 @@ export class CommunityToolActionsComponent implements OnInit {
    this.selected.splice(index, 1);
   }
   console.log(this.selected);
+  return this.tool.updateTools(this.selected).subscribe(res=>{this.sample=res});
  }
 
  exists(toolName, status) {
   return this.selected.indexOf(toolName + status) > -1;
  }
+
  ngOnInit() {
-  this.role.listTools(this.domain).subscribe(res => {
+  this.tool.listTools(this.domain).subscribe(res => {
    this.sample = res;
   });
  }
- update(key, value) {
-  const obj = {
-   key,
-   value
-  };
-  return this.getresults.push(obj);
+
+ update() {
+    this.tool.updateTools(this.data).subscribe(res=>{this.sample=res});
  }
+
 }
