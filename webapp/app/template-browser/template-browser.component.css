@@ -19,20 +19,53 @@
     /*font-size: 13px;*/
 }
 
-/*.content::-webkit-scrollbar {
-   display: none;
-}*/
 .listTemplateItem {
-    border-bottom: 1.5px solid gray;
-    font-size: 13px;
-    padding: 2px;
-    text-decoration-style: none;    
+    border: 1px solid #ddd; /* Gray border */
+    border-radius: 4px;  /* Rounded border */
+    /*padding: 5px;  Some padding */
+    height: 100%;
+   width: 100%;   /* Set a small width */
+    display: inline-block;
 }
 
-.listTemplateItem :hover {
-   color:red;
+/* Add a hover effect (blue shadow) */
+.cardContent :hover {
+    background-color: gray;
+    color: white;
 }
+
+.templateArea {
+    /*border-bottom: 1.5px solid gray;
+    font-size: 13px;
+    padding: 2px;
+    text-decoration-style: none;    */
+        /*height: 194px;
+    width: 30%;*/
+    background-color: #fff;
+    border-radius: 4px;
+    box-shadow: 0 2px 2px rgba(10,16,20,.24), 0 0 2px rgba(10,16,20,.12);
+    box-sizing: border-box;
+    transition: box-shadow .5s;
+    /*max-width: 340px;
+    min-width: 262px;*/
+    margin: 24px 8px;
+    padding-bottom: 48px;
+    position: relative;
+}
+
+/*.templateArea :hover {
+   color:red;
+}*/
 .descFontStyle {
     font-size: 10px;
 }
 
+.listTemplateItem {
+    font-size: 16px;
+}
+/*media query*/
+@media (max-width: 430px) {
+   .listTemplateItem {
+        font-size : 12px;
+    }
+}

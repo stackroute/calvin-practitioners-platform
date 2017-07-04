@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl} from '@angular/forms';
+
 import { MdDialog } from '@angular/material';
-import { NgForm } from '@angular/forms';
+import { FormGroup, FormControl, Validators, FormBuilder} from '@angular/forms';
 import { GetCommunity } from './manage-community.service';
 import { Http, Response } from '@angular/http';
 import { Router } from '@angular/router';
@@ -14,10 +14,12 @@ import { Router } from '@angular/router';
   providers: [GetCommunity]
 })
 export class ManageCommunityComponent implements OnInit {
+    userForm: FormGroup;
+
 contents = [];
  selectedValue: string;
    public tagarray= [];
-
+  
    constructor(private comm: GetCommunity) { }
 
  ngOnInit() {
@@ -25,18 +27,24 @@ contents = [];
    
  }
 
-onFormSubmit(userForm: NgForm) {
-      console.log(userForm.value);
-      console.log('Community name:' + userForm.controls['Community name'].value);
-      console.log('Description:' + userForm.controls['Description'].value);
-      console.log('access:' + userForm.controls['access'].value);
-      console.log('chip:' + userForm.controls['chip'].value);
-      console.log('Form Valid:' + userForm.valid);
-      console.log('Form Submitted:' + userForm.submitted);
-
-  }
+ onSubmit(form: any): void {  
+    console.log('you submitted value:', form);  
+ }
 
    chipValue(tag: any) {
    this.tagarray.push(tag);
   }
-}
+// clearTag(tag){
+
+//   this.tagarray.pop(tag.value);
+// }
+
+
+  // postCommunity(userForm,domain){
+  
+  // this.comm.postCommunity(userForm).subscribe(userForm=>{
+    
+  //   alert("postedCommunity");
+  // });
+
+} 

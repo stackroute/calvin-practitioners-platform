@@ -9,6 +9,7 @@ require('./api/v1/modules/login/strategy/google/passport.js')(passport);
 const app = express();
 app.use(morgan('dev'));
 app.use(cookieParser());
+app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions

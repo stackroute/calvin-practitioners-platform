@@ -1,25 +1,19 @@
-
-<div class="container"
-     fxLayout
-     fxLayout.xs="column"
-     fxLayoutAlign="center"
-     fxLayoutGap="10px"
-     fxLayoutGap.xs="0">
+<div class="container" fxLayout fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="10px" fxLayoutGap.xs="0">
 	<div class="item item-1" fxFlex="2%"></div>
 	<div class="item item-2" fxFlex="2%" fxFlexOrder="3">
 
 
-		
+
 	</div>
 	<div class="item item-3" fxFlex class="form-div" *ngIf="flag===1">
 		<md-card>
-		<md-list>
-			<md-list-item >
-				<h1>Profile Edit</h1>
-				<img md-list-avatar class="img-placing" src={{(user.avatar)}} alt="User">
+			<md-list>
+				<md-list-item>
+					<h1>Profile Edit</h1>
+					<img md-list-avatar class="img-placing" src={{(user.avatar)}} alt="User">
 				</md-list-item>
 			</md-list>
-			<form class="placing"  [formGroup]="profileForm">
+			<form class="placing" [formGroup]="profileForm">
 				<div>
 					<i class="material-icons prefix">account_circle</i>
 					<md-input-container>
@@ -70,7 +64,8 @@
                                             
 										</div>
 									</form>
+
 		</md-card>
-								</div>
-							</div>
-							<router-outlet></router-outlet>
+	</div>
+</div>
+<router-outlet></router-outlet>

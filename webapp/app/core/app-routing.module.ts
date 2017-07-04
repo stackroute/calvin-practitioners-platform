@@ -19,7 +19,9 @@ import { CommunityMembersWidgetComponent } from '../community-members-widget/com
 import { ManageCommunityToolsComponent } from '../manage-community-tools/manage-community-tools.component';
 import { AddToolComponent } from '../add-tool/add-tool.component';
 import { UserCommunities } from '../my-communities/my-communities.services';
-// import { ToolMarketPlaceComponent } from '../tool-market-place/tool-market-place.component';
+
+import { ToolMarketPlaceComponent } from '../tool-market-place/tool-market-place.component';
+
 
 import { CommunityMemberManagementComponent } from '../community-member-management/community-member-management.component';
 
@@ -44,7 +46,8 @@ const routes: ModuleWithProviders = RouterModule.forRoot([
       { path: 'managetools', component: ManageCommunityToolsComponent},
 
       { path: 'addtool', component: AddToolComponent},
-      // { path: 'toolmarket', component : ToolMarketPlaceComponent},
+
+      { path: 'toolmarket', component : ToolMarketPlaceComponent},
 
       ]
 

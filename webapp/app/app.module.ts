@@ -50,7 +50,8 @@ import { ManageCommunityToolsComponent } from './manage-community-tools/manage-c
 import { AddToolComponent } from './add-tool/add-tool.component';
 import { NewcommunityDialogboxComponent } from './newcommunity-dialogbox/newcommunity-dialogbox.component';
 import { MemberInvitationComponent } from './member-invitation/member-invitation.component';
-// import { ToolMarketPlaceComponent } from './tool-market-place/tool-market-place.component';
+import { ToolMarketPlaceComponent } from './tool-market-place/tool-market-place.component';
+
 
 
 @NgModule({
@@ -81,7 +82,8 @@ import { MemberInvitationComponent } from './member-invitation/member-invitation
     AddToolComponent,
     NewcommunityDialogboxComponent,
     MemberInvitationComponent,
-    // ToolMarketPlaceComponent
+    ToolMarketPlaceComponent
+
      ],
 
 
