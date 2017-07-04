@@ -26,7 +26,7 @@ selectedValue: string;
 public tagarray= [];
 url: string;
 param = [];
-arr=[];
+//arr=[];
 domain;
  isCounter = true;
 
@@ -40,6 +40,8 @@ ans;
    this.commProfileService.getCommunity(this.route.snapshot.params['domain']). subscribe ( res => {  this.contents = res; 
     //  this.arr=this.contents[0].tags;
     console.log(this.contents);
+    //this.arr=res.tags;
+    //console.log(this.arr);
   } );
    
  }

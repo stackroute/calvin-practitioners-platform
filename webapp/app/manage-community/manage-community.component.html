@@ -62,6 +62,8 @@
                                                 <div fxLayout.md="column" ng-disabled="!tag.value" *ngFor="let tag of tagarray" (click)="clearTag(tag.value)" >
                                                       <md-chip>{{tag}}<i class="material-icons" >clear</i></md-chip>
                                                 </div>
+                                                   <span class="tag" *ngFor="let tag of arr">
+            <md-chip>{{tag}}</md-chip></span>
                                           </md-chip-list>
                                           
                                           <button md-raised-button  type="submit" color="primary" >Save</button>
