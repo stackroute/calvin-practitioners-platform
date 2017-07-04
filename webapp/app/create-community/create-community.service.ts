@@ -10,13 +10,14 @@ export class CreateCommunityService {
 
     getTemplates() {
         return this._http.get('/api/v1/communitytemplates').map(res => res.json());
+        // return this._http.get('/api/v1/community').map(res => res.json());
     }
 
-    postNewcommunityDetails(val, domainName) {
-        const headers = new Headers(
-            {'Content-Type': 'application/json', 'Access-Control-Allow-Methods': ' POST ' });
-            const options = new RequestOptions({ headers: headers });
-            return this._http.post('api/v1/communitytemplates/' + domainName, val).map(() =>
-            console.log('New community details posted', val));
+    postNewcommunityDetails(newCommunityObj, domainName) {
+        // const headers = new Headers(
+        //     {'Content-Type': 'application/json', 'Access-Control-Allow-Methods': ' POST ' });
+        //     const options = new RequestOptions({ headers: headers });
+            return this._http.post('api/v1/communitytemplates/' + domainName, newCommunityObj).map(() =>
+            console.log('New community details posted', newCommunityObj));
         }
     }

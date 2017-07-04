@@ -7,4 +7,3 @@ function getAllUserCommunities(req, res) {
 
 
 module.exports = { getAllUserCommunities };
-

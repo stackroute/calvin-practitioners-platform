@@ -10,23 +10,19 @@ function getAllCommunityTemplates(purpose, done) {
   .query({ purpose }) // query string
   .end((err, res) => {
     if (err) {
-    //   console.log('Error in API to get community templates, error: ', err);
       return done(err);
     }
     return done(null, res.body);
   });
 }
 
-function postNewcmmunityDetails(val, done) {
-  const url = `${BASE_COMMUNITY_SERVICE_URL}/communities/:domain`;
+function postNewcmmunityDetails(domainName, newCommunityObj, done) {
+  const url = `${BASE_COMMUNITY_SERVICE_URL}/communities/${domainName}`;
   request
   .post(url)
-  .send(val) // sends a JSON post body
-  .set('X-API-Key', 'foobar')
-  .set('Accept', 'application/json')
+  .send(newCommunityObj) // sends a JSON post body
   .end((err, res) => {
     if (err) {
-    //   console.log('Error in API to get community templates, error: ', err);
       return done(err);
     }
     return done(null, res.body);

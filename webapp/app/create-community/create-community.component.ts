@@ -2,8 +2,8 @@ import { Component, OnInit, Input} from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder} from '@angular/forms';
 import { MdDialog } from '@angular/material';
 import { Route, Router } from '@angular/router';
-
-
+import 'rxjs/add/operator/startWith';
+import 'rxjs/add/operator/map';
 import { TemplateBrowserComponent } from '../template-browser/template-browser.component';
 import { NewcommunityDialogboxComponent } from '../newcommunity-dialogbox/newcommunity-dialogbox.component';
 import { CreateCommunityService } from './create-community.service';
@@ -22,16 +22,26 @@ export class CreateCommunityComponent implements OnInit {
 
   value: string; // to store selected template value
 
-  visibility = [
-  {'value': 'Public', 'viewValue': 'Public'},
-  {'value': 'Private', 'viewValue': 'Private'},
-  {'value': 'Moderate', 'viewValue': 'Moderate'}
-  ];
+  visibility = ["ide","forum","stackoverflow"];
+  
+  
+  tagCtrl: FormControl;
+  filteredtag: any;
 
   constructor(private fb: FormBuilder, private newcommunity: CreateCommunityService, public dialog: MdDialog, private router: Router) {
     this.createForm();
+    this.tagCtrl = new FormControl();
+    this.filteredtag = this.tagCtrl.valueChanges
+        .startWith(null)
+        .map(name => this.filterStates(name));
   }
 
+  filterStates(val: string) {
+    return val ? this.visibility.filter(s => s.indexOf(val.toLowerCase()) === 0)
+               : this.visibility;
+  }
+
+  uniquePurposeArry = [];
 
 // reactive form validation for userForm
   createForm() {
@@ -42,7 +52,7 @@ export class CreateCommunityComponent implements OnInit {
       visibility: ['Public', Validators.required],
       description: [''],
       // template: ['md',Validators.required],
-      tagSelection: ['', Validators.required],
+      tags: ['', Validators.required],
       termscondition: ['', Validators.required]
     });
   }
@@ -50,35 +60,50 @@ export class CreateCommunityComponent implements OnInit {
 //  check whether the card is clickable or not
 onselect(selectedTemplate: any) {
     this.value = selectedTemplate;
-    console.log(selectedTemplate);
+    alert(selectedTemplate);
     return this.value;
 }
+
+// get template list based on purpose value
+// selectPrupose(core) {
+//   if (core ===) {
+
+//   }
+// }
 
 // bind text box value with chip
 chipValue(tag) {
   this.tagarray.push(tag);
+  console.log(this.tagarray);
 }
 
-// submit userForm values
-
-onsubmit(userdata: any) {
-    const values = userdata.value;
-    const domainName = values.domainName;
-    const Purpose = values.Purpose;
-    const communityName = values.communityName;
-    const tagSelection = values.tagSelection;
-    const termscondition = values.termscondition;
-    const visibility = values.visibility;
-    const description = values.description;
-    const value = { domainName, Purpose, communityName, tagSelection, termscondition, visibility, description };
-    console.log('communityPage', value);
-    this.newcommunity.postNewcommunityDetails(value, domainName).subscribe(
-    (data) => console.log('Postdata'),
-    error => console.log(error),
-    () => console.log('data posted successfully'));
-    this.openDialog(value);
-    this.reset();
+// deselect chip value
+  deselectchip(tag) {
+   let tagvalue = tag; 
+   this.tagarray = this.tagarray.filter(item => item !== tagvalue);
+   console.log(this.tagarray);
   }
+
+// submit userForm values
+onsubmit(userdata: any) {
+    let newCommunityObj = userdata.value ;
+    newCommunityObj.template = this.value;
+    newCommunityObj.tags = this.tagarray;
+    newCommunityObj.domainName;
+    newCommunityObj.communityName;
+    newCommunityObj.visibility;
+    newCommunityObj.description;
+    // console.log(this.tagarray);
+    // console.log(newCommunityObj)
+    const domainName = newCommunityObj.domainName;
+    console.log('communityPage', newCommunityObj);
+    // console.log('dominname',domainName);
+    this.newcommunity.postNewcommunityDetails(newCommunityObj,domainName).subscribe(
+    (data) => console.log('Postdata'),
+    error =>     this.reset(),
+    () => this.openDialog(newCommunityObj));
+  } // console.log('communityPage', newCommunityObj);
+    // console.log('dominname',domainName);
 
   reset() {
     this.createForm();
@@ -87,36 +112,17 @@ onsubmit(userdata: any) {
   openDialog(value) {
     const dialog = this.dialog.open(NewcommunityDialogboxComponent);
   }
-// deselect chip value
-  deselectchip(tag) {
-   tag =  null;
-   return tag;
-  }
+
 
   ngOnInit() {
   this.newcommunity.getTemplates()
   .subscribe(
     data => { this.newcommunity.communityDetails = data;
       console.log('JSON value', data);
-      // const purposeList = [new Set(data.map( item => item.purpose))];
-      // console.log('purpose list type',typeof(purposeList));
-      // let uniquepurpose = purposeList[0];
-      // console.log('unique value',uniquepurpose);
-      const lookup = {};
-      const items = data;
-      const result = [];
-      for (let item, i = 0; item = items[i++]; ) {
-      const name = item.purpose;
-      console.log('name', name);
-      if (!(name in lookup)) {
-        lookup[name] = name;
-      }
-    }
-      result.push(lookup);
-      // this.transform(lookup,name);
-      console.log('result', result);
-      console.log('inside lookup', lookup);
-  },
+      const purposeList = [new Set(data.map( item => item.purpose))];
+      const myArray = Array.from(purposeList);
+      this.uniquePurposeArry =  Array.from(myArray[0]);      
+    },
   error => console.log(error),
     () => console.log('finished')
   );
