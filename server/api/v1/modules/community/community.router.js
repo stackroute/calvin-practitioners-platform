@@ -15,4 +15,18 @@ router.get('/userCommunities', (req, res) => {
   }
 });
 
+//post new community data
+router.post('/:domainName', (req, res) => {
+  try {
+    communityCtrl.postNewcommunityDetails(req.params.domainName, req.body, (err, results) => {
+      if (err) {
+        return res.status(500).send({ error: 'Unexpected error occurred, try again later' });
+      }
+      return res.status(200).send(results);
+    });
+  } catch (err) {
+    return res.status(500).send({ error: 'Unexpected error occurred, try again later' });
+  }
+});
+
 module.exports = router;

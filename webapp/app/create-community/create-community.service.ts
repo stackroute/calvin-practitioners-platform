@@ -18,7 +18,7 @@ export class CreateCommunityService {
     }
 
     postNewcommunityDetails(newCommunityObj, domainName) {
-        return this._http.post('api/v1/communitytemplates/' + domainName, newCommunityObj).map(() =>
+        return this._http.post('api/v1/community/' + domainName, newCommunityObj).map(() =>
         console.log('New community details posted', newCommunityObj));
     }
 }
