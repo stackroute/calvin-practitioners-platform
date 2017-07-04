@@ -22,26 +22,26 @@ export class CreateCommunityComponent implements OnInit {
 
   value: string; // to store selected template value
 
-  visibility = ["ide","forum","stackoverflow"];
-  
-  
+  visibility = ['ide', 'forum', 'stackoverflow'];
+
+  uniquePurposeArry = [];
+
   tagCtrl: FormControl;
+
   filteredtag: any;
 
   constructor(private fb: FormBuilder, private newcommunity: CreateCommunityService, public dialog: MdDialog, private router: Router) {
     this.createForm();
     this.tagCtrl = new FormControl();
     this.filteredtag = this.tagCtrl.valueChanges
-        .startWith(null)
-        .map(name => this.filterStates(name));
+    .startWith(null)
+    .map(name => this.filterStates(name));
   }
 
   filterStates(val: string) {
     return val ? this.visibility.filter(s => s.indexOf(val.toLowerCase()) === 0)
-               : this.visibility;
+    : this.visibility;
   }
-
-  uniquePurposeArry = [];
 
 // reactive form validation for userForm
   createForm() {
@@ -57,53 +57,44 @@ export class CreateCommunityComponent implements OnInit {
     });
   }
 
-//  check whether the card is clickable or not
-onselect(selectedTemplate: any) {
+  //  check whether the card is clickable or not
+  onselect(selectedTemplate: any) {
     this.value = selectedTemplate;
     alert(selectedTemplate);
     return this.value;
-}
-
-// get template list based on purpose value
-// selectPrupose(core) {
-//   if (core ===) {
-
-//   }
-// }
-
-// bind text box value with chip
-chipValue(tag) {
-  this.tagarray.push(tag);
-  console.log(this.tagarray);
-}
-
-// deselect chip value
-  deselectchip(tag) {
-   let tagvalue = tag; 
-   this.tagarray = this.tagarray.filter(item => item !== tagvalue);
-   console.log(this.tagarray);
+  }
+  // bind text box value with chip
+  chipValue(tag) {
+    this.tagarray.push(tag);
+    console.log(this.tagarray);
   }
 
-// submit userForm values
-onsubmit(userdata: any) {
-    let newCommunityObj = userdata.value ;
+  // deselect chip value
+  deselectchip(tag) {
+    const tagvalue = tag;
+    this.tagarray = this.tagarray.filter(item => item !== tagvalue);
+    console.log(this.tagarray);
+  }
+  // submit userForm values
+  onsubmit(userdata: any) {
+    const newCommunityObj = userdata.value;
     newCommunityObj.template = this.value;
     newCommunityObj.tags = this.tagarray;
-    newCommunityObj.domainName;
-    newCommunityObj.communityName;
-    newCommunityObj.visibility;
-    newCommunityObj.description;
+    // newCommunityObj.domainName;
+    // newCommunityObj.communityName;
+    // newCommunityObj.visibility;
+    // newCommunityObj.description;
     // console.log(this.tagarray);
     // console.log(newCommunityObj)
     const domainName = newCommunityObj.domainName;
     console.log('communityPage', newCommunityObj);
     // console.log('dominname',domainName);
-    this.newcommunity.postNewcommunityDetails(newCommunityObj,domainName).subscribe(
+    this.newcommunity.postNewcommunityDetails(newCommunityObj, domainName).subscribe(
     (data) => console.log('Postdata'),
     error =>     this.reset(),
     () => this.openDialog(newCommunityObj));
   } // console.log('communityPage', newCommunityObj);
-    // console.log('dominname',domainName);
+  // console.log('dominname',domainName);
 
   reset() {
     this.createForm();
@@ -113,18 +104,17 @@ onsubmit(userdata: any) {
     const dialog = this.dialog.open(NewcommunityDialogboxComponent);
   }
 
-
   ngOnInit() {
-  this.newcommunity.getTemplates()
-  .subscribe(
+    this.newcommunity.getTemplates()
+    .subscribe(
     data => { this.newcommunity.communityDetails = data;
-      console.log('JSON value', data);
-      const purposeList = [new Set(data.map( item => item.purpose))];
-      const myArray = Array.from(purposeList);
-      this.uniquePurposeArry =  Array.from(myArray[0]);      
-    },
+    console.log('JSON value', data);
+    const purposeList = [new Set(data.map( item => item.purpose))];
+    const myArray = Array.from(purposeList);
+    this.uniquePurposeArry =  Array.from(myArray[0]);
+  },
   error => console.log(error),
-    () => console.log('finished')
-  );
+  () => console.log('finished')
+    );
   }
 }
