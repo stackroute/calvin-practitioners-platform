@@ -25,9 +25,8 @@ const toolCtrl = require('./toolmarketplace.controller');
 
 
 router.post('/tool', (req, res) => {
-
-console.log(" printing body :",req.body);
-const tool=req.body;
+  console.log(' printing body :', req.body);
+  const tool = req.body;
   try {
     toolCtrl.addTool(tool, (err, result) => {
       if (err) {

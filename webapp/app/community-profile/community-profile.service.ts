@@ -15,6 +15,7 @@ import 'rxjs/Rx';
     
     //   const url = `http://localhost:3000/api/v1/community-details/community-details`;
     return this.http.get(url).map( response => response.json());
+    
 
   }
   //  postCommunity(form){

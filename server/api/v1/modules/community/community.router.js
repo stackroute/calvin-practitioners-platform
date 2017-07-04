@@ -15,7 +15,7 @@ router.get('/userCommunities', (req, res) => {
   }
 });
 
-//post new community data
+// post new community data
 router.post('/:domainName', (req, res) => {
   try {
     communityCtrl.postNewcommunityDetails(req.params.domainName, req.body, (err, results) => {

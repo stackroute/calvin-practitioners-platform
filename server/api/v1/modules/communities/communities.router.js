@@ -35,8 +35,6 @@ router.get('/communities/:domain', (req, res) => { // eslint-disable-line consis
 // });
 
 
-
-
 // const router = require('express').Router();
 // const templateCtrl = require('./communityTemplates.controller.js');
 // /**
