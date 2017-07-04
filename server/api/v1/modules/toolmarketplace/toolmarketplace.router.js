@@ -1,8 +1,8 @@
-// const express = require('express');
+const express = require('express');
 
-// const router = express.Router();
+const router = express.Router();
 
-// const toolCtrl = require('./toolmarketplace.controller');
+const toolCtrl = require('./toolmarketplace.controller');
 
 
 // router.get('/gettools', (req, res) => {
@@ -24,25 +24,30 @@
 // });
 
 
-// router.post('/addtool', (req, res) => {
-//   try {
-//     toolCtrl.addTool(tool, (err, result) => {
-//       if (err) {
-//         console.log('error occured');
-//         res.status(500).json({
-//           error: 'unable to add tool in Calvin..! , Please try again later',
-//         });
-//       } else {
-//         res.status(200).json({
-//           error: 'Added Tool Successfully',
-//         });
-//       }
-//     });
-//   } catch (error) {
-//     res.send(500).json({
-//       error: 'Internal server error..! Please try again later',
-//     });
-//   }
-// });
+router.post('/tool', (req, res) => {
 
-// module.exports = router;
+console.log(" printing body :",req.body);
+const tool=req.body;
+  try {
+    toolCtrl.addTool(tool, (err, result) => {
+      if (err) {
+        console.log('error occured');
+        res.status(500).json({
+          error: 'unable to add tool in Calvin..! , Please try again later',
+        });
+      } else {
+        res.status(200).json({
+          error: 'Added Tool Successfully',
+        });
+      }
+    });
+  } catch (error) {
+    res.send(500).json({
+      error: 'Internal server error..! Please try again later',
+    });
+  }
+
+// res.send("tool called");
+});
+
+module.exports = router;
