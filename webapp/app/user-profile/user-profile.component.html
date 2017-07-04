@@ -24,10 +24,16 @@
 					<i class="material-icons prefix">account_circle</i>
 					<md-input-container>
 						<input mdInput placeholder="username" formControlName="firstname" [(ngModel)]='user.username'/>
+						<md-hint align="start" class="full-width">
+          <div *ngIf="profileForm.get('firstname').hasError('required') && profileForm.get('firstname').touched" class="errorStyle">
+            User Name is required
+          </div>
+          <!--<div *ngIf="profileForm.get('firstname').hasError('pattern') && profileForm.get('firstname')" class="errorStyle">
+            Invalid UserName,must contain only alphabets
+          </div>-->
+        </md-hint>
 						</md-input-container>
-						<!--<md-input-container>
-							<input mdInput placeholder="Last name" formControlName="secondname">
-							</md-input-container>-->
+					 
 						</div>
 						<div>
 							<i class="material-icons">email</i>
@@ -38,20 +44,20 @@
 							<div>
 								<i class="material-icons">location_on</i>
 								<md-input-container>
-									<input mdInput placeholder="Location">
+									<input mdInput placeholder="Location" formControlName="location">
 									</md-input-container>
 								</div>
 								<div>
 									<i class="material-icons prefix">phone</i>
 									<md-input-container class="example-full-width">
-										<input mdInput #postalCode maxlength="5" placeholder="Phone Number">
+										<input mdInput #postalCode maxlength="5" placeholder="Phone Number" formControlName="phonenumber">
 											<md-hint align="end"></md-hint>
 										</md-input-container>
 									</div>
 									<div>
 										<i class="material-icons">favorite</i>
 										<md-input-container class="example-full-width">
-											<input mdInput placeholder="Interests">
+											<input mdInput placeholder="Interests" formControlName="favourite">
 												<md-hint align="end"></md-hint>
 											</md-input-container>
 										</div>
@@ -59,8 +65,8 @@
 											<!--<button  md-mini-fab color="primary" align="right">
 												<md-icon>send</md-icon>
 											</button>-->
-											 <button md-raised-button >cancel</button>
-											<button md-raised-button color="primary">save</button>
+											 <button md-raised-button (click)="reset()">cancel</button>
+											<button md-raised-button color="primary" (click)="onsubmit(profileForm)">save</button>
                                             
 										</div>
 									</form>
