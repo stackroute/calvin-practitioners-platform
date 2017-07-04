@@ -20,9 +20,9 @@
     <!--community text field-->
     <div fxLayout.md="column">
       <md-input-container>
-        <input mdInput placeholder="Community name" formControlName="communityName">
+        <input mdInput placeholder="Community name" formControlName="name">
         <md-hint align="start" class="full-width">
-          <div *ngIf="userForm.get('communityName').hasError('required') && userForm.get('communityName').touched">
+          <div *ngIf="userForm.get('name').hasError('required') && userForm.get('name').touched">
             Community Name is required
           </div>
         </md-hint>
@@ -45,13 +45,13 @@
     </md-input-container>
     <!--select core-activity-->
     <div fxLayout.md="column">
-      <md-select placeholder="Purpose" formControlName="Purpose">
+      <md-select placeholder="Purpose" formControlName="purpose">
         <md-option *ngFor="let core of uniquePurposeArry" [value]="core">
             {{core}}
         </md-option>
       </md-select>
       <md-hint align="start" >
-        <div *ngIf="userForm.get('Purpose').hasError('required') && userForm.get('Purpose').touched" class="errorStyle">
+        <div *ngIf="userForm.get('purpose').hasError('required') && userForm.get('purpose').touched" class="errorStyle">
           select any one purpose
         </div>
       </md-hint>
@@ -64,8 +64,13 @@
     <!--select tag container-->
     <div fxLayout.md="column">
       <md-input-container>
-        <input mdInput placeholder="Tag"  [(ngModel)]="tagname" (keyup.enter)="chipValue(tagname)"  formControlName="tags"  >
+        <input mdInput placeholder="select tag" [(ngModel)]="tagname" (keyup.enter)="chipValue(tagname)" [mdAutocomplete]="auto" [formControl]="tagCtrl">
       </md-input-container>
+      <md-autocomplete #auto="mdAutocomplete">
+        <md-option *ngFor="let tags of filteredtag | async" [value]="tags">
+            {{ tags }}
+        </md-option>
+      </md-autocomplete>
     </div>
     <md-chip-list>
       <div fxLayout.md="column" ng-disabled="!tag.value" *ngFor="let tag of tagarray" >
@@ -84,15 +89,6 @@
        [disabled]="!userForm.valid" >submit</button>
     </span>
 </form>
-<div fxLayout="column" fxFlex="10">
-<md-input-container>
-  <input mdInput placeholder="select tag" [mdAutocomplete]="auto" [formControl]="tagCtrl">
-</md-input-container>
-<md-autocomplete #auto="mdAutocomplete">
-  <md-option *ngFor="let tags of filteredtag | async" [value]="tags">
-    {{ tags }}
-  </md-option>
-</md-autocomplete>
-</div>
+<div fxLayout="column" fxFlex="10"></div>
 
 <router-outlet></router-outlet>

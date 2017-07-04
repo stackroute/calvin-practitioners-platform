@@ -8,9 +8,6 @@ router.use('/logout', (req, res) => {
   res.redirect('/');
 });
 
-router.use('/communitytemplates', require('./modules/communitytemplates'));
-
-
 router.use(require('./modules/authentication'));
 // Each Module to be placed after this
 
@@ -26,7 +23,7 @@ router.use('/activity', require('./modules/activity-page'));
 
 router.use('/communityRoles', require('./modules/communityRoles'));
 
-// router.use('/toolmarketplace', require('./modules/toolmarketplace'));
+router.use('/toolmarketplace', require('./modules/toolmarketplace'));
 
 router.use('/communityTools', require('./modules/communityTools'));
 
@@ -34,6 +31,7 @@ router.use('/community', require('./modules/members'));
 
 router.use('/community', require('./modules/tools'));
 
+router.use('/communitytemplates', require('./modules/communitytemplates'));
 
 module.exports = router;
 

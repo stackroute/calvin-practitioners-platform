@@ -13,6 +13,11 @@ export class CreateCommunityService {
         // return this._http.get('/api/v1/community').map(res => res.json());
     }
 
+    getuserinfo() {
+        const url = ' http://localhost:3000/api/v1/user/getinfo';
+        return this._http.get(url).map((response: Response) => response.json());
+    }
+
     postNewcommunityDetails(newCommunityObj, domainName) {
         // const headers = new Headers(
         //     {'Content-Type': 'application/json', 'Access-Control-Allow-Methods': ' POST ' });

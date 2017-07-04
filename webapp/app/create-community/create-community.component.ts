@@ -7,6 +7,7 @@ import 'rxjs/add/operator/map';
 import { TemplateBrowserComponent } from '../template-browser/template-browser.component';
 import { NewcommunityDialogboxComponent } from '../newcommunity-dialogbox/newcommunity-dialogbox.component';
 import { CreateCommunityService } from './create-community.service';
+import { AppBarService } from '../app-bar/app-bar.service';
 
 @Component({
   templateUrl: './create-community.component.html',
@@ -29,6 +30,9 @@ export class CreateCommunityComponent implements OnInit {
   tagCtrl: FormControl;
 
   filteredtag: any;
+  user;
+  uname;
+  flag;
 
   constructor(private fb: FormBuilder, private newcommunity: CreateCommunityService, public dialog: MdDialog, private router: Router) {
     this.createForm();
@@ -47,12 +51,12 @@ export class CreateCommunityComponent implements OnInit {
   createForm() {
     this.userForm = this.fb.group({
       domainName: ['', [Validators.required, Validators.pattern('[a-z.]{4,20}')]],
-      communityName: ['', Validators.required],
-      Purpose: ['', Validators.required],
+      name: ['', Validators.required],
+      purpose: ['', Validators.required],
       visibility: ['Public', Validators.required],
       description: [''],
       // template: ['md',Validators.required],
-      tags: ['', Validators.required],
+      // tagCtrl: ['', Validators.required],
       termscondition: ['', Validators.required]
     });
   }
@@ -66,7 +70,7 @@ export class CreateCommunityComponent implements OnInit {
   // bind text box value with chip
   chipValue(tag) {
     this.tagarray.push(tag);
-    console.log(this.tagarray);
+    // console.log(this.tagarray);
   }
 
   // deselect chip value
@@ -75,26 +79,27 @@ export class CreateCommunityComponent implements OnInit {
     this.tagarray = this.tagarray.filter(item => item !== tagvalue);
     console.log(this.tagarray);
   }
+
   // submit userForm values
   onsubmit(userdata: any) {
     const newCommunityObj = userdata.value;
-    newCommunityObj.template = this.value;
-    newCommunityObj.tags = this.tagarray;
-    // newCommunityObj.domainName;
-    // newCommunityObj.communityName;
-    // newCommunityObj.visibility;
-    // newCommunityObj.description;
-    // console.log(this.tagarray);
-    // console.log(newCommunityObj)
+    const purpose = newCommunityObj.purpose;
+    const name = newCommunityObj.name;
+    const termscondition = newCommunityObj.termscondition;
+    const visibility = newCommunityObj.visibility;
+    const description = newCommunityObj.description;
     const domainName = newCommunityObj.domainName;
-    console.log('communityPage', newCommunityObj);
-    // console.log('dominname',domainName);
-    this.newcommunity.postNewcommunityDetails(newCommunityObj, domainName).subscribe(
+    const template = newCommunityObj.template = this.value;
+    const tags = newCommunityObj.tags = this.tagarray;
+    const owner = newCommunityObj.owner = this.uname;
+    const newcommunityDetails = { purpose, name, visibility, description, template, tags, owner  };
+    console.log('new community details', newcommunityDetails);
+    console.log('domain name',domainName);
+    this.newcommunity.postNewcommunityDetails(newcommunityDetails, domainName).subscribe(
     (data) => console.log('Postdata'),
     error =>     this.reset(),
     () => this.openDialog(newCommunityObj));
-  } // console.log('communityPage', newCommunityObj);
-  // console.log('dominname',domainName);
+  }
 
   reset() {
     this.createForm();
@@ -116,5 +121,14 @@ export class CreateCommunityComponent implements OnInit {
   error => console.log(error),
   () => console.log('finished')
     );
+
+    this.newcommunity.getuserinfo()
+      .subscribe(res => {
+        this.user = res;
+        this.uname= res.username;
+        this.flag = 1;
+        return this.uname;
+      });
+
   }
 }
