@@ -8,7 +8,7 @@ router.use('/logout', (req, res) => {
   res.redirect('/');
 });
 
-router.use(require('./modules/authentication'));
+// router.use(require('./modules/authentication'));
 
 router.use('/community-details', require('./modules/community-details'));
 

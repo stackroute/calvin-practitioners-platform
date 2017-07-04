@@ -1,3 +1,39 @@
-<p>
-  add-tool works!
-</p>
+<md-card class="example-card">
+  <md-card-header>
+    <div md-card-avatar class="example-header-image"></div>
+    <md-card-title>
+      <h2>ADD TOOL</h2>
+    </md-card-title>
+  </md-card-header>
+  <md-card-content>
+    <form #addTool="ngForm" (ngSubmit)="registerTool(addTool)">
+      <md-input-container class="example-full-width" fxLayout="row">
+        <input mdInput name="toolid" placeholder="Tool ID" ngModel>
+      </md-input-container>
+      <md-input-container class="example-full-width" fxLayout="row">
+        <input mdInput name="toolname" placeholder="Tool Name" ngModel>
+      </md-input-container>
+      <md-input-container class="example-full-width" fxLayout="column" rows="2">
+        <textarea mdInput name="tooldesc" placeholder="Description" ngModel>Put Small Description of the tool</textarea>
+      </md-input-container>
+      <md-input-container class="example-full-width" fxLayout="row">
+        <input name="action" mdInput placeholder="Action" ngModel>
+      </md-input-container>
+      <md-input-container class="example-full-width" fxLayout="row">
+        <input name="grants" mdInput placeholder="Grants" ngModel>
+      </md-input-container>
+      <md-input-container class="example-full-width" fxLayout="row">
+        <input name="event" mdInput placeholder="EVENT NAME" ngModel>
+      </md-input-container>
+      <md-input-container class="example-full-width" fxLayout="row">
+        <input name="payload" mdInput placeholder="PAYLOAD" ngModel>
+      </md-input-container>
+      <md-input-container class="example-full-width" fxLayout="column" rows="2">
+        <textarea name="evdesc" mdInput placeholder="DESCRIPTION" ngModel>Nice Lil Description of event</textarea>
+      </md-input-container>
+      <button md-raised-button>Cancel</button>
+      <button md-raised-button color="primary" type="submit">Submit</button>
+    </form>
+  </md-card-content>
+
+</md-card>
