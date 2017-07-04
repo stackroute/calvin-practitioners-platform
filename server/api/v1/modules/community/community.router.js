@@ -27,7 +27,6 @@ router.post('/:domainName', (req, res) => {
   } catch (err) {
     return res.status(500).send({ error: 'Unexpected error occurred, try again later' });
   }
-  return 'passing';
 });
 
 module.exports = router;
