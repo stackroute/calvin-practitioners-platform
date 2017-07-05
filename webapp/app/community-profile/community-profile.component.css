@@ -5,6 +5,8 @@
 
         .community-profile{
 margin-top:0%;
+
+font-family: 'Open Sans', sans-serif;
         }        
 
         .sample{
@@ -47,6 +49,12 @@ font-style: italic;
 font-style: italic;
     }
 
+
+#heading{
+
+
+font-family: 'Open Sans', sans-serif;
+}
 /*
 @media(max-width:760px){
     .community-details-name 
@@ -115,7 +123,7 @@ font-style: italic;
 
 
 h1 {
-    font-size: 1rem;
+    font-size: 1.7rem;
 }
 
 @media (min-width: 400px) {

@@ -1,4 +1,4 @@
-.templateArea  {
+/*.templateArea  {
     float: left;
     overflow: hidden;
 }
@@ -17,7 +17,11 @@
 }
 
 /* Add a hover effect (gray shadow) */
-.cardContent :hover {
+/*.cardContent :hover {
     background-color: gray;
     color: white;
+}*/
+
+.tamplatePadding {
+    padding-top: 15px;
 }

@@ -1,10 +1,11 @@
+
 <div fxFlex="100" fxLayout="row" fxLayoutAlign="start stretch" fxLayoutWrap>
   <div fxFlex="10" fxLayout="column"></div>
     <form class="container" fxFlex="80" fxLayout="column" 
     fxFlexFill [formGroup]="userForm" (ngSubmit)="onsubmit(userForm)">
     <h3 class="md-headline">Create new community</h3>
     <!--domain name text field-->
-    <div fxLayout.md="column">
+    <div class="inputFields" fxLayout.md="column">
       <md-input-container>
         <input mdInput placeholder="Domain name" formControlName="domainName">
         <md-hint align="start" class="full-width">
@@ -18,7 +19,7 @@
       </md-input-container>
     </div>
     <!--community text field-->
-    <div fxLayout.md="column">
+    <div class="inputFields" fxLayout.md="column">
       <md-input-container>
         <input mdInput placeholder="Community name" formControlName="name">
         <md-hint align="start" class="full-width">
@@ -28,8 +29,19 @@
         </md-hint>
       </md-input-container>
     </div>
-    <!--choose visibitity mode-->
+    <!--Avatar-->
     <div fxLayout.md="column">
+      <md-input-container>
+        <input mdInput placeholder="Place Avatar" formControlName="avatar">
+        <!--<md-hint align="start" class="full-width">
+          <div *ngIf="userForm.get('avatar').hasError('required') && userForm.get('avatar').touched">
+            Community Name is required
+          </div>
+        </md-hint>-->
+      </md-input-container>
+    </div>
+    <!--choose visibitity mode-->
+    <div class="inputFields" fxLayout.md="column">
       <md-input-container>
         <input mdInput placeholder="Visibility" disabled>
         <md-radio-group name="visibility" formControlName="visibility">
@@ -40,12 +52,12 @@
       </md-input-container>
     </div>
     <!--get description from user using text-area -->
-    <md-input-container >
+    <md-input-container class="inputFields" >
       <textarea mdInput placeholder="Description" rows="2" formControlName="description"></textarea>
     </md-input-container>
     <!--select core-activity-->
-    <div fxLayout.md="column">
-      <md-select placeholder="Purpose" formControlName="purpose">
+    <div class="inputFields" fxLayout.md="column">
+      <md-select placeholder="Select Purpose" formControlName="purpose">
         <md-option *ngFor="let core of uniquePurposeArry" [value]="core">
             {{core}}
         </md-option>
@@ -57,20 +69,15 @@
       </md-hint>
     </div>
     <!--select template -->
-    <!--<div fxLayout.md="column">-->
+    <div class="inputFields" fxLayout.md="column">
     <calvin-template-browser (notify)="onselect($event)"  [template]="this.newcommunity.communityDetails" (onselect)="onselect($event)">
     </calvin-template-browser>
-    <!--</div>-->
+    </div>
     <!--select tag container-->
-    <div fxLayout.md="column">
+    <div class="inputFields" fxLayout.md="column">
       <md-input-container>
-        <input mdInput placeholder="select tag" [(ngModel)]="tagname" (keyup.enter)="chipValue(tagname)" [mdAutocomplete]="auto" [formControl]="tagCtrl">
+        <input mdInput placeholder="select tag" [(ngModel)]="tagname" (keyup.enter)="chipValue(tagname)" formControlName="tagCtrl">
       </md-input-container>
-      <md-autocomplete #auto="mdAutocomplete">
-        <md-option *ngFor="let tags of filteredtag | async" [value]="tags">
-            {{ tags }}
-        </md-option>
-      </md-autocomplete>
     </div>
     <md-chip-list>
       <div fxLayout.md="column" ng-disabled="!tag.value" *ngFor="let tag of tagarray" >
@@ -78,11 +85,11 @@
       </div>
     </md-chip-list>      
 <!--terms and condition-->
-    <div fxLayout.md="column">
+    <div class="inputFields" fxLayout.md="column">
       <md-checkbox color="primary" formControlName="termscondition">I agree!Terms and Condition.</md-checkbox>
     </div>
 <!--submit the form using raised button-->
-    <span fxLayout.md="row" fxLayoutAlign="end end" fxLayoutGap="10px" fxLayoutGap.md="0" >
+    <span  fxLayout.md="row" fxLayoutAlign="end end" fxLayoutGap="10px" fxLayoutGap.md="0" >
       <!--<button fxLayout.md="column"  fxFlex="10" md-raised-button (click)="routeToUserPage()" >cancel</button>-->
        <a md-raised-button routerLink="/app/Home">cancel</a>
       <button fxLayout.md="column" fxFlex="10" md-raised-button ng-value="submit" type="submit" color="primary"
