@@ -26,4 +26,4 @@ client.connect()
     client.shutdown();
   })
   .catch(
-     client.shutdown());
+client.shutdown());

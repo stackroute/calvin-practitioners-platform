@@ -41,6 +41,9 @@ import { ToolActions } from './community-tool-actions/community-tool-actions.ser
 import { InfiniteScrollModule } from 'angular2-infinite-scroll';
 import { ActivityService } from './activity-page/activity-page.service';
 import { CreateCommunityService } from './create-community/create-community.service';
+// import { GetCommunity } from './manage-community/manage-community.service';
+
+
 
 import { MarkdownModule } from 'angular2-markdown';
 
@@ -51,6 +54,8 @@ import { AddToolComponent,SucessDialog } from './add-tool/add-tool.component';
 import { NewcommunityDialogboxComponent } from './newcommunity-dialogbox/newcommunity-dialogbox.component';
 import { MemberInvitationComponent } from './member-invitation/member-invitation.component';
 import { ToolMarketPlaceComponent } from './tool-market-place/tool-market-place.component';
+import { MemberEditComponent } from './member-edit/member-edit.component';
+
 
 
 @NgModule({
@@ -82,7 +87,8 @@ import { ToolMarketPlaceComponent } from './tool-market-place/tool-market-place.
     NewcommunityDialogboxComponent,
     MemberInvitationComponent,
     ToolMarketPlaceComponent,
-    SucessDialog
+    SucessDialog,
+    MemberEditComponent
      ],
 
   imports: [
@@ -109,7 +115,9 @@ import { ToolMarketPlaceComponent } from './tool-market-place/tool-market-place.
     MdDialogModule,
     ReactiveFormsModule
   ],
-  entryComponents: [CommunityToolActionsComponent, NewcommunityDialogboxComponent, MemberInvitationComponent,SucessDialog],
+
+  entryComponents: [CommunityToolActionsComponent, NewcommunityDialogboxComponent, MemberInvitationComponent,SucessDialog,MemberEditComponent],
+
 
   providers: [RoleServices, ToolActions, ActivityService],
 

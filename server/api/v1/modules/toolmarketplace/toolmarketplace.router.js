@@ -45,7 +45,6 @@ router.post('/tool', (req, res) => {
   //     error: 'Internal server error..! Please try again later',
   //   });
   // }
-
  res.json({success:"tool added"});
 });
 
