@@ -15,9 +15,9 @@ export class NewcommunityDialogboxComponent implements OnInit {
 constructor(private router: Router) { }
 
 routeToManage() {
-    this.router.navigate(['/app/managecommunity']);
+    this.router.navigate(['/app/managecommunity/']);
   }
 
-ngOnInit() { }
+ngOnInit() {}
 
 }
