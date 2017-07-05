@@ -8,8 +8,8 @@ router.use('/logout', (req, res) => {
   res.redirect('/');
 });
 
-// router.use(require('./modules/authentication'));
-//Each Module to be placed after this
+router.use(require('./modules/authentication'));
+// Each Module to be placed after this
 
 router.use('/community-details', require('./modules/community-details'));
 
