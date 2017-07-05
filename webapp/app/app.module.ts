@@ -50,11 +50,12 @@ import { MarkdownModule } from 'angular2-markdown';
 import { CommunityMemberManagementComponent } from './community-member-management/community-member-management.component';
 
 import { ManageCommunityToolsComponent } from './manage-community-tools/manage-community-tools.component';
-import { AddToolComponent } from './add-tool/add-tool.component';
+import { AddToolComponent,SucessDialog } from './add-tool/add-tool.component';
 import { NewcommunityDialogboxComponent } from './newcommunity-dialogbox/newcommunity-dialogbox.component';
 import { MemberInvitationComponent } from './member-invitation/member-invitation.component';
 import { ToolMarketPlaceComponent } from './tool-market-place/tool-market-place.component';
 import { MemberEditComponent } from './member-edit/member-edit.component';
+import { ToolPageComponent } from './tool-page/tool-page.component';
 
 
 
@@ -87,10 +88,10 @@ import { MemberEditComponent } from './member-edit/member-edit.component';
     NewcommunityDialogboxComponent,
     MemberInvitationComponent,
     ToolMarketPlaceComponent,
-    MemberEditComponent
-
+    SucessDialog,
+    MemberEditComponent,
+    ToolPageComponent
      ],
-
 
   imports: [
     MarkdownModule,
@@ -116,7 +117,9 @@ import { MemberEditComponent } from './member-edit/member-edit.component';
     MdDialogModule,
     ReactiveFormsModule
   ],
-  entryComponents: [CommunityToolActionsComponent, NewcommunityDialogboxComponent, MemberInvitationComponent,MemberEditComponent],
+
+  entryComponents: [CommunityToolActionsComponent, NewcommunityDialogboxComponent, MemberInvitationComponent,SucessDialog,MemberEditComponent],
+
 
   providers: [RoleServices, ToolActions, ActivityService],
 
