@@ -9,9 +9,9 @@ router.get('/userCommunities', (req, res) => {
      res.status(201).send(successResult));
   } catch (error) {
    // Log the Error for internal use
-    res.send({
-      error: 'Failed to complete successfully, please check the request and try again..!',
-    });
+    // res.send({
+    //   error: 'Failed to complete successfully, please check the request and try again..!',
+    // });
   }
 });
 
