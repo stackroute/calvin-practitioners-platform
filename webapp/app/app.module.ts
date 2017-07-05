@@ -41,6 +41,9 @@ import { ToolActions } from './community-tool-actions/community-tool-actions.ser
 import { InfiniteScrollModule } from 'angular2-infinite-scroll';
 import { ActivityService } from './activity-page/activity-page.service';
 import { CreateCommunityService } from './create-community/create-community.service';
+// import { GetCommunity } from './manage-community/manage-community.service';
+
+
 
 import { MarkdownModule } from 'angular2-markdown';
 

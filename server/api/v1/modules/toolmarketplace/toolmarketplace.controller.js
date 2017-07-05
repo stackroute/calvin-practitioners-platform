@@ -1,9 +1,9 @@
-const toolservice = require('./toolmarketplace.service');
+// const toolservice = require('./toolmarketplace.service');
 
 
-function addTool(tool, done) {
-  toolservice.AddToolinMarketplace(tool, done);
-}
+// function addTool(tool, done) {
+//   toolservice.AddToolinMarketplace(tool, done);
+// }
 
 // function getTool() {
 //   toolservice.getTool(done);

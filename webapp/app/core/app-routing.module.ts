@@ -6,6 +6,7 @@ import { UserDashboardComponent } from '../user-dashboard/user-dashboard.compone
 import { UserProfileComponent } from '../user-profile/user-profile.component';
 import { CanDeactivateGuard } from './can-deactivate-guard.service';
 import { ManageCommunityComponent } from '../manage-community/manage-community.component';
+import { CommunityProfileComponent } from '../community-profile/community-profile.component';
 import { AppBarComponent } from '../app-bar/app-bar.component';
 import { CommunityRoleActionsComponent } from '../community-role-actions/community-role-actions.component';
 import { CommunityRoleManagementComponent } from '../community-role-management/community-role-management.component';
@@ -37,10 +38,11 @@ const routes: ModuleWithProviders = RouterModule.forRoot([
       { path: '', redirectTo: '/app/home', pathMatch: 'full' },
       { path: 'createCommunity', component: CreateCommunityComponent },
       { path: 'profile', component: UserProfileComponent },
-      { path: 'userCommunity/:string', component: CommunityDashboardComponent },
+      { path: 'userCommunity', component: CommunityDashboardComponent },
       { path: 'actions', component: CommunityRoleManagementComponent },
-      { path: 'communityDashBoard', component: CommunityDashboardComponent },
-      { path: 'managecommunity', component: ManageCommunityComponent },
+      { path: 'communityDashBoard/:domain', component: CommunityDashboardComponent },
+      { path: 'managecommunity/:domain', component: ManageCommunityComponent },
+      
       { path: 'activity', component: ActivityPageComponent },
       { path: 'members/:domain', component: CommunityMemberManagementComponent },
       { path: 'managetools', component: ManageCommunityToolsComponent},

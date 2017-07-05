@@ -4,7 +4,7 @@ const BASE_COMMUNITY_SERVICE_URL = 'http://calvin-communities.blr.stackroute.in/
 
 function postMemberInvite(domain, callback) {
   const url = `${BASE_COMMUNITY_SERVICE_URL} /memberrequests/${domain}`;
-  request.get(url)  
+  request.get(url)
   .end((err, res) => {
     if (err) {
       return callback(err);
