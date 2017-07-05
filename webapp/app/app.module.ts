@@ -53,6 +53,7 @@ import { MemberInvitationComponent } from './member-invitation/member-invitation
 import { ToolMarketPlaceComponent } from './tool-market-place/tool-market-place.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -82,6 +83,7 @@ import { ToolMarketPlaceComponent } from './tool-market-place/tool-market-place.
     NewcommunityDialogboxComponent,
     MemberInvitationComponent,
     ToolMarketPlaceComponent
+
      ],
 
 

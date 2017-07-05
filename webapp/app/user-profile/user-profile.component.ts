@@ -16,26 +16,29 @@ export class UserProfileComponent implements OnInit {
 
  createprofile() {
   this.profileForm = this.fb.group({
-   firstname: ['', [Validators.required, Validators.pattern('[a-z.]')]],
-   email: ['', Validators.required],
-   phonenumber: ['', Validators.required,
-    Validators.minLength(10)
-   ]
+   firstname: ['', [Validators.required, Validators.pattern('[a-z]')]],
+   email: ['', [Validators.required,Validators.pattern('[^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$]')]],
+   phonenumber: ['', [Validators.required,Validators.minLength(10)]],
+    location: [''],
+    favourite: ['']
   });
  }
- //  onsubmit(userdata: any) {
- //     const values = userdata.value;
- //     const firstname = values.firstname;
- //     const email = values.email;
- //     const phonenumber = values.phonenumber;
- //     const location = values.location;
- //     const interest = values.interest;
+  onsubmit(userdata: any) {
+     const values = userdata.value;
+     const firstname = values.firstname;
+     const email = values.email;
+     const phonenumber = values.phonenumber;
+     const location = values.location;
+     const interest = values.interest;
 
 
- //           const value = { firstname,email,phonenumber,location,interest };
- //           console.log(value);
+           const value = { firstname,email,phonenumber,location,interest };
+           console.log(value);
 
- // }
+ }
+ reset(){
+   this.createprofile();
+ }
  ngOnInit() {
   // console.log('1.hi');
   this.value.getuserinfo()
