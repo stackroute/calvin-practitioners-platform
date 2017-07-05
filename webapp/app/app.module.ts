@@ -55,6 +55,7 @@ import { NewcommunityDialogboxComponent } from './newcommunity-dialogbox/newcomm
 import { MemberInvitationComponent } from './member-invitation/member-invitation.component';
 import { ToolMarketPlaceComponent } from './tool-market-place/tool-market-place.component';
 import { MemberEditComponent } from './member-edit/member-edit.component';
+import { ToolPageComponent } from './tool-page/tool-page.component';
 
 
 
@@ -88,7 +89,8 @@ import { MemberEditComponent } from './member-edit/member-edit.component';
     MemberInvitationComponent,
     ToolMarketPlaceComponent,
     SucessDialog,
-    MemberEditComponent
+    MemberEditComponent,
+    ToolPageComponent
      ],
 
   imports: [

@@ -6,7 +6,7 @@ const client = new cassandra.Client({
     keyspace: config.dbconfig.keyspacename,
 });
 
-const TABLE_NAME = 'testers';
+const TABLE_NAME = 'tooltest';
 
 
 // this function is to check if tool is already present in DB
@@ -28,11 +28,21 @@ function checkIfToolExists(toolid, done) {
 
 function addToolinDB(tool, done) {
 
-    console.log('toolaction',tool.toolAction);
-    console.log('tool event',tool.toolEvent);
-    const insertQry = `INSERT into tools (toolid,toolname,toolactions,toolevents)
-                     VALUES(:toolid,:toolname,:toolAction,:toolEvent);`;
-    client.execute(insertQry, tool, (err) => {
+    // console.log('toolaction',tool.toolAction);
+    // console.log('tool event',tool.toolEvent);
+    let toolte={
+        id:tool.toolid,
+        name:tool.toolname,
+        avatar: tool.toolavatar,
+        detail: tool.tooldesc
+    };
+
+    console.log(typeof toolte.desc);
+    console.log(toolte);
+
+   const insertQry = ` INSERT INTO ${TABLE_NAME} (toolid,toolname,toolavatar,tooldesc) VALUES(:id,:name,:avatar,:detail);`;
+
+    client.execute(insertQry, toolte, (err) => {
         if (err) {
             console.log('err',err);
             return done(err);
@@ -60,7 +70,7 @@ function AddToolinMarketplace(tool, done) {
                 if (err) {
                     return done(err, 'db error');
                 }
-                done(nul, ' Tool added');
+                done(null, ' Tool added');
             });
         }
     })) {

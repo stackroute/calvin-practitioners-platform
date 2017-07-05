@@ -14,6 +14,9 @@
       <md-input-container class="example-full-width" fxLayout="row">
         <input mdInput name="toolname" placeholder="Tool Name" [(ngModel)]="toolname">
       </md-input-container>
+      <md-input-container class="example-full-width" fxLayout="row">
+        <input mdInput name="toolavatar" placeholder="Tool Avatar URL" [(ngModel)]="toolavatar">
+      </md-input-container>
       <md-input-container class="example-full-width" fxLayout="column" rows="2">
         <textarea mdInput name="tooldesc" placeholder="Description" [(ngModel)]="tooldesc">Put Small Description of the tool</textarea>
       </md-input-container>
@@ -84,7 +87,7 @@
         </md-input-container>
       </div>
       <div>
-        <md-checkbox>I Agree To The Terms and Conditions!</md-checkbox>
+        <md-checkbox name="toc" [(ngModel)]="toc">I Agree To The Terms and Conditions!</md-checkbox>
       </div>
       <!-- Cancel Button-->
        <a md-raised-button routerLink="/app/home">Cancel</a>
