@@ -1,3 +1,5 @@
+const memberControler = require('../members/members.controller');
+
 const arr = {
   Tools: [
     {
@@ -10,7 +12,7 @@ const arr = {
         url: 'http://calvin.com/community/sports.cricket.sachin.fans',
       },
       member: {
-        username: 'nitin_godfather3423@gmail.com',
+        username: 'Himani',
         name: 'Nitin Joshi',
         avatar: 'https://www.tm-town.com/assets/default_male300x300-aae6ae0235b6cd78cee8df7ae19f6085.png',
       },
@@ -54,7 +56,7 @@ const arr = {
         url: 'http://calvin.com/community/sports.cricket.sachin.fans',
       },
       member: {
-        username: 'rajipalanisamy246@gmail.com',
+        username: 'Nelanjan',
         name: 'Rajeshwari',
         avatar: 'http://shaebaxter.com/wp-content/uploads/2012/07/is-your-web-copy-boring.jpg',
       },
@@ -312,12 +314,31 @@ const arr = {
   ],
 };
 
+const tempStorage = { 
+  'memberDetails':[]
+}
 
 function retrieveAllPosters(req, res) {
+  retrieveMemberDetails();
   res.json(arr);
 }
+
+function retrieveMemberDetails (){
+  let i = 0;
+  while(i < arr.Tools.length){
+    memberControler.getMembersDetails(arr.Tools[i].member.username, (err, res) => {
+      if(res){
+        tempStorage['memberDetails'].push(res)
+      }
+    });
+    i++;
+  }
+  console.log(tempStorage)
+}
+
 
 module.exports =
 {
   retrieveAllPosters,
+  retrieveMemberDetails,
 };
