@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { AddToolService } from './add-tool.service';
+import { MdDialog } from '@angular/material';
 @Component({
   selector: 'calvin-add-tool',
   templateUrl: './add-tool.component.html',
@@ -23,7 +24,7 @@ export class AddToolComponent implements OnInit {
   actionFlag = 0;
   eventFlag = 0;
 
-  constructor(private addtoolservice: AddToolService) { }
+  constructor(private addtoolservice: AddToolService,private dialog: MdDialog) { }
 
   ngOnInit() {
 
@@ -37,6 +38,8 @@ export class AddToolComponent implements OnInit {
     };
     this.actions.push(obj);
     this.actionFlag = 1;
+    this.toolaction='';
+    this.toolgrants='';
   }
  // this function is to reset the action fileds
   enableAction() {
@@ -45,16 +48,18 @@ export class AddToolComponent implements OnInit {
     this.actionFlag = 0;
   }
 // this function is to remove seleccted action from list
-  remAction() {
-    alert(this.toolaction);
-    this.actions = this.actions.filter(item => item.name !== this.toolaction);
+  remAction(actionname) {
+    // alert(this.toolaction);
+
+    this.actions = this.actions.filter(item => item.name !== actionname);
     console.log(this.actions);
+    if(this.actions.length===0) {
     this.enableAction();
+    }
   }
 
 // this function is to add each tool event in arrays
   addEvent() {
-    // alert('called:'+this.tooleventname+this.eventpayload+this.eventDesc);
     let obj = {
       name: this.tooleventname.toUpperCase(),
       payload: this.eventpayload.toUpperCase(),
@@ -63,14 +68,19 @@ export class AddToolComponent implements OnInit {
     this.events.push(obj);
     this.eventFlag = 1;
     // alert(this.events);
+    this.tooleventname='';
+    this.eventDesc='';
+    this.eventpayload='';
   }
 
-  // this function is to remove slected event from the list
-  remEvent() {
+  // this function is to remove selected event from the list
+  remEvent(eventname) {
     alert(this.tooleventname);
-    this.events = this.events.filter(item => item.name !== this.tooleventname);
+    this.events = this.events.filter(item => item.name !==eventname);
     console.log(this.actions);
+    if(this.events.length===0) {
     this.enableEvent();
+    }
   }
 
 // this function is to reset the event fields
@@ -83,7 +93,6 @@ export class AddToolComponent implements OnInit {
 
 // this function is to register the tool 
   registerTool(form: NgForm) {
-    alert('called');
     console.log(form.value);
     let toolobj= {
       toolid:this.toolid.toUpperCase(),
@@ -93,14 +102,25 @@ export class AddToolComponent implements OnInit {
       toolEvent: this.events
     };
 
-    console.log(toolobj);
-    //  
-    // {email: l 
-    // '...', password: '...'}
-    // ... <-- now use JSON.stringify() to convert form values to json.
-    //...  <-- now
+    // console.log(toolobj);
+   
     this.addtoolservice.addTool(toolobj).subscribe(result => {
-
-    });
+       console.log('inside add tool response');
+      // RESETTING FIELDS after successfully adding tool
+       this.events=[];
+       this.actions=[];
+       this.actionFlag=0;
+       this.eventFlag=0;
+      // alert('data'+result);
+       this.dialog.open(SucessDialog); // opening Dialogue to show success message
+    })
+     form.reset();
   }
 }
+
+@Component({
+  selector: 'sucsess-dialog',
+  templateUrl: 'success-dialog.html',
+})
+export class SucessDialog {}
+

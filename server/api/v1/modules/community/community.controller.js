@@ -5,8 +5,13 @@ const BASE_COMMUNITY_SERVICE_URL = 'http://calvin-communities.blr.stackroute.in/
 
 const communityservice = require('./community.service');
 
-function getUserCommunity(req, res) {
-  communityservice.getAllUserCommunities(req, res);
+function getUserCommunity(req, done) {
+  communityservice.getAllUserCommunities((err, res) =>{
+    if (err) {
+      return done(err);
+    }
+    return done(null, res);
+  });
 }
 
 // post new community data

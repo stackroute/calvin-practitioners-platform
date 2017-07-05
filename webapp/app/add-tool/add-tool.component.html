@@ -29,7 +29,7 @@
             <tr *ngFor="let action of actions" fxLayout="row">
               <td>{{action.name}}</td>
               <td> {{action.grants}} </td>
-              <td> <i class="material-icons" (click)="remAction()">remove_circle</i> </td>
+              <td> <i class="material-icons" (click)="remAction(action.name)">remove_circle</i> </td>
             </tr>
           <!--</div>-->
         </table>
@@ -61,7 +61,7 @@
             <tr *ngFor="let event of events" fxLayout="row">
               <td>{{event.name}}</td>
               <td> {{event.payload}} </td>
-              <td> {{event.description}} <i class="material-icons" (click)="remEvent()">remove_circle</i></td>
+              <td> {{event.description}} <i class="material-icons" (click)="remEvent(event.name)">remove_circle</i></td>
             </tr>
         </table>
       </div>

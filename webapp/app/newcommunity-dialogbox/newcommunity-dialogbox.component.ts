@@ -26,7 +26,7 @@ constructor(
   // console.log("Data in the dialog is: ", this.dialogRef._containerInstance.dialogConfig.data);
  }
 
-routeToManage() {
+ routeToManage() {
     this.router.navigate([`/app/managecommunity/${this.domainName}`]);
   }
 

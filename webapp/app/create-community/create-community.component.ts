@@ -36,10 +36,10 @@ export class CreateCommunityComponent implements OnInit {
   tagCtrl: FormControl;
 
   constructor(
-    private fb: FormBuilder, 
-    private newcommunity: CreateCommunityService, 
-    public dialog: MdDialog, 
-    private router: Router) {
+  private fb: FormBuilder, 
+  private newcommunity: CreateCommunityService, 
+  public dialog: MdDialog, 
+  private router: Router) {
     this.createForm();    
   }
 
@@ -111,23 +111,22 @@ export class CreateCommunityComponent implements OnInit {
     this.newcommunity.getTemplates()
     .subscribe(
     data => { this.newcommunity.communityDetails = data;
-    console.log('JSON value', data);
-    const purposeList = [new Set(data.map( item => item.purpose))];
-    const myArray = Array.from(purposeList);
-    this.uniquePurposeArry =  Array.from(myArray[0]);
-  },
-  error => console.log(error),
-  () => console.log('finished')
+      console.log('JSON value', data);
+      const purposeList = [new Set(data.map( item => item.purpose))];
+      const myArray = Array.from(purposeList);
+      this.uniquePurposeArry =  Array.from(myArray[0]);
+    },
+    error => console.log(error),
+    () => console.log('finished')
     );
 
-  // get the owner name
+    // get the owner name
     this.newcommunity.getuserinfo()
-      .subscribe(res => {
-        this.user = res;
-        this.uname= res.username;
-        this.flag = 1;
-        return this.uname;
-      });
-
+    .subscribe(res => {
+      this.user = res;
+      this.uname= res.username;
+      this.flag = 1;
+      return this.uname;
+    });
   }
 }
