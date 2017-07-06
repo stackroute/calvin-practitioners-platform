@@ -3,10 +3,37 @@
 
 <!--collect activity cards for display activity page-->
 
-<div class="activity-board item item-3" fxLayout="rows">
-  <div *ngIf="tools" fxFlex="100%"  fxLayoutGap="2%" fxLayoutWrap >
-      <div class="list-activities" fxFlex="31%" *ngFor="let sample of tools" fx-flex-fill >
+<!--<div class="activity-board item item-3" fxLayout="rows">
+  <div class="activityAlgin" *ngIf="tools" fxFlex="100%"  fxLayoutGap="2%"  fxLayout="rows" >
+      <md-card class="list-activities" fxFlex="31%" fxLayout="rows"   align="start" *ngFor="let sample of tools" >
         <calvin-activity-card  [activity]="sample"></calvin-activity-card>
+      </md-card>
+  </div>
+</div>-->
+
+
+<div class="activity-board item item-3" fxLayout="rows">
+  <div *ngIf="tools" fxFlex="100%" fxlayout="column"  fxLayoutGap="2%" fxLayoutWrap>
+    <div fxFlex="48%">
+      <md-card fxFlex="100%">
+        <h2>Activity Logs</h2>
+      </md-card>
+      <div class="list-activities" fxFlex="100%" fxlayout="column" *ngFor="let sample of tools; let i = index;">
+        <div *ngIf="(i % 2) == 0">
+          <calvin-activity-card  [activity]="sample"></calvin-activity-card>
+        </div>        
+      </div>      
+    </div>
+    <div fxFlex="48%">
+      <div class="list-activities" fxFlex="100%" fxlayout="column" *ngFor="let sample of tools; let i = index;">
+        <div *ngIf="(i % 2) != 0">
+          <calvin-activity-card  [activity]="sample"></calvin-activity-card>
+        </div>        
       </div>
+    </div>
   </div>
 </div>
+
+
+
+

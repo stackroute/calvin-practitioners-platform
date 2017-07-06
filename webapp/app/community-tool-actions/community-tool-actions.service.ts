@@ -14,13 +14,12 @@ export class ToolActions {
     return this.http.get(url).map(res => res.json());
   }
 
- updateTools(data)
-  {
-    let headers = new Headers({ 'Content-Type': 'application/json;charset=utf-8' });
-        let options = new RequestOptions({ headers: headers });
-        let body=JSON.stringify(data);
-        let url = "http://localhost:3000";
-        return this.http.patch(url,body,headers).map(res=>res.json());
+ updateTools(data) {
+    const headers = new Headers({ 'Content-Type': 'application/json;charset=utf-8' });
+        const options = new RequestOptions({ headers: headers });
+        const body = JSON.stringify(data);
+        const url = 'http://localhost:3000';
+        return this.http.patch(url, body, headers).map(res => res.json());
   }
 
 }

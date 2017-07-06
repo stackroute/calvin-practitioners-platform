@@ -12,6 +12,7 @@ router.get('/members', (req, res) => {
       } else {
         return res.status(200).send(result);
       }
+
       return true;
     });
   } catch (err) {

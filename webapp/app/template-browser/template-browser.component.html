@@ -1,17 +1,35 @@
-<md-card class="templateArea">
+<!--<md-card class="templateArea">
   <md-card-title class="cardTitle"><h4>Template</h4></md-card-title>
   <div class="content"  >
-    <md-card-content fxFlex="20" >
-     <md-list *ngFor="let core of template" (click)="selectcore(core.purpose)" class="listTemplateItem">
-       <span><md-list-item>Name: {{core.name}}</md-list-item></span>
-       <span><md-list-item>Description: {{core.description}}</md-list-item></span>
-      <span><md-list-item >Tools: </md-list-item>
-      <md-list-item *ngFor="let tool of core.tools">
-        <ul><li>{{tool.toolId}}</li></ul>
-          </md-list-item></span>  
-      <span> <md-list-item *ngFor="let role of core.roleActions">Role: {{role.role}}</md-list-item></span>      
+    <md-card-content fxFlex="20" class="cardContent">
+     <md-list *ngFor="let core of template" (click)="selectcore(core.name)" class="listTemplateItem">
+       <span>
+         <md-list-item>Templatename: {{core.name}}</md-list-item>
+       </span>
+       <span>
+         <markdown><md-list-item>Description: {{core.description}}</md-list-item></markdown>
+      </span>
+      <span>
+        <md-list-item >Tools: </md-list-item>
+        <md-list-item *ngFor="let tool of core.tools">
+        <ul>
+          <li>{{tool.toolId}}</li>
+        </ul>
+        </md-list-item>
+      </span>  
+      <span>
+        <md-list-item *ngFor="let role of core.roleActions">Role: {{role.role}}</md-list-item>
+      </span>      
       </md-list>
     </md-card-content>
   </div>
-</md-card>
+</md-card>-->
 
+
+<div class="tamplatePadding" fxLayout.md="column">
+      <md-select placeholder="Select Template" >
+        <md-option *ngFor="let core of template" (click)="selectcore(core.name)" [value]="core.name">
+            {{core.name}}
+        </md-option>
+      </md-select>
+</div>

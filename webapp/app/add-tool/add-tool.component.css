@@ -1,0 +1,20 @@
+.tools{
+
+  margin-top: 80px;
+
+}
+table {
+    /*border-collapse: collapse;*/
+    width: 100%;
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;
+    width: 100%;
+}
+
+th {
+    background-color: #00A3AF;
+    color: white;
+}

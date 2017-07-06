@@ -1,14 +1,4 @@
-/*.cardTitle {
-    float: left;
-    overflow: hidden;
-    height: 100%;
-}*/
-
-.titleTemplate {
-    height: 100%;
-}
-
-.templateArea {
+/*.templateArea  {
     float: left;
     overflow: hidden;
 }
@@ -16,23 +6,22 @@
 .content {
     height: 300px;
     overflow-y: auto;
-    /*font-size: 13px;*/
 }
 
-/*.content::-webkit-scrollbar {
-   display: none;
-}*/
 .listTemplateItem {
-    border-bottom: 1.5px solid gray;
-    font-size: 13px;
-    padding: 2px;
-    text-decoration-style: none;    
+    border: 1px solid #ddd; 
+    border-radius: 4px; 
+    height: 100%;
+    width: 100%;   
+    display: inline-block;
 }
 
-.listTemplateItem :hover {
-   color:red;
-}
-.descFontStyle {
-    font-size: 10px;
-}
+/* Add a hover effect (gray shadow) */
+/*.cardContent :hover {
+    background-color: gray;
+    color: white;
+}*/
 
+.tamplatePadding {
+    padding-top: 15px;
+}

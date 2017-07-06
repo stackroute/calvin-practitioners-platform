@@ -1,3 +1,5 @@
+const memberControler = require('../members/members.controller');
+
 const arr = {
   Tools: [
     {
@@ -10,8 +12,8 @@ const arr = {
         url: 'http://calvin.com/community/sports.cricket.sachin.fans',
       },
       member: {
-        username: 'nitin_godfather3423@gmail.com',
-        name: 'Rajeshwari',
+        username: 'Himani',
+        name: 'Nitin Joshi',
         avatar: 'https://www.tm-town.com/assets/default_male300x300-aae6ae0235b6cd78cee8df7ae19f6085.png',
       },
       tool: {
@@ -20,7 +22,8 @@ const arr = {
         avatar: 'https://cdn3.iconfinder.com/data/icons/ultimate-social/150/36_quora-256.png',
         baseurl: ' http://quora.com',
       },
-      activity: {        eventType: 'new_question',
+      activity: {
+        eventType: 'new_question',
         actionUrl: 'https://www.quora.com/',
       },
       message: {
@@ -53,7 +56,7 @@ const arr = {
         url: 'http://calvin.com/community/sports.cricket.sachin.fans',
       },
       member: {
-        username: 'rajipalanisamy246@gmail.com',
+        username: 'Nelanjan',
         name: 'Rajeshwari',
         avatar: 'http://shaebaxter.com/wp-content/uploads/2012/07/is-your-web-copy-boring.jpg',
       },
@@ -310,6 +313,10 @@ const arr = {
     },
   ],
 };
+const tempStorage = {
+  memberDetails: [],
+};
+
 // function retrieveAllPosters(req, res) {
 //   const memberName = req.params.membername;
 //   let comunities=req.query.communities;
@@ -317,7 +324,8 @@ const arr = {
 //   const order=req.query.order;
 //   const limit=req.query.limit;
 //   const page=req.query.page;
-//   console.log('memberName: ', memberName, '\n', 'communities: ', comunities, '\n', 'sort: ', sort,'\n', 'order: ', order, '\n',limit, 'limit: ', '\n','page: ', page, '\n');
+//   console.log('memberName: ', memberName, '\n', 'communities: ', comunities, '\n', 'sort: ',
+// sort,'\n', 'order: ', order, '\n',limit, 'limit: ', '\n','page: ', page, '\n');
 //   const newArr= arr["Tools"].filter(data => data.member.name === memberName);
 //   comunities.forEach((element) => {
 //   (newArr.filter(data => data.community.domain === element));
@@ -332,8 +340,8 @@ const arr = {
 // }
 
 function getAllCommunitiesOfMember(memberName) {
+  retrieveMemberDetails();
   const allCommunities = arr.Tools;
-
   memberFilteredArray = allCommunities.filter((community) => {
     return community.member.name === memberName;
   });
@@ -342,21 +350,42 @@ function getAllCommunitiesOfMember(memberName) {
 }
 
 function filterMemberCommunities(memberName, communityNames) {
-
   getAllCommunitiesOfMember(memberName);
   communityNames = communityNames.split(',');
-
   memberCommunityFilteredArray = memberFilteredArray.filter((community) => {
     return communityNames.indexOf(community.community.domain) > -1;
   });
-
   return memberCommunityFilteredArray;
 }
-function getLimitOfPages(limit){
-return limit;
+
+function getLimitOfPages(limit) {
+  return limit;
 }
-module.exports = {
+
+// function retrieveAllPosters(req, res) {
+//   retrieveMemberDetails();
+//   res.json(arr);
+// }
+
+function retrieveMemberDetails() {
+  let i = 0;
+  while (i < arr.Tools.length) {
+    memberControler.getMembersDetails(arr.Tools[i].member.username, (err, res) => {
+      if (res) {
+        tempStorage['memberDetails'].push(res);
+      }
+    });
+    i++;
+  }
+  console.log(tempStorage);
+}
+
+
+module.exports =
+{
   filterMemberCommunities,
+  // retrieveAllPosters,
   getAllCommunitiesOfMember,
-  getLimitOfPages
+  getLimitOfPages,
+  retrieveMemberDetails,
 };

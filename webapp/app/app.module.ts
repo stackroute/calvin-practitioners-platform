@@ -41,15 +41,22 @@ import { ToolActions } from './community-tool-actions/community-tool-actions.ser
 import { InfiniteScrollModule } from 'angular2-infinite-scroll';
 import { ActivityService } from './activity-page/activity-page.service';
 import { CreateCommunityService } from './create-community/create-community.service';
+// import { GetCommunity } from './manage-community/manage-community.service';
+
+
 
 import { MarkdownModule } from 'angular2-markdown';
 
 import { CommunityMemberManagementComponent } from './community-member-management/community-member-management.component';
 
 import { ManageCommunityToolsComponent } from './manage-community-tools/manage-community-tools.component';
-import { AddToolComponent } from './add-tool/add-tool.component';
+import { AddToolComponent,SucessDialog } from './add-tool/add-tool.component';
 import { NewcommunityDialogboxComponent } from './newcommunity-dialogbox/newcommunity-dialogbox.component';
 import { MemberInvitationComponent } from './member-invitation/member-invitation.component';
+import { ToolMarketPlaceComponent } from './tool-market-place/tool-market-place.component';
+import { MemberEditComponent } from './member-edit/member-edit.component';
+import { ToolPageComponent } from './tool-page/tool-page.component';
+
 
 
 @NgModule({
@@ -79,9 +86,12 @@ import { MemberInvitationComponent } from './member-invitation/member-invitation
     ManageCommunityToolsComponent,
     AddToolComponent,
     NewcommunityDialogboxComponent,
-    MemberInvitationComponent
+    MemberInvitationComponent,
+    ToolMarketPlaceComponent,
+    SucessDialog,
+    MemberEditComponent,
+    ToolPageComponent
      ],
-
 
   imports: [
     MarkdownModule,
@@ -107,7 +117,9 @@ import { MemberInvitationComponent } from './member-invitation/member-invitation
     MdDialogModule,
     ReactiveFormsModule
   ],
-  entryComponents: [CommunityToolActionsComponent, NewcommunityDialogboxComponent, MemberInvitationComponent],
+
+  entryComponents: [CommunityToolActionsComponent, NewcommunityDialogboxComponent, MemberInvitationComponent,SucessDialog,MemberEditComponent],
+
 
   providers: [RoleServices, ToolActions, ActivityService],
 

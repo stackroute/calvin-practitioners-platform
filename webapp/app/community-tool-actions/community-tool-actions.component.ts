@@ -10,7 +10,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 export class CommunityToolActionsComponent implements OnInit {
  selected = [];
  getresults = [];
- domain='medical';
+ domain = 'medical';
  checkBoxValue: boolean = false;
  sample = [];
 

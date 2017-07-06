@@ -11,11 +11,13 @@
          <a md-list-item routerLink="/app/">Home</a>
          <a md-list-item routerLink="/app/communityDashBoard">Communities</a>
          <a md-list-item routerLink="/app/createCommunity">New Community</a>
+          <a md-list-item routerLink="/app/toolhome">Tool Market Place</a>
+           <a md-list-item routerLink="/app/addtool">Add Tool</a>
       </md-nav-list>
       <hr>
    </md-sidenav>
    <div class="header" >
-<md-toolbar class="app-toolbar mat-primary mat-toolbar" color="primary" role="toolbar">
+<md-toolbar class="mat-primary" color="primary" role="toolbar">
 <button class="hamburger mat-button" md-button="" (click)="start.open()" title="Docs menu">
   <span class="mat-button-wrapper">
    <md-icon>menu</md-icon>
@@ -28,7 +30,6 @@
         <strong> CALVIN</strong>      
     </a>
   </div>
-
   <div fxFlex="40%" fxLayout="row" class="searchAlgin">
     <input mdInput aria-label="search" fxFlex="100%" placeholder="Search" type="search" fxLayout="column" dividerColor="accent">
     <i class="material-icons searchBtn"  fxLayout="column">search</i>

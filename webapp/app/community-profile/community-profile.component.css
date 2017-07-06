@@ -5,6 +5,8 @@
 
         .community-profile{
 margin-top:0%;
+
+font-family: 'Open Sans', sans-serif;
         }        
 
         .sample{
@@ -14,32 +16,46 @@ margin-top:0%;
 
        .community-image img{
 
-           width:400%;
-           height:120%;
-           margin-top: 40%;
-           margin-left:280%;
+           width:37%;
+           height:170%;
+           margin-top: 10%;
+           margin-left:12%;;
        }
 .tags{
 
     margin-top: 10%;
     margin-left:80%;
 }
-.community-details-name{
+.community-details-name h5{
 
-     margin-left:22%;
-    margin-top:10%;
+     margin-right: 38%;
+     margin-top:12%;
+    
 }
-.community-details{
- margin-left:12%;
+.community-details {
+ margin-right: 28%;
 
-}
 
-.try1{
 
-margin-left:38%;
 }
 
+.members{
 
+margin-left:46%;
+font-style: italic;
+}
+
+.tools{
+font-style: italic;
+    }
+
+
+#heading{
+
+
+font-family: 'Open Sans', sans-serif;
+}
+/*
 @media(max-width:760px){
     .community-details-name 
     {
@@ -95,5 +111,41 @@ margin-left:38%;
    .community-details
     {
         font-size: 10px;
+    }
+}
+
+#heading{
+
+    font-family: 'Open Sans', sans-serif;
+}*/
+
+
+
+
+h1 {
+    font-size: 1.7rem;
+}
+
+@media (min-width: 400px) {
+    h1 {
+        font-size: 1.3rem;
+    }
+}
+
+@media (min-width: 600px) {
+    h1 {
+        font-size: 1.6rem;
+    }
+}
+
+@media (min-width: 800px) {
+    h1 {
+        font-size: 1.9rem;
+    }
+}
+
+@media (min-width: 1000px) {
+    h1 {
+        font-size: 2.2rem;
     }
 }

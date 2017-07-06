@@ -11,13 +11,13 @@ const cartoons = {
     },
     {
       username: 'Keerthi',
-      domain: 'Wipro',
+      domain: 'ewewewe',
       role: 'Digital-Developer',
       photo: 'https://pbs.twimg.com/profile_images/735509975649378305/B81JwLT7.jpg',
     },
     {
       username: 'Aswini',
-      domain: 'Wipro',
+      domain: 'ewewe',
       role: 'Digital-Developer',
       photo: 'https://pbs.twimg.com/profile_images/735509975649378305/B81JwLT7.jpg',
     },
@@ -71,9 +71,28 @@ const cartoons = {
     },
   ],
 };
+
 function getMembers(member, done) {
   return done(null, cartoons);
 }
+
+function getMembersDetails(member, done) {
+  let i = 0;
+  while(i < cartoons.Members.length){
+    if (member === cartoons.Members[i].username){
+      const decoratedMember = {
+        username: cartoons.Members[i].username,
+        name: cartoons.Members[i].domain,
+        avatar: cartoons.Members[i].photo
+      }
+      return done(null, decoratedMember);
+    }    
+    i++;
+  }
+  return done('Username not present', null);
+}
+
 module.exports = {
   getMembers,
+  getMembersDetails
 };
