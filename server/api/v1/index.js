@@ -2,6 +2,7 @@ const router = require('express').Router();
 const config = require('./modules/common/config');
 
 router.use('/login', require('./modules/login'));
+// router.use('/memberactivitypage', require('./modules/activity-page'));
 
 router.use('/logout', (req, res) => {
   res.clearCookie(config.cookie.name);
@@ -18,7 +19,7 @@ router.use('/community', require('./modules/community'));
 
 router.use('/user', require('./modules/user'));
 
-router.use('/activity', require('./modules/activity-page'));
+router.use('/memberactivitypage', require('./modules/activity-page'));
 
 router.use('/community', require('./modules/community'));
 
