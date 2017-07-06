@@ -25,12 +25,13 @@ const toolCtrl = require('./toolmarketplace.controller');
 
 
 router.post('/tool', (req, res) => {
- // console.log(' printing body :', req.body);
-  const tool = req.body;
+
+console.log(" printing body :",req.body);
+const tool=req.body;
   try {
-    toolCtrl.addTool(tool, (err) => {
+    toolCtrl.addTool(tool, (err, result) => {
       if (err) {
-        // console.log('error occured');
+        console.log('error occured');
         res.status(500).json({
           error: 'unable to add tool in Calvin..! , Please try again later',
         });

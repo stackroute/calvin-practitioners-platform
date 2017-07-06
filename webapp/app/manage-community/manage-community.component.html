@@ -1,79 +1,78 @@
-<calvin-community-profile [profile]="this.contents"></calvin-community-profile>
+<calvin-community-profile></calvin-community-profile>
+
 <div fxLayout fxLayout.xs="row" fxLayoutGap="0px" fxLayoutGap.xs="0">
       <div fxFlex="20%" fxLayout="row"> </div>
 
-      <div fxFlex="100%" fxLayout="row" fxLayoutAlign=" start">
+      <div fxFlex="100%" fxLayout="column" fxLayoutAlign=" start">
 
             <md-tab-group class="manage-community" fxFlex="100%">
 
                   <md-tab label="Community">
 
-                        
-                              
+                        <div *ngIf="contents">
+                              <div *ngFor="let content of contents">
                                     <form #f="ngForm"  (ngSubmit)="onSubmit(f.value)" class="try">
 
-                                         
+                                          <div>
                                                 <md-input-container fxLayoutAlign="start">
-                                                      <input mdInput placeholder="Domain (disabled)" disabled value={{contents.domain}} >
+                                                      <input mdInput placeholder="Domain (disabled)" disabled value={{content.domain}} >
                                                 </md-input-container>
-                                          
+                                          </div>
 
 
-                                          <md-input-container fxLayoutAlign="start">
-                                                      <input mdInput placeholder="Purpose (disabled)" disabled value={{contents.purpose}} >
+                                          <div>
+                                                <md-input-container fxLayoutAlign="start">
+                                                      <input mdInput placeholder="Purpose (disabled)" disabled value={{content.purpose}} >
                                                 </md-input-container>
-                                          
+                                          </div>
 
 
-                                          
+                                          <div>
                                                 <md-input-container fxLayoutAlign="start" fxLayout="column">
-                                                      <textarea mdInput placeholder="Community Name" rows="2" name="communityName" ngModel={{contents.name}} ></textarea>
+                                                      <textarea mdInput placeholder="Community Name" rows="2" name="communityName" ngModel={{content.name}} ></textarea>
                                                 </md-input-container>
-                                          
+                                          </div>
 
                                           
                                                 <md-input-container fxLayoutAlign="start"  fxLayout="column">
-                                                      <textarea input mdInput placeholder="Description" rows="2" name="Description" ngModel={{contents.description}} ></textarea>
+                                                      <textarea input mdInput placeholder="Description" rows="2" name="Description" ngModel={{content.description}} ></textarea>
                                                 </md-input-container>
                                           
 
-                                          
+                                          <div>
                                                 <md-input-container fxLayoutAlign="start">
                                                       <input mdInput  name="access">
-                                                      <md-radio-group ngModel={{contents.visibility}} name="visibility" >
+                                                      <md-radio-group ngModel={{content.visibility}} name="visibility" >
 
                                                             <md-radio-button value="Public">Public</md-radio-button>
-                                                            <md-radio-button value="Private">Private</md-radio-button>
+                                                            <md-radio-button value="private">Private</md-radio-button>
                                                             <md-radio-button value="moderate">Moderate</md-radio-button>
                                                       </md-radio-group>
                                                 </md-input-container>
-                                          
+                                          </div>
 
 
 
-                                          
+                                          <div>
                                                 <md-input-container fxLayoutAlign="start">
                                                       <input mdInput placeholder="Tag" name="chip" [(ngModel)]="tagname" (keyup.enter)="chipValue(tagname)"  name="tagSelection" ngModel>
                                                 </md-input-container>
-                                         
+                                          </div>
 
 
                                           <md-chip-list>
                                                 <div fxLayout.md="column" ng-disabled="!tag.value" *ngFor="let tag of tagarray" (click)="clearTag(tag.value)" >
                                                       <md-chip>{{tag}}<i class="material-icons" >clear</i></md-chip>
                                                 </div>
-                                                   <span class="tag" *ngFor="let tag of arr">
-            <md-chip>{{tag}}</md-chip></span>
                                           </md-chip-list>
-                                          
+
                                           <button md-raised-button  type="submit" color="primary" >Save</button>
-                                           <button md-raised-button  routerLink="/app/communityDashboard">Cancel</button>
-                                          
+                                          <button md-raised-button  routerLink="/app/communityDashboard">Cancel</button>
 
 
                                     </form>
-                             
-                       
+                              </div>
+                        </div>
 
 
                   </md-tab>

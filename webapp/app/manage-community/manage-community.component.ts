@@ -1,54 +1,34 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { Params, RouterModule, Routes, Router, ActivatedRoute } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+
 import { MdDialog } from '@angular/material';
 import { FormGroup, FormControl, Validators, FormBuilder} from '@angular/forms';
-
+import { GetCommunity } from './manage-community.service';
 import { Http, Response } from '@angular/http';
-
-import { CommunityProfileService } from '../community-profile/community-profile.service';
-
-import { CommunityProfileComponent } from '../community-profile/community-profile.component';
-
+import { Router } from '@angular/router';
+//  import {GetCommunity} from './manage-community.service';
 
 @Component({
   selector: 'calvin-manage-community',
   templateUrl: './manage-community.component.html',
   styleUrls: ['./manage-community.component.css'],
-  providers: [CommunityProfileService]
+  providers: [GetCommunity]
 })
 export class ManageCommunityComponent implements OnInit {
-
-
     userForm: FormGroup;
 
 contents = [];
-selectedValue: string;
-public tagarray= [];
-url: string;
-param = [];
-//arr=[];
-domain;
- isCounter = true;
-
-ans;
+ selectedValue: string;
+   public tagarray= [];
   
-   constructor(private route: ActivatedRoute, private router: Router, private commProfileService: CommunityProfileService) { }
+   constructor(private comm: GetCommunity) { }
 
  ngOnInit() {
-   console.log("Current Domain is: ", this.route.snapshot.params['domain']);
-   
-   this.commProfileService.getCommunity(this.route.snapshot.params['domain']). subscribe ( res => {  this.contents = res; 
-    //  this.arr=this.contents[0].tags;
-    console.log(this.contents);
-    //this.arr=res.tags;
-    //console.log(this.arr);
-  } );
+   this. comm. getCommunity(). subscribe ( res => { this.contents = res; } );
    
  }
 
- onSubmit(Form: any): void {  
-    console.log('you submitted value:', Form);
-
+ onSubmit(form: any): void {  
+    console.log('you submitted value:', form);  
  }
 
    chipValue(tag: any) {
@@ -60,12 +40,11 @@ ans;
 // }
 
 
-  // PatchCommunity(form,domain){
+  // postCommunity(userForm,domain){
   
-  // this.SaveCommunity.PatchCommunity(form,domain).subscribe(userForm=>{
+  // this.comm.postCommunity(userForm).subscribe(userForm=>{
     
   //   alert("postedCommunity");
   // });
 
-// } 
-}
+} 

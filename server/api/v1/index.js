@@ -14,8 +14,7 @@ router.use('/logout', (req, res) => {
 router.use(require('./modules/authentication'));
 // Each Module to be placed after this
 
-
-router.use('/communities', require('./modules/communities'));
+router.use('/community-details', require('./modules/community-details'));
 
 router.use('/community', require('./modules/community'));
 
@@ -37,9 +36,13 @@ router.use('/community', require('./modules/tools'));
 
 router.use('/communityMembers',require('./modules/community-member'));
 
+router.use('/communityRoles',require('./modules/community-role'));
+
 router.use('/memberInvite',require('./modules/member-invite'));
 
 router.use('/communitytemplates', require('./modules/communitytemplates'));
+
+
 
 
 module.exports = router;

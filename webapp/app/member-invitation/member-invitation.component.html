@@ -15,8 +15,8 @@
                 <md-option *ngFor="let access of memberrole" [value]="access.value">{{access.value}}  </md-option> 
                                 
                </md-select>
-        <!--<button  type="submit">Add Fields</button>-->
-        <button md-icon-button type="submit" class="bottomright"   align="end">
+      
+                  <button md-icon-button type="submit" class="bottomright"   align="end">
                   <i class="material-icons">add_circle_outline</i></button>
       </form>
       </div>
@@ -32,8 +32,8 @@
 
       <div>
       <div *ngFor="let todo of todos; let i=index">
-        <!--<input type="checkbox" class="checkbox" [(ngModel)]="todo.completed">-->
-      <!--<span [ngClass]="{'checked': todo.completed}">{{ todo.newTodo }}</span>-->
+       
+     
      
       <form>
          <md-input-container  (keyup.enter)="newTodo=''" class="textfield" name="newTodo">
@@ -51,7 +51,7 @@
         </div>
         </div>
           <div>
-                 <button md-raised-button color="primary" class="bottom-button">Invite</button>
+                 <button md-raised-button color="primary" class="bottom-button" >Invite</button>
               </div>
       
   </div>
