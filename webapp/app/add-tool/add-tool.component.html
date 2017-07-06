@@ -9,16 +9,16 @@
     <form #addTool="ngForm" (ngSubmit)="registerTool(addTool)">
       <!-- Tool Basic Information -->
       <md-input-container class="example-full-width" fxLayout="row">
-        <input mdInput name="toolid" placeholder="Tool ID" [(ngModel)]="toolid">
+        <input mdInput name="toolid" placeholder="Tool ID" [(ngModel)]="toolid" required>
       </md-input-container>
       <md-input-container class="example-full-width" fxLayout="row">
-        <input mdInput name="toolname" placeholder="Tool Name" [(ngModel)]="toolname">
+        <input mdInput name="toolname" placeholder="Tool Name" [(ngModel)]="toolname" required>
       </md-input-container>
       <md-input-container class="example-full-width" fxLayout="row">
-        <input mdInput name="toolavatar" placeholder="Tool Avatar URL" [(ngModel)]="toolavatar">
+        <input mdInput name="toolavatar" placeholder="Tool Avatar URL" [(ngModel)]="toolavatar" required>
       </md-input-container>
       <md-input-container class="example-full-width" fxLayout="column" rows="2">
-        <textarea mdInput name="tooldesc" placeholder="Description" [(ngModel)]="tooldesc">Put Small Description of the tool</textarea>
+        <textarea mdInput name="tooldesc" placeholder="Description" [(ngModel)]="tooldesc" required>Put Small Description of the tool</textarea>
       </md-input-container>
       <div fxLayout="row" >
         <!-- to display each added action   -->
@@ -44,10 +44,10 @@
       <!-- Text Field to add tool action and Grants -->
       <div *ngIf="actionFlag===0">
         <md-input-container class="example-full-width" fxLayout="row">
-          <input name="action" mdInput placeholder="Action" [(ngModel)]="toolaction">
+          <input name="action" mdInput placeholder="Action" [(ngModel)]="toolaction" required>
         </md-input-container>
         <md-input-container class="example-full-width" fxLayout="row">
-          <input name="grants" mdInput placeholder="Grants" (focusout)="AddAction()" [(ngModel)]="toolgrants">
+          <input name="grants" mdInput placeholder="Grants" (focusout)="AddAction()" [(ngModel)]="toolgrants" required>
         </md-input-container>
       </div>
 
@@ -76,14 +76,14 @@
       <!-- To Add Events for Tool-->
       <div *ngIf="eventFlag===0">
         <md-input-container class="example-full-width" fxLayout="row">
-          <input name="event" mdInput placeholder="EVENT NAME" [(ngModel)]="tooleventname">
+          <input name="event" mdInput placeholder="EVENT NAME" [(ngModel)]="tooleventname" required>
         </md-input-container>
        
         <md-input-container class="example-full-width" fxLayout="column" rows="2">
-          <textarea name="evdesc" mdInput placeholder="DESCRIPTION"  [(ngModel)]="eventDesc">Nice Lil Description of event</textarea>
+          <textarea name="evdesc" mdInput placeholder="DESCRIPTION"  [(ngModel)]="eventDesc" required>Nice Lil Description of event</textarea>
         </md-input-container>
          <md-input-container class="example-full-width" fxLayout="row">
-          <input name="payload" mdInput placeholder="PAYLOAD" (focusout)="addEvent()" [(ngModel)]="eventpayload">
+          <input name="payload" mdInput placeholder="PAYLOAD" (focusout)="addEvent()" [(ngModel)]="eventpayload" required>
         </md-input-container>
       </div>
       <div>
@@ -92,7 +92,7 @@
       <!-- Cancel Button-->
        <a md-raised-button routerLink="/app/home">Cancel</a>
       <!-- Submit button to Add the tool-->
-      <button md-raised-button color="primary" type="submit">Submit</button>
+      <button md-raised-button color="primary" type="submit" >Submit</button>
     </form>
   </md-card-content>
 
