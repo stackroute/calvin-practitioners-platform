@@ -19,20 +19,22 @@ router.get('/communities/:domain', (req, res) => { // eslint-disable-line consis
   }
 });
 
-// router.get('/community-details', (req, res) => { // eslint-disable-line consistent-return
-//   try {
-//     communityCtrl.GetCommunity((err, result) => {
-//       if (err) {
-//         res.status(500).send({ error: 'Internal error occurred....!' });
-//       } else {
-//         res.status(200).send(result);
-//       }
-//     });
-//   } catch (err) {
-//     return res.status(500).send({
-//       error: 'Internal error occurred....!' });
-//   }
-// });
+router.patch('/communities/:domain', (req, res) => {
+ try {
+   communityCtrl.patchSpecificCommunity(req.params.domain, req.body, (err, results) => {
+     if (err) {
+      console.log('error in server side');
+       return res.status(500).send({ error: 'Unexpected error occurred, try again later' });
+       
+     }
+     return res.status(200).send(results);
+   });
+ } catch (err) {
+         console.log('error in server side');
+
+   return res.status(500).send({ error: 'Unexpected error occurred, try again later' });
+ }
+});
 
 
 // const router = require('express').Router();

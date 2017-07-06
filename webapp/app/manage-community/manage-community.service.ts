@@ -5,20 +5,18 @@ import {Http, Response} from '@angular/http';
 import 'rxjs/Rx';
 
 @Injectable()
- export class GetCommunity {
+ export class patchCommunityService{
 
 constructor(private http: Http) { }
-//  getCommunity(domain) {
-//  console.log('.....................inside service of getcommunity');
-//  console.log(domain);
-//  const url = `/api/v1/community-details/community-details/${domain}`;
-//    return this.http.get(url).map( response => response.json());
 
-//   }
-  //  PatchCommunity(form){
-  //   let headers= new Headers({'Content-Type':'application/json;charset=utf-8'});
-  //   let options=new RequestOptions({headers:headers});
-  //    let url='http://localhost:3000/api/v1/community-details/community-details';
-  //   return this.http.patch(`${url}${form.domain}`,form,headers).map(res=>res.json());
-  // }
-}
+  patchCommunity(Form, domain){
+  // let headers= new Headers({'Content-Type':'application/json;charset=utf-8'});
+  //  let options=new RequestOptions({headers:headers});
+    const url = `/api/v1/communities/communities/${domain}`;
+    console.log('angular service ',Form)
+    console.log('url',url);
+  return this.http.patch(url, Form).map(() =>
+  console.log('angular service after patch ',Form));
+  
+ }
+ }

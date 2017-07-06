@@ -30,7 +30,8 @@ export class CommunityProfileComponent implements OnInit {
   } 
 
   ngOnInit() {
-    
+        console.log('inside profile component',this.profile);
+
     
   //    console.log("Current Domain is: ", this.route.snapshot.params['domain']);    
   //   this.comm.getCommunity(this.route.snapshot.params['domain']).subscribe(res =>{this.contents=res;

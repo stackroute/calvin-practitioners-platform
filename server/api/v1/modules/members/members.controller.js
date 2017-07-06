@@ -1,4 +1,6 @@
-// const fs = require('fs');
+const request = require('superagent');
+
+const BASE_COMMUNITY_SERVICE_URL = 'http://calvin-communities.blr.stackroute.in/api/v1';
 
 const cartoons = {
   Members:
@@ -71,9 +73,30 @@ const cartoons = {
     },
   ],
 };
+
+
 function getMembers(member, done) {
+
   return done(null, cartoons);
 }
+
+
+
+// function getMembers(member, done) {
+//    // Call communities service to get all the members
+//   const url = `${BASE_COMMUNITY_SERVICE_URL}/community/members/${member}`;
+//   request
+//  .get(url)
+//  .query({ member }) // query string
+//  .end((err, res) => {
+//    if (err) {
+     
+//      return done(err);
+//    }
+//    return done(null, res.body);
+//  });
+// }
+
 module.exports = {
   getMembers,
 };

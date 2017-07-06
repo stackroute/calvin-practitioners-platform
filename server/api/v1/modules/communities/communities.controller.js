@@ -121,8 +121,27 @@ function getSpecificCommunity(domain, done) {
  .query({ domain }) // query string
  .end((err, res) => {
    if (err) {
+     
      return done(err);
    }
+   return done(null, res.body);
+ });
+}
+
+function patchSpecificCommunity(domain,form, done) {
+   // Call communities service to get all the templates
+  const url = `${BASE_COMMUNITY_SERVICE_URL}/communities/${domain}`;
+   console.log('form', form)
+
+  request
+ .patch(url)
+ .send(form ) // query string
+ .end((err, res) => {
+   if (err) {
+     console.log('entered error block')
+     return done(err);
+   }
+  console.log('res.body', res.body);
    return done(null, res.body);
  });
 }
@@ -131,5 +150,6 @@ function getSpecificCommunity(domain, done) {
 module.exports = {
   // GetCommunity,
   getSpecificCommunity,
+  patchSpecificCommunity,
 };
 
