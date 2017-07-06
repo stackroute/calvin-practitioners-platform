@@ -11,5 +11,4 @@ export class UserCommunities {
  getCommunity() {
   return this.http.get(this.serverUrl).map((response: Response) => response.json());
  }
-
 }
