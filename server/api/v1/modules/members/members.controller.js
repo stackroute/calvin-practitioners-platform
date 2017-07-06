@@ -97,6 +97,25 @@ function getMembers(member, done) {
 //  });
 // }
 
+// module.exports = {
+//   getMembers,
+// =======
+// function getMembersDetails(member, done) {
+//   let i = 0;
+//   while(i < cartoons.Members.length){
+//     if (member === cartoons.Members[i].username){
+//       const decoratedMember = {
+//         username: cartoons.Members[i].username,
+//         name: cartoons.Members[i].domain,
+//         avatar: cartoons.Members[i].photo
+//       }
+//       return done(null, decoratedMember);
+//     }    
+//     i++;
+//   }
+//   return done('Username not present', null);
+// }
+
 module.exports = {
   getMembers,
 };

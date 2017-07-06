@@ -9,11 +9,7 @@ import 'rxjs/Rx';
 
     constructor(private http: Http) { }
     getCommunity(domain) {
-        
-    console.log('.....................inside service of getcommunity');
     const url = `/api/v1/communities/communities/${domain}`;
-    
-    //   const url = `http://localhost:3000/api/v1/community-details/community-details`;
     return this.http.get(url).map( response => response.json());
     
 

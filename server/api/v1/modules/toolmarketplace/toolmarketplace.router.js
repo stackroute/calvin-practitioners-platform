@@ -25,12 +25,12 @@ const toolCtrl = require('./toolmarketplace.controller');
 
 
 router.post('/tool', (req, res) => {
- // console.log(' printing body :', req.body);
+  console.log(' printing body :', req.body);
   const tool = req.body;
   try {
-    toolCtrl.addTool(tool, (err) => {
+    toolCtrl.addTool(tool, (err, result) => {
       if (err) {
-        // console.log('error occured');
+        console.log('error occured');
         res.status(500).json({
           error: 'unable to add tool in Calvin..! , Please try again later',
         });
@@ -41,12 +41,11 @@ router.post('/tool', (req, res) => {
       }
     });
   } catch (error) {
-    res.send(500).json({
+    res.status(500).json({
       error: 'Internal server error..! Please try again later',
     });
   }
-
-// res.send("tool called");
+//  res.json({success:"tool added"});
 });
 
 module.exports = router;

@@ -1,5 +1,5 @@
 <div *ngIf="profile" class="sample" >
-  <!--<div *ngFor="let content of contents">-->
+
     <div fxLayout fxLayout.xs="row" fxLayoutGap="0px" fxLayoutGap.xs="0" class="content">
       <div fxFlex="20%" fxFlexAlign='start' >
 
@@ -10,11 +10,6 @@
           </md-list-item>
         </md-list>
 
-          <!--<md-input-container class="community-details">
-
-                    <input mdInput placeholder="" value={{sample.Domain}} disabled>
-          
-          </md-input-container>-->
           <div class="community-details-name">
           <h5> {{profile.purpose}}</h5></div>
           <h5 class="community-details">{{profile.createdon}}</h5>

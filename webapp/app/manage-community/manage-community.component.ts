@@ -9,14 +9,14 @@ import { CommunityProfileService } from '../community-profile/community-profile.
 
 import { CommunityProfileComponent } from '../community-profile/community-profile.component';
 
-import { patchCommunityService } from '../manage-community/manage-community.service';
+import { updateSpecificCommunityService } from '../manage-community/manage-community.service';
 
 
 @Component({
   selector: 'calvin-manage-community',
   templateUrl: './manage-community.component.html',
   styleUrls: ['./manage-community.component.css'],
-  providers: [CommunityProfileService, patchCommunityService],
+  providers: [CommunityProfileService, updateSpecificCommunityService],
   
 })
 export class ManageCommunityComponent implements OnInit {
@@ -29,17 +29,15 @@ selectedValue: string;
 public tagarray= [];
 url: string;
 param = [];
-//arr=[];
 domain;
 myAvatar;
 updatedBy;
 status;
- isCounter = true;
-
+isCounter = true;
 ans;
   
    constructor(private route: ActivatedRoute, private router: Router,
-    private commProfileService: CommunityProfileService, private commPatchService: patchCommunityService) { }
+   private commProfileService: CommunityProfileService, private commUpdateService: updateSpecificCommunityService) { }
 
    chipValue(tag) {
    this.tagarray.push(tag);
@@ -59,9 +57,7 @@ ans;
     Form.updatedby = this.updatedBy;
     Form.status = this.status;
     Form.tags = this.tagarray;
-      console.log('onsubmit domain name',this.domain);
-   console.log("Current Domain for on Submitt is: ", this.domain);
-  this.commPatchService.patchCommunity(Form,this.domain).subscribe(
+    this.commUpdateService.updateSpecificCommunity(Form,this.domain).subscribe(
     (data) => console.log('posted data',Form, this.domain),
     error => console.log('error in angular file',Form,this.domain),
     () => console.log('finished'))
@@ -74,19 +70,13 @@ ans;
    console.log("Current Domain is: ", this.route.snapshot.params['domain']);
    
    this.commProfileService.getCommunity(this.route.snapshot.params['domain']). subscribe ( res => {  this.contents = res; 
-      console.log('my create community json',this.contents);
-      this.domain = res.domain;
-      console.log('my domain',this.domain);
-      this.myAvatar = res.avatar;
-      this.updatedBy = res.updatedby;
-      this.status = res.status;
-      // this.tagarray.push(res.tags);
-      // console.log('tag array value onload',this.tagarray);  
+   this.domain = res.domain;
+   this.myAvatar = res.avatar;
+   this.updatedBy = res.updatedby;
+   this.status = res.status;
+   this.tagarray.push(res.tags);
   } );
-   
- }
 
-
-
+}
 }
 
