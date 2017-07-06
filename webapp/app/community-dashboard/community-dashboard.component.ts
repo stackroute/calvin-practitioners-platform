@@ -3,8 +3,6 @@ import { CommunityToolsWidgetComponent } from '../community-tools-widget/communi
 import { CommunityMembersWidgetComponent } from '../community-members-widget/community-members-widget.component';
 import { Params, RouterModule, Routes, Router, ActivatedRoute } from '@angular/router';
 import { CommunityProfileService } from '../community-profile/community-profile.service';
-// import { ManageCommunityComponent } from '../manage-community/manage-community.component';
-// import { CommunityProfileComponent } from '../community-profile/community-profile.component';
 
 
 
@@ -15,10 +13,9 @@ import { CommunityProfileService } from '../community-profile/community-profile.
   providers: [CommunityProfileService],
 })
 export class CommunityDashboardComponent implements OnInit {
-  // @Input() profile;
+  
   url: string;
   param = [];
-  ans;
   contents = [];
   isCounter = true;
  

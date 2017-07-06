@@ -4,12 +4,19 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class UserCommunities {
   
-  constructor (private http: Http) { }
+    constructor(private http: Http) { }
 
- serverUrl = 'http://localhost:3000/api/v1/community/userCommunities/';
+    getCommunity() {
 
- getCommunity() {
-  return this.http.get(this.serverUrl).map((response: Response) => response.json());
- }
+    // const url = `/api/v1/communities/communities/${member}`;
+    // return this.http.get(url).map( response => response.json());
+    
+
+  }
 
 }
+
+
+
+
+

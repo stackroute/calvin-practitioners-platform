@@ -50,14 +50,14 @@
 
 
                                                  <md-input-container fxLayoutAlign="start"  fxLayout="column">
-                                                      <textarea input mdInput placeholder="avatar" rows="2" name="avatar" ngModel={{contents.avatar}} ></textarea>
+                                                      <textarea input mdInput placeholder="avatar" rows="2" name="avatar" ngModel ></textarea>
                                                 </md-input-container>
 
 
 
                                           
                                                 <md-input-container fxLayoutAlign="start">
-                                                      <input mdInput placeholder="Tag" name="tags" [(ngModel)]="tagname" (keyup.enter)="chipValue(tagname)"  ngModel>
+                                                      <input mdInput placeholder="Tag" name="tags" (focusout) ="chipValue(tagname)" [(ngModel)]="tagname" >
                                                 </md-input-container>
                                          
 
@@ -70,8 +70,9 @@
                                           </md-chip-list>
                                           
                                           
-                                           <button md-raised-button  routerLink="/app/communityDashboard">Cancel</button>
-                                          <button md-raised-button  type="submit" color="primary" >Save</button>
+                                           <a md-raised-button routerLink="/app/communitydashboard">Cancel</a>
+      <!-- Submit button to Add the tool-->
+      <button md-raised-button color="primary">Submit</button>
 
 
                                     </form>
@@ -84,7 +85,7 @@
 
 
                   <md-tab label="Members">
-                        <calvin-community-member-management ></calvin-community-member-management>
+                        <calvin-community-member-management [community]="this.domain"></calvin-community-member-management>
                   </md-tab>
                   <!--tab for manage member component-->
                   <md-tab label="Roles">

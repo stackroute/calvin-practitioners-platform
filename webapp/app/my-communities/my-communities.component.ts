@@ -11,10 +11,13 @@ import 'rxjs/add/operator/switchMap';
 })
 export class UserWidgetsComponent implements OnInit {
   userCommunityListArray = [ ];
+  contents = [];
   constructor(private userCommunities: UserCommunities, private router: Router) { }
   
   ngOnInit() { 
-    this.getUserCommunity();
+  //   this.userCommunities.getCommunity(). subscribe ( res => {  this.contents = res; 
+ 
+  // } );
   }
   
   onScroll() {
@@ -25,13 +28,13 @@ export class UserWidgetsComponent implements OnInit {
   }
 
    // Get user community list
-  getUserCommunity() {
-    this.userCommunities
-      .getCommunity()
-      .subscribe(userCommunityList => {
-        userCommunityList.forEach(element => {
-          this.userCommunityListArray.push(element)
-        });
-      });
-   }
+  // getUserCommunity() {
+  //   this.userCommunities
+  //     .getCommunity()
+  //     .subscribe(userCommunityList => {
+  //       userCommunityList.forEach(element => {
+  //         this.userCommunityListArray.push(element)
+  //       });
+  //     });
+  //  }
 }

@@ -30,36 +30,41 @@ public tagarray= [];
 url: string;
 param = [];
 domain;
-myAvatar;
+// myAvatar;
 updatedBy;
 status;
 isCounter = true;
 ans;
+tagname:String;
   
    constructor(private route: ActivatedRoute, private router: Router,
    private commProfileService: CommunityProfileService, private commUpdateService: updateSpecificCommunityService) { }
 
    chipValue(tag) {
+
+  //  alert("getting called chip");
    this.tagarray.push(tag);
+  //  this.tagname = '';
+
+
    
  } 
   // deselect chip value/remove tag value from an array
- clearTag(tag) {
-   const tagvalue = tag;
-   this.tagarray = this.tagarray.filter(item => item !== tagvalue);
+  clearTag(tag) {
+  const tagvalue = tag;
+  this.tagarray = this.tagarray.filter(item => item !== tagvalue);
   
  }
 
 
 
  onSubmit(Form: any,): void {  
-    Form.avatar = this.myAvatar;
     Form.updatedby = this.updatedBy;
     Form.status = this.status;
     Form.tags = this.tagarray;
+    console.log('form value',Form);
     this.commUpdateService.updateSpecificCommunity(Form,this.domain).subscribe(
     (data) => console.log('posted data',Form, this.domain),
-    error => console.log('error in angular file',Form,this.domain),
     () => console.log('finished'))
 }
  
@@ -67,14 +72,14 @@ ans;
 
 
  ngOnInit() {
-   console.log("Current Domain is: ", this.route.snapshot.params['domain']);
+   
    
    this.commProfileService.getCommunity(this.route.snapshot.params['domain']). subscribe ( res => {  this.contents = res; 
    this.domain = res.domain;
-   this.myAvatar = res.avatar;
+  //  this.myAvatar = res.avatar;
    this.updatedBy = res.updatedby;
    this.status = res.status;
-   this.tagarray.push(res.tags);
+  //  this.tagarray.push(res.tags);
   } );
 
 }

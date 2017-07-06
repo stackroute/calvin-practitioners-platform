@@ -2,9 +2,9 @@ const router = require('express').Router();
 const communityCtrl = require('./community.controller');
 
 // get User community List
-router.get('/userCommunities', (req, res) => {
+router.get('/userCommunities/:member', (req, res) => {
   try {
-    communityCtrl.getUserCommunity(req, (err, results) => {
+    communityCtrl.getUserCommunity(req.params.member, (err, results) => {
       if (err) {
         return res.status(500).send({ error: 'Unexpected error occurred, try again later' });
       }

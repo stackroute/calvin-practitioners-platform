@@ -33,7 +33,7 @@ router.use('/community', require('./modules/members'));
 
 router.use('/community', require('./modules/tools'));
 
-router.use('/communityMembers', require('./modules/community-member'));
+// router.use('/communityMembers', require('./modules/community-member'));
 
 router.use('/memberInvite', require('./modules/member-invite'));
 
