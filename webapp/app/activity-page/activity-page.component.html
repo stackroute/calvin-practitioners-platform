@@ -9,7 +9,7 @@
 
     
 
-    <div fxFlex="31%">
+    <div fxFlex="31%" fxFlex.md="48%" fxFlex.sm="100%">
       <md-card fxFlex="100%">
         <h2>Activity Logs</h2>
       </md-card>
@@ -20,7 +20,7 @@
       </div>      
     </div>
 
-    <div fxFlex="31%">
+    <div fxFlex="31%" fxFlex.md="48%" fxFlex.sm="100%">
       <div class="list-activities" fxFlex="100%" fxlayout="column" *ngFor="let sample of tools; let i = index;">
         <div *ngIf="(i % 3) == 1">
           <calvin-activity-card  [activity]="sample"></calvin-activity-card>
@@ -28,7 +28,7 @@
       </div>
     </div>
 
-    <div fxFlex="31%">
+    <div fxFlex="31%" fxFlex.md="48%" fxFlex.sm="100%">
       <div class="list-activities" fxFlex="100%" fxlayout="column" *ngFor="let sample of tools; let i = index;">
         <div *ngIf="(i % 3) == 2">
           <calvin-activity-card  [activity]="sample"></calvin-activity-card>
