@@ -6,6 +6,7 @@ import { UserDashboardComponent } from '../user-dashboard/user-dashboard.compone
 import { UserProfileComponent } from '../user-profile/user-profile.component';
 import { CanDeactivateGuard } from './can-deactivate-guard.service';
 import { ManageCommunityComponent } from '../manage-community/manage-community.component';
+import { CommunityProfileComponent } from '../community-profile/community-profile.component';
 import { AppBarComponent } from '../app-bar/app-bar.component';
 import { CommunityRoleActionsComponent } from '../community-role-actions/community-role-actions.component';
 import { CommunityRoleManagementComponent } from '../community-role-management/community-role-management.component';
@@ -19,6 +20,9 @@ import { CommunityMembersWidgetComponent } from '../community-members-widget/com
 import { ManageCommunityToolsComponent } from '../manage-community-tools/manage-community-tools.component';
 import { AddToolComponent } from '../add-tool/add-tool.component';
 import { UserCommunities } from '../my-communities/my-communities.services';
+
+import { ToolMarketPlaceComponent } from '../tool-market-place/tool-market-place.component';
+
 
 import { CommunityMemberManagementComponent } from '../community-member-management/community-member-management.component';
 
@@ -34,16 +38,20 @@ const routes: ModuleWithProviders = RouterModule.forRoot([
       { path: '', redirectTo: '/app/home', pathMatch: 'full' },
       { path: 'createCommunity', component: CreateCommunityComponent },
       { path: 'profile', component: UserProfileComponent },
-      { path: 'userCommunity/:string', component: CommunityDashboardComponent },
+      { path: 'userCommunity', component: CommunityDashboardComponent },
       { path: 'actions', component: CommunityRoleManagementComponent },
-      { path: 'communityDashBoard', component: CommunityDashboardComponent },
-      { path: 'managecommunity', component: ManageCommunityComponent },
+      { path: 'communityDashBoard/:domain', component: CommunityDashboardComponent },
+      { path: 'managecommunity/:domain', component: ManageCommunityComponent },
+      
       { path: 'activity', component: ActivityPageComponent },
       { path: 'members', component: CommunityMemberManagementComponent },
       { path: 'managetools', component: ManageCommunityToolsComponent},
-      { path: 'addtool', component: AddToolComponent},     
 
-    ]
+      { path: 'addtool', component: AddToolComponent},
+
+      { path: 'toolmarket', component : ToolMarketPlaceComponent},
+
+      ]
 
   },
   { path: '', redirectTo: '/app/home', pathMatch: 'full' },

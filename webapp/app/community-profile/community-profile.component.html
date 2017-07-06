@@ -1,32 +1,31 @@
-<div *ngIf="contents" class="sample">
-  <div *ngFor="let content of contents">
-    <div fxLayout fxLayout.xs="row" fxLayoutGap="0px" fxLayoutGap.xs="0" *ngIf="contents" class="content">
-      <div fxFlex="20%" fxFlexAlign='start' *ngFor="let content of contents">
-
-
+<div *ngIf="profile" class="sample" >
+  <!--<div *ngFor="let content of contents">-->
+    <div fxLayout fxLayout.xs="row" fxLayoutGap="0px" fxLayoutGap.xs="0" class="content">
+      <div fxFlex="20%" fxFlexAlign='start' >
 
         <md-list fxLayoutAlign="start">
           <md-list-item class="community-image">
             <!--<md-icon (click)="openDialog()" class="community-display-pic" mdTooltip="Edit">add_a_photo</md-icon>-->
-            <img md-list-avatar src={{content.avatar}}>
+            <img md-list-avatar src={{profile.avatar}}>
           </md-list-item>
         </md-list>
 
-        <div *ngIf="contents">
           <!--<md-input-container class="community-details">
 
                     <input mdInput placeholder="" value={{sample.Domain}} disabled>
-
+          
           </md-input-container>-->
-          <h5 class="community-details-name">{{content.name}}</h5>
-          <h5 class="community-details">{{content.createdon}}</h5>
+          <div class="community-details-name">
+          <h5> {{profile.purpose}}</h5></div>
+          <h5 class="community-details">{{profile.createdon}}</h5>
+          
 
           <!--<md-input-container class="community-details">
 
                      <input mdInput placeholder="" value={{sample.created}} disabled>
 
           </md-input-container>-->
-        </div>
+        
 
       </div>
 
@@ -35,19 +34,20 @@
 
         <div fxFlex="60%" class="community-profile">
           <div>
-            <h1 fxLayoutAlign="start">{{content.name}}</h1>
+            <h1 fxLayoutAlign="start" id="heading">{{profile.name}}</h1>
           </div>
 
-          <h4 fxLayoutAlign="start">{{content.purpose}}</h4>
+          <h4 fxLayoutAlign="start">{{profile.description}}</h4>
           <!--<md-input-container >
 
             <input mdInput placeholder="" value={{sample.Domain}} disabled>
 
           </md-input-container>-->
-          <md-chip-list class="tag" *ngFor="let tag of contents ">
-            <md-chip>{{tag.tags}}</md-chip>
+            <span class="tag" *ngFor="let tag of profile.tags">
+            <md-chip>{{tag}}</md-chip>
             
-          </md-chip-list>
+          </span>
+          
 
 
         </div>
@@ -55,32 +55,32 @@
       </div>
 
       <div class="item item-4" fxFlex="20%" fxFlexOrder="4">
-        <div class="manage-community-info">
+        <div class="manage-community-info" >
           <button md-icon-button [mdMenuTriggerFor]="menu">
-  <md-icon>settings</md-icon>
+  <md-icon class="setting" >settings</md-icon>
 </button>
           <md-menu #menu="mdMenu">
-            <button routerLink="/app/managecommunity" md-menu-item>
+            <button routerLink="/app/managecommunity/{{profile.domain}}/{{profile.counter}}" md-menu-item>
               <md-icon>dialpad</md-icon>
                 <span>Manage Community</span>
               </button>
             <button routerLink="/app/communityDashBoard" md-menu-item>
     <md-icon>voicemail</md-icon>
     <span>Community</span>
-  </button>
+  </button> 
 
           </md-menu>
         </div>
 
 
-        <md-list class="try1">
+        <md-list class="members">
           <md-list-item>
             <md-icon>person</md-icon>
-            <h6>{{content.domain}}</h6>
+            <h6> Members:   {{profile.members}}</h6>
           </md-list-item>
-          <md-list-item> 
+          <md-list-item class="tools" > 
             <md-icon>build</md-icon>
-            <h6>{{content.domain}}</h6>
+            <h6> Tools:    {{profile.tools}}</h6>
           </md-list-item>
 
 
@@ -89,6 +89,6 @@
       </div>
     </div>
   </div>
-</div>
+<!--<calvin-manage-community [communitydata]="this.contents"></calvin-manage-community>-->
 
 <!--</div>  -->

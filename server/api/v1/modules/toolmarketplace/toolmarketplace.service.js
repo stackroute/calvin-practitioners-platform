@@ -20,10 +20,15 @@ function checkIfToolExists(toolid, done) {
     return done(null, true);
   });
 }
+
+// function addToolinDB(tool) {
+  // const insertQry = `INSERT into tools (toolid,toolname,toolactions,toolevents)
+  //                VALUES(:toolid,:toolname,:toolaction,:toolevents);`;
+// }
 // this function is to add a new tool in marketplace
 function AddToolinMarketplace(tool, done) {
-  const insertQry = `INSERT into tools (toolid,toolname,toolactions,toolevents)
-                 VALUES(:toolid,:toolname,:toolaction,:toolevents);`;
+  // const insertQry = `INSERT into tools (toolid,toolname,toolactions,toolevents)
+  //                VALUES(:toolid,:toolname,:toolaction,:toolevents);`;
 
   if (checkIfToolExists(tool.toolid, (error, toolExists) => {
     if (toolExists) {
@@ -31,10 +36,8 @@ function AddToolinMarketplace(tool, done) {
         return done(error, 'DB Error');
       }
     }
-  })) {
-
-
-  }
+    return done();
+  }));
 }
 
 module.exports = {

@@ -1,32 +1,32 @@
- const router = require('express').Router();
- const communityCtrl = require('./community.controller');
-
-// create Community
- router.get('/', (req, res) => {
-   try {
-     return res.send(communityCtrl.getcommunity(req.query.domain));
-   } catch (err) {
-     return res.status(500).send({
-       error: 'Internal error occurred....!',
-     });
-   }
- });
+const router = require('express').Router();
+const communityCtrl = require('./community.controller');
 
 // get User community List
- router.get('/userCommunities', (req, res) => {
-   try {
-    // communityCtrl.getUserCommunity(req, res);
-     communityCtrl.getUserCommunity(req, res).then(successResult =>
-      // console.log('successResult', successResult);
-      res.status(201).send(successResult));
-   } catch (error) {
-    // Log the Error for internal use
-     res.send({
-       error: 'Failed to complete successfully, please check the request and try again..!',
-     });
-   }
- });
+router.get('/userCommunities', (req, res) => {
+  try {
+    communityCtrl.getUserCommunity(req, res).then(successResult =>
+     // console.log('successResult', successResult);
+     res.status(201).send(successResult));
+  } catch (error) {
+   // Log the Error for internal use
+    res.send({
+      error: 'Failed to complete successfully, please check the request and try again..!',
+    });
+  }
+});
 
-// get Community
- router.get('/getcom', communityCtrl.getcommunity);
- module.exports = router;
+// post new community data
+router.post('/:domainName', (req, res) => {
+  try {
+    communityCtrl.postNewcommunityDetails(req.params.domainName, req.body, (err, results) => {
+      if (err) {
+        return res.status(500).send({ error: 'Unexpected error occurred, try again later' });
+      }
+      return res.status(200).send(results);
+    });
+  } catch (err) {
+    return res.status(500).send({ error: 'Unexpected error occurred, try again later' });
+  }
+});
+
+module.exports = router;

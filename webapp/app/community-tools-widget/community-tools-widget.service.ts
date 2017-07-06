@@ -9,7 +9,7 @@ export class ToolsService {
 
     getTools() {
         return this.http
-            .get('/api/v1/tools/tools')
+            .get('/api/v1/community/tools')
             .map((response: Response) => response.json());
     }
 }

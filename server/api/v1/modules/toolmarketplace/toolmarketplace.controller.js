@@ -1,22 +1,21 @@
+// const toolservice = require('./toolmarketplace.service');
 
-const toolservice = require('./toolmarketplace.service');
 
+// function addTool(tool, done) {
+//   toolservice.AddToolinMarketplace(tool, done);
+// }
 
-function addTool(tool, done) {
-  toolservice.AddToolinMarketplace(tool, done);
-}
+// function getTool() {
+//   toolservice.getTool(done);
+// }
 
-function getTool() {
-  toolservice.getTool(done);
-}
+// function deleteTool(toolid) {
+//   toolservice.delTool(toolid, done);
+// }
 
-function deleteTool(toolid) {
-  toolservice.delTool(toolid, done);
-}
+// module.exports = {
 
-module.exports = {
-
-  addTool,
-  getTool,
-  deleteTool,
-};
+//   addTool,
+//   getTool,
+//   deleteTool,
+// };

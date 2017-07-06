@@ -7,8 +7,8 @@
     <button md-button class='button-style'><md-icon>delete</md-icon></button>
   </div>
   <md-chip-list>
-    <div *ngFor='let key of (dummy.actions | keys)' fxFlexLayout.xs='row'>
-      <md-chip >{{key.key}}</md-chip>
+    <div *ngFor='let key of dummy.actions' fxFlexLayout.xs='row'>
+      <md-chip >{{key}}</md-chip>
     </div>
   </md-chip-list>
   <button fxLayoutAlign='left' md-raised-button (click)='openDialog()'>Modify Actions</button>
