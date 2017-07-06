@@ -11,9 +11,9 @@ constructor() {}
 getUserDetail(done){
 
     let cookie=Cookie.get('currentUser');
-    // alert('cookie is '+cookie); 
+    //  alert('cookie is '+cookie); 
     let data=atob(cookie.split('.')[1]);
-    // alert(data);
+     alert(data);
    
     return  done(JSON.parse(data));
 }
