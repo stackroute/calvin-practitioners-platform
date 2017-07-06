@@ -41,7 +41,6 @@ function addToolinDB(tool, done) {
     console.log(toolte);
 
    const insertQry = ` INSERT INTO ${TABLE_NAME} (toolid,toolname,toolavatar,tooldesc) VALUES(:id,:name,:avatar,:detail);`;
-
     client.execute(insertQry, toolte, (err) => {
         if (err) {
             console.log('err',err);
