@@ -1,3 +1,4 @@
+
 import { Component, OnInit, Input } from '@angular/core';
 import { Params, RouterModule, Routes, Router, ActivatedRoute } from '@angular/router';
 import { MdDialog, MdDialogRef, MdDialogConfig } from '@angular/material';
@@ -11,38 +12,22 @@ import { MemberEditComponent } from "../member-edit/member-edit.component";
   providers: [Memberservice]
 })
 export class CommunityMemberManagementComponent implements OnInit {
- @Input() community;
- 
+
+  @Input() community;
  members = [];
  constructor(private membersWidget: Memberservice, private router: Router, public dialog: MdDialog ,private route: ActivatedRoute) { }
- ngOnInit() {    console.log("Current Domain is: ", this.route.snapshot.params['domain']);
-   if(this.community) {
-     this.membersWidget.getMember(this.route.snapshot.params['domain']).subscribe(data => {
+ ngOnInit() {
+   console.log("Current Domain is: ", this.route.snapshot.params['domain']);
+   this.membersWidget.getMember(this.route.snapshot.params['domain']).subscribe(data => {
    this.members = data;
    console.log(this.members);
   });
- 
-   }
-   else if(this.route.snapshot.params['domain'])
-   { this.membersWidget.getMember(this.route.snapshot.params['domain']).subscribe(data => {
-   this.members = data;
-   console.log(this.members);
-  });
- 
-   }
-   else {
-console.log("error");
-   }  
-   // this.members = data;
-   // console.log(this.members);
- 
  }
  onScroll() {
  }
 openDialog() {
-   const dialogRef = this.dialog.open(MemberInvitationComponent, {
-     data: this.community
-   });    
+   const dialog = this.dialog.open(MemberInvitationComponent);
+   
  }
  edit()
  {

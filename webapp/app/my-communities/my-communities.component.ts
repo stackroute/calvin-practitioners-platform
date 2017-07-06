@@ -27,14 +27,14 @@ export class UserWidgetsComponent implements OnInit {
     this.router.navigate(['/app/userCommunity', communityDomain]);
   }
 
-   // Get user community list
-  // getUserCommunity() {
-  //   this.userCommunities
-  //     .getCommunity()
-  //     .subscribe(userCommunityList => {
-  //       userCommunityList.forEach(element => {
-  //         this.userCommunityListArray.push(element)
-  //       });
-  //     });
-  //  }
+  //  Get user community list
+  getUserCommunity() {
+    this.userCommunities
+      .getCommunity()
+      .subscribe(userCommunityList => {
+        userCommunityList.forEach(element => {
+          this.userCommunityListArray.push(element)
+        });
+      });
+   }
 }
