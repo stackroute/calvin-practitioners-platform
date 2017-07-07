@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit , Input} from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AddToolService } from './add-tool.service';
@@ -10,7 +10,7 @@ import { MdDialog } from '@angular/material';
   providers: [AddToolService]
 })
 export class AddToolComponent implements OnInit {
-
+ @Input() Toolid ;
 
   actions = [];
   events = [];
@@ -132,8 +132,8 @@ export class SucessDialog {
 
   constructor(private router: Router) { }
   navigateTool() {
-    alert('hi will navigate to tool');
-    this.router.navigate(['/app/toolpage']);
+    // alert('hi will navigate to tool');
+    this.router.navigate(['/app/toolpage/:toolid']);
   }
 
 }

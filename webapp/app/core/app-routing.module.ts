@@ -6,7 +6,6 @@ import { UserDashboardComponent } from '../user-dashboard/user-dashboard.compone
 import { UserProfileComponent } from '../user-profile/user-profile.component';
 import { CanDeactivateGuard } from './can-deactivate-guard.service';
 import { ManageCommunityComponent } from '../manage-community/manage-community.component';
-import { CommunityProfileComponent } from '../community-profile/community-profile.component';
 import { AppBarComponent } from '../app-bar/app-bar.component';
 import { CommunityRoleActionsComponent } from '../community-role-actions/community-role-actions.component';
 import { CommunityRoleManagementComponent } from '../community-role-management/community-role-management.component';
@@ -14,7 +13,6 @@ import { AuthGuard } from './auth-guard.service';
 import { AuthService } from './auth.service';
 import { CommunityDashboardComponent } from '../community-dashboard/community-dashboard.component';
 import { ActivityPageComponent } from '../activity-page/activity-page.component';
-import { UserWidgetsComponent } from '../my-communities/my-communities.component';
 import { CommunityToolsWidgetComponent } from '../community-tools-widget/community-tools-widget.component';
 import { CommunityMembersWidgetComponent } from '../community-members-widget/community-members-widget.component';
 import { ManageCommunityToolsComponent } from '../manage-community-tools/manage-community-tools.component';
@@ -38,11 +36,9 @@ const routes: ModuleWithProviders = RouterModule.forRoot([
       { path: '', redirectTo: '/app/home', pathMatch: 'full' },
       { path: 'createCommunity', component: CreateCommunityComponent },
       { path: 'profile', component: UserProfileComponent },
-      { path: 'userCommunity', component: CommunityDashboardComponent },
-      { path: 'actions/:domain', component: CommunityRoleManagementComponent },
       { path: 'communityDashBoard/:domain', component: CommunityDashboardComponent },
+      { path: 'userCommunity/:domain', component: CommunityDashboardComponent },
       { path: 'managecommunity/:domain', component: ManageCommunityComponent },
-      
       { path: 'activity', component: ActivityPageComponent },
       { path: 'members/:domain', component: CommunityMemberManagementComponent },
       { path: 'managetools', component: ManageCommunityToolsComponent},

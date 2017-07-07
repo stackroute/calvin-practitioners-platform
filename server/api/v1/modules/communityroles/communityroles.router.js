@@ -1,5 +1,5 @@
 const express = require('express');
-const controller = require('./communityRoles.controller.js');
+const controller = require('./communityroles.controller.js');
 
 const router = express.Router();
 router.get('/:domainname', (request, response) => {

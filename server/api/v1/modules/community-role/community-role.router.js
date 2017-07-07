@@ -1,10 +1,10 @@
 const router = require('express').Router();
-const memberCtrl = require('./community-member.controller.js');
+const rolelist = require('./community-role.controller.js');
 
-router.get('/communitymembership/:domain/members', (req, res) => {
+router.get('/communityrole/:domainName?onlyroles=true', (req, res) => {
   try {
-    console.log('Domain is: ', req.params.domain);
-    memberCtrl.getCommunityMembers(req.params.domain, (err, result) => {
+      console.log("role is: ", req.params.domain);
+    rolelist.getRole(req.params.domain, (err, result) => {
       if (err) {
         // console.log('Error: ', err);
         return res.status(500).send({ error: 'Error in getting values, please try later..!' });

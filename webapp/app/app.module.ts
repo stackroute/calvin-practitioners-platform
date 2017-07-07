@@ -41,7 +41,8 @@ import { ToolActions } from './community-tool-actions/community-tool-actions.ser
 import { InfiniteScrollModule } from 'angular2-infinite-scroll';
 import { ActivityService } from './activity-page/activity-page.service';
 import { CreateCommunityService } from './create-community/create-community.service';
-// import { GetCommunity } from './manage-community/manage-community.service';
+import { CommunityProfileService } from './community-profile/community-profile.service';
+import { updateSpecificCommunityService } from './manage-community/manage-community.service';
 
 
 
@@ -121,7 +122,7 @@ import { ToolPageComponent } from './tool-page/tool-page.component';
   entryComponents: [CommunityToolActionsComponent, NewcommunityDialogboxComponent, MemberInvitationComponent,SucessDialog,MemberEditComponent],
 
 
-  providers: [RoleServices, ToolActions, ActivityService],
+  providers: [RoleServices, ToolActions, ActivityService, CommunityProfileService, updateSpecificCommunityService],
 
   bootstrap: [AppComponent]
 })

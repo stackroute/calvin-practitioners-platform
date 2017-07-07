@@ -84,10 +84,11 @@ export class CreateCommunityComponent implements OnInit {
     const visibility = newCommunityObj.visibility;
     const description = newCommunityObj.description;
     const domainName = newCommunityObj.domainName;
+    const avatar = newCommunityObj.avatar;
     const template = newCommunityObj.template = this.value;
     const tags = newCommunityObj.tags = this.tagarray;
     const owner = newCommunityObj.owner = this.uname;
-    const newcommunityDetails = { purpose, name, visibility, description, template, tags, owner  };
+    const newcommunityDetails = { purpose, name, visibility, description, template, tags, owner, avatar  };
     this.newcommunity.postNewcommunityDetails(newcommunityDetails, domainName).subscribe(
     (data) => console.log('Postdata'),
     error =>     this.reset(),

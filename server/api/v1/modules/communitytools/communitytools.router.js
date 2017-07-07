@@ -1,5 +1,5 @@
 const express = require('express');
-const controller = require('./communityTools.controller.js');
+const controller = require('./communitytools.controller.js');
 
 const router = express.Router();
 

@@ -16,6 +16,20 @@ function getAllCommunityTemplates(purpose, done) {
   });
 }
 
+function postNewcmmunityDetails(domainName, newCommunityObj, done) {
+  const url = `${BASE_COMMUNITY_SERVICE_URL}/communities/${domainName}`;
+  request
+  .post(url)
+  .send(newCommunityObj) // sends a JSON post body
+  .end((err, res) => {
+    if (err) {
+      return done(err);
+    }
+    return done(null, res.body);
+  });
+}
+
 module.exports = {
   getAllCommunityTemplates,
+  postNewcmmunityDetails,
 };

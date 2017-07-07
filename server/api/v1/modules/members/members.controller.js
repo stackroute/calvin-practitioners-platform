@@ -1,4 +1,6 @@
-// const fs = require('fs');
+const request = require('superagent');
+
+const BASE_COMMUNITY_SERVICE_URL = 'http://calvin-communities.blr.stackroute.in/api/v1';
 
 const cartoons = {
   Members:
@@ -72,21 +74,41 @@ const cartoons = {
   ],
 };
 
+
 function getMembers(member, done) {
   return done(null, cartoons);
 }
 
+
+// function getMembers(member, done) {
+//    // Call communities service to get all the members
+//   const url = `${BASE_COMMUNITY_SERVICE_URL}/community/members/${member}`;
+//   request
+//  .get(url)
+//  .query({ member }) // query string
+//  .end((err, res) => {
+//    if (err) {
+
+//      return done(err);
+//    }
+//    return done(null, res.body);
+//  });
+// }
+
+// module.exports = {
+//   getMembers,
+// =======
 function getMembersDetails(member, done) {
   let i = 0;
-  while(i < cartoons.Members.length){
-    if (member === cartoons.Members[i].username){
+  while (i < cartoons.Members.length) {
+    if (member === cartoons.Members[i].username) {
       const decoratedMember = {
         username: cartoons.Members[i].username,
         name: cartoons.Members[i].domain,
-        avatar: cartoons.Members[i].photo
-      }
+        avatar: cartoons.Members[i].photo,
+      };
       return done(null, decoratedMember);
-    }    
+    }
     i++;
   }
   return done('Username not present', null);
@@ -94,5 +116,5 @@ function getMembersDetails(member, done) {
 
 module.exports = {
   getMembers,
-  getMembersDetails
+  getMembersDetails,
 };

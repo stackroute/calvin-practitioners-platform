@@ -11,7 +11,7 @@ export class ToolActions {
  listTools(domain) {
 
   console.log('In service');
-  const url = '/api/v1/communityTools/'+domain;
+  const url = '/api/v1/communitytools/'+domain;
   return this.http.get(url).map(res => res.json());
  }
  updateTools(data,role,domain) {
@@ -23,7 +23,7 @@ export class ToolActions {
   });
   const body = JSON.stringify(data);
   console.log(body);
-  const url = '/api/v1/communityRoles/communityrole/'+domain+'/roles/'+role;
+  const url = '/api/v1/communityroles/communityrole/'+domain+'/roles/'+role;
   return this.http.patch(url, body,options).map(res => res.json());
  }
 
