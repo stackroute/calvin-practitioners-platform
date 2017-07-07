@@ -76,6 +76,7 @@ openDialog() {
  ngOnInit() {
    
    
+    this.domain = this.route.snapshot.params['domain'];
    this.commProfileService.getCommunity(this.route.snapshot.params['domain']). subscribe ( res => {  this.contents = res; 
    this.domain = res.domain;
   //  this.myAvatar = res.avatar;
@@ -98,5 +99,4 @@ export class updateCommunity {
   constructor(private router: Router) { }
  
 }
-
 

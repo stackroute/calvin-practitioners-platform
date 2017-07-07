@@ -337,8 +337,12 @@
  }
 
 
- module.exports =
- {
-   retrieveAllPosters,
-   retrieveMemberDetails,
- };
+
+module.exports =
+{
+  retrieveAllPosters,
+
+  retrieveMemberDetails,
+
+};
+
