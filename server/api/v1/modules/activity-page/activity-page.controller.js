@@ -57,7 +57,7 @@ const arr = {
       },
       member: {
         username: 'Nelanjan',
-        name: 'Rajeshwari',
+        name: 'nelanjan',
         avatar: 'http://shaebaxter.com/wp-content/uploads/2012/07/is-your-web-copy-boring.jpg',
       },
       tool: {
