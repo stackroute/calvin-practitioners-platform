@@ -1,4 +1,4 @@
- const toolservice = require('./toolmarketplace.service');
+const toolservice = require('./toolmarketplace.service');
 
 
  function addTool(tool, done) {
@@ -7,8 +7,8 @@
  }
 
 
-function getTool(toolid,done) {
-  toolservice.getToolFromDB(toolid,done);
+function getAllTools(done) {
+  toolservice.getAllTools(done);
 }
 
 // function deleteTool(toolid) {
@@ -16,6 +16,6 @@ function getTool(toolid,done) {
 // }
 
  module.exports = {
-  addTool:addTool,
-  getTool: getTool
-};
+   addTool,
+   getAllTools
+ };

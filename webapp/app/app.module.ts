@@ -43,7 +43,7 @@ import { ActivityService } from './activity-page/activity-page.service';
 import { CreateCommunityService } from './create-community/create-community.service';
 import { CommunityProfileService } from './community-profile/community-profile.service';
 import { updateSpecificCommunityService } from './manage-community/manage-community.service';
-
+import { ToolMarketService } from './tool-market-place/tool-market-place.service';
 
 
 import { MarkdownModule } from 'angular2-markdown';
@@ -58,6 +58,7 @@ import { ToolMarketPlaceComponent } from './tool-market-place/tool-market-place.
 import { MemberEditComponent } from './member-edit/member-edit.component';
 import { ToolPageComponent } from './tool-page/tool-page.component';
 
+ 
 
 
 @NgModule({
@@ -122,7 +123,7 @@ import { ToolPageComponent } from './tool-page/tool-page.component';
   entryComponents: [CommunityToolActionsComponent, NewcommunityDialogboxComponent, MemberInvitationComponent,SucessDialog,MemberEditComponent],
 
 
-  providers: [RoleServices, ToolActions, CommunityProfileService,ActivityService, updateSpecificCommunityService],
+  providers: [RoleServices, ToolActions, CommunityProfileService,ActivityService, updateSpecificCommunityService, ToolMarketService],
 
   bootstrap: [AppComponent]
 })

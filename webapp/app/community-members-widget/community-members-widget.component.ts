@@ -14,10 +14,10 @@ export class CommunityMembersWidgetComponent implements OnInit {
  members=[];
  constructor(private membersWidget: MembersService,private router: ActivatedRoute) { }
    ngOnInit() {
-  
+    // console.log(this.router.snapshot.params['domain']);
     this.membersWidget.getMember(this.router.snapshot.params['domain']).subscribe(data => {
     this.members = data;
    });
-   console.log(this.members,"sasfas");
+  //  console.log(this.members,"sasfas");
   }
 }

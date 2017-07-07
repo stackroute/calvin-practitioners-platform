@@ -1,4 +1,4 @@
-<div fxFlex="100%" fxLayout="row" fxLayoutAlign="center">
+<!--<div fxFlex="100%" fxLayout="row" fxLayoutAlign="center">
     <h1>Tools and market</h1>
 </div>
 <div  fxLayoutAlign="" fxFlex="100%">
@@ -56,4 +56,18 @@
 
 
 
-
+-->
+<div  fxFlex="25%" fxLayout="row">
+        <md-card class="example-card">
+            <md-card-content>
+                <a href=""><img md-card-image src="./assets/img/dog.jpg"></a>
+                <div *ngFor='let val of this.tools.rows' >
+                    {{val.toolid}}
+                    {{val.toolavatar}}
+                </div>
+            </md-card-content>
+            <md-card-actions>
+                hello welcome
+            </md-card-actions>
+        </md-card>
+    </div>

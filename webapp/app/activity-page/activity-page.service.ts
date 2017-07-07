@@ -27,3 +27,12 @@ export class ActivityService {
      (response: Response) => response.json());
  }
 }
+
+// constructor(private http: Http) {}
+//   getTools() {
+//     return this.http
+//       .get('http://localhost:3000/api/v1/activity/active')
+//       .map((response: Response) => response.json());
+//   }
+// }
+
