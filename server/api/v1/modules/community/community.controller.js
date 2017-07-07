@@ -1,9 +1,4 @@
 
-const communityservice = require('./community.service');
-
-function getUserCommunity(req, res) {
-  communityservice.getAllUserCommunities(req, res);
-
 // use superagent to call communities
 const request = require('superagent');
 
@@ -52,10 +47,9 @@ function postNewcommunityDetails(domainName, newCommunityObj, done) {
     }
     return done(null, res.body);
   });
->>>>>>> 1588fef08be58c8f12896368fbb3554f11abaa31
 }
 
 module.exports = {
-  // getcommunity,
   getUserCommunity,
+  postNewcommunityDetails,
 };
