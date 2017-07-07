@@ -8,7 +8,9 @@ import 'rxjs/Rx';
     export class CommunityProfileService {
 
     constructor(private http: Http) { }
+
     getCommunity(domain) {
+      
     const url = `/api/v1/communities/communities/${domain}`;
     return this.http.get(url).map( response => response.json());
     

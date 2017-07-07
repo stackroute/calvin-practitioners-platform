@@ -3,7 +3,7 @@ const memberCtrl = require('./community-member.controller.js');
 
 router.get('/communitymembership/:domain/members', (req, res) => {
   try {
-      console.log("Domain is: ", req.params.domain);
+    console.log('Domain is: ', req.params.domain);
     memberCtrl.getCommunityMembers(req.params.domain, (err, result) => {
       if (err) {
         // console.log('Error: ', err);

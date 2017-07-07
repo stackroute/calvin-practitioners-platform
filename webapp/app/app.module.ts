@@ -27,7 +27,7 @@ import { CommunityActivitylogsComponent } from './community-activitylogs/communi
 
 import { CommunityDashboardComponent } from './community-dashboard/community-dashboard.component';
 import { ActivityCardComponent } from './activity-card/activity-card.component';
-import { ActivityPageComponent } from './activity-page/activity-page.component';
+// import { ActivityPageComponent } from './activity-page/activity-page.component';
 import { CommunityProfileComponent } from './community-profile/community-profile.component';
 import { CommunityToolsWidgetComponent } from './community-tools-widget/community-tools-widget.component';
 import { CommunityMembersWidgetComponent } from './community-members-widget/community-members-widget.component';
@@ -39,7 +39,7 @@ import { MembersService } from './community-members-widget/community-members-wid
 import { RoleServices } from './community-role-management/community-role-management.service';
 import { ToolActions } from './community-tool-actions/community-tool-actions.service';
 import { InfiniteScrollModule } from 'angular2-infinite-scroll';
-import { ActivityService } from './activity-page/activity-page.service';
+// import { ActivityService } from './activity-page/activity-page.service';
 import { CreateCommunityService } from './create-community/create-community.service';
 import { CommunityProfileService } from './community-profile/community-profile.service';
 import { updateSpecificCommunityService } from './manage-community/manage-community.service';
@@ -76,13 +76,13 @@ import { ToolPageComponent } from './tool-page/tool-page.component';
     CommunityActivitylogsComponent,
     CommunityDashboardComponent,
     ActivityCardComponent,
-    ActivityPageComponent,
+    // ActivityPageComponent,
     CommunityProfileComponent,
     CommunityToolsWidgetComponent,
     CommunityMembersWidgetComponent,
     KeysPipe,
     UserWidgetsComponent,
-    ActivityPageComponent,
+    // ActivityPageComponent,
     CommunityMemberManagementComponent,
     ManageCommunityToolsComponent,
     AddToolComponent,
@@ -122,7 +122,7 @@ import { ToolPageComponent } from './tool-page/tool-page.component';
   entryComponents: [CommunityToolActionsComponent, NewcommunityDialogboxComponent, MemberInvitationComponent,SucessDialog,MemberEditComponent],
 
 
-  providers: [RoleServices, ToolActions, ActivityService, CommunityProfileService, updateSpecificCommunityService],
+  providers: [RoleServices, ToolActions, CommunityProfileService, updateSpecificCommunityService],
 
   bootstrap: [AppComponent]
 })

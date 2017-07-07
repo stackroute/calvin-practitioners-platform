@@ -1,5 +1,6 @@
 
 
+
 // const cartoons = {
 //   Members:
 //   [
@@ -89,13 +90,31 @@
 //     }    
 //     i++;
 //   }
-//   return done('Username not present', null);
+//   return done('Username not present', null)
+
+
+
+// function getMembers(member, done) {
+//    // Call communities service to get all the members
+//   const url = `${BASE_COMMUNITY_SERVICE_URL}/community/members/${member}`;
+//   request
+//  .get(url)
+//  .query({ member }) // query string
+//  .end((err, res) => {
+//    if (err) {
+
+//      return done(err);
+//    }
+//    return done(null, res.body);
+//  });
 // }
 
 // module.exports = {
 //   getMembers,
 //   getMembersDetails
 //
+// =======
+
 
 
 var request = require('superagent');
@@ -117,3 +136,4 @@ function getMembers(domain, done) {
 module.exports = {
   getMembers,
 };
+
