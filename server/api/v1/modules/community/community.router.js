@@ -2,7 +2,7 @@ const router = require('express').Router();
 const communityCtrl = require('./community.controller');
 
 // get User community List
-router.get('/userCommunities/:member', (req, res) => {
+router.get('/membership/:member', (req, res) => {
   try {
     communityCtrl.getUserCommunity(req.params.member, (err, results) => {
       if (err) {
