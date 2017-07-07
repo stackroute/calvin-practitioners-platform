@@ -7,9 +7,8 @@ import { Http, Response } from '@angular/http';
 
 import { CommunityProfileService } from '../community-profile/community-profile.service';
 
-import { CommunityProfileComponent } from '../community-profile/community-profile.component';
-
 import { updateSpecificCommunityService } from '../manage-community/manage-community.service';
+
 
 
 @Component({
@@ -38,7 +37,7 @@ ans;
 tagname:String;
   
    constructor(private route: ActivatedRoute, private router: Router,
-   private commProfileService: CommunityProfileService, private commUpdateService: updateSpecificCommunityService) { }
+   private commProfileService: CommunityProfileService,private dialog: MdDialog, private commUpdateService: updateSpecificCommunityService) { }
 
    chipValue(tag) {
 
@@ -55,7 +54,9 @@ tagname:String;
   this.tagarray = this.tagarray.filter(item => item !== tagvalue);
   
  }
-
+openDialog() {
+    this.dialog.open(updateCommunity);
+  }
 
 
  onSubmit(Form: any,): void {  
@@ -66,6 +67,7 @@ tagname:String;
     this.commUpdateService.updateSpecificCommunity(Form,this.domain).subscribe(
     (data) => console.log('posted data',Form, this.domain),
     () => console.log('finished'))
+    this.openDialog();
 }
  
  
@@ -84,4 +86,17 @@ tagname:String;
 
 }
 }
+
+
+
+@Component({
+  selector: 'updateCommunity',
+  templateUrl: 'updateCommunity.html',
+})
+export class updateCommunity {
+
+  constructor(private router: Router) { }
+ 
+}
+
 

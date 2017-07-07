@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import { ManageCommunityComponent } from './manage-community/manage-community.component';
+import { ManageCommunityComponent, updateCommunity } from './manage-community/manage-community.component';
 import { AppRoutingModule } from './core/app-routing.module';
 import { AppComponent } from './app.component';
 import { MdSidenavModule } from '@angular/material';
@@ -64,6 +64,8 @@ import { ToolPageComponent } from './tool-page/tool-page.component';
   declarations: [
     AppComponent,
     ManageCommunityComponent,
+    ToolPageComponent,
+    updateCommunity,
     UserDashboardComponent,
     CreateCommunityComponent,
     AppBarComponent,
@@ -91,7 +93,8 @@ import { ToolPageComponent } from './tool-page/tool-page.component';
     ToolMarketPlaceComponent,
     SucessDialog,
     MemberEditComponent,
-    ToolPageComponent
+    ToolPageComponent,
+    
      ],
 
   imports: [
@@ -119,7 +122,7 @@ import { ToolPageComponent } from './tool-page/tool-page.component';
     ReactiveFormsModule
   ],
 
-  entryComponents: [CommunityToolActionsComponent, NewcommunityDialogboxComponent, MemberInvitationComponent,SucessDialog,MemberEditComponent],
+  entryComponents: [CommunityToolActionsComponent, NewcommunityDialogboxComponent, MemberInvitationComponent, SucessDialog, MemberEditComponent, updateCommunity],
 
 
   providers: [RoleServices, ToolActions, ActivityService, CommunityProfileService, updateSpecificCommunityService],

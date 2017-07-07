@@ -13,6 +13,8 @@ import { CommunityProfileService } from '../community-profile/community-profile.
   providers: [CommunityProfileService],
 })
 export class CommunityDashboardComponent implements OnInit {
+
+ 
   
   url: string;
   param = [];
