@@ -11,13 +11,13 @@ import { Params, RouterModule, Routes, Router, ActivatedRoute } from '@angular/r
 export class CommunityToolsWidgetComponent implements OnInit {
 
 
-  tools=[];
+  tools = [];
   constructor(private toolsWidget: ToolsService, private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.toolsWidget.getTools(this.route.snapshot.params['domain']).subscribe(data => {
       this.tools = data;
     });
-    
+
   }
 }

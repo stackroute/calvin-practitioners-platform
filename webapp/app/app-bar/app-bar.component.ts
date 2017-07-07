@@ -24,26 +24,20 @@ export class AppBarComponent implements OnInit {
  ngOnInit() {
 
  
+    this.userservice.getUserDetail((userdetails)=>{
+     
+      this.user=userdetails;
+      console.log(typeof userdetails);
+       console.log('user is : '+this.user);
+      this.flag = 1;
+});
 
 
 
-  this.userservices.getuserinfo()
-   .subscribe(res => {
-    console.log('3.hi',res);
-    this.user = res;
-    this.flag = 1;
-   });
- 
  }
  
  
-//    this.userservice.getUserDetail((userdetails)=>{
-     
-//       this.user=userdetails;
-//       console.log(typeof userdetails);
-//        console.log('user is : '+this.user);
-//       this.flag = 1;
-// });
+
  
   //  (this.user=res));
   // console.log('rss',this.user);

@@ -8,18 +8,14 @@ import { ToolMarketService } from './tool-market-place.service';
   providers: [ToolMarketService]
 })
 export class ToolMarketPlaceComponent implements OnInit {
-    
-    tools=[];
-  constructor( private toolService:ToolMarketService ) { }
+
+  tools = [];
+  constructor(private toolService: ToolMarketService) { }
 
   ngOnInit() {
-         this.toolService.getTools().subscribe(data => {
-           this.tools = data;
-           console.log('hellooo',this.tools);
-         });
-         
-
-
+    this.toolService.getTools().subscribe(data => {
+      this.tools = data;
+      console.log('hellooo', this.tools);
+    });
   }
-
 }

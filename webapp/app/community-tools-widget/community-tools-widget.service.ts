@@ -9,7 +9,7 @@ export class ToolsService {
 
     getTools(domain) {
         return this.http
-            .get('/api/v1/community/communitytools/'+domain+'/tools')
+            .get('/api/v1/community/communitytools/' + domain + '/tools')
             .map((response: Response) => response.json());
     }
 }

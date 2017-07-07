@@ -4,20 +4,20 @@ import { Params, RouterModule, Routes, Router, ActivatedRoute } from '@angular/r
 
 
 @Component({
- selector: 'calvin-community-members-widget',
- templateUrl: './community-members-widget.component.html',
- styleUrls: ['./community-members-widget.component.css'],
- providers: [MembersService]
+  selector: 'calvin-community-members-widget',
+  templateUrl: './community-members-widget.component.html',
+  styleUrls: ['./community-members-widget.component.css'],
+  providers: [MembersService]
 })
 export class CommunityMembersWidgetComponent implements OnInit {
- 
- members=[];
- constructor(private membersWidget: MembersService,private router: ActivatedRoute) { }
-   ngOnInit() {
+
+  members = [];
+  constructor(private membersWidget: MembersService, private router: ActivatedRoute) { }
+  ngOnInit() {
     // console.log(this.router.snapshot.params['domain']);
     this.membersWidget.getMember(this.router.snapshot.params['domain']).subscribe(data => {
-    this.members = data;
-   });
-  //  console.log(this.members,"sasfas");
+      this.members = data;
+    });
+    //  console.log(this.members,"sasfas");
   }
 }

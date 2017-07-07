@@ -1,6 +1,4 @@
 // const fs = require('fs');
-
-
 const tools = {
   Tools:
   [
@@ -30,26 +28,21 @@ const tools = {
 function getTool(tool, done) {
   return done(null, tools);
 }
-
-// module.exports = {
-//   getTool,
-// };
-
 var request = require('superagent');
 const BASE_TOOLS_SERVICE_URL = 'http://calvin-communities.blr.stackroute.in/api/v1';
 const toolsservice = require('./tools.service');
 function getTool(domain, done) {
-  console.log("i am at get tools",domain);
-    // Call communities service to get all the templates
+  console.log("i am at get tools", domain);
+  // Call communities service to get all the templates
   const url = `${BASE_TOOLS_SERVICE_URL}/communitytools/${domain}/tools`;
   request
-  .get(url)
-  .end((err, res) => {
-    if (err) {
-      return done(err);
-    }
-    return done(null, res.body);
-  });
+    .get(url)
+    .end((err, res) => {
+      if (err) {
+        return done(err);
+      }
+      return done(null, res.body);
+    });
 }
 
 module.exports = {

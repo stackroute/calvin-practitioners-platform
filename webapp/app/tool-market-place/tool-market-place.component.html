@@ -57,17 +57,27 @@
 
 
 -->
-<div  fxFlex="25%" fxLayout="row">
-        <md-card class="example-card">
+
+
+
+
+<div fxFlex="100%" fxLayoutAlign="center" fxLayout="row">
+    <md-input-container>
+        <h3><input mdInput placeholder="Enter Tools"></h3>
+    </md-input-container>
+</div>
+<div fxFlex="100%" fxLayout="row">
+    <div fxFlex="25%" fxFlex.md="48%" fxFlex.sm="100%" *ngFor="let val of this.tools.rows">
+        <md-card>
+            <md-card-header>
+                <md-card-title>{{val.toolname}}</md-card-title>
+            </md-card-header>
+            <img md-card-image src="./assets/img/dog.jpg">
             <md-card-content>
-                <a href=""><img md-card-image src="./assets/img/dog.jpg"></a>
-                <div *ngFor='let val of this.tools.rows' >
-                    {{val.toolid}}
-                    {{val.toolavatar}}
-                </div>
+                <p md-line>{{val.toolid}}</p>
+                <p md-line>{{val.toolavatar}}</p>
+                <p md-line>{{val.tooldesc}}</p>
             </md-card-content>
-            <md-card-actions>
-                hello welcome
-            </md-card-actions>
         </md-card>
     </div>
+</div>
