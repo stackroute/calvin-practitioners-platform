@@ -9,6 +9,6 @@ import 'rxjs/add/operator/map';
   constructor( private _http: Http) { }
 
   getRole(domain) {
-    return this._http.get(`/api/v1/communityMembers/communitymembership/${domain}/members`).map(res => res.json());
+    return this._http.get(`/api/v1/communityRolescommunityrole/${domain}?onlyroles=true`).map(res => res.json());
   }  
 }

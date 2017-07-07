@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MembersService } from '../community-members-widget/community-members-widget.service';
 import { Route, Router } from '@angular/router';
 
+
 @Component({
   selector: 'calvin-member-invitation',
   templateUrl: './member-invitation.component.html',
@@ -22,8 +23,8 @@ export class MemberInvitationComponent implements OnInit {
    ];
    memberfield=[
      {
-       "email":"",
-       "role":"",
+       email:"",
+       role:"",
      },
    ];
   
@@ -32,7 +33,7 @@ export class MemberInvitationComponent implements OnInit {
     todoObj: any;
 
 
-  constructor(private membersWidget: MembersService, private router: Router) { this.newTodo = '';
+  constructor(private Memberservice : MembersService, private router: Router) { this.newTodo = '';
       this.todos = []; }
  newField()
  {
@@ -66,7 +67,7 @@ export class MemberInvitationComponent implements OnInit {
 
   
   ngOnInit() {
-    this.membersWidget.getMember().subscribe(data => {
+    this.Memberservice.getMember().subscribe(data => {
     this.members = data.Members;
    });
   }

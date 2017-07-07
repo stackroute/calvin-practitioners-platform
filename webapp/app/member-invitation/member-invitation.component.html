@@ -6,7 +6,7 @@
       <h3>Invite members</h3>
       <div>
       <form (submit)="addTodo($event)">
-      <!--<input [(ngModel)]="newTodo" (keyup.enter)="newTodo=''" class="textfield" name="newTodo">-->
+     
          <md-input-container (keyup.enter)="newTodo=''" class="textfield" name="newTodo">
                 <input mdInput placeholder="email address">
                 </md-input-container>
@@ -17,7 +17,7 @@
                </md-select>
       
                   <button md-icon-button type="submit" class="bottomright"   align="end">
-                  <i class="material-icons">add_circle_outline</i></button>
+                  <i class="material-icons" (click)="memberfield">add_circle_outline</i></button>
       </form>
       </div>
 
