@@ -38,7 +38,7 @@ const routes: ModuleWithProviders = RouterModule.forRoot([
       { path: 'profile', component: UserProfileComponent },
       { path: 'userCommunity/:string', component: CommunityDashboardComponent },
       { path: 'actions', component: CommunityRoleManagementComponent },
-      { path: 'communityDashBoard', component: CommunityDashboardComponent },
+      { path: 'communityDashBoard/:domain', component: CommunityDashboardComponent },
       { path: 'managecommunity/:domain', component: ManageCommunityComponent },
       { path: 'activity', component: ActivityPageComponent },
       { path: 'members/:domain', component: CommunityMemberManagementComponent },

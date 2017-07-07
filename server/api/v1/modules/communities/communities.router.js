@@ -4,7 +4,7 @@ const router = express.Router();
 
 const communityCtrl = require('./communities.controller');
 
-router.get('/communities/:domain', (req, res) => { // eslint-disable-line consistent-return
+router.get('/communities/:domain/', (req, res) => { // eslint-disable-line consistent-return
   try {
     communityCtrl.getSpecificCommunity(req.params.domain, (err, result) => {
       if (err) {
@@ -21,7 +21,7 @@ router.get('/communities/:domain', (req, res) => { // eslint-disable-line consis
 
 router.patch('/communities/:domain', (req, res) => {
   try {
-    communityCtrl.updateSpecificCommunity(req.params.domain, req.body, (err, result) => {
+    communityCtrl.updateSpecificCommunity(req.params.domain,  req.body, (err, result) => {
       if (err) {
         return res.status(500).send({ error: 'Unexpected error occurred, try again later' });
       }

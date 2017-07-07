@@ -18,9 +18,10 @@ function getSpecificCommunity(domain, done) {
  });
 }
 
-function updateSpecificCommunity(domain, form, done) {
+function updateSpecificCommunity(domain, form, status, done) {
    // Call communities service to get all the templates
   const url = `${BASE_COMMUNITY_SERVICE_URL}/communities/${domain}`;
+ 
   request
  .patch(url)
  .send(form) // query string

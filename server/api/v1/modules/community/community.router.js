@@ -8,12 +8,14 @@ router.get('/membership/:member', (req, res) => {
       if (err) {
         return res.status(500).send({ error: 'Unexpected error occurred, try again later' });
       }
+      console.log("result for getcommunity ser4ver",results);
       return res.status(200).send(results);
     });
   } catch (err) {
     return res.status(500).send({ error: 'Unexpected error occurred, try again later' });
   }
 });
+
 
 // post new community data
 router.post('/:domainName', (req, res) => {

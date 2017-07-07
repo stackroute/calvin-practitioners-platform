@@ -11,10 +11,13 @@ export class CommunityProfileComponent implements OnInit {
 
  @Input() profile;
  counter = true;
+//  createdOn;
   constructor() {
+    
    
   } 
 
   ngOnInit() {
+ 
   }
 }

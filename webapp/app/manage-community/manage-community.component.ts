@@ -60,11 +60,21 @@ openDialog() {
 
 
  onSubmit(Form: any,): void {  
+  //  if (this.status == 'active') {
+  //    this.status = 'enable';
+  //    console.log('testing----------',this.status);
+  //     return this.status;
+  //  } else {
+  //         this.status = 'disable';
+  //    console.log('testing----------',this.status);
+
+  //          return this.status;
+  //         }
     Form.updatedby = this.updatedBy;
-    Form.status = this.status;
     Form.tags = this.tagarray;
-    console.log('form value',Form);
-    this.commUpdateService.updateSpecificCommunity(Form,this.domain).subscribe(
+    
+   
+    this.commUpdateService.updateSpecificCommunity(Form,this.domain ).subscribe(
     (data) => console.log('posted data',Form, this.domain),
     () => console.log('finished'))
     this.openDialog();
@@ -75,11 +85,9 @@ openDialog() {
 
  ngOnInit() {
    
-   
-    this.domain = this.route.snapshot.params['domain'];
+   this.domain = this.route.snapshot.params['domain'];
    this.commProfileService.getCommunity(this.route.snapshot.params['domain']). subscribe ( res => {  this.contents = res; 
    this.domain = res.domain;
-  //  this.myAvatar = res.avatar;
    this.updatedBy = res.updatedby;
    this.status = res.status;
   //  this.tagarray.push(res.tags);
@@ -87,8 +95,6 @@ openDialog() {
 
 }
 }
-
-
 
 @Component({
   selector: 'updateCommunity',

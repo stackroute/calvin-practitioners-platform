@@ -1,30 +1,22 @@
-
-// use superagent to call communities
 const request = require('superagent');
 
 const BASE_COMMUNITY_SERVICE_URL = 'http://calvin-communities.blr.stackroute.in/api/v1';
 
-// const communityservice = require('./community.service');
 
-// function getUserCommunity(member, done) {
-//   communityservice.getAllUserCommunities((err, res) => {
-//     if (err) {
-//       return done(err);
-//     }
-//     return done(null, res);
-//   });
-// }
 
 function getUserCommunity(member, done) {
    // Call specific community on the basis of domain
-  const url = `${BASE_COMMUNITY_SERVICE_URL}/community/${member}`;
+   console.log("value of memmebvr in server",member);
+  const url = `${BASE_COMMUNITY_SERVICE_URL}/communities/${member}`;
   request
  .get(url)
  .query({ member }) // query string
  .end((err, res) => {
    if (err) {
+     console.log("error in server for getting community",err);
      return done(err);
    }
+   console.log("printing res body", res.body);
    return done(null, res.body);
  });
 }
