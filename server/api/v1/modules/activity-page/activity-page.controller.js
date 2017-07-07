@@ -1,5 +1,3 @@
-const memberControler = require('../members/members.controller');
-
 const arr = {
   Tools: [
     {
@@ -12,8 +10,8 @@ const arr = {
         url: 'http://calvin.com/community/sports.cricket.sachin.fans',
       },
       member: {
-        username: 'Himani',
-        name: 'Nitin Joshi',
+        username: 'nitin_godfather3423@gmail.com',
+        name: 'Rajeshwari',
         avatar: 'https://www.tm-town.com/assets/default_male300x300-aae6ae0235b6cd78cee8df7ae19f6085.png',
       },
       tool: {
@@ -22,8 +20,7 @@ const arr = {
         avatar: 'https://cdn3.iconfinder.com/data/icons/ultimate-social/150/36_quora-256.png',
         baseurl: ' http://quora.com',
       },
-      activity: {
-        eventType: 'new_question',
+      activity: {        eventType: 'new_question',
         actionUrl: 'https://www.quora.com/',
       },
       message: {
@@ -56,7 +53,7 @@ const arr = {
         url: 'http://calvin.com/community/sports.cricket.sachin.fans',
       },
       member: {
-        username: 'Nelanjan',
+        username: 'rajipalanisamy246@gmail.com',
         name: 'Rajeshwari',
         avatar: 'http://shaebaxter.com/wp-content/uploads/2012/07/is-your-web-copy-boring.jpg',
       },
@@ -102,7 +99,7 @@ const arr = {
       },
       member: {
         username: 'geethanehru@gmail.com',
-        name: 'Geetha Nehru',
+        name: 'Rajeshwari',
         avatar: 'https://s-media-cache-ak0.pinimg.com/736x/f1/8b/0e/f18b0e857944883c889e63561cb26abb.jpg',
       },
       tool: {
@@ -145,8 +142,8 @@ const arr = {
         url: 'http://calvin.com/community/sports.cricket.sachin.fans',
       },
       member: {
-        username: 'saransri95@gmail.com',
-        name: 'saranya babu',
+        username: 'sri saran',
+        name: 'Rajeshwari',
         avatar: 'https://cdn.vox-cdn.com/thumbor/x58bYtjAuglgOnzp2sRV7QEyBa0=/3x0:1591x893/1600x900/cdn.vox-cdn.com/uploads/chorus_image/image/55248791/xboxliveavatarsnew.0.png',
       },
       tool: {
@@ -190,7 +187,7 @@ const arr = {
       },
       member: {
         username: 'renukanrj@gmail.com',
-        name: 'renuka nagaraj',
+        name: 'Rajeshwari',
         avatar: 'http://nick.mtvnimages.com/nick/video/images/avatar/avatar-206-full-episode-16x9.jpg',
       },
       tool: {
@@ -234,7 +231,7 @@ const arr = {
       },
       member: {
         username: 'nitin_godfather3423@gmail.com',
-        name: 'Nitin Joshi',
+        name: 'Rajeshwari',
         avatar: 'http://www.buddypoke.com/img/mytalkingavatar.png',
       },
       tool: {
@@ -278,7 +275,7 @@ const arr = {
       },
       member: {
         username: 'nitin_godfather3423@gmail.com',
-        name: 'Nitin Joshi',
+        name: 'Rajeshwari',
         avatar: 'https://www.tm-town.com/assets/default_male300x300-aae6ae0235b6cd78cee8df7ae19f6085.png',
       },
       tool: {
@@ -313,32 +310,53 @@ const arr = {
     },
   ],
 };
+// function retrieveAllPosters(req, res) {
+//   const memberName = req.params.membername;
+//   let comunities=req.query.communities;
+//   const sort=req.query.sort;
+//   const order=req.query.order;
+//   const limit=req.query.limit;
+//   const page=req.query.page;
+//   console.log('memberName: ', memberName, '\n', 'communities: ', comunities, '\n', 'sort: ', sort,'\n', 'order: ', order, '\n',limit, 'limit: ', '\n','page: ', page, '\n');
+//   const newArr= arr["Tools"].filter(data => data.member.name === memberName);
+//   comunities.forEach((element) => {
+//   (newArr.filter(data => data.community.domain === element));
+//   });
+//    res.json(newArr);
+// }
+// function filterMembers(name) {
+//   console.log("INSIDE FILTER METHOD" + name);
+//   const newArr = arr["Tools"].filter(arr => arr.member.name === name);
+//   console.log("INSIDE CONTROLLER" + JSON.stringify(newArr));
+//   return JSON.stringify(newArr);
+// }
 
-const tempStorage = { 
-  'memberDetails':[]
+function getAllCommunitiesOfMember(memberName) {
+  const allCommunities = arr.Tools;
+
+  memberFilteredArray = allCommunities.filter((community) => {
+    return community.member.name === memberName;
+  });
+
+  return memberFilteredArray;
 }
 
-function retrieveAllPosters(req, res) {
-  retrieveMemberDetails();
-  res.json(arr);
+function filterMemberCommunities(memberName, communityNames) {
+
+  getAllCommunitiesOfMember(memberName);
+  communityNames = communityNames.split(',');
+
+  memberCommunityFilteredArray = memberFilteredArray.filter((community) => {
+    return communityNames.indexOf(community.community.domain) > -1;
+  });
+
+  return memberCommunityFilteredArray;
 }
-
-function retrieveMemberDetails (){
-  let i = 0;
-  while(i < arr.Tools.length){
-    memberControler.getMembersDetails(arr.Tools[i].member.username, (err, res) => {
-      if(res){
-        tempStorage['memberDetails'].push(res)
-      }
-    });
-    i++;
-  }
-  console.log(tempStorage)
+function getLimitOfPages(limit){
+return limit;
 }
-
-
-module.exports =
-{
-  retrieveAllPosters,
-  retrieveMemberDetails,
+module.exports = {
+  filterMemberCommunities,
+  getAllCommunitiesOfMember,
+  getLimitOfPages
 };

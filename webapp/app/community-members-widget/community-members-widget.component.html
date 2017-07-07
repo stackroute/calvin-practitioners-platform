@@ -1,35 +1,17 @@
-<div fxLayout fxLayoutAlign="start">
   <md-card>
-    <md-card-header class="header" fxLayoutAlign="start">
-      <h2>Members</h2>
-    </md-card-header>
-    <md-card-content class="content" fxLayoutAlign.xs="column">
-      <md-list>
-        <md-list-item *ngFor="let val of this.members" fxLayoutAlign.xs="column">
-          <img md-list-avatar class="img-responsive center-block" src={{val.photo}}>
+    <md-card-title>
+     Members
+    </md-card-title>
+    <md-card-content class="content">
+      <md-list fxLayout="start">
+        <md-list-item *ngFor="let val of this.members.MemberDetails" >
+          <!--<img md-list-avatar class="img-responsive center-block" src={{val.photo}}>-->
           <h3 md-line>{{val.username}}</h3>
           <p md-line>
-            <span>{{val.domain}}</span>
+            {{val.role}}
           </p>
         </md-list-item>
       </md-list>
     </md-card-content>
   </md-card>
-    <!--<md-card>
-      <md-card-header class="header" fxLayoutAlign="start">
-        <h2>Members</h2>
-      </md-card-header>
-      <md-card-content class="content" fxLayoutAlign.xs="column">
-        <md-list>
-          <md-list-item *ngFor="let val of this.members" fxLayoutAlign.xs="column">
-            <img md-list-avatar class="img-responsive center-block" src={{val.photo}}>
-            <!--<md-list-item>{{val.toolId}}</md-list-item>
-            <h3 md-line>{{val.username}}</h3>
-            <p md-line>
-              <span>{{val.domain}}</span>
-            </p>
-          </md-list-item>
-        </md-list>
-      </md-card-content>
-    </md-card>-->
-</div>
+

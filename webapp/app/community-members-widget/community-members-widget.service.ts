@@ -7,9 +7,12 @@ import 'rxjs/add/operator/map';
  @Injectable()
  export class MembersService {
   constructor(private http: Http) { }
-   getMember() {
+   getMember(domain) {
+       //console.log("ssdf",domain)
         return this.http
-            .get('/api/v1/community/members')
+            .get('/api/v1/community/communitymembership/'+domain+'/members')
             .map((response: Response) => response.json());
+            
     }
+    
 }

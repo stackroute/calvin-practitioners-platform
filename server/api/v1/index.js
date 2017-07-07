@@ -22,7 +22,7 @@ router.use('/community', require('./modules/community'));
 
 router.use('/user', require('./modules/user'));
 
-router.use('/activity', require('./modules/activity-page'));
+router.use('/memberactivity', require('./modules/activity-page'));
 
 // router.use('/community', require('./modules/community'));
 
