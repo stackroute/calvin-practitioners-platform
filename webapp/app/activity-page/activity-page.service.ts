@@ -16,7 +16,7 @@ export class ActivityService {
      // .map((response: Response) =>
      //   response.json());
 
-     .get(`http://localhost:3000/api/v1/memberactivitypage/:members`)
+     .get(`http://localhost:3000/api/v1/memberactivitypage/Rajeshwari`)
      .map((response: Response) =>
        response.json());
  }
