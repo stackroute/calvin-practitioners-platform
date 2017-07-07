@@ -13,7 +13,10 @@ export class CommunityRoleActionsComponent implements OnInit {
   @Input() dummy;
   constructor(public dialog: MdDialog, private role: RoleServices, private action: CommunityRoleManagementComponent) { }
   openDialog() {
-    const dialog = this.dialog.open(CommunityToolActionsComponent);
+    console.log('dummy data',this.dummy.domain);
+    const dialog = this.dialog.open(CommunityToolActionsComponent,{
+      data: this.dummy.domain
+    });
   }
   ngOnInit() { }
 
