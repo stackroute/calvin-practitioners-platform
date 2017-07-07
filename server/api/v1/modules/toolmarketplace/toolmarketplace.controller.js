@@ -8,9 +8,9 @@ function addTool(tool, done) {
 }
 
 
-// function getTool() {
-//   toolservice.getTool(done);
-// }
+function getTool(toolid,done) {
+  toolservice.getToolFromDB(toolid,done);
+}
 
 // function deleteTool(toolid) {
 //   toolservice.delTool(toolid, done);
@@ -18,5 +18,6 @@ function addTool(tool, done) {
 
 module.exports = {
 
-  addTool:addTool
+  addTool:addTool,
+  getTool: getTool
 };

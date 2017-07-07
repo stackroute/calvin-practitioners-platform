@@ -25,7 +25,8 @@ export class AppBarComponent implements OnInit {
    this.userservice.getUserDetail((userdetails)=>{
      
       this.user=userdetails;
-      console.log(typeof userdetails);
+      console.log('this.user',this.user);
+       console.log(typeof userdetails);
        console.log('user is : '+this.user);
       this.flag = 1;
 });

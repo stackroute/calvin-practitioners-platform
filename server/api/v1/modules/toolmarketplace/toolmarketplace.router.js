@@ -5,23 +5,26 @@ const router = express.Router();
 const toolCtrl = require('./toolmarketplace.controller');
 
 
-// router.get('/gettools', (req, res) => {
-//   try {
-//     toolCtrl.getTool((err, result) => {
-//       if (err) {
-//         res.status(500).json({
-//           error: 'unable to add tool in Calvin..! , Please try again later',
-//         });
-//       } else {
-//         res.status(200).json(result);
-//       }
-//     });
-//   } catch (error) {
-//     res.send(500).json({
-//       error: 'Internal server error..! Please try again later',
-//     });
-//   }
-// });
+router.get('/tool/:toolid', (req, res) => {
+  console.log('tool is is...',req.url.split('/')[2]);
+  toolid=req.url.split('/')[2];
+  try {
+    toolCtrl.getTool(toolid,(err, result) => {
+      if (err) {
+        res.status(500).json({
+          error: 'unable to add tool in Calvin..! , Please try again later',
+        });
+      } else {
+        res.status(200).json(result);
+      }
+    });
+  } catch (error) {
+    res.send(500).json({
+      error: 'Internal server error..! Please try again later',
+    });
+  }
+  // res.send('called inside tool'+req.url);
+});
 
 
 router.post('/tool', (req, res) => {
