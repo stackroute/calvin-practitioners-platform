@@ -18,6 +18,7 @@ router.use('/communities', require('./modules/communities'));
 router.use('/community', require('./modules/community'));
 
 router.use('/user', require('./modules/user'));
+router.use('/memberactivitypage', require('./modules/activity-page'));
 
 
 // router.use('/community', require('./modules/community'));
