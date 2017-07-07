@@ -30,11 +30,6 @@ function getUserCommunity(member, done) {
 }
 
 
-
-
-
-
-
 // post new community data
 function postNewcommunityDetails(domainName, newCommunityObj, done) {
   const url = `${BASE_COMMUNITY_SERVICE_URL}/communities/${domainName}`;

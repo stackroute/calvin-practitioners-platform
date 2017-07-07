@@ -18,13 +18,13 @@ export class UserWidgetsComponent implements OnInit {
   userCommunityListArray = [ ];
   contents = [];
   member ;
-  done;
+  user;
 
   constructor(private userCommunities: UserCommunities,private userInfo: UserInfoService, private router: Router) { }
   
   ngOnInit() { 
 
-    this.userInfo.getUserDetail(this.done). subscribe (res => {this.member = res;});
+    // this.userInfo.getUserDetail(this.user). subscribe (res => {this.member = res;});
     this.userCommunities.getCommunity(this.member). subscribe ( res => {  this.contents = res; 
  
   } );

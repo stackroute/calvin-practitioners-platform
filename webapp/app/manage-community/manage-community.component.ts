@@ -33,7 +33,7 @@ domain;
 // myAvatar;
 updatedBy;
 status;
-isCounter = true;
+counter = true;
 ans;
 tagname:String;
   

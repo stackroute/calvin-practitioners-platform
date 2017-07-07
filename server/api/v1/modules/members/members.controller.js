@@ -76,10 +76,8 @@ const cartoons = {
 
 
 function getMembers(member, done) {
-
   return done(null, cartoons);
 }
-
 
 
 // function getMembers(member, done) {
@@ -90,7 +88,7 @@ function getMembers(member, done) {
 //  .query({ member }) // query string
 //  .end((err, res) => {
 //    if (err) {
-     
+
 //      return done(err);
 //    }
 //    return done(null, res.body);
@@ -102,15 +100,15 @@ function getMembers(member, done) {
 // =======
 function getMembersDetails(member, done) {
   let i = 0;
-  while(i < cartoons.Members.length){
-    if (member === cartoons.Members[i].username){
+  while (i < cartoons.Members.length) {
+    if (member === cartoons.Members[i].username) {
       const decoratedMember = {
         username: cartoons.Members[i].username,
         name: cartoons.Members[i].domain,
-        avatar: cartoons.Members[i].photo
-      }
+        avatar: cartoons.Members[i].photo,
+      };
       return done(null, decoratedMember);
-    }    
+    }
     i++;
   }
   return done('Username not present', null);
@@ -118,5 +116,5 @@ function getMembersDetails(member, done) {
 
 module.exports = {
   getMembers,
-  getMembersDetails
+  getMembersDetails,
 };

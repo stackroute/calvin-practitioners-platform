@@ -7,15 +7,15 @@ export class UserInfoService {
 
 constructor() {}
 
-getUserDetail(done){
+// getUserDetail(done){
 
-    let cookie=Cookie.get('currentUser');
-    //  alert('cookie is '+cookie); 
-    let data=atob(cookie.split('.')[1]);
-    // alert(data);
+//     let cookie=Cookie.get('currentUser');
+//     //  alert('cookie is '+cookie); 
+//     let data=atob(cookie.split('.')[1]);
+//     // alert(data);
    
-    return  done(JSON.parse(data));
-}
+//     return  done(JSON.parse(data));
+// }
 
 getUserCommunity() {
 
