@@ -13,7 +13,6 @@ import { AuthGuard } from './auth-guard.service';
 import { AuthService } from './auth.service';
 import { CommunityDashboardComponent } from '../community-dashboard/community-dashboard.component';
 import { ActivityPageComponent } from '../activity-page/activity-page.component';
-import { UserWidgetsComponent } from '../my-communities/my-communities.component';
 import { CommunityToolsWidgetComponent } from '../community-tools-widget/community-tools-widget.component';
 import { CommunityMembersWidgetComponent } from '../community-members-widget/community-members-widget.component';
 import { ManageCommunityToolsComponent } from '../manage-community-tools/manage-community-tools.component';
@@ -40,7 +39,7 @@ const routes: ModuleWithProviders = RouterModule.forRoot([
       { path: 'userCommunity/:string', component: CommunityDashboardComponent },
       { path: 'actions', component: CommunityRoleManagementComponent },
       { path: 'communityDashBoard', component: CommunityDashboardComponent },
-      { path: 'managecommunity', component: ManageCommunityComponent },
+      { path: 'managecommunity/:domain', component: ManageCommunityComponent },
       { path: 'activity', component: ActivityPageComponent },
       { path: 'members/:domain', component: CommunityMemberManagementComponent },
       { path: 'managetools', component: ManageCommunityToolsComponent},
