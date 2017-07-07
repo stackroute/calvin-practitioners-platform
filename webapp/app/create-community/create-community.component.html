@@ -1,6 +1,5 @@
-
-<div fxFlex="100" fxLayout="row" fxLayoutAlign="start stretch" fxLayoutWrap>
-  <div fxFlex="10" fxLayout="column"></div>
+<div fxLayout="row" fxLayoutAlign="start stretch" fxFlex="100" fxLayoutWrap>
+  <div fxLayout="column" fxFlex="10"></div>
     <form class="container" fxFlex="80" fxLayout="column" 
     fxFlexFill [formGroup]="userForm" (ngSubmit)="onsubmit(userForm)">
     <h3 class="md-headline">Create new community</h3>
@@ -30,9 +29,9 @@
       </md-input-container>
     </div>
     <!--Avatar-->
-    <div fxLayout.md="column">
+    <div class="inputFields" fxLayout.md="column">
       <md-input-container>
-        <input mdInput placeholder="Place Avatar" formControlName="avatar">
+        <input mdInput placeholder="Place avatar" formControlName="avatar">
         <!--<md-hint align="start" class="full-width">
           <div *ngIf="userForm.get('avatar').hasError('required') && userForm.get('avatar').touched">
             Community Name is required
@@ -56,27 +55,30 @@
       <textarea mdInput placeholder="Description" rows="2" formControlName="description"></textarea>
     </md-input-container>
     <!--select core-activity-->
-    <div class="inputFields" fxLayout.md="column">
-      <md-select placeholder="Select Purpose" formControlName="purpose">
-        <md-option *ngFor="let core of uniquePurposeArry" [value]="core">
+    <div class="inputFields"  fxLayout.md="row" fxLayoutAlign="start end"   fxLayoutGap="30px">
+    <div fxLayout.md="column">
+      <div>
+      <md-select placeholder="Select purpose" formControlName="purpose">
+        <md-option *ngFor="let core of uniquePurposeArry" (click)="selectTemplate(core)" [value]="core">
             {{core}}
         </md-option>
       </md-select>
       <md-hint align="start" >
         <div *ngIf="userForm.get('purpose').hasError('required') && userForm.get('purpose').touched" class="errorStyle">
-          select any one purpose
+          Select purpose
         </div>
       </md-hint>
+      </div>
     </div>
     <!--select template -->
-    <div class="inputFields" fxLayout.md="column">
-    <calvin-template-browser (notify)="onselect($event)"  [template]="this.newcommunity.communityDetails" (onselect)="onselect($event)">
-    </calvin-template-browser>
+        <calvin-template-browser (notify)="onselect($event)"  [template]="this.uniqueTemplate" (onselect)="onselect($event)">
+        </calvin-template-browser>
     </div>
+    <!--</span>-->
     <!--select tag container-->
     <div class="inputFields" fxLayout.md="column">
       <md-input-container>
-        <input mdInput placeholder="select tag" [(ngModel)]="tagname" (keyup.enter)="chipValue(tagname)" formControlName="tagCtrl">
+        <input mdInput placeholder="Enter tag" [(ngModel)]="tagname" #resetText (keyup.enter)="chipValue(tagname,resetText) "  formControlName="tagCtrl">
       </md-input-container>
     </div>
     <md-chip-list>
@@ -85,17 +87,15 @@
       </div>
     </md-chip-list>      
 <!--terms and condition-->
-    <div class="inputFields" fxLayout.md="column">
+    <div class="inputFields" fxLayout.md="row">
       <md-checkbox color="primary" formControlName="termscondition">I agree!Terms and Condition.</md-checkbox>
     </div>
 <!--submit the form using raised button-->
-    <span  fxLayout.md="row" fxLayoutAlign="end end" fxLayoutGap="10px" fxLayoutGap.md="0" >
-      <!--<button fxLayout.md="column"  fxFlex="10" md-raised-button (click)="routeToUserPage()" >cancel</button>-->
-       <a md-raised-button routerLink="/app/Home">cancel</a>
-      <button fxLayout.md="column" fxFlex="10" md-raised-button ng-value="submit" type="submit" color="primary"
-       [disabled]="!userForm.valid" >submit</button>
-    </span>
+      <div fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="5px">
+        <a md-button routerLink="/app/home" >Cancel</a>
+        <button md-raised-button type="submit" color="primary"[disabled]="!userForm.valid">Submit</button>
+      </div>
 </form>
 <div fxLayout="column" fxFlex="10"></div>
-
+</div>
 <router-outlet></router-outlet>

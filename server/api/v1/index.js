@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const config = require('./modules/common/config');
 
+router.use('/community', require('./modules/community'));
 
 
 router.use('/login', require('./modules/login'));
@@ -18,7 +19,6 @@ router.use(require('./modules/authentication'));
 
 router.use('/communities', require('./modules/communities'));
 
-router.use('/community', require('./modules/community'));
 
 router.use('/user', require('./modules/user'));
 
