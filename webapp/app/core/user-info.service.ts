@@ -10,6 +10,7 @@ constructor() {}
 
 getUserDetail(done){
 
+
      const token= Cookie.get('currentUser');
     //  console.log('token is ....'+token);
      const base64Url = token.split('.')[1];
@@ -19,7 +20,9 @@ getUserDetail(done){
     //  console.log('decoded.....',decoded);  
      return done(decoded);
 
+
 }
+
 
 getUserCommunity() {
 

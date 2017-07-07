@@ -1,11 +1,10 @@
  const toolservice = require('./toolmarketplace.service');
 
 
-
-function addTool(tool, done) {
-    console.log('inside addtool controller');
-  toolservice.AddToolinMarketplace(tool, done);
-}
+ function addTool(tool, done) {
+   console.log('inside addtool controller');
+   toolservice.AddToolinMarketplace(tool, done);
+ }
 
 
 function getTool(toolid,done) {
@@ -16,8 +15,7 @@ function getTool(toolid,done) {
 //   toolservice.delTool(toolid, done);
 // }
 
-module.exports = {
-
+ module.exports = {
   addTool:addTool,
   getTool: getTool
 };

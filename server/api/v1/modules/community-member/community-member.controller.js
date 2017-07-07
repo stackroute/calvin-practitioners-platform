@@ -5,7 +5,7 @@ const BASE_COMMUNITY_SERVICE_URL = 'http://calvin-communities.blr.stackroute.in/
 function getCommunityMembers(domain, callback) {
     // Call communities service to get all the templates
   const url = `${BASE_COMMUNITY_SERVICE_URL}/communitymembership/${domain}/members`;
-  request.get(url)  
+  request.get(url)
   .end((err, res) => {
     if (err) {
     //   console.log('Error in API to get community templates, error: ', err);

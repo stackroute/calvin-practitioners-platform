@@ -10,7 +10,7 @@ import { Params, RouterModule, Routes, Router, ActivatedRoute } from '@angular/r
   providers: [Memberservice]
 })
 export class MemberEditComponent implements OnInit {
- members = [];
+ members;
   constructor(private membersWidget: Memberservice, private router: Router,private route: ActivatedRoute) { }
 
   ngOnInit() {
