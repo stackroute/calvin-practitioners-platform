@@ -12,8 +12,8 @@ const arr = {
         url: 'http://calvin.com/community/sports.cricket.sachin.fans',
       },
       member: {
-        username: 'Himani',
-        name: 'Nitin Joshi',
+        username: 'Rajeshwari',
+        name: 'Rajeshwari',
         avatar: 'https://www.tm-town.com/assets/default_male300x300-aae6ae0235b6cd78cee8df7ae19f6085.png',
       },
       tool: {
@@ -42,6 +42,7 @@ const arr = {
           },
           {
             link: 'http://dzone.com/howto-be-a-fullstackprogrammer.jpg',
+            title: 'How to be a fullstack programmer',
           },
         ],
       },
@@ -96,7 +97,7 @@ const arr = {
       community: {
         domain: 'Programmers community',
         name: 'wipro-programmers',
-        avatar: 'http://freedomainavatar.com/wp-content/uploads/2016/04/4-300x206.jpg',
+        avatar: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNyCYituHy0U24-UskCeehz5aW_0X0kAHxBAsJkBzsB2acaLIC',
         visibility: 'Public',
         url: 'http://calvin.com/community/sports.cricket.sachin.fans',
       },
