@@ -7,15 +7,15 @@
  }
 
 
-// function getTool() {
-//   toolservice.getTool(done);
-// }
+function getTool(toolid,done) {
+  toolservice.getToolFromDB(toolid,done);
+}
 
 // function deleteTool(toolid) {
 //   toolservice.delTool(toolid, done);
 // }
 
  module.exports = {
-
-   addTool,
- };
+  addTool:addTool,
+  getTool: getTool
+};

@@ -2,7 +2,7 @@
   <md-card-header>
     <div md-card-avatar class="example-header-image"></div>
     <md-card-title>
-      <h2>ADD TOOL</h2>
+      <h2>TOOL REGISTRATION</h2>
     </md-card-title>
   </md-card-header>
   <md-card-content>
@@ -20,7 +20,7 @@
       <md-input-container class="example-full-width" fxLayout="column" rows="2">
         <textarea mdInput name="tooldesc" placeholder="Description" [(ngModel)]="tooldesc" required>Put Small Description of the tool</textarea>
       </md-input-container>
-      <div fxLayout="row" >
+      <div fxLayout="row">
         <!-- to display each added action   -->
         <table *ngIf="actions.length!==0">
           <tr fxLayout="row">
@@ -29,11 +29,11 @@
             <th> Remove </th>
           </tr>
           <!--<div *ngFor="let action of actions">-->
-            <tr *ngFor="let action of actions" fxLayout="row">
-              <td>{{action.name}}</td>
-              <td> {{action.grants}} </td>
-              <td> <i class="material-icons" (click)="remAction(action.name)">remove_circle</i> </td>
-            </tr>
+          <tr *ngFor="let action of actions" fxLayout="row">
+            <td>{{action.name}}</td>
+            <td> {{action.grants}} </td>
+            <td> <i class="material-icons" (click)="remAction(action.name)">remove_circle</i> </td>
+          </tr>
           <!--</div>-->
         </table>
       </div>
@@ -42,15 +42,36 @@
         <button md-button (click)="enableAction();">ADD MORE</button>
       </div>
       <!-- Text Field to add tool action and Grants -->
-      <div *ngIf="actionFlag===0">
+      <!--<div *ngIf="actionFlag===0">
         <md-input-container class="example-full-width" fxLayout="row">
           <input name="action" mdInput placeholder="Action" [(ngModel)]="toolaction" required>
         </md-input-container>
         <md-input-container class="example-full-width" fxLayout="row">
           <input name="grants" mdInput placeholder="Grants" (focusout)="AddAction()" [(ngModel)]="toolgrants" required>
         </md-input-container>
-      </div>
+      </div>-->
 
+      <div>
+        <table>
+          <tr>
+            <td>
+              <md-input-container class="example-full-width">
+                <input name="action" mdInput placeholder="Action" [(ngModel)]="toolaction" required>
+              </md-input-container>
+            </td>
+            <td>
+              <md-input-container class="example-full-width">
+                <input name="grants" mdInput placeholder="Grants" (focusout)="AddAction()" [(ngModel)]="toolgrants" required>
+              </md-input-container>
+            </td>
+            <td>
+                   <button md-raised-button>ADD</button>    
+            </td>
+          </tr>
+
+        </table>
+
+      </div>
 
       <div fxLayout="row">
         <!-- to display each added event   -->
@@ -60,12 +81,12 @@
             <th> Payload </th>
             <th> Description </th>
           </tr>
-        
-            <tr *ngFor="let event of events" fxLayout="row">
-              <td>{{event.name}}</td>
-              <td> {{event.payload}} </td>
-              <td> {{event.description}} <i class="material-icons" (click)="remEvent(event.name)">remove_circle</i></td>
-            </tr>
+
+          <tr *ngFor="let event of events" fxLayout="row">
+            <td>{{event.name}}</td>
+            <td> {{event.payload}} </td>
+            <td> {{event.description}} <i class="material-icons" (click)="remEvent(event.name)">remove_circle</i></td>
+          </tr>
         </table>
       </div>
       <!-- to Display Add more button when 1 event is already added -->
@@ -78,11 +99,11 @@
         <md-input-container class="example-full-width" fxLayout="row">
           <input name="event" mdInput placeholder="EVENT NAME" [(ngModel)]="tooleventname" required>
         </md-input-container>
-       
+
         <md-input-container class="example-full-width" fxLayout="column" rows="2">
-          <textarea name="evdesc" mdInput placeholder="DESCRIPTION"  [(ngModel)]="eventDesc" required>Nice Lil Description of event</textarea>
+          <textarea name="evdesc" mdInput placeholder="DESCRIPTION" [(ngModel)]="eventDesc" required>Nice Lil Description of event</textarea>
         </md-input-container>
-         <md-input-container class="example-full-width" fxLayout="row">
+        <md-input-container class="example-full-width" fxLayout="row">
           <input name="payload" mdInput placeholder="PAYLOAD" (focusout)="addEvent()" [(ngModel)]="eventpayload" required>
         </md-input-container>
       </div>
@@ -90,9 +111,9 @@
         <md-checkbox name="toc" [(ngModel)]="toc">I Agree To The Terms and Conditions!</md-checkbox>
       </div>
       <!-- Cancel Button-->
-       <a md-raised-button routerLink="/app/home">Cancel</a>
+      <a md-raised-button routerLink="/app/home">Cancel</a>
       <!-- Submit button to Add the tool-->
-      <button md-raised-button color="primary" type="submit" >Submit</button>
+      <button md-raised-button color="primary" type="submit">Submit</button>
     </form>
   </md-card-content>
 

@@ -68,6 +68,25 @@ function AddToolinMarketplace(tool, done) {
 //   }));
 // }
 // }
-module.exports = {
-  AddToolinMarketplace,
+
+function getToolFromDB(toolid,done){
+  const getQuery= `SELECT * FROM ${TABLE_NAME} where toolid = '${toolid}'`;
+  client.execute(getQuery,(err,result)=>{
+
+       if(err){
+           console.log('error is ', err);
+           return done(err,'Unable to fetch');
+       }
+     else{
+         console.log('result is '+result.rows);
+         return done(null,result.rows);
+     }
+  });
+
+}
+
+
+module.exports= {
+    AddToolinMarketplace: AddToolinMarketplace,
+    getToolFromDB: getToolFromDB
 };

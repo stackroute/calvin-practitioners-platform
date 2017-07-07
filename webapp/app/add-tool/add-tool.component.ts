@@ -1,8 +1,8 @@
-import { Component, OnInit , Input} from '@angular/core';
+import { Component, OnInit, Input,Inject } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AddToolService } from './add-tool.service';
-import { MdDialog } from '@angular/material';
+import { MdDialog,MD_DIALOG_DATA,MdDialogRef } from '@angular/material';
 @Component({
   selector: 'calvin-add-tool',
   templateUrl: './add-tool.component.html',
@@ -10,10 +10,10 @@ import { MdDialog } from '@angular/material';
   providers: [AddToolService]
 })
 export class AddToolComponent implements OnInit {
- @Input() Toolid ;
 
   actions = [];
   events = [];
+  id: String;
   toolaction: String;
   toolgrants: String;
   tooleventname: String;
@@ -98,8 +98,10 @@ export class AddToolComponent implements OnInit {
   // this function is to register the tool 
   registerTool(form: NgForm) {
     console.log(form.value);
+    this.id = this.toolid;
+    console.log('--------tolid.......' + this.id);
     let toolobj = {
-      toolid: this.toolid.toUpperCase(),
+      toolid: this.toolid,
       toolname: this.toolname.toUpperCase(),
       tooldesc: this.tooldesc.toUpperCase(),
       toolavatar: this.toolavatar,
@@ -118,7 +120,9 @@ export class AddToolComponent implements OnInit {
       this.eventFlag = 0;
       form.reset();
       // alert('data'+result);
-      this.dialog.open(SucessDialog); // opening Dialogue to show success message
+      this.dialog.open(SucessDialog,{
+        data:this.id
+      }); // opening Dialogue to show success message
     })
 
   }
@@ -130,10 +134,21 @@ export class AddToolComponent implements OnInit {
 })
 export class SucessDialog {
 
-  constructor(private router: Router) { }
+toolid:String;
+  constructor(private router: Router,
+   @Inject(MD_DIALOG_DATA) public data: any,
+      public dialogRef: MdDialogRef<SucessDialog>) {
+      this.toolid = data;
+  }
   navigateTool() {
-    // alert('hi will navigate to tool');
-    this.router.navigate(['/app/toolpage/:toolid']);
+    alert('will navigate'+this.toolid);
+   
+      // This is not the recommended way of accessing data passed to the dialog, hence commenting, but for example sake keeping it
+      // Refer https://github.com/angular/material2/issues/4002
+      // console.log("Data in the dialog is: ", this.dialogRef._containerInstance.dialogConfig.data);
+    
+    console.log('................' + this.toolid);
+    this.router.navigate([`/app/toolpage/${this.toolid}`]);
   }
 
 }

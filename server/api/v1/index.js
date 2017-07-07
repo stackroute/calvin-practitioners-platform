@@ -10,8 +10,10 @@ router.use('/logout', (req, res) => {
 });
 
 
+
 router.use(require('./modules/authentication'));
 // Each Module to be placed after this
+
 router.use('/communities', require('./modules/communities'));
 
 
