@@ -1,4 +1,4 @@
-// // const fs = require('fs');
+
 
 // const cartoons = {
 //   Members:
@@ -113,8 +113,29 @@ function getMembers(domain, done) {
     }
     return done(null, res.body);
   });
+
+function getMembers(member, done) {
+
+  return done(null, cartoons);
 }
 
-module.exports = {
-  getMembers,
-};
+
+
+// function getMembers(member, done) {
+//    // Call communities service to get all the members
+//   const url = `${BASE_COMMUNITY_SERVICE_URL}/community/members/${member}`;
+//   request
+//  .get(url)
+//  .query({ member }) // query string
+//  .end((err, res) => {
+//    if (err) {
+     
+//      return done(err);
+//    }
+//    return done(null, res.body);
+//  });
+// }
+
+// module.exports = {
+//   getMembers,
+

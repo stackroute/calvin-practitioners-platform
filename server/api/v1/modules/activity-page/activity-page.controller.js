@@ -1,3 +1,8 @@
+<<<<<<< HEAD
+=======
+ const memberControler = require('../members/members.controller');
+
+>>>>>>> 273af136ef536b8ac659f18965d1bf755a1ca9c7
 const arr = {
   Tools: [
     {
@@ -331,18 +336,39 @@ const arr = {
 //   return JSON.stringify(newArr);
 // }
 
+<<<<<<< HEAD
 function getAllCommunitiesOfMember(memberName) {
   const allCommunities = arr.Tools;
+=======
+const tempStorage = {
+  memberDetails: [],
+};
+>>>>>>> 273af136ef536b8ac659f18965d1bf755a1ca9c7
 
   memberFilteredArray = allCommunities.filter((community) => {
     return community.member.name === memberName;
   });
 
+<<<<<<< HEAD
   return memberFilteredArray;
+=======
+function retrieveMemberDetails() {
+  let i = 0;
+  while (i < arr.Tools.length) {
+    memberControler.getMembersDetails(arr.Tools[i].member.username, (err, res) => {
+      if (res) {
+        tempStorage.memberDetails.push(res);
+      }
+    });
+    i++;
+  }
+  console.log(tempStorage);
+>>>>>>> 273af136ef536b8ac659f18965d1bf755a1ca9c7
 }
 
 function filterMemberCommunities(memberName, communityNames) {
 
+<<<<<<< HEAD
   getAllCommunitiesOfMember(memberName);
   communityNames = communityNames.split(',');
 
@@ -360,3 +386,10 @@ module.exports = {
   getAllCommunitiesOfMember,
   getLimitOfPages
 };
+=======
+module.exports =
+{
+  retrieveAllPosters,
+  retrieveMemberDetails,
+};
+>>>>>>> 273af136ef536b8ac659f18965d1bf755a1ca9c7
