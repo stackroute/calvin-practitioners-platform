@@ -25,9 +25,8 @@ const toolCtrl = require('./toolmarketplace.controller');
 
 
 router.post('/tool', (req, res) => {
-
-console.log(" printing body :",req.body);
-const tool=req.body;
+  console.log(' printing body :', req.body);
+  const tool = req.body;
   try {
     toolCtrl.addTool(tool, (err, result) => {
       if (err) {
@@ -42,12 +41,11 @@ const tool=req.body;
       }
     });
   } catch (error) {
-    res.send(500).json({
+    res.status(500).json({
       error: 'Internal server error..! Please try again later',
     });
   }
-
-// res.send("tool called");
+//  res.json({success:"tool added"});
 });
 
 module.exports = router;

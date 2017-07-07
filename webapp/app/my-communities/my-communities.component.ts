@@ -11,10 +11,13 @@ import 'rxjs/add/operator/switchMap';
 })
 export class UserWidgetsComponent implements OnInit {
   userCommunityListArray = [ ];
+  contents = [];
   constructor(private userCommunities: UserCommunities, private router: Router) { }
   
   ngOnInit() { 
-    this.getUserCommunity();
+  //   this.userCommunities.getCommunity(). subscribe ( res => {  this.contents = res; 
+ 
+  // } );
   }
   
   onScroll() {
@@ -24,7 +27,7 @@ export class UserWidgetsComponent implements OnInit {
     this.router.navigate(['/app/userCommunity', communityDomain]);
   }
 
-   // Get user community list
+  //  Get user community list
   getUserCommunity() {
     this.userCommunities
       .getCommunity()

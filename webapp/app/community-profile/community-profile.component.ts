@@ -1,33 +1,19 @@
-import { Component, OnInit } from '@angular/core';
-
-import { Params, RouterModule, Routes, Router } from '@angular/router';
-import { GetCommunity } from '../manage-community/manage-community.service';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'calvin-community-profile',
   templateUrl: './community-profile.component.html',
   styleUrls: ['./community-profile.component.css'],
-  providers: [GetCommunity]
+  // providers: [GetCommunity],
 })
+
 export class CommunityProfileComponent implements OnInit {
-  samples = [];
-  url: string;
-  param = [];
-  contents=[];
-  arr=[];
-  domain;
-  ans;
-  constructor(private router: Router, private comm: GetCommunity) {
-    this.comm.getCommunity().subscribe(res => { this.samples = res; })
-  }
+
+ @Input() profile;
+  constructor() {
+   
+  } 
 
   ngOnInit() {
-    this.comm.getCommunity().subscribe(res =>{this.contents=res;
-      
-      this.arr=this.contents[0].tags;
-    this.url = this.router.url;
-    this.param = this.url.split('/');
-    this.domain = this.param[this.param.length - 1];
-  });
-}
+  }
 }

@@ -1,71 +1,24 @@
-/*.cardTitle {
-    float: left;
-    overflow: hidden;
-    height: 100%;
-}*/
-
-.titleTemplate {
-    height: 100%;
-}
-
-.templateArea {
+/*.templateArea  {
     float: left;
     overflow: hidden;
 }
-
 .content {
     height: 300px;
     overflow-y: auto;
-    /*font-size: 13px;*/
 }
-
 .listTemplateItem {
-    border: 1px solid #ddd; /* Gray border */
-    border-radius: 4px;  /* Rounded border */
-    /*padding: 5px;  Some padding */
+    border: 1px solid #ddd; 
+    border-radius: 4px; 
     height: 100%;
-   width: 100%;   /* Set a small width */
+    width: 100%;   
     display: inline-block;
 }
-
-/* Add a hover effect (blue shadow) */
-.cardContent :hover {
+/* Add a hover effect (gray shadow) */
+/*.cardContent :hover {
     background-color: gray;
     color: white;
-}
-
-.templateArea {
-    /*border-bottom: 1.5px solid gray;
-    font-size: 13px;
-    padding: 2px;
-    text-decoration-style: none;    */
-        /*height: 194px;
-    width: 30%;*/
-    background-color: #fff;
-    border-radius: 4px;
-    box-shadow: 0 2px 2px rgba(10,16,20,.24), 0 0 2px rgba(10,16,20,.12);
-    box-sizing: border-box;
-    transition: box-shadow .5s;
-    /*max-width: 340px;
-    min-width: 262px;*/
-    margin: 24px 8px;
-    padding-bottom: 48px;
-    position: relative;
-}
-
-/*.templateArea :hover {
-   color:red;
 }*/
-.descFontStyle {
-    font-size: 10px;
-}
 
-.listTemplateItem {
-    font-size: 16px;
-}
-/*media query*/
-@media (max-width: 430px) {
-   .listTemplateItem {
-        font-size : 12px;
-    }
+.tamplatePadding {
+    padding-top: 15px;
 }

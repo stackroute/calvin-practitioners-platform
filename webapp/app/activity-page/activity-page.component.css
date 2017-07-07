@@ -1,7 +1,0 @@
-.activity-board {
-    max-height: 720px;
-    overflow-y: scroll; 
-}
-.activity-board::-webkit-scrollbar { 
-    display: none; 
-}

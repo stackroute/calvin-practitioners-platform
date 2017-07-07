@@ -22,7 +22,7 @@ import { UserCommunities } from '../my-communities/my-communities.services';
 
 import { ToolMarketPlaceComponent } from '../tool-market-place/tool-market-place.component';
 
-
+import { ToolPageComponent } from '../tool-page/tool-page.component';
 import { CommunityMemberManagementComponent } from '../community-member-management/community-member-management.component';
 
 
@@ -48,7 +48,7 @@ const routes: ModuleWithProviders = RouterModule.forRoot([
       { path: 'addtool', component: AddToolComponent},
 
       { path: 'toolmarket', component : ToolMarketPlaceComponent},
-
+      { path: 'toolpage', component: ToolPageComponent }
       ]
 
   },

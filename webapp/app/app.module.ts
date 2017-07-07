@@ -41,17 +41,22 @@ import { ToolActions } from './community-tool-actions/community-tool-actions.ser
 import { InfiniteScrollModule } from 'angular2-infinite-scroll';
 import { ActivityService } from './activity-page/activity-page.service';
 import { CreateCommunityService } from './create-community/create-community.service';
+import { CommunityProfileService } from './community-profile/community-profile.service';
+import { updateSpecificCommunityService } from './manage-community/manage-community.service';
+
+
 
 import { MarkdownModule } from 'angular2-markdown';
 
 import { CommunityMemberManagementComponent } from './community-member-management/community-member-management.component';
 
 import { ManageCommunityToolsComponent } from './manage-community-tools/manage-community-tools.component';
-import { AddToolComponent } from './add-tool/add-tool.component';
+import { AddToolComponent,SucessDialog } from './add-tool/add-tool.component';
 import { NewcommunityDialogboxComponent } from './newcommunity-dialogbox/newcommunity-dialogbox.component';
 import { MemberInvitationComponent } from './member-invitation/member-invitation.component';
 import { ToolMarketPlaceComponent } from './tool-market-place/tool-market-place.component';
 import { MemberEditComponent } from './member-edit/member-edit.component';
+import { ToolPageComponent } from './tool-page/tool-page.component';
 
 
 
@@ -84,10 +89,10 @@ import { MemberEditComponent } from './member-edit/member-edit.component';
     NewcommunityDialogboxComponent,
     MemberInvitationComponent,
     ToolMarketPlaceComponent,
-    MemberEditComponent
-
+    SucessDialog,
+    MemberEditComponent,
+    ToolPageComponent
      ],
-
 
   imports: [
     MarkdownModule,
@@ -113,9 +118,11 @@ import { MemberEditComponent } from './member-edit/member-edit.component';
     MdDialogModule,
     ReactiveFormsModule
   ],
-  entryComponents: [CommunityToolActionsComponent, NewcommunityDialogboxComponent, MemberInvitationComponent,MemberEditComponent],
 
-  providers: [RoleServices, ToolActions, ActivityService],
+  entryComponents: [CommunityToolActionsComponent, NewcommunityDialogboxComponent, MemberInvitationComponent,SucessDialog,MemberEditComponent],
+
+
+  providers: [RoleServices, ToolActions, ActivityService, CommunityProfileService, updateSpecificCommunityService],
 
   bootstrap: [AppComponent]
 })
