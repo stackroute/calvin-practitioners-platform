@@ -11,10 +11,10 @@ export class ToolActions {
  listTools(domain) {
 
   console.log('In service');
-  const url = '/api/v1/communityTools/';
+  const url = '/api/v1/communityTools/'+domain;
   return this.http.get(url).map(res => res.json());
  }
- updateTools(data) {
+ updateTools(data,role,domain) {
   const headers = new Headers({
    'Content-Type': 'application/json;charset=utf-8'
   });
@@ -23,7 +23,7 @@ export class ToolActions {
   });
   const body = JSON.stringify(data);
   console.log(body);
-  const url = 'http://localhost:3000/api/v1/communityRoles/';
+  const url = '/api/v1/communityRoles/communityrole/'+domain+'/roles/'+role;
   return this.http.patch(url, body,options).map(res => res.json());
  }
 

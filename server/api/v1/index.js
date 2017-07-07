@@ -8,6 +8,8 @@ router.use('/logout', (req, res) => {
   res.redirect('/');
 });
 
+
+
 router.use(require('./modules/authentication'));
 
 //router.use('/community-details', require('./modules/community-details'));
@@ -36,7 +38,12 @@ router.use('/community', require('./modules/members'));
 
 router.use('/community', require('./modules/tools'));
 
+router.use('/communityMembers',require('./modules/community-member'));
+
+router.use('/memberInvite',require('./modules/member-invite'));
+
 router.use('/communitytemplates', require('./modules/communitytemplates'));
+
 
 module.exports = router;
 

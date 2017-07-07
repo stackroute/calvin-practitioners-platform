@@ -1,29 +1,34 @@
 import { Component, OnInit } from '@angular/core';
-import { MembersService } from '../community-members-widget/community-members-widget.service';
-import { Route, Router } from '@angular/router';
+import { Params, RouterModule, Routes, Router, ActivatedRoute } from '@angular/router';
 import { MdDialog, MdDialogRef, MdDialogConfig } from '@angular/material';
 import { MemberInvitationComponent } from '../member-invitation/member-invitation.component';
+import { Memberservice } from './community-member-management.service';
+import { MemberEditComponent } from "../member-edit/member-edit.component";
 @Component({
   selector: 'calvin-community-member-management',
   templateUrl: './community-member-management.component.html',
   styleUrls: ['./community-member-management.component.css'],
-   providers: [MembersService]
+   providers: [Memberservice]
 })
 export class CommunityMemberManagementComponent implements OnInit {
-  members;
-  constructor(private membersWidget: MembersService, private router: Router, public dialog: MdDialog) { }
+  members = [];
+  constructor(private membersWidget: Memberservice, private router: Router, public dialog: MdDialog ,private route: ActivatedRoute) { }
   ngOnInit() {
-    this.membersWidget.getMember().subscribe(data => {
-    this.members = data.Members;
+
+    console.log("Current Domain is: ", this.route.snapshot.params['domain']);
+    this.membersWidget.getMember(this.route.snapshot.params['domain']).subscribe(data => {
+    this.members = data;
+    console.log(this.members);
    });
   }
   onScroll() {
   }
 openDialog() {
     const dialog = this.dialog.open(MemberInvitationComponent);
+     
   }
-  // routeToCommunity (communityDomain) {
-  //   this.router.navigate(['/app/userCommunity', communityDomain]);
-  // }
-   // Get user community list
+  edit()
+  {
+  const dialog = this.dialog.open(MemberEditComponent);
+  }
 }

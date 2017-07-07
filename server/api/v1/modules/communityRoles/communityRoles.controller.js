@@ -1,36 +1,59 @@
-const sample = [{ domain: 'technology', role: 'Member', actions: ["post","share","like"], toolid: 'quora' },
-{ domain: 'Education', role: 'Admin', actions: ["reply","post"], toolid: 'stackoverflow' },
-{ domain: 'Medicine', role: 'Member', actions: ["add","likes"], toolid: 'github' },
-{ domain: 'Social', role: 'Secretary', actions: ["post","share"], toolid: 'disqus' },
-{ domain: 'Arts', role: 'Treasurer', actions: ["add","share","comment"], toolid: 'quora' }];
+const request = require('superagent');
 
-function retrieveAllUsers(domain) {
-const a=[];
-  const b=[];
-sample.forEach(function(val)
-{
-if(val.domain===domain){
-  
-  console.log(val.domain);
-  console.log(domain);
-  console.log(val);
-  return a.push(val);
+const BASE_COMMUNITY_SERVICE_URL = 'http://calvin-communities.blr.stackroute.in/api/v1';
+
+function retrieveAllUsers(domain, done) {
+   // Call communities service to get all the templates
+   console.log(domain);
+  const url = `${BASE_COMMUNITY_SERVICE_URL}/communityrole/${domain}`;
+  request
+ .get(url)
+ .query({ domain }) // query string
+ .end((err, res) => {
+   if (err) {
+     console.log('server.controller file');
+     return done(err);
+   }
+     console.log('server.controller  success file');
+
+   return done(null, res.body);
+ });
 }
-});
-return a;
+function retrieveAllRoles(domain, done) {
+   // Call communities service to get all the templates
+   console.log(domain);
+  const url = `${BASE_COMMUNITY_SERVICE_URL}/communityrole/${domain}?onlyroles=true`;
+  request
+ .get(url)
+ .query({ domain }) // query string
+ .end((err, res) => {
+   if (err) {
+     console.log('server.controller file');
+     return done(err);
+   }
+   console.log(res.body,"sdvsdv");
+     console.log('server.controller  success file');
+
+   return done(null, res.body);
+ });
 }
 
-function update(data)
-{
- console.log(data[0].action,"sdfsf");
- b=sample[0].actions.push(data[0].action);
-//  b=sample.push(data);
- console.log(b,"vdsv");
-
- return b;    
+function updateActions(domain,role,values,done) {
+   // Call communities service to get all the templates
+  const url = `${BASE_COMMUNITY_SERVICE_URL}/communityrole/${domain}/roles/${role}`;
+  request
+ .patch(url)
+ .send(values) // query string
+ .end((err, res) => {
+   if (err) {
+     return done(err);
+   }
+   return done(null, res.body);
+ });
 }
-console.log(sample);
+
 module.exports = {  
   retrieveAllUsers,
-  update,
+  retrieveAllRoles,
+  updateActions,
 };

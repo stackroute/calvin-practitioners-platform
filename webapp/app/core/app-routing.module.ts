@@ -23,7 +23,7 @@ import { UserCommunities } from '../my-communities/my-communities.services';
 
 import { ToolMarketPlaceComponent } from '../tool-market-place/tool-market-place.component';
 
-
+import { ToolPageComponent } from '../tool-page/tool-page.component';
 import { CommunityMemberManagementComponent } from '../community-member-management/community-member-management.component';
 
 
@@ -39,18 +39,18 @@ const routes: ModuleWithProviders = RouterModule.forRoot([
       { path: 'createCommunity', component: CreateCommunityComponent },
       { path: 'profile', component: UserProfileComponent },
       { path: 'userCommunity', component: CommunityDashboardComponent },
-      { path: 'actions', component: CommunityRoleManagementComponent },
+      { path: 'actions/:domain', component: CommunityRoleManagementComponent },
       { path: 'communityDashBoard/:domain', component: CommunityDashboardComponent },
       { path: 'managecommunity/:domain', component: ManageCommunityComponent },
       
       { path: 'activity', component: ActivityPageComponent },
-      { path: 'members', component: CommunityMemberManagementComponent },
+      { path: 'members/:domain', component: CommunityMemberManagementComponent },
       { path: 'managetools', component: ManageCommunityToolsComponent},
 
       { path: 'addtool', component: AddToolComponent},
 
       { path: 'toolmarket', component : ToolMarketPlaceComponent},
-
+      { path: 'toolpage', component: ToolPageComponent }
       ]
 
   },
