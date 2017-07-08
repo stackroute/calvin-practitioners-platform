@@ -12,7 +12,7 @@ router.get('/communitymembership/:domain/members', (req, res) => {
       } else {
         return res.status(200).send(result);
       }
-        return true;
+      return true;
     });
   } catch (err) {
     return res.status(500).send({ error: 'Internal error occurred....!' });

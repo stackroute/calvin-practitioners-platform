@@ -1,8 +1,9 @@
-var request = require('superagent');
+const request = require('superagent');
+
 const BASE_TOOLS_SERVICE_URL = 'http://calvin-communities.blr.stackroute.in/api/v1';
-const toolsservice = require('./tools.service');
+
 function getTool(domain, done) {
-  console.log("i am at get tools", domain);
+  // console.log("i am at get tools", domain);
   // Call communities service to get all the templates
   const url = `${BASE_TOOLS_SERVICE_URL}/communitytools/${domain}/tools`;
   request
