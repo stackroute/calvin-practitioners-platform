@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ToolsService } from './community-tools-widget.service';
-import { Params, RouterModule, Routes, Router, ActivatedRoute } from '@angular/router';
+// import { Params, RouterModule, Routes, Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'calvin-community-tools-widget',
@@ -10,12 +10,12 @@ import { Params, RouterModule, Routes, Router, ActivatedRoute } from '@angular/r
 })
 export class CommunityToolsWidgetComponent implements OnInit {
 
-
+  @Input('community') domain: string;
   tools = [];
-  constructor(private toolsWidget: ToolsService, private route: ActivatedRoute) { }
+  constructor(private toolsWidget: ToolsService) { }
 
   ngOnInit() {
-    this.toolsWidget.getTools(this.route.snapshot.params['domain']).subscribe(data => {
+    this.toolsWidget.getTools(this.domain).subscribe(data => {
       this.tools = data;
     });
 

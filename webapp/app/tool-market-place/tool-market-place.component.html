@@ -66,14 +66,22 @@
         <h3><input mdInput placeholder="Enter Tools"></h3>
     </md-input-container>
 </div>
-<div fxFlex="100%" fxLayout="row">
-    <div fxFlex="25%" fxFlex.md="48%" fxFlex.sm="100%" *ngFor="let val of this.tools.rows">
+<div fxFlex="100%" fxLayout="row" fxLayoutWrap>
+    <div fxFlex="25%" *ngFor="let val of this.tools.rows">
         <md-card>
-            <md-card-header>
+        
                 <md-card-title>{{val.toolname}}</md-card-title>
-            </md-card-header>
-            <img md-card-image src="./assets/img/dog.jpg">
-            <md-card-content>
+        
+
+
+            <!--<img md-card-image src="./assets/img/dog.jpg">-->
+            <md-card-content >
+                    <!--<img md-card-avatar  src="./assets/img/dog.jpg">
+                    <!--<md-list-item>{{val.toolId}}</md-list-item>
+                    <p md-line>{{val.toolid}}</p>
+                    <p md-line>{{val.toolavatar}}</p>
+                    <p md-line>{{val.tooldesc}}</p>-->
+                <img md-card-image src="./assets/img/dog.jpg">
                 <p md-line>{{val.toolid}}</p>
                 <p md-line>{{val.toolavatar}}</p>
                 <p md-line>{{val.tooldesc}}</p>

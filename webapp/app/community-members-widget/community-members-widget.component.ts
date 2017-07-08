@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { MembersService } from './community-members-widget.service';
 import { Params, RouterModule, Routes, Router, ActivatedRoute } from '@angular/router';
 
@@ -10,13 +10,14 @@ import { Params, RouterModule, Routes, Router, ActivatedRoute } from '@angular/r
   providers: [MembersService]
 })
 export class CommunityMembersWidgetComponent implements OnInit {
-
+  @Input('community') domain: string;
   members = [];
   constructor(private membersWidget: MembersService, private router: ActivatedRoute) { }
   ngOnInit() {
     // console.log(this.router.snapshot.params['domain']);
-    this.membersWidget.getMember(this.router.snapshot.params['domain']).subscribe(data => {
+    this.membersWidget.getMember(this.domain).subscribe(data => {
       this.members = data;
+      
     });
     //  console.log(this.members,"sasfas");
   }
