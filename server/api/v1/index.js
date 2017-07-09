@@ -36,7 +36,7 @@ router.use('/communitytools', require('./modules/communitytools'));
 
 router.use('/community', require('./modules/members'));
 
-router.use('/community', require('./modules/tools'));
+// router.use('/community', require('./modules/tools'));
 
 router.use('/communityMembers', require('./modules/community-member'));
 

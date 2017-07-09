@@ -19,7 +19,7 @@
   </md-card-title>
   <md-card-content fxLayoutAlign.xs="column" class="content">
     <md-list>
-      <md-list-item *ngFor="let val of this.members.MemberDetails" fxLayoutAlign.xs="column">
+      <md-list-item *ngFor="let val of this.members.MemberDetails" fxLayoutAlign.xs="column" >
         <img md-list-avatar class="img-responsive center-block" src={{val.photo}}>
         <!--<md-list-item>{{val.toolId}}</md-list-item>-->
         <h3 md-line>{{val.username}}</h3>
