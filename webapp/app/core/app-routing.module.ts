@@ -36,11 +36,13 @@ const routes: ModuleWithProviders = RouterModule.forRoot([
       { path: '', redirectTo: '/app/home', pathMatch: 'full' },
       { path: 'createCommunity', component: CreateCommunityComponent },
       { path: 'profile', component: UserProfileComponent },
-      { path: 'communityDashBoard/:domain', component: CommunityDashboardComponent },
       { path: 'userCommunity/:domain', component: CommunityDashboardComponent },
+      { path: 'actions', component: CommunityRoleManagementComponent },
+      { path: 'communityDashBoard/:domain', component: CommunityDashboardComponent },
+
       { path: 'managecommunity/:domain', component: ManageCommunityComponent },
       { path: 'activity', component: ActivityPageComponent },
-      { path: 'members/:domain', component: CommunityMemberManagementComponent },
+      { path: 'members/', component: CommunityMemberManagementComponent },
       { path: 'managetools', component: ManageCommunityToolsComponent},
 
       { path: 'addtool', component: AddToolComponent},

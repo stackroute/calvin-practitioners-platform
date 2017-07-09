@@ -66,9 +66,9 @@ export class MemberInvitationComponent implements OnInit {
 
   
   ngOnInit() {
-    this.membersWidget.getMember().subscribe(data => {
-    this.members = data.Members;
-   });
+  //   this.membersWidget.getMember().subscribe(data => {
+  //   this.members = data.Members;
+  //  });
   }
 
 }
