@@ -29,7 +29,7 @@ updateTools(domain,role,data) {
   });
   const body = JSON.stringify(data);
   console.log(body);
-  const url = '/api/v1/communityroles/communityrole/'+domain+'/roles/'+role;
+  const url = '/api/v1/communityroleactions/communityrole/'+domain+'/roles/'+role;
   return this.http.patch(url, body,options).map(res => res.json());
  }
 }

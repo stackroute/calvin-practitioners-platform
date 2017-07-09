@@ -26,7 +26,7 @@ router.use('/activity', require('./modules/activity-page'));
 
 // router.use('/community', require('./modules/community'));
 
-router.use('/communityroles', require('./modules/communityroles'));
+router.use('/communityroleactions', require('./modules/communityroleactions'));
 
 router.use('/toolmarketplace', require('./modules/toolmarketplace'));
 
