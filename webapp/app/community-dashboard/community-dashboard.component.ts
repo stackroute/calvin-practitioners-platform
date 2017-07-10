@@ -18,15 +18,17 @@ export class CommunityDashboardComponent implements OnInit {
   
   url: string;
   param = [];
-  contents = [];
+  communityObj = {};
   isCounter = true;
- 
-  
-  constructor(private commProfileService: CommunityProfileService,private router: Router,private route: ActivatedRoute,) {
+  domain = "";
+
+  constructor(private commProfileService: CommunityProfileService, private router: Router, private route: ActivatedRoute, ) {
   }
   ngOnInit() {
-     this.commProfileService.getCommunity(this.route.snapshot.params['domain']). subscribe ( res => { this.contents = res; 
-     
-  } );
+    this.domain = this.route.snapshot.params['domain'];
+    this.commProfileService.getCommunity(this.domain).
+      subscribe(res => {
+        this.communityObj = res;
+      });
   }
 }

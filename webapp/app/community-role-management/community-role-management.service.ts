@@ -10,14 +10,14 @@ export class RoleServices {
 
   listRoles(domainName) {
     console.log('In service');
-    const url = '/api/v1/communityroles/communityrole/'+domainName;
+    const url = '/api/v1/communityroleactions/communityrole/'+domainName;
     console.log(url)
     return this.http.get(url).map(res => res.json());
   }
 
   listUniqueRoles(domainname){
      console.log('In service');
-    const url = '/api/v1/communityroles/'+domainname+'?onlyroles=true';
+    const url = '/api/v1/communityroleactions/'+domainname+'?onlyroles=true';
     console.log(url)
     return this.http.get(url).map(res => res.json());
   } 
@@ -32,7 +32,7 @@ updateTools(data) {
   });
   const body = JSON.stringify(data);
   console.log(body);
-  const url = 'http://localhost:3000/api/v1/communityroles/';
+  const url = 'http://localhost:3000/api/v1/communityroleactions/';
   return this.http.patch(url, body,options).map(res => res.json());
  }
 }
