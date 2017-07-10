@@ -3,8 +3,8 @@ const express = require('express');
 const router = express.Router();
 
 const communityCtrl = require('./communities.controller');
-
-router.get('/communities/:domain/', (req, res) => { // eslint-disable-line consistent-return
+// check domain is avialable or not
+router.get('/:domain', (req, res) => { // eslint-disable-line consistent-return
   try {
     communityCtrl.getSpecificCommunity(req.params.domain, (err, result) => {
       if (err) {
