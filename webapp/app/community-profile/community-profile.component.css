@@ -7,18 +7,14 @@
 margin-top:0%;
         }        
 
-        .sample{
-
-            background-color:#E8EAF6    ;
-        }
-
+     
        .community-image img{
 
            width:37%;
            height:170%;
            margin-top: 10%;
            margin-left:12%;
-           box-shadow: 2px 2px 4px #000000;
+           box-shadow: 3px 3px 4px #000000;
        }
 .tags{
 
@@ -29,10 +25,14 @@ margin-top:0%;
 
      margin-right: 35%;
      margin-top:12%;
+     
+
     
 }
 .community-details {
  margin-right: 28%;
+ color: grey;
+
 
 
 
@@ -142,3 +142,29 @@ h1 {
         font-size: 2.2rem;
     }
 }
+
+#sample{
+
+
+    box-shadow: 2px 3px 6px 3px grey;
+    background-color:#E8EAF6    
+}
+.tag{
+
+      box-shadow: 2px 2px 2px #000000;
+      margin-top: 6%;
+}
+.community-description{
+
+    font-style: italic;
+}
+md-icon{
+    color: grey;
+
+}
+#purpose{
+
+    color: grey;
+
+}
+
