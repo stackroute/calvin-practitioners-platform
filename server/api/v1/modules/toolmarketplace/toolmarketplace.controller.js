@@ -1,22 +1,18 @@
- const toolservice = require('./toolmarketplace.service');
-
-
+const toolservice = require('./toolmarketplace.service');
 
 function addTool(tool, done) {
-    console.log('inside addtool controller');
+   // console.log('inside addtool controller');
   toolservice.AddToolinMarketplace(tool, done);
 }
-
-
-// function getTool() {
-//   toolservice.getTool(done);
-// }
+function getAllTools(done) {
+  toolservice.getAllTools(done);
+}
 
 // function deleteTool(toolid) {
 //   toolservice.delTool(toolid, done);
 // }
-
 module.exports = {
-
-  addTool:addTool
+  addTool,
+  getAllTools,
 };
+

@@ -1,10 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { CommunityToolsWidgetComponent } from '../community-tools-widget/community-tools-widget.component';
 import { CommunityMembersWidgetComponent } from '../community-members-widget/community-members-widget.component';
 import { Params, RouterModule, Routes, Router, ActivatedRoute } from '@angular/router';
 import { CommunityProfileService } from '../community-profile/community-profile.service';
-import { ManageCommunityComponent } from '../manage-community/manage-community.component';
-import { CommunityProfileComponent } from '../community-profile/community-profile.component';
 
 
 
@@ -15,19 +13,20 @@ import { CommunityProfileComponent } from '../community-profile/community-profil
   providers: [CommunityProfileService],
 })
 export class CommunityDashboardComponent implements OnInit {
+
   url: string;
   param = [];
-  ans;
-  contents = [];
+  communityObj = {};
   isCounter = true;
- 
-  
-  constructor(private commProfileService: CommunityProfileService,private router: Router,private route: ActivatedRoute,) {
+  domain = "";
+
+  constructor(private commProfileService: CommunityProfileService, private router: Router, private route: ActivatedRoute, ) {
   }
   ngOnInit() {
-     this.commProfileService.getCommunity(this.route.snapshot.params['domain']). subscribe ( res => { this.contents = res; 
-     console.log(this.contents)
-  } );
+    this.domain = this.route.snapshot.params['domain'];
+    this.commProfileService.getCommunity(this.domain).
+      subscribe(res => {
+        this.communityObj = res;
+      });
   }
 }
-
