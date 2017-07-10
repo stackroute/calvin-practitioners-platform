@@ -35,7 +35,6 @@ router.get('/members', (req, res) => {
 });
 
 
-
 router.get('/memberrequests/:domain', (req, res) => {
   try {
     console.log('Domain is: ', req.params.domain);

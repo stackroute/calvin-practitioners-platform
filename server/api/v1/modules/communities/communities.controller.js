@@ -5,7 +5,6 @@ const BASE_COMMUNITY_SERVICE_URL = 'http://calvin-communities.blr.stackroute.in/
 
  // Call specific community on the basis of domain
 function getSpecificCommunity(domain, done) {
-  
   const url = `${BASE_COMMUNITY_SERVICE_URL}/communities/${domain}`;
   request
  .get(url)
@@ -20,9 +19,8 @@ function getSpecificCommunity(domain, done) {
 
  // Call communities service to update specific community according to domain
 function updateSpecificCommunity(domain, form, done) {
-  
   const url = `${BASE_COMMUNITY_SERVICE_URL}/communities/${domain}`;
- 
+
   request
  .patch(url)
  .send(form) // query string
@@ -37,17 +35,17 @@ function updateSpecificCommunity(domain, form, done) {
 
 function getUserCommunity(member, done) {
    // Call specific community on the basis of domain
-   console.log("value of memmebvr in server",member);
+  console.log('value of memmebvr in server', member);
   const url = `${BASE_COMMUNITY_SERVICE_URL}/communities/${member}`;
   request
  .get(url)
  .query({ member }) // query string
  .end((err, res) => {
    if (err) {
-     console.log("error in server for getting community",err);
+     console.log('error in server for getting community', err);
      return done(err);
    }
-   console.log("printing res body", res.body);
+   console.log('printing res body', res.body);
    return done(null, res.body);
  });
 }
@@ -74,13 +72,11 @@ function GetCommunity(done) {
 }
 
 
-
 module.exports = {
   getUserCommunity,
   postNewcommunityDetails,
   getSpecificCommunity,
   updateSpecificCommunity,
-   GetCommunity,
+  GetCommunity,
 };
-
 

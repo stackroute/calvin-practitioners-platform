@@ -16,7 +16,6 @@ function getCommunityMembers(domain, callback) {
 }
 
 
-
 const cartoons = {
   Members:
   [
@@ -130,12 +129,9 @@ function getMembersDetails(member, done) {
 }
 
 
-
-
-
 function postMemberInvite(domain, callback) {
   const url = `${BASE_COMMUNITY_SERVICE_URL} /memberrequests/${domain}`;
-  request.get(url)  
+  request.get(url)
   .end((err, res) => {
     if (err) {
       return callback(err);
@@ -145,12 +141,10 @@ function postMemberInvite(domain, callback) {
 }
 
 
-
-
 module.exports = {
   getMembers,
   getMembersDetails,
-   postMemberInvite,
-    getCommunityMembers,
+  postMemberInvite,
+  getCommunityMembers,
 };
 
