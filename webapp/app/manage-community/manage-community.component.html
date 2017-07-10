@@ -69,7 +69,7 @@
 
                               </md-chip-list>
 
-                               <md-input-container fxLayoutAlign="start">
+                               <!--<md-input-container fxLayoutAlign="start">
                                     <input mdInput name="status" placeholder="status">
                                     <md-radio-group ngModel={{contents.status}} name="status">
 
@@ -77,7 +77,7 @@
                                           <md-radio-button value="inactive">Disable</md-radio-button>
                                          
                                     </md-radio-group>
-                              </md-input-container>
+                              </md-input-container>-->
 
 
                               <a md-raised-button routerLink="/app/communitydashboard">Cancel</a>
@@ -97,7 +97,7 @@
                   </md-tab>
                   <!--tab for manage member component-->
                   <md-tab label="Roles">
-                        <calvin-community-role-managements></calvin-community-role-managements>
+                        <calvin-community-role-managements [community]="this.domain"></calvin-community-role-managements>
                   </md-tab>
                   <!--tab for manage role component-->
                   <md-tab label="Tools"></md-tab>

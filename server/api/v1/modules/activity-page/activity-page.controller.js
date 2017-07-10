@@ -1,4 +1,4 @@
- const memberControler = require('../members/members.controller');
+ const memberControler = require('../community-member/community-member.controller');
 
  const arr = {
    Tools: [

@@ -7,9 +7,32 @@ import 'rxjs/Rx';
 @Injectable()
 export class RoleServices {
   constructor(private http: Http) { }
-  listRoles() {
+
+  listRoles(domainName) {
     console.log('In service');
-    const url = '/api/v1/communityRoles/';
+    const url = '/api/v1/communityroles/communityrole/'+domainName;
+    console.log(url)
     return this.http.get(url).map(res => res.json());
   }
+
+  listUniqueRoles(domainname){
+     console.log('In service');
+    const url = '/api/v1/communityroles/'+domainname+'?onlyroles=true';
+    console.log(url)
+    return this.http.get(url).map(res => res.json());
+  } 
+
+
+updateTools(data) {
+  const headers = new Headers({
+   'Content-Type': 'application/json;charset=utf-8'
+  });
+  const options = new RequestOptions({
+   headers: headers
+  });
+  const body = JSON.stringify(data);
+  console.log(body);
+  const url = 'http://localhost:3000/api/v1/communityroles/';
+  return this.http.patch(url, body,options).map(res => res.json());
+ }
 }

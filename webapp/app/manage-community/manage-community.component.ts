@@ -89,7 +89,7 @@ openDialog() {
    this.commProfileService.getCommunity(this.route.snapshot.params['domain']). subscribe ( res => {  this.contents = res; 
    this.domain = res.domain;
    this.updatedBy = res.updatedby;
-   this.status = res.status;
+  
   //  this.tagarray.push(res.tags);
   } );
 

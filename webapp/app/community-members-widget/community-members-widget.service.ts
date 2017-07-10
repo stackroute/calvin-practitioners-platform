@@ -9,7 +9,7 @@ import 'rxjs/add/operator/map';
   constructor(private http: Http) { }
    getMember() {
         return this.http
-            .get('/api/v1/community/members')
+            .get('/api/v1/communityMembers')
             .map((response: Response) => response.json());
     }
 }
