@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import { ManageCommunityComponent } from './manage-community/manage-community.component';
+import { ManageCommunityComponent, updateCommunity} from './manage-community/manage-community.component';
 import { AppRoutingModule } from './core/app-routing.module';
 import { AppComponent } from './app.component';
 import { MdSidenavModule } from '@angular/material';
@@ -47,6 +47,7 @@ import { updateSpecificCommunityService } from './manage-community/manage-commun
 import { ToolMarketService } from './tool-market-place/tool-market-place.service';
 
 
+
 import { MarkdownModule } from 'angular2-markdown';
 
 import { CommunityMemberManagementComponent } from './community-member-management/community-member-management.component';
@@ -58,14 +59,14 @@ import { MemberInvitationComponent } from './member-invitation/member-invitation
 import { ToolMarketPlaceComponent } from './tool-market-place/tool-market-place.component';
 import { MemberEditComponent } from './member-edit/member-edit.component';
 import { ToolPageComponent } from './tool-page/tool-page.component';
-
- 
-
+import { AppBarService } from './app-bar/app-bar.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     ManageCommunityComponent,
+    ToolPageComponent,
+    updateCommunity,
     UserDashboardComponent,
     CreateCommunityComponent,
     AppBarComponent,
@@ -94,6 +95,7 @@ import { ToolPageComponent } from './tool-page/tool-page.component';
     SucessDialog,
     MemberEditComponent,
     ToolPageComponent,
+    
     NewRole
      ],
 
@@ -122,11 +124,8 @@ import { ToolPageComponent } from './tool-page/tool-page.component';
     ReactiveFormsModule
   ],
 
-  entryComponents: [CommunityToolActionsComponent, NewcommunityDialogboxComponent, MemberInvitationComponent,SucessDialog,MemberEditComponent,CommunityRoleManagementComponent,NewRole],
-
-
+  entryComponents: [CommunityToolActionsComponent, NewcommunityDialogboxComponent, MemberInvitationComponent,SucessDialog,MemberEditComponent,NewRole,updateCommunity],
   providers: [RoleServices, ToolActions, CommunityProfileService,ActivityService, updateSpecificCommunityService, ToolMarketService],
-
   bootstrap: [AppComponent]
 })
 export class AppModule { }

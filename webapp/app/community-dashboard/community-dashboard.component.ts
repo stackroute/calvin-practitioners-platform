@@ -14,6 +14,8 @@ import { CommunityProfileService } from '../community-profile/community-profile.
 })
 export class CommunityDashboardComponent implements OnInit {
 
+ 
+  
   url: string;
   param = [];
   communityObj = {};

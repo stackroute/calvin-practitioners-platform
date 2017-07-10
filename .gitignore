@@ -99,3 +99,6 @@ typings/
 
 # dotenv environment variables file
 .env
+
+# remove cache folder
+.v8-compile-cache-0

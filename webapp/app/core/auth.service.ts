@@ -23,6 +23,7 @@ export class AuthService {
 
     // alert('inside logout service');
     window.location.replace('http://localhost:3000/api/v1/logout');
+    //  this.http.get('http://localhost:3000/api/v1/logout');
 
     }
   }

@@ -2,7 +2,7 @@ const express = require('express');
 
 const router = express.Router();
 
-const controller = require('./activity-page.controller');
+const controller = require('./communityActivities.controller');
 
 /**
  * This API provides activity log entries for specified member
