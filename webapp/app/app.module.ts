@@ -56,7 +56,7 @@ import { MemberInvitationComponent } from './member-invitation/member-invitation
 import { ToolMarketPlaceComponent } from './tool-market-place/tool-market-place.component';
 import { MemberEditComponent } from './member-edit/member-edit.component';
 import { ToolPageComponent } from './tool-page/tool-page.component';
-
+import { AppBarService } from './app-bar/app-bar.service';
 
 
 @NgModule({
@@ -121,7 +121,7 @@ import { ToolPageComponent } from './tool-page/tool-page.component';
   entryComponents: [CommunityToolActionsComponent, NewcommunityDialogboxComponent, MemberInvitationComponent,SucessDialog,MemberEditComponent],
 
 
-  providers: [RoleServices, ToolActions, ActivityService],
+  providers: [RoleServices,AppBarService, ToolActions, ActivityService],
 
   bootstrap: [AppComponent]
 })

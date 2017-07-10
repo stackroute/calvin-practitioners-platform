@@ -5,6 +5,7 @@ const BASE_COMMUNITY_SERVICE_URL = 'http://calvin-communities.blr.stackroute.in/
 
 const communityservice = require('./community.service');
 
+// Get Member community List
 function getUserCommunity(req, done) {
   communityservice.getAllUserCommunities((err, res) =>{
     if (err) {
@@ -13,6 +14,20 @@ function getUserCommunity(req, done) {
     return done(null, res);
   });
 }
+
+// Check whether Domain is Available or not getAvailableDomain
+function getAvailableDomain(domainName, done) {
+  const url = `${BASE_COMMUNITY_SERVICE_URL}/communities/${domainName}`;  
+  request
+  .get(url)
+  .end((err, res) => {
+    if(err) {
+      return done(err);
+    }
+    return done(null, res.body)
+  })
+}
+
 
 // post new community data
 function postNewcommunityDetails(domainName, newCommunityObj, done) {
@@ -31,4 +46,5 @@ function postNewcommunityDetails(domainName, newCommunityObj, done) {
 module.exports = {
   getUserCommunity,
   postNewcommunityDetails,
+  getAvailableDomain,
 };

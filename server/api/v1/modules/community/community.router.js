@@ -4,17 +4,31 @@ const communityCtrl = require('./community.controller');
 // get User community List
 router.get('/userCommunities', (req, res) => {
   try {
-
     communityCtrl.getUserCommunity(req, (err, results) => {
       if (err) {
         return res.status(500).send({ error: 'Unexpected error occurred, try again later' });
-      }
+      };
       return res.status(200).send(results);
     });
   } catch (err) {
     return res.status(500).send({ error: 'Unexpected error occurred, try again later' });
   }
 });
+
+// check domain is avialable or not
+router.get('/:domainName', (req, res) => {
+  try{
+    communityCtrl.getAvailableDomain(req.params.domainName, (err, results) => {
+      if (err) {
+        return res.status(500).send({ error: 'Domain Name is Not Avialable' });
+      }
+      return res.status(200).send(results);
+    })
+  } catch (err){
+    return res.status(500).send({ error: 'Unexpected error occurred, try again later' });
+  }
+})
+
 
 // post new community data
 router.post('/:domainName', (req, res) => {

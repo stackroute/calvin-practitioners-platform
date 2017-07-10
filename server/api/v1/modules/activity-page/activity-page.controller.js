@@ -336,7 +336,6 @@ function retrieveMemberDetails (){
   console.log(tempStorage)
 }
 
-
 module.exports =
 {
   retrieveAllPosters,

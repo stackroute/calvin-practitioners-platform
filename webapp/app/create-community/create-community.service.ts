@@ -1,6 +1,7 @@
 import { Injectable, Input} from '@angular/core';
 import { Http, RequestOptions, Response, Headers} from '@angular/http';
 import 'rxjs/add/operator/map';
+import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class CreateCommunityService {
@@ -20,5 +21,16 @@ export class CreateCommunityService {
     postNewcommunityDetails(newCommunityObj, domainName) {
         return this._http.post('api/v1/community/' + domainName, newCommunityObj).map(() =>
         console.log('New community details posted', newCommunityObj));
+    }
+
+    isDomainRegisterd(domain: string){
+        return this._http.get('api/v1/community/'+ domain).map((response: Response) => response.json())
+        .catch(this.handleError);
+    }
+
+    private handleError(error: any){
+        console.log(error);
+        return Observable.throw(error.json());
+        
     }
 }
