@@ -3,10 +3,11 @@
   margin-top: 80px;
 
 }
-.action{
+.action,.event{
 
     text-align: left;
-    margin-top: 20px;
+    padding-top: 30px;
+
 }
 table {
     /*border-collapse: collapse;*/

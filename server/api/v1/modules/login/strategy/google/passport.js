@@ -1,6 +1,6 @@
 const GoogleStretegy = require('passport-google-oauth').OAuth2Strategy;
 const configAuth = require('./oauthconfig');
-const dbcontrol = require('../../../login/login.controller');
+const dbcontrol = require('../../../users/users.controller');
 
 module.exports = (passport) => {
   // this function gets the access token from google by providing code, clientID,
@@ -27,7 +27,7 @@ module.exports = (passport) => {
       // console.log('2.inside passport');
 
       // calling getUser function to Update or insert profile in database
-      dbcontrol.getUser(params, (err, results) => {
+        dbcontrol.getUser(params, (err, results) => {
         console.log('inside db token', results);
 
         if (err) {
