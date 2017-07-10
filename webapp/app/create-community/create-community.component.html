@@ -1,22 +1,30 @@
-
 <div fxFlex="100" fxLayout="row" fxLayoutAlign="start stretch" fxLayoutWrap>
   <div fxFlex="10" fxLayout="column"></div>
-    <form class="container" fxFlex="80" fxLayout="column" 
-    fxFlexFill [formGroup]="userForm" (ngSubmit)="onsubmit(userForm)">
+  <form class="container" fxFlex="80" fxLayout="column" fxFlexFill [formGroup]="userForm" (ngSubmit)="onsubmit(userForm)">
     <h3 class="md-headline">Create new community</h3>
     <!--domain name text field-->
     <div class="inputFields" fxLayout.md="column">
       <md-input-container>
+        
         <input mdInput placeholder="Domain name" formControlName="domainName">
+
         <md-hint align="start" class="full-width">
+          
+          <div *ngIf="userForm.get('domainName').hasError('isDomainUnique') && userForm.get('domainName').touched" class="errorStyle">
+            This email has been registered already
+          </div>
+
           <div *ngIf="userForm.get('domainName').hasError('required') && userForm.get('domainName').touched" class="errorStyle">
             Domain Name is required
           </div>
+          
           <div *ngIf="userForm.get('domainName').hasError('pattern') && userForm.get('domainName')" class="errorStyle">
             Invalid DomainName,must contain 8 to 20 char with one special character(.)
           </div>
+
         </md-hint>
       </md-input-container>
+
     </div>
     <!--community text field-->
     <div class="inputFields" fxLayout.md="column">
@@ -45,24 +53,24 @@
       <md-input-container>
         <input mdInput placeholder="Visibility" disabled>
         <md-radio-group name="visibility" formControlName="visibility">
-          <md-radio-button value="Public" >Public</md-radio-button>
-          <md-radio-button value="Private" >Private</md-radio-button>
-          <md-radio-button value="Moderate" >Moderate</md-radio-button>
+          <md-radio-button value="Public">Public</md-radio-button>
+          <md-radio-button value="Private">Private</md-radio-button>
+          <md-radio-button value="Moderate">Moderate</md-radio-button>
         </md-radio-group>
       </md-input-container>
     </div>
     <!--get description from user using text-area -->
-    <md-input-container class="inputFields" >
+    <md-input-container class="inputFields">
       <textarea mdInput placeholder="Description" rows="2" formControlName="description"></textarea>
     </md-input-container>
     <!--select core-activity-->
     <div class="inputFields" fxLayout.md="column">
       <md-select placeholder="Select Purpose" formControlName="purpose">
         <md-option *ngFor="let core of uniquePurposeArry" [value]="core">
-            {{core}}
+          {{core}}
         </md-option>
       </md-select>
-      <md-hint align="start" >
+      <md-hint align="start">
         <div *ngIf="userForm.get('purpose').hasError('required') && userForm.get('purpose').touched" class="errorStyle">
           select any one purpose
         </div>
@@ -70,8 +78,8 @@
     </div>
     <!--select template -->
     <div class="inputFields" fxLayout.md="column">
-    <calvin-template-browser (notify)="onselect($event)"  [template]="this.newcommunity.communityDetails" (onselect)="onselect($event)">
-    </calvin-template-browser>
+      <calvin-template-browser (notify)="onselect($event)" [template]="this.newcommunity.communityDetails" (onselect)="onselect($event)">
+      </calvin-template-browser>
     </div>
     <!--select tag container-->
     <div class="inputFields" fxLayout.md="column">
@@ -80,22 +88,22 @@
       </md-input-container>
     </div>
     <md-chip-list>
-      <div fxLayout.md="column" ng-disabled="!tag.value" *ngFor="let tag of tagarray" >
-      <md-chip (click)="deselectchip(tag)">{{tag}}<i class="material-icons">clear</i></md-chip>
+      <div fxLayout.md="column" ng-disabled="!tag.value" *ngFor="let tag of tagarray">
+        <md-chip (click)="deselectchip(tag)">{{tag}}<i class="material-icons">clear</i></md-chip>
       </div>
-    </md-chip-list>      
-<!--terms and condition-->
+    </md-chip-list>
+    <!--terms and condition-->
     <div class="inputFields" fxLayout.md="column">
       <md-checkbox color="primary" formControlName="termscondition">I agree!Terms and Condition.</md-checkbox>
     </div>
-<!--submit the form using raised button-->
-    <span  fxLayout.md="row" fxLayoutAlign="end end" fxLayoutGap="10px" fxLayoutGap.md="0" >
+    <!--submit the form using raised button-->
+    <span fxLayout.md="row" fxLayoutAlign="end end" fxLayoutGap="10px" fxLayoutGap.md="0">
       <!--<button fxLayout.md="column"  fxFlex="10" md-raised-button (click)="routeToUserPage()" >cancel</button>-->
        <a md-raised-button routerLink="/app/Home">cancel</a>
       <button fxLayout.md="column" fxFlex="10" md-raised-button ng-value="submit" type="submit" color="primary"
        [disabled]="!userForm.valid" >submit</button>
     </span>
-</form>
-<div fxLayout="column" fxFlex="10"></div>
+  </form>
+  <div fxLayout="column" fxFlex="10"></div>
 
-<router-outlet></router-outlet>
+  <router-outlet></router-outlet>
