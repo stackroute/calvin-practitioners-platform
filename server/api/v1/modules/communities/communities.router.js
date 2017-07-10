@@ -4,7 +4,7 @@ const router = express.Router();
 
 const communityCtrl = require('./communities.controller');
 
-router.get('/communities/:domain', (req, res) => { // eslint-disable-line consistent-return
+router.get('/communities/:domain/', (req, res) => { // eslint-disable-line consistent-return
   try {
     communityCtrl.getSpecificCommunity(req.params.domain, (err, result) => {
       if (err) {
@@ -30,6 +30,25 @@ router.patch('/communities/:domain', (req, res) => {
   } catch (err) {
     return res.status(500).send({
       error: 'Unexpected error occurred, try again later' });
+  }
+});
+
+router.get('/community-details', (req, res) => { // eslint-disable-line consistent-return
+  try {
+    // console.log('1.inside tools.....');
+    communityCtrl.GetCommunity((err, result) => {
+      if (err) {
+        // console.log('error');
+        res.status(500).send({ error: 'Internal error occurred....!' });
+      } else {
+        // console.log('got tool as : ', result);
+        res.status(200).send(result);
+      }
+    });
+  } catch (err) {
+    // console.log('catch ewrr');
+    return res.status(500).send({
+      error: 'Internal error occurred....!' });
   }
 });
 

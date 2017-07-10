@@ -18,27 +18,29 @@ export class AppBarComponent implements OnInit {
  public dialog: MdDialog, 
  public authService: AuthService, 
  public router: Router, 
+ private userservices:AppBarService,
  private userservice: UserInfoService) {}
 
  ngOnInit() {
 
  
-
-
-
-
- 
-   this.userservice.getUserDetail((userdetails)=>{
+    this.userservice.getUserDetail((userdetails)=>{
      
-
       this.user=userdetails;
-      console.log('this.user',this.user);
-       console.log(typeof userdetails);
+      console.log(typeof userdetails);
        console.log('user is : '+this.user);
       this.flag = 1;
 });
 
+
+
  }
+ 
+ 
+
+ 
+  //  (this.user=res));
+  // console.log('rss',this.user);
 
  
  maximizepic(imgsrc) {

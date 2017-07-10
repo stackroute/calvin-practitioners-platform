@@ -4,8 +4,7 @@ import {MdDialog, MdDialogRef, MdDialogConfig } from '@angular/material';
 import { AppBarService } from '../app-bar/app-bar.service';
 @Component({
  templateUrl: './user-profile.component.html',
- styleUrls: ['./user-profile.component.css'],
- providers:[AppBarService]
+ styleUrls: ['./user-profile.component.css']
 })
 export class UserProfileComponent implements OnInit {
  profileForm: FormGroup;

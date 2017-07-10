@@ -2,7 +2,7 @@
   <md-card-header>
     <div md-card-avatar class="example-header-image"></div>
     <md-card-title>
-      <h2>TOOL REGISTRATION</h2>
+      <h2>ADD TOOL</h2>
     </md-card-title>
   </md-card-header>
   <md-card-content>
@@ -23,7 +23,6 @@
       <md-input-container class="example-full-width" fxLayout="column" rows="2">
         <textarea mdInput name="tooldesc" placeholder="Description" [(ngModel)]="tooldesc" required>Put Small Description of the tool</textarea>
       </md-input-container>
-
       <md-select placeholder="Tool Purpose" fxLayout="row">
         <md-option *ngFor="let purpose of uniquePurpose" [value]="purpose">
           {{ purpose }}
@@ -31,8 +30,10 @@
       </md-select>
       </div>
 
-      <div fxLayout="row" *ngIf="actions.length!==0">
+      
 
+
+      <div fxLayout="row" >
         <!-- to display each added action   -->
         <table *ngIf="actions.length!==0">
           <tr fxLayout="row">
@@ -41,11 +42,11 @@
             <th> Remove </th>
           </tr>
           <!--<div *ngFor="let action of actions">-->
-          <tr *ngFor="let action of actions" fxLayout="row">
-            <td>{{action.name}}</td>
-            <td> {{action.grants}} </td>
-            <td> <i class="material-icons" (click)="remAction(action.name)">remove_circle</i> </td>
-          </tr>
+            <tr *ngFor="let action of actions" fxLayout="row">
+              <td>{{action.name}}</td>
+              <td> {{action.grants}} </td>
+              <td> <i class="material-icons" (click)="remAction(action.name)">remove_circle</i> </td>
+            </tr>
           <!--</div>-->
         </table>
       </div>
@@ -145,7 +146,6 @@
         <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="center">
           <i class="material-icons" (click)="AddAction()">add_circle</i>
         </div>
-
       </div>
       <!-- Tool Action Section Ends Here-->
 
@@ -180,7 +180,7 @@
         </div>
       </div>
   <!--   Tool Event Section Ends Here-->
-   
+
       <div fxLayout="row">
         <!-- to display each added event   -->
         <table *ngIf="events.length!==0">
@@ -189,12 +189,12 @@
             <th> Payload </th>
             <th> Description </th>
           </tr>
-
-          <tr *ngFor="let event of events" fxLayout="row">
-            <td>{{event.name}}</td>
-            <td> {{event.payload}} </td>
-            <td> {{event.description}} <i class="material-icons" (click)="remEvent(event.name)">remove_circle</i></td>
-          </tr>
+        
+            <tr *ngFor="let event of events" fxLayout="row">
+              <td>{{event.name}}</td>
+              <td> {{event.payload}} </td>
+              <td> {{event.description}} <i class="material-icons" (click)="remEvent(event.name)">remove_circle</i></td>
+            </tr>
         </table>
       </div>
       <!-- to Display Add more button when 1 event is already added -->
@@ -207,11 +207,11 @@
         <md-input-container class="example-full-width" fxLayout="row">
           <input name="event" mdInput placeholder="EVENT NAME" [(ngModel)]="tooleventname" required>
         </md-input-container>
-
+       
         <md-input-container class="example-full-width" fxLayout="column" rows="2">
-          <textarea name="evdesc" mdInput placeholder="DESCRIPTION" [(ngModel)]="eventDesc" required>Nice Lil Description of event</textarea>
+          <textarea name="evdesc" mdInput placeholder="DESCRIPTION"  [(ngModel)]="eventDesc" required>Nice Lil Description of event</textarea>
         </md-input-container>
-        <md-input-container class="example-full-width" fxLayout="row">
+         <md-input-container class="example-full-width" fxLayout="row">
           <input name="payload" mdInput placeholder="PAYLOAD" (focusout)="addEvent()" [(ngModel)]="eventpayload" required>
         </md-input-container>
       </div>-->

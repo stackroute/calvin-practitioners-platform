@@ -1,0 +1,33 @@
+<div fxLayout="column" md-dialog-content>
+    <form #form="ngForm" (ngSubmit)="onSubmit(form.value)" class="try">
+        <md-input-container fxLayoutAlign="start">
+            <input mdInput placeholder="Enter Role Name" #roleName [(ngModel)]="roleName.value">
+        </md-input-container>
+        <md-input-container fxLayoutAlign="start">
+            <input mdInput placeholder="select Tools and Actions">
+            <button md-button fxLayoutAlign='left' (click)='openDialog()'>Select Tools</button>
+        </md-input-container>
+    </form>
+</div>
+
+<div md-dialog-actions fxLayoutAlign="end">
+    <button md-button md-dialog-close>Cancel</button>
+    <button md-raised-button md-dialog-close color="primary" (click)="update()">Apply</button>
+</div>
+
+
+<!--<div fxLayout="column" md-dialog-content>
+    <form #form="ngForm" (ngSubmit)="onSubmit(form.value)" class="try">
+        <md-input-container fxLayoutAlign="start">
+            <input mdInput placeholder="Enter Role Name" #roleName [(ngModel)]="roleName.value">
+        </md-input-container>
+        <md-input-container fxLayoutAlign="start">
+            <input mdInput placeholder="select Tools and Actions">
+            <button md-button fxLayoutAlign='left' (click)='openDialog()'>Select Tools</button>
+        </md-input-container>
+        <div md-dialog-actions fxLayoutAlign="end">
+            <button md-button md-dialog-close>Cancel</button>
+            <button md-raised-button md-dialog-close color="primary" (click)="update()">Apply</button>
+        </div>
+    </form>
+</div>-->

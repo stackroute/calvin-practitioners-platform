@@ -25,8 +25,17 @@ export class UserWidgetsComponent implements OnInit {
   ngOnInit() { 
 
     // this.userInfo.getUserDetail(this.user). subscribe (res => {this.member = res;});
-    this.userCommunities.getCommunity(this.member). subscribe ( res => {  this.contents = res; 
- 
+    
+    this.userInfo.getUserDetail((userdetails)=>{
+     
+      this.member=userdetails.email;
+      console.log(userdetails);
+      console.log(typeof userdetails);
+       console.log('user is : '+this.member);
+});
+
+this.userCommunities.getCommunity(this.member). subscribe ( res => {  this.contents = res; 
+
   } );
 
 

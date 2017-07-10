@@ -7,9 +7,8 @@ import { Http, Response } from '@angular/http';
 
 import { CommunityProfileService } from '../community-profile/community-profile.service';
 
-import { CommunityProfileComponent } from '../community-profile/community-profile.component';
-
 import { updateSpecificCommunityService } from '../manage-community/manage-community.service';
+
 
 
 @Component({
@@ -38,7 +37,7 @@ ans;
 tagname:String;
   
    constructor(private route: ActivatedRoute, private router: Router,
-   private commProfileService: CommunityProfileService, private commUpdateService: updateSpecificCommunityService) { }
+   private commProfileService: CommunityProfileService,private dialog: MdDialog, private commUpdateService: updateSpecificCommunityService) { }
 
    chipValue(tag) {
 
@@ -55,17 +54,30 @@ tagname:String;
   this.tagarray = this.tagarray.filter(item => item !== tagvalue);
   
  }
-
+openDialog() {
+    this.dialog.open(updateCommunity);
+  }
 
 
  onSubmit(Form: any,): void {  
+  //  if (this.status == 'active') {
+  //    this.status = 'enable';
+  //    console.log('testing----------',this.status);
+  //     return this.status;
+  //  } else {
+  //         this.status = 'disable';
+  //    console.log('testing----------',this.status);
+
+  //          return this.status;
+  //         }
     Form.updatedby = this.updatedBy;
-    Form.status = this.status;
     Form.tags = this.tagarray;
-    console.log('form value',Form);
-    this.commUpdateService.updateSpecificCommunity(Form,this.domain).subscribe(
+    
+   
+    this.commUpdateService.updateSpecificCommunity(Form,this.domain ).subscribe(
     (data) => console.log('posted data',Form, this.domain),
     () => console.log('finished'))
+    this.openDialog();
 }
  
  
@@ -73,15 +85,24 @@ tagname:String;
 
  ngOnInit() {
    
-   
+   this.domain = this.route.snapshot.params['domain'];
    this.commProfileService.getCommunity(this.route.snapshot.params['domain']). subscribe ( res => {  this.contents = res; 
    this.domain = res.domain;
-  //  this.myAvatar = res.avatar;
    this.updatedBy = res.updatedby;
-   this.status = res.status;
+  
   //  this.tagarray.push(res.tags);
   } );
 
 }
+}
+
+@Component({
+  selector: 'updateCommunity',
+  templateUrl: 'updateCommunity.html',
+})
+export class updateCommunity {
+
+  constructor(private router: Router) { }
+ 
 }
 

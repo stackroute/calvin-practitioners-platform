@@ -1,4 +1,5 @@
- const memberControler = require('../members/members.controller');
+ const memberControler = require('../community-member/community-member.controller');
+ const activityServices = require('./communityActivities.service');
 
  const arr = {
    Tools: [
@@ -12,8 +13,8 @@
          url: 'http://calvin.com/community/sports.cricket.sachin.fans',
        },
        member: {
-         username: 'Himani',
-         name: 'Nitin Joshi',
+         username: 'Rajeshwari',
+         name: 'Rajeshwari',
          avatar: 'https://www.tm-town.com/assets/default_male300x300-aae6ae0235b6cd78cee8df7ae19f6085.png',
        },
        tool: {
@@ -42,6 +43,7 @@
            },
            {
              link: 'http://dzone.com/howto-be-a-fullstackprogrammer.jpg',
+             title: 'How to be a fullstack programmer',
            },
          ],
        },
@@ -57,7 +59,7 @@
        },
        member: {
          username: 'Nelanjan',
-         name: 'Rajeshwari',
+         name: 'nelanjan',
          avatar: 'http://shaebaxter.com/wp-content/uploads/2012/07/is-your-web-copy-boring.jpg',
        },
        tool: {
@@ -96,13 +98,13 @@
        community: {
          domain: 'Programmers community',
          name: 'wipro-programmers',
-         avatar: 'http://freedomainavatar.com/wp-content/uploads/2016/04/4-300x206.jpg',
+         avatar: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNyCYituHy0U24-UskCeehz5aW_0X0kAHxBAsJkBzsB2acaLIC',
          visibility: 'Public',
          url: 'http://calvin.com/community/sports.cricket.sachin.fans',
        },
        member: {
          username: 'geethanehru@gmail.com',
-         name: 'Geetha Nehru',
+         name: 'Rajeshwari',
          avatar: 'https://s-media-cache-ak0.pinimg.com/736x/f1/8b/0e/f18b0e857944883c889e63561cb26abb.jpg',
        },
        tool: {
@@ -145,8 +147,8 @@
          url: 'http://calvin.com/community/sports.cricket.sachin.fans',
        },
        member: {
-         username: 'saransri95@gmail.com',
-         name: 'saranya babu',
+         username: 'sri saran',
+         name: 'Rajeshwari',
          avatar: 'https://cdn.vox-cdn.com/thumbor/x58bYtjAuglgOnzp2sRV7QEyBa0=/3x0:1591x893/1600x900/cdn.vox-cdn.com/uploads/chorus_image/image/55248791/xboxliveavatarsnew.0.png',
        },
        tool: {
@@ -190,7 +192,7 @@
        },
        member: {
          username: 'renukanrj@gmail.com',
-         name: 'renuka nagaraj',
+         name: 'Rajeshwari',
          avatar: 'http://nick.mtvnimages.com/nick/video/images/avatar/avatar-206-full-episode-16x9.jpg',
        },
        tool: {
@@ -234,7 +236,7 @@
        },
        member: {
          username: 'nitin_godfather3423@gmail.com',
-         name: 'Nitin Joshi',
+         name: 'Rajeshwari',
          avatar: 'http://www.buddypoke.com/img/mytalkingavatar.png',
        },
        tool: {
@@ -278,7 +280,7 @@
        },
        member: {
          username: 'nitin_godfather3423@gmail.com',
-         name: 'Nitin Joshi',
+         name: 'Rajeshwari',
          avatar: 'https://www.tm-town.com/assets/default_male300x300-aae6ae0235b6cd78cee8df7ae19f6085.png',
        },
        tool: {
@@ -313,15 +315,35 @@
      },
    ],
  };
-
  const tempStorage = {
    memberDetails: [],
  };
 
- function retrieveAllPosters(req, res) {
+
+ function getAllCommunitiesOfMember(memberName) {
+   activityServices.getActivityData();
    retrieveMemberDetails();
-   res.json(arr);
+   const allCommunities = arr.Tools;
+   memberFilteredArray = allCommunities.filter(community => community.member.name === memberName);
+   return memberFilteredArray;
  }
+
+
+ function filterMemberCommunities(memberName, communityNames) {
+   getAllCommunitiesOfMember(memberName);
+   communityNames = communityNames.split(',');
+   memberCommunityFilteredArray = memberFilteredArray.filter(community => communityNames.indexOf(community.community.domain) > -1);
+   return memberCommunityFilteredArray;
+ }
+
+ function getLimitOfPages(limit) {
+   return limit;
+ }
+
+// function retrieveAllPosters(req, res) {
+//   retrieveMemberDetails();
+//   res.json(arr);
+// }
 
  function retrieveMemberDetails() {
    let i = 0;
@@ -335,10 +357,11 @@
    }
    console.log(tempStorage);
  }
-
-
  module.exports =
  {
-   retrieveAllPosters,
+   filterMemberCommunities,
+    // retrieveAllPosters,
+   getAllCommunitiesOfMember,
+   getLimitOfPages,
    retrieveMemberDetails,
  };
