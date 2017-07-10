@@ -2,3 +2,6 @@
     color:white;
     background-color: darkblue;
     }
+.container{
+    overflow: hidden;
+}

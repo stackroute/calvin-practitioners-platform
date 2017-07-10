@@ -47,7 +47,10 @@ console.log(request.params.domainName);
 
 router.patch('/communityrole/:domainname/roles/:rolename', (req, res) => {
   try {
-    communityCtrl.updateActions(req.params.domainname,req.params.rolename, req.body, (err, result) => {
+    console.log(req.params.domainname);
+    console.log(req.params.rolename);
+    console.log(req.body);
+    controller.updateActions(req.params.domainname,req.params.rolename, req.body, (err, result) => {
       if (err) {
         return res.status(500).send({ error: 'Unexpected error occurred, try again later' });
       }
