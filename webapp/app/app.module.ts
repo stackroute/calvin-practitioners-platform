@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import { ManageCommunityComponent } from './manage-community/manage-community.component';
+import { ManageCommunityComponent, updateCommunity} from './manage-community/manage-community.component';
 import { AppRoutingModule } from './core/app-routing.module';
 import { AppComponent } from './app.component';
 import { MdSidenavModule } from '@angular/material';
@@ -65,6 +65,8 @@ import { AppBarService } from './app-bar/app-bar.service';
   declarations: [
     AppComponent,
     ManageCommunityComponent,
+    ToolPageComponent,
+    updateCommunity,
     UserDashboardComponent,
     CreateCommunityComponent,
     AppBarComponent,
@@ -93,6 +95,7 @@ import { AppBarService } from './app-bar/app-bar.service';
     SucessDialog,
     MemberEditComponent,
     ToolPageComponent,
+    
     NewRole
      ],
 
@@ -121,7 +124,7 @@ import { AppBarService } from './app-bar/app-bar.service';
     ReactiveFormsModule
   ],
 
-  entryComponents: [CommunityToolActionsComponent, NewcommunityDialogboxComponent, MemberInvitationComponent,SucessDialog,MemberEditComponent,NewRole],
+  entryComponents: [CommunityToolActionsComponent, NewcommunityDialogboxComponent, MemberInvitationComponent,SucessDialog,MemberEditComponent,NewRole,updateCommunity],
   providers: [RoleServices, ToolActions, CommunityProfileService,ActivityService, updateSpecificCommunityService, ToolMarketService],
   bootstrap: [AppComponent]
 })

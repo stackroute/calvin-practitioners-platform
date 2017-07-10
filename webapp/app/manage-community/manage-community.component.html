@@ -39,7 +39,7 @@
 
 
                               <md-input-container fxLayoutAlign="start">
-                                    <input mdInput name="access">
+                                    <input mdInput name="access" placeholder="Visisbility">
                                     <md-radio-group ngModel={{contents.visibility}} name="visibility">
 
                                           <md-radio-button value="Public">Public</md-radio-button>
@@ -69,10 +69,20 @@
 
                               </md-chip-list>
 
+                               <!--<md-input-container fxLayoutAlign="start">
+                                    <input mdInput name="status" placeholder="status">
+                                    <md-radio-group ngModel={{contents.status}} name="status">
+
+                                          <md-radio-button value="active">Enable</md-radio-button>
+                                          <md-radio-button value="inactive">Disable</md-radio-button>
+                                         
+                                    </md-radio-group>
+                              </md-input-container>-->
+
 
                               <a md-raised-button routerLink="/app/communitydashboard">Cancel</a>
                               <!-- Submit button to Add the tool-->
-                              <button md-raised-button color="primary">Submit</button>
+                              <button md-raised-button color="primary" md-button (click)="openDialog()">Submit</button>
 
 
                         </form>

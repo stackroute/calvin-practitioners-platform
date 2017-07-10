@@ -27,3 +27,4 @@ export class ActivityService {
       (response: Response) => response.json());
   }
 
+}

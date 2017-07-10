@@ -17,16 +17,17 @@ margin-top:0%;
            width:37%;
            height:170%;
            margin-top: 10%;
-           margin-left:12%;;
+           margin-left:12%;
+           box-shadow: 2px 2px 4px #000000;
        }
 .tags{
 
     margin-top: 10%;
     margin-left:80%;
 }
-.community-details-name h5{
+.community-details-name h4{
 
-     margin-right: 38%;
+     margin-right: 35%;
      margin-top:12%;
     
 }
