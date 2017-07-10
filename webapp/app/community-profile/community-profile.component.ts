@@ -10,14 +10,17 @@ import { Component, OnInit, Input } from '@angular/core';
 export class CommunityProfileComponent implements OnInit {
 
  @Input() profile;
+ 
  counter = true;
-//  createdOn;
+
   constructor() {
     
+    // this.createdOn = this.profile.createdon;
+    // console.log("displaying the date",createdOn); 
    
   } 
 
   ngOnInit() {
- 
+
   }
 }

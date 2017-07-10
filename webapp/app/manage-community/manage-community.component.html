@@ -50,7 +50,7 @@
 
 
                               <md-input-container fxLayoutAlign="start" fxLayout="column">
-                                    <textarea input mdInput placeholder="avatar" rows="2" name="avatar" ngModel></textarea>
+                                    <textarea input mdInput placeholder="avatar" rows="2" name="avatar" ngModel={{contents.avatar}}></textarea>
                               </md-input-container>
 
 
@@ -91,8 +91,10 @@
 
 
                   </md-tab>
+                  
                   <!--Closing community info tab-->
                   <md-tab label="Members">
+                       
                         <calvin-community-member-management [community]="this.domain"></calvin-community-member-management>
                   </md-tab>
                   <!--tab for manage member component-->

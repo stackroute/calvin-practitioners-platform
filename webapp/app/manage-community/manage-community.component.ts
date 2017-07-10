@@ -2,6 +2,8 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Params, RouterModule, Routes, Router, ActivatedRoute } from '@angular/router';
 import { MdDialog } from '@angular/material';
 import { FormGroup, FormControl, Validators, FormBuilder} from '@angular/forms';
+1
+import * as moment from 'moment/moment';
 
 import { Http, Response } from '@angular/http';
 
@@ -86,9 +88,13 @@ openDialog() {
  ngOnInit() {
    
    this.domain = this.route.snapshot.params['domain'];
-   this.commProfileService.getCommunity(this.route.snapshot.params['domain']). subscribe ( res => {  this.contents = res; 
+   this.commProfileService.getCommunity(this.route.snapshot.params['domain']). subscribe ( res => {   
    this.domain = res.domain;
    this.updatedBy = res.updatedby;
+   res.createdon= moment(res.createdon).subtract(1,'days').calendar();
+   this.contents = res;
+
+ 
   
   //  this.tagarray.push(res.tags);
   } );
