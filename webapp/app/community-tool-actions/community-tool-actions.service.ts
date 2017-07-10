@@ -15,8 +15,6 @@ export class ToolActions {
     return this.http.get(url).map(res => res.json());
   }
 
-
-
 updateTools(domain,role,data) {
   console.log(domain);
   console.log(role);

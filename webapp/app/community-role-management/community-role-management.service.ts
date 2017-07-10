@@ -6,6 +6,7 @@ import 'rxjs/Rx';
 
 @Injectable()
 export class RoleServices {
+  
   constructor(private http: Http) { }
 
   listRoles(domainName) {
