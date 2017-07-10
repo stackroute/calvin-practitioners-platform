@@ -25,7 +25,7 @@ export class ManageCommunityComponent implements OnInit {
 
     userForm: FormGroup;
 
-contents = [];
+community = [];
 selectedValue: string;
 public tagarray= [];
 url: string;
@@ -92,7 +92,7 @@ openDialog() {
    this.domain = res.domain;
    this.updatedBy = res.updatedby;
    res.createdon= moment(res.createdon).subtract(1,'days').calendar();
-   this.contents = res;
+   this.community = res;
 
  
   

@@ -16,7 +16,7 @@ import { UserInfoService } from '../core/user-info.service';
 export class UserWidgetsComponent implements OnInit {
 
   userCommunityListArray = [ ];
-  contents = [];
+  communities = [];
   member ;
   user;
 
@@ -34,7 +34,7 @@ export class UserWidgetsComponent implements OnInit {
        console.log('user is : '+this.member);
 });
 
-this.userCommunities.getCommunity(this.member). subscribe ( res => {  this.contents = res; 
+this.userCommunities.getCommunity(this.member). subscribe ( res => {  this.communities = res; 
 
   } );
 
