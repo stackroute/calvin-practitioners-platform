@@ -42,9 +42,6 @@ import { ToolActions } from './community-tool-actions/community-tool-actions.ser
 import { InfiniteScrollModule } from 'angular2-infinite-scroll';
 import { ActivityService } from './activity-page/activity-page.service';
 import { CreateCommunityService } from './create-community/create-community.service';
-// import { AppBarService } from './app-bar/app-bar.service';
-// import { GetCommunity } from './manage-community/manage-community.service';
-
 import { CommunityProfileService } from './community-profile/community-profile.service';
 import { updateSpecificCommunityService } from './manage-community/manage-community.service';
 import { ToolMarketService } from './tool-market-place/tool-market-place.service';
@@ -62,9 +59,7 @@ import { MemberInvitationComponent } from './member-invitation/member-invitation
 import { ToolMarketPlaceComponent } from './tool-market-place/tool-market-place.component';
 import { MemberEditComponent } from './member-edit/member-edit.component';
 import { ToolPageComponent } from './tool-page/tool-page.component';
-
- 
-
+import { AppBarService } from './app-bar/app-bar.service';
 
 @NgModule({
   declarations: [
@@ -129,13 +124,8 @@ import { ToolPageComponent } from './tool-page/tool-page.component';
     ReactiveFormsModule
   ],
 
-
   entryComponents: [CommunityToolActionsComponent, NewcommunityDialogboxComponent, MemberInvitationComponent,SucessDialog,MemberEditComponent,NewRole,updateCommunity],
-
-
   providers: [RoleServices, ToolActions, CommunityProfileService,ActivityService, updateSpecificCommunityService, ToolMarketService],
-
-
   bootstrap: [AppComponent]
 })
 export class AppModule { }
