@@ -3,9 +3,9 @@ import { ActivityService } from './activity-page.service';
 import { AppBarService } from '../app-bar/app-bar.service';
 
 @Component({
-  selector: 'calvin-activity-page',
-  templateUrl: './activity-page.component.html',
-  styleUrls: ['./activity-page.component.css']
+ selector: 'calvin-activity-page',
+ templateUrl: './activity-page.component.html',
+ styleUrls: ['./activity-page.component.css']
 })
 export class ActivityPageComponent implements OnInit {
   tools = [];

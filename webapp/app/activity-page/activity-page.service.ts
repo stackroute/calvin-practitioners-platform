@@ -26,4 +26,4 @@ export class ActivityService {
     return this.http.get(url).map(
       (response: Response) => response.json());
   }
-}
+
