@@ -1,4 +1,5 @@
 const memberControler = require('../members/members.controller');
+const activityServices = require('./communityActivities.service');
 
 const arr = {
   Tools: [
@@ -318,37 +319,17 @@ const tempStorage = {
   memberDetails: [],
 };
 
-// function retrieveAllPosters(req, res) {
-//   const memberName = req.params.membername;
-//   let comunities=req.query.communities;
-//   const sort=req.query.sort;
-//   const order=req.query.order;
-//   const limit=req.query.limit;
-//   const page=req.query.page;
-//   console.log('memberName: ', memberName, '\n', 'communities: ', comunities, '\n', 'sort: ',
-// sort,'\n', 'order: ', order, '\n',limit, 'limit: ', '\n','page: ', page, '\n');
-//   const newArr= arr["Tools"].filter(data => data.member.name === memberName);
-//   comunities.forEach((element) => {
-//   (newArr.filter(data => data.community.domain === element));
-//   });
-//    res.json(newArr);
-// }
-// function filterMembers(name) {
-//   console.log("INSIDE FILTER METHOD" + name);
-//   const newArr = arr["Tools"].filter(arr => arr.member.name === name);
-//   console.log("INSIDE CONTROLLER" + JSON.stringify(newArr));
-//   return JSON.stringify(newArr);
-// }
 
 function getAllCommunitiesOfMember(memberName) {
+  activityServices.getActivityData();
   retrieveMemberDetails();
   const allCommunities = arr.Tools;
   memberFilteredArray = allCommunities.filter((community) => {
     return community.member.name === memberName;
   });
-
   return memberFilteredArray;
 }
+
 
 function filterMemberCommunities(memberName, communityNames) {
   getAllCommunitiesOfMember(memberName);
@@ -380,13 +361,11 @@ function retrieveMemberDetails() {
   }
   console.log(tempStorage);
 }
-
-
 module.exports =
-{
-  filterMemberCommunities,
-  // retrieveAllPosters,
-  getAllCommunitiesOfMember,
-  getLimitOfPages,
-  retrieveMemberDetails,
-};
+  {
+    filterMemberCommunities,
+    // retrieveAllPosters,
+    getAllCommunitiesOfMember,
+    getLimitOfPages,
+    retrieveMemberDetails,    
+  };
