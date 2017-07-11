@@ -1,0 +1,9 @@
+ 
+       .tools-image img{
+
+           width:35%;
+           height:170%;
+           margin-top: 10%;
+           margin-left:12%;
+           box-shadow: 3px 3px 4px #000000;
+       }

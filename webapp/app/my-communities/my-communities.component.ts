@@ -17,25 +17,26 @@ export class UserWidgetsComponent implements OnInit {
 
   userCommunityListArray = [ ];
   communities = [];
-  member ;
+  member = "mr.w" ;
   user;
-
+  arr=[];
   constructor(private userCommunities: UserCommunities,private userInfo: UserInfoService, private router: Router) { }
   
   ngOnInit() { 
 
     // this.userInfo.getUserDetail(this.user). subscribe (res => {this.member = res;});
     
-    this.userInfo.getUserDetail((userdetails)=>{
+//     this.userInfo.getUserDetail((userdetails)=>{
      
-      this.member=userdetails.email;
-      console.log(userdetails);
-      console.log(typeof userdetails);
-       console.log('user is : '+this.member);
-});
+//       this.member=userdetails.email;
+//       console.log(userdetails);
+//       console.log(typeof userdetails);
+//        console.log('user is : '+this.member);
+// });
 
 this.userCommunities.getCommunity(this.member). subscribe ( res => {  this.communities = res; 
-
+  this.arr=res.communityDetails;
+console.log("inside the component of my-communities",this.arr);
   } );
 
 
