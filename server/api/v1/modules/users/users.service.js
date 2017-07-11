@@ -1,14 +1,17 @@
 const config = require('../common/config');
 const cassandra = require('cassandra-driver');
 const jwt = require('jsonwebtoken');
+const request = require('superagent');
+const BASE_COMMUNITY_SERVICE_URL = 'http://calvin-communities.blr.stackroute.in/api/v1';
 
+const cookies=[];
 const USERS_TABLE = 'users';
 const client = new cassandra.Client({
   contactPoints: [config.dbconfig.dburl],
   keyspace: config.dbconfig.keyspacename,
 });
 
-const cookies = [];
+// const cookies = [];
 // this function is to check if user record is already present in database
 function checkIfUserExists(email, done) {
   const chkQuery = `SELECT * FROM ${USERS_TABLE} where username = '${email}'`;
@@ -67,18 +70,37 @@ function updateUser(profile, done) {
         if (err) {
           return done(err, 'db error');
         }
-        return done(null, userToken);
-      });
+        return done(null, cookies);
+      }); // end of  updateLastLoginTime
     } else {
       insertUserInDb(profile, (err) => {
         if (err) { done(err); return; }
-        done(null, userToken);
-      });
+        done(null, cookies);
+      }); // end of  insertUserInDb
     }
-    return 'hi';
-  });
+  }); // end of checkIfUserExists
+}
+// this function is to get List of Comminities of a User
+function getUserCommunities(username,done){
+
+  const url = `${BASE_COMMUNITY_SERVICE_URL}/membership/${username}`;
+  request
+ .get(url)
+ .query({ username }) // query string
+ .end((err, res) => {
+   if (err) {
+     console.log('error is ', err);
+     return done(err);
+   }
+   console.log('result is ', res.body);
+   const userCommunityToken=jwt.sign(res.body, config.appConstants.secret,
+    { expiresIn: config.appConstants.expiryTime });
+   cookies.push(userCommunityToken);
+   return done(null, cookies);
+ });
 }
 
 module.exports = {
   updateUser,
+  getUserCommunities
 };
