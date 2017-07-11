@@ -12,6 +12,7 @@ export class UserProfileComponent implements OnInit {
  profileForm: FormGroup;
  user: {};
  flag = 0;
+ addInterestArr = [];
  constructor(private fb: FormBuilder, private userservice: UserInfoService) {
   this.createprofile();
  }
@@ -25,6 +26,14 @@ export class UserProfileComponent implements OnInit {
     favourite: ['']
   });
  }
+
+ addInterest(interest) {
+   if(!this.addInterestArr.includes(interest)) {
+     this.addInterestArr.push(interest);
+   }
+   console.log('my interest list',this.addInterestArr);
+ }
+
   onsubmit(userdata: any) {
      const values = userdata.value;
      const firstname = values.firstname;
