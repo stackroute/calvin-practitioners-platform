@@ -26,11 +26,25 @@ export class AddToolComponent implements OnInit {
   toc: any;
   actionFlag = 0;
   eventFlag = 0;
-
+  purpose=[];
+  uniquePurpose=[];
   constructor(private addtoolservice: AddToolService,
     private dialog: MdDialog) { }
 
   ngOnInit() {
+     this.addtoolservice.getTemplates()
+    .subscribe(
+    data => { this.purpose= data;
+      console.log('JSON value', data);
+      const purposeList = [new Set(data.map( item => item.purpose))];
+      const myArray = Array.from(purposeList);
+      this.uniquePurpose =  Array.from(myArray[0]);
+      console.log('unique array',this.uniquePurpose);
+    },
+    error => console.log(error),
+    () => console.log('finished')
+    );
+
 
   }
 

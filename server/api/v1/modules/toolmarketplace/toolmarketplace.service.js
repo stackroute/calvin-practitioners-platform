@@ -20,7 +20,7 @@ function checkIfToolExists(toolid, done) {
       return done(null, false);
     } return done(null, true);
   });
-} 
+}
 function addToolinDB(tool, done) {
   // console.log('toolaction',tool.toolAction);
   // console.log('tool event',tool.toolEvent);
@@ -61,14 +61,14 @@ function AddToolinMarketplace(tool, done) {
 }
 
 function getAllTools(done) {
-  //console.log('entered getall tools service');
+  // console.log('entered getall tools service');
   const query = `SELECT * FROM ${TABLE_NAME}`;
   return client.execute(query, (err, results) => {
-     if (err) {
-       done({ error: 'Internal error' });
-     } else {
-       done(null, results);
-     }
+    if (err) {
+      done({ error: 'Internal error' });
+    } else {
+      done(null, results);
+    }
   });
 }
 module.exports = {

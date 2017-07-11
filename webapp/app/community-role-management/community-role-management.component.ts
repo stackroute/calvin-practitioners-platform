@@ -15,38 +15,43 @@ export class CommunityRoleManagementComponent implements OnInit {
   sample = [];
   getResults = [];
   a = [];
-  c = [];
-  b = {};
+
   @Input() community;
 
   constructor(public dialog: MdDialog, private role: RoleServices, private route: ActivatedRoute) {
     this.role.listRoles(this.route.snapshot.params['domain']).subscribe(res => {
       this.sample = res;
-    });
+
+      this.sample.forEach((val) => {
+    const actions = val.actions.map(x => x.toLowerCase());
+    const role = val.role.map(x => x.toLowerCase());
+    this.a.push({role,actions: [actions]});
+    console.log(this.a);
+    return this.a;
+  });
+});
     console.log(this.route.snapshot.params['domain']);
     this.role.listUniqueRoles(this.route.snapshot.params['domain']).subscribe(res => {
       this.getResults = res;
 
-      this.sample.forEach((value) => {
-        console.log(value.role)
-        this.getResults.forEach((value2) => {
-          console.log(value2.actions)
-          if (value.role === value2.role) {
-
-            this.b = value.actions;
-
-            return this.a.push(this.b);
-          }
-        });
-        console.log(this.a);
-        const id = value.role;
-        const actions = this.a;
-        return this.c.push({ id, actions });
-      });
-      console.log(this.c);
+       
 
 
-
+      // this.sample.forEach((value) => {
+      //   console.log(value.role)
+      //   this.getResults.forEach((value2) => {
+      //     console.log(value.actions)
+      //     if (value.role === value2.role) {
+      //       this.b = value.actions;
+      //     }
+      //     return this.a.push(this.b);
+      //   });
+      //   console.log(this.a);
+      //   const id = value.role;
+      //   const actions = this.a;
+      //   return this.c.map(id,actions);
+      // });
+      // console.log(this.c);
     });
   }
   ngOnInit() { }

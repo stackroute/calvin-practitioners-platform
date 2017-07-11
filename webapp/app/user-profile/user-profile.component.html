@@ -1,70 +1,3 @@
-<!--<div class="container" fxLayout fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="10px" fxLayoutGap.xs="0">
-	<div class="item item-1" fxFlex="2%"></div>
-	<div class="item item-2" fxFlex="2%" fxFlexOrder="3"></div>
-	<div class="item item-3" fxFlex class="form-div" *ngIf="flag===1">
-		<md-card>
-			<md-list>
-				<md-list-item>
-					<h1>Profile Edit</h1>
-					<img md-list-avatar class="img-placing" src={{(user.avatar)}} alt="User">
-				</md-list-item>
-			</md-list>
-			<form class="placing" [formGroup]="profileForm">
-				<div>
-					<i class="material-icons prefix">account_circle</i>
-					<md-input-container>
-						<input mdInput placeholder="username" formControlName="firstname" [(ngModel)]='user.username' />
-						<md-hint align="start" class="full-width">
-							<div *ngIf="profileForm.get('firstname').hasError('required') && profileForm.get('firstname').touched" class="errorStyle">
-								User Name is required
-							</div>-->
-<!--<div *ngIf="profileForm.get('firstname').hasError('pattern') && profileForm.get('firstname')" class="errorStyle">
-            Invalid UserName,must contain only alphabets
-          </div>-->
-<!--</md-hint>
-					</md-input-container>
-
-				</div>
-				<div>
-					<i class="material-icons">email</i>
-					<md-input-container>
-						<input mdInput placeholder="Email" formControlName="email" [(ngModel)]='user.email' />
-					</md-input-container>
-				</div>
-				<div>
-					<i class="material-icons">location_on</i>
-					<md-input-container>
-						<input mdInput placeholder="Location" formControlName="location">
-					</md-input-container>
-				</div>
-				<div>
-					<i class="material-icons prefix">phone</i>
-					<md-input-container class="example-full-width">
-						<input mdInput #postalCode maxlength="5" placeholder="Phone Number" formControlName="phonenumber">
-						<md-hint align="end"></md-hint>
-					</md-input-container>
-				</div>
-				<div>
-					<i class="material-icons">favorite</i>
-					<md-input-container class="example-full-width">
-						<input mdInput placeholder="Interests" formControlName="favourite">
-						<md-hint align="end"></md-hint>
-					</md-input-container>
-				</div>
-				<div>-->
-<!--<button  md-mini-fab color="primary" align="right">
-												<md-icon>send</md-icon>
-											</button>-->
-<!--<button md-raised-button (click)="reset()">cancel</button>
-					<button md-raised-button color="primary" (click)="onsubmit(profileForm)">save</button>
-
-				</div>
-			</form>
-
-		</md-card>
-	</div>
-</div>
-<router-outlet></router-outlet>-->
 <div class="container" fxLayout fxLayout.xs="row" fxLayoutAlign="center" fxLayoutGap="10px" fxLayoutGap.xs="0">
 	<div class="item item-1" fxFlex="2%"></div>
 	<div class="item item-2" fxFlex="2%" fxFlexOrder="3"></div>
@@ -81,7 +14,7 @@
 				<div fxFlex="40%" Align="center center" class="fixprofile">
 					<img md-card-image fxFlex=50% fxLayoutAlign="start" class="img-placing" src={{(user.avatar)}} alt="User">
 					<markdown fxFlex=100% fxLayoutAlign="start">{{user.username}}</markdown>
-					<markdown fxFlex=100% fxLayoutAlign="start">{{user.email}}</markdown>
+					<markdown fxFlex=100% fxLayoutAlign="start">{{user.name}}</markdown>
 				</div>
 				<div fxLayout.xs="row" fxLayoutGap="0px" fxLayoutGap.xs="0" fxFlex="60%">
 					<div fxLayoutAlign="start" fxFlex="100%">
@@ -119,56 +52,3 @@
 		</md-card>
 	</div>
 </div>
-<!--<div fxLayoutAlign="left">
-				<markdown>Welcome...! {{user.username}}</markdown>
-			</div>
-			<hr fxFlex="100%">
-           <div fxFlex="25%">
-			<div fxFlex="25%" fxLayoutAlign="start">>
-				<md-card-content >
-					<img md-card-image class="img-placing" src={{(user.avatar)}} alt="User">
-					<i class="material-icons">check_circle</i>
-				</md-card-content>
-			</div>
-
-			<div fxFlex="30%">
-				<md-card-content >
-					<markdown>{{user.username}}</markdown>
-				</md-card-content>
-
-				<md-card-content fxFlex="30%">
-					<markdown>{{user.email}}</markdown>
-				</md-card-content>
-			</div>
-           </div>
-			<div fxLayout fxLayout.xs="row" fxLayoutGap="0px" fxLayoutGap="0" fxFlex="70%">
-			<div fxLayoutAlign="end" fxFlex="70%">
-			<form class="placing" [formGroup]="profileForm">
-				<div>
-					<md-input-container class="example-full-width">
-						<input mdInput #phonenumber maxlength="10" placeholder="Phone Number">
-						<md-hint align="end"></md-hint>
-					</md-input-container>
-				</div>
-				<div>
-					<md-input-container class="example-full-width">
-						<input mdInput placeholder="City">
-					</md-input-container>
-				</div>
-				<div>
-					<md-input-container class="example-full-width">
-						<input mdInput placeholder="State">
-					</md-input-container>
-				</div>
-				<div>
-					<md-input-container class="example-full-width">
-						<input mdInput #postalCode maxlength="5" placeholder="Postal Code" value="">
-						<md-hint align="end"></md-hint>
-					</md-input-container>
-				</div>
-			</form>
-			</div>
-			</div>-->
-<!--		
-	</div>
-</div>-->

@@ -9,7 +9,10 @@ export class UserCommunities {
  
  constructor (private http: Http) { }
     getCommunity(member) {
-    const url = `/api/v1/community/membership/${member}`;
+    
+    console.log('member...',member);
+    const url = `/api/v1/communities/membership/${member}`;
+
     return this.http.get(url).map( response => response.json());
     
 

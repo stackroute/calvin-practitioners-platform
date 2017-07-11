@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import { ManageCommunityComponent } from './manage-community/manage-community.component';
+import { ManageCommunityComponent, updateCommunity} from './manage-community/manage-community.component';
 import { AppRoutingModule } from './core/app-routing.module';
 import { AppComponent } from './app.component';
 import { MdSidenavModule } from '@angular/material';
@@ -42,9 +42,6 @@ import { ToolActions } from './community-tool-actions/community-tool-actions.ser
 import { InfiniteScrollModule } from 'angular2-infinite-scroll';
 import { ActivityService } from './activity-page/activity-page.service';
 import { CreateCommunityService } from './create-community/create-community.service';
-// import { AppBarService } from './app-bar/app-bar.service';
-// import { GetCommunity } from './manage-community/manage-community.service';
-
 import { CommunityProfileService } from './community-profile/community-profile.service';
 import { updateSpecificCommunityService } from './manage-community/manage-community.service';
 import { ToolMarketService } from './tool-market-place/tool-market-place.service';
@@ -62,14 +59,14 @@ import { MemberInvitationComponent } from './member-invitation/member-invitation
 import { ToolMarketPlaceComponent } from './tool-market-place/tool-market-place.component';
 import { MemberEditComponent } from './member-edit/member-edit.component';
 import { ToolPageComponent } from './tool-page/tool-page.component';
-
- 
-
+import { AppBarService } from './app-bar/app-bar.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     ManageCommunityComponent,
+    ToolPageComponent,
+    updateCommunity,
     UserDashboardComponent,
     CreateCommunityComponent,
     AppBarComponent,
@@ -98,6 +95,7 @@ import { ToolPageComponent } from './tool-page/tool-page.component';
     SucessDialog,
     MemberEditComponent,
     ToolPageComponent,
+    
     NewRole
      ],
 
@@ -125,13 +123,8 @@ import { ToolPageComponent } from './tool-page/tool-page.component';
     MdDialogModule,
     ReactiveFormsModule
   ],
-
-  entryComponents: [CommunityToolActionsComponent, NewcommunityDialogboxComponent, MemberInvitationComponent,SucessDialog,MemberEditComponent,NewRole],
-
-
+  entryComponents: [CommunityToolActionsComponent, NewcommunityDialogboxComponent, MemberInvitationComponent,SucessDialog,MemberEditComponent,NewRole,updateCommunity],
   providers: [RoleServices, ToolActions, CommunityProfileService,ActivityService, updateSpecificCommunityService, ToolMarketService],
-
-
   bootstrap: [AppComponent]
 })
 export class AppModule { }
