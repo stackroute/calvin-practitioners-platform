@@ -31,9 +31,6 @@ export class AppBarComponent implements OnInit {
        console.log('user is : '+this.user);
       this.flag = 1;
 });
-
-
-
  }
  
  
