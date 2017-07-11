@@ -21,7 +21,6 @@ import { MdSelectModule } from '@angular/material';
 import { CreateCommunityComponent } from './create-community/create-community.component';
 import { CommunityRoleActionsComponent } from './community-role-actions/community-role-actions.component';
 import { CommunityRoleManagementComponent } from './community-role-management/community-role-management.component';
-import { NewRole } from './community-role-management/community-role-management.component';
 import { CommunityToolActionsComponent } from './community-tool-actions/community-tool-actions.component';
 import { TemplateBrowserComponent } from './template-browser/template-browser.component';
 import { CommunityActivitylogsComponent } from './community-activitylogs/community-activitylogs.component';
@@ -32,7 +31,6 @@ import { ActivityPageComponent } from './activity-page/activity-page.component';
 import { CommunityProfileComponent } from './community-profile/community-profile.component';
 import { CommunityToolsWidgetComponent } from './community-tools-widget/community-tools-widget.component';
 import { CommunityMembersWidgetComponent } from './community-members-widget/community-members-widget.component';
-import { KeysPipe } from './community-role-actions/community-role-actions.pipe';
 import { UserWidgetsComponent } from './my-communities/my-communities.component';
 // import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { ToolsService } from './community-tools-widget/community-tools-widget.service';
@@ -83,7 +81,6 @@ import { AppBarService } from './app-bar/app-bar.service';
     CommunityProfileComponent,
     CommunityToolsWidgetComponent,
     CommunityMembersWidgetComponent,
-    KeysPipe,
     UserWidgetsComponent,
     ActivityPageComponent,
     CommunityMemberManagementComponent,
@@ -94,9 +91,7 @@ import { AppBarService } from './app-bar/app-bar.service';
     ToolMarketPlaceComponent,
     SucessDialog,
     MemberEditComponent,
-    ToolPageComponent,
-    
-    NewRole
+    ToolPageComponent
      ],
 
   imports: [
@@ -123,7 +118,9 @@ import { AppBarService } from './app-bar/app-bar.service';
     MdDialogModule,
     ReactiveFormsModule
   ],
-  entryComponents: [CommunityToolActionsComponent, NewcommunityDialogboxComponent, MemberInvitationComponent,SucessDialog,MemberEditComponent,NewRole,updateCommunity],
+
+  entryComponents: [CommunityToolActionsComponent, NewcommunityDialogboxComponent, MemberInvitationComponent,SucessDialog,MemberEditComponent,updateCommunity],
+
   providers: [RoleServices, ToolActions, CommunityProfileService,ActivityService, updateSpecificCommunityService, ToolMarketService],
   bootstrap: [AppComponent]
 })
