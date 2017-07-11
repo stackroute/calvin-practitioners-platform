@@ -27,6 +27,15 @@ export class CommunityMemberManagementComponent implements OnInit {
       })
     };
   }
+  deleteMember(name)
+  {
+    let a=[];
+    a.push({username:name});
+    console.log("array",a);
+      this.membersService.deleteMember(this.community,a).subscribe(data=>{
+        this.members=data;
+      });
+  }
   onScroll() {
   }
   openDialog() {

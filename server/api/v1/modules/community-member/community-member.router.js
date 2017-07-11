@@ -46,4 +46,21 @@ router.get('/memberrequests/:domain', (req, res) => {
     return res.status(500).send({ error: 'Unexpected internal error occurred...!' });
   }
 });
+
+
+router.delete('/communitymembership/:domain/members',(req, res) => {
+  console.log("dadaddddada",req.params.domain);
+  console.log(req.body);
+  try {
+    memberCtrl.deleteMembers(req.params.domain,req.body, (err, result) => {
+      if (err) {
+        res.status(500).send({ error: 'Internal error occurred....!' });
+      } 
+        return res.status(200).send(result);
+    });
+  } catch (err) {
+    return res.status(500).send({ error: 'Internal error occurred....!' });
+  }
+  return true;
+});
 module.exports = router;

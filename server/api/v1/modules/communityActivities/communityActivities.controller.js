@@ -1,4 +1,4 @@
-const activityServices = require('./communityActivities.service');
+// const activityServices = require('./communityActivities.service');
  const arr = {
    Tools: [
      {
@@ -318,7 +318,7 @@ const activityServices = require('./communityActivities.service');
  };
 
 function getAllCommunitiesOfMember(memberName) {
-  activityServices.getActivityData();
+  // activityServices.getActivityData();
   const allCommunities = arr.Tools;
   memberFilteredArray = allCommunities.filter((community) => {
     return community.member.name === memberName;
