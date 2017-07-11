@@ -2,12 +2,10 @@
     float: left;
     overflow: hidden;
 }
-
 .content {
     height: 300px;
     overflow-y: auto;
 }
-
 .listTemplateItem {
     border: 1px solid #ddd; 
     border-radius: 4px; 
@@ -15,7 +13,6 @@
     width: 100%;   
     display: inline-block;
 }
-
 /* Add a hover effect (gray shadow) */
 /*.cardContent :hover {
     background-color: gray;

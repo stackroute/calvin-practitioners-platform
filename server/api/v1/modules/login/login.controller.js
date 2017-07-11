@@ -17,6 +17,7 @@ const redirectGoogle = (req, res, next) => {
 };
 
 function getUser(userinfo, done) {
+  console.log('3.inside get user');
   loginservice.updateUser(userinfo, done);
 }
 

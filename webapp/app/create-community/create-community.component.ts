@@ -52,9 +52,8 @@ export class CreateCommunityComponent implements OnInit {
 
   // reactive form validation for userForm
   createForm() {
-    this.userForm = this.fb.group ({
-      domainName: ['', [Validators.required, Validators.pattern('[a-z0-9.]{4,20}')]],
-      // ,[this.domainNameValidator.bind(this)]],
+      this.userForm = this.fb.group({
+      domainName: ['', [Validators.required, Validators.pattern('[a-z0-9.]{4,20}')],this.isDomainUnique.bind(this)],
       name: ['', Validators.required],
       purpose: ['', Validators.required],
       visibility: ['Public', Validators.required],
@@ -65,7 +64,28 @@ export class CreateCommunityComponent implements OnInit {
     });
   }
 
-  //  check whether the card is clickable or not
+
+  //to check Domain is available or not
+  isDomainUnique(control: FormControl){
+    const quer = new Promise((resolve, reject) => {
+      setTimeout(() => {
+        this.newcommunity.isDomainRegisterd(control.value).subscribe(
+          (result) =>
+          {
+            if (Object.keys(result).length === 0) {
+              console.log("result false",Object.keys(result).length);
+              resolve({'isDomainUnique':false })
+            } else {
+              console.log("result true",Object.keys(result).length);
+              resolve({'isDomainUnique':true })
+            }
+          });
+      }, 1000);
+    });
+    return quer;
+  }
+
+  // get the selected template value 
   onselect(selectedTemplate: any) {
     this.value = selectedTemplate;
     return selectedTemplate;
@@ -78,7 +98,7 @@ export class CreateCommunityComponent implements OnInit {
       return i.purpose === purposevalue;
     });
   }
-
+    
   // store the tag value in array 
   chipValue(tag,tagAlgin) {
     tagAlgin.value='';
@@ -106,9 +126,8 @@ export class CreateCommunityComponent implements OnInit {
     const visibility = newCommunityObj.visibility;
     const description = newCommunityObj.description;
     const domainName = newCommunityObj.domainName;
-    const avatar = newCommunityObj.avatar;    
-    const newcommunityDetails = { purpose, name, visibility, description, template, tags, owner, avatar};
-    console.log('post data',newcommunityDetails, domainName)
+    const avatar = newCommunityObj.avatar;
+    const newcommunityDetails = { purpose, name, visibility, description, template, tags, owner, avatar  };
     this.newcommunity.postNewcommunityDetails(newcommunityDetails, domainName).subscribe(
     (data) => console.log('Postdata'),
     error =>     this.reset(),

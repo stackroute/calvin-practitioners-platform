@@ -5,35 +5,34 @@
 
         .community-profile{
 margin-top:0%;
-
-font-family: 'Open Sans', sans-serif;
         }        
 
-        .sample{
-
-            background-color:#E8EAF6    ;
-        }
-
+     
        .community-image img{
 
            width:37%;
            height:170%;
            margin-top: 10%;
-           margin-left:12%;;
+           margin-left:12%;
+           box-shadow: 3px 3px 4px #000000;
        }
 .tags{
 
     margin-top: 10%;
     margin-left:80%;
 }
-.community-details-name h5{
+.community-details-name h4{
 
-     margin-right: 38%;
+     margin-right: 35%;
      margin-top:12%;
+     
+
     
 }
 .community-details {
  margin-right: 28%;
+ color: grey;
+
 
 
 
@@ -49,12 +48,6 @@ font-style: italic;
 font-style: italic;
     }
 
-
-#heading{
-
-
-font-family: 'Open Sans', sans-serif;
-}
 /*
 @media(max-width:760px){
     .community-details-name 
@@ -123,7 +116,7 @@ font-family: 'Open Sans', sans-serif;
 
 
 h1 {
-    font-size: 1.7rem;
+    font-size: 1rem;
 }
 
 @media (min-width: 400px) {
@@ -149,3 +142,29 @@ h1 {
         font-size: 2.2rem;
     }
 }
+
+#sample{
+
+
+    box-shadow: 2px 3px 6px 3px grey;
+    background-color:#E8EAF6    
+}
+.tag{
+
+      box-shadow: 2px 2px 2px #000000;
+      margin-top: 6%;
+}
+.community-description{
+
+    font-style: italic;
+}
+md-icon{
+    color: grey;
+
+}
+#purpose{
+
+    color: grey;
+
+}
+

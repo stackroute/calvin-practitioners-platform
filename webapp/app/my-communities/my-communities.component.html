@@ -4,8 +4,10 @@
 	</md-card-title>
 	<button md-mini-fab routerLink="/app/createCommunity" class="button"><md-icon>add</md-icon></button>			
 	<div class="community-list" >
+
 	  <md-list align="start">
-	    <md-list-item *ngFor="let userCommunityItem of userCommunityListArray" (click)="routeToCommunity(userCommunityItem.DomainName)" >
+			
+	    <md-list-item *ngFor="let userCommunityItem of communities" (click)="routeToCommunity(userCommunityItem.DomainName)" >
 	      <img md-list-avatar src="{{userCommunityItem.CommunityUrl}}" alt="Desc 1">
 	      <h3 md-line>{{userCommunityItem.CommunityName}}</h3>
 	      <p md-line>

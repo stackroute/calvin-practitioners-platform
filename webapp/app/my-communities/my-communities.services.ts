@@ -1,15 +1,21 @@
+
 import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import 'rxjs/add/operator/map';
+import { Observable } from 'rxjs/Observable';
+
 @Injectable()
 export class UserCommunities {
-  
-  constructor (private http: Http) { }
+ 
+ constructor (private http: Http) { }
+    getCommunity(member) {
+    
+    console.log('member...',member);
+    const url = `/api/v1/communities/membership/${member}`;
 
- serverUrl = 'http://localhost:3000/api/v1/community/userCommunities/';
+    return this.http.get(url).map( response => response.json());
+    
 
- getCommunity() {
-  return this.http.get(this.serverUrl).map((response: Response) => response.json());
- }
+  }
 
 }
