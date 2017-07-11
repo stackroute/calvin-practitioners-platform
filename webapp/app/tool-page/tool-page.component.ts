@@ -10,6 +10,7 @@ import { Params, RouterModule, Routes, Router, ActivatedRoute } from '@angular/r
 export class ToolPageComponent implements OnInit {
   toolid: String;
   toolinfo:any;
+  flag=0;
   constructor( 
   private toolpageservice: ToolPageService, 
   private router:Router,
@@ -18,9 +19,14 @@ export class ToolPageComponent implements OnInit {
 
   ngOnInit() {
         this.toolid= this.activeroute.snapshot.params['toolid'];
-      this.toolpageservice.getToolinfo(this.toolid).subscribe(result=>{
-        this.toolinfo=result;
+        this.toolpageservice.getToolinfo(this.toolid).subscribe(result=>{
+        console.log('result is ',result);
+        let body=result.json();
+        // console.log('body is ',body);
+        this.toolinfo=body.data||body;
         console.log('tooinfo is :',this.toolinfo);
+        this.toolinfo=this.toolinfo[0];
+        this.flag=1;
       });
   }
 
