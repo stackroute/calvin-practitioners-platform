@@ -34,9 +34,9 @@ function updateSpecificCommunity(domain, form, done) {
 
 
 function getUserCommunity(member, done) {
-   // Call specific community on the basis of domain
+   // Call specific user communities on the basis of username
   console.log('value of memmebvr in server', member);
-  const url = `${BASE_COMMUNITY_SERVICE_URL}/communities/${member}`;
+  const url = `${BASE_COMMUNITY_SERVICE_URL}/membership/${member}`;
   request
  .get(url)
  .query({ member }) // query string

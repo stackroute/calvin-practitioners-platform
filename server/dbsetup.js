@@ -3,7 +3,7 @@ const cassandra = require('cassandra-driver');
 const client = new cassandra.Client({ contactPoints: ['127.0.0.1'] });
 
 const keyspacename = 'calvin';
-const tablename =  ['users','toolinfo','toolactions','toolevents','toolcommunity'];
+const tablename = ['users', 'toolinfo', 'toolactions', 'toolevents', 'toolcommunity'];
 client.connect()
   .then(() => {
     const query = `CREATE KEYSPACE IF NOT EXISTS ${keyspacename} WITH replication =` +

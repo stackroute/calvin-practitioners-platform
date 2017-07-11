@@ -32,7 +32,7 @@ function insertBasicToolInfo(tool, done) {
     name: tool.toolname,
     avatar: tool.toolavatar,
     detail: tool.tooldesc,
-    purpose: tool.toolpurpose
+    purpose: tool.toolpurpose,
   };
 
   console.log('tool basic info', basicInfo);
@@ -47,7 +47,6 @@ function insertBasicToolInfo(tool, done) {
 
 // this function inserts tool Action in DB
 function insertToolActionInfo(tool, done) {
-
   console.log('tool data in toolaction.....', tool);
   const query = `INSERT into ${TABLE_NAME[1]} (toolid,actionid,description,grantactions,name) VALUES(?,?,?,?,?)`;
 
@@ -73,7 +72,6 @@ function insertToolActionInfo(tool, done) {
 
 // this function insert tool events in DB
 function insertToolEventInfo(tool, done) {
-
   console.log('tool data in toolevent.....', tool);
   const query = `INSERT into ${TABLE_NAME[2]} (toolid,eventid,name,description,metadata) VALUES(?,?,?,?,?)`;
 
@@ -99,24 +97,20 @@ function insertToolEventInfo(tool, done) {
 
 // this function Uses async.parallel method to insert Complete information about tool in DB
 function addToolinDB(tool, done) {
-
   async.parallel([
     insertBasicToolInfo.bind(null, tool),
     insertToolActionInfo.bind(null, tool),
-    insertToolEventInfo.bind(null, tool)
-  ], function (err, results) {
-
+    insertToolEventInfo.bind(null, tool),
+  ], (err, results) => {
     if (err) {
       console.log('error is ....', err);
       return done(err, 'failed');
     }
     return done(null, 'success');
   });
-
 }
 // this function is to add a new tool in marketplace
 function AddToolinMarketplace(tool, done) {
-
   if (checkIfToolExists(tool.toolid, (error, toolExists) => {
     if (toolExists) {
       if (error) {
