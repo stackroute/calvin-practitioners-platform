@@ -46,8 +46,6 @@ function getActivityEmbeds(data) {
 }
 
 function getActivityData() {
-  console.log("Program is starting now..!");
-
   async.parallel([  
     getActivity,
     getActivityMessage,
