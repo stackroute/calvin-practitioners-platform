@@ -102,8 +102,7 @@ export class CreateCommunityComponent implements OnInit {
   chipValue(tag,resetText) {
     resetText.value='';
     if(!this.tagarray.includes(tag)) {
-      this.tagarray.push(tag);
-      // console.log(this.tagarray);
+    this.tagarray.push(tag);
     }
   }
 

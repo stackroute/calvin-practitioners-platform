@@ -13,8 +13,5 @@ import 'rxjs/Rx';
       
     const url = `/api/v1/communities/communities/${domain}`;
     return this.http.get(url).map( response => response.json());
-    
-
   }
-
 }
