@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import * as moment from 'moment/moment';
 
 @Component({
   selector: 'calvin-community-profile',
@@ -10,14 +11,12 @@ import { Component, OnInit, Input } from '@angular/core';
 export class CommunityProfileComponent implements OnInit {
 
  @Input() profile;
+
  
  counter = true;
 
   constructor() {
     
-    // this.createdOn = this.profile.createdon;
-    // console.log("displaying the date",createdOn); 
-   
   } 
 
   ngOnInit() {
