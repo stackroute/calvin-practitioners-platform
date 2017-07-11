@@ -38,9 +38,9 @@ export class CreateCommunityComponent implements OnInit {
 
   tagCtrl: FormControl;
 
-   purposearray;
+  purposearray;
 
-   purposelist;
+  purposelist;
 
   constructor(
   private fb: FormBuilder, 
@@ -65,28 +65,12 @@ export class CreateCommunityComponent implements OnInit {
     });
   }
 
-  //check domain name availabilty
-//   domainNameValidator(c: AbstractControl)
-// {
-//    return this.service.customerExists(c.value,this.companyId).map(response =>
-//    {
-//         if(response == true)
-//         {
-//             return { customerExists: true };
-//         }
-//         else
-//         {
-//             return;
-//         }
-//    });
-// }
-  
   //  check whether the card is clickable or not
   onselect(selectedTemplate: any) {
     this.value = selectedTemplate;
     return selectedTemplate;
   }
-  
+
   // get unique template list based on purpose
   selectTemplate(purposevalue)
   {
@@ -99,8 +83,8 @@ export class CreateCommunityComponent implements OnInit {
   chipValue(tag,tagAlgin) {
     tagAlgin.value='';
     if(!this.tagarray.includes(tag)) {
-    this.tagarray.push(tag);
-    // console.log(this.tagarray);
+      this.tagarray.push(tag);
+      // console.log(this.tagarray);
     }
   }
 
@@ -116,7 +100,6 @@ export class CreateCommunityComponent implements OnInit {
     const template = newCommunityObj.template = this.value;
     const tags = newCommunityObj.tags = this.tagarray;
     const owner = newCommunityObj.owner = this.uname;
-    
     const purpose = newCommunityObj.purpose;
     const name = newCommunityObj.name;
     const termscondition = newCommunityObj.termscondition;
