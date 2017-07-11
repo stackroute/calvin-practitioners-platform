@@ -63,9 +63,16 @@ export class CreateCommunityComponent implements OnInit {
     const quer = new Promise((resolve, reject) => {
       setTimeout(() => {
         this.newcommunity.isDomainRegisterd(control.value).subscribe(
-          (result) => console.log(result),
-          ()=> {resolve({'isDomainUnique':true});
-        });
+          (result) =>
+          {
+            if (Object.keys(result).length === 0) {
+              console.log("result false",Object.keys(result).length);
+              resolve({'isDomainUnique':false })
+            } else {
+              console.log("result true",Object.keys(result).length);
+              resolve({'isDomainUnique':true })
+            }
+          });
       }, 1000);
     });
     return quer;

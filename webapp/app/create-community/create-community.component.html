@@ -8,11 +8,11 @@
         
         <input mdInput placeholder="Domain name" formControlName="domainName">
 
-        <md-hint align="start" class="full-width">
+        <md-hint align="start" class="full-width">          
           
-          <!--<div *ngIf="userForm.get('domainName').hasError('isDomainUnique') && userForm.get('domainName').touched" class="errorStyle">
-            This email has been registered already
-          </div>-->
+          <div *ngIf="userForm.get('domainName').hasError('isDomainUnique') && userForm.get('domainName').touched" class="errorStyle">
+            Domain not available..
+          </div>
 
           <div *ngIf="userForm.get('domainName').hasError('required') && userForm.get('domainName').touched" class="errorStyle">
             Domain Name is required

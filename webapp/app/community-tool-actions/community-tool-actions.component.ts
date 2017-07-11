@@ -11,14 +11,14 @@ import { MD_DIALOG_DATA, MdDialog, MdDialogRef} from '@angular/material';
 })
 export class CommunityToolActionsComponent implements OnInit {
   selected = [];
-  getresults:any[];
-  domain = 'medical';
+  getresults=[];
+  
   checkBoxValue: boolean = false;
   sample = [];
   a=[];
   domainName;
   roleName;
-
+  y={};
   @Input() community;
 
   constructor(private tool: ToolActions, private route:ActivatedRoute,@Inject(MD_DIALOG_DATA) public data: any,
@@ -31,18 +31,25 @@ export class CommunityToolActionsComponent implements OnInit {
   getCheckboxValue(toolName, status) {
     const toolId = toolName;
     // console.log(id);
-    const action = status;
+    const grant="true";
+    console.log(status)
+    const x={};
+    x[status]=grant;
+    
+    console.log(x)
     // console.log(action);
-    const index = this.selected.indexOf(toolId);
+    const actions=x;
+     const index = this.selected.indexOf(toolId);
     if (index === -1) {
-      this.selected.push({ toolId, action });
+      this.selected.push({toolId,actions});
     } else {
       this.selected.splice(index, 1);
     }
-    console.log(this.selected);
+    console.log(this.selected,"fdsgsdgsdg");
     return this.selected;
     // 
   }
+  
   exists(toolName, status) {
     return this.selected.indexOf({toolName,status}) > -1;
   }
@@ -51,7 +58,8 @@ export class CommunityToolActionsComponent implements OnInit {
     console.log(this.selected);
     console.log(this.domainName);
     console.log(this.roleName);
-    return this.tool.updateTools(this.domainName,this.roleName,this.selected).subscribe(res=>{this.sample=res});
+    return this.tool.updateTools(this.domainName,this.roleName,this.selected).subscribe(res=>{return this.sample.push(res);
+    });
   }
 
   ngOnInit() {
