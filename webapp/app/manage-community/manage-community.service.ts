@@ -11,9 +11,9 @@ constructor(private http: Http) { }
 
   updateSpecificCommunity(Form, domain){
 
-  const url = `/api/v1/communities/${domain}`;
-  return this.http.patch(url, Form) .map(() =>
-  console.log('angular service after patch ',Form));
+  const url = `/api/v1/communities/communities/${domain}`;
+
+  return this.http.patch(url, Form) .map(() => Form);
   
  }
  }

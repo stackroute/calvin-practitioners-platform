@@ -13,7 +13,7 @@ export class UserCommunities {
     
     console.log('member...',member);
     // const url = `/api/v1/communities/membership/${member}`;
-    const url = `/api/v1/membership/${member}`;
+    const url = `/api/v1/communities/membership/${member}`;
 
     return this.http.get(url).map( response => response.json());
     

@@ -19,7 +19,7 @@ export class UserWidgetsComponent implements OnInit {
   communities = [];
   member = "mr.w" ;
   user;
-
+  arr=[];
   constructor(private userCommunities: UserCommunities,private userInfo: UserInfoService, private router: Router) { }
   
   ngOnInit() { 
@@ -35,7 +35,8 @@ export class UserWidgetsComponent implements OnInit {
 // });
 
 this.userCommunities.getCommunity(this.member). subscribe ( res => {  this.communities = res; 
-
+  this.arr=res.communityDetails;
+console.log("inside the component of my-communities",this.arr);
   } );
 
 

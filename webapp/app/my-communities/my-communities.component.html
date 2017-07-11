@@ -7,11 +7,11 @@
 
 	  <md-list align="start">
 			
-	    <md-list-item *ngFor="let userCommunityItem of communities" (click)="routeToCommunity(userCommunityItem.DomainName)" >
-	      <img md-list-avatar src="{{userCommunityItem.CommunityUrl}}" alt="Desc 1">
-	      <h3 md-line>{{userCommunityItem.CommunityName}}</h3>
+	    <md-list-item *ngFor="let userCommunityItem of arr" (click)="routeToCommunity(userCommunityItem.domain)" >
+	      <!--<img md-list-avatar src="{{userCommunityItem.CommunityUrl}}" alt="Desc 1">-->
+	      <h3 md-line>{{userCommunityItem.domain}}</h3>
 	      <p md-line>
-	        <span>{{userCommunityItem.DomainName}}</span>
+	        <span>{{userCommunityItem.role}}</span>
 	      </p>
 	    </md-list-item>	    
 	  </md-list>

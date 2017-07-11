@@ -26,9 +26,9 @@ function updateSpecificCommunity(domain, form, done) {
  .send(form) // query string
  .end((err, res) => {
    if (err) {
-     return done(err);
+    return done(err);
    }
-   return done(null, res.body);
+ return done(null, res.body);
  });
 }
 
