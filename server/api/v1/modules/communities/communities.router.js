@@ -19,6 +19,24 @@ router.get('/communities/:domain/', (req, res) => { // eslint-disable-line consi
   }
 });
 
+
+
+
+router.get('/membership/:member/', (req, res) => { // eslint-disable-line consistent-return
+  try {
+    communityCtrl.getUserCommunity(req.params.member, (err, result) => {
+      if (err) {
+        res.status(500).send({ error: 'Error in getting community details, please try later..!' });
+      } else {
+        res.status(200).send(result);
+      }
+    });
+  } catch (err) {
+    return res.status(500).send({
+      error: 'Internal error occurred....!' });
+  }
+});
+
 router.patch('/communities/:domain', (req, res) => {
   try {
     communityCtrl.updateSpecificCommunity(req.params.domain, req.body, (err, result) => {

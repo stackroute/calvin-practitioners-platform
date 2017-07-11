@@ -46,7 +46,7 @@ export class CreateCommunityComponent implements OnInit {
   // reactive form validation for userForm
   createForm() {
     this.userForm = this.fb.group({
-      domainName: ['', [Validators.required, Validators.pattern('[a-z0-9.]{4,20}')],this.isDomainUnique.bind(this)],
+      domainName: ['', [Validators.required, Validators.pattern('[a-z0-9.]{4,20}')]],
       name: ['', Validators.required],
       purpose: ['', Validators.required],
       visibility: ['Public', Validators.required],
