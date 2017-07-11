@@ -8,7 +8,7 @@ const client = new cassandra.Client({
   keyspace: config.dbconfig.keyspacename,
 });
 
-const cookies=[];
+const cookies = [];
 // this function is to check if user record is already present in database
 function checkIfUserExists(email, done) {
   const chkQuery = `SELECT * FROM ${USERS_TABLE} where username = '${email}'`;
@@ -47,7 +47,7 @@ function insertUserInDb(profile, done) {
 // If user already exists in database , last login time gets updated
 // else new record in inserted in database
 function updateUser(profile, done) {
-  console.log('inside update user;')
+  console.log('inside update user;');
   const userDetails = {
     name: profile.name,
     username: profile.username,

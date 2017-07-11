@@ -17,9 +17,8 @@ const redirectGoogle = (req, res, next) => {
 };
 
 
-function getUserCommunities(email)
-{
-    
+function getUserCommunities(email) {
+
 
 }
 

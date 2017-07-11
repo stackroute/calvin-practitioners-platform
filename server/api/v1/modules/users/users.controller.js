@@ -6,6 +6,6 @@ function getUser(userinfo, done) {
   userservice.updateUser(userinfo, done);
 }
 
-module.exports={
-    getUser,
-}
+module.exports = {
+  getUser,
+};
