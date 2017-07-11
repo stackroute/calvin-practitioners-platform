@@ -53,7 +53,7 @@ export class CreateCommunityComponent implements OnInit {
   // reactive form validation for userForm
   createForm() {
       this.userForm = this.fb.group({
-      domainName: ['', [Validators.required, Validators.pattern('[a-z0-9.]{4,20}')],this.isDomainUnique.bind(this)],
+      domainName: ['', [Validators.required, Validators.pattern('[a-z0-9.]{4,20}'),this.isDomainUnique.bind(this)]],
       name: ['', Validators.required],
       purpose: ['', Validators.required],
       visibility: ['Public', Validators.required],
@@ -100,8 +100,8 @@ export class CreateCommunityComponent implements OnInit {
   }
     
   // store the tag value in array 
-  chipValue(tag,tagAlgin) {
-    tagAlgin.value='';
+  chipValue(tag,resetText) {
+    resetText.value='';
     if(!this.tagarray.includes(tag)) {
       this.tagarray.push(tag);
       // console.log(this.tagarray);
@@ -130,7 +130,7 @@ export class CreateCommunityComponent implements OnInit {
     const newcommunityDetails = { purpose, name, visibility, description, template, tags, owner, avatar  };
     this.newcommunity.postNewcommunityDetails(newcommunityDetails, domainName).subscribe(
     (data) => console.log('Postdata'),
-    error =>     this.reset(),
+    error =>     console.log('please try again later...!'),
     () => this.openDialog(newCommunityObj));
   }
 

@@ -1,8 +1,9 @@
-<div fxFlex="100" fxLayout="row" fxLayoutAlign="start stretch" fxLayoutWrap>
-  <div fxFlex="10" fxLayout="column"></div>
-  <form class="container" fxFlex="80" fxLayout="column" fxFlexFill [formGroup]="userForm" (ngSubmit)="onsubmit(userForm)">
-    <h3 class="md-headline">Create new community</h3>
-    <!--domain name text field-->
+<div fxLayout="row" fxLayoutAlign="start stretch" fxFlex="100" fxLayoutWrap>
+  <div fxLayout="column" fxFlex="10"></div>
+  <form class="container" fxFlex="80" fxLayout="column" 
+  fxFlexFill [formGroup]="userForm" (ngSubmit)="onsubmit(userForm)">
+  <h3 class="md-headline">Create new community</h3>
+<!--domain name text field-->
     <div class="inputFields" fxLayout.md="column">
       <md-input-container>
         
@@ -10,9 +11,13 @@
 
         <md-hint align="start" class="full-width">          
           
-          <div *ngIf="userForm.get('domainName').hasError('isDomainUnique') && userForm.get('domainName').touched" class="errorStyle">
-            Domain not available..
-          </div>
+          <span *ngIf="userForm.get('domainName').hasError('isDomainUnique')" class="errorStyle">
+              Domain not available..
+            </span>          
+         
+          <!--<div *ngIf="userForm.get('domainName').hasError('!isDomainUnique') && userForm.get('domainName').touched">
+            Is available..
+          </div>-->
 
           <div *ngIf="userForm.get('domainName').hasError('required') && userForm.get('domainName').touched" class="errorStyle">
             Domain Name is required
@@ -26,17 +31,17 @@
       </md-input-container>
 
     </div>
-    <!--community text field-->
-    <div class="inputFields" fxLayout.md="column">
-      <md-input-container>
-        <input mdInput placeholder="Community name" formControlName="name">
-        <md-hint align="start" class="full-width">
-          <div *ngIf="userForm.get('name').hasError('required') && userForm.get('name').touched">
-            Community Name is required
-          </div>
-        </md-hint>
-      </md-input-container>
-    </div>
+  <!--community text field-->
+  <div class="inputFields" fxLayout.md="column">
+    <md-input-container>
+      <input mdInput placeholder="Community name" formControlName="name">
+      <md-hint align="start" class="full-width">
+        <div *ngIf="userForm.get('name').hasError('required') && userForm.get('name').touched">
+          Community Name is required
+        </div>
+      </md-hint>
+    </md-input-container>
+  </div>
   <!--Avatar-->
   <div class="inputFields" fxLayout.md="column">
     <md-input-container>
@@ -80,9 +85,9 @@
       </div>
     </div>
     <!--select template -->
-   <div class="inputFields" fxLayout.md="column">
-      <calvin-template-browser (notify)="onselect($event)" [template]="this.newcommunity.communityDetails" (onselect)="onselect($event)">
-      </calvin-template-browser>
+    <div class="inputFields" fxLayout.md="column">
+    <calvin-template-browser (notify)="onselect($event)"  [template]="this.uniqueTemplate" (onselect)="onselect($event)">
+    </calvin-template-browser>
     </div>
   </div>
   <!--</span>-->
