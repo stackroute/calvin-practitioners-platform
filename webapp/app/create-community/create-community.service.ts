@@ -22,7 +22,7 @@ export class CreateCommunityService {
     postNewcommunityDetails(newCommunityObj, domainName) {
         return this._http.post('api/v1/community/' + domainName, newCommunityObj).map((res => res.json()));
     }
-    
+
     isDomainRegisterd(domain: string){
         return this._http.get('api/v1/communities/'+ domain).map((response: Response) => response.json())
         .catch(this.handleError);

@@ -48,7 +48,9 @@ const routes: ModuleWithProviders = RouterModule.forRoot([
       { path: 'addtool', component: AddToolComponent},
 
       { path: 'toolmarket', component : ToolMarketPlaceComponent},
-      { path: 'toolpage', component: ToolPageComponent }
+      // { path: 'managecommunitytools', component: ManageCommunityToolsComponent },
+
+      { path: 'toolpage/:toolid', component: ToolPageComponent }
       ]
 
   },

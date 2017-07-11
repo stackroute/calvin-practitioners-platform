@@ -10,7 +10,7 @@ router.get('/', (req, res) => {
     toolCtrl.getAllTools((err, result) => {
       if (err) {
         res.status(500).json({
-          error: 'unable to get tool in Calvin..! , Please try again later',
+          error: 'unable to get tool in Calvin..! , Please try again later'+err,
         });
       } else {
         res.status(200).json(result);
@@ -18,11 +18,34 @@ router.get('/', (req, res) => {
     });
   } catch (error) {
     res.status(500).json({
-      error: 'Internal server error..! Please try again later',
+      error: 'Internal server error..! Please try again later'+error,
     });
   }
 });
 
+
+router.get('/tool/:toolid', (req, res) => {
+  console.log('inside toolpage APi',req.params.toolid);
+
+  try {
+    toolCtrl.getTool(req.params.toolid,(err, result) => {
+      if (err) {
+        console.log('error is ',err);
+        res.status(500).json({
+          error: 'unable to get tool in Calvin..! , Please try again later',
+        });
+      } else {
+        console.log('result in router',result.rows);
+        res.status(200).json(result);
+      }
+    });
+  } catch (error) {
+    console.log('catch err',error);
+    res.status(500).json({
+      error: 'Internal server error..! Please try again later',
+    });
+  }
+});
 
 router.post('/tool', (req, res) => {
  // console.log(' printing body :', req.body);

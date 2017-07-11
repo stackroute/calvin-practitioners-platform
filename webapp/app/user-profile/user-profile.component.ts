@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {MdDialog, MdDialogRef, MdDialogConfig } from '@angular/material';
 import { AppBarService } from '../app-bar/app-bar.service';
+import { UserInfoService } from '../core/user-info.service';
+
 @Component({
  templateUrl: './user-profile.component.html',
  styleUrls: ['./user-profile.component.css']
@@ -10,7 +12,7 @@ export class UserProfileComponent implements OnInit {
  profileForm: FormGroup;
  user: {};
  flag = 0;
- constructor(private fb: FormBuilder, private value: AppBarService) {
+ constructor(private fb: FormBuilder, private userservice: UserInfoService) {
   this.createprofile();
  }
 
@@ -40,15 +42,14 @@ export class UserProfileComponent implements OnInit {
    this.createprofile();
  }
  ngOnInit() {
-  // console.log('1.hi');
-  this.value.getuserinfo()
-   .subscribe(res => {
-    // console.log('3.hi');
-    this.user = res;
-    // console.log('4.hi', this.user);
-    this.flag = 1;
-   });
+ 
+    this.userservice.getUserDetail((userdetails)=>{
+     
+      this.user=userdetails;
+      console.log(userdetails);
+       console.log('user is : '+this.user);
+      this.flag = 1;
 
-
- }
+ });
+}
 }
