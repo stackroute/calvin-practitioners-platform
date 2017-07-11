@@ -20,11 +20,11 @@ const controller = require('./communityActivities.controller');
  */
 router.get('/:membername', (req, res) => {
   try {
-    // const communities = [];
-    // const sort = 'ts';
-    // const order = 'desc';
-    // const limit = 20;
-    // const page = 1;
+    let communities = [];
+    const sort = 'ts';
+    const order = 'desc';
+    const limit = 20;
+    const page = 1;
     if (req.query.communities) {
         // it will be comma separated list of domains,
         // hence split them to get the array of domain name
@@ -39,10 +39,7 @@ router.get('/:membername', (req, res) => {
       }
       return res.send(filteredMemberCommunities);
     }
-    if (req.query.limit) {
-      return res.send(controller.getLimitOfPages(req.query.limit));
-    }
-    return res.send(controller.getAllCommunitiesOfMember(req.params.membername));
+       return res.send(controller.getAllCommunitiesOfMember(req.params.membername));
   } catch (err) {
     return res.status(500).send({
       error: 'Error in operation, please try later..!',

@@ -1,6 +1,4 @@
- const memberControler = require('../community-member/community-member.controller');
- const activityServices = require('./communityActivities.service');
-
+const activityServices = require('./communityActivities.service');
  const arr = {
    Tools: [
      {
@@ -319,16 +317,14 @@
    memberDetails: [],
  };
 
-
- function getAllCommunitiesOfMember(memberName) {
-   activityServices.getActivityData();
-   retrieveMemberDetails();
-   const allCommunities = arr.Tools;
-   memberFilteredArray = allCommunities.filter(community => community.member.name === memberName);
-   return memberFilteredArray;
- }
-
-
+function getAllCommunitiesOfMember(memberName) {
+  activityServices.getActivityData();
+  const allCommunities = arr.Tools;
+  memberFilteredArray = allCommunities.filter((community) => {
+    return community.member.name === memberName;
+  });
+  return memberFilteredArray;
+}
  function filterMemberCommunities(memberName, communityNames) {
    getAllCommunitiesOfMember(memberName);
    communityNames = communityNames.split(',');
@@ -339,29 +335,9 @@
  function getLimitOfPages(limit) {
    return limit;
  }
-
-// function retrieveAllPosters(req, res) {
-//   retrieveMemberDetails();
-//   res.json(arr);
-// }
-
- function retrieveMemberDetails() {
-   let i = 0;
-   while (i < arr.Tools.length) {
-     memberControler.getMembersDetails(arr.Tools[i].member.username, (err, res) => {
-       if (res) {
-         tempStorage.memberDetails.push(res);
-       }
-     });
-     i++;
-   }
-   console.log(tempStorage);
- }
- module.exports =
- {
-   filterMemberCommunities,
-    // retrieveAllPosters,
-   getAllCommunitiesOfMember,
-   getLimitOfPages,
-   retrieveMemberDetails,
- };
+module.exports =
+  {
+    filterMemberCommunities,
+    getAllCommunitiesOfMember,
+    getLimitOfPages,
+  };
