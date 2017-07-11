@@ -95,7 +95,6 @@ import { AppBarService } from './app-bar/app-bar.service';
     SucessDialog,
     MemberEditComponent,
     ToolPageComponent,
-    
     NewRole
      ],
 

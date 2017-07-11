@@ -46,12 +46,12 @@ function AddToolinMarketplace(tool, done) {
   // console.log('inside addtoolmarketplkace service');
   if (checkIfToolExists(tool.toolid, (error, toolExists) => {
     if (toolExists) {
-      return true;
       if (error) {
         return done(error, 'DB Error');
       }
       return done(null, 'Tool Already exist');
-    } addToolinDB(tool, (err) => {
+    } 
+    addToolinDB(tool, (err) => {
       if (err) {
         return done(err, 'db error');
       }
