@@ -60,6 +60,32 @@ function AddToolinMarketplace(tool, done) {
   })) { }
 }
 
+
+   function testing(toolid,done){
+
+       return done(null,'success');
+   }
+
+// this function returns a single tool information for given toolid
+   function getSingleTool(toolid,done){
+
+      console.log('inside get single tool');
+      
+      const getQuery=` SELECT * from ${TABLE_NAME} where toolid='${toolid}'`;
+       client.execute(getQuery,(err,result) => {
+
+             if(err){
+               console.log('error is ',err);
+              return done(err,'Unable to Find tool');
+             }
+            else {
+              console.log('result is : ',result);
+            return  done(null,result);
+            }  
+      });
+}
+
+
 function getAllTools(done) {
   // console.log('entered getall tools service');
   const query = `SELECT * FROM ${TABLE_NAME}`;
@@ -71,7 +97,11 @@ function getAllTools(done) {
     }
   });
 }
+
+
 module.exports = {
   AddToolinMarketplace,
+  getSingleTool,
   getAllTools,
+  testing: testing
 };
