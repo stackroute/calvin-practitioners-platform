@@ -6,6 +6,7 @@ import { MemberInvitationComponent } from '../member-invitation/member-invitatio
 import { Memberservice } from './community-member-management.service';
 import { MemberEditComponent } from "../member-edit/member-edit.component";
 
+
 @Component({
   selector: 'calvin-community-member-management',
   templateUrl: './community-member-management.component.html',
