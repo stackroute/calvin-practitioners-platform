@@ -7,10 +7,9 @@ router.use('/logout', (req, res) => {
   res.redirect('/');
 });
 
+router.use(require('./modules/authentication'));
 
 // router.use(require('./modules/authentication'));
-
-// router.use('/community-details', require('./modules/community-details'));
 
 // Each Module to be placed after this
 
@@ -37,6 +36,5 @@ router.use('/communityMembers', require('./modules/community-member'));
 // router.use('/memberInvite', require('./modules/member-invite'));
 
 router.use('/communitytemplates', require('./modules/communitytemplates'));
-
 
 module.exports = router;
