@@ -8,7 +8,7 @@ router.use('/logout', (req, res) => {
 });
 
 
-router.use(require('./modules/authentication'));
+// router.use(require('./modules/authentication'));
 
 // router.use('/community-details', require('./modules/community-details'));
 
@@ -18,8 +18,6 @@ router.use('/communities', require('./modules/communities'));
 
 router.use('/toolmarketplace', require('./modules/toolmarketplace'));
 // router.use('/community', require('./modules/community'));
-
-// router.use('/user', require('./modules/user'));
 
 router.use('/memberactivitypage', require('./modules/communityActivities'));
 
