@@ -11,44 +11,55 @@ import { MD_DIALOG_DATA, MdDialog, MdDialogRef} from '@angular/material';
 })
 export class CommunityToolActionsComponent implements OnInit {
   selected = [];
-  getresults:any[];
-  domain = 'medical';
+  getresults=[];
+  
   checkBoxValue: boolean = false;
   sample = [];
   a=[];
   domainName;
-
+  roleName;
+  y={};
   @Input() community;
 
   constructor(private tool: ToolActions, private route:ActivatedRoute,@Inject(MD_DIALOG_DATA) public data: any,
-  public dialogRef: MdDialogRef<CommunityToolActionsComponent>) {
-  this.domainName = data ; 
-  console.log('domin name from dialog',this.domainName);
+  public dialogRef: MdDialogRef<CommunityToolActionsComponent>) { 
+  this.domainName = data.domain ; 
+  this.roleName=data.role;
+  console.log('domin name from dialog',this.roleName);
 }
 
   getCheckboxValue(toolName, status) {
-    const id = toolName;
+    const toolId = toolName;
     // console.log(id);
-    const action = status;
+    const grant="true";
+    console.log(status)
+    const x={};
+    x[status]=grant;
+    
+    console.log(x)
     // console.log(action);
-    const index = this.selected.indexOf(id);
+    const actions=x;
+     const index = this.selected.indexOf(toolId);
     if (index === -1) {
-      this.selected.push({ id, action });
+      this.selected.push({toolId,actions});
     } else {
       this.selected.splice(index, 1);
     }
-    console.log(this.selected);
+    console.log(this.selected,"fdsgsdgsdg");
     return this.selected;
     // 
   }
+  
   exists(toolName, status) {
     return this.selected.indexOf({toolName,status}) > -1;
   }
-  update(role)
+  update()
   {
     console.log(this.selected);
     console.log(this.domainName);
-    return this.tool.updateTools(this.selected,role,this.domainName).subscribe(res=>{this.sample=res});
+    console.log(this.roleName);
+    return this.tool.updateTools(this.domainName,this.roleName,this.selected).subscribe(res=>{return this.sample.push(res);
+    });
   }
 
   ngOnInit() {

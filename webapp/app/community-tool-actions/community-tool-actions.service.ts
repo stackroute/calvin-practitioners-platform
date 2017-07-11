@@ -15,9 +15,10 @@ export class ToolActions {
     return this.http.get(url).map(res => res.json());
   }
 
-
-
-updateTools(data,role,domain) {
+updateTools(domain,role,data) {
+  console.log(domain);
+  console.log(role);
+  console.log(data);
   const headers = new Headers({
    'Content-Type': 'application/json;charset=utf-8'
   });
@@ -26,7 +27,7 @@ updateTools(data,role,domain) {
   });
   const body = JSON.stringify(data);
   console.log(body);
-  const url = 'http://localhost:3000/api/v1/communitytools/';
+  const url = '/api/v1/communityroleactions/communityrole/'+domain+'/roles/'+role;
   return this.http.patch(url, body,options).map(res => res.json());
  }
 }

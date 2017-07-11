@@ -1,4 +1,4 @@
-<div *ngIf="profile" class="sample" >
+<div *ngIf="profile" id="sample"  >
 
     <div fxLayout fxLayout.xs="row" fxLayoutGap="0px" fxLayoutGap.xs="0" class="content">
       <div fxFlex="20%" fxFlexAlign='start' >
@@ -11,12 +11,14 @@
         </md-list>
 
           <div class="community-details-name">
-          <h5> {{profile.purpose}}</h5></div>
+          <h4> {{profile.domain}}</h4></div>
           <h5 class="community-details">{{profile.createdon}}</h5>
           
 
           <!--<md-input-container class="community-details">
+
                      <input mdInput placeholder="" value={{sample.created}} disabled>
+
           </md-input-container>-->
         
 
@@ -29,12 +31,14 @@
           
             <h1 fxLayoutAlign="start" id="heading">{{profile.name}} </h1>
          
-          <h4 fxLayoutAlign="start">{{profile.description}}  </h4>
+          <h4 fxLayoutAlign="start" class="community-description" >{{profile.description}}  </h4>
           <!--<md-input-container >
+
             <input mdInput placeholder="" value={{sample.Domain}} disabled>
+
           </md-input-container>-->
-            <span class="tag" *ngFor="let tag of profile.tags">
-            <md-chip>{{tag}}</md-chip>
+            <span  fxLayoutAlign="start" *ngFor="let tag of profile.tags">
+            <md-chip class="tag">{{tag}}</md-chip>
             
           </span>
           
@@ -66,11 +70,14 @@
         <md-list class="members">
           <md-list-item>
             <md-icon>person</md-icon>
-            <h6> Members:   {{profile.members}}</h6>
+            <h6> 212 members  {{profile.members}}</h6>
           </md-list-item>
           <md-list-item class="tools" > 
             <md-icon>build</md-icon>
-            <h6> Tools:    {{profile.tools}}</h6>
+            <h6> 10 tools {{profile.tools}}</h6>
+          </md-list-item>
+          <md-list-item id="purpose">
+            <h5>{{profile.purpose}} community </h5>
           </md-list-item>
 
 
@@ -78,7 +85,7 @@
         </md-list>
       </div>
     </div>
-  </div>
+  </div >
 <!--<calvin-manage-community [communitydata]="this.contents"></calvin-manage-community>-->
 
 <!--</div>  -->

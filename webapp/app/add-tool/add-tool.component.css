@@ -3,6 +3,11 @@
   margin-top: 80px;
 
 }
+.action{
+
+    text-align: left;
+    margin-top: 20px;
+}
 table {
     /*border-collapse: collapse;*/
     width: 100%;

@@ -46,7 +46,7 @@ export class CreateCommunityComponent implements OnInit {
   // reactive form validation for userForm
   createForm() {
     this.userForm = this.fb.group({
-      domainName: ['', [Validators.required, Validators.pattern('[a-z0-9.]{4,20}')]],
+      domainName: ['', [Validators.required, Validators.pattern('[a-z0-9.]{4,20}')],this.isDomainUnique.bind(this)],
       name: ['', Validators.required],
       purpose: ['', Validators.required],
       visibility: ['Public', Validators.required],
@@ -58,12 +58,32 @@ export class CreateCommunityComponent implements OnInit {
     });
   }
 
+  //to check Domain is available or not
+  isDomainUnique(control: FormControl){
+    const quer = new Promise((resolve, reject) => {
+      setTimeout(() => {
+        this.newcommunity.isDomainRegisterd(control.value).subscribe(
+          (result) =>
+          {
+            if (Object.keys(result).length === 0) {
+              console.log("result false",Object.keys(result).length);
+              resolve({'isDomainUnique':false })
+            } else {
+              console.log("result true",Object.keys(result).length);
+              resolve({'isDomainUnique':true })
+            }
+          });
+      }, 1000);
+    });
+    return quer;
+  }
+
   // get the selected template value 
   onselect(selectedTemplate: any) {
     this.value = selectedTemplate;
     return this.value;
   }
-
+    
   // store the tag value in array 
   chipValue(tag) {
     this.tagarray.push(tag);

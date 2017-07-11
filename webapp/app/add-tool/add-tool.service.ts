@@ -69,5 +69,9 @@ export class AddToolService {
         //         }
     }
 
+    getTemplates(){
+         
+        return this.http.get('/api/v1/communitytemplates').map(res => res.json());
+    }
 
-}
+    }
