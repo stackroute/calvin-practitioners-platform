@@ -28,13 +28,11 @@ export class CreateCommunityService {
         }
     
     isDomainRegisterd(domain: string){
-        return this._http.get('api/v1/community/'+ domain).map((response: Response) => response.json())
+        return this._http.get('api/v1/communities/'+ domain).map((response: Response) => response.json())
         .catch(this.handleError);
     }
 
     private handleError(error: any){
-        console.log(error);
-        return Observable.throw(error.json());
-        
+        return Observable.throw(error.json());        
     }
 }
