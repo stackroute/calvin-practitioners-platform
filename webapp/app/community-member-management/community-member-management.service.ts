@@ -18,8 +18,8 @@ import 'rxjs/add/operator/map';
     console.log(".....",body);
     console.log("sdaaa",domain)
     let url =`/api/v1/communityMembers/communitymembership/${domain}/members`;
-    let headers = new Headers({ 'Content-Type': 'application/json;charset=utf-8' });
-    let options = new RequestOptions({ headers: headers });
+   // let headers = new Headers({ 'Content-Type': 'application/json;charset=utf-8' });
+    //let options = new RequestOptions({ headers: headers });
     console.log(body)
     return this._http.delete(url,body).map(res => res.json());
   }  

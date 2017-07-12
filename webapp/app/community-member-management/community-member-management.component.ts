@@ -29,9 +29,11 @@ export class CommunityMemberManagementComponent implements OnInit {
   }
   deleteMember(name)
   {
+       console.log('clicked delete');
+ 
     let a=[];
     a.push({username:name});
-    console.log("array",a);
+    console.log("hello-------array",a);
       this.membersService.deleteMember(this.community,a).subscribe(data=>{
         this.members=data;
       });
@@ -44,6 +46,9 @@ export class CommunityMemberManagementComponent implements OnInit {
   }
   edit()
   {
-    const dialog = this.dialog.open(MemberEditComponent);
+    console.log('community name',this.community);
+    let dialogRef = this.dialog.open(MemberEditComponent,{
+      data:this.community
+    });
   }
 }

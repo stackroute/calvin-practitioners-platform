@@ -64,7 +64,7 @@ export class CommunityRoleManagementComponent implements OnInit {
       this.getResults = res;
      
       this.sample.forEach((value1) => {
-        console.log(value1.roleactions)
+        console.log("abcd",value1.roleactions)
         let test=value1.roleactions;
         console.log(test);
         test.forEach((value)=>

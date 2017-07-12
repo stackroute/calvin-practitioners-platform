@@ -1,9 +1,9 @@
 <!--<div class="container" fxLayout fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="10px" fxLayoutGap.xs="0">
     <div class="item item-1" fxFlex="2%"></div>
     <div class="item item-2" fxFlex="2%" fxFlexOrder="3">    </div>-->
-<div class="container">
+<div>
 
-<md-card >
+<md-card class="card-align" >
     <md-card-title fxLayout="row" class="new-community">
         Members<div class="searchAlgin"> <input mdInput aria-label="search" fxFlex="100%" placeholder="Search" type="search"  dividerColor="accent">
    <i class="material-icons ">search</i></div>    </md-card-title>
@@ -12,7 +12,7 @@
         <h1></h1>
       <md-list align="start" >
         <md-list-item>
-            <img fxFlex='10'md-list-avatar class="img-responsive" src="/assest/images/member.jpg">
+            <img md-list-avatar class="img-responsive" src="./assets/images/member.jpg">
             <div  fxFlex='80'>
                
                 <div><h5><b>{{val.username}}</b></h5></div>

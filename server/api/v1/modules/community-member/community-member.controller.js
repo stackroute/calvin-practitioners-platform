@@ -147,7 +147,7 @@ function deleteMembers(domain,data,callback) {
   .send(data)
   .end((err, res) => {
     if (err) {
-     console.log('Error in API to get community templates, error: ', err);
+    //  console.log('Error in API to get community templates, error: ', err);
       return callback(err);
     }
     return callback(null, res.body);
