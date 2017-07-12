@@ -11,24 +11,20 @@ import { RoleServices } from '../community-role-management/community-role-manage
 })
 export class CommunityRoleActionsComponent implements OnInit {
 
-
   @Input() dummy;
- //actions=[];
+ 
   constructor(public dialog: MdDialog, private role: RoleServices, private action: CommunityRoleManagementComponent) { }
   openDialog(roleName) {
-    console.log('dummy data',this.dummy.domain);
-    console.log('dummy data',roleName);
+    // console.log('dummy data',this.dummy.domain);
+    // console.log('dummy data',roleName);
     // this.actions=this.dummy.action;
     // console.log('data in actions is ',this.actions);
     const dialog = this.dialog.open(CommunityToolActionsComponent,{
       data: {domain:this.dummy.domain,
       role:roleName}     
     });
-    console.log(this.role);
+    //console.log(this.role);
   }
-generateArray(obj){
-   return Object.keys(obj).map((key)=>{ return obj[key]});
-}
   ngOnInit() { }
 }
 
