@@ -18,7 +18,6 @@ import { CommunityMembersWidgetComponent } from '../community-members-widget/com
 import { ManageCommunityToolsComponent } from '../manage-community-tools/manage-community-tools.component';
 import { AddToolComponent } from '../add-tool/add-tool.component';
 import { UserCommunities } from '../my-communities/my-communities.services';
-
 import { ToolMarketPlaceComponent } from '../tool-market-place/tool-market-place.component';
 
 import { ToolPageComponent } from '../tool-page/tool-page.component';
@@ -39,7 +38,6 @@ const routes: ModuleWithProviders = RouterModule.forRoot([
       { path: 'userCommunity/:domain', component: CommunityDashboardComponent },
       { path: 'actions', component: CommunityRoleManagementComponent },
       { path: 'communityDashBoard/:domain', component: CommunityDashboardComponent },
-
       { path: 'managecommunity/:domain', component: ManageCommunityComponent },
       { path: 'activity', component: ActivityPageComponent },
       { path: 'members:domain', component: CommunityMemberManagementComponent },

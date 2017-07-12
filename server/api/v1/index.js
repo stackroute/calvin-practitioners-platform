@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const config = require('./modules/common/config');
 // router.use('/users', require('./modules/users'));
-
+router.use('/toolmarketplace', require('./modules/toolmarketplace'));
 router.use('/login', require('./modules/login'));
 router.use('/logout', (req, res) => {
   res.clearCookie(config.cookie.name);
@@ -16,7 +16,7 @@ router.use(require('./modules/authentication'));
 
 router.use('/communities', require('./modules/communities'));
 
-router.use('/toolmarketplace', require('./modules/toolmarketplace'));
+
 // router.use('/community', require('./modules/community'));
 
 router.use('/memberactivitypage', require('./modules/communityActivities'));

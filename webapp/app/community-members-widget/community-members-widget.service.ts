@@ -10,7 +10,7 @@ export class MembersService {
     getMember(domain) {
         //console.log("ssdf",domain)
         return this.http
-            .get('/api/v1/community-member/communitymembership/' + domain + '/members')
+            .get(`/api/v1/communityMembers/communitymembership/${domain}/members`)
             .map((response: Response) => response.json());
 
     }
