@@ -4,7 +4,7 @@ const jwt = require('jsonwebtoken');
 const request = require('superagent');
 const BASE_COMMUNITY_SERVICE_URL = 'http://calvin-communities.blr.stackroute.in/api/v1';
 
-const cookies=[];
+const cookies = [];
 const USERS_TABLE = 'users';
 const client = new cassandra.Client({
   contactPoints: [config.dbconfig.dburl],
@@ -81,8 +81,7 @@ function updateUser(profile, done) {
   }); // end of checkIfUserExists
 }
 // this function is to get List of Comminities of a User
-function getUserCommunities(username,done){
-
+function getUserCommunities(username, done) {
   const url = `${BASE_COMMUNITY_SERVICE_URL}/membership/${username}`;
   request
  .get(url)
@@ -93,7 +92,7 @@ function getUserCommunities(username,done){
      return done(err);
    }
    console.log('result is ', res.body);
-   const userCommunityToken=jwt.sign(res.body, config.appConstants.secret,
+   const userCommunityToken = jwt.sign(res.body, config.appConstants.secret,
     { expiresIn: config.appConstants.expiryTime });
    cookies.push(userCommunityToken);
    return done(null, cookies);
@@ -102,5 +101,5 @@ function getUserCommunities(username,done){
 
 module.exports = {
   updateUser,
-  getUserCommunities
+  getUserCommunities,
 };

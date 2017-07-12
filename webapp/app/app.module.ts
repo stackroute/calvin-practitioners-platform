@@ -56,7 +56,7 @@ import { NewcommunityDialogboxComponent } from './newcommunity-dialogbox/newcomm
 import { MemberInvitationComponent } from './member-invitation/member-invitation.component';
 import { ToolMarketPlaceComponent } from './tool-market-place/tool-market-place.component';
 import { MemberEditComponent } from './member-edit/member-edit.component';
-import { ToolPageComponent } from './tool-page/tool-page.component';
+import { ToolPageComponent,IntegrateTool } from './tool-page/tool-page.component';
 import { AppBarService } from './app-bar/app-bar.service';
 
 @NgModule({
@@ -91,7 +91,8 @@ import { AppBarService } from './app-bar/app-bar.service';
     ToolMarketPlaceComponent,
     SucessDialog,
     MemberEditComponent,
-    ToolPageComponent
+    ToolPageComponent,
+    IntegrateTool
      ],
 
   imports: [
@@ -119,7 +120,7 @@ import { AppBarService } from './app-bar/app-bar.service';
     ReactiveFormsModule
   ],
 
-  entryComponents: [CommunityToolActionsComponent, NewcommunityDialogboxComponent, MemberInvitationComponent,SucessDialog,MemberEditComponent,updateCommunity],
+  entryComponents: [IntegrateTool,CommunityToolActionsComponent, NewcommunityDialogboxComponent, MemberInvitationComponent,SucessDialog,MemberEditComponent,updateCommunity],
 
   providers: [RoleServices, ToolActions, CommunityProfileService,ActivityService, updateSpecificCommunityService, ToolMarketService],
   bootstrap: [AppComponent]
