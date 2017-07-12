@@ -5,8 +5,10 @@
 
 <md-card class="card-align" >
     <md-card-title fxLayout="row" class="new-community">
-        Members<div class="searchAlgin"> <input mdInput aria-label="search" fxFlex="100%" placeholder="Search" type="search"  dividerColor="accent">
-   <i class="material-icons ">search</i></div>    </md-card-title>
+        Members
+        <!--<div class="searchAlgin"> <input mdInput aria-label="search" fxFlex="100%" placeholder="Search" type="search"  dividerColor="accent">
+   <i class="material-icons ">search</i></div>  -->
+    </md-card-title>
     
     <div class="community-list" *ngFor="let val of members.MemberDetails" >
         <h1></h1>
@@ -41,16 +43,3 @@
 
 
 
-<!--<md-card>
-  <div  *ngFor="let val of members.MemberDetails">
-  <div fxLayoutAlign='start stretch'>
-    <md-input-container fxFlex='90'>
-      <input mdInput placeholder={{val.username}} [(ngModel)]={{val.username}}/>
-    </md-input-container>
-    <button md-button class='button-style' (click)='update(dummy.id,dummy.role,dummy.actions)'><md-icon>edit</md-icon></button>
-    <button md-button class='button-style'><md-icon>delete</md-icon></button>
-  </div>
-  
-  
-  </div>
-</md-card>-->

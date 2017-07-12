@@ -1,53 +1,8 @@
-<!--<div class="todos">
-      <h3>Invite members</h3>
-      <div>
-      <form (submit)="addTodo($event)"  [formGroup]="myForm" novalidate (ngSubmit)="save(myForm)">
-         <md-input-container (keyup.enter)="newTodo=''" class="textfield" name="newTodo">
-                <input mdInput placeholder="email address" class="form-control" formControlName="email">
-                </md-input-container>
-                    
-                     <md-select placeholder="roles" class="form-control" formControlName="role" (keyup.enter)="newTodo=''" class="textfield" name="newTodo" >
-                <md-option *ngFor="let access of memberrole" [value]="access.value">{{access.value}}  </md-option>
-                                
-              </md-select>
-      
-                 <button md-icon-button type="submit" class="bottomright"   align="end">
-                  <i class="material-icons">add_circle_outline</i></button>
-      </form>
-      </div>
 
-
-     <div>
-      <div *ngFor="let todo of todos; let i=index">
-      
-    
-    
-      <form>
-         <md-input-container  (keyup.enter)="newTodo=''" class="textfield" name="newTodo">
-                <input mdInput placeholder="email address" class="form-control" formControlName="email2">
-                </md-input-container>
-        <md-select placeholder="roles" class="form-control" formControlName="role2" (keyup.enter)="newTodo=''" class="textfield" name="newTodo" >
-        <md-option *ngFor="let access of memberrole" [value]="access.value">{{access.value}}  </md-option>                  
-       </md-select>
-        
-    <button md-icon-button  class="bottomright"  align="end">
-                  <i class="material-icons" md-icon-button (click)="deleteTodo(i)">close</i></button>
-  
-     </form>
-      
-       </div>
-        </div>
-          <div>
-                 <button md-raised-button color="primary" type="submit" class="bottom-button" >Invite</button>
-              </div>
-              <div>{{myform.value}}</div>
-      
- </div>-->
  <div class="AddValue">
       <h3>Invite members</h3>
       <div>
       <form (submit)="addField($event)">
-      <!--<input [(ngModel)]="value" (keyup.enter)="value=''" class="textfield" name="value">-->
          <md-input-container (keyup.enter)="value=''" class="textfield" name="value">
                 <input mdInput placeholder="email address">
                 </md-input-container>

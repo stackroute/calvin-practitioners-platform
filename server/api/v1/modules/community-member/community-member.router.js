@@ -1,5 +1,10 @@
 const router = require('express').Router();
 const memberCtrl = require('./community-member.controller.js');
+const bodyParser = require('body-parser');
+
+
+router.use(bodyParser.urlencoded({ extended: true }));
+router.use(bodyParser.json());
 
 router.get('/communitymembership/:domain/members', (req, res) => {
   try {
@@ -50,7 +55,7 @@ router.get('/memberrequests/:domain', (req, res) => {
 
 router.delete('/communitymembership/:domain/members',(req, res) => {
   console.log("dadaddddada",req.params.domain);
-  console.log("LOOK HERE----->",req.body);
+  console.log("LOOK HERE----->",req.body.params);
   try {
     memberCtrl.deleteMembers(req.params.domain,req.body, (err, result) => {
       if (err) {
