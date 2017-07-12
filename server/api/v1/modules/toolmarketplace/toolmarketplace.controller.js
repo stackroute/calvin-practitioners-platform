@@ -5,12 +5,12 @@ function addTool(tool, done) {
   toolservice.AddToolinMarketplace(tool, done);
 }
 
-function getTool(toolid,done){
-  console.log('inside get tool',toolid);
+function getTool(toolid, done) {
+  console.log('inside get tool', toolid);
   // toolservice.getSingleTool(toolid,done);
   // toolservice.getSingleTool(toolid,done);
 
-  toolservice.getSingleTool(toolid,done);
+  toolservice.getSingleTool(toolid, done);
   // toolservice.testing(toolid,done);
 }
 

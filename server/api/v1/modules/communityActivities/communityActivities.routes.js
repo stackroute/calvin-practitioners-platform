@@ -20,7 +20,7 @@ const controller = require('./communityActivities.controller');
  */
 router.get('/:membername', (req, res) => {
   try {
-    let communities = [];
+    const communities = [];
     const sort = 'ts';
     const order = 'desc';
     const limit = 20;
@@ -39,7 +39,7 @@ router.get('/:membername', (req, res) => {
       }
       return res.send(filteredMemberCommunities);
     }
-       return res.send(controller.getAllCommunitiesOfMember(req.params.membername));
+    return res.send(controller.getAllCommunitiesOfMember(req.params.membername));
   } catch (err) {
     return res.status(500).send({
       error: 'Error in operation, please try later..!',
