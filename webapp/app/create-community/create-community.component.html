@@ -11,7 +11,7 @@
         <md-hint align="start" class="full-width">          
           
           <div *ngIf="userForm.get('domainName').hasError('isDomainUnique') && userForm.get('domainName').touched" class="errorStyle">
-            Domain not available..
+            Domain not available.. 
           </div>
 
           <div *ngIf="userForm.get('domainName').hasError('required') && userForm.get('domainName').touched" class="errorStyle">

@@ -23,7 +23,7 @@ import { ToolMarketPlaceComponent } from '../tool-market-place/tool-market-place
 
 import { ToolPageComponent } from '../tool-page/tool-page.component';
 import { CommunityMemberManagementComponent } from '../community-member-management/community-member-management.component';
-
+import { MemberInvitationComponent } from "../member-invitation/member-invitation.component";
 
 
 // Calvin routes
@@ -42,7 +42,7 @@ const routes: ModuleWithProviders = RouterModule.forRoot([
 
       { path: 'managecommunity/:domain', component: ManageCommunityComponent },
       { path: 'activity', component: ActivityPageComponent },
-      { path: 'members', component: CommunityMemberManagementComponent },
+      { path: 'members', component: MemberInvitationComponent },
       { path: 'managetools', component: ManageCommunityToolsComponent},
 
       { path: 'addtool', component: AddToolComponent},

@@ -1,74 +1,88 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { MembersService } from '../community-members-widget/community-members-widget.service';
 import { Route, Router } from '@angular/router';
+import { InvitationServices } from "./member-invitation.service";
 
 @Component({
   selector: 'calvin-member-invitation',
   templateUrl: './member-invitation.component.html',
   styleUrls: ['./member-invitation.component.css'],
-   providers: [MembersService]
+  providers: [MembersService, InvitationServices]
 })
 export class MemberInvitationComponent implements OnInit {
-   members;
-   memberrole=[{
-     "value":"Admin","viewvalue":"Admin",
-   },
-   {
-     "value":"Moderator","viewvalue":"Moderator",
-   },
-   {
-     "value":"User","viewvalue":"User",
-   },
-   ];
-   memberfield=[
-     {
-       "email":"",
-       "role":"",
-     },
-   ];
-  
-    newTodo: string;
-    todos: any;
-    todoObj: any;
+  @Input() community: any;
+  members;
+  user: Object = {};
+  memberrole = [{
+    "value": "Admin", "viewvalue": "Admin",
+  },
+  {
+    "value": "Moderator", "viewvalue": "Moderator",
+  },
+  {
+    "value": "User", "viewvalue": "User",
+  },
+  ];
+  memberfield = [
+    {
+      "email": "",
+      "role": "",
+    },
+  ];
+
+  newTodo: string;
+  inviteMembers: any;
+  addInvite: any;
 
 
-  constructor(private membersWidget: MembersService, private router: Router) { this.newTodo = '';
-      this.todos = []; }
- newField()
- {
+  constructor(private invitationServices: InvitationServices, private membersWidget: MembersService, private router: Router) {
+    this.newTodo = '';
+    this.inviteMembers = [];
+  }
+  newField() {
 
- }
+  }
 
-    addTodo(event) {
-      this.todoObj = {
-        newTodo: this.newTodo,
-        completed: false
+  addTodo(event) {
+    this.addInvite = {
+      newTodo: this.newTodo,
+      completed: false
+    }
+    this.inviteMembers.push(this.addInvite);
+    this.newTodo = '';
+    event.preventDefault();
+  }
+
+  deleteTodo(index) {
+    this.inviteMembers.splice(index, 1);
+  }
+
+  deleteSelectedinviteMembers() {
+    for (var i = (this.inviteMembers.length - 1); i > -1; i--) {
+      if (this.inviteMembers[i].completed) {
+        this.inviteMembers.splice(i, 1);
       }
-      this.todos.push(this.todoObj);
-      this.newTodo = '';
-      event.preventDefault();
     }
+  }
 
-    deleteTodo(index) {
-      this.todos.splice(index, 1);
-    }
+  onSendingInvitation(userdata: any){
+    const memArr = [];
+    const memberVal = userdata.value;
+    // let i = 0;
+    // while( i <= memberVal.index){
+    //   const email = memberVal.email;
+    //   const role = memberVal.role;
+    //   console.log('in',email,role);
+    //   i++;
+    // }
+    const memObj = {}
+    memArr.push(memberVal.email0);
+    memArr.push(memberVal.role0);
+    this.invitationServices.inviteMember(memArr,'noideawhatitisa')
 
-    deleteSelectedTodos() {
-      //need ES5 to reverse loop in order to splice by index
-      for(var i=(this.todos.length -1); i > -1; i--) {
-        if(this.todos[i].completed) {
-          this.todos.splice(i, 1);
-        }
-      }
-    }
+  }
 
-  
-
-  
   ngOnInit() {
-  //   this.membersWidget.getMember().subscribe(data => {
-  //   this.members = data.Members;
-  //  });
   }
 
 }
