@@ -48,15 +48,15 @@ router.get('/memberrequests/:domain', (req, res) => {
 });
 
 
-router.delete('/communitymembership/:domain/members',(req, res) => {
-  console.log("dadaddddada",req.params.domain);
-  console.log("LOOK HERE----->",req.body);
+router.delete('/communitymembership/:domain/members', (req, res) => {
+  console.log('dadaddddada', req.params.domain);
+  console.log('LOOK HERE----->', req.body);
   try {
-    memberCtrl.deleteMembers(req.params.domain,req.body, (err, result) => {
+    memberCtrl.deleteMembers(req.params.domain, req.body, (err, result) => {
       if (err) {
         res.status(500).send({ error: 'SOMETHING HAPPENED' });
-      } 
-        return res.status(200).send(result);
+      }
+      return res.status(200).send(result);
     });
   } catch (err) {
     return res.status(500).send({ error: 'Internal error occurred....!' });

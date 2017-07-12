@@ -12,7 +12,7 @@ client.connect()
   })
   .then(() => {
     const query = `create table IF NOT EXISTS ${keyspacename}.${tablename[0]}
-    (userhandle text,username text primary key ,name text,profilepic text,role text,lastLogin timestamp)`;
+    (userhandle text,username text primary key ,name text,profilepic text,role text,lastLogin timestamp,aboutme text,contact text,interestedtopics set<text>,location text)`;
     return client.execute(query);
   })
   .then(() => {

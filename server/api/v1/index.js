@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const config = require('./modules/common/config');
+// router.use('/users', require('./modules/users'));
 
 router.use('/login', require('./modules/login'));
 router.use('/logout', (req, res) => {
@@ -37,4 +38,5 @@ router.use('/communityMembers', require('./modules/community-member'));
 
 router.use('/communitytemplates', require('./modules/communitytemplates'));
 
+router.use('/users', require('./modules/users'));
 module.exports = router;
