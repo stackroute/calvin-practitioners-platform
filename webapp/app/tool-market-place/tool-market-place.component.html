@@ -1,13 +1,13 @@
 <div fxFlex="100%" fxLayoutAlign="center" fxLayout="row">
     <md-input-container>
-        <h3><input mdInput placeholder="Enter Tools" [(ngModel)]="value" (keyup.enter)=selectedValue(value)></h3>
+        <h3><input mdInput placeholder="Enter Tools" [(ngModel)]="value" (keyup.enter)=selectedValue(value) ></h3>
     </md-input-container>
     <md-select placeholder="purpose" [(ngModel)]="purpose">
-        <md-option *ngFor="let val of this.tools" [value]="val.purpose">{{ val.purpose }}</md-option>
+        <md-option *ngFor="let val of this.tools" [value]="val.purpose" (click)="selectpurpose(purpose)">{{ val.purpose }}</md-option>
     </md-select>
 </div>
 <div fxFlex="100%" fxLayout="row" fxLayoutWrap>
-    <div fxFlex="25%" *ngFor="let val of this.tools">
+    <div fxFlex="25%" *ngFor="let val of newTool">
         <md-card routerLink="/app/toolpage/:domain">
             <md-card-title>{{val.toolname}}</md-card-title>
             <md-card-content>
