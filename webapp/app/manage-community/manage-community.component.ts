@@ -45,7 +45,7 @@ tagname:String;
 
   //  alert("getting called chip");
    this.tagarray.push(tag);
-   this.tagname = '';
+  //  this.tagname = '';
 
 
    
@@ -88,11 +88,12 @@ openDialog() {
  ngOnInit() {
    
    this.domain = this.route.snapshot.params['domain'];
-   this.commProfileService.getCommunity(this.route.snapshot.params['domain']). subscribe ( res => {   
+   this.commProfileService.getCommunity(this.route.snapshot.params['domain'],this.counter). subscribe ( res => {   
    this.domain = res.domain;
    this.updatedBy = res.updatedby;
    res.createdon= moment(res.createdon).subtract(1,'days').calendar();
    this.community = res;
+   console.log("inside managecommunity",this.community);
 
  
   

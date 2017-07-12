@@ -6,12 +6,13 @@ import 'rxjs/Rx';
 
     @Injectable()
     export class CommunityProfileService {
+      counter = true;
 
     constructor(private http: Http) { }
 
-    getCommunity(domain) {
+    getCommunity(domain,counter) {
       
-    const url = `/api/v1/communities/communities/${domain}`;
+    const url = `/api/v1/communities/communities/${domain}?counter=${this.counter}`;
     return this.http.get(url).map( response => response.json());
     
 
