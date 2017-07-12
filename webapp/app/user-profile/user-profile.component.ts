@@ -1,64 +1,80 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import {MdDialog, MdDialogRef, MdDialogConfig } from '@angular/material';
+import { MdDialog, MdDialogRef, MdDialogConfig } from '@angular/material';
 import { AppBarService } from '../app-bar/app-bar.service';
 import { UserInfoService } from '../core/user-info.service';
+import { SidenavService } from "../user-profile/user-profile.service";
 
 @Component({
- templateUrl: './user-profile.component.html',
- styleUrls: ['./user-profile.component.css']
+  templateUrl: './user-profile.component.html',
+  styleUrls: ['./user-profile.component.css'],
+  providers: [SidenavService]
 })
 export class UserProfileComponent implements OnInit {
- profileForm: FormGroup;
- user: {};
- flag = 0;
- addInterestArr = [];
- constructor(private fb: FormBuilder, private userservice: UserInfoService) {
-  this.createprofile();
- }
+  profileForm: FormGroup;
+  user: {};
+  username;
+  flag = 0;
+  addInterestArr = [];
+  profileArray = [];
+  constructor(private fb: FormBuilder, private userservice: UserInfoService, private profileService: SidenavService) {
+    this.createprofile();
+  }
 
- createprofile() {
-  this.profileForm = this.fb.group({
-   firstname: ['', [Validators.required, Validators.pattern('[a-z]')]],
-   email: ['', [Validators.required,Validators.pattern('[^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$]')]],
-   phonenumber: ['', [Validators.required,Validators.minLength(10)]],
-    location: [''],
-    favourite: ['']
-  });
- }
-
- addInterest(interest) {
+  createprofile() {
+    this.profileForm = this.fb.group
+      ({
+        aboutMe: [''],
+        location: [''],
+        contact: ['',Validators.pattern('[0-9+]{13}')],
+        interestField: ['',Validators.required]
+      });
+  }
+   addInterest(interest,resetText) {
+   resetText.value='';
    if(!this.addInterestArr.includes(interest)) {
      this.addInterestArr.push(interest);
+     console.log(this.addInterestArr);
    }
-   console.log('my interest list',this.addInterestArr);
+ } 
+  // deselect chip value/remove tag value from an array
+ deselectchip(interest) {
+   const interestValue = interest;
+   this.addInterestArr = this.addInterestArr.filter(item => item !== interestValue);
  }
-
-  onsubmit(userdata: any) {
-     const values = userdata.value;
-     const firstname = values.firstname;
-     const email = values.email;
-     const phonenumber = values.phonenumber;
-     const location = values.location;
-     const interest = values.interest;
-
-
-           const value = { firstname,email,phonenumber,location,interest };
-           console.log(value);
-
- }
- reset(){
-   this.createprofile();
- }
- ngOnInit() {
- 
-    this.userservice.getUserDetail((userdetails)=>{
+  updateProfile(profileForm) {
+     const profileData = this.profileForm.value;
      
-      this.user=userdetails;
-      console.log(userdetails);
-       console.log('user is : '+this.user);
-      this.flag = 1;
+     const contact = profileData.contact;
+     const loc = profileData.location;
+     const about = profileData.aboutMe;
+     const interest = profileData.interest = this.addInterestArr;
+     const newProfileDetails = { contact, loc, about, interest };
+     this.profileService.updateUserProfile(newProfileDetails, this.username).subscribe (
+       (data) => console.log('data patched'),
+       error => console.log('try again later...!'),
+       () => console.log('Updated Profile data',newProfileDetails)
+     )
+     console.log('my Profile form value',newProfileDetails);
+  }
 
- });
-}
+// getUserProfile(email){
+// console.log("resultddddd",email)
+//   this.profileService.getUserProfile(email).subscribe(res=>
+//      { this.profileArray = res;
+//       console.log('my profile details',email);
+// });
+// }
+  ngOnInit() {
+    this.userservice.getUserDetail((userdetails) => {
+      this.user = userdetails;
+      this.username = userdetails.username;
+      console.log("USER DETAILS:", userdetails);
+      console.log('username is : ' + this.username);
+      this.flag = 1;
+    });
+
+  
+    
+  }
 }
