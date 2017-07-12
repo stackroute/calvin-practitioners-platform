@@ -53,9 +53,9 @@ router.get('/memberrequests/:domain', (req, res) => {
 });
 
 
-router.delete('/communitymembership/:domain/members',(req, res) => {
-  console.log("dadaddddada",req.params.domain);
-  console.log("LOOK HERE----->",req.body.params);
+router.delete('/communitymembership/:domain/members', (req, res) => {
+  console.log('dadaddddada', req.params.domain);
+  console.log('LOOK HERE----->', req.body.params);
 
   try {
     memberCtrl.deleteMembers(req.params.domain, req.body, (err, result) => {
