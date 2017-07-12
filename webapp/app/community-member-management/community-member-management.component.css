@@ -1,4 +1,4 @@
-md-list-item {
+/*md-list-item {
 	border-bottom: 1px dashed #ddd;
   cursor: pointer;
 }
@@ -32,7 +32,7 @@ md-list-item:last-child {
   right: 3px;
   top:7px;
   /*color: #666;*/
-}
+/*}
 .searchAlgin {
 margin-left:600px;
 
@@ -40,4 +40,4 @@ margin-left:600px;
 .bottom-button
 {  margin-left:500px;
     margin-bottom:30px;
-}
+}*/

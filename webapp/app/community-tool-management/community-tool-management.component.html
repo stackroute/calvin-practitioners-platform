@@ -1,0 +1,18 @@
+ <md-card>
+  <md-list>
+    <md-list-item *ngFor="let val of tools.tools" fxLayoutAlign.xs="column">
+      <img md-list-avatar class="img-responsive center-block" src={{val.photo}}>
+      <!--<md-list-item>{{val.toolId}}</md-list-item>-->
+      <h3 md-line>{{val.toolid}}</h3>
+      <p md-line>
+        <!--<span>{{val.createdon}}</span>-->
+      </p>
+      <!--<div fxFlexAlign="end">-->
+      <button md-button class='button-style'><md-icon  (click)="openBox()">settings</md-icon></button>           <!--fxFlexAlign="end"-->
+      <!--</div>-->
+    </md-list-item>
+  </md-list>
+</md-card>
+<div><button  md-raised-button color="primary"  class="bottom-button">Add</button></div>
+  
+<router-outlet></router-outlet>

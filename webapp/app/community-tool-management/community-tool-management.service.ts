@@ -4,7 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 
 @Injectable()
-export class ToolsService {
+export class ToolService {
     constructor(private http: Http) { }
 
     getTools(domainName) {

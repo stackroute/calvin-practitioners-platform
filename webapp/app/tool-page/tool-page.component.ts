@@ -18,7 +18,7 @@ export class ToolPageComponent implements OnInit {
 
   ngOnInit() {
         this.toolid= this.activeroute.snapshot.params['toolid'];
-      this.toolpageservice.getToolinfo(this.toolid).subscribe(result=>{
+      this.toolpageservice.getToolinfo(this.toolid).subscribe(result => {
         this.toolinfo=result;
         console.log('tooinfo is :',this.toolinfo);
       });

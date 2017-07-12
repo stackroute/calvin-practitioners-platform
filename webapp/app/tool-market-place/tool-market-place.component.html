@@ -1,90 +1,21 @@
-<!--<div fxFlex="100%" fxLayout="row" fxLayoutAlign="center">
-    <h1>Tools and market</h1>
-</div>
-<div  fxLayoutAlign="" fxFlex="100%">
-    <div  fxFlex="25%" fxLayout="row">
-        <md-card class="example-card">
-            <md-card-content>
-                <a href=""><img md-card-image src="./assets/img/dog.jpg"></a>
-            </md-card-content>
-            <md-card-actions>
-                hello welcome
-            </md-card-actions>
-        </md-card>
-    </div>
-    <div fxFlex="25%" fxLayout="row">
-        <md-card class="example-card">
-            <md-card-content>
-                <a href=""><img md-card-image src="./assets/img/dog.jpg"></a>
-            </md-card-content>
-            <md-card-actions>
-                hello welcome
-            </md-card-actions>
-        </md-card>
-    </div>
-    <div  fxFlex="25%" fxLayout="row">
-        <md-card class="example-card">
-            <md-card-content>
-                <a href=""><img md-card-image src="./assets/img/dog.jpg"></a>
-            </md-card-content>
-            <md-card-actions>
-                hello welcome
-            </md-card-actions>
-        </md-card>
-    </div>
-    <div  fxFlex="25%" fxLayout="row">
-        <md-card class="example-card">
-            <md-card-content>
-                <a href=""><img md-card-image src="./assets/img/dog.jpg"></a>
-            </md-card-content>
-            <md-card-actions>
-                hello welcome
-            </md-card-actions>
-        </md-card>
-    </div>
-
-</div>
-
-<div fxFlex="100%">
-<div  fxFlex="25%" fxLayout="row">
-    
-</div>
-<div fxFlex="75%" fxlayout="row">
-</div>
-
-</div>
-
-
-
--->
-
-
-
-
 <div fxFlex="100%" fxLayoutAlign="center" fxLayout="row">
     <md-input-container>
-        <h3><input mdInput placeholder="Enter Tools"></h3>
+        <h3><input mdInput placeholder="Enter Tools" [(ngModel)]="value" (keyup.enter)=selectedValue(value)></h3>
     </md-input-container>
+    <md-select placeholder="purpose" [(ngModel)]="purpose">
+        <md-option *ngFor="let val of this.tools" [value]="val.purpose">{{ val.purpose }}</md-option>
+    </md-select>
 </div>
 <div fxFlex="100%" fxLayout="row" fxLayoutWrap>
-    <div fxFlex="25%" *ngFor="let val of this.tools.rows">
-        <md-card>
-        
-                <md-card-title>{{val.toolname}}</md-card-title>
-        
-
-
-            <!--<img md-card-image src="./assets/img/dog.jpg">-->
-            <md-card-content >
-                    <!--<img md-card-avatar  src="./assets/img/dog.jpg">
-                    <!--<md-list-item>{{val.toolId}}</md-list-item>
-                    <p md-line>{{val.toolid}}</p>
-                    <p md-line>{{val.toolavatar}}</p>
-                    <p md-line>{{val.tooldesc}}</p>-->
+    <div fxFlex="25%" *ngFor="let val of this.tools">
+        <md-card routerLink="/app/toolpage/:domain">
+            <md-card-title>{{val.toolname}}</md-card-title>
+            <md-card-content>
                 <img md-card-image src="./assets/img/dog.jpg">
                 <p md-line>{{val.toolid}}</p>
                 <p md-line>{{val.toolavatar}}</p>
                 <p md-line>{{val.tooldesc}}</p>
+                <p md-line>{{val.purpose}}</p>
             </md-card-content>
         </md-card>
     </div>

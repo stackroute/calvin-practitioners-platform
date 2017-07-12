@@ -9,13 +9,24 @@ import { ToolMarketService } from './tool-market-place.service';
 })
 export class ToolMarketPlaceComponent implements OnInit {
 
-  tools = [];
+  tools;
   constructor(private toolService: ToolMarketService) { }
 
   ngOnInit() {
     this.toolService.getTools().subscribe(data => {
-      this.tools = data;
-      console.log('hellooo', this.tools);
+      this.tools = data.rows;
+      console.log('this.tools', this.tools);
     });
   }
+
+  // let searchValue;
+  selectedValue(value1) {
+    this.tools.forEach((data) => {
+      if (value1 === data.toolname) {
+        console.log("true", data);
+
+      }
+    });
+  }
+  
 }
