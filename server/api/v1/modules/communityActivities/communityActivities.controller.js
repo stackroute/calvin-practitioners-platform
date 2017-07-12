@@ -317,6 +317,7 @@
    memberDetails: [],
  };
 
+
  function getAllCommunitiesOfMember(memberName) {
   // activityServices.getActivityData();
    const allCommunities = arr.Tools;

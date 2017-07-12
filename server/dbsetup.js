@@ -3,7 +3,9 @@ const cassandra = require('cassandra-driver');
 const client = new cassandra.Client({ contactPoints: ['127.0.0.1'] });
 
 const keyspacename = 'calvin';
+
 const tablename = ['users', 'toolinfo', 'toolactions', 'toolevents', 'toolcommunity'];
+
 client.connect()
   .then(() => {
     const query = `CREATE KEYSPACE IF NOT EXISTS ${keyspacename} WITH replication =` +
@@ -12,12 +14,13 @@ client.connect()
   })
   .then(() => {
     const query = `create table IF NOT EXISTS ${keyspacename}.${tablename[0]}
-    (userhandle text,username text primary key ,name text,profilepic text,role text,lastLogin timestamp)`;
+
+    (userhandle text,username text primary key ,name text,profilepic text,role text,lastLogin timestamp,aboutme text,contact text,interestedtopics set<text>,location text)`;
     return client.execute(query);
   })
   .then(() => {
     const query = `create table IF NOT EXISTS ${keyspacename}.${tablename[1]}
-    (toolid text primary key,purpose text, toolavatar text, tooldesc text,toolname text)`;
+    (toolid text primary key,purpose text, toolavatar blob, tooldesc text,toolname text)`;
     return client.execute(query);
   })
   .then(() => {

@@ -140,7 +140,7 @@ function postMemberInvite(domain, callback) {
   });
 }
 
-function deleteMembers(domain,data,callback) {
+function deleteMembers(domain, data, callback) {
     // Call communities service to get all the templates
   const url = `${BASE_COMMUNITY_SERVICE_URL}/communitymembership/${domain}/members`;
   request.delete(url)

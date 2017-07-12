@@ -4,12 +4,15 @@ const router = express.Router();
 
 const communityCtrl = require('./communities.controller');
 
-router.get('/communities/:domain/', (req, res) => { // eslint-disable-line consistent-return
+router.get('/communities/:domain', (req, res) => { // eslint-disable-line consistent-return
   try {
-    communityCtrl.getSpecificCommunity(req.params.domain, (err, result) => {
+  
+    communityCtrl.getSpecificCommunity(req.params.domain,(err, result) => {
       if (err) {
+        
         res.status(500).send({ error: 'Error in getting community details, please try later..!' });
       } else {
+     
         res.status(200).send(result);
       }
     });

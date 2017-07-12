@@ -153,13 +153,12 @@ function getSingleTool(toolid, done) {
 
 function getAllTools(done) {
   // console.log('entered getall tools service');
-  const query = `SELECT * FROM ${TABLE_NAME}`;
+  const query = `SELECT * FROM ${TABLE_NAME[0]}`;
   return client.execute(query, (err, results) => {
     if (err) {
-      done({ error: 'Internal error' });
-    } else {
-      done(null, results.rows);
+      return done({ error: 'Internal error' });
     }
+    return done(null, results.rows);
   });
 }
 
