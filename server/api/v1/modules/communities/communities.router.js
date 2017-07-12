@@ -6,13 +6,13 @@ const communityCtrl = require('./communities.controller');
 
 router.get('/communities/:domain', (req, res) => { // eslint-disable-line consistent-return
   try {
-    console.log("entering the counter area",req.query.counter);
-    communityCtrl.getSpecificCommunity(req.params.domain,req.query.counter,(err, result) => {
+  
+    communityCtrl.getSpecificCommunity(req.params.domain,(err, result) => {
       if (err) {
-        console.log("printing counter error",err);
+        
         res.status(500).send({ error: 'Error in getting community details, please try later..!' });
       } else {
-        console.log("printing counter result",result);
+     
         res.status(200).send(result);
       }
     });

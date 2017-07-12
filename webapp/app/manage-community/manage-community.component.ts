@@ -88,7 +88,7 @@ openDialog() {
  ngOnInit() {
    
    this.domain = this.route.snapshot.params['domain'];
-   this.commProfileService.getCommunity(this.route.snapshot.params['domain'],this.counter). subscribe ( res => {   
+   this.commProfileService.getCommunity(this.route.snapshot.params['domain']). subscribe ( res => {   
    this.domain = res.domain;
    this.updatedBy = res.updatedby;
    res.createdon= moment(res.createdon).subtract(1,'days').calendar();

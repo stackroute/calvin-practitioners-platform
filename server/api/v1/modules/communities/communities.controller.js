@@ -4,18 +4,18 @@ const request = require('superagent');
 const BASE_COMMUNITY_SERVICE_URL = 'http://calvin-communities.blr.stackroute.in/api/v1';
 
  // Call specific community on the basis of domain
-function getSpecificCommunity(domain, counter,done) {
-  const url = `${BASE_COMMUNITY_SERVICE_URL}/communities/${domain}?counter=${counter}`;
-  console.log("checking for counter",res.body);
+function getSpecificCommunity(domain,done) {
+  const url = `${BASE_COMMUNITY_SERVICE_URL}/communities/${domain}`;
+
   request
  .get(url)
  .query({ domain }) // query string
  .end((err, res) => {
    if (err) {
-     console.log("counter error",err);
+     
      return done(err);
    }
-   console.log("checking for counter",res.body);
+  
    return done(null, res.body);
  });
 }

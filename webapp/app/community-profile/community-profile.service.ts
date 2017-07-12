@@ -10,9 +10,9 @@ import 'rxjs/Rx';
 
     constructor(private http: Http) { }
 
-    getCommunity(domain,counter) {
+    getCommunity(domain) {
       
-    const url = `/api/v1/communities/communities/${domain}?counter=${this.counter}`;
+    const url = `/api/v1/communities/communities/${domain}`;
     return this.http.get(url).map( response => response.json());
     
 

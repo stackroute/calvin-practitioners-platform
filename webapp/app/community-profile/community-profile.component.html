@@ -24,7 +24,8 @@
 
              <div class="item item-4" fxFlex="20%" fxFlexOrder="4">
               <div class="manage-community-info" >
-                <button md-icon-button [mdMenuTriggerFor]="menu">
+               <h1>{{role}}</h1>
+                <button md-icon-button [mdMenuTriggerFor]="menu" >
                  <md-icon class="setting" >settings</md-icon>
                 </button>
               <md-menu #menu="mdMenu">
@@ -44,6 +45,7 @@
           <md-list-item>
             <md-icon>person</md-icon>
             <h6> 212 members  {{profile.members}}</h6>
+            
           </md-list-item>
           <md-list-item class="tools" > 
             <md-icon>build</md-icon>
