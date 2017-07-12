@@ -41,7 +41,7 @@
           </div>
 
 
-        <md-list class="members">
+        <md-list class="members" >
           <md-list-item>
             <md-icon>person</md-icon>
             <h6> 212 members  {{profile.members}}</h6>
@@ -51,9 +51,11 @@
             <md-icon>build</md-icon>
             <h6> 10 tools {{profile.tools}}</h6>
           </md-list-item>
-          <md-list-item id="purpose">
-            <h5>{{profile.purpose}} community </h5>
-          </md-list-item>
+
+     <span> 
+           <md-list-item id="purpose" >
+             {{profile.purpose}} <span> community</span></md-list-item>
+    </span>
        </md-list>
       </div>
     </div>
