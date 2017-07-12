@@ -11,18 +11,14 @@ router.get('/auth/logout', (req, res) => {
   res.redirect('/');
 });
 
-// router.get('/auth/logout', (req, res) => {
-//   res.clearCookie('currentUser');
-//   res.redirect('/');
-//   // res.send('logout called');
-// });
 
 router.get('/auth/google', passport.authenticate('google', { scope: ['profile', 'email'] }));
 
 router.get('/auth/google/callback', (req, res, next) => {
   loginCtrl.redirectGoogle(req, res, next).then((result) => {
-    // console.log('result in cookie', result);
-    res.cookie(config.cookie.name, result);
+    console.log('result in cookie', result);
+    res.cookie(config.cookie.name, result[0]);
+    res.cookie('userCommunity', result[1]);
     res.redirect('/#/app/home');
   }, (err) => { // eslint-disable-line no-unused-vars
     // res.json(err);

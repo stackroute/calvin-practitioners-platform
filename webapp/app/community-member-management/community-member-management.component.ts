@@ -6,6 +6,7 @@ import { MemberInvitationComponent } from '../member-invitation/member-invitatio
 import { Memberservice } from './community-member-management.service';
 import { MemberEditComponent } from "../member-edit/member-edit.component";
 
+
 @Component({
   selector: 'calvin-community-member-management',
   templateUrl: './community-member-management.component.html',
@@ -26,6 +27,17 @@ export class CommunityMemberManagementComponent implements OnInit {
       })
     };
   }
+  deleteMember(name)
+  {
+       console.log('clicked delete');
+ 
+    let a=[];
+    a.push({username:name});
+    console.log("hello-------array",a);
+      this.membersService.deleteMember(this.community,a).subscribe(data=>{
+        this.members=data;
+      });
+  }
   onScroll() {
   }
   openDialog() {
@@ -34,6 +46,9 @@ export class CommunityMemberManagementComponent implements OnInit {
   }
   edit()
   {
-    const dialog = this.dialog.open(MemberEditComponent);
+    console.log('community name',this.community);
+    let dialogRef = this.dialog.open(MemberEditComponent,{
+      data:this.community
+    });
   }
 }

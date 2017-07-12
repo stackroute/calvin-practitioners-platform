@@ -1,22 +1,22 @@
 const router = require('express').Router();
 const config = require('./modules/common/config');
-
+// router.use('/users', require('./modules/users'));
+router.use('/toolmarketplace', require('./modules/toolmarketplace'));
 router.use('/login', require('./modules/login'));
 router.use('/logout', (req, res) => {
   res.clearCookie(config.cookie.name);
   res.redirect('/');
 });
 
+router.use(require('./modules/authentication'));
 
 // router.use(require('./modules/authentication'));
-
-// router.use('/community-details', require('./modules/community-details'));
 
 // Each Module to be placed after this
 
 router.use('/communities', require('./modules/communities'));
 
-router.use('/toolmarketplace', require('./modules/toolmarketplace'));
+
 // router.use('/community', require('./modules/community'));
 
 router.use('/memberactivitypage', require('./modules/communityActivities'));
@@ -38,5 +38,5 @@ router.use('/communityMembers', require('./modules/community-member'));
 
 router.use('/communitytemplates', require('./modules/communitytemplates'));
 
-
+router.use('/users', require('./modules/users'));
 module.exports = router;

@@ -11,9 +11,8 @@
         <md-card routerLink="/app/toolpage/:domain">
             <md-card-title>{{val.toolname}}</md-card-title>
             <md-card-content>
-                <img md-card-image src="./assets/img/dog.jpg">
+                <img md-card-image src={{val.toolavatar}}>
                 <p md-line>{{val.toolid}}</p>
-                <p md-line>{{val.toolavatar}}</p>
                 <p md-line>{{val.tooldesc}}</p>
                 <p md-line>{{val.purpose}}</p>
             </md-card-content>

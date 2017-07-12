@@ -39,3 +39,16 @@ export class CommunityToolManagementComponent implements OnInit {
 })
 export class CommunityDialogue {
 }
+
+
+
+
+
+// <div fxLayoutAlign="column"> 
+// <div  fxLayoutAlign="start">
+//       Toiol info goes
+// </div>
+// <div fxLayoutAlign="end">
+//    Tool Setting button
+// </div>
+// </div>

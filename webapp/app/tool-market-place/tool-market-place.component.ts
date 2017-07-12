@@ -14,7 +14,7 @@ export class ToolMarketPlaceComponent implements OnInit {
 
   ngOnInit() {
     this.toolService.getTools().subscribe(data => {
-      this.tools = data.rows;
+      this.tools = data;
       console.log('this.tools', this.tools);
     });
   }

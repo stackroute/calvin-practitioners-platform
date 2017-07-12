@@ -1,3 +1,71 @@
 
+<!--<div class="container" fxLayout fxLayout.xs="row" fxLayoutAlign="center" fxLayoutGap="10px" fxLayoutGap.xs="0">
+	<div class="item item-1" fxFlex="2%"></div>
+	<div class="item item-2" fxFlex="2%" fxFlexOrder="3"></div>
+	<div class="item item-3" fxFlex class="form-div" *ngIf="flag===1">
+		<md-card fxFlex=80%>
+			<div fxFlex="100%" fxLayoutAlign="center">
+				<md-card-content class="Head">
+					<markdown>
+						<h3>UpdateProfile</h3>
+					</markdown>
+				</md-card-content>
+			</div>
+			<div fxLayout.xs="row" fxLayoutGap="0px" fxLayoutGap.xs="0" *ngIf="flag===1">
+				<div fxFlex="40%" Align="center center" class="fixprofile">
+					<img md-card-image fxFlex=50% fxLayoutAlign="start" class="img-placing" src={{(user.avatar)}} alt="User">
+					<markdown fxFlex=100% fxLayoutAlign="start">{{user.name}}</markdown>
+					<markdown fxFlex=100% fxLayoutAlign="start">{{user.username}}</markdown>
+				</div>
+				<div fxLayout.xs="row" fxLayoutGap="0px" fxLayoutGap.xs="0" fxFlex="60%">
+					<div fxLayoutAlign="start" fxFlex="100%">
+						<form class="placing" fxFlex="100%" [formGroup]="profileForm">
+							<div>
+								<md-input-container fxLayoutAlign="start" fxFlex="100%" class="example-full-width">
+									<input mdInput placeholder="About me">
+								</md-input-container>
+							</div>
+							<div>
+								<md-input-container fxLayoutAlign="start" fxFlex="100%" class="example-full-width">
+									<input mdInput placeholder="Location">
+								</md-input-container>
+							</div>
+							<div>
+								<md-input-container fxLayoutAlign="start" fxFlex="100%" class="example-full-width">
+									<input mdInput placeholder="contact">
+								</md-input-container>
+							</div>
+							<div>
+								<md-input-container fxLayoutAlign="start" fxFlex="100%" class="example-full-width">
+									<input mdInput placeholder="Interested Topics">
+									<md-hint align="end"></md-hint>
+								</md-input-container>
+							</div>
+							<span fxLayout.md="row" fxLayoutAlign="end end" fxLayoutGap="10px" fxLayoutGap.md="0">
+       							<a md-raised-button routerLink="/app/Home">cancel</a>
+      							<button fxLayout.md="column" fxFlex="10" md-raised-button ng-value="submit"
+								   type="submit" color="primary">submit</button>
+    						</span>
+						</form>
+					</div>
+				</div>
+			</div>
+		</md-card>
+	</div>
+</div>
+-->
+<div class="container" fxLayout fxLayout.xs="row" fxLayoutAlign="center" fxLayoutGap="10px" fxLayoutGap.xs="0">
+	<div class="item item-1" fxFlex="2%"></div>
+	<div class="item item-2" fxFlex="2%" fxFlexOrder="3"></div>
+	<div class="item item-3" fxFlex class="form-div" *ngIf="flag===1">
+     <md-card fxFlex=80%>
+       <img md-card-image fxFlex=50% fxLayoutAlign="start" class="img-placing" src={{(toolinfo.toolavatar)}} alt="User">
+     </md-card>
+
+
+	</div>
+</div>
+
+
 
 <router-outlet></router-outlet>
