@@ -4,7 +4,7 @@ const client = new cassandra.Client({ contactPoints: ['127.0.0.1'] });
 
 const keyspacename = 'calvin';
 
-const tablename = ['users','toolinfo','toolactions','toolevents','toolcommunity'];
+const tablename = ['users', 'toolinfo', 'toolactions', 'toolevents', 'toolcommunity'];
 
 client.connect()
   .then(() => {
@@ -16,7 +16,8 @@ client.connect()
     const query = `create table IF NOT EXISTS ${keyspacename}.${tablename[0]}
 
     (userhandle text,username text primary key ,name text,profilepic text,role text,lastLogin timestamp,aboutme text,contact text,interestedtopics set<text>,location text)`;
-    return client.execute(query)})  
+    return client.execute(query);
+  })
   .then(() => {
     const query = `create table IF NOT EXISTS ${keyspacename}.${tablename[1]}
     (toolid text primary key,purpose text, toolavatar blob, tooldesc text,toolname text)`;

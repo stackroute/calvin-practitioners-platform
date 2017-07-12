@@ -157,9 +157,8 @@ function getAllTools(done) {
   return client.execute(query, (err, results) => {
     if (err) {
       return done({ error: 'Internal error' });
-    } else {
-      return done(null, results.rows);
     }
+    return done(null, results.rows);
   });
 }
 
