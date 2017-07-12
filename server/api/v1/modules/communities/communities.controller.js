@@ -4,15 +4,18 @@ const request = require('superagent');
 const BASE_COMMUNITY_SERVICE_URL = 'http://calvin-communities.blr.stackroute.in/api/v1';
 
  // Call specific community on the basis of domain
-function getSpecificCommunity(domain, done) {
+function getSpecificCommunity(domain,done) {
   const url = `${BASE_COMMUNITY_SERVICE_URL}/communities/${domain}`;
+
   request
  .get(url)
  .query({ domain }) // query string
  .end((err, res) => {
    if (err) {
+     
      return done(err);
    }
+  
    return done(null, res.body);
  });
 }
@@ -34,9 +37,9 @@ function updateSpecificCommunity(domain, form, done) {
 
 
 function getUserCommunity(member, done) {
-   // Call specific community on the basis of domain
+   // Call specific user communities on the basis of username
   console.log('value of memmebvr in server', member);
-  const url = `${BASE_COMMUNITY_SERVICE_URL}/communities/${member}`;
+  const url = `${BASE_COMMUNITY_SERVICE_URL}/membership/${member}`;
   request
  .get(url)
  .query({ member }) // query string

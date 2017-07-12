@@ -1,6 +1,6 @@
 const GoogleStretegy = require('passport-google-oauth').OAuth2Strategy;
 const configAuth = require('./oauthconfig');
-const dbcontrol = require('../../../login/login.controller');
+const dbcontrol = require('../../../users/users.controller');
 
 module.exports = (passport) => {
   // this function gets the access token from google by providing code, clientID,
@@ -32,7 +32,7 @@ module.exports = (passport) => {
 
         if (err) {
           //  console.log('err is :',err);
-          return err;
+          return done(err,'Unable to Proceed');
         }
         return done(null, results);
       });

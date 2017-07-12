@@ -29,7 +29,7 @@ router.get('/:domainname', (request, response) => {
 // const router = require('express').Router();
 // const toolsCtrl = require('./tools.controller.js');
 
-router.get('/communitytools/:domain/tools', (req, res) => {
+router.get('/:domainname/', (req, res) => {
   // console.log("welcome to router");
   try {
     // console.log("welcome to router");

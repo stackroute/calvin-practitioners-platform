@@ -1,8 +1,8 @@
-import { Component, OnInit , Input} from '@angular/core';
+import { Component, OnInit , Input,Inject } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AddToolService } from './add-tool.service';
-import { MdDialog } from '@angular/material';
+import { MD_DIALOG_DATA, MdDialog, MdDialogRef } from '@angular/material';
 @Component({
   selector: 'calvin-add-tool',
   templateUrl: './add-tool.component.html',
@@ -16,6 +16,8 @@ export class AddToolComponent implements OnInit {
   events = [];
   toolaction: String;
   toolgrants: String;
+  actionDesc: String;
+  toolpurpose:String;
   tooleventname: String;
   eventpayload: String;
   eventDesc: String;
@@ -26,8 +28,11 @@ export class AddToolComponent implements OnInit {
   toc: any;
   actionFlag = 0;
   eventFlag = 0;
+  actionCounter=0;
+  eventCounter=0;
   purpose=[];
   uniquePurpose=[];
+  id;
   constructor(private addtoolservice: AddToolService,
     private dialog: MdDialog) { }
 
@@ -50,14 +55,21 @@ export class AddToolComponent implements OnInit {
 
   // this function is to add each tool action in array
   AddAction() {
+
+    console.log('add action called');
+
     let obj = {
       name: this.toolaction.toUpperCase(),
-      grants: this.toolgrants.toUpperCase()
+      id:this.toolaction+(String(this.actionCounter++)),
+      grants: this.toolgrants.toUpperCase(),
+      desc: this.actionDesc.toUpperCase(),
     };
+    console.log('obj',obj);
     this.actions.push(obj);
     this.actionFlag = 1;
     this.toolaction = '';
     this.toolgrants = '';
+    this.actionDesc='';
   }
   // this function is to reset the action fileds
   enableAction() {
@@ -77,10 +89,12 @@ export class AddToolComponent implements OnInit {
   }
 
   // this function is to add each tool event in arrays
-  addEvent() {
+  AddEvent() {
+    const eventCounter=0;
     let obj = {
       name: this.tooleventname.toUpperCase(),
-      payload: this.eventpayload.toUpperCase(),
+      id:this.tooleventname+(String(this.eventCounter++)),
+      metadata: this.eventpayload.toUpperCase(),
       description: this.eventDesc.toUpperCase()
     };
     this.events.push(obj);
@@ -112,17 +126,34 @@ export class AddToolComponent implements OnInit {
   // this function is to register the tool 
   registerTool(form: NgForm) {
     console.log(form.value);
+    let actionobj={
+        name: this.toolaction.toUpperCase(),
+        id :this.toolaction+(String(this.actionCounter++)),
+      grants: this.toolgrants.toUpperCase(),
+      desc: this.actionDesc.toUpperCase(),
+    };
+   this.actions.push(actionobj);
+   let eventobj ={
+      name: this.tooleventname.toUpperCase(),
+      id:this.tooleventname+(String(this.eventCounter++)),
+      metadata: this.eventpayload.toUpperCase(),
+      description: this.eventDesc.toUpperCase()
+   };
+
+   this.events.push(eventobj);
+
     let toolobj = {
-      toolid: this.toolid.toUpperCase(),
+      toolid: this.toolid,
       toolname: this.toolname.toUpperCase(),
       tooldesc: this.tooldesc.toUpperCase(),
       toolavatar: this.toolavatar,
+      toolpurpose: this.toolpurpose,
       toolAction: this.actions,
       toolEvent: this.events
     };
 
-    // console.log(toolobj);
-
+    console.log(toolobj);
+    this.id=this.toolid;
     this.addtoolservice.addTool(toolobj).subscribe(result => {
       console.log('inside add tool response');
       // RESETTING FIELDS after successfully adding tool
@@ -132,8 +163,12 @@ export class AddToolComponent implements OnInit {
       this.eventFlag = 0;
       form.reset();
       // alert('data'+result);
-      this.dialog.open(SucessDialog); // opening Dialogue to show success message
-    })
+
+      // opening Dialogue to show success message
+      this.dialog.open(SucessDialog, {
+      data:this.id
+    });
+    });
 
   }
 }
@@ -143,11 +178,16 @@ export class AddToolComponent implements OnInit {
   templateUrl: 'success-dialog.html',
 })
 export class SucessDialog {
-
-  constructor(private router: Router) { }
+  
+  toolid;
+  constructor(  private router: Router, 
+  @Inject(MD_DIALOG_DATA) public data: any, 
+  public dialogRef: MdDialogRef<AddToolComponent>) {
+   this.toolid=data;
+   }
   navigateTool() {
-    // alert('hi will navigate to tool');
-    this.router.navigate(['/app/toolpage/:toolid']);
+    alert('hi will navigate to tool'+`/app/toolpage/${this.toolid}`);
+    this.router.navigate([`/app/toolpage/${this.toolid}`]);
   }
 
 }

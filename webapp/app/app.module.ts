@@ -24,7 +24,6 @@ import { CommunityRoleManagementComponent } from './community-role-management/co
 import { CommunityToolActionsComponent } from './community-tool-actions/community-tool-actions.component';
 import { TemplateBrowserComponent } from './template-browser/template-browser.component';
 import { CommunityActivitylogsComponent } from './community-activitylogs/community-activitylogs.component';
-import { KeysPipe } from './community-role-actions/community-role-actions.pipe';
 import { CommunityDashboardComponent } from './community-dashboard/community-dashboard.component';
 import { ActivityCardComponent } from './activity-card/activity-card.component';
 import { ActivityPageComponent } from './activity-page/activity-page.component';
@@ -32,8 +31,10 @@ import { CommunityProfileComponent } from './community-profile/community-profile
 import { CommunityToolsWidgetComponent } from './community-tools-widget/community-tools-widget.component';
 import { CommunityMembersWidgetComponent } from './community-members-widget/community-members-widget.component';
 import { UserWidgetsComponent } from './my-communities/my-communities.component';
+import { CommunityDialogue } from './community-tool-management/community-tool-management.component';
 // import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { ToolsService } from './community-tools-widget/community-tools-widget.service';
+import { ToolService } from './community-tool-management/community-tool-management.service';
 import { MembersService } from './community-members-widget/community-members-widget.service';
 import { RoleServices } from './community-role-management/community-role-management.service';
 import { ToolActions } from './community-tool-actions/community-tool-actions.service';
@@ -45,8 +46,7 @@ import { updateSpecificCommunityService } from './manage-community/manage-commun
 import { ToolMarketService } from './tool-market-place/tool-market-place.service';
 import { NewRoleService } from './community-new-role-creation/community-new-role-creation.service';
 
-
-
+import{RoleListServices} from './member-edit/member-edit.service';
 import { MarkdownModule } from 'angular2-markdown';
 
 import { CommunityMemberManagementComponent } from './community-member-management/community-member-management.component';
@@ -60,6 +60,7 @@ import { MemberEditComponent } from './member-edit/member-edit.component';
 import { ToolPageComponent } from './tool-page/tool-page.component';
 import { AppBarService } from './app-bar/app-bar.service';
 import { CommunityNewRoleCreationComponent } from './community-new-role-creation/community-new-role-creation.component';
+import { CommunityToolManagementComponent } from './community-tool-management/community-tool-management.component';
 
 @NgModule({
   declarations: [
@@ -94,8 +95,9 @@ import { CommunityNewRoleCreationComponent } from './community-new-role-creation
     SucessDialog,
     MemberEditComponent,
     ToolPageComponent,
-    KeysPipe,
-    CommunityNewRoleCreationComponent
+    CommunityNewRoleCreationComponent,
+    CommunityToolManagementComponent,
+    CommunityDialogue
      ],
 
   imports: [
@@ -122,10 +124,8 @@ import { CommunityNewRoleCreationComponent } from './community-new-role-creation
     MdDialogModule,
     ReactiveFormsModule
   ],
-
-  entryComponents: [CommunityToolActionsComponent, NewcommunityDialogboxComponent, MemberInvitationComponent,SucessDialog,MemberEditComponent,updateCommunity,CommunityNewRoleCreationComponent],
-
-  providers: [RoleServices, ToolActions, CommunityProfileService,ActivityService, updateSpecificCommunityService, ToolMarketService,NewRoleService,KeysPipe],
+  entryComponents: [CommunityToolActionsComponent, NewcommunityDialogboxComponent, MemberInvitationComponent,SucessDialog,MemberEditComponent,updateCommunity,CommunityDialogue,CommunityNewRoleCreationComponent],
+  providers: [RoleServices, ToolActions, CommunityProfileService,ActivityService, updateSpecificCommunityService, ToolMarketService, ToolService,NewRoleService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

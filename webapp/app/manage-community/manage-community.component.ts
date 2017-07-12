@@ -93,6 +93,7 @@ openDialog() {
    this.updatedBy = res.updatedby;
    res.createdon= moment(res.createdon).subtract(1,'days').calendar();
    this.community = res;
+   console.log("inside managecommunity",this.community);
 
  
   

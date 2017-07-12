@@ -24,8 +24,7 @@ calvin-root {
     text-align: center;
     display: block;
 }
-calvin-root img {
+.loader{
     display: block;
-    width: 200px;
+    margin: 0 auto;
 }
-

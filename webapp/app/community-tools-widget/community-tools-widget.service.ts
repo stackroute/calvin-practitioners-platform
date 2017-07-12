@@ -8,10 +8,9 @@ export class ToolsService {
     constructor(private http: Http) { }
 
     getTools(domainName) {
-    console.log('In service');
-    const url = '/api/v1/communitytools/'+domainName;
-    console.log(url)
-    return this.http.get(url).map(res => res.json());
-  }
+        return this.http
+            .get('/api/v1/communitytools/' + domainName)
+            .map((response: Response) => response.json());
+    }
 }
 

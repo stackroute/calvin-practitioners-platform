@@ -48,7 +48,32 @@ export class CommunityRoleManagementComponent implements OnInit {
     console.log(this.route.snapshot.params['domain']);
 
     this.role.listUniqueRoles(this.route.snapshot.params['domain']).subscribe(res => {
-      this.getResults = res;
+      this.getResults = res;     
+      this.sample.forEach((value1) => {
+        console.log("abcd",value1.roleactions)
+        let test=value1.roleactions;
+        console.log(test);
+        test.forEach((value)=>
+        {
+          console.log(value)
+          this.getResults.forEach((value2) => {
+          console.log(value.action)
+          if (value.role === value2.role) {
+            this.b = value.action;
+          }
+          return this.a.push(this.b);
+        });
+        console.log(this.a);
+        const id = value.role;
+        const actions = this.a;
+        return this.c.push(id,actions);
+        })
+        
+        
+      });
+      console.log(this.c);
+    
+>>>>>>> b186dd275423d422e79d9326ef2ee122df23a778
     });
     console.log(this.resultArray)
   }

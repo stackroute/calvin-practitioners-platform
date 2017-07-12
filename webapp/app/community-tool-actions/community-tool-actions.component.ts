@@ -50,7 +50,8 @@ export class CommunityToolActionsComponent implements OnInit {
       this.selected.splice(index, 1);
     }
     console.log(this.selected,"fdsgsdgsdg");
-    return this.selected;
+    this.sample=this.selected;
+    return this.sample;
     // 
   }
   

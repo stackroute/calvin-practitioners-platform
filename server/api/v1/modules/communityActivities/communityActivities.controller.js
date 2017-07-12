@@ -1,4 +1,4 @@
-const activityServices = require('./communityActivities.service');
+// const activityServices = require('./communityActivities.service');
  const arr = {
    Tools: [
      {
@@ -317,14 +317,13 @@ const activityServices = require('./communityActivities.service');
    memberDetails: [],
  };
 
-function getAllCommunitiesOfMember(memberName) {
-  activityServices.getActivityData();
-  const allCommunities = arr.Tools;
-  memberFilteredArray = allCommunities.filter((community) => {
-    return community.member.name === memberName;
-  });
-  return memberFilteredArray;
-}
+
+ function getAllCommunitiesOfMember(memberName) {
+  // activityServices.getActivityData();
+   const allCommunities = arr.Tools;
+   memberFilteredArray = allCommunities.filter(community => community.member.name === memberName);
+   return memberFilteredArray;
+ }
  function filterMemberCommunities(memberName, communityNames) {
    getAllCommunitiesOfMember(memberName);
    communityNames = communityNames.split(',');
@@ -335,9 +334,9 @@ function getAllCommunitiesOfMember(memberName) {
  function getLimitOfPages(limit) {
    return limit;
  }
-module.exports =
-  {
-    filterMemberCommunities,
-    getAllCommunitiesOfMember,
-    getLimitOfPages,
-  };
+ module.exports =
+ {
+   filterMemberCommunities,
+   getAllCommunitiesOfMember,
+   getLimitOfPages,
+ };

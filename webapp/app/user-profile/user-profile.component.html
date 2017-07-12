@@ -2,7 +2,7 @@
 	<div class="item item-1" fxFlex="2%"></div>
 	<div class="item item-2" fxFlex="2%" fxFlexOrder="3"></div>
 	<div class="item item-3" fxFlex class="form-div" *ngIf="flag===1">
-		<md-card fxFlex=80%>
+		<md-card fxFlex=70%>
 			<div fxFlex="100%" fxLayoutAlign="center">
 				<md-card-content class="Head">
 					<markdown>
@@ -11,43 +11,55 @@
 				</md-card-content>
 			</div>
 			<div fxLayout.xs="row" fxLayoutGap="0px" fxLayoutGap.xs="0" *ngIf="flag===1">
-				<div fxFlex="40%" Align="center center" class="fixprofile">
+				<div  fxFlex="40%" Align="center center" class="fixprofile">
 					<img md-card-image fxFlex=50% fxLayoutAlign="start" class="img-placing" src={{(user.avatar)}} alt="User">
-					<markdown fxFlex=100% fxLayoutAlign="start">{{user.username}}</markdown>
 					<markdown fxFlex=100% fxLayoutAlign="start">{{user.name}}</markdown>
+					<markdown fxFlex=100% fxLayoutAlign="start">{{user.username}}</markdown>
 				</div>
 				<div fxLayout.xs="row" fxLayoutGap="0px" fxLayoutGap.xs="0" fxFlex="60%">
 					<div fxLayoutAlign="start" fxFlex="100%">
-						<form class="placing" fxFlex="100%" [formGroup]="profileForm">
+						<form class="placing" fxFlex="100%" [formGroup]="profileForm" (ngSubmit)="updateProfile(profileForm)">
 							<div>
-								<md-input-container fxLayoutAlign="start" fxFlex="100%" class="example-full-width">
-									<input mdInput placeholder="About me">
+								<md-input-container fxLayoutAlign="start stretch" fxFlex="100%">
+									<textarea mdInput placeholder="About me" rows="3" cols="100" formControlName="aboutMe"></textarea>
 								</md-input-container>
 							</div>
 							<div>
 								<md-input-container fxLayoutAlign="start" fxFlex="100%" class="example-full-width">
-									<input mdInput placeholder="Location">
+									<input mdInput placeholder="Location" formControlName="location">
 								</md-input-container>
 							</div>
 							<div>
 								<md-input-container fxLayoutAlign="start" fxFlex="100%" class="example-full-width">
-									<input mdInput placeholder="contact">
+									<input mdInput placeholder="+91 contact" formControlName="contact">
 								</md-input-container>
 							</div>
 							<div>
-								<md-input-container fxLayoutAlign="start" fxFlex="100%" class="example-full-width">
-									<input mdInput placeholder="Interested Topics">
-									<md-hint align="end"></md-hint>
+								<md-input-container fxLayoutAlign="start" fxFlex="100%">
+									<input mdInput placeholder="Interest" [(ngModel)]="interest" #resetText (keyup.enter)="addInterest(interest,resetText) "
+									 formControlName="interestField">
 								</md-input-container>
+							</div>
+							<div>
+								<md-chip-list>
+									<div fxLayout.xs="row" fxLayoutGap="0px" fxLayoutGap.xs="0" ng-disabled="!interest.value" *ngFor="let interest of addInterestArr">
+										<md-chip (click)="deselectchip(interest)">{{interest}}<i class="material-icons">clear</i></md-chip>
+									</div>
+								</md-chip-list>
 							</div>
 							<span fxLayout.md="row" fxLayoutAlign="end end" fxLayoutGap="10px" fxLayoutGap.md="0">
        							<a md-raised-button routerLink="/app/Home">cancel</a>
-      							<button fxLayout.md="column" fxFlex="10" md-raised-button ng-value="submit"
-								   type="submit" color="primary">submit</button>
-    						</span>
+      							<button fxLayout.md="column" fxFlex="10" md-raised-button type="submit"
+								    color="primary" [disabled]="!profileForm.valid">submit</button>
+									</span>
+							    
+    						
 						</form>
-					</div>
-				</div>
+						</div>
+						</div>
+						<!--<button md-raised-button type="submit" (click)='getUserProfile(user.username)' color="primary">showDetails </button>-->
+					
+				
 			</div>
 		</md-card>
 	</div>

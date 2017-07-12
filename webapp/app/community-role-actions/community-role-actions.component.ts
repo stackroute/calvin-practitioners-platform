@@ -3,7 +3,6 @@ import { MdDialog } from '@angular/material';
 import { CommunityToolActionsComponent } from '../community-tool-actions/community-tool-actions.component';
 import { CommunityRoleManagementComponent } from '../community-role-management/community-role-management.component';
 import { RoleServices } from '../community-role-management/community-role-management.service';
-import { KeysPipe } from '../community-role-actions/community-role-actions.pipe';
 
 @Component({
   selector: 'calvin-community-role-actions',

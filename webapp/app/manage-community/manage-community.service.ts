@@ -6,14 +6,15 @@ import 'rxjs/Rx';
 
 @Injectable()
  export class updateSpecificCommunityService{
+   counter = true;
 
 constructor(private http: Http) { }
 
   updateSpecificCommunity(Form, domain){
 
   const url = `/api/v1/communities/communities/${domain}`;
-  return this.http.patch(url, Form) .map(() =>
-  console.log('angular service after patch ',Form));
+
+  return this.http.patch(url, Form) .map(() => Form);
   
  }
  }
