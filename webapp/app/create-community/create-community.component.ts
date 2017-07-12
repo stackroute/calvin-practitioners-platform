@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
-import { FormGroup, FormControl, Validators, FormBuilder} from '@angular/forms';
+import { FormGroup, FormControl, Validators, FormBuilder, AbstractControl} from '@angular/forms';
 import { MdDialog, MdDialogRef } from '@angular/material';
 import { Route, Router } from '@angular/router';
 import 'rxjs/add/operator/startWith';
@@ -19,8 +19,11 @@ import { AppBarService } from '../app-bar/app-bar.service';
 export class CreateCommunityComponent implements OnInit {
 
   user;
+
   uname;
+
   flag;
+
   newDomainName;
 
   userForm: FormGroup;
@@ -29,50 +32,53 @@ export class CreateCommunityComponent implements OnInit {
 
   value: string; // to store selected template value
 
-  visibility = ['ide', 'forum', 'stackoverflow'];
+  uniqueTemplate;
 
   uniquePurposeArry = [];
 
   tagCtrl: FormControl;
+
+  purposearray;
+
+  purposelist;
 
   constructor(
   private fb: FormBuilder, 
   private newcommunity: CreateCommunityService, 
   public dialog: MdDialog, 
   private router: Router) {
-    this.createForm();    
+    this.createForm(); 
   }
 
   // reactive form validation for userForm
   createForm() {
     this.userForm = this.fb.group({
-      domainName: ['', [Validators.required, Validators.pattern('[a-z0-9.]{4,20}')]],
+      domainName: ['', [Validators.required, Validators.pattern('[a-z0-9.]{4,20}'),this.isDomainUnique.bind(this)]],
       name: ['', Validators.required],
       purpose: ['', Validators.required],
       visibility: ['Public', Validators.required],
       description: [''],
-      // template: ['md',Validators.required],
       tagCtrl: ['', Validators.required],
       termscondition: ['', Validators.required],
       avatar: ['']
     });
   }
-
+  
   //to check Domain is available or not
   isDomainUnique(control: FormControl){
     const quer = new Promise((resolve, reject) => {
       setTimeout(() => {
         this.newcommunity.isDomainRegisterd(control.value).subscribe(
-          (result) =>
-          {
-            if (Object.keys(result).length === 0) {
-              console.log("result false",Object.keys(result).length);
-              resolve({'isDomainUnique':false })
-            } else {
-              console.log("result true",Object.keys(result).length);
-              resolve({'isDomainUnique':true })
-            }
-          });
+        (result) =>
+        {
+          if (Object.keys(result).length === 0) {
+            console.log("result false",Object.keys(result).length);
+            resolve({'isDomainUnique':false })
+          } else {
+            console.log("result true",Object.keys(result).length);
+            resolve({'isDomainUnique':true })
+          }
+        });
       }, 1000);
     });
     return quer;
@@ -81,12 +87,24 @@ export class CreateCommunityComponent implements OnInit {
   // get the selected template value 
   onselect(selectedTemplate: any) {
     this.value = selectedTemplate;
-    return this.value;
+    return selectedTemplate;
   }
-    
+
+  // get unique template list based on purpose
+  selectTemplate(purposevalue)
+  {
+    this.uniqueTemplate = this.newcommunity.communityDetails.filter(function(i) {
+      return i.purpose === purposevalue;
+    });
+  }
+
   // store the tag value in array 
-  chipValue(tag) {
-    this.tagarray.push(tag);
+  chipValue(tag,resetText) {
+    resetText.value='';
+    if(!this.tagarray.includes(tag)) {
+      this.tagarray.push(tag);
+      // console.log(this.tagarray);
+    }
   }
 
   // deselect chip value/remove tag value from an array
@@ -98,6 +116,9 @@ export class CreateCommunityComponent implements OnInit {
   // submit userForm values
   onsubmit(userdata: any) {
     const newCommunityObj = userdata.value;
+    const template = newCommunityObj.template = this.value;
+    const tags = newCommunityObj.tags = this.tagarray;
+    const owner = newCommunityObj.owner = this.uname;
     const purpose = newCommunityObj.purpose;
     const name = newCommunityObj.name;
     const termscondition = newCommunityObj.termscondition;
@@ -105,19 +126,16 @@ export class CreateCommunityComponent implements OnInit {
     const description = newCommunityObj.description;
     const domainName = newCommunityObj.domainName;
     const avatar = newCommunityObj.avatar;
-    const template = newCommunityObj.template = this.value;
-    const tags = newCommunityObj.tags = this.tagarray;
-    const owner = newCommunityObj.owner = this.uname;
     const newcommunityDetails = { purpose, name, visibility, description, template, tags, owner, avatar  };
     this.newcommunity.postNewcommunityDetails(newcommunityDetails, domainName).subscribe(
     (data) => console.log('Postdata'),
-    error =>     this.reset(),
+    error =>     console.log('please try again later...!'),
     () => this.openDialog(newCommunityObj));
   }
 
   // reset the form value after form value post successfully/cancel
   reset() {
-    this.createForm();
+    this.userForm.reset();
   }
 
   // open dialog box if form submitted successfuly

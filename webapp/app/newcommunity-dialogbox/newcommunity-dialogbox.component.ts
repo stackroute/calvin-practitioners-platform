@@ -4,7 +4,6 @@ import { MD_DIALOG_DATA, MdDialog, MdDialogRef} from '@angular/material';
 
 import { CreateCommunityComponent } from '../create-community/create-community.component';
 
-
 @Component({
   selector: 'calvin-newcommunity-dialogbox',
   templateUrl: './newcommunity-dialogbox.component.html',
@@ -29,5 +28,4 @@ constructor(
  routeToManage() {
     this.router.navigate([`/app/managecommunity/${this.domainName}`]);
   }
-
 }

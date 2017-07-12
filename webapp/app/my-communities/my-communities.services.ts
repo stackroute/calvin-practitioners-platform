@@ -8,7 +8,7 @@ import { Observable } from 'rxjs/Observable';
 export class UserCommunities {
  
  constructor (private http: Http) { }
- member = "mr.w" ;
+//  member = "mr.w" ;
     getCommunity(member) {
     
     console.log('member...',member);
