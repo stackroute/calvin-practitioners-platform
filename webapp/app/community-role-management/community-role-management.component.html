@@ -1,7 +1,7 @@
 <div class="container">
   <div fxLayout='column'>
-  <div *ngIf='sample'>
-    <div *ngFor='let value of sample'>
+  <div *ngIf='resultArray'>
+    <div *ngFor='let value of resultArray'>
       <calvin-community-role-actions [dummy]='value'>
       </calvin-community-role-actions>
     </div>

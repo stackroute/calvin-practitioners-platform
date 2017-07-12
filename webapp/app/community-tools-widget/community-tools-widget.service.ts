@@ -7,10 +7,11 @@ import 'rxjs/add/operator/map';
 export class ToolsService {
     constructor(private http: Http) { }
 
-    getTools(domain) {
-        return this.http
-            .get('/api/v1/communitytools/communitytools/' + domain + '/tools')
-            .map((response: Response) => response.json());
-    }
+    getTools(domainName) {
+    console.log('In service');
+    const url = '/api/v1/communitytools/'+domainName;
+    console.log(url)
+    return this.http.get(url).map(res => res.json());
+  }
 }
 

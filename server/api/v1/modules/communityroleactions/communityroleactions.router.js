@@ -61,4 +61,20 @@ router.patch('/communityrole/:domainname/roles/:rolename', (req, res) => {
   }
 });
 
+
+router.post('/communityrole/:domainName', (req, res) => {
+  try {
+    console.log(req.params.domainName,"sgsgd");
+    console.log(req.body);
+    controller.createRole(req.params.domainName,req.body, (err, result) => {
+      if (err) {
+        return res.status(500).send({ error: 'Unexpected error occurred, try again later' });
+      }
+      return res.status(200).send(result);
+    });
+  } catch (err) {
+    return res.status(500).send({
+      error: 'Unexpected error occurred, try again later' });
+  }
+});
 module.exports = router;

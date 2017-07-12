@@ -1,15 +1,15 @@
 import { Component, OnInit,Input, Inject } from '@angular/core';
-import { ToolActions } from './community-tool-actions.service';
+import { NewRoleService } from './community-new-role-creation.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Params, RouterModule, Routes, Router, ActivatedRoute } from '@angular/router';
 import { MD_DIALOG_DATA, MdDialog, MdDialogRef} from '@angular/material';
 
 @Component({
-  selector: 'calvin-community-tool-actions',
-  templateUrl: './community-tool-actions.component.html',
-  styleUrls: ['./community-tool-actions.component.css']
+  selector: 'calvin-community-new-role-creation',
+  templateUrl: './community-new-role-creation.component.html',
+  styleUrls: ['./community-new-role-creation.component.css']
 })
-export class CommunityToolActionsComponent implements OnInit {
+export class CommunityNewRoleCreationComponent implements OnInit {
   selected = [];
   getresults=[];
   
@@ -21,19 +21,18 @@ export class CommunityToolActionsComponent implements OnInit {
   y={};
   @Input() community;
  
-  constructor(private tool: ToolActions, private route:ActivatedRoute,@Inject(MD_DIALOG_DATA) public data: any,
-  public dialogRef: MdDialogRef<CommunityToolActionsComponent>) { 
-  this.domainName = data.domain ; 
-  this.roleName=data.role;
-  console.log('domin name from dialog',this.roleName);
+  constructor(private tool: NewRoleService, private route:ActivatedRoute,@Inject(MD_DIALOG_DATA) public data: any,@Inject(MD_DIALOG_DATA) public role: any,
+  public dialogRef: MdDialogRef<CommunityNewRoleCreationComponent>) { 
+  this.domainName = data; 
+  console.log('domin name from dialog',this.domainName);
     
     this.tool.listTools(this.domainName).subscribe(res => {return this.sample.push(res);
-    });
-    
+    });    
 }
 
-  getCheckboxValue(toolId, status) {
+  getCheckboxValue(toolId, status,role) {
     // console.log(id);
+    console.log(role)
     const grant="true";
     console.log(status)
     const x={};
@@ -45,24 +44,26 @@ export class CommunityToolActionsComponent implements OnInit {
      const index = this.selected.indexOf(toolId);
      console.log(index)
     if (index === -1) {
-      this.selected.push({toolId,actions});
+      this.selected.push({toolId,actions,role});
     } else {
       this.selected.splice(index, 1);
     }
     console.log(this.selected,"fdsgsdgsdg");
+    
     return this.selected;
-    // 
+    
   }
   
   exists(toolName, status) {
     return this.selected.indexOf({toolName,status}) > -1;
   }
-  update()
+  update(role)
   {
     console.log(this.selected);
     console.log(this.domainName);
-    console.log(this.roleName);
-    return this.tool.updateTools(this.domainName,this.roleName,this.selected).subscribe(res=>{return this.sample.push(res);
+    // console.log(role);
+    // let a=this.selected.push({role});
+    return this.tool.updateTools(this.domainName,this.selected).subscribe(res=>{return this.sample.push(res);
     });
   }
 

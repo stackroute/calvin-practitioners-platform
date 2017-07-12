@@ -1,6 +1,6 @@
-<md-card>
+<md-card class="card">
   <div *ngFor="let sample of dummy.roleactions">
-  <div fxLayoutAlign='start stretch' >
+     <div fxLayoutAlign='start stretch'>
     <md-input-container fxFlex='90'>
       <input mdInput [(ngModel)]='sample.role' />
     </md-input-container>
@@ -8,11 +8,10 @@
     <button md-button class='button-style'><md-icon>delete</md-icon></button>
   </div>
   <md-chip-list>
-    <div fxFlexLayout.xs='row'>
-      <md-chip>{{sample.action}}</md-chip>
+         <div fxFlexLayout.xs='row' *ngFor="let action of sample.action"> 
+            <md-chip>{{action}}</md-chip>
     </div>
-  </md-chip-list>
-  
+  </md-chip-list>    
   <button fxLayoutAlign='left' md-raised-button (click)='openDialog(sample.role)'>Modify Actions</button>
   </div>
 </md-card>
