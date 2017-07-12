@@ -60,7 +60,7 @@ export class AddToolComponent implements OnInit {
 
     let obj = {
       name: this.toolaction.toUpperCase(),
-      id:this.actionCounter++,
+      id:this.toolaction+(String(this.actionCounter++)),
       grants: this.toolgrants.toUpperCase(),
       desc: this.actionDesc.toUpperCase(),
     };
@@ -90,8 +90,10 @@ export class AddToolComponent implements OnInit {
 
   // this function is to add each tool event in arrays
   AddEvent() {
+    const eventCounter=0;
     let obj = {
       name: this.tooleventname.toUpperCase(),
+      id:this.tooleventname+(String(this.eventCounter++)),
       metadata: this.eventpayload.toUpperCase(),
       description: this.eventDesc.toUpperCase()
     };
@@ -126,13 +128,14 @@ export class AddToolComponent implements OnInit {
     console.log(form.value);
     let actionobj={
         name: this.toolaction.toUpperCase(),
-      id:this.actionCounter++,
+        id :this.toolaction+(String(this.actionCounter++)),
       grants: this.toolgrants.toUpperCase(),
       desc: this.actionDesc.toUpperCase(),
     };
    this.actions.push(actionobj);
    let eventobj ={
-        name: this.tooleventname.toUpperCase(),
+      name: this.tooleventname.toUpperCase(),
+      id:this.tooleventname+(String(this.eventCounter++)),
       metadata: this.eventpayload.toUpperCase(),
       description: this.eventDesc.toUpperCase()
    };

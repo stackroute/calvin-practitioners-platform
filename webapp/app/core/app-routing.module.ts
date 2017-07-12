@@ -42,12 +42,14 @@ const routes: ModuleWithProviders = RouterModule.forRoot([
 
       { path: 'managecommunity/:domain', component: ManageCommunityComponent },
       { path: 'activity', component: ActivityPageComponent },
-      { path: 'members', component: CommunityMemberManagementComponent },
+      { path: 'members:domain', component: CommunityMemberManagementComponent },
       { path: 'managetools', component: ManageCommunityToolsComponent},
 
       { path: 'addtool', component: AddToolComponent},
 
       { path: 'toolmarket', component : ToolMarketPlaceComponent},
+      // { path: 'managecommunitytools', component: ManageCommunityToolsComponent },
+
       { path: 'toolpage/:toolid', component: ToolPageComponent }
       ]
 

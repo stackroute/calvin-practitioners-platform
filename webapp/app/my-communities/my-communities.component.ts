@@ -3,6 +3,7 @@ import { UserCommunities } from './my-communities.services';
 import { Route, Router } from '@angular/router';
 import 'rxjs/add/operator/switchMap';
 import { UserInfoService } from '../core/user-info.service';
+import { CommunityProfileService } from '../community-profile/community-profile.service';
 
 
 @Component({
@@ -15,38 +16,54 @@ import { UserInfoService } from '../core/user-info.service';
 
 export class UserWidgetsComponent implements OnInit {
 
-  userCommunityListArray = [ ];
+  userCommunityListArray = [];
   communities = [];
-  member ;
+  member;
   user;
+  CommunitiesInfo = [];
+  constructor(private userCommunities: UserCommunities, private userInfo: UserInfoService, private router: Router) { }
 
-  constructor(private userCommunities: UserCommunities,private userInfo: UserInfoService, private router: Router) { }
-  
-  ngOnInit() { 
+  ngOnInit() {
 
     // this.userInfo.getUserDetail(this.user). subscribe (res => {this.member = res;});
-    
-    this.userInfo.getUserDetail((userdetails)=>{
-     
-      this.member=userdetails.email;
+
+    this.userInfo.getUserDetail((userdetails) => {
+
+      this.member = userdetails.username;
       console.log(userdetails);
       console.log(typeof userdetails);
-       console.log('user is : '+this.member);
-});
+      console.log('user is : ' + this.member);
+    });
 
-this.userCommunities.getCommunity(this.member). subscribe ( res => {  this.communities = res; 
 
-  } );
+
+    this.userCommunities.getCommunity(this.member).subscribe(res => {
+    this.communities = res;
+      this.CommunitiesInfo = res.communityDetails;
+      console.log("inside the component of my-communities", this.CommunitiesInfo);
+    });
+
 
 
   }
-  
-  onScroll() {
+
+  // onScroll() {
+  // }
+
+  routeToCommunity(domain) {
+     this.router.navigate([`/app/communityDashBoard/${domain}`]);
+
+
   }
 
-  routeToCommunity (communityDomain){
-    this.router.navigate(['/app/userCommunity', communityDomain]);
-  }
+  //   routeToCommunity (){
+  //   console.log("domain of communmity");
+  //   this.router.navigate([`/app/createcommunity/`]);
+
+  //   console.log("oming here");
+
+  // }
+
 
   //  Get user community list
   // getUserCommunity() {
