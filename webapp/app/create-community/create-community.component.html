@@ -2,7 +2,7 @@
   <div fxLayout="column" fxFlex="10"></div>
   <form class="container" fxFlex="80" fxLayout="column" 
   fxFlexFill [formGroup]="userForm" (ngSubmit)="onsubmit(userForm)">
-  <h3 class="md-headline">Create new community</h3>
+  <h3 class="md-headline">Create a community</h3>
 <!--domain name text field-->
     <div class="inputFields" fxLayout.md="column">
       <md-input-container>
@@ -69,7 +69,7 @@
     <textarea mdInput placeholder="Description" rows="2" formControlName="description"></textarea>
   </md-input-container>
   <!--select core-activity-->
-  <div class="inputFields"  fxLayout.md="row" fxLayoutAlign="start end"   fxLayoutGap="30px">
+  <div class="inputFields"  fxLayout.md="row" fxLayoutAlign="start end"   fxLayoutGap="20%">
     <div fxLayout.md="column">
       <div>
         <md-select placeholder="Select purpose" formControlName="purpose">
@@ -85,9 +85,11 @@
       </div>
     </div>
     <!--select template -->
-    <div class="inputFields" fxLayout.md="column">
-    <calvin-template-browser (notify)="onselect($event)"  [template]="this.uniqueTemplate" (onselect)="onselect($event)">
-    </calvin-template-browser>
+    <div fxLayout.md="column">
+      <div>
+        <calvin-template-browser (notify)="onselect($event)"  [template]="this.uniqueTemplate" (onselect)="onselect($event)">
+        </calvin-template-browser>
+      </div>
     </div>
   </div>
   <!--</span>-->
