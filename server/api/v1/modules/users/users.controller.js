@@ -1,4 +1,3 @@
-
 const userservice = require('./users.service');
 
 function getUser(userinfo, done) {

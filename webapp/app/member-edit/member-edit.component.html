@@ -1,52 +1,17 @@
+<div fxLayout="column">
 <md-card>
-			<md-list>
-				<md-list-item>
-					<h1>Member Edit</h1>
-					<!--<img md-list-avatar class="img-placing" src={{(user.avatar)}} alt="User">-->
-				</md-list-item>
-			</md-list>
-			<form class="placing" *ngFor="let val of this.members.MemberDetails">
-				<div >
-					<i class="material-icons prefix">account_circle</i>
-					<md-input-container>
-						<input mdInput placeholder="username"  [(ngModel)]='val.username'/>
-						</md-input-container>
-					 
-						</div>
-						<div>
-							<i class="material-icons">email</i>
-							<md-input-container >
-								<input mdInput placeholder="Email" />
-								</md-input-container>
-							</div>
-							<div>
-								<i class="material-icons">location_on</i>
-								<md-input-container>
-									<input mdInput placeholder="Location" >
-									</md-input-container>
-								</div>
-								<div>
-									<i class="material-icons prefix">phone</i>
-									<md-input-container class="example-full-width">
-										<input mdInput #postalCode maxlength="5" placeholder="Phone Number">
-											<md-hint align="end"></md-hint>
-										</md-input-container>
-									</div>
-									<div>
-										<i class="material-icons">favorite</i>
-										<md-input-container class="example-full-width">
-											<input mdInput placeholder="Interests">
-												<md-hint align="end"></md-hint>
-											</md-input-container>
-										</div>
-										<div>
-											<!--<button  md-mini-fab color="primary" align="right">
-												<md-icon>send</md-icon>
-											</button>-->
-											 <button md-raised-button (click)="reset()">cancel</button>
-											<button md-raised-button color="primary" (click)="onsubmit(profileForm)">save</button>
-                                            
-										</div>
-									</form>
+  <!--<md-card-title>Modify roles</md-card-title>-->
+  <div>
+  <label> Change the role for member: </label><md-select placeholder="role" (keyup.enter)="value=''" class="textfield" name="value">
+      <md-option *ngFor="let access of getResults" [value]="access.role">{{access.role}} </md-option>
 
-		</md-card>
+    </md-select>
+  </div>
+ 
+</md-card>
+</div>
+     
+<div md-dialog-actions fxLayoutAlign="end">
+    <button md-button md-dialog-close>Cancel</button>
+    <button md-raised-button md-dialog-close color="primary" (click)="update()">Apply</button>
+</div>

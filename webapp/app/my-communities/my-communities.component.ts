@@ -35,13 +35,19 @@ export class UserWidgetsComponent implements OnInit {
       console.log('user is : ' + this.member);
     });
 
+     this.userInfo.getUserCommunity((userCommunity) => {
+       this.CommunitiesInfo = userCommunity;
+       console.log("getting user communitiesss,,",this.CommunitiesInfo);
+
+     });
+    
 
 
-    this.userCommunities.getCommunity(this.member).subscribe(res => {
-    this.communities = res;
-      this.CommunitiesInfo = res.communityDetails;
-      console.log("inside the component of my-communities", this.CommunitiesInfo);
-    });
+    // this.userCommunities.getCommunity(this.member).subscribe(res => {
+    // this.communities = res;
+    //   this.CommunitiesInfo = res.communityDetails;
+    //   console.log("inside the component of my-communities", this.CommunitiesInfo);
+    // });
 
 
 
@@ -56,23 +62,5 @@ export class UserWidgetsComponent implements OnInit {
 
   }
 
-  //   routeToCommunity (){
-  //   console.log("domain of communmity");
-  //   this.router.navigate([`/app/createcommunity/`]);
 
-  //   console.log("oming here");
-
-  // }
-
-
-  //  Get user community list
-  // getUserCommunity() {
-  //   this.userCommunities
-  //     .getCommunity()
-  //     .subscribe(userCommunityList => {
-  //       userCommunityList.forEach(element => {
-  //         this.userCommunityListArray.push(element)
-  //       });
-  //     });
-  //  }
 }

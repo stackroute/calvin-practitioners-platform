@@ -99,7 +99,33 @@ function getUserCommunities(username, done) {
  });
 }
 
+function updateSpecificProfile(emailAddrs, profileData, done) {
+  const query = (`UPDATE ${USERS_TABLE} SET aboutMe = '${profileData.about}',contact = '${profileData.contact}',interestedtopics= {'${profileData.interest}'},location = '${profileData.loc}' WHERE username = '${emailAddrs}'`);
+  client.execute(query, (err) => {
+    if (!err) {
+      done(null);
+    } else {
+      done(err);
+    }
+  });
+}
+
+function getUserDetails(emailAddrs, done) {
+  console.log('Insise Service');
+  const query = (`SELECT * from ${USERS_TABLE} where username ='${emailAddrs}'`);
+  client.execute(query, (err, result) => {
+    if (!err) {
+      console.log('checking result');
+      done(undefined, result.rows);
+    } else {
+      console.log('checking err');
+      done(err, null);
+    }
+  });
+}
 module.exports = {
   updateUser,
+  updateSpecificProfile,
+  getUserDetails,
   getUserCommunities,
 };

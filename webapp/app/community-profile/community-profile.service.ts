@@ -6,6 +6,7 @@ import 'rxjs/Rx';
 
     @Injectable()
     export class CommunityProfileService {
+      counter = true;
 
     constructor(private http: Http) { }
 
