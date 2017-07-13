@@ -5,35 +5,12 @@
 
 
 <div class="activity-board item item-3" fxLayout="rows">
-  <div *ngIf="tools" fxFlex="100%" fxlayout="column"  fxLayoutGap="2%" fxLayoutWrap>    
-
+  <div *ngIf="tools" fxFlex="100%" fxlayout="column"  fxLayoutGap="2%" fxLayoutWrap>
     <div fxFlex="100%" fxFlex.md="48%" fxFlex.sm="100%">
-      <md-card fxFlex="100%">
-        <h2>Activity Logs</h2>
-      </md-card>
       <div class="list-activities" fxFlex="100%" fxlayout="column" *ngFor="let sample of tools; let i = index;">
-        <div *ngIf="(i % 3) == 0">
-          <calvin-activity-card  [activity]="sample"></calvin-activity-card>
-        </div>        
+        <calvin-activity-card  [activity]="sample"></calvin-activity-card>        
       </div>      
-    </div>
-
-    <div fxFlex="100%" fxFlex.md="48%" fxFlex.sm="100%">
-      <div class="list-activities" fxFlex="100%" fxlayout="column" *ngFor="let sample of tools; let i = index;">
-        <div *ngIf="(i % 3) == 1">
-          <calvin-activity-card  [activity]="sample"></calvin-activity-card>
-        </div>        
-      </div>
-    </div>
-
-    <div fxFlex="100%" fxFlex.md="48%" fxFlex.sm="100%">
-      <div class="list-activities" fxFlex="100%" fxlayout="column" *ngFor="let sample of tools; let i = index;">
-        <div *ngIf="(i % 3) == 2">
-          <calvin-activity-card  [activity]="sample"></calvin-activity-card>
-        </div>        
-      </div>
-    </div>
-    
+    </div>    
   </div>
 </div>
 

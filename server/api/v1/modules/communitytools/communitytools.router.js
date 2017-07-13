@@ -49,4 +49,28 @@ router.get('/:domainname/', (req, res) => {
   return true;
 });
 
+
+router.post('/:domainname/',(req, res) => {
+   try{
+     controller.postTool(req.params.domain, req.body,(err, result) => {
+       if (err) {
+         res.status(500).send({error: 'Internal error ocurred...!!!'});
+       } else{
+         res.status(200).send(result);
+       }
+       return true;
+     });
+   }catch (err){
+
+     return res.status(500).send({
+       error: 'Internal error occurred..!!!' })
+   }
+   return true;
+
+});
+
+
 module.exports = router;
+
+
+

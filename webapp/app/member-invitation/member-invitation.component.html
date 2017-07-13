@@ -8,7 +8,7 @@
     </md-input-container>
 
     <md-select ngModel name="role0" placeholder="roles" (keyup.enter)="newTodo=''" class="textfield">
-      <md-option *ngFor="let access of memberrole" [value]="access.value">{{access.value}} </md-option>
+      <md-option *ngFor="let access of getResults" [value]="access.role">{{access.role}} </md-option>
     </md-select>
 
     <button md-icon-button (click)="addTodo($event)" class="bottomright" align="end">
@@ -21,7 +21,7 @@
         <input mdInput ngModel name="email{{i+1}}" placeholder="email address">
       </md-input-container>
       <md-select ngModel name="role{{i+1}}" placeholder="roles" (keyup.enter)="newTodo=''" class="textfield">
-        <md-option *ngFor="let access of memberrole" [value]="access.value">{{access.value}} </md-option>
+        <md-option *ngFor="let access of getResults" [value]="access.role">{{access.role}} </md-option>
       </md-select>
 
       <button md-icon-button class="bottomright" align="end">
@@ -29,6 +29,7 @@
       </button>
     </div>
     <div>
+      <button md-raised-button md-dialog-close  class="bottom-button">Cancel</button>
       <button md-raised-button color="primary" class="bottom-button" type="submit">Invite</button>
     </div>
   </form>

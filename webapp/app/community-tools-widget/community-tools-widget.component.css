@@ -5,3 +5,6 @@
 .content::-webkit-scrollbar {
    display: none;
 }
+md-icon{
+    color:grey;
+}

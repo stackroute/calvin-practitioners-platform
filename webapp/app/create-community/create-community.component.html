@@ -2,37 +2,27 @@
   <div fxLayout="column" fxFlex="10"></div>
   <form class="container" fxFlex="80" fxLayout="column" 
   fxFlexFill [formGroup]="userForm" (ngSubmit)="onsubmit(userForm)">
-  <h3 class="md-headline">Create new community</h3>
+  <h3 class="md-headline">Create a community</h3>
 <!--domain name text field-->
     <div class="inputFields" fxLayout.md="column">
       <md-input-container>
         
-        <input mdInput placeholder="Domain name" formControlName="domainName">
-
+        <input mdInput placeholder="Domain name" formControlName="domainName" (change)="isDomainUnique(userForm.get('domainName'))">
         <md-hint align="start" class="full-width">        
-          
-
-          <div *ngIf="userForm.get('domainName').hasError('isDomainUnique') && userForm.get('domainName').touched" class="errorStyle">
-            Domain not available.. 
-          </div>  
-         
-
           <div *ngIf="userForm.get('domainName').hasError('required') && userForm.get('domainName').touched" class="errorStyle">
             Domain Name is required
           </div>
-          
           <div *ngIf="userForm.get('domainName').hasError('pattern') && userForm.get('domainName')" class="errorStyle">
             Invalid DomainName,must contain 8 to 20 char with one special character(.)
           </div>
-
         </md-hint>
       </md-input-container>
-
+      <div><small ng-disabled="!domainName.value">Domain {{ isDomainExists ? " exists already " : " available " }}</small></div>
     </div>
   <!--community text field-->
   <div class="inputFields" fxLayout.md="column">
     <md-input-container>
-      <input mdInput placeholder="Community name" formControlName="name">
+      <input mdInput placeholder="Community name" class="communityNameFont" formControlName="name">
       <md-hint align="start" class="full-width">
         <div *ngIf="userForm.get('name').hasError('required') && userForm.get('name').touched">
           Community Name is required
@@ -43,12 +33,12 @@
   <!--Avatar-->
   <div class="inputFields" fxLayout.md="column">
     <md-input-container>
-      <input mdInput placeholder="Place avatar" formControlName="avatar">
-      <!--<md-hint align="start" class="full-width">
-        <div *ngIf="userForm.get('avatar').hasError('required') && userForm.get('avatar').touched">
-          Community Name is required
-        </div>
-        </md-hint>-->
+      <input mdInput placeholder="Avatar" formControlName="avatar">
+      <md-hint align="start" class="full-width">
+        <div *ngIf="userForm.get('avatar').hasError('pattern') && userForm.get('avatar').touched" class="errorStyle">
+            Invalid avatar path,must be url
+          </div>
+        </md-hint>
     </md-input-container>
   </div>
   <!--choose visibitity mode-->
@@ -58,16 +48,16 @@
       <md-radio-group name="visibility" formControlName="visibility">
         <md-radio-button value="Public" >Public</md-radio-button>
         <md-radio-button value="Private" >Private</md-radio-button>
-        <md-radio-button value="Moderate" >Moderate</md-radio-button>
+        <md-radio-button value="Moderated" >Moderated</md-radio-button>
       </md-radio-group>
     </md-input-container>
   </div>
   <!--get description from user using text-area -->
   <md-input-container class="inputFields" >
-    <textarea mdInput placeholder="Description" rows="2" formControlName="description"></textarea>
+    <textarea mdInput class="communityNameFont" placeholder="Description" rows="2" formControlName="description"></textarea>
   </md-input-container>
   <!--select core-activity-->
-  <div class="inputFields"  fxLayout.md="row" fxLayoutAlign="start end"   fxLayoutGap="30px">
+  <div class="inputFields"  fxLayout.md="row" fxLayoutAlign="start end"   fxLayoutGap="20%">
     <div fxLayout.md="column">
       <div>
         <md-select placeholder="Select purpose" formControlName="purpose">
@@ -83,21 +73,36 @@
       </div>
     </div>
     <!--select template -->
-    <div class="inputFields" fxLayout.md="column">
-    <calvin-template-browser (notify)="onselect($event)"  [template]="this.uniqueTemplate" (onselect)="onselect($event)">
-    </calvin-template-browser>
+    <div fxLayout.md="column">
+      <div>
+        <calvin-template-browser (notify)="onselect($event)"  [template]="this.uniqueTemplate" (onselect)="onselect($event)">
+        </calvin-template-browser>
+      </div>
     </div>
   </div>
   <!--</span>-->
   <!--select tag container-->
-  <div class="inputFields" fxLayout.md="column">
+  <div class="inputFields" fxLayout.md="row">
+  <div fxLayout.md="column">
     <md-input-container>
-      <input mdInput placeholder="Enter tag" [(ngModel)]="tagname" #resetText (keyup.enter)="chipValue(tagname,resetText) "  formControlName="tagCtrl">
+      <input mdInput placeholder="Enter tag" [(ngModel)]="tagname" #resetText  formControlName="tagCtrl">
+      <md-hint align="start" class="full-width">        
+          <div *ngIf="userForm.get('tagCtrl').hasError('required') && userForm.get('tagCtrl').touched" class="errorStyle">
+            Tag is required
+          </div>
+          <div *ngIf="userForm.get('tagCtrl').hasError('pattern') && userForm.get('tagCtrl')" class="errorStyle">
+            Invalid tag length,must contain 3 to 20 char with one special character(.)
+          </div>
+      </md-hint>
     </md-input-container>
+  </div>
+  <div fxLayout.md="column" fxLayoutAlign="center center">
+    <a md-button (click)="chipValue(tagname,resetText)">Add</a>
+  </div>
   </div>
   <md-chip-list>
     <div fxLayout.md="column" ng-disabled="!tag.value" *ngFor="let tag of tagarray" >
-      <md-chip (click)="deselectchip(tag)">{{tag}}<i class="material-icons">clear</i></md-chip>
+      <md-chip>{{tag}}<i class="material-icons" (click)="deselectchip(tag)">clear</i></md-chip>
     </div>
   </md-chip-list>
   <!--terms and condition-->
@@ -106,8 +111,8 @@
   </div>
   <!--submit the form using raised button-->
   <div fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="5px">
-    <a md-button routerLink="/app/home" >Cancel</a>
-    <button md-raised-button type="submit" color="primary"[disabled]="!userForm.valid">Submit</button>
+    <a md-button (click)="routeToHome()">Cancel</a>
+    <button md-raised-button type="submit" color="primary" [disabled]="!userForm.valid">Submit</button>
   </div>
   </form>
   <div fxLayout="column" fxFlex="10"></div>

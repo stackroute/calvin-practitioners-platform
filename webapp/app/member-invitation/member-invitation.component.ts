@@ -1,7 +1,11 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Inject } from '@angular/core';
 import { MembersService } from '../community-members-widget/community-members-widget.service';
 import { Route, Router } from '@angular/router';
 import { InvitationServices } from "./member-invitation.service";
+import { MD_DIALOG_DATA, MdDialog, MdDialogRef } from '@angular/material';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/Rx';
+import { MdSnackBar } from '@angular/material';
 
 @Component({
   selector: 'calvin-member-invitation',
@@ -9,38 +13,26 @@ import { InvitationServices } from "./member-invitation.service";
   styleUrls: ['./member-invitation.component.css'],
   providers: [MembersService, InvitationServices]
 })
-export class MemberInvitationComponent implements OnInit {
-  @Input() community: any;
+
+export class MemberInvitationComponent {
   members;
   user: Object = {};
-  memberrole = [{
-    "value": "Admin", "viewvalue": "Admin",
-  },
-  {
-    "value": "Moderator", "viewvalue": "Moderator",
-  },
-  {
-    "value": "User", "viewvalue": "User",
-  },
-  ];
-  memberfield = [
-    {
-      "email": "",
-      "role": "",
-    },
-  ];
-
   newTodo: string;
   inviteMembers: any;
   addInvite: any;
+  getResults = [];
+  domain;
 
-
-  constructor(private invitationServices: InvitationServices, private membersWidget: MembersService, private router: Router) {
+  constructor(private invite: InvitationServices,  public snackBar: MdSnackBar,private membersWidget: MembersService, private router: Router,
+    @Inject(MD_DIALOG_DATA) public data: any, public dialogRef: MdDialogRef<MemberInvitationComponent>) {
     this.newTodo = '';
     this.inviteMembers = [];
+    this.domain = data;
+    this.invite.listUniqueRoles(this.domain).subscribe(res => {
+      this.getResults = res;
+    });
   }
-  newField() {
-
+  ngOnInit() {
   }
 
   addTodo(event) {
@@ -57,20 +49,12 @@ export class MemberInvitationComponent implements OnInit {
     this.inviteMembers.splice(index, 1);
   }
 
-  deleteSelectedinviteMembers() {
-    for (var i = (this.inviteMembers.length - 1); i > -1; i--) {
-      if (this.inviteMembers[i].completed) {
-        this.inviteMembers.splice(i, 1);
-      }
-    }
-  }
-
-  onSendingInvitation(userdata: any){
+  onSendingInvitation(userdata: any) {
     const memArr = [];
     const inviteArr = [];
     const memberVal = userdata.value;
-    let i = 0;    
-    while( i <= memberVal.index){
+    let i = 0;
+    while (i <= memberVal.index) {
       const email = memberVal[`email${i}`];
       const role = memberVal[`role${i}`];
       const temp = {
@@ -80,11 +64,17 @@ export class MemberInvitationComponent implements OnInit {
       inviteArr.push(temp);
       i++;
     }
-    console.log('inviteArr',JSON.stringify(inviteArr));
-    this.invitationServices.inviteMember(inviteArr,'newstuffherea')
+
+    this.invite.inviteMember(inviteArr, this.domain).subscribe(res => {
+      this.dialogRef.close('close');
+      this.snackBar.open('Invitaion Sent', 'X', {
+        duration: 3000
+      });
+
+      return Observable.throw(this.getResults = res);
+    });
   }
 
-  ngOnInit() {
-  }
+
 
 }
