@@ -26,7 +26,7 @@
                   <md-radio-group ngModel={{community.visibility}} name="visibility">
                         <md-radio-button value="Public">Public</md-radio-button>
                          <md-radio-button value="Private">Private</md-radio-button>
-                         <md-radio-button value="moderate">Moderate</md-radio-button>
+                         <md-radio-button value="Moderated">Moderated</md-radio-button>
                   </md-radio-group>
                 </md-input-container>
 
@@ -44,7 +44,7 @@
                  </div>
                </md-chip-list>
 
-               <a md-raised-button routerLink="/app/communitydashboard">Cancel</a>
+               <button md-raised-button routerLink="/app/communitydashboard">Cancel</button>
                               <!-- Submit button to Add the tool-->
               <button md-raised-button color="primary" md-button (click)="openDialog()">Submit</button>
          </form>
