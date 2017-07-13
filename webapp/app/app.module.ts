@@ -24,7 +24,6 @@ import { CommunityRoleManagementComponent } from './community-role-management/co
 import { CommunityToolActionsComponent } from './community-tool-actions/community-tool-actions.component';
 import { TemplateBrowserComponent } from './template-browser/template-browser.component';
 import { CommunityActivitylogsComponent } from './community-activitylogs/community-activitylogs.component';
-
 import { CommunityDashboardComponent } from './community-dashboard/community-dashboard.component';
 import { ActivityCardComponent } from './activity-card/activity-card.component';
 import { ActivityPageComponent } from './activity-page/activity-page.component';
@@ -45,6 +44,7 @@ import { CreateCommunityService } from './create-community/create-community.serv
 import { CommunityProfileService } from './community-profile/community-profile.service';
 import { updateSpecificCommunityService } from './manage-community/manage-community.service';
 import { ToolMarketService } from './tool-market-place/tool-market-place.service';
+import { NewRoleService } from './community-new-role-creation/community-new-role-creation.service';
 
 import{RoleListServices} from './member-edit/member-edit.service';
 import { MarkdownModule } from 'angular2-markdown';
@@ -57,8 +57,9 @@ import { NewcommunityDialogboxComponent } from './newcommunity-dialogbox/newcomm
 import { MemberInvitationComponent } from './member-invitation/member-invitation.component';
 import { ToolMarketPlaceComponent } from './tool-market-place/tool-market-place.component';
 import { MemberEditComponent } from './member-edit/member-edit.component';
-import { ToolPageComponent } from './tool-page/tool-page.component';
+import { ToolPageComponent,IntegrateTool } from './tool-page/tool-page.component';
 import { AppBarService } from './app-bar/app-bar.service';
+import { CommunityNewRoleCreationComponent } from './community-new-role-creation/community-new-role-creation.component';
 import { CommunityToolManagementComponent } from './community-tool-management/community-tool-management.component';
 
 @NgModule({
@@ -94,8 +95,11 @@ import { CommunityToolManagementComponent } from './community-tool-management/co
     SucessDialog,
     MemberEditComponent,
     ToolPageComponent,
+    IntegrateTool,
+    CommunityNewRoleCreationComponent,
     CommunityToolManagementComponent,
     CommunityDialogue
+
      ],
 
   imports: [
@@ -123,9 +127,8 @@ import { CommunityToolManagementComponent } from './community-tool-management/co
     ReactiveFormsModule
   ],
 
-  entryComponents: [CommunityToolActionsComponent, NewcommunityDialogboxComponent, MemberInvitationComponent,SucessDialog,MemberEditComponent,updateCommunity,CommunityDialogue],
-
-  providers: [RoleServices, ToolActions, CommunityProfileService,ActivityService, updateSpecificCommunityService, ToolMarketService, ToolService],
+  entryComponents: [IntegrateTool,CommunityToolActionsComponent, NewcommunityDialogboxComponent, MemberInvitationComponent,SucessDialog,MemberEditComponent,updateCommunity,CommunityDialogue,CommunityNewRoleCreationComponent],
+  providers: [RoleServices, ToolActions, CommunityProfileService,ActivityService, updateSpecificCommunityService, ToolMarketService, ToolService,NewRoleService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

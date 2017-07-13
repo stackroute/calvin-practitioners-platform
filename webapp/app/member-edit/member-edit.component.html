@@ -1,15 +1,17 @@
-<form>
-  <h5>modify roles</h5>
+<div fxLayout="column">
+<md-card>
+  <!--<md-card-title>Modify roles</md-card-title>-->
   <div>
-    <md-select placeholder="roles" (keyup.enter)="value=''" class="textfield" name="value">
+  <label> Change the role for member: </label><md-select placeholder="role" (keyup.enter)="value=''" class="textfield" name="value">
       <md-option *ngFor="let access of getResults" [value]="access.role">{{access.role}} </md-option>
 
     </md-select>
   </div>
  
-</form>
+</md-card>
+</div>
      
-<div>
-    <button  md-raised-button color="primary"   class="bottom-button">save</button>
-        
+<div md-dialog-actions fxLayoutAlign="end">
+    <button md-button md-dialog-close>Cancel</button>
+    <button md-raised-button md-dialog-close color="primary" (click)="update()">Apply</button>
 </div>

@@ -1,9 +1,18 @@
 const router = require('express').Router();
 const memberCtrl = require('./community-member.controller.js');
+const bodyParser = require('body-parser');
+
+
+router.use(bodyParser.urlencoded({ extended: true }));
+router.use(bodyParser.json());
+
+// add members to community after invite @nitin
+router.get('/communitymembership/members', (req, res) => {
+  console.log('inside router: ', req.body);
+});
 
 router.get('/communitymembership/:domain/members', (req, res) => {
   try {
-    console.log('Domain is: ', req.params.domain);
     memberCtrl.getCommunityMembers(req.params.domain, (err, result) => {
       if (err) {
         return res.status(500).send({ error: 'Error in getting values, please try later..!' });
@@ -35,7 +44,6 @@ router.get('/members', (req, res) => {
 
 router.get('/memberrequests/:domain', (req, res) => {
   try {
-    console.log('Domain is: ', req.params.domain);
     memberCtrl.postMemberInvite(req.params.domain, (err, result) => {
       if (err) {
         return res.status(500).send({ error: 'Error in getting values, please try later..!' });
@@ -48,9 +56,10 @@ router.get('/memberrequests/:domain', (req, res) => {
 });
 
 
+
+
+
 router.delete('/communitymembership/:domain/members', (req, res) => {
-  console.log('dadaddddada', req.params.domain);
-  console.log('LOOK HERE----->', req.body);
   try {
     memberCtrl.deleteMembers(req.params.domain, req.body, (err, result) => {
       if (err) {

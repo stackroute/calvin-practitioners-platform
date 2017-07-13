@@ -5,14 +5,21 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/Rx';
 
  @Injectable()
- export class Roleservice {
+ export class InvitationServices {
 
   constructor( private http: Http) { }
 
-  listUniqueRoles(domainname){
-     console.log('In service');
+  getRole(domain) {
+    return this.http.get(`/api/v1/communityMembers/communitymembership/${domain}/members`).map(res => res.json());
+  }
+
+  inviteMember(inviteInfo, domain){
+    const url = '/api/v1/communityMembers/communitymembership/members';
+    return this.http.post(url,inviteInfo);
+  }
+  
+  listUniqueRoles(domainname) {    
     const url = '/api/v1/communityroles/'+domainname+'?onlyroles=true';
-    console.log(url)
     return this.http.get(url).map(res => res.json());
   }  
 }

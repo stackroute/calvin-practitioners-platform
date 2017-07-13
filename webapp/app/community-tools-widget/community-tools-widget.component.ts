@@ -15,8 +15,9 @@ export class CommunityToolsWidgetComponent implements OnInit {
   constructor(private toolsWidget: ToolsService) { }
 
   ngOnInit() {
-    this.toolsWidget.getTools(this.domain).subscribe(data => {
-      this.tools = data;
+    this.toolsWidget.getTools(this.domain).subscribe(res => {
+      this.tools = res;
+      console.log(this.tools)
     });
 
   }

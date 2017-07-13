@@ -6,22 +6,22 @@
 			<div fxFlex="100%" fxLayoutAlign="center">
 				<md-card-content class="Head">
 					<markdown>
-						<h3>UpdateProfile</h3>
+						<h3>Profile</h3>
 					</markdown>
 				</md-card-content>
 			</div>
 			<div fxLayout.xs="row" fxLayoutGap="0px" fxLayoutGap.xs="0" *ngIf="flag===1">
-				<div  fxFlex="40%" Align="center center" class="fixprofile">
-					<img md-card-image fxFlex=50% fxLayoutAlign="start" class="img-placing" src={{(user.avatar)}} alt="User">
-					<markdown fxFlex=100% fxLayoutAlign="start">{{user.name}}</markdown>
-					<markdown fxFlex=100% fxLayoutAlign="start">{{user.username}}</markdown>
+				<div fxFlex="40%" Align="start center" class="fixprofile">
+					<img md-card-image fxFlex=70% fxLayoutAlign="start" class="img-placing" src={{(user.avatar)}} alt="User">
+					<markdown>{{user.username}}</markdown>
+					<markdown>{{user.name}}</markdown>
 				</div>
 				<div fxLayout.xs="row" fxLayoutGap="0px" fxLayoutGap.xs="0" fxFlex="60%">
 					<div fxLayoutAlign="start" fxFlex="100%">
 						<form class="placing" fxFlex="100%" [formGroup]="profileForm" (ngSubmit)="updateProfile(profileForm)">
 							<div>
 								<md-input-container fxLayoutAlign="start stretch" fxFlex="100%">
-									<textarea mdInput placeholder="About me" rows="3" cols="100" formControlName="aboutMe"></textarea>
+									<textarea mdInput placeholder="About me" rows="5" cols="100" formControlName="aboutMe"></textarea>
 								</md-input-container>
 							</div>
 							<div>
@@ -30,37 +30,33 @@
 								</md-input-container>
 							</div>
 							<div>
-								<md-input-container fxLayoutAlign="start" fxFlex="100%" class="example-full-width">
-									<input mdInput placeholder="+91 contact" formControlName="contact">
-								</md-input-container>
-							</div>
-							<div>
 								<md-input-container fxLayoutAlign="start" fxFlex="100%">
-									<input mdInput placeholder="Interest" [(ngModel)]="interest" #resetText (keyup.enter)="addInterest(interest,resetText) "
+									<input mdInput placeholder="Interest ------click enter" [(ngModel)]="interest" #resetText (keyup.enter)="addInterest(interest,resetText) "
 									 formControlName="interestField">
 								</md-input-container>
 							</div>
+							<md-chip-list>
+								<div ng-disabled="!interest.value" *ngFor="let interest of addInterestArr" ng-model="ctrl.vegObjs" (click)="deselectchip(interest)">
+									<md-chip>{{interest}}
+										<!--<i class="material-icons">clear</i>-->
+									</md-chip>
+								</div>
+							</md-chip-list>
 							<div>
-								<md-chip-list>
-									<div fxLayout.xs="row" fxLayoutGap="0px" fxLayoutGap.xs="0" ng-disabled="!interest.value" *ngFor="let interest of addInterestArr">
-										<md-chip (click)="deselectchip(interest)">{{interest}}<i class="material-icons">clear</i></md-chip>
-									</div>
-								</md-chip-list>
+								<md-input-container fxLayoutAlign="start" fxFlex="100%" class="example-full-width">
+									<input mdInput placeholder="Mobile number" formControlName="contact">
+								</md-input-container>
 							</div>
 							<span fxLayout.md="row" fxLayoutAlign="end end" fxLayoutGap="10px" fxLayoutGap.md="0">
        							<a md-raised-button routerLink="/app/Home">cancel</a>
       							<button fxLayout.md="column" fxFlex="10" md-raised-button type="submit"
 								    color="primary" [disabled]="!profileForm.valid">submit</button>
-									</span>
-							    
-    						
+							</span>
 						</form>
-						</div>
-						</div>
-						<!--<button md-raised-button type="submit" (click)='getUserProfile(user.username)' color="primary">showDetails </button>-->
-					
-				
+					</div>
+				</div>
 			</div>
 		</md-card>
 	</div>
 </div>
+<!--<button md-raised-button type="submit" (click)='getUserProfile(user.username)' color="primary">showDetails </button>-->

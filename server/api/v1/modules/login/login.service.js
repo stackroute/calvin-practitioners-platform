@@ -1,22 +1,22 @@
 
-const request = require('superagent');
+// const request = require('superagent');
 
-const BASE_COMMUNITY_SERVICE_URL = 'http://calvin-communities.blr.stackroute.in/api/v1';
+// const BASE_COMMUNITY_SERVICE_URL = 'http://calvin-communities.blr.stackroute.in/api/v1';
 
-function getCommunity(username, done) {
-  const url = `${BASE_COMMUNITY_SERVICE_URL}/membership/${username}`;
-  request
- .get(url)
- .query({ username }) // query string
- .end((err, res) => {
-   if (err) {
-     console.log('error is ', err);
-     return done(err);
-   }
-   console.log('result is ', res.body);
-   return done(null, res.body);
- });
-}
+// function getCommunity(username, done) {
+//   const url = `${BASE_COMMUNITY_SERVICE_URL}/membership/${username}`;
+//   request
+//  .get(url)
+//  .query({ username }) // query string
+//  .end((err, res) => {
+//    if (err) {
+//      console.log('error is ', err);
+//      return done(err);
+//    }
+//    console.log('result is ', res.body);
+//    return done(null, res.body);
+//  });
+// }
 
 
 // const config = require('../common/config');
