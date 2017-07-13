@@ -7,8 +7,7 @@
     <div class="inputFields" fxLayout.md="column">
       <md-input-container>
         
-        <input mdInput placeholder="Domain name" formControlName="domainName">
-
+        <input mdInput placeholder="Domain name" formControlName="domainName" (change)="isDomainUnique(userForm.get('domainName'))">
         <md-hint align="start" class="full-width">        
           <div *ngIf="userForm.get('domainName').hasError('required') && userForm.get('domainName').touched" class="errorStyle">
             Domain Name is required
@@ -18,7 +17,7 @@
           </div>
         </md-hint>
       </md-input-container>
-
+      <div><small ng-disabled="!domainName.value">Domain {{ isDomainExists ? " exists already " : " available " }}</small></div>
     </div>
   <!--community text field-->
   <div class="inputFields" fxLayout.md="column">
@@ -87,10 +86,18 @@
   <div fxLayout.md="column">
     <md-input-container>
       <input mdInput placeholder="Enter tag" [(ngModel)]="tagname" #resetText  formControlName="tagCtrl">
+      <md-hint align="start" class="full-width">        
+          <div *ngIf="userForm.get('tagCtrl').hasError('required') && userForm.get('tagCtrl').touched" class="errorStyle">
+            Tag is required
+          </div>
+          <div *ngIf="userForm.get('tagCtrl').hasError('pattern') && userForm.get('tagCtrl')" class="errorStyle">
+            Invalid tag length,must contain 3 to 20 char with one special character(.)
+          </div>
+      </md-hint>
     </md-input-container>
   </div>
   <div fxLayout.md="column" fxLayoutAlign="center center">
-    <a md-button (click)="chipValue(tagname,resetText)">Add tag</a>
+    <a md-button (click)="chipValue(tagname,resetText)">Add</a>
   </div>
   </div>
   <md-chip-list>
@@ -104,7 +111,7 @@
   </div>
   <!--submit the form using raised button-->
   <div fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="5px">
-    <button md-button (click)="routeToHome()">Cancel</button>
+    <a md-button (click)="routeToHome()">Cancel</a>
     <button md-raised-button type="submit" color="primary" [disabled]="!userForm.valid">Submit</button>
   </div>
   </form>

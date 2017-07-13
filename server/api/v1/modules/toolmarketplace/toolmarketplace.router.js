@@ -88,7 +88,7 @@ router.post('/tool', (req, res) => {
   try {
     toolCtrl.addTool(tool, (err) => {
       if (err) {
-       // console.log('error occured');
+        // console.log('error occured');
         res.status(500).json({
           error: 'unable to add tool in Calvin..! , Please try again later',
         });
@@ -103,7 +103,7 @@ router.post('/tool', (req, res) => {
       error: 'Internal server error..! Please try again later',
     });
   }
-//  res.json({success:"tool added"});
+  //  res.json({success:"tool added"});
 });
 
 module.exports = router;
