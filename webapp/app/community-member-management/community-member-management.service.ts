@@ -15,6 +15,7 @@ import 'rxjs/add/operator/map';
    deleteMember(domain,data) {
     
     let body = JSON.stringify(data);
+
     console.log(".....",body);
     console.log("sdaaa",domain)
     let url =`/api/v1/communityMembers/communitymembership/${domain}/members`;
@@ -24,3 +25,6 @@ import 'rxjs/add/operator/map';
     return this._http.delete(url,body).map(res => res.json());
   }  
 }
+  //  postNewcommunityDetails(newCommunityObj, domainName) {
+  //       return this._http.post('api/v1/community/' + domainName, newCommunityObj).map((res => res.json()));
+  //   }

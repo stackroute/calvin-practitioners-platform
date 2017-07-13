@@ -1,10 +1,9 @@
-<div fxFlex="100" fxLayout="column" fxLayoutAlign="start stretch" fxLayoutWrap>
-  <div fxFlex="10" fxLayout="column"></div>
+
   <md-card class="example-card">
     <md-card-header>
       <div md-card-avatar class="example-header-image"></div>
       <md-card-title>
-        <h2>ADD TOOL</h2>
+        <h2>TOOL REGISTRATION</h2>
       </md-card-title>
     </md-card-header>
     <md-card-content>
@@ -88,6 +87,7 @@
           </div>
 
           <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="end">
+            <!--<md-icon (click)="AddAction()">add_outline</md-icon>-->
             <i class="material-icons" (click)="AddAction()">add_circle_outline</i>
           </div>
         </div>
@@ -109,12 +109,10 @@
             </div>
             <div fxLayout.xs="row">
               <md-input-container class="example-full-width" fxLayout="row">
-                <input name="payload" mdInput placeholder="Meta Data" disabled value={{event.payload}}>
+                <input name="payload" mdInput placeholder="Meta Data" disabled value={{event.metadata}}>
               </md-input-container>
             </div>
             <div fxLayout.xs="row">
-
-
               <md-input-container class="example-full-width">
                 <input name="evdesc" mdInput placeholder="Description" disabled value={{event.description}}>
               </md-input-container>
@@ -146,22 +144,22 @@
           <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="end">
             <div>
               <i class="material-icons" (click)="AddEvent()">add_circle_outline</i>
+              <!--<button md-mini-fab (click)="AddEvent()"><md-icon>add_outline</md-icon></button>-->
             </div>
           </div>
         </div>
         <!--   Tool Event Section Ends Here-->
 
         <div fxLayoutAlign="start">
-          <md-checkbox name="toc" [(ngModel)]="toc">I Agree To The Terms and Conditions!</md-checkbox>
+          <md-checkbox name="toc" [(ngModel)]="toc" (click)="enableSubmit()">I Agree To The Terms and Conditions!</md-checkbox>
         </div>
         <div fxLayout="row" fxLayoutAlign="center" fxLayoutGap="15px">
           <!-- Cancel Button-->
           <a md-raised-button routerLink="/app/home">Cancel</a>
           <!-- Submit button to Add the tool-->
-          <button md-raised-button color="primary" type="submit">Submit</button>
+          <button md-raised-button color="primary" type="submit" [disabled]="flag===0">Submit</button>
         </div>
       </form>
     </md-card-content>
 
   </md-card>
-</div>

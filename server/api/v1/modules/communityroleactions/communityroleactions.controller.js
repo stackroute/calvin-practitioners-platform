@@ -52,8 +52,24 @@ function updateActions(domain, role, values, done) {
  });
 }
 
+function createRole(domain, values, done) {
+   // Call communities service to get all the templates
+  const url = `${BASE_COMMUNITY_SERVICE_URL}/communityrole/${domain}`;
+  request
+ .post(url)
+ .send(values) // query string
+ .end((err, res) => {
+   if (err) {
+     return done(err);
+   }
+   return done(null, res.body);
+ });
+}
+
+
 module.exports = {
   retrieveAllUsers,
   retrieveAllRoles,
   updateActions,
+  createRole,
 };

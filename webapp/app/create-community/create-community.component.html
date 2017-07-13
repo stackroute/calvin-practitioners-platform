@@ -9,15 +9,13 @@
         
         <input mdInput placeholder="Domain name" formControlName="domainName">
 
-        <md-hint align="start" class="full-width">          
+        <md-hint align="start" class="full-width">        
           
-          <span *ngIf="userForm.get('domainName').hasError('isDomainUnique')" class="errorStyle">
-              Domain not available..
-            </span>          
+
+          <div *ngIf="userForm.get('domainName').hasError('isDomainUnique') && userForm.get('domainName').touched" class="errorStyle">
+            Domain not available.. 
+          </div>  
          
-          <!--<div *ngIf="userForm.get('domainName').hasError('!isDomainUnique') && userForm.get('domainName').touched">
-            Is available..
-          </div>-->
 
           <div *ngIf="userForm.get('domainName').hasError('required') && userForm.get('domainName').touched" class="errorStyle">
             Domain Name is required

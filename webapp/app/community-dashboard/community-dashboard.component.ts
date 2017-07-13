@@ -20,7 +20,7 @@ export class CommunityDashboardComponent implements OnInit {
   url: string;
   param = [];
   community = {};
-  isCounter = true;
+  counter = true;
   domain = "";
 
   constructor(private commProfileService: CommunityProfileService, private router: Router, private route: ActivatedRoute, ) {

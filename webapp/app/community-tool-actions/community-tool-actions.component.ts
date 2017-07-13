@@ -35,21 +35,22 @@ export class CommunityToolActionsComponent implements OnInit {
   getCheckboxValue(toolId, status) {
     // console.log(id);
     const grant="true";
-    console.log(status)
+    //console.log(status)
     const x={};
     x[status]=grant;
     
-    console.log(x)
+    //console.log(x)
     // console.log(action);
     const actions=x;
      const index = this.selected.indexOf(toolId);
-     console.log(index)
+     //console.log(index)
     if (index === -1) {
       this.selected.push({toolId,actions});
     } else {
       this.selected.splice(index, 1);
     }
-    console.log(this.selected,"fdsgsdgsdg");
+    //console.log(this.selected,"fdsgsdgsdg");
+    
     return this.selected;
     // 
   }
@@ -59,9 +60,9 @@ export class CommunityToolActionsComponent implements OnInit {
   }
   update()
   {
-    console.log(this.selected);
-    console.log(this.domainName);
-    console.log(this.roleName);
+    // console.log(this.selected);
+    // console.log(this.domainName);
+    // console.log(this.roleName);
     return this.tool.updateTools(this.domainName,this.roleName,this.selected).subscribe(res=>{return this.sample.push(res);
     });
   }

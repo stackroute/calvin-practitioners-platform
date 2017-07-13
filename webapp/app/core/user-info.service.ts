@@ -23,12 +23,13 @@ export class UserInfoService {
         const token = Cookie.get('userCommunity');
         const base64Url = token.split('.')[1];
         const comm = this.decodeJWTtoken(base64Url);
+        console.log("usercommunities",comm.communityDetails);
         return done(comm.communityDetails);
     }
 
-    decodeJWTtoken(token) {
+    decodeJWTtoken(payloadUrl) {
 
-        const base64 = token.replace('-', '+').replace('_', '/');
+        const base64 = payloadUrl.replace('-', '+').replace('_', '/');
         const decoded = JSON.parse(window.atob(base64));
         return decoded;
     }
