@@ -5,7 +5,7 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/Rx';
 
 @Injectable()
-export class ToolActions {
+export class NewRoleService {
   constructor(private http: Http) { }
 
   listTools(domainName) {
@@ -15,10 +15,9 @@ export class ToolActions {
     return this.http.get(url).map(res => res.json());
   }
 
-updateTools(domain,role,data) {
-  // console.log(domain);
-  // console.log(role);
-  // console.log(data);
+updateTools(domainName,data) {
+  // console.log(domainName);
+  // console.log(data);  
   const headers = new Headers({
    'Content-Type': 'application/json;charset=utf-8'
   });
@@ -27,7 +26,7 @@ updateTools(domain,role,data) {
   });
   const body = JSON.stringify(data);
   //console.log(body);
-  const url = '/api/v1/communityroleactions/communityrole/'+domain+'/roles/'+role;
-  return this.http.patch(url, body,options).map(res => res.json());
+  const url = '/api/v1/communityroleactions/communityrole/'+domainName;
+  return this.http.post(url, body,options).map(res => res.json());
  }
 }

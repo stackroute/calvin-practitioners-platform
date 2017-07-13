@@ -12,8 +12,9 @@ export class SidenavService {
     return this.http.patch(`api/v1/users/${emailAddrs}`, profiledata).map(() =>
             console.log('Updated Profile details', profiledata));
   }
-//   getUserProfile(emailAddrs){
-//     console.log("dfhdjfhdjfhjd",emailAddrs)
-//   return this.http.get(`api/v1/users/${emailAddrs}`).map( res => res.json());
-//  }
+  getUserProfile(emailAddrs){
+    console.log("dfhdjfhdjfhjd",emailAddrs)
+  return this.http.get(`api/v1/users/${emailAddrs}`).map( res => res.json());
+ }
+ 
 }

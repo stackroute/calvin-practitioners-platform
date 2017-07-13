@@ -14,6 +14,7 @@ export class UserProfileComponent implements OnInit {
   profileForm: FormGroup;
   user: {};
   username;
+  aboutme;
   flag = 0;
   addInterestArr = [];
   profileArray = [];
@@ -26,7 +27,7 @@ export class UserProfileComponent implements OnInit {
       ({
         aboutMe: [''],
         location: [''],
-        contact: ['',Validators.pattern('[0-9+]{13}')],
+        contact: ['',Validators.pattern('[0-9]{10}')],
         interestField: ['',Validators.required]
       });
   }
@@ -58,13 +59,16 @@ export class UserProfileComponent implements OnInit {
      console.log('my Profile form value',newProfileDetails);
   }
 
-// getUserProfile(email){
-// console.log("resultddddd",email)
-//   this.profileService.getUserProfile(email).subscribe(res=>
-//      { this.profileArray = res;
-//       console.log('my profile details',email);
-// });
-// }
+getUserProfile(email){
+console.log("resultddddd",email)
+  this.profileService.getUserProfile(email).subscribe(res=>
+     { 
+       const ss=this.profileArray = res;
+       this.aboutme=ss.aboutMe;
+       console.log(this.aboutme);
+      console.log('my profile details',ss);
+});
+}
   ngOnInit() {
     this.userservice.getUserDetail((userdetails) => {
       this.user = userdetails;
