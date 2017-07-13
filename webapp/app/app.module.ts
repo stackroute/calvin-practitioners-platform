@@ -21,7 +21,6 @@ import { MdSelectModule } from '@angular/material';
 import { CreateCommunityComponent } from './create-community/create-community.component';
 import { CommunityRoleActionsComponent } from './community-role-actions/community-role-actions.component';
 import { CommunityRoleManagementComponent } from './community-role-management/community-role-management.component';
-import { NewRole } from './community-role-management/community-role-management.component';
 import { CommunityToolActionsComponent } from './community-tool-actions/community-tool-actions.component';
 import { TemplateBrowserComponent } from './template-browser/template-browser.component';
 import { CommunityActivitylogsComponent } from './community-activitylogs/community-activitylogs.component';
@@ -32,10 +31,11 @@ import { ActivityPageComponent } from './activity-page/activity-page.component';
 import { CommunityProfileComponent } from './community-profile/community-profile.component';
 import { CommunityToolsWidgetComponent } from './community-tools-widget/community-tools-widget.component';
 import { CommunityMembersWidgetComponent } from './community-members-widget/community-members-widget.component';
-import { KeysPipe } from './community-role-actions/community-role-actions.pipe';
 import { UserWidgetsComponent } from './my-communities/my-communities.component';
+import { CommunityDialogue } from './community-tool-management/community-tool-management.component';
 // import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { ToolsService } from './community-tools-widget/community-tools-widget.service';
+import { ToolService } from './community-tool-management/community-tool-management.service';
 import { MembersService } from './community-members-widget/community-members-widget.service';
 import { RoleServices } from './community-role-management/community-role-management.service';
 import { ToolActions } from './community-tool-actions/community-tool-actions.service';
@@ -46,8 +46,7 @@ import { CommunityProfileService } from './community-profile/community-profile.s
 import { updateSpecificCommunityService } from './manage-community/manage-community.service';
 import { ToolMarketService } from './tool-market-place/tool-market-place.service';
 
-
-
+import{RoleListServices} from './member-edit/member-edit.service';
 import { MarkdownModule } from 'angular2-markdown';
 
 import { CommunityMemberManagementComponent } from './community-member-management/community-member-management.component';
@@ -60,6 +59,7 @@ import { ToolMarketPlaceComponent } from './tool-market-place/tool-market-place.
 import { MemberEditComponent } from './member-edit/member-edit.component';
 import { ToolPageComponent } from './tool-page/tool-page.component';
 import { AppBarService } from './app-bar/app-bar.service';
+import { CommunityToolManagementComponent } from './community-tool-management/community-tool-management.component';
 
 @NgModule({
   declarations: [
@@ -83,7 +83,6 @@ import { AppBarService } from './app-bar/app-bar.service';
     CommunityProfileComponent,
     CommunityToolsWidgetComponent,
     CommunityMembersWidgetComponent,
-    KeysPipe,
     UserWidgetsComponent,
     ActivityPageComponent,
     CommunityMemberManagementComponent,
@@ -95,8 +94,8 @@ import { AppBarService } from './app-bar/app-bar.service';
     SucessDialog,
     MemberEditComponent,
     ToolPageComponent,
-    
-    NewRole
+    CommunityToolManagementComponent,
+    CommunityDialogue
      ],
 
   imports: [
@@ -123,8 +122,10 @@ import { AppBarService } from './app-bar/app-bar.service';
     MdDialogModule,
     ReactiveFormsModule
   ],
-  entryComponents: [CommunityToolActionsComponent, NewcommunityDialogboxComponent, MemberInvitationComponent,SucessDialog,MemberEditComponent,NewRole,updateCommunity],
-  providers: [RoleServices, ToolActions, CommunityProfileService,ActivityService, updateSpecificCommunityService, ToolMarketService],
+
+  entryComponents: [CommunityToolActionsComponent, NewcommunityDialogboxComponent, MemberInvitationComponent,SucessDialog,MemberEditComponent,updateCommunity,CommunityDialogue],
+
+  providers: [RoleServices, ToolActions, CommunityProfileService,ActivityService, updateSpecificCommunityService, ToolMarketService, ToolService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

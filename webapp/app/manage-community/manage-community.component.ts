@@ -45,7 +45,7 @@ tagname:String;
 
   //  alert("getting called chip");
    this.tagarray.push(tag);
-  //  this.tagname = '';
+   this.tagname = '';
 
 
    

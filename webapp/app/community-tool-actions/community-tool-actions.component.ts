@@ -20,16 +20,19 @@ export class CommunityToolActionsComponent implements OnInit {
   roleName;
   y={};
   @Input() community;
-
+ 
   constructor(private tool: ToolActions, private route:ActivatedRoute,@Inject(MD_DIALOG_DATA) public data: any,
   public dialogRef: MdDialogRef<CommunityToolActionsComponent>) { 
   this.domainName = data.domain ; 
   this.roleName=data.role;
   console.log('domin name from dialog',this.roleName);
+    
+    this.tool.listTools(this.domainName).subscribe(res => {return this.sample.push(res);
+    });
+    
 }
 
-  getCheckboxValue(toolName, status) {
-    const toolId = toolName;
+  getCheckboxValue(toolId, status) {
     // console.log(id);
     const grant="true";
     console.log(status)
@@ -40,13 +43,15 @@ export class CommunityToolActionsComponent implements OnInit {
     // console.log(action);
     const actions=x;
      const index = this.selected.indexOf(toolId);
+     console.log(index)
     if (index === -1) {
       this.selected.push({toolId,actions});
     } else {
       this.selected.splice(index, 1);
     }
     console.log(this.selected,"fdsgsdgsdg");
-    return this.selected;
+    this.sample=this.selected;
+    return this.sample;
     // 
   }
   
@@ -63,8 +68,6 @@ export class CommunityToolActionsComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.tool.listTools(this.domainName).subscribe(res => {return this.sample.push(res);
-    });
     
   }
  

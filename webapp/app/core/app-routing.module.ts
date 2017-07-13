@@ -18,7 +18,6 @@ import { CommunityMembersWidgetComponent } from '../community-members-widget/com
 import { ManageCommunityToolsComponent } from '../manage-community-tools/manage-community-tools.component';
 import { AddToolComponent } from '../add-tool/add-tool.component';
 import { UserCommunities } from '../my-communities/my-communities.services';
-
 import { ToolMarketPlaceComponent } from '../tool-market-place/tool-market-place.component';
 
 import { ToolPageComponent } from '../tool-page/tool-page.component';
@@ -30,7 +29,6 @@ import { MemberInvitationComponent } from "../member-invitation/member-invitatio
 const routes: ModuleWithProviders = RouterModule.forRoot([
   { path: 'login', component: LoginComponent },
   { path: 'app', component: AppBarComponent, canActivateChild: [AuthGuard],
-
     children: [
       { path: 'home', component: UserDashboardComponent },
       { path: '', redirectTo: '/app/home', pathMatch: 'full' },
@@ -39,18 +37,15 @@ const routes: ModuleWithProviders = RouterModule.forRoot([
       { path: 'userCommunity/:domain', component: CommunityDashboardComponent },
       { path: 'actions', component: CommunityRoleManagementComponent },
       { path: 'communityDashBoard/:domain', component: CommunityDashboardComponent },
-
       { path: 'managecommunity/:domain', component: ManageCommunityComponent },
       { path: 'activity', component: ActivityPageComponent },
       { path: 'members', component: MemberInvitationComponent },
+      { path: 'members:domain', component: CommunityMemberManagementComponent },
       { path: 'managetools', component: ManageCommunityToolsComponent},
-
       { path: 'addtool', component: AddToolComponent},
-
       { path: 'toolmarket', component : ToolMarketPlaceComponent},
-      { path: 'toolpage', component: ToolPageComponent }
+      { path: 'toolpage/:toolid', component: ToolPageComponent }
       ]
-
   },
   { path: '', redirectTo: '/app/home', pathMatch: 'full' },
   { path: '**', redirectTo: '/app/home', pathMatch: 'full' }

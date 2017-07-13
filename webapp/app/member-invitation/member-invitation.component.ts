@@ -67,19 +67,21 @@ export class MemberInvitationComponent implements OnInit {
 
   onSendingInvitation(userdata: any){
     const memArr = [];
+    const inviteArr = [];
     const memberVal = userdata.value;
-    // let i = 0;
-    // while( i <= memberVal.index){
-    //   const email = memberVal.email;
-    //   const role = memberVal.role;
-    //   console.log('in',email,role);
-    //   i++;
-    // }
-    const memObj = {}
-    memArr.push(memberVal.email0);
-    memArr.push(memberVal.role0);
-    this.invitationServices.inviteMember(memArr,'noideawhatitisa')
-
+    let i = 0;    
+    while( i <= memberVal.index){
+      const email = memberVal[`email${i}`];
+      const role = memberVal[`role${i}`];
+      const temp = {
+        'username': email,
+        'role': role
+      }
+      inviteArr.push(temp);
+      i++;
+    }
+    console.log('inviteArr',JSON.stringify(inviteArr));
+    this.invitationServices.inviteMember(inviteArr,'newstuffherea')
   }
 
   ngOnInit() {

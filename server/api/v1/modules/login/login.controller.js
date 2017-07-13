@@ -16,12 +16,18 @@ const redirectGoogle = (req, res, next) => {
   return promise;
 };
 
-function getUser(userinfo, done) {
-  console.log('3.inside get user');
-  loginservice.updateUser(userinfo, done);
+
+function getUserCommunities(email) {
+
+        // loginservice
 }
 
+
+// function getUser(userinfo, done) {
+//   console.log('3.inside get user');
+//   loginservice.updateUser(userinfo, done);
+// }
+
 module.exports = {
-  getUser,
   redirectGoogle,
 };

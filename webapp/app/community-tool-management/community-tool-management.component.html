@@ -1,0 +1,38 @@
+ <!--<md-card>
+  <md-list>
+    <md-list-item *ngFor="let val of tools.tools" fxLayoutAlign.xs="row">
+      <img md-list-avatar class="img-responsive center-block" src={{val.photo}}>
+      <div fxFlex='80'>
+      <div><p md-line>{{val.toolid}}</p></div>
+     
+      </div>
+      
+     <div> <button md-button class='button-style'><md-icon  (click)="openBox()">settings</md-icon></button>           <!--fxFlexAlign="end"-->
+     <!-- </div>
+    </md-list-item>
+  </md-list>
+</md-card>
+<div><button  md-raised-button color="primary"  class="bottom-button">Add</button></div>-->
+  
+<div>
+<md-card class="card-align" >   
+   <div class="community-list" *ngFor="let val of tools.tools" >
+       <h1></h1>
+     <md-list align="start" >
+       <md-list-item>-->
+           <img md-list-avatar class="img-responsive" src="./assets/images/member.jpg">
+           <div  fxFlex='80'>
+             
+               <div><h5><b>{{val.toolid}}</b></h5></div>
+               <!--<div>{{val.role}}</div>-->
+          </div>
+         
+         <div>  <button md-button class='button-style'><md-icon  (click)="openBox()">settings</md-icon></button></div>
+       </md-list-item>        
+     </md-list>
+ </div></md-card>
+ <div><button  md-raised-button color="primary"  class="bottom-button">Add</button></div>
+</div>
+   
+<div>
+<router-outlet></router-outlet>
