@@ -124,4 +124,3 @@ export class updateCommunity {
   constructor(private router: Router) { }
  
 }
-

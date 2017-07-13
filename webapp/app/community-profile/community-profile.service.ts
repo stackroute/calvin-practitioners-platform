@@ -25,5 +25,4 @@ import 'rxjs/Rx';
     
 
   }
-
 }
