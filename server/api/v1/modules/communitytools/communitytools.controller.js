@@ -31,7 +31,7 @@ function getTool(domain, done) {
   const url = `${BASE_TOOLS_SERVICE_URL}/communitytools/${domain}/tools`;
   request
     .get(url)
-    .query({ domain }) 
+    .query({ domain })
     .end((err, res) => {
       if (err) {
         return done(err);

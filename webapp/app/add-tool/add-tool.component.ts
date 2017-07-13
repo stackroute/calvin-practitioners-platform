@@ -33,7 +33,9 @@ export class AddToolComponent implements OnInit {
   purpose=[];
   uniquePurpose=[];
   id;
-  constructor(private addtoolservice: AddToolService,
+  flag=0;
+  
+   constructor(private addtoolservice: AddToolService,
     private dialog: MdDialog) { }
 
   ngOnInit() {
@@ -107,7 +109,7 @@ export class AddToolComponent implements OnInit {
 
   // this function is to remove selected event from the list
   remEvent(eventname) {
-    alert(this.tooleventname);
+    // alert(this.tooleventname);
     this.events = this.events.filter(item => item.name !== eventname);
     console.log(this.actions);
     if (this.events.length === 0) {
@@ -123,23 +125,32 @@ export class AddToolComponent implements OnInit {
     this.eventFlag = 0;
   }
 
+  enableSubmit() {
+
+    
+    (this.flag===0)?this.flag=1:this.flag=0;
+
+  }
+
   // this function is to register the tool 
   registerTool(form: NgForm) {
+
     console.log(form.value);
     let actionobj={
         name: this.toolaction.toUpperCase(),
         id :this.toolaction+(String(this.actionCounter++)),
-      grants: this.toolgrants.toUpperCase(),
-      desc: this.actionDesc.toUpperCase(),
-    };
+       grants: this.toolgrants.toUpperCase(),
+       desc: this.actionDesc.toUpperCase(),
+       };
    this.actions.push(actionobj);
+
    let eventobj ={
       name: this.tooleventname.toUpperCase(),
       id:this.tooleventname+(String(this.eventCounter++)),
       metadata: this.eventpayload.toUpperCase(),
       description: this.eventDesc.toUpperCase()
    };
-
+   
    this.events.push(eventobj);
 
     let toolobj = {

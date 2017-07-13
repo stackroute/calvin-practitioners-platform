@@ -57,7 +57,7 @@ import { NewcommunityDialogboxComponent } from './newcommunity-dialogbox/newcomm
 import { MemberInvitationComponent } from './member-invitation/member-invitation.component';
 import { ToolMarketPlaceComponent } from './tool-market-place/tool-market-place.component';
 import { MemberEditComponent } from './member-edit/member-edit.component';
-import { ToolPageComponent } from './tool-page/tool-page.component';
+import { ToolPageComponent,IntegrateTool } from './tool-page/tool-page.component';
 import { AppBarService } from './app-bar/app-bar.service';
 import { CommunityNewRoleCreationComponent } from './community-new-role-creation/community-new-role-creation.component';
 import { CommunityToolManagementComponent } from './community-tool-management/community-tool-management.component';
@@ -95,9 +95,11 @@ import { CommunityToolManagementComponent } from './community-tool-management/co
     SucessDialog,
     MemberEditComponent,
     ToolPageComponent,
+    IntegrateTool,
     CommunityNewRoleCreationComponent,
     CommunityToolManagementComponent,
     CommunityDialogue
+
      ],
 
   imports: [
@@ -124,7 +126,8 @@ import { CommunityToolManagementComponent } from './community-tool-management/co
     MdDialogModule,
     ReactiveFormsModule
   ],
-  entryComponents: [CommunityToolActionsComponent, NewcommunityDialogboxComponent, MemberInvitationComponent,SucessDialog,MemberEditComponent,updateCommunity,CommunityDialogue,CommunityNewRoleCreationComponent],
+
+  entryComponents: [IntegrateTool,CommunityToolActionsComponent, NewcommunityDialogboxComponent, MemberInvitationComponent,SucessDialog,MemberEditComponent,updateCommunity,CommunityDialogue,CommunityNewRoleCreationComponent],
   providers: [RoleServices, ToolActions, CommunityProfileService,ActivityService, updateSpecificCommunityService, ToolMarketService, ToolService,NewRoleService],
   bootstrap: [AppComponent]
 })
