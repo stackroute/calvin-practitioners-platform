@@ -19,9 +19,13 @@ constructor(private http: Http) { }
 getToolinfo(toolid) {
    
    const url=`/api/v1/toolmarketplace/tool/${toolid}`;
-   return this.http.get(url).map((response: Response) => {
-         response=response;
-   });
+
+     return this.http.get(url).map((response: Response)=> response);
+
+//    return this.http.get(url).map((response: Response) => {
+//          response=response;
+//          console.log('inside response of service',response);
+//    });
 
 }
 

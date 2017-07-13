@@ -23,12 +23,10 @@ router.patch('/communities/:domain', (req, res) => {
   try {
     console.log('1.inside communities patch.....');
     communityCtrl.updateSpecificCommunity(req.params.domain, req.body, (err, result) => {
-
       if (err) {
         return res.status(500).send({ error: 'Unexpected error occurred, try again later' });
-        
       }
-       console.log('got patch as : ', result);
+      console.log('got patch as : ', result);
       return res.status(200).send(result);
     });
   } catch (err) {
@@ -58,13 +56,12 @@ router.get('/community-details', (req, res) => { // eslint-disable-line consiste
 
 router.get('/membership/:member/', (req, res) => { // eslint-disable-line consistent-return
   try {
-
-      console.log('1.insoide gettong communities for a user.....');
+    console.log('1.insoide gettong communities for a user.....');
     communityCtrl.getUserCommunity(req.params.member, (err, result) => {
       if (err) {
         res.status(500).send({ error: 'Error in getting community details, please try later..!' });
       } else {
-         console.log('got  communities of user as : ',result);
+        console.log('got  communities of user as : ', result);
         res.status(200).send(result);
       }
     });
@@ -75,10 +72,23 @@ router.get('/membership/:member/', (req, res) => { // eslint-disable-line consis
   }
 });
 
+//post new community data
+router.post('/:domainName', (req, res) => {
+  try {
+    console.log('inside server');
+    console.log(req.body)
+    console.log(req.params.domainName)
+    communityCtrl.postNewcommunityDetails(req.params.domainName, req.body, (err, results) => {
+      if (err) {
+        console.log('error is ',err);
+        return res.status(500).send({ error: 'Unexpected errorsss occurred, try again later' });
+      }
+      return res.status(200).send(results);
+    });
+  } catch (err) {
+    return res.status(500).send({ error: 'Unexpected error occurred, try again later' });
+  }
+});
 
 module.exports = router;
-
-
-
-
 

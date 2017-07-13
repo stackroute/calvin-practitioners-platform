@@ -18,7 +18,7 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
 import 'hammerjs';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MdSelectModule } from '@angular/material';
-import { CreateCommunityComponent } from './create-community/create-community.component';
+import { CreateCommunityComponent, errorHandlingComponent } from './create-community/create-community.component';
 import { CommunityRoleActionsComponent } from './community-role-actions/community-role-actions.component';
 import { CommunityRoleManagementComponent } from './community-role-management/community-role-management.component';
 import { CommunityToolActionsComponent } from './community-tool-actions/community-tool-actions.component';
@@ -44,8 +44,7 @@ import { CommunityProfileService } from './community-profile/community-profile.s
 import { updateSpecificCommunityService } from './manage-community/manage-community.service';
 import { ToolMarketService } from './tool-market-place/tool-market-place.service';
 
-
-
+import{RoleListServices} from './member-edit/member-edit.service';
 import { MarkdownModule } from 'angular2-markdown';
 
 import { CommunityMemberManagementComponent } from './community-member-management/community-member-management.component';
@@ -91,7 +90,8 @@ import { AppBarService } from './app-bar/app-bar.service';
     ToolMarketPlaceComponent,
     SucessDialog,
     MemberEditComponent,
-    ToolPageComponent
+    ToolPageComponent,
+    errorHandlingComponent
      ],
 
   imports: [
@@ -119,9 +119,11 @@ import { AppBarService } from './app-bar/app-bar.service';
     ReactiveFormsModule
   ],
 
-  entryComponents: [CommunityToolActionsComponent, NewcommunityDialogboxComponent, MemberInvitationComponent,SucessDialog,MemberEditComponent,updateCommunity],
+  entryComponents: [CommunityToolActionsComponent, NewcommunityDialogboxComponent,
+                     MemberInvitationComponent, SucessDialog,
+                      MemberEditComponent, updateCommunity,errorHandlingComponent ],
 
-  providers: [RoleServices, ToolActions, CommunityProfileService,ActivityService, updateSpecificCommunityService, ToolMarketService],
+  providers: [RoleServices,RoleListServices, ToolActions, CommunityProfileService,ActivityService, updateSpecificCommunityService, ToolMarketService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

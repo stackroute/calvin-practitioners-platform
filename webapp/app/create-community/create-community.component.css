@@ -1,11 +1,11 @@
 .material-icons {
-    font-size: 17px;
+    font-size: 18px;
 }
 
 .inputFields {
     padding-top: 20px;
 }
-.alignRight {
-    float: left;
-    overflow: hidden;
+
+.communityNameFont {
+    text-transform: capitalize;
 }

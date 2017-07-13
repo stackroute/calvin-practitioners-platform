@@ -11,9 +11,9 @@
 
         <md-hint align="start" class="full-width">          
           
-          <span *ngIf="userForm.get('domainName').hasError('isDomainUnique')" class="errorStyle">
+          <!--<span *ngIf="userForm.get('domainName').hasError('isDomainUnique')" class="errorStyle">
               Domain not available..
-            </span>          
+            </span>          -->
          
           <!--<div *ngIf="userForm.get('domainName').hasError('!isDomainUnique') && userForm.get('domainName').touched">
             Is available..
@@ -34,7 +34,7 @@
   <!--community text field-->
   <div class="inputFields" fxLayout.md="column">
     <md-input-container>
-      <input mdInput placeholder="Community name" formControlName="name">
+      <input mdInput placeholder="Community name" class="communityNameFont" formControlName="name">
       <md-hint align="start" class="full-width">
         <div *ngIf="userForm.get('name').hasError('required') && userForm.get('name').touched">
           Community Name is required
@@ -45,12 +45,12 @@
   <!--Avatar-->
   <div class="inputFields" fxLayout.md="column">
     <md-input-container>
-      <input mdInput placeholder="Place avatar" formControlName="avatar">
-      <!--<md-hint align="start" class="full-width">
-        <div *ngIf="userForm.get('avatar').hasError('required') && userForm.get('avatar').touched">
-          Community Name is required
-        </div>
-        </md-hint>-->
+      <input mdInput placeholder="Avatar" formControlName="avatar">
+      <md-hint align="start" class="full-width">
+        <div *ngIf="userForm.get('avatar').hasError('pattern') && userForm.get('avatar').touched" class="errorStyle">
+            Invalid avatar path,must be url
+          </div>
+        </md-hint>
     </md-input-container>
   </div>
   <!--choose visibitity mode-->
@@ -60,7 +60,7 @@
       <md-radio-group name="visibility" formControlName="visibility">
         <md-radio-button value="Public" >Public</md-radio-button>
         <md-radio-button value="Private" >Private</md-radio-button>
-        <md-radio-button value="Moderate" >Moderate</md-radio-button>
+        <md-radio-button value="Moderated" >Moderated</md-radio-button>
       </md-radio-group>
     </md-input-container>
   </div>
@@ -94,14 +94,19 @@
   </div>
   <!--</span>-->
   <!--select tag container-->
-  <div class="inputFields" fxLayout.md="column">
+  <div class="inputFields" fxLayout.md="row">
+  <div fxLayout.md="column">
     <md-input-container>
-      <input mdInput placeholder="Enter tag" [(ngModel)]="tagname" #resetText (keyup.enter)="chipValue(tagname,resetText) "  formControlName="tagCtrl">
+      <input mdInput placeholder="Enter tag" [(ngModel)]="tagname" #resetText  formControlName="tagCtrl">
     </md-input-container>
+  </div>
+  <div fxLayout.md="column" fxLayoutAlign="center center">
+    <a md-button (click)="chipValue(tagname,resetText)">Add tag</a>
+  </div>
   </div>
   <md-chip-list>
     <div fxLayout.md="column" ng-disabled="!tag.value" *ngFor="let tag of tagarray" >
-      <md-chip (click)="deselectchip(tag)">{{tag}}<i class="material-icons">clear</i></md-chip>
+      <md-chip>{{tag}}<i class="material-icons" (click)="deselectchip(tag)">clear</i></md-chip>
     </div>
   </md-chip-list>
   <!--terms and condition-->
@@ -110,8 +115,8 @@
   </div>
   <!--submit the form using raised button-->
   <div fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="5px">
-    <a md-button routerLink="/app/home" >Cancel</a>
-    <button md-raised-button type="submit" color="primary"[disabled]="!userForm.valid">Submit</button>
+    <button md-button (click)="routeToHome()">Cancel</button>
+    <button md-raised-button type="submit" color="primary" [disabled]="!userForm.valid">Submit</button>
   </div>
   </form>
   <div fxLayout="column" fxFlex="10"></div>
