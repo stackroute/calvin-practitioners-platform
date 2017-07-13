@@ -48,7 +48,7 @@ export class CommunityMemberManagementComponent implements OnInit {
   {
     console.log('community name',this.community);
     let dialogRef = this.dialog.open(MemberEditComponent,{
-      data:this.community
+      data:this.community,
     });
   }
 }

@@ -32,10 +32,6 @@ margin-top:0%;
 .community-details {
  margin-right: 28%;
  color: grey;
-
-
-
-
 }
 
 .members{
@@ -47,7 +43,9 @@ font-style: italic;
 .tools{
 font-style: italic;
     }
-
+.tagclass {
+    margin-top: 30px;
+}
 /*
 @media(max-width:760px){
     .community-details-name 

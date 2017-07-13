@@ -4,14 +4,13 @@ const jwt = require('jsonwebtoken');
 const request = require('superagent');
 const BASE_COMMUNITY_SERVICE_URL = 'http://calvin-communities.blr.stackroute.in/api/v1';
 
-const cookies = [];
+const cookies = []; // stores Cookies User and Community info tokens
 const USERS_TABLE = 'users';
 const client = new cassandra.Client({
   contactPoints: [config.dbconfig.dburl],
   keyspace: config.dbconfig.keyspacename,
 });
 
-// const cookies = [];
 // this function is to check if user record is already present in database
 function checkIfUserExists(email, done) {
   const chkQuery = `SELECT * FROM ${USERS_TABLE} where username = '${email}'`;
@@ -112,11 +111,12 @@ function updateSpecificProfile(emailAddrs, profileData, done) {
 
 function getUserDetails(emailAddrs, done) {
   console.log('Insise Service');
-  const query = (`SELECT * from ${USERS_TABLE} where username ='${emailAddrs}'`);
+  const query = (`SELECT aboutme,contact,interestedtopics,location from ${USERS_TABLE} where username ='${emailAddrs}'`);
   client.execute(query, (err, result) => {
     if (!err) {
       console.log('checking result');
       done(undefined, result.rows);
+      console.log("check result output",result.rows);
     } else {
       console.log('checking err');
       done(err, null);

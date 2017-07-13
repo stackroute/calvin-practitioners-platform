@@ -150,22 +150,44 @@ function getSingleTool(toolid, done) {
   });
 }
 
-
+// get all information on tools
 function getAllTools(done) {
   // console.log('entered getall tools service');
   const query = `SELECT * FROM ${TABLE_NAME[0]}`;
   return client.execute(query, (err, results) => {
     if (err) {
-      return done({ error: 'Internal error' });
+      return done({ error: 'Tool is empty' });
     }
     return done(null, results.rows);
   });
 }
 
+// get all tool actions 
+function getToolAction(done) {
+  // console.log('entered getall tools service');
+  const query = `SELECT * FROM ${TABLE_NAME[1]}`;
+  return client.execute(query, (err, results) => {
+    if (err) {
+      return done({ error: 'Actions not found' });
+    }
+    return done(null, results.rows);
+  });
+}
 
+function getToolEvent(done){
+  const query = `SELECT * FROM ${TABLE_NAME[2]}`;
+  return client.execute(query, (err, results) => {
+      if (err) {
+      return done({ error: 'Actions not found' });
+    }
+    return done(null, results.rows);
+  });
+}
 module.exports = {
   AddToolinMarketplace,
   getSingleTool,
   getAllTools,
   testing,
+  getToolAction,
+  getToolEvent
 };

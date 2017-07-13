@@ -18,7 +18,7 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
 import 'hammerjs';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MdSelectModule } from '@angular/material';
-import { CreateCommunityComponent } from './create-community/create-community.component';
+import { CreateCommunityComponent, errorHandlingComponent } from './create-community/create-community.component';
 import { CommunityRoleActionsComponent } from './community-role-actions/community-role-actions.component';
 import { CommunityRoleManagementComponent } from './community-role-management/community-role-management.component';
 import { CommunityToolActionsComponent } from './community-tool-actions/community-tool-actions.component';
@@ -95,6 +95,7 @@ import { CommunityToolManagementComponent } from './community-tool-management/co
     SucessDialog,
     MemberEditComponent,
     ToolPageComponent,
+    errorHandlingComponent,
     IntegrateTool,
     CommunityNewRoleCreationComponent,
     CommunityToolManagementComponent,
@@ -127,8 +128,11 @@ import { CommunityToolManagementComponent } from './community-tool-management/co
     ReactiveFormsModule
   ],
 
-  entryComponents: [IntegrateTool,CommunityToolActionsComponent, NewcommunityDialogboxComponent, MemberInvitationComponent,SucessDialog,MemberEditComponent,updateCommunity,CommunityDialogue,CommunityNewRoleCreationComponent],
-  providers: [RoleServices, ToolActions, CommunityProfileService,ActivityService, updateSpecificCommunityService, ToolMarketService, ToolService,NewRoleService],
+  entryComponents: [IntegrateTool,CommunityToolActionsComponent, NewcommunityDialogboxComponent,
+                     MemberInvitationComponent, SucessDialog,
+                      MemberEditComponent, updateCommunity,errorHandlingComponent ],
+
+  providers: [RoleServices,RoleListServices, ToolActions, CommunityProfileService,ActivityService, updateSpecificCommunityService, ToolMarketService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

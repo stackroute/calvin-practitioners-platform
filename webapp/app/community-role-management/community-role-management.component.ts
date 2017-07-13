@@ -20,8 +20,11 @@ export class CommunityRoleManagementComponent implements OnInit {
   @Input() community;
 
   constructor(public dialog: MdDialog, private role: RoleServices, private route: ActivatedRoute) {
+    this.role.listUniqueRoles(this.route.snapshot.params['domain']).subscribe(res => {
+      this.getResults = res;
+    });
     this.role.listRoles(this.route.snapshot.params['domain']).subscribe(res => {
-      this.sample.push(res);
+      this.sample.push(res);{
       this.sample.forEach((val) => {
         let actionArr = [];
         let i = 0;
@@ -32,8 +35,8 @@ export class CommunityRoleManagementComponent implements OnInit {
         });
         this.arrayObj.push(this.roleObj)
         //console.log('roleObj', this.roleObj)
-      });
-      this.getResults.forEach((data) => {
+        });
+        this.getResults.forEach((data) => {
         const roles = data.role;
         data.action = this.roleObj[roles];
         return this.getResults;
@@ -41,12 +44,12 @@ export class CommunityRoleManagementComponent implements OnInit {
       //console.log(this.getResults);
       let domain = this.route.snapshot.params['domain'];
       let roleactions = this.getResults;
-      return this.resultArray.push({ domain, roleactions })
+      this.resultArray.push({ domain, roleactions });
+      return this.resultArray;
+      }
     });
-    // console.log(this.route.snapshot.params['domain']);
-    this.role.listUniqueRoles(this.route.snapshot.params['domain']).subscribe(res => {
-      this.getResults = res;
-    });
+  
+    // console.log(this.route.snapshot.params['domain']);    
     //console.log(this.resultArray)
   }
   ngOnInit() { }

@@ -25,7 +25,7 @@ export class MemberEditComponent {
   // console.log("Data in the dialog is: ", this.dialogRef._containerInstance.dialogConfig.data);
 
    this.domainname = data;
-   console.log("nn",data);
+   console.log("nn",this.community);
     console.log(this.domainname);
     this.role.listUniqueRoles(this.domainname).subscribe(res => {
       this.getResults = res;

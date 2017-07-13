@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ToolMarketService } from './tool-market-place.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'calvin-tool-market-place',
@@ -11,7 +12,7 @@ export class ToolMarketPlaceComponent implements OnInit {
 
   tools;
   newTool;
-  constructor(private toolService: ToolMarketService) { }
+  constructor(private toolService: ToolMarketService, private router:Router) { }
 
   ngOnInit() {
     this.toolService.getTools().subscribe(data => {
@@ -51,6 +52,11 @@ export class ToolMarketPlaceComponent implements OnInit {
       }
     });
     
+  }
+
+  onSelect(toolid){
+    console.log(toolid);
+    this.router.navigate([`app/toolpage/${toolid}`]);
   }
   
 }
