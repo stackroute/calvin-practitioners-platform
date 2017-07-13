@@ -6,7 +6,8 @@
 	<div class="community-list" >
 
 	  <md-list align="start">
-			
+			<!--<div *ngIf = "CommunitiesInfo">true</div>
+			<div *ngIf = "!CommunitiesInfo">false</div>-->
 	    <md-list-item *ngFor="let userCommunityItem of CommunitiesInfo" (click)="routeToCommunity(userCommunityItem.domain)" >
 	      <!--<img md-list-avatar src="{{userCommunityItem.CommunityUrl}}" alt="Desc 1">-->
 	      <h3 md-line>{{userCommunityItem.domain}}</h3>
