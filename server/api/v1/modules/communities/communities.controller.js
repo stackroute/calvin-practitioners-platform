@@ -6,6 +6,7 @@ const BASE_COMMUNITY_SERVICE_URL = 'http://calvin-communities.blr.stackroute.in/
  // Call specific community on the basis of domain
 function getSpecificCommunity(domain, done) {
   const url = `${BASE_COMMUNITY_SERVICE_URL}/communities/${domain}`;
+
   request
  .get(url)
  .query({ domain }) // query string
@@ -13,6 +14,7 @@ function getSpecificCommunity(domain, done) {
    if (err) {
      return done(err);
    }
+
    return done(null, res.body);
  });
 }

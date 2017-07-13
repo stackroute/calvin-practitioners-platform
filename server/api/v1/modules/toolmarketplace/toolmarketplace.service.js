@@ -139,7 +139,7 @@ function testing(toolid, done) {
 function getSingleTool(toolid, done) {
   console.log('inside get single tool');
 
-  const getQuery = ` SELECT * from ${TABLE_NAME} where toolid='${toolid}'`;
+  const getQuery = ` SELECT * from ${TABLE_NAME[0]} where toolid='${toolid}'`;
   client.execute(getQuery, (err, result) => {
     if (err) {
       console.log('error is ', err);
@@ -153,13 +153,12 @@ function getSingleTool(toolid, done) {
 
 function getAllTools(done) {
   // console.log('entered getall tools service');
-  const query = `SELECT * FROM ${TABLE_NAME}`;
+  const query = `SELECT * FROM ${TABLE_NAME[0]}`;
   return client.execute(query, (err, results) => {
     if (err) {
-      done({ error: 'Internal error' });
-    } else {
-      done(null, results.rows);
+      return done({ error: 'Internal error' });
     }
+    return done(null, results.rows);
   });
 }
 

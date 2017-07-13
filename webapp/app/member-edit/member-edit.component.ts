@@ -8,6 +8,7 @@ import { MD_DIALOG_DATA, MdDialog, MdDialogRef} from '@angular/material';
   selector: 'calvin-member-edit',
   templateUrl: './member-edit.component.html',
   styleUrls: ['./member-edit.component.css'],
+  providers: [RoleListServices],
 })
 export class MemberEditComponent {
   @Input() community;

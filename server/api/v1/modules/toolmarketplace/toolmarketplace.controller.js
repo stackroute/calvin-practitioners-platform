@@ -6,7 +6,7 @@ function addTool(tool, done) {
 }
 
 function getTool(toolid, done) {
-  console.log('inside get tool', toolid);
+  // console.log('inside get tool', toolid);
   // toolservice.getSingleTool(toolid,done);
   // toolservice.getSingleTool(toolid,done);
 

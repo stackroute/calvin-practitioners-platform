@@ -9,24 +9,13 @@
         
         <input mdInput placeholder="Domain name" formControlName="domainName">
 
-        <md-hint align="start" class="full-width">          
-          
-          <!--<span *ngIf="userForm.get('domainName').hasError('isDomainUnique')" class="errorStyle">
-              Domain not available..
-            </span>          -->
-         
-          <!--<div *ngIf="userForm.get('domainName').hasError('!isDomainUnique') && userForm.get('domainName').touched">
-            Is available..
-          </div>-->
-
+        <md-hint align="start" class="full-width">        
           <div *ngIf="userForm.get('domainName').hasError('required') && userForm.get('domainName').touched" class="errorStyle">
             Domain Name is required
           </div>
-          
           <div *ngIf="userForm.get('domainName').hasError('pattern') && userForm.get('domainName')" class="errorStyle">
             Invalid DomainName,must contain 8 to 20 char with one special character(.)
           </div>
-
         </md-hint>
       </md-input-container>
 
@@ -66,7 +55,7 @@
   </div>
   <!--get description from user using text-area -->
   <md-input-container class="inputFields" >
-    <textarea mdInput placeholder="Description" rows="2" formControlName="description"></textarea>
+    <textarea mdInput class="communityNameFont" placeholder="Description" rows="2" formControlName="description"></textarea>
   </md-input-container>
   <!--select core-activity-->
   <div class="inputFields"  fxLayout.md="row" fxLayoutAlign="start end"   fxLayoutGap="20%">
