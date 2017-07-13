@@ -27,3 +27,6 @@ md-list-item:last-child {
 .community-list::-webkit-scrollbar { 
     display: none; 
 }
+.usercommunitylist{
+margin-left:20%;
+}

@@ -1,5 +1,10 @@
 const router = require('express').Router();
 const memberCtrl = require('./community-member.controller.js');
+const bodyParser = require('body-parser');
+
+
+router.use(bodyParser.urlencoded({ extended: true }));
+router.use(bodyParser.json());
 
 // add members to community after invite @nitin
 router.get('/communitymembership/members', (req, res) => {

@@ -32,7 +32,7 @@ module.exports = (passport) => {
 
         if (err) {
           //  console.log('err is :',err);
-          return err;
+          return done(err, 'Unable to Proceed');
         }
         return done(null, results);
       });
