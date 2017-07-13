@@ -128,7 +128,7 @@ import { CommunityToolManagementComponent } from './community-tool-management/co
     ReactiveFormsModule
   ],
 
-  entryComponents: [CommunityToolActionsComponent, NewcommunityDialogboxComponent,
+  entryComponents: [IntegrateTool,CommunityToolActionsComponent, NewcommunityDialogboxComponent,
                      MemberInvitationComponent, SucessDialog,
                       MemberEditComponent, updateCommunity,errorHandlingComponent ],
 

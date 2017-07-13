@@ -1,6 +1,13 @@
 .align{
     margin-top:2%;
 }
-.md-icon{
-    font-size: 90px;
+.material-icon{
+    font-size: 30px;
+}
+
+p{
+    position:absolute;
+      top: 30%;
+      right: 0%;
+    /*font-size: 34px;*/
 }
