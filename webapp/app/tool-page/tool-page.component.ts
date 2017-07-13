@@ -55,26 +55,7 @@ export class IntegrateTool implements OnInit {
   ngOnInit() {
  
       this.userservice.getUserCommunity((result)=>{
-         result=[{
-            "name":"abcd",
-            "role": "admin"
-         },
-         {
-            "name":"abcde",
-            "role": "admin"
-         },
-         {
-            "name":"abcdf",
-            "role": "admin"
-         }
-         ,{
-            "name":"abcdg",
-            "role": "owner"
-         },{
-            "name":"aabcd",
-            "role": "user"
-         }];
-
+        
            console.log('communities are',result);
          result.forEach((community)=>{
 

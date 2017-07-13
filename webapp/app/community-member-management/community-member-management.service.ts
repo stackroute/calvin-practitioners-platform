@@ -19,12 +19,11 @@ import 'rxjs/add/operator/map';
     console.log(".....",body);
     console.log("sdaaa",domain)
     let url =`/api/v1/communityMembers/communitymembership/${domain}/members`;
-   // let headers = new Headers({ 'Content-Type': 'application/json;charset=utf-8' });
-    //let options = new RequestOptions({ headers: headers });
+   let headers = new Headers({ 'Content-Type': 'application/json;charset=utf-8' });
+  let options = new RequestOptions({ headers: headers,
+  body:body });
     console.log(body)
-    return this._http.delete(url,body).map(res => res.json());
+    return this._http.delete(url,options).map(res => res.json());
   }  
 }
-  //  postNewcommunityDetails(newCommunityObj, domainName) {
-  //       return this._http.post('api/v1/community/' + domainName, newCommunityObj).map((res => res.json()));
-  //   }
+  

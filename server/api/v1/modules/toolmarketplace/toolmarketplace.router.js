@@ -23,6 +23,41 @@ router.get('/', (req, res) => {
   }
 });
 
+router.get('/actions', (req, res) => {
+  try {
+    toolCtrl.getToolAction((err, result) => {
+      if (err) {
+        res.status(500).json({
+          error: `unable to get toolactions in Calvin..! , Please try again later${err}`,
+        });
+      } else {
+        res.status(200).json(result);
+      }
+    });
+  } catch (error) {
+    res.status(500).json({
+      error: `Internal server error..! Please try again later${error}`,
+    });
+  }
+});
+
+router.get('/events', (req, res) => {
+  try {
+    toolCtrl.getToolEvent((err, result) => {
+      if (err) {
+        res.status(500).json({
+          error: `unable to get toolEvent in Calvin..! , Please try again later${err}`,
+        });
+      } else {
+        res.status(200).json(result);
+      }
+    });
+  } catch (error) {
+    res.status(500).json({
+      error: `Internal server error..! Please try again later${error}`,
+    });
+  }
+});
 
 router.get('/tool/:toolid', (req, res) => {
   console.log('inside toolpage APi', req.params.toolid);
