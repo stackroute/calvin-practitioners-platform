@@ -23,36 +23,42 @@ export class CommunityRoleManagementComponent implements OnInit {
     this.role.listUniqueRoles(this.route.snapshot.params['domain']).subscribe(res => {
       this.getResults = res;
     });
+    // console.log(this.route.snapshot.params['domain']);    
+    //console.log(this.resultArray)
+  }
+  ngOnInit() {    
     this.role.listRoles(this.route.snapshot.params['domain']).subscribe(res => {
       this.sample.push(res);{
       this.sample.forEach((val) => {
-        let actionArr = [];
-        let i = 0;
+        
+        
         (val.roleactions).forEach((data) => {
           const role = data.role;
+          const toolid=data.toolid;
           if (!this.roleObj[role]) { this.roleObj[role] = []; }
+          if(!this.roleObj[toolid]){ this.roleObj[toolid]=[];}
           this.roleObj[role].push(data.action);
+          this.roleObj[toolid].push(data.toolid);
         });
-        this.arrayObj.push(this.roleObj)
-        //console.log('roleObj', this.roleObj)
+       // this.arrayObj.push(this.roleObj)
+        console.log('roleObj', this.roleObj)
         });
         this.getResults.forEach((data) => {
         const roles = data.role;
+        const toolid=data.toolid;
         data.action = this.roleObj[roles];
+        data.toolid=this.roleObj[toolid];
         return this.getResults;
       });
-      //console.log(this.getResults);
+      console.log(this.getResults);
       let domain = this.route.snapshot.params['domain'];
       let roleactions = this.getResults;
       this.resultArray.push({ domain, roleactions });
       return this.resultArray;
-      }
+    }
+    
     });
-  
-    // console.log(this.route.snapshot.params['domain']);    
-    //console.log(this.resultArray)
-  }
-  ngOnInit() { }
+   }
 
   openDialog() {
 

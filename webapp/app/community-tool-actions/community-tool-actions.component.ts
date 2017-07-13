@@ -18,6 +18,7 @@ export class CommunityToolActionsComponent implements OnInit {
   a=[];
   domainName;
   roleName;
+  toolActions=[];
   y={};
   @Input() community;
  
@@ -25,8 +26,9 @@ export class CommunityToolActionsComponent implements OnInit {
   public dialogRef: MdDialogRef<CommunityToolActionsComponent>) { 
   this.domainName = data.domain ; 
   this.roleName=data.role;
-  console.log('domin name from dialog',this.roleName);
-    
+  this.toolActions=data.tool;
+  console.log('domain name from dialog',this.roleName);  
+  console.log('tool',this.toolActions)  ; 
     this.tool.listTools(this.domainName).subscribe(res => {return this.sample.push(res);
     });
     
