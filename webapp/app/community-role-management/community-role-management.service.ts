@@ -24,16 +24,16 @@ export class RoleServices {
   }
 
 
-  updateTools(data) {
-    const headers = new Headers({
-      'Content-Type': 'application/json;charset=utf-8'
-    });
-    const options = new RequestOptions({
-      headers: headers
-    });
-    const body = JSON.stringify(data);
-    // console.log(body);
-    const url = 'http://localhost:3000/api/v1/communityroleactions/';
-    return this.http.patch(url, body, options).map(res => res.json());
-  }
+  // updateTools(data) {
+  //   const headers = new Headers({
+  //     'Content-Type': 'application/json;charset=utf-8'
+  //   });
+  //   const options = new RequestOptions({
+  //     headers: headers
+  //   });
+  //   const body = JSON.stringify(data);
+  //   // console.log(body);
+  //   const url = 'http://localhost:3000/api/v1/communityroleactions/';
+  //   return this.http.patch(url, body, options).map(res => res.json());
+  // }
 }

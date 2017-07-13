@@ -111,11 +111,12 @@ function updateSpecificProfile(emailAddrs, profileData, done) {
 
 function getUserDetails(emailAddrs, done) {
   console.log('Insise Service');
-  const query = (`SELECT * from ${USERS_TABLE} where username ='${emailAddrs}'`);
+  const query = (`SELECT aboutme,contact,interestedtopics,location from ${USERS_TABLE} where username ='${emailAddrs}'`);
   client.execute(query, (err, result) => {
     if (!err) {
       console.log('checking result');
       done(undefined, result.rows);
+      console.log("check result output",result.rows);
     } else {
       console.log('checking err');
       done(err, null);
