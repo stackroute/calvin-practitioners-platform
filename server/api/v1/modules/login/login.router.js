@@ -6,11 +6,9 @@ const config = require('../common/config');
 const router = express.Router();
 
 router.get('/auth/logout', (req, res) => {
-  // console.log('inside logout');
   res.clearCookie(config.cookie.name);
   res.redirect('/');
 });
-
 
 router.get('/auth/google', passport.authenticate('google', { scope: ['profile', 'email'] }));
 
