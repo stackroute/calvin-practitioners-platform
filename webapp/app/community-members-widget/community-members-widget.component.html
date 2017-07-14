@@ -1,28 +1,16 @@
-<!--<md-card>
-  <md-card-title>
-    Members
-  </md-card-title>
-  <md-card-content class="content">
-    <md-list fxLayout="start">
-      <md-list-item *ngFor="let val of this.members.MemberDetails">
-        <img md-list-avatar class="img-responsive center-block" src='https://pbs.twimg.com/profile_images/735509975649378305/B81JwLT7.jpg'>
-        <h3 md-line>{{val.username}}</h3>
-        <p md-line>
-          <span>{{val.role}}</span></p>
-      </md-list-item>
-    </md-list>
-  </md-card-content>
-</md-card>-->
 <md-card>
-  <md-card-title>
-    Members
-  </md-card-title>
+  <md-list fxLayoutAlign="center">
+    <md-list-item>
+      <md-icon>person</md-icon>
+      <h4>Members</h4>
+    </md-list-item>
+  </md-list>
   <md-card-content fxLayoutAlign.xs="column" class="content">
     <md-list>
-      <md-list-item *ngFor="let val of this.members.MemberDetails" fxLayoutAlign.xs="column" >
-        <img md-list-avatar class="img-responsive center-block" src={{val.photo}}>
+      <md-list-item *ngFor="let val of this.members.MemberDetails" fxLayoutAlign.xs="column">
+        <img md-list-avatar class="img-responsive center-block" src="./assets/img/girl.png">
         <!--<md-list-item>{{val.toolId}}</md-list-item>-->
-        <h3 md-line>{{val.username}}</h3>
+        <h3 md-line>{{val.name}}</h3>
         <p md-line>
           <span>{{val.role}}</span>
         </p>

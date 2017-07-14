@@ -25,18 +25,6 @@
   position: relative;
   color: #fff;
 }
-.searchAlgin input {
-    border: none;
-    color: #aaa;
-    border-radius: 2px;
-    padding: 4px 10px;
-}
-.searchBtn {
-  position: absolute;
-  right: 3px;
-  top:7px;
-  color: #666;
-}
 .logoAlgin img {
     width: 30px;
     padding-right: 5px
@@ -52,4 +40,32 @@ md-chip-list :focus , md-list-item:focus {
     top: 0;
     right: 0px;
     color: #fff;
+}
+.containeralgin{
+  min-height: 400px;
+}
+footer {
+  background-color: #666;
+  color: #fff;
+  min-height: 40px
+}
+i
+{
+  color:grey;
+}
+.bell
+{
+  padding-top:40%;
+  color:white;
+}
+.menu-icon
+{
+  /*padding-left:-90px;*/
+  margin-left:0px;
+  padding-top:5%;
+  color:white;
+}
+.mat-toolbar
+{
+  padding:0px;
 }

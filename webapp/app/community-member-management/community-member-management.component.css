@@ -2,7 +2,11 @@
 .card-align
 {
   margin-left:0%;
-  padding-left:0%;
+  
+}
+.point
+{
+  cursor:pointer;
 }
 
 /*md-list-item {

@@ -4,14 +4,13 @@ const jwt = require('jsonwebtoken');
 const request = require('superagent');
 const BASE_COMMUNITY_SERVICE_URL = 'http://calvin-communities.blr.stackroute.in/api/v1';
 
-const cookies = [];
+const cookies = []; // stores Cookies User and Community info tokens
 const USERS_TABLE = 'users';
 const client = new cassandra.Client({
   contactPoints: [config.dbconfig.dburl],
   keyspace: config.dbconfig.keyspacename,
 });
 
-// const cookies = [];
 // this function is to check if user record is already present in database
 function checkIfUserExists(email, done) {
   const chkQuery = `SELECT * FROM ${USERS_TABLE} where username = '${email}'`;
@@ -88,10 +87,10 @@ function getUserCommunities(username, done) {
  .query({ username }) // query string
  .end((err, res) => {
    if (err) {
-     console.log('error is ', err);
+     //console.log('error is ', err);
      return done(err);
    }
-   console.log('result is ', res.body);
+   //console.log('result is ', res.body);
    const userCommunityToken = jwt.sign(res.body, config.appConstants.secret,
     { expiresIn: config.appConstants.expiryTime });
    cookies.push(userCommunityToken);

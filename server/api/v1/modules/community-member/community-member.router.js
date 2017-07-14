@@ -1,14 +1,21 @@
 const router = require('express').Router();
 const memberCtrl = require('./community-member.controller.js');
 const bodyParser = require('body-parser');
-
-
 router.use(bodyParser.urlencoded({ extended: true }));
 router.use(bodyParser.json());
 
-// add members to community after invite @nitin
-router.get('/communitymembership/members', (req, res) => {
-  console.log('inside router: ', req.body);
+// add members to community after invite
+router.post('/communitymembership/:domain/members', (req, res) => {
+ try {
+    memberCtrl.postMemberInvite(req.params.domain, req.body, (err, result) => {
+      if (err) {
+        return res.status(500).send({ error: 'Error in getting values, please try later..!' });
+      }
+      return res.status(200).send(result);
+    });
+  } catch (err) {
+    return res.status(500).send({ error: 'Unexpected internal error occurred...!' });
+  }
 });
 
 router.get('/communitymembership/:domain/members', (req, res) => {
@@ -55,12 +62,8 @@ router.get('/memberrequests/:domain', (req, res) => {
   }
 });
 
-
-
-router.delete('/communitymembership/:domain/members',(req, res) => {
-  console.log("dadaddddada",req.params.domain);
-  console.log("LOOK HERE----->",req.body);
-
+ 
+router.delete('/communitymembership/:domain/members', (req, res) => {
   try {
     memberCtrl.deleteMember(req.params.domain, req.body, (err, result) => {
       if (err) {
@@ -73,4 +76,5 @@ router.delete('/communitymembership/:domain/members',(req, res) => {
   }
   return true;
 });
+
 module.exports = router;

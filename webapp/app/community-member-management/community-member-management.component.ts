@@ -41,7 +41,9 @@ export class CommunityMemberManagementComponent implements OnInit {
   onScroll() {
   }
   openDialog() {
-    const dialog = this.dialog.open(MemberInvitationComponent);
+ let dialogRef = this.dialog.open(MemberInvitationComponent,{
+      data:this.community
+ });
     
   }
   edit(name)

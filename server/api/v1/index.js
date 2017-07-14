@@ -16,12 +16,13 @@ router.use(require('./modules/authentication'));
 
 router.use('/communities', require('./modules/communities'));
 
+router.use('/toolmarketplace', require('./modules/toolmarketplace'));
 
 // router.use('/community', require('./modules/community'));
 
-router.use('/memberactivitypage', require('./modules/communityActivities'));
+router.use('/memberactivitypage', require('./modules/communityactivities'));
 
-router.use('/toolmarketplace', require('./modules/toolmarketplace'));
+
 // router.use('/community', require('./modules/community'));
 
 router.use('/communityroleactions', require('./modules/communityroleactions'));

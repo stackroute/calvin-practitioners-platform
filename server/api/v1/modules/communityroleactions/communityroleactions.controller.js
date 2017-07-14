@@ -4,35 +4,35 @@ const BASE_COMMUNITY_SERVICE_URL = 'http://calvin-communities.blr.stackroute.in/
 
 function retrieveAllUsers(domain, done) {
    // Call communities service to get all the templates
-  console.log(domain);
+  //console.log(domain);
   const url = `${BASE_COMMUNITY_SERVICE_URL}/communityrole/${domain}`;
   request
  .get(url)
  .query({ domain }) // query string
  .end((err, res) => {
    if (err) {
-     console.log('server.controller file');
+    // console.log('server.controller file');
      return done(err);
    }
-   console.log('server.controller  success file');
+   //console.log('server.controller  success file');
 
    return done(null, res.body);
  });
 }
 function retrieveAllRoles(domain, done) {
    // Call communities service to get all the templates
-  console.log(domain);
+  //console.log(domain);
   const url = `${BASE_COMMUNITY_SERVICE_URL}/communityrole/${domain}?onlyroles=true`;
   request
  .get(url)
  .query({ domain }) // query string
  .end((err, res) => {
    if (err) {
-     console.log('server.controller file');
+     //console.log('server.controller file');
      return done(err);
    }
-   console.log(res.body, 'sdvsdv');
-   console.log('server.controller  success file');
+  //  console.log(res.body, 'sdvsdv');
+  //  console.log('server.controller  success file');
 
    return done(null, res.body);
  });

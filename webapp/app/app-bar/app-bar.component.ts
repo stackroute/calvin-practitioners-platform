@@ -47,10 +47,7 @@ export class AppBarComponent implements OnInit {
   return x;
 
  }
- openDialog() {
-  alert('No new notification');
 
- }
 
  logout() {
   // alert('logout clciked');
