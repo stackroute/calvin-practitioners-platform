@@ -123,7 +123,7 @@ function postMemberInvite(domain, inviteBody, done) {
   });
 }
 
-function deleteMembers(domain, data, callback) {
+function deleteMember(domain, data, callback) {
   const url = `${BASE_COMMUNITY_SERVICE_URL}/communitymembership/${domain}/members`;
   request.delete(url)
   .send(data)
@@ -141,6 +141,6 @@ module.exports = {
   getMembersDetails,
   postMemberInvite,
   getCommunityMembers,
-  deleteMembers,
+  deleteMember,
 };
 
