@@ -46,6 +46,7 @@ export class CommunityMemberManagementComponent implements OnInit {
   }
   openDialog() {
  let dialogRef = this.dialog.open(MemberInvitationComponent,{
+     disableClose:true,
       data:this.community
  });
     
@@ -54,6 +55,7 @@ export class CommunityMemberManagementComponent implements OnInit {
   {
     console.log('community name',this.community);
     let dialogRef = this.dialog.open(MemberEditComponent,{
+      disableClose:true,
       data:{domain:this.community,
         val:name}       
     }); 

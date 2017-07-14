@@ -45,12 +45,13 @@ import { CommunityProfileService } from './community-profile/community-profile.s
 import { updateSpecificCommunityService } from './manage-community/manage-community.service';
 import { ToolMarketService } from './tool-market-place/tool-market-place.service';
 import { NewRoleService } from './community-new-role-creation/community-new-role-creation.service';
-
+import { KeysPipe } from './community-tool-actions/community-tool-actions.pipe';
 import{RoleListServices} from './member-edit/member-edit.service';
 import { MarkdownModule } from 'angular2-markdown';
 
 import { CommunityMemberManagementComponent } from './community-member-management/community-member-management.component';
 
+import { Memberservice } from './community-member-management/community-member-management.service';
 import { ManageCommunityToolsComponent } from './manage-community-tools/manage-community-tools.component';
 import { AddToolComponent,SucessDialog } from './add-tool/add-tool.component';
 import { NewcommunityDialogboxComponent } from './newcommunity-dialogbox/newcommunity-dialogbox.component';
@@ -101,6 +102,7 @@ import { ToolConfigPageComponent } from './tool-config-page/tool-config-page.com
     CommunityNewRoleCreationComponent,
     CommunityToolManagementComponent,
     CommunityDialogue,
+    KeysPipe,
     DialogResultExampleDialog,
     ToolConfigPageComponent
      ],
@@ -130,15 +132,10 @@ import { ToolConfigPageComponent } from './tool-config-page/tool-config-page.com
     ReactiveFormsModule
   ],
 
+  entryComponents: [IntegrateTool,CommunityToolActionsComponent, NewcommunityDialogboxComponent,DialogResultExampleDialog,MemberInvitationComponent, SucessDialog,NewcommunityDialogboxComponent, MemberEditComponent, updateCommunity,CommunityNewRoleCreationComponent ],
 
-//   entryComponents: [DialogResultExampleDialog,IntegrateTool,CommunityToolActionsComponent, NewcommunityDialogboxComponent, MemberInvitationComponent,SucessDialog,MemberEditComponent,updateCommunity,CommunityDialogue,CommunityNewRoleCreationComponent, DialogResultExampleDialog],
-//   providers: [RoleServices, ToolActions, CommunityProfileService,ActivityService, updateSpecificCommunityService, ToolMarketService, ToolService,NewRoleService],
-
-  entryComponents: [IntegrateTool,CommunityToolActionsComponent, NewcommunityDialogboxComponent,
-                     MemberInvitationComponent, SucessDialog,
-                      MemberEditComponent, updateCommunity,errorHandlingComponent ],
-
-  providers: [RoleServices,RoleListServices, ToolActions, CommunityProfileService,ActivityService, updateSpecificCommunityService, ToolMarketService],
+  providers: [RoleServices,RoleListServices, ToolActions, CommunityProfileService,ActivityService,
+               updateSpecificCommunityService, ToolMarketService,ToolService,NewRoleService,KeysPipe,MembersService,Memberservice],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

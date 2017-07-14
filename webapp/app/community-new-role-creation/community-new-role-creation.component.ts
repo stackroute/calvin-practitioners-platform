@@ -61,7 +61,7 @@ export class CommunityNewRoleCreationComponent implements OnInit {
     // console.log(role);
     // let a=this.selected.push({role});
     return this.tool.updateTools(this.domainName, this.selected).subscribe(res => {
-      return this.sample.push(res);
+      this.sample.push(res);
     });
   }
 

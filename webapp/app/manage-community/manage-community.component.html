@@ -21,15 +21,17 @@
                    <textarea input mdInput placeholder="Description" rows="2" formControlName="description" ngModel={{community.description}}></textarea>
                 </md-input-container>
 
-                <md-input-container fxLayoutAlign="start">
-                   <input mdInput name="access" placeholder="Visisbility">
-                  <md-radio-group ngModel={{community.visibility}} formControlName="visibility">
-                        <md-radio-button value="Public">Public</md-radio-button>
-                         <md-radio-button value="Private">Private</md-radio-button>
-                         <md-radio-button value="Moderated">Moderated</md-radio-button>
-                  </md-radio-group>
-                </md-input-container>
-
+               <div class="inputFields" fxLayout.md="column" fxLayoutGap="100px">
+   <md-input-container>
+     <input mdInput placeholder="Visibility" >
+     <md-radio-group name="visibility" formControlName="visibility" ngModel={{community.visibility}}>
+       <!--[(ngModel)]="visibility">-->
+       <md-radio-button value="Public" >Public <div fxFlex="20%" class="visibilityDesc">Visible to anyone anywhere </div></md-radio-button>
+       <md-radio-button value="Private" >Private <div fxFlex="20%" class="visibilityDesc">Visible only you</div> </md-radio-button>
+       <md-radio-button value="Moderated" >Moderated <div fxFlex="20%" class="visibilityDesc">Only invited members can join and see community content </div></md-radio-button>
+     </md-radio-group>
+   </md-input-container>
+ </div>
                <md-input-container fxLayoutAlign="start" fxLayout="column">
                   <textarea input mdInput placeholder="avatar" rows="2" formControlName="avatar" ngModel={{community.avatar}}></textarea>
                    <md-hint align="start" class="full-width">
@@ -38,16 +40,31 @@
                      </div>
                    </md-hint>
                </md-input-container>
-
+               
+            <div class="inputFields" fxLayout.md="row">
+              <div fxLayout.md="column">
                <md-input-container fxLayoutAlign="start">
+                 
                   <input mdInput placeholder="Tag" formControlName="tagCtrl"  #resettext (focusout)="chipValue(tagname,resettext)" [(ngModel)]="tagname">
+                     <md-hint align="start" class="full-width">
+                     <div *ngIf="userForm.get('tagCtrl').hasError('pattern') && userForm.get('tagCtrl')" class="errorStyle">
+                               Invalid tag length,must contain 3 to 20 char with one special character(.)
+                      </div>
+                      </md-hint>
                </md-input-container>
+
 
                <md-chip-list>
                  <div fxLayout.md="column" ng-disabled="!tag.value" *ngFor="let tag of tagarray">
                    <md-chip (click)="clearTag(tag)">{{tag}}<i class="material-icons">clear</i></md-chip>
                  </div>
                </md-chip-list>
+
+                <div fxLayout.md="column" fxLayoutAlign="center center">
+                        <a md-button (click)="chipValue(tagname,resetText)">Add</a>
+               </div>
+             </div>  </div>
+  
 
                <button md-raised-button routerLink="/app/communitydashboard">Cancel</button>
                               <!-- Submit button to Add the tool-->

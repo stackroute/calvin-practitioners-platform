@@ -16,6 +16,7 @@ export class CommunityRoleManagementComponent implements OnInit {
   arrayObj = [];
   resultArray = [];
   roleObj = {};
+  toolObj={};
 
   @Input() community;
 
@@ -23,40 +24,45 @@ export class CommunityRoleManagementComponent implements OnInit {
     this.role.listUniqueRoles(this.route.snapshot.params['domain']).subscribe(res => {
       this.getResults = res;
     });
+    // console.log(this.route.snapshot.params['domain']);    
+    //console.log(this.resultArray)
+  }
+  ngOnInit() {    
     this.role.listRoles(this.route.snapshot.params['domain']).subscribe(res => {
       this.sample.push(res);{
       this.sample.forEach((val) => {
-        let actionArr = [];
-        let i = 0;
         (val.roleactions).forEach((data) => {
           const role = data.role;
+          const toolid=data.toolid;
           if (!this.roleObj[role]) { this.roleObj[role] = []; }
+          if(!this.toolObj[toolid]){ this.toolObj[toolid]=[];}
           this.roleObj[role].push(data.action);
+          this.toolObj[toolid].push(data.action);
         });
-        this.arrayObj.push(this.roleObj)
-        //console.log('roleObj', this.roleObj)
+       // this.arrayObj.push(this.roleObj)
+        console.log('roleObj', this.toolObj)
         });
         this.getResults.forEach((data) => {
         const roles = data.role;
         data.action = this.roleObj[roles];
         return this.getResults;
       });
-      //console.log(this.getResults);
+      console.log(this.getResults);
       let domain = this.route.snapshot.params['domain'];
       let roleactions = this.getResults;
-      this.resultArray.push({ domain, roleactions });
+      let toolactions=this.toolObj;
+      this.resultArray.push({ domain, roleactions,toolactions });
+      console.log(this.resultArray)
       return this.resultArray;
-      }
+    }
+    
     });
-  
-    // console.log(this.route.snapshot.params['domain']);    
-    //console.log(this.resultArray)
-  }
-  ngOnInit() { }
+   }
 
   openDialog() {
 
     const dialog = this.dialog.open(CommunityNewRoleCreationComponent, {
+      disableClose:true,
       data: this.route.snapshot.params['domain']
 
     });

@@ -15,7 +15,7 @@ md-list-item:hover img {
 md-list-item:last-child {
   border-bottom: 1px transparent;
 }
-.mat-mini-fab {
+#info {
     position: absolute;
     bottom: 10px;
     right: 10px;
@@ -29,4 +29,7 @@ md-list-item:last-child {
 }
 .usercommunitylist{
 margin-left:20%;
+}
+h4, h5 {
+  color : grey;
 }

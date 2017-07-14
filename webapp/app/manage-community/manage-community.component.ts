@@ -49,7 +49,7 @@ tagname:String;
     avatar: ['',Validators.pattern('https?://.+')],
     visibility: ['',Validators.required],
     description: ['',Validators.required],
-    tagCtrl :['',Validators.required],
+   tagCtrl: ['', [Validators.required, Validators.pattern('[a-z]{3,20}')]],
     name:['']
     });
   }
@@ -99,7 +99,7 @@ tagname:String;
  ngOnInit() {
    
    this.domain = this.route.snapshot.params['domain'];
-   this.commProfileService.getCommunity(this.route.snapshot.params['domain']). subscribe ( res => {   
+   this.commProfileService.getCommunity(this.route.snapshot.params['domain'],this.counter). subscribe ( res => {   
    this.domain = res.domain;
    this.updatedBy = res.updatedby;
    this.status = res.status;

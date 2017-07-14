@@ -10,42 +10,10 @@
 
     </md-select></span></div>
   </div>
- <div md-dialog-actions fxLayoutAlign="end">
+ 
+</md-card>
+<div md-dialog-actions fxLayoutAlign="end">
     <button md-button md-dialog-close>Cancel</button>
     <button md-raised-button md-dialog-close color="primary" (click)="update(data.val)">Apply</button>
 </div>
-</md-card>
 </div>
-
-<!--
-<md-card>
-  <markdown>Modify Role</markdown>
-   <md-input-container>
-      <input fxFlex='100%' mdInput placeholder="" value="{{data.val}}" disabled/>
-    </md-input-container>
-    <div> <span><md-select placeholder="role" (keyup.enter)="value=''" class="textfield" name="value">
-      <md-option *ngFor="let access of getResults" (click)="selectCore(access.role)" [value]="access.role">{{access.role}} </md-option>
-
-    </md-select></span></div>
-</md-card>    -->
-
-
-
-<!--<div class="inviteMembers">
-  <h3 algin="center">Change role </h3>
-   
-<form>
-
-     <md-input-container >
-      <input  placeholder="email address">
-    </md-input-container>
-
-      <md-select placeholder="roles">
-        <md-option *ngFor="let access of getResults" [value]="access.role">{{access.role}} </md-option>
-      </md-select>
-    
-    <div>
-      <button md-raised-button color="primary" class="bottom-button" type="submit">Save</button>
-    </div>
-  </form>
-</div>-->

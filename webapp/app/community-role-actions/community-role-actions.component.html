@@ -8,11 +8,11 @@
         <!--<button md-button class='button-style' (click)='update(dummy.id,dummy.role,dummy.actions)'><md-icon>edit</md-icon></button>-->
       </div>
       <md-chip-list>
-        <div fxFlexLayout.xs='row' *ngFor="let action of sample.action">
+        <div fxFlexLayout.xs='row' *ngFor="let action of sample.action" class="chip-style" >
           <md-chip>{{action}}</md-chip>
         </div>
       </md-chip-list>
-      <button fxLayoutAlign='left' md-raised-button (click)='openDialog(sample.role)'>Modify Actions</button>
+      <button fxLayoutAlign='left' md-raised-button (click)='openDialog(sample.role,dummy)'>Modify Actions</button>
     </md-card>
   </div>
 </div>

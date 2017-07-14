@@ -1,8 +1,10 @@
 import { Component, OnInit , Input,Inject } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { FormGroup, FormControl, Validators, FormBuilder, AbstractControl} from '@angular/forms';
 import { Router } from '@angular/router';
 import { AddToolService } from './add-tool.service';
 import { MD_DIALOG_DATA, MdDialog, MdDialogRef } from '@angular/material';
+import 'rxjs/add/operator/startWith';
+import 'rxjs/add/operator/map';
 @Component({
   selector: 'calvin-add-tool',
   templateUrl: './add-tool.component.html',
@@ -10,22 +12,19 @@ import { MD_DIALOG_DATA, MdDialog, MdDialogRef } from '@angular/material';
   providers: [AddToolService]
 })
 export class AddToolComponent implements OnInit {
+ 
  @Input() Toolid ;
-
+  
+  toolForm: FormGroup;
   actions = [];
   events = [];
   toolaction: String;
   toolgrants: String;
   actionDesc: String;
-  toolpurpose:String;
   tooleventname: String;
   eventpayload: String;
   eventDesc: String;
   toolid: String;
-  toolname: String;
-  toolavatar: String;
-  tooldesc: String;
-  toc: any;
   actionFlag = 0;
   eventFlag = 0;
   actionCounter=0;
@@ -35,8 +34,36 @@ export class AddToolComponent implements OnInit {
   id;
   flag=0;
   
-   constructor(private addtoolservice: AddToolService,
-    private dialog: MdDialog) { }
+   constructor(
+    private addtoolservice: AddToolService,
+    private dialog: MdDialog,
+    private fb: FormBuilder
+    ) { 
+       this.createForm();
+    }
+
+  createForm() {
+    this.toolForm = this.fb.group({
+      toolid: ['', [Validators.required,Validators.pattern('[a-z0-9.]{4,20}')]],
+      toolname: ['', Validators.required],
+      avatar: ['',[Validators.required,Validators.pattern('https?://.+')]],
+      description: ['',Validators.required],
+      purpose: ['', Validators.required],
+      toolaction:['', Validators.required],
+      toolgrants:['', Validators.required],
+      actionDesc:['', Validators.required],
+      tooleventname: ['', Validators.required],
+      eventpayload:['', Validators.required],
+      eventDesc: ['', Validators.required],
+      termscondition: ['', Validators.required],
+      // termscondition: ['', Validators.required],
+      // visibility: ['Public', Validators.required],
+      // description: [''],
+      // tagCtrl: ['', [Validators.required, Validators.pattern('[a-z]{3,20}')]],
+      
+      
+    });
+  }
 
   ngOnInit() {
      this.addtoolservice.getTemplates()
@@ -61,10 +88,10 @@ export class AddToolComponent implements OnInit {
     console.log('add action called');
 
     let obj = {
-      name: this.toolaction.toUpperCase(),
+      name: this.toolaction,
       id:this.toolaction+(String(this.actionCounter++)),
-      grants: this.toolgrants.toUpperCase(),
-      desc: this.actionDesc.toUpperCase(),
+      grants: this.toolgrants,
+      desc: this.actionDesc,
     };
     console.log('obj',obj);
     this.actions.push(obj);
@@ -94,10 +121,10 @@ export class AddToolComponent implements OnInit {
   AddEvent() {
     const eventCounter=0;
     let obj = {
-      name: this.tooleventname.toUpperCase(),
+      name: this.tooleventname,
       id:this.tooleventname+(String(this.eventCounter++)),
-      metadata: this.eventpayload.toUpperCase(),
-      description: this.eventDesc.toUpperCase()
+      metadata: this.eventpayload,
+      description: this.eventDesc
     };
     this.events.push(obj);
     this.eventFlag = 1;
@@ -133,38 +160,40 @@ export class AddToolComponent implements OnInit {
   }
 
   // this function is to register the tool 
-  registerTool(form: NgForm) {
-
-    console.log(form.value);
+  onsubmit(formdata:any) {
+     
+   const  tooldata=formdata.value;
+    // console.log(form.value);
     let actionobj={
-        name: this.toolaction.toUpperCase(),
+        name: this.toolaction,
         id :this.toolaction+(String(this.actionCounter++)),
-       grants: this.toolgrants.toUpperCase(),
-       desc: this.actionDesc.toUpperCase(),
+       grants: this.toolgrants,
+       desc: this.actionDesc,
        };
    this.actions.push(actionobj);
 
+    console.log('tool data is ',tooldata);
    let eventobj ={
-      name: this.tooleventname.toUpperCase(),
+      name: this.tooleventname,
       id:this.tooleventname+(String(this.eventCounter++)),
-      metadata: this.eventpayload.toUpperCase(),
-      description: this.eventDesc.toUpperCase()
+      metadata: this.eventpayload,
+      description: this.eventDesc
    };
    
    this.events.push(eventobj);
 
     let toolobj = {
-      toolid: this.toolid,
-      toolname: this.toolname.toUpperCase(),
-      tooldesc: this.tooldesc.toUpperCase(),
-      toolavatar: this.toolavatar,
-      toolpurpose: this.toolpurpose,
+      toolid: tooldata.toolid,
+      toolname: tooldata.toolname,
+      tooldesc: tooldata.description,
+      toolavatar: tooldata.avatar,
+      toolpurpose: tooldata.purpose,
       toolAction: this.actions,
       toolEvent: this.events
     };
 
-    console.log(toolobj);
-    this.id=this.toolid;
+    console.log("final  object.........",toolobj);
+    this.id=tooldata.toolid;
     this.addtoolservice.addTool(toolobj).subscribe(result => {
       console.log('inside add tool response');
       // RESETTING FIELDS after successfully adding tool
@@ -172,10 +201,13 @@ export class AddToolComponent implements OnInit {
       this.actions = [];
       this.actionFlag = 0;
       this.eventFlag = 0;
-      form.reset();
+      // form.reset();
       // alert('data'+result);
 
       // opening Dialogue to show success message
+      this.dialog.open(SucessDialog,{
+        data:this.id
+      });
       this.dialog.open(SucessDialog, {
       data:this.id
     });
@@ -190,12 +222,13 @@ export class AddToolComponent implements OnInit {
 })
 export class SucessDialog {
   
-  toolid;
+  toolid:any;
   constructor(  private router: Router, 
   @Inject(MD_DIALOG_DATA) public data: any, 
   public dialogRef: MdDialogRef<AddToolComponent>) {
    this.toolid=data;
-   }
+  }
+  
   navigateTool() {
     alert('hi will navigate to tool'+`/app/toolpage/${this.toolid}`);
     this.router.navigate([`/app/toolpage/${this.toolid}`]);
