@@ -1,26 +1,4 @@
-.tools{
+span {
 
-  margin-top: 80px;
-
-}
-.action,.event{
-
-    text-align: left;
-    padding-top: 30px;
-
-}
-table {
-    /*border-collapse: collapse;*/
-    width: 100%;
-}
-
-th, td {
-    text-align: left;
-    padding: 8px;
-    width: 100%;
-}
-
-th {
-    background-color: #00A3AF;
-    color: white;
+    text-align: left;  
 }

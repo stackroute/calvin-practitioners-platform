@@ -16,6 +16,7 @@ export class ActivityPageComponent implements OnInit {
   public textData = `## Markdown content data`;
   constructor(private activitypage: ActivityService, private value: AppBarService) { }
 
+
   // onscroll() {
   //   console.log('scrolled');
   // }

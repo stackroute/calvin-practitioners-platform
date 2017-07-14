@@ -9,12 +9,7 @@ export class RoleListServices {
   
   constructor(private http: Http) { }
 
-//   listRoles(domainName) {
-//     console.log('In service');
-//     const url = '/api/v1/communityroleactions/communityrole/'+domainName;
-//     console.log(url)
-//     return this.http.get(url).map(res => res.json());
-//   }
+
 
   listUniqueRoles(domainname){
      console.log('In member-edit service');
@@ -23,17 +18,19 @@ export class RoleListServices {
     return this.http.get(url).map(res => res.json());
   } 
 
-
-// updateTools(data) {
-//   const headers = new Headers({
-//    'Content-Type': 'application/json;charset=utf-8'
-//   });
-//   const options = new RequestOptions({
-//    headers: headers
-//   });
-//   const body = JSON.stringify(data);
-//   console.log(body);
-//   const url = 'http://localhost:3000/api/v1/communityroleactions/';
-//   return this.http.patch(url, body,options).map(res => res.json());
-//  }
+updateRole(domain,data) {
+  // console.log(domain);
+  // console.log(role);
+  // console.log(data);
+  const headers = new Headers({
+   'Content-Type': 'application/json;charset=utf-8'
+  });
+  const options = new RequestOptions({
+   headers: headers
+  });
+  const body = JSON.stringify(data);
+  //console.log(body);
+  const url = `/api/v1/communityroleactions/communitymembership/${domain}/members`;
+  return this.http.patch(url, body,options).map(res => res.json());
+ }
 }
