@@ -16,7 +16,6 @@ export class CommunityProfileComponent implements OnInit {
   member;
   user;
   CommunitiesInfo = [];
-
  
  counter = true;
 
@@ -36,7 +35,6 @@ export class CommunityProfileComponent implements OnInit {
 
      this.userInfo.getUserCommunity((userCommunity) => {
        this.CommunitiesInfo = userCommunity;
-       
        console.log("getting user communitiesss in community profile,,",this.CommunitiesInfo);
 
       
