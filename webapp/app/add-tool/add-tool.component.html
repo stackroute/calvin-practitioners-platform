@@ -1,165 +1,211 @@
+<md-card class="example-card">
+  <md-card-header>
+    <div md-card-avatar class="example-header-image"></div>
+    <md-card-title>
+      <h2>TOOL REGISTRATION</h2>
+    </md-card-title>
+  </md-card-header>
+  <md-card-content>
 
-  <md-card class="example-card">
-    <md-card-header>
-      <div md-card-avatar class="example-header-image"></div>
-      <md-card-title>
-        <h2>TOOL REGISTRATION</h2>
-      </md-card-title>
-    </md-card-header>
-    <md-card-content>
+    <form class="container" fxFlex="80" fxLayout="column" fxLayoutGap="10px" fxFlexFill [formGroup]="toolForm" (ngSubmit)="onsubmit(toolForm)">
+      <!--<form class="container" fxFlex="80" fxLayout="column" 
+  fxFlexFill [formGroup]="toolForm" (ngSubmit)="onsubmit(toolForm)">-->
+      <!--domain name text field-->
 
-      <form #addTool="ngForm" (ngSubmit)="registerTool(addTool)">
-        <!-- Tool Basic Information -->
-        <div fxLayoutAlign="start start">
+      <div fxLayout.md="column">
+        <md-input-container>
+
+          <input mdInput placeholder="Tool id" formControlName="toolid">
+          <md-hint align="start" class="full-width">
+            <div *ngIf="toolForm.get('toolid').hasError('required') && toolForm.get('toolid').touched" class="errorStyle">
+              Tool id is required
+            </div>
+            <div *ngIf="toolForm.get('toolid').hasError('pattern') && toolForm.get('toolid')" class="errorStyle">
+              Invalid toolid,must contain 4 to 20 char with one special character(.)
+            </div>
+          </md-hint>
+        </md-input-container>
+      </div>
+      <div fxLayout.md="column">
+
+        <md-input-container>
+
+          <input mdInput placeholder="Tool name" formControlName="toolname">
+          <md-hint align="start" class="full-width">
+            <div *ngIf="toolForm.get('toolname').hasError('required') && toolForm.get('toolname').touched" class="errorStyle">
+              Tool name is required
+            </div>
+          </md-hint>
+        </md-input-container>
+      </div>
+      <div fxLayout.md="column">
+
+        <md-input-container>
+          <input mdInput placeholder="Avatar" formControlName="avatar">
+          <md-hint align="start" class="full-width">
+            <div *ngIf="toolForm.get('avatar').hasError('required') && toolForm.get('avatar').touched" class="errorStyle">
+              Tool avatar is required
+            </div>
+            <div *ngIf="toolForm.get('avatar').hasError('pattern') && toolForm.get('avatar').touched" class="errorStyle">
+              Invalid avatar path,must be url
+            </div>
+          </md-hint>
+        </md-input-container>
+      </div>
+
+      <div fxLayout.md="column">
+
+        <md-input-container class="inputFields">
+          <textarea mdInput class="communityNameFont" placeholder="Description" rows="2" formControlName="description"></textarea>
+          <md-hint align="start" class="full-width">
+            <div *ngIf="toolForm.get('description').hasError('required') && toolForm.get('description').touched" class="errorStyle">
+              Tool Description is required
+            </div>
+          </md-hint>
+        </md-input-container>
+      </div>
+      <div fxLayout.md="column" fxLAyoutGap="20px">
+
+        <md-select placeholder="Select purpose" formControlName="purpose">
+          <md-option *ngFor="let core of uniquePurpose" [value]="core">
+            {{core}}
+          </md-option>
+        </md-select>
+        <md-hint align="start" class="full-width">
+          <div *ngIf="toolForm.get('purpose').hasError('required') && toolForm.get('purpose').touched" class="errorStyle">
+            Select purpose
+          </div>
+        </md-hint>
+      </div>
+      <span layout="row"><hr flex/><h4>Actions</h4><hr flex/></span>
+      <div *ngFor="let action of actions " fxLayout.md="column" fxLayout.xs="column" fxLayout.sm="column" fxLayoutGap="20px">
+        <div fxLayout.xs="row">
           <md-input-container class="example-full-width">
-            <input mdInput name="toolid" placeholder="Tool ID" [(ngModel)]="toolid" required>
+            <input name="action" mdInput placeholder="Action" disabled value={{action.name}}>
           </md-input-container>
         </div>
-        <div fxLayoutAlign="start start">
+        <div fxLayout.xs="row">
           <md-input-container class="example-full-width">
-            <input mdInput name="toolname" placeholder="Tool Name" [(ngModel)]="toolname" required>
+            <input name="grants" mdInput placeholder="Grants" disabled value={{action.grants}}>
           </md-input-container>
         </div>
-        <div fxLayoutAlign="start start">
+        <div fxLayout.xs="row">
           <md-input-container class="example-full-width">
-            <input mdInput name="toolavatar" placeholder="Tool Avatar URL" [(ngModel)]="toolavatar" required>
+            <input name="actionDesc" mdInput placeholder="Description" disabled value={{action.desc}}>
+          </md-input-container>
+          <!--<i class="material-icons" (click)="remAction(action.name)">cancel_outline</i>-->
+          <button md-mini-fab type="button" (click)="remAction(action.name)"><md-icon>cancel_outline</md-icon></button>
+        </div>
+      </div>
+      <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxLayoutGap="20px">
+        <div fxLayout.xs="row">
+          <md-input-container class="example-full-width">
+            <input name="action" mdInput placeholder="Action" [(ngModel)]="toolaction" formControlName="toolaction">
+            <md-hint align="start" class="full-width">
+              <div *ngIf="toolForm.get('toolaction').hasError('required') && toolForm.get('toolaction').touched" class="errorStyle">
+                Action Name is required
+              </div>
+            </md-hint>
           </md-input-container>
         </div>
-        <div fxLayoutAlign="start start">
+        <div fxLayout.xs="row">
           <md-input-container class="example-full-width">
-            <textarea mdInput name="tooldesc" placeholder="Description" [(ngModel)]="tooldesc" required>Put Small Description of the tool</textarea>
+            <input name="grants" mdInput placeholder="Grants" [(ngModel)]="toolgrants" formControlName="toolgrants">
+            <md-hint align="start" class="full-width">
+              <div *ngIf="toolForm.get('toolgrants').hasError('required') && toolForm.get('toolgrants').touched" class="errorStyle">
+                Action Grants is required
+              </div>
+            </md-hint>
           </md-input-container>
         </div>
-        <div fxLayoutAlign="start start">
-          <md-select name="toolpurpose" placeholder="Tool Purpose" fxLayout="row" [(ngModel)]="toolpurpose">
-            <md-option *ngFor="let purpose of uniquePurpose" [value]="purpose">
-              {{ purpose }}
-            </md-option>
-          </md-select>
+        <div fxLayout.xs="row">
+          <md-input-container class="example-full-width">
+            <input name="actionDesc" mdInput placeholder="Description" [(ngModel)]="actionDesc" formControlName="actionDesc">
+            <md-hint align="start" class="full-width">
+              <div *ngIf="toolForm.get('actionDesc').hasError('required') && toolForm.get('actionDesc').touched" class="errorStyle">
+                Action Description is required
+              </div>
+            </md-hint>
+          </md-input-container>
+        </div>
+      </div>
+      <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="center center">
+        <!--<md-icon (click)="AddAction()">add_outline</md-icon>-->
+        <!--<i class="material-icons" (click)="AddAction()">add_circle_outline</i>-->
+        <button md-mini-fab type="button" (click)="AddAction()"><md-icon>add_outline</md-icon></button>
+      </div>
+      <span layout="row"><hr flex/><h4>Events</h4><hr flex/></span>
+      <div *ngFor="let event of events" fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxLayoutGap="20px">
+        <div fxLayout.xs="row">
+          <md-input-container class="example-full-width" fxLayout="row">
+            <input name="event" mdInput placeholder="Event Name" disabled value={{event.name}}>
+          </md-input-container>
+        </div>
+        <div fxLayout.xs="row">
+          <md-input-container class="example-full-width" fxLayout="row">
+            <input name="payload" mdInput placeholder="Meta Data" disabled value={{event.metadata}}>
+          </md-input-container>
+        </div>
+        <div fxLayout.xs="row">
+          <md-input-container class="example-full-width">
+            <input name="evdesc" mdInput placeholder="Description" disabled value={{event.description}}>
+          </md-input-container>
+          <!--<i class="material-icons" (click)="remEvent(event.name)">cancel_outline</i>-->
+          <button md-mini-fab type="button" (click)="remEvent(event.name)"><md-icon>cancel</md-icon></button>
+        </div>
+      </div>
+
+      <div fxLayout.md="column">
+
+
+        <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxLayoutGap="20px">
+          <div fxLayout.xs="row">
+            <md-input-container class="example-full-width" fxLayout="row">
+              <input name="event" mdInput placeholder="Event Name" [(ngModel)]="tooleventname" formControlName="tooleventname">
+              <md-hint align="start" class="full-width">
+                <div *ngIf="toolForm.get('tooleventname').hasError('required') && toolForm.get('tooleventname').touched" class="errorStyle">
+                  Event Name is required
+                </div>
+              </md-hint>
+            </md-input-container>
+          </div>
+          <div fxLayout.xs="row">
+            <md-input-container class="example-full-width" fxLayout="row">
+              <input name="payload" mdInput placeholder="Meta Data" [(ngModel)]="eventpayload" formControlName="eventpayload">
+              <md-hint align="start" class="full-width">
+                <div *ngIf="toolForm.get('eventpayload').hasError('required') && toolForm.get('eventpayload').touched" class="errorStyle">
+                  Event Payload is required
+                </div>
+              </md-hint>
+            </md-input-container>
+          </div>
+          <div fxLayout.xs="row">
+
+
+            <md-input-container class="example-full-width">
+              <input name="evdesc" mdInput placeholder="Description" [(ngModel)]="eventDesc" formControlName="eventDesc">
+              <md-hint align="start" class="full-width">
+                <div *ngIf="toolForm.get('eventDesc').hasError('required') && toolForm.get('eventDesc').touched" class="errorStyle">
+                  Event Description is required
+                </div>
+              </md-hint>
+            </md-input-container>
+          </div>
+
         </div>
 
-
-        <!--  Section to For Tool Action -->
-        <div>
-          <div class="action" fxLayoutGap="20px">
-            <h5 fxLayoutAlign="start start"> ACTIONS </h5>
-            <hr>
-          </div>
-      <!--   To Display Added Actions-->
-         
-          <div *ngFor="let action of actions " fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxLayoutGap="20px">
-            <div fxLayout.xs="row">
-              <md-input-container class="example-full-width">
-                <input name="action" mdInput placeholder="Action" disabled value={{action.name}}>
-              </md-input-container>
-            </div>
-            <div fxLayout.xs="row">
-              <md-input-container class="example-full-width">
-                <input name="grants" mdInput placeholder="Grants" disabled value={{action.grants}}>
-              </md-input-container>
-            </div>
-            <div fxLayout.xs="row">
-              <md-input-container class="example-full-width">
-                <input name="actionDesc" mdInput placeholder="Description" disabled value={{action.desc}}> 
-              </md-input-container>
-              <i class="material-icons" (click)="remAction(action.name)">cancel_outline</i>
-            </div>
-          </div>
-
-      <!--   End of added Action -->
-
-          <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxLayoutGap="20px">
-            <div fxLayout.xs="row">
-              <md-input-container class="example-full-width">
-                <input name="action" mdInput placeholder="Action" [(ngModel)]="toolaction" required>
-              </md-input-container>
-            </div>
-            <div fxLayout.xs="row">
-              <md-input-container class="example-full-width">
-                <input name="grants" mdInput placeholder="Grants" [(ngModel)]="toolgrants" required>
-              </md-input-container>
-            </div>
-            <div fxLayout.xs="row">
-              <md-input-container class="example-full-width">
-                <input name="actionDesc" mdInput placeholder="Description" [(ngModel)]="actionDesc" required>
-              </md-input-container>
-            </div>
-          </div>
-
-          <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="end">
-            <!--<md-icon (click)="AddAction()">add_outline</md-icon>-->
-            <i class="material-icons" (click)="AddAction()">add_circle_outline</i>
-          </div>
-        </div>
-        <!-- Tool Action Section Ends Here-->
-
-        <!-- Tool Event Section Starts-->
-        <div>
-          <div class="event">
-            <h5 fxLayoutAlign="start start"> EVENTS </h5>
-            <hr>
-          </div>
-                <!--  To Display Already Added Event-->
-
-        <div *ngFor="let event of events" fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxLayoutGap="20px">
-            <div fxLayout.xs="row">
-              <md-input-container class="example-full-width" fxLayout="row">
-                <input name="event" mdInput placeholder="Event Name" disabled value={{event.name}}>
-              </md-input-container>
-            </div>
-            <div fxLayout.xs="row">
-              <md-input-container class="example-full-width" fxLayout="row">
-                <input name="payload" mdInput placeholder="Meta Data" disabled value={{event.metadata}}>
-              </md-input-container>
-            </div>
-            <div fxLayout.xs="row">
-              <md-input-container class="example-full-width">
-                <input name="evdesc" mdInput placeholder="Description" disabled value={{event.description}}>
-              </md-input-container>
-              <i class="material-icons" (click)="remEvent(event.name)">cancel_outline</i>
-            </div>
-          </div>
-                   <!-- End of Displaying Added Events-->
-
-          <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxLayoutGap="20px">
-            <div fxLayout.xs="row">
-              <md-input-container class="example-full-width" fxLayout="row">
-                <input name="event" mdInput placeholder="Event Name" [(ngModel)]="tooleventname" required>
-              </md-input-container>
-            </div>
-            <div fxLayout.xs="row">
-              <md-input-container class="example-full-width" fxLayout="row">
-                <input name="payload" mdInput placeholder="Meta Data" [(ngModel)]="eventpayload" required>
-              </md-input-container>
-            </div>
-            <div fxLayout.xs="row">
-
-
-              <md-input-container class="example-full-width">
-                <input name="evdesc" mdInput placeholder="Description" [(ngModel)]="eventDesc" required>
-              </md-input-container>
-            </div>
-
-          </div>
-          <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="end">
-            <div>
-              <i class="material-icons" (click)="AddEvent()">add_circle_outline</i>
-              <!--<button md-mini-fab (click)="AddEvent()"><md-icon>add_outline</md-icon></button>-->
-            </div>
-          </div>
-        </div>
-        <!--   Tool Event Section Ends Here-->
-
-        <div fxLayoutAlign="start">
-          <md-checkbox name="toc" [(ngModel)]="toc" (click)="enableSubmit()">I Agree To The Terms and Conditions!</md-checkbox>
-        </div>
-        <div fxLayout="row" fxLayoutAlign="center" fxLayoutGap="15px">
-          <!-- Cancel Button-->
-          <a md-raised-button routerLink="/app/home">Cancel</a>
-          <!-- Submit button to Add the tool-->
-          <button md-raised-button color="primary" type="submit" [disabled]="flag===0">Submit</button>
-        </div>
-      </form>
-    </md-card-content>
-
-  </md-card>
+      </div>
+      <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="center center">
+        <!--<md-icon (click)="AddAction()">add_outline</md-icon>-->
+        <button md-mini-fab type="button" (click)="AddEvent()"><md-icon>add_outline</md-icon></button>
+      </div>
+      <div fxLayout.md="column">
+        <md-checkbox color="primary" formControlName="termscondition">I agree!Terms and Condition.</md-checkbox>
+      </div>
+      <div fxLayout.md="column" fxLayoutAlign="center center" fxLayoutGap="5px">
+        <a md-button routerLink="/app/home">Cancel</a>
+        <button md-raised-button type="submit" color="primary" [disabled]="!toolForm.valid">Submit</button>
+      </div>
+    </form>
+  </md-card-content>
+</md-card>

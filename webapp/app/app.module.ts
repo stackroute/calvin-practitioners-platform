@@ -61,7 +61,8 @@ import { ToolPageComponent,IntegrateTool } from './tool-page/tool-page.component
 import { AppBarService } from './app-bar/app-bar.service';
 import { CommunityNewRoleCreationComponent } from './community-new-role-creation/community-new-role-creation.component';
 import { CommunityToolManagementComponent } from './community-tool-management/community-tool-management.component';
-
+import { DialogResultExampleDialog } from './user-profile/user-profile.component';
+import { ToolConfigPageComponent } from './tool-config-page/tool-config-page.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -100,7 +101,9 @@ import { CommunityToolManagementComponent } from './community-tool-management/co
     CommunityNewRoleCreationComponent,
     CommunityToolManagementComponent,
     CommunityDialogue,
-    KeysPipe
+    KeysPipe,
+    DialogResultExampleDialog,
+    ToolConfigPageComponent
      ],
 
   imports: [
@@ -128,11 +131,12 @@ import { CommunityToolManagementComponent } from './community-tool-management/co
     ReactiveFormsModule
   ],
 
-  entryComponents: [IntegrateTool,CommunityToolActionsComponent, NewcommunityDialogboxComponent,CommunityToolActionsComponent,
-                     MemberInvitationComponent, SucessDialog,
-                      MemberEditComponent, updateCommunity,errorHandlingComponent,CommunityNewRoleCreationComponent ],
+  entryComponents: [IntegrateTool,CommunityToolActionsComponent, NewcommunityDialogboxComponent,DialogResultExampleDialog,
+                     MemberInvitationComponent, SucessDialog,NewcommunityDialogboxComponent,
+                      MemberEditComponent, updateCommunity,CommunityNewRoleCreationComponent ],
 
-  providers: [RoleServices,RoleListServices, ToolActions, CommunityProfileService,ActivityService, updateSpecificCommunityService, ToolMarketService,NewRoleService,KeysPipe],
+  providers: [RoleServices,RoleListServices, ToolActions, CommunityProfileService,ActivityService,
+               updateSpecificCommunityService, ToolMarketService,ToolService,NewRoleService,KeysPipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
