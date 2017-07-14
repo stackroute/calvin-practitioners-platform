@@ -18,8 +18,8 @@ function getAllTools(done) {
   toolservice.getAllTools(done);
 }
 
-function getToolAction(done) {
-  toolservice.getToolAction(done);
+function getToolAction(toolid,done) {
+  toolservice.getToolAction(toolid,done);
 }
 
 function getToolEvent(done) {

@@ -41,8 +41,8 @@ md-chip-list :focus , md-list-item:focus {
     right: 0px;
     color: #fff;
 }
-.containeralgin{
-  min-height: 600px;
+.containeralign{
+  min-height: 800px;
 }
 footer {
   margin-top: 20px;
