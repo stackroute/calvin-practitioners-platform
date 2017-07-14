@@ -4,18 +4,18 @@ const BASE_COMMUNITY_SERVICE_URL = 'http://calvin-communities.blr.stackroute.in/
 
 function retrieveAllTools(domain, done) {
    // Call communities service to get all the templates
-  console.log(domain);
+  // console.log(domain);
   const url = `${BASE_COMMUNITY_SERVICE_URL}/communitytools/${domain}/tools`;
   request
  .get(url)
  .query({ domain }) // query string
  .end((err, res) => {
    if (err) {
-     console.log('server.controller file');
+    // console.log('server.controller file');
      return done(err);
    }
-   console.log('server.controller  success file');
-   console.log(res.body);
+  //  console.log('server.controller  success file');
+  //  console.log(res.body);
    return done(null, res.body);
  });
 }
@@ -40,7 +40,23 @@ function getTool(domain, done) {
     });
 }
 
+ // Call community tools service to post tools
+function postTool(domain, data, done) {
+  const url = `${BASE_COMMUNITY_SERVICE_URL}/communitytools/${domain}/tools`;
+  request
+ .post(url)
+ .send(data) // query string
+ .end((err, res) => {
+   if (err) {
+     return done(err);
+   }
+   return done(null, res.body);
+ });
+}
+
+
 module.exports = {
   retrieveAllTools,
   getTool,
+  postTool,
 };

@@ -28,12 +28,8 @@ router.get('/communityrole/:domainName', (request, response) => {
   try {
     controller.retrieveAllUsers(request.params.domainName, (err, result) => {
       if (err) {
-        console.log('dsvs');
-
         response.status(500).send({ error: 'Error in getting community details, please try later..!' });
       } else {
-        console.log('dsfdsdsff');
-
         response.status(200).send(result);
       }
     });

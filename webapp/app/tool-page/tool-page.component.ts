@@ -36,8 +36,7 @@ export class ToolPageComponent implements OnInit {
  
               // alert('toolInt called');
 
-              this.dialog.open(IntegrateTool,{height: '400px',
-                                             width: '400px',});
+              this.dialog.open(IntegrateTool);
 
        } 
 }
@@ -55,32 +54,12 @@ export class IntegrateTool implements OnInit {
   ngOnInit() {
  
       this.userservice.getUserCommunity((result)=>{
-         result=[{
-            "name":"abcd",
-            "role": "admin"
-         },
-         {
-            "name":"abcde",
-            "role": "admin"
-         },
-         {
-            "name":"abcdf",
-            "role": "admin"
-         }
-         ,{
-            "name":"abcdg",
-            "role": "owner"
-         },{
-            "name":"aabcd",
-            "role": "user"
-         }];
-
            console.log('communities are',result);
          result.forEach((community)=>{
 
               if(community.role==='admin'|| community.role==='owner'){
 
-                this.adminCommunities.push(community.name);
+                this.adminCommunities.push(community.domain);
               }
          });
 

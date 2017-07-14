@@ -26,7 +26,6 @@ export class CommunityDashboardComponent implements OnInit {
   constructor(private commProfileService: CommunityProfileService, private router: Router, private route: ActivatedRoute, ) {
   }
   ngOnInit() {
-     
     this.domain = this.route.snapshot.params['domain'];
     this.commProfileService.getCommunity(this.domain).
       subscribe(res => {
