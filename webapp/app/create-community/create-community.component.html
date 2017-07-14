@@ -44,14 +44,20 @@
   <!--choose visibitity mode-->
   <div class="inputFields" fxLayout.md="column">
     <md-input-container>
-      <input mdInput placeholder="Visibility" disabled>
-      <md-radio-group name="visibility" formControlName="visibility">
-        <md-radio-button value="Public" >Public</md-radio-button>
-        <md-radio-button value="Private" >Private</md-radio-button>
-        <md-radio-button value="Moderated" >Moderated</md-radio-button>
+      <input mdInput placeholder="Visibility" disabled >
+      <md-radio-group name="visibility" formControlName="visibility" > 
+        <!--[(ngModel)]="visibility">-->
+        <md-radio-button value="Public" >Public <div fxFlex="20%" class="visibilityDesc">Visible to anyone anywhere </div></md-radio-button>
+        <md-radio-button value="Private" >Private <div fxFlex="20%" class="visibilityDesc">Visible only you</div> </md-radio-button>
+        <md-radio-button value="Moderated" >Moderated <div fxFlex="20%" class="visibilityDesc">Only invited members can join and see community content </div></md-radio-button>
       </md-radio-group>
     </md-input-container>
   </div>
+  <!--<div fxLayout.md="column" ng-disabled="!visibility.value === 'Public' || 'Private' || 'Moderated''">
+  <div  *ngIf="visibility === 'Public'">Visible to anyone anywhere</div>
+  <div   *ngIf="visibility === 'Private'">Visible only you</div>
+  <div   *ngIf="visibility === 'Moderated'">Only invited members can join and see community content</div>
+  </div>-->
   <!--get description from user using text-area -->
   <md-input-container class="inputFields" >
     <textarea mdInput class="communityNameFont" placeholder="Description" rows="2" formControlName="description"></textarea>

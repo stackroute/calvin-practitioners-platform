@@ -1,13 +1,19 @@
 .align{
     margin-top:2%;
 }
+.align1{
+    margin-top:1%;
+}
 .material-icon{
     font-size: 30px;
 }
 
-p{
-    position:absolute;
-      top: 30%;
-      right: 0%;
-    /*font-size: 34px;*/
-}
+/*h2 {
+    padding: 20px;
+    color: white;
+    background: #3E4FB2;
+    font-weight: 300;
+    text-align: center;
+    font-size: 18px;
+  font-family: 'Roboto', sans-serif;
+}*/

@@ -146,13 +146,14 @@ export class CreateCommunityComponent implements OnInit {
       const purposeList = [new Set(data.map( item => item.purpose))];
       const myArray = Array.from(purposeList);
       this.uniquePurposeArry =  Array.from(myArray[0]);
-    }, error => console.log(error),
-    () => console.log('finished'));
+    }, error => //console.log(error),
+    () => console.log('finished')
+    );
     
     // get the owner name
     this.userservice.getUserDetail((user)=>{
       this.user=user;
-      console.log('user is in comm',this.user);
+      //console.log('user is in comm',this.user);
     });
   }
 }

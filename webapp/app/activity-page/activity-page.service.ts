@@ -20,10 +20,4 @@ export class ActivityService {
      .map((response: Response) =>
        response.json());
  }
-
- getuserinfo() {
-   const url = ' http://localhost:3000/api/v1/user/getinfo';
-   return this.http.get(url).map(
-     (response: Response) => response.json());
- }
 }
