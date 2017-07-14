@@ -44,11 +44,12 @@ export class CommunityMemberManagementComponent implements OnInit {
     const dialog = this.dialog.open(MemberInvitationComponent);
     
   }
-  edit()
+  edit(name)
   {
     console.log('community name',this.community);
     let dialogRef = this.dialog.open(MemberEditComponent,{
-      data:this.community,
+      data:{domain:this.community,
+        val:name}
     });
   }
 }

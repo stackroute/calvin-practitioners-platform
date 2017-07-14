@@ -40,7 +40,7 @@ function retrieveAllRoles(domain, done) {
 
 function updateActions(domain, role, values, done) {
    // Call communities service to get all the templates
-  const url = `${BASE_COMMUNITY_SERVICE_URL}/communityrole/${domain}/roles/${role}`;
+  const url = `${BASE_COMMUNITY_SERVICE_URL}/communitymembership/${domain}/roles/${role}`;
   request
  .patch(url)
  .send(values) // query string
@@ -52,6 +52,20 @@ function updateActions(domain, role, values, done) {
  });
 }
 
+
+function updateRole(domain,values, done) {
+   // Call communities service to get all the templates
+  const url = `${BASE_COMMUNITY_SERVICE_URL}/communitymembership/${domain}/members`;
+  request
+ .patch(url)
+ .send(values) // query string
+ .end((err, res) => {
+   if (err) {
+     return done(err);
+   }
+   return done(null, res.body);
+ });
+}
 function createRole(domain, values, done) {
    // Call communities service to get all the templates
   const url = `${BASE_COMMUNITY_SERVICE_URL}/communityrole/${domain}`;
@@ -72,4 +86,5 @@ module.exports = {
   retrieveAllRoles,
   updateActions,
   createRole,
+  updateRole,
 };

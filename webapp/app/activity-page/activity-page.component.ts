@@ -17,15 +17,15 @@ export class ActivityPageComponent implements OnInit {
 
  ngOnInit() {
    
-   this.value.getuserinfo()
-     .subscribe(res => {
-       this.user = res;
-       console.log(this.user);
-       this.uname= res.username;
-       this.flag = 1;
-       console.log(this.uname);
-       return this.uname;
-     });
+  //  this.value.getuserinfo()
+  //    .subscribe(res => {
+  //      this.user = res;
+  //      console.log(this.user);
+  //      this.uname= res.username;
+  //      this.flag = 1;
+  //      console.log(this.uname);
+  //      return this.uname;
+  //    });
      this.activitypage.getTools(this.uname, this.community, this.sort, this.order, this.page, this.limit)
    .subscribe(data => {
      this.tools = data;
