@@ -2,7 +2,7 @@
 	<md-card-title fxLayout="row" class="new-community">
 		Communities
 	</md-card-title>
-	 <a md-button routerLink="/app/createCommunity" class="button" id="info">Wish to create a Community?</a>	
+	 <a md-button routerLink="/app/createCommunity" class="button" id="info">Wish to create a Community?Click here</a>	
 	<div class="community-list" >
 
 	  <md-list align="start">
@@ -14,7 +14,8 @@
 			<div *ngIf = "!CommunitiesInfo.length==0">
 	    <md-list-item *ngFor="let userCommunityItem of CommunitiesInfo" (click)="routeToCommunity(userCommunityItem.domain)" >
 	      <!--<img md-list-avatar src="{{userCommunityItem.CommunityUrl}}" alt="Desc 1">-->
-	      <h3 md-line>{{userCommunityItem.domain}}</h3>
+	      <h3 md-line>{{userCommunityItem.domain}}</h3><span><img md-list-avatar src="{{userCommunityItem.avatar}}"></span>
+				
 	      <p md-line>
 	        <span>{{userCommunityItem.role}}</span>
 	      </p>

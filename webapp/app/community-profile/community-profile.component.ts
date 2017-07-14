@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output } from '@angular/core';
 import * as moment from 'moment/moment';
 import { UserInfoService } from '../core/user-info.service';
 
