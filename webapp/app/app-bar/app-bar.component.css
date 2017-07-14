@@ -41,6 +41,7 @@ md-chip-list :focus , md-list-item:focus {
     right: 0px;
     color: #fff;
 }
+
 .containeralign{
   min-height: 800px;
 }
@@ -49,4 +50,24 @@ footer {
   background-color: #666;
   color: #fff;
   min-height: 40px
+}
+i
+{
+  color:grey;
+}
+.bell
+{
+  padding-top:40%;
+  color:white;
+}
+.menu-icon
+{
+  /*padding-left:-90px;*/
+  margin-left:0px;
+  padding-top:5%;
+  color:white;
+}
+.mat-toolbar
+{
+  padding:0px;
 }

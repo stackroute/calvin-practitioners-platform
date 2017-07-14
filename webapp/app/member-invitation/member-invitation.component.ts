@@ -6,12 +6,14 @@ import { MD_DIALOG_DATA, MdDialog, MdDialogRef } from '@angular/material';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/Rx';
 import { MdSnackBar } from '@angular/material';
+import { Memberservice } from '../community-member-management/community-member-management.service';
+
 
 @Component({
   selector: 'calvin-member-invitation',
   templateUrl: './member-invitation.component.html',
   styleUrls: ['./member-invitation.component.css'],
-  providers: [MembersService, InvitationServices]
+  providers: [InvitationServices]
 })
 
 export class MemberInvitationComponent {
@@ -23,7 +25,7 @@ export class MemberInvitationComponent {
   getResults = [];
   domain;
 
-  constructor(private invite: InvitationServices,  public snackBar: MdSnackBar,private membersWidget: MembersService, private router: Router,
+  constructor(private membersService: Memberservice,private invite: InvitationServices,  public snackBar: MdSnackBar,private membersWidget: MembersService, private router: Router,
     @Inject(MD_DIALOG_DATA) public data: any, public dialogRef: MdDialogRef<MemberInvitationComponent>) {
     this.newTodo = '';
     this.inviteMembers = [];
@@ -48,7 +50,13 @@ export class MemberInvitationComponent {
   deleteTodo(index) {
     this.inviteMembers.splice(index, 1);
   }
-
+ getMember(){
+     
+      this.membersService.getMember(this.domain).subscribe(data => {
+        this.members = data;
+      })
+    };
+  
   onSendingInvitation(userdata: any) {
     const memArr = [];
     const inviteArr = [];
@@ -71,7 +79,8 @@ export class MemberInvitationComponent {
         duration: 3000
       });
 
-      return Observable.throw(this.getResults = res);
+       Observable.throw(this.getResults = res);
+      this.getMember();
     });
   }
 
