@@ -45,7 +45,7 @@ import { CommunityProfileService } from './community-profile/community-profile.s
 import { updateSpecificCommunityService } from './manage-community/manage-community.service';
 import { ToolMarketService } from './tool-market-place/tool-market-place.service';
 import { NewRoleService } from './community-new-role-creation/community-new-role-creation.service';
-
+import { KeysPipe } from './community-tool-actions/community-tool-actions.pipe';
 import{RoleListServices} from './member-edit/member-edit.service';
 import { MarkdownModule } from 'angular2-markdown';
 
@@ -61,8 +61,8 @@ import { ToolPageComponent,IntegrateTool } from './tool-page/tool-page.component
 import { AppBarService } from './app-bar/app-bar.service';
 import { CommunityNewRoleCreationComponent } from './community-new-role-creation/community-new-role-creation.component';
 import { CommunityToolManagementComponent } from './community-tool-management/community-tool-management.component';
+import { DialogResultExampleDialog } from './user-profile/user-profile.component';
 import { ToolConfigPageComponent } from './tool-config-page/tool-config-page.component';
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -100,6 +100,8 @@ import { ToolConfigPageComponent } from './tool-config-page/tool-config-page.com
     CommunityNewRoleCreationComponent,
     CommunityToolManagementComponent,
     CommunityDialogue,
+    KeysPipe,
+    DialogResultExampleDialog,
     ToolConfigPageComponent
      ],
 
@@ -128,11 +130,12 @@ import { ToolConfigPageComponent } from './tool-config-page/tool-config-page.com
     ReactiveFormsModule
   ],
 
-  entryComponents: [IntegrateTool,CommunityToolActionsComponent, NewcommunityDialogboxComponent,
+  entryComponents: [IntegrateTool,CommunityToolActionsComponent, NewcommunityDialogboxComponent,DialogResultExampleDialog,
                      MemberInvitationComponent, SucessDialog,
-                      MemberEditComponent, updateCommunity ],
+                      MemberEditComponent, updateCommunity,CommunityNewRoleCreationComponent ],
 
-  providers: [RoleServices,RoleListServices, ToolActions, CommunityProfileService,ActivityService, updateSpecificCommunityService, ToolMarketService],
+  providers: [RoleServices,RoleListServices, ToolActions, CommunityProfileService,ActivityService,
+               updateSpecificCommunityService, ToolMarketService,ToolService,NewRoleService,KeysPipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

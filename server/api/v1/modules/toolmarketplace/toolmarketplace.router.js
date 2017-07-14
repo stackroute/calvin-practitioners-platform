@@ -24,6 +24,7 @@ router.get('/', (req, res) => {
 });
 
 router.get('/actions/:toolid', (req, res) => {
+  console.log("toolaction",req.params.toolid);
   try {
     toolCtrl.getToolAction(req.params.toolid,(err, result) => {
       if (err) {
@@ -41,7 +42,7 @@ router.get('/actions/:toolid', (req, res) => {
   }
 });
 
-router.get('/events', (req, res) => {
+router.get('/events/:toolid', (req, res) => {
   try {
     toolCtrl.getToolEvent((err, result) => {
       if (err) {

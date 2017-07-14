@@ -1,13 +1,23 @@
 <!-- Side nav -->
 <md-sidenav-container fullscreen>
-  <md-sidenav #start>
-    <md-nav-list>
-      <div class="container1" *ngIf="flag===1">
-        <img src={{maximizepic(user.avatar)}}>
-        <div> <button md-icon-button class="bottomright" (click)="start.close()" align="end">
-               <i class="material-icons">close</i></button>
-        </div>
-      </div>
+ <md-sidenav #start>
+   <md-nav-list>
+     <div class="container1" *ngIf="flag===1">
+       <img src={{maximizepic(user.avatar)}}>
+       <div> <button md-icon-button class="bottomright" (click)="start.close()" align="end">
+              <i class="material-icons">close</i></button>
+       </div>
+     </div>
+     <md-list-item>
+       <div> <i class="material-icons">home</i></div>
+       <div fxFlex='80'>
+         <a fxAlign="start" routerLink="/app/Home">Home</a>
+       </div>
+       
+     </md-list-item>
+     <!--<a md-list-item routerLink="/app/createCommunity">New Community</a>
+     <a md-list-item routerLink="/app/toolmarket">Tool Marketplace</a>
+     <a md-list-item routerLink="/app/addtool">Register Tool</a>-->
       <md-list-item>
         <div fxFlex='80'>
           <a fxAlign="start" routerLink="/app/">Home</a>
@@ -52,10 +62,11 @@
       </md-menu>
     </md-toolbar>
   </div>
-  <section class="containeralign">
+  <section class="containeralgin">
     <router-outlet></router-outlet>
   </section>
   <footer fxLayout="row" fxLayoutAlign="center center">
     <h5>Copyright &#9400; 2017 Stack-Route and Wipro-Digital * All Rights Reserved</h5>
   </footer>
+
 </md-sidenav-container>

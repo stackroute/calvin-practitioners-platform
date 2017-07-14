@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ToolMarketService } from './tool-market-place.service';
 import { Router } from '@angular/router';
+import { MdDialog } from '@angular/material';
 
 @Component({
   selector: 'calvin-tool-market-place',
@@ -12,7 +13,7 @@ export class ToolMarketPlaceComponent implements OnInit {
 
   tools;
   newTool;
-  constructor(private toolService: ToolMarketService, private router:Router) { }
+  constructor(private toolService: ToolMarketService, private router:Router,private dialog: MdDialog) { }
 
   ngOnInit() {
     this.toolService.getTools().subscribe(data => {
@@ -21,8 +22,16 @@ export class ToolMarketPlaceComponent implements OnInit {
       console.log('this.tools', this.tools);
       
     });
+    
+  }
+   openDialog() {
+    this.dialog.open(toolsPosted);
   }
 
+  postTools(data, domain){
+    this.toolService.postTools(domain,data).subscribe((data) => this.openDialog());
+
+}
   //searchValue;
   selectedValue(value1) {
     
@@ -54,9 +63,20 @@ export class ToolMarketPlaceComponent implements OnInit {
     
   }
 
+
   onSelect(toolid){
     console.log(toolid);
     this.router.navigate([`app/toolpage/${toolid}`]);
   }
   
+}
+
+@Component({
+  selector: 'toolsPosted',
+  templateUrl: 'toolsPosted.html',
+})
+export class toolsPosted {
+
+  constructor(private router: Router) { }
+ 
 }

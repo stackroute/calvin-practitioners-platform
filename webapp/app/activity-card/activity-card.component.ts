@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+// import { InfiniteScrollModule } from 'angular2-infinite-scroll';
 
 @Component({
   selector: 'calvin-activity-card',
@@ -9,6 +10,9 @@ import { Component, OnInit, Input } from '@angular/core';
 export class ActivityCardComponent implements OnInit {
   @Input() activity;
   constructor() {}
+  // onscroll(){
+  //   console.log("Scrolled");
+  // }
   ngOnInit() {
   }
 }
