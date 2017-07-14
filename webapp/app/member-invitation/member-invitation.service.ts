@@ -31,9 +31,8 @@ import { MdSnackBar } from '@angular/material';
     })
     .map(res => res.json());
   }
-  
-  listUniqueRoles(domain){
-   const url = '/api/v1/communityroleactions/'+domain+'?onlyroles=true';
+  listUniqueRoles(domainname){
+   const url = '/api/v1/communityroleactions/'+domainname+'?onlyroles=true';
    return this.http.get(url).map(res => res.json());
  }
 }

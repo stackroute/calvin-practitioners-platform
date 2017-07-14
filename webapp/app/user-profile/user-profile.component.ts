@@ -38,6 +38,7 @@ export class UserProfileComponent implements OnInit {
      console.log(this.addInterestArr);
    }
  } 
+ 
   // deselect chip value/remove tag value from an array
  deselectchip(interest) {
    const interestValue = interest;
