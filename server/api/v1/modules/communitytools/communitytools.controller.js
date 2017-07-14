@@ -40,7 +40,23 @@ function getTool(domain, done) {
     });
 }
 
+ // Call community tools service to post tools
+function postTool(domain, data, done) {
+  const url = `${BASE_COMMUNITY_SERVICE_URL}/communitytools/${domain}/tools`;
+  request
+ .post(url)
+ .send(data) // query string
+ .end((err, res) => {
+   if (err) {
+     return done(err);
+   }
+   return done(null, res.body);
+ });
+}
+
+
 module.exports = {
   retrieveAllTools,
   getTool,
+  postTool,
 };

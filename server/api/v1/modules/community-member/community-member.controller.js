@@ -93,25 +93,6 @@ function getMembers(member, done) {
   return done(null, cartoons);
 }
 
-
-// function getMembers(member, done) {
-//    // Call communities service to get all the members
-//   const url = `${BASE_COMMUNITY_SERVICE_URL}/community/members/${member}`;
-//   request
-//  .get(url)
-//  .query({ member }) // query string
-//  .end((err, res) => {
-//    if (err) {
-
-//      return done(err);
-//    }
-//    return done(null, res.body);
-//  });
-// }
-
-// module.exports = {
-//   getMembers,
-// =======
 function getMembersDetails(member, done) {
   let i = 0;
   while (i < cartoons.Members.length) {
@@ -129,25 +110,25 @@ function getMembersDetails(member, done) {
 }
 
 
-function postMemberInvite(domain, callback) {
-  const url = `${BASE_COMMUNITY_SERVICE_URL} /memberrequests/${domain}`;
-  request.get(url)
+function postMemberInvite(domain, inviteBody, done) {
+  const url = `${BASE_COMMUNITY_SERVICE_URL}/communitymembership/${domain}/members`;
+  request
+  .post(url)
+  .send(inviteBody)
   .end((err, res) => {
     if (err) {
-      return callback(err);
+      return done(err);
     }
-    return callback(null, res.body);
+    return done(null, res.body);
   });
 }
 
-function deleteMember(domain, data, callback) {
-    // Call communities service to get all the templates
+function deleteMembers(domain, data, callback) {
   const url = `${BASE_COMMUNITY_SERVICE_URL}/communitymembership/${domain}/members`;
   request.delete(url)
   .send(data)
   .end((err, res) => {
     if (err) {
-    //  console.log('Error in API to get community templates, error: ', err);
       return callback(err);
     }
     return callback(null, res.body);
@@ -160,6 +141,6 @@ module.exports = {
   getMembersDetails,
   postMemberInvite,
   getCommunityMembers,
-  deleteMember,
+  deleteMembers,
 };
 
