@@ -1,8 +1,9 @@
-import { Component, OnInit,Input, Inject } from '@angular/core';
+import { Component, OnInit,Input, Inject, Pipe, PipeTransform } from '@angular/core';
 import { ToolActions } from './community-tool-actions.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Params, RouterModule, Routes, Router, ActivatedRoute } from '@angular/router';
 import { MD_DIALOG_DATA, MdDialog, MdDialogRef} from '@angular/material';
+import { KeysPipe } from './community-tool-actions.pipe';
 
 @Component({
   selector: 'calvin-community-tool-actions',
@@ -74,3 +75,4 @@ export class CommunityToolActionsComponent implements OnInit {
   }
  
  }
+ 

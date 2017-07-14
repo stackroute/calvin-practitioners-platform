@@ -16,6 +16,7 @@ export class CommunityRoleManagementComponent implements OnInit {
   arrayObj = [];
   resultArray = [];
   roleObj = {};
+  toolObj={};
 
   @Input() community;
 
@@ -30,30 +31,28 @@ export class CommunityRoleManagementComponent implements OnInit {
     this.role.listRoles(this.route.snapshot.params['domain']).subscribe(res => {
       this.sample.push(res);{
       this.sample.forEach((val) => {
-        
-        
         (val.roleactions).forEach((data) => {
           const role = data.role;
           const toolid=data.toolid;
           if (!this.roleObj[role]) { this.roleObj[role] = []; }
-          if(!this.roleObj[toolid]){ this.roleObj[toolid]=[];}
+          if(!this.toolObj[toolid]){ this.toolObj[toolid]=[];}
           this.roleObj[role].push(data.action);
-          this.roleObj[toolid].push(data.toolid);
+          this.toolObj[toolid].push(data.action);
         });
        // this.arrayObj.push(this.roleObj)
-        console.log('roleObj', this.roleObj)
+        console.log('roleObj', this.toolObj)
         });
         this.getResults.forEach((data) => {
         const roles = data.role;
-        const toolid=data.toolid;
         data.action = this.roleObj[roles];
-        data.toolid=this.roleObj[toolid];
         return this.getResults;
       });
       console.log(this.getResults);
       let domain = this.route.snapshot.params['domain'];
       let roleactions = this.getResults;
-      this.resultArray.push({ domain, roleactions });
+      let toolactions=this.toolObj;
+      this.resultArray.push({ domain, roleactions,toolactions });
+      console.log(this.resultArray)
       return this.resultArray;
     }
     
@@ -63,6 +62,7 @@ export class CommunityRoleManagementComponent implements OnInit {
   openDialog() {
 
     const dialog = this.dialog.open(CommunityNewRoleCreationComponent, {
+      disableClose:true,
       data: this.route.snapshot.params['domain']
 
     });

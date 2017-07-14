@@ -45,7 +45,7 @@ import { CommunityProfileService } from './community-profile/community-profile.s
 import { updateSpecificCommunityService } from './manage-community/manage-community.service';
 import { ToolMarketService } from './tool-market-place/tool-market-place.service';
 import { NewRoleService } from './community-new-role-creation/community-new-role-creation.service';
-
+import { KeysPipe } from './community-tool-actions/community-tool-actions.pipe';
 import{RoleListServices} from './member-edit/member-edit.service';
 import { MarkdownModule } from 'angular2-markdown';
 
@@ -99,8 +99,8 @@ import { CommunityToolManagementComponent } from './community-tool-management/co
     IntegrateTool,
     CommunityNewRoleCreationComponent,
     CommunityToolManagementComponent,
-    CommunityDialogue
-
+    CommunityDialogue,
+    KeysPipe
      ],
 
   imports: [
@@ -128,11 +128,11 @@ import { CommunityToolManagementComponent } from './community-tool-management/co
     ReactiveFormsModule
   ],
 
-  entryComponents: [IntegrateTool,CommunityToolActionsComponent, NewcommunityDialogboxComponent,
+  entryComponents: [IntegrateTool,CommunityToolActionsComponent, NewcommunityDialogboxComponent,CommunityToolActionsComponent,
                      MemberInvitationComponent, SucessDialog,
-                      MemberEditComponent, updateCommunity,errorHandlingComponent ],
+                      MemberEditComponent, updateCommunity,errorHandlingComponent,CommunityNewRoleCreationComponent ],
 
-  providers: [RoleServices,RoleListServices, ToolActions, CommunityProfileService,ActivityService, updateSpecificCommunityService, ToolMarketService],
+  providers: [RoleServices,RoleListServices, ToolActions, CommunityProfileService,ActivityService, updateSpecificCommunityService, ToolMarketService,NewRoleService,KeysPipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

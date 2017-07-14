@@ -1,7 +1,7 @@
 <div fxLayout="column" md-dialog-content *ngIf="sample">
     <div *ngFor="let core of sample">
         <md-input-container fxLayoutAlign="start stretch">
-            <input mdInput #inputVal placeholder="Role Name:" value={{roleName}}/>
+            <input mdInput #inputVal placeholder="Enter the Role Name:" value={{roleName}}/>
         </md-input-container>
         <div *ngFor="let value of core.tools">
             <md-input-container fxLayoutAlign="start stretch">
