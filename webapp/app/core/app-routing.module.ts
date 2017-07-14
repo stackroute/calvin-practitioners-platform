@@ -23,7 +23,7 @@ import { ToolMarketPlaceComponent } from '../tool-market-place/tool-market-place
 import { ToolPageComponent } from '../tool-page/tool-page.component';
 import { CommunityMemberManagementComponent } from '../community-member-management/community-member-management.component';
 import { MemberInvitationComponent } from "../member-invitation/member-invitation.component";
-
+import { ToolConfigPageComponent } from '../tool-config-page/tool-config-page.component';
 
 // Calvin routes
 const routes: ModuleWithProviders = RouterModule.forRoot([
@@ -36,7 +36,7 @@ const routes: ModuleWithProviders = RouterModule.forRoot([
       { path: 'profile', component: UserProfileComponent },
       { path: 'userCommunity/:domain', component: CommunityDashboardComponent },
       { path: 'actions', component: CommunityRoleManagementComponent },
-      { path: 'communityDashBoard/:domain', component: CommunityDashboardComponent },
+      { path: 'communitydashboard/:domain', component: CommunityDashboardComponent },
       { path: 'managecommunity/:domain', component: ManageCommunityComponent },
       { path: 'activity', component: ActivityPageComponent },
       { path: 'members', component: MemberInvitationComponent },
@@ -44,7 +44,8 @@ const routes: ModuleWithProviders = RouterModule.forRoot([
       { path: 'managetools', component: ManageCommunityToolsComponent},
       { path: 'addtool', component: AddToolComponent},
       { path: 'toolmarket', component : ToolMarketPlaceComponent},
-      { path: 'toolpage/:toolid', component: ToolPageComponent }
+      { path: 'toolpage/:toolid', component: ToolPageComponent },
+      { path: 'toolconfig', component:ToolConfigPageComponent},
       ]
   },
   { path: '', redirectTo: '/app/home', pathMatch: 'full' },

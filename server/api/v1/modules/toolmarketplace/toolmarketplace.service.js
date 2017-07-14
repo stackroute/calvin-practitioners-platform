@@ -165,7 +165,7 @@ function getAllTools(done) {
 // get all tool actions 
 function getToolAction(done) {
   // console.log('entered getall tools service');
-  const query = `SELECT * FROM ${TABLE_NAME[1]}`;
+  const query = `SELECT * FROM ${TABLE_NAME[1]} where toolid='${toolid}'`;
   return client.execute(query, (err, results) => {
     if (err) {
       return done({ error: 'Actions not found' });

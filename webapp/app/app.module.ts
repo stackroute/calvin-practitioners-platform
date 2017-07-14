@@ -61,6 +61,7 @@ import { ToolPageComponent,IntegrateTool } from './tool-page/tool-page.component
 import { AppBarService } from './app-bar/app-bar.service';
 import { CommunityNewRoleCreationComponent } from './community-new-role-creation/community-new-role-creation.component';
 import { CommunityToolManagementComponent } from './community-tool-management/community-tool-management.component';
+import { ToolConfigPageComponent } from './tool-config-page/tool-config-page.component';
 
 @NgModule({
   declarations: [
@@ -99,7 +100,8 @@ import { CommunityToolManagementComponent } from './community-tool-management/co
     IntegrateTool,
     CommunityNewRoleCreationComponent,
     CommunityToolManagementComponent,
-    CommunityDialogue
+    CommunityDialogue,
+    ToolConfigPageComponent
 
      ],
 
