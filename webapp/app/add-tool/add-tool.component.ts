@@ -12,24 +12,19 @@ import 'rxjs/add/operator/map';
   providers: [AddToolService]
 })
 export class AddToolComponent implements OnInit {
+ 
  @Input() Toolid ;
   
   toolForm: FormGroup;
-  actionControl: FormControl;
   actions = [];
   events = [];
   toolaction: String;
   toolgrants: String;
   actionDesc: String;
-  toolpurpose:String;
   tooleventname: String;
   eventpayload: String;
   eventDesc: String;
   toolid: String;
-  toolname: String;
-  toolavatar: String;
-  tooldesc: String;
-  toc: any;
   actionFlag = 0;
   eventFlag = 0;
   actionCounter=0;
@@ -165,8 +160,9 @@ export class AddToolComponent implements OnInit {
   }
 
   // this function is to register the tool 
-  onsubmit(tooldata:any) {
-
+  onsubmit(formdata:any) {
+     
+   const  tooldata=formdata.value;
     // console.log(form.value);
     let actionobj={
         name: this.toolaction,
@@ -189,15 +185,15 @@ export class AddToolComponent implements OnInit {
     let toolobj = {
       toolid: tooldata.toolid,
       toolname: tooldata.toolname,
-      tooldesc: tooldata.tooldesc,
-      toolavatar: tooldata.toolavatar,
-      toolpurpose: tooldata.toolpurpose,
+      tooldesc: tooldata.description,
+      toolavatar: tooldata.avatar,
+      toolpurpose: tooldata.purpose,
       toolAction: this.actions,
       toolEvent: this.events
     };
 
     console.log("final  object.........",toolobj);
-    this.id=this.toolid;
+    this.id=tooldata.toolid;
     this.addtoolservice.addTool(toolobj).subscribe(result => {
       console.log('inside add tool response');
       // RESETTING FIELDS after successfully adding tool
@@ -209,6 +205,9 @@ export class AddToolComponent implements OnInit {
       // alert('data'+result);
 
       // opening Dialogue to show success message
+      this.dialog.open(SucessDialog,{
+        data:this.id
+      });
       this.dialog.open(SucessDialog, {
       data:this.id
     });
@@ -223,12 +222,13 @@ export class AddToolComponent implements OnInit {
 })
 export class SucessDialog {
   
-  toolid;
+  toolid:any;
   constructor(  private router: Router, 
   @Inject(MD_DIALOG_DATA) public data: any, 
   public dialogRef: MdDialogRef<AddToolComponent>) {
    this.toolid=data;
-   }
+  }
+  
   navigateTool() {
     alert('hi will navigate to tool'+`/app/toolpage/${this.toolid}`);
     this.router.navigate([`/app/toolpage/${this.toolid}`]);
