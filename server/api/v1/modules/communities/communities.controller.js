@@ -40,17 +40,17 @@ function updateSpecificCommunity(domain, form, done) {
 
 function getUserCommunity(member, done) {
    // Call specific user communities on the basis of username
-  console.log('value of memmebvr in server', member);
+  //console.log('value of memmebvr in server', member);
   const url = `${BASE_COMMUNITY_SERVICE_URL}/membership/${member}`;
   request
  .get(url)
  .query({ member }) // query string
  .end((err, res) => {
    if (err) {
-     console.log('error in server for getting community', err);
+     //console.log('error in server for getting community', err);
      return done(err);
    }
-   console.log('printing res body', res.body);
+   //console.log('printing res body', res.body);
    return done(null, res.body);
  });
 }
@@ -58,16 +58,13 @@ function getUserCommunity(member, done) {
 
 // post new community data
 function postNewcommunityDetails(domainName, newCommunityObj, done) {
-  console.log(domainName);
-  console.log(newCommunityObj);
   const url = `${BASE_COMMUNITY_SERVICE_URL}/communities/${domainName}`;
-  console.log('url*************************',url)
   request
   .post(url)
   .send(newCommunityObj) // sends a JSON post body
   .end((err, res) => {
     if (err) {
-      console.log('error-----------------',err);
+     // consoleconsole.log('error-----------------',err);
       return done(err);
     }
     return done(null, res.body);

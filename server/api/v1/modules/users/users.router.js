@@ -26,7 +26,7 @@ router.get('/:username', (req, res) => {
     const profileData = req.body;
     communityService.getUserDetails(emailAddrs, (err, result) => {
       if (err) {
-        console.log('Error in toolsCtrl.getTool, error: ', err);
+        //console.log('Error in toolsCtrl.getTool, error: ', err);
         res.status(500).send({ error: 'Internal error occurred....!' });
       } else {
         res.status(200).send(result);
@@ -34,9 +34,9 @@ router.get('/:username', (req, res) => {
     });
   } catch (err) {
     return res.status(500).send({
-      error: 'Internal error occurred....!' });
+      error: 'Internal error occurred....!'
+    });
   }
 });
-
 
 module.exports = router;

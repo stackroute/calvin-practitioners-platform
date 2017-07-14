@@ -4,16 +4,14 @@ const controller = require('./communitytools.controller.js');
 const router = express.Router();
 
 router.get('/:domainname', (request, response) => {
-  console.log(request.params.domainname);
-
   try {
     controller.retrieveAllTools(request.params.domainname, (err, result) => {
       if (err) {
-        console.log('dsvs');
+        //console.log('dsvs');
 
         response.status(500).send({ error: 'Error in getting community details, please try later..!' });
       } else {
-        console.log('dvsdvsdvdsvdg');
+        //console.log('dvsdvsdvdsvdg');
 
         response.status(200).send(result);
       }

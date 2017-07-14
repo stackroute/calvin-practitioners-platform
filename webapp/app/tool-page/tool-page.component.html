@@ -59,21 +59,20 @@
 	<div class="item item-2" fxFlex="2%" fxFlexOrder="3"></div>
 	<div class="item item-3" fxFlex class="form-div"  *ngIf="flag===1">
      <md-card fxFlex fxLayout="row">
-		 <div fxFlex="50%">
+		 <div fxFlex="25%">
        <img md-card-image  fxLayoutAlign="start" class="img-placing" src={{(toolinfo.toolavatar)}} alt="User">
 		 </div>
      <div class="item item-3" fxFlex="50%" class="form-div" *ngIf="flag===1">
        <ul> 
-		     <li>{{toolinfo.toolname}} </li>
-			 <li> {{toolinfo.toolid}}  </li>
-			 <li> {{toolinfo.purpose}} </li>
-			 <li> {{toolinfo.tooldesc}} </li>
-               
+		     <h3><li>{{toolinfo.toolname}} </li></h3>
+			 <h4><li> {{toolinfo.toolid}}  </li></h4>
+			 <h4><li> {{toolinfo.purpose}} </li></h4>
+			<h5> <li> {{toolinfo.tooldesc}} </li></h5>
        </ul>
-
+       
  </div>
     <div fxLayout="row" fxFlex="" fxLayoutAlign="center" fxLayoutGap="15px" fxLayoutAlign="end end">
-          <!-- Cancel Button-->
+           <!--Cancel Button-->
           <a md-raised-button routerLink="/app/home">Cancel</a>
           <!-- Submit button to Add the tool-->
           <button md-raised-button color="primary" (click)="integrateTool()">Integrate</button>
