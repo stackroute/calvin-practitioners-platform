@@ -4,7 +4,7 @@ const jwt = require('jsonwebtoken');
 const request = require('superagent');
 // const BASE_COMMUNITY_SERVICE_URL = 'http://calvin-communities.blr.stackroute.in/api/v1';
 
-const BASE_COMMUNITY_SERVICE_URL='http://172.23.238.141:3000/api/v1/communities';
+const BASE_COMMUNITY_SERVICE_URL='http://172.23.238.141:3000/api/v1';
 
 const cookies = []; // stores Cookies User and Community info tokens
 const USERS_TABLE = 'users';
