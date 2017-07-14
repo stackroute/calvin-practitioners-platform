@@ -20,7 +20,7 @@ router.use('/toolmarketplace', require('./modules/toolmarketplace'));
 
 // router.use('/community', require('./modules/community'));
 
-router.use('/memberactivitypage', require('./modules/communityActivities'));
+router.use('/memberactivitypage', require('./modules/communityactivities'));
 
 
 // router.use('/community', require('./modules/community'));
@@ -33,7 +33,7 @@ router.use('/communityroleactions', require('./modules/communityroleactions'));
 
 // router.use('/community', require('./modules/tools'));
 
-router.use('/communityMembers', require('./modules/community-member'));
+router.use('/communityMembers', require('./modules/communitymember'));
 
 // router.use('/memberInvite', require('./modules/member-invite'));
 
