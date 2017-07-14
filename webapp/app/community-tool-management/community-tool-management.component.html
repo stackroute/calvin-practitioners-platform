@@ -11,7 +11,7 @@
               <h5><b>{{val.toolid}}</b></h5>
             </div>
           </div>
-          <div><md-icon routerLink="/app/toolconfig">settings</md-icon></div>   <!--(click)="openBox()"-->
+          <div><md-icon (click)="config(val.toolid)">settings</md-icon></div>   <!--(click)="openBox()"routerLink="/app/toolconfig/`${val.toolid}`"-->
         </md-list-item>
       </md-list>
     </div>

@@ -1,8 +1,9 @@
-import { Component, OnInit,Input, Inject } from '@angular/core';
+import { Component, OnInit,Input, Inject, Pipe, PipeTransform } from '@angular/core';
 import { ToolActions } from './community-tool-actions.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Params, RouterModule, Routes, Router, ActivatedRoute } from '@angular/router';
 import { MD_DIALOG_DATA, MdDialog, MdDialogRef} from '@angular/material';
+import { KeysPipe } from './community-tool-actions.pipe';
 
 @Component({
   selector: 'calvin-community-tool-actions',
@@ -18,6 +19,7 @@ export class CommunityToolActionsComponent implements OnInit {
   a=[];
   domainName;
   roleName;
+  toolActions=[];
   y={};
   @Input() community;
  
@@ -25,8 +27,9 @@ export class CommunityToolActionsComponent implements OnInit {
   public dialogRef: MdDialogRef<CommunityToolActionsComponent>) { 
   this.domainName = data.domain ; 
   this.roleName=data.role;
-  console.log('domin name from dialog',this.roleName);
-    
+  this.toolActions=data.tool;
+  console.log('domain name from dialog',this.roleName);  
+  console.log('tool',this.toolActions)  ; 
     this.tool.listTools(this.domainName).subscribe(res => {return this.sample.push(res);
     });
     
@@ -72,3 +75,4 @@ export class CommunityToolActionsComponent implements OnInit {
   }
  
  }
+ 

@@ -18,7 +18,7 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
 import 'hammerjs';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MdSelectModule } from '@angular/material';
-import { CreateCommunityComponent, errorHandlingComponent } from './create-community/create-community.component';
+import { CreateCommunityComponent } from './create-community/create-community.component';
 import { CommunityRoleActionsComponent } from './community-role-actions/community-role-actions.component';
 import { CommunityRoleManagementComponent } from './community-role-management/community-role-management.component';
 import { CommunityToolActionsComponent } from './community-tool-actions/community-tool-actions.component';
@@ -45,12 +45,13 @@ import { CommunityProfileService } from './community-profile/community-profile.s
 import { updateSpecificCommunityService } from './manage-community/manage-community.service';
 import { ToolMarketService } from './tool-market-place/tool-market-place.service';
 import { NewRoleService } from './community-new-role-creation/community-new-role-creation.service';
-
+import { KeysPipe } from './community-tool-actions/community-tool-actions.pipe';
 import{RoleListServices} from './member-edit/member-edit.service';
 import { MarkdownModule } from 'angular2-markdown';
 
 import { CommunityMemberManagementComponent } from './community-member-management/community-member-management.component';
 
+import { Memberservice } from './community-member-management/community-member-management.service';
 import { ManageCommunityToolsComponent } from './manage-community-tools/manage-community-tools.component';
 import { AddToolComponent,SucessDialog } from './add-tool/add-tool.component';
 import { NewcommunityDialogboxComponent } from './newcommunity-dialogbox/newcommunity-dialogbox.component';
@@ -96,11 +97,11 @@ import { ToolConfigPageComponent } from './tool-config-page/tool-config-page.com
     SucessDialog,
     MemberEditComponent,
     ToolPageComponent,
-    errorHandlingComponent,
     IntegrateTool,
     CommunityNewRoleCreationComponent,
     CommunityToolManagementComponent,
     CommunityDialogue,
+    KeysPipe,
     DialogResultExampleDialog,
     ToolConfigPageComponent
      ],
@@ -129,16 +130,12 @@ import { ToolConfigPageComponent } from './tool-config-page/tool-config-page.com
     MdDialogModule,
     ReactiveFormsModule
   ],
+  entryComponents: [IntegrateTool,CommunityToolActionsComponent,
+   NewcommunityDialogboxComponent,DialogResultExampleDialog,MemberInvitationComponent, 
+   SucessDialog, MemberEditComponent, updateCommunity,CommunityNewRoleCreationComponent ],
 
-
-//   entryComponents: [DialogResultExampleDialog,IntegrateTool,CommunityToolActionsComponent, NewcommunityDialogboxComponent, MemberInvitationComponent,SucessDialog,MemberEditComponent,updateCommunity,CommunityDialogue,CommunityNewRoleCreationComponent, DialogResultExampleDialog],
-//   providers: [RoleServices, ToolActions, CommunityProfileService,ActivityService, updateSpecificCommunityService, ToolMarketService, ToolService,NewRoleService],
-
-  entryComponents: [IntegrateTool,CommunityToolActionsComponent, NewcommunityDialogboxComponent,
-                     MemberInvitationComponent, SucessDialog,
-                      MemberEditComponent, updateCommunity,errorHandlingComponent ],
-
-  providers: [RoleServices,RoleListServices, ToolActions, CommunityProfileService,ActivityService, updateSpecificCommunityService, ToolMarketService],
+  providers: [RoleServices,RoleListServices, ToolActions, CommunityProfileService,ActivityService,
+               updateSpecificCommunityService, ToolMarketService,ToolService,NewRoleService,KeysPipe,MembersService,Memberservice],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
