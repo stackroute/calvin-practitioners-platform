@@ -97,7 +97,7 @@ function getUserCommunities(username, done) {
    return done(null, cookies);
  });
 }
-
+//update user details in userprofile component
 function updateSpecificProfile(emailAddrs, profileData, done) {
   const query = (`UPDATE ${USERS_TABLE} SET aboutMe = '${profileData.about}',contact = '${profileData.contact}',interestedtopics= {'${profileData.interest}'},location = '${profileData.loc}' WHERE username = '${emailAddrs}'`);
   client.execute(query, (err) => {
@@ -108,17 +108,14 @@ function updateSpecificProfile(emailAddrs, profileData, done) {
     }
   });
 }
-
+//get user details from user profile component
 function getUserDetails(emailAddrs, done) {
   console.log('Insise Service');
   const query = (`SELECT aboutme,contact,interestedtopics,location from ${USERS_TABLE} where username ='${emailAddrs}'`);
   client.execute(query, (err, result) => {
     if (!err) {
-      console.log('checking result');
       done(undefined, result.rows);
-      console.log("check result output",result.rows);
     } else {
-      console.log('checking err');
       done(err, null);
     }
   });

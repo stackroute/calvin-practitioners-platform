@@ -20,7 +20,9 @@ export class CommunityMemberManagementComponent implements OnInit {
   constructor(private membersService: Memberservice, public dialog: MdDialog) { }
   
   ngOnInit() {
-    console.log("Current Domain is: ", this.community);
+    this.getMember();    
+  }
+  getMember(){
     if(this.community) {
       this.membersService.getMember(this.community).subscribe(data => {
         this.members = data;
@@ -28,15 +30,17 @@ export class CommunityMemberManagementComponent implements OnInit {
     };
   }
   deleteMember(name)
-  {
-       console.log('clicked delete');
- 
+  { 
     let a=[];
     a.push({username:name});
     console.log("hello-------array",a);
-      this.membersService.deleteMember(this.community,a).subscribe(data=>{
+      this.membersService.deleteMember(this.community,a).subscribe(data => {
         this.members=data;
+        console.log("After Deleting", this.members);
+        this.getMember();
       });
+
+      // After deleting
   }
   onScroll() {
   }
@@ -51,7 +55,7 @@ export class CommunityMemberManagementComponent implements OnInit {
     console.log('community name',this.community);
     let dialogRef = this.dialog.open(MemberEditComponent,{
       data:{domain:this.community,
-        val:name}
-    });
+        val:name}       
+    }); 
   }
 }

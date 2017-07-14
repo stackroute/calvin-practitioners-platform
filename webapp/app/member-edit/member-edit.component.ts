@@ -2,13 +2,14 @@ import { Component, OnInit, Pipe, PipeTransform, Input, Inject } from '@angular/
 import { Params, RouterModule, Routes, Router, ActivatedRoute } from '@angular/router';
 import { RoleListServices } from './member-edit.service';
 import { MD_DIALOG_DATA, MdDialog, MdDialogRef} from '@angular/material';
+import { Memberservice } from '../community-member-management/community-member-management.service';
 
 
 @Component({
   selector: 'calvin-member-edit',
   templateUrl: './member-edit.component.html',
   styleUrls: ['./member-edit.component.css'],
-  providers: [RoleListServices],
+  providers: [RoleListServices,Memberservice],
 })
 export class MemberEditComponent {
   @Input() community;
@@ -18,7 +19,7 @@ export class MemberEditComponent {
  coreValue ;
  sample=[];
  
-  constructor(private role: RoleListServices, private router: Router,private route: ActivatedRoute,
+  constructor(private membersService: Memberservice,private role: RoleListServices, private router: Router,private route: ActivatedRoute,
   @Inject(MD_DIALOG_DATA) public data: any, 
   public dialogRef: MdDialogRef<MemberEditComponent>) {
   
@@ -36,13 +37,21 @@ export class MemberEditComponent {
       console.log('roles');
   });
 }
+ getMember(){
+    if(this.community) {
+      this.membersService.getMember(this.community).subscribe(data => {
+        this.members = data;
+      })
+    };
+  }
  update(name)
   {
     console.log('my update value', name, this.coreValue);
     let a=[];
     a.push({username:name,role:this.coreValue});
        console.log("hello-------array",a);
-    return this.role.updateRole(this.domainname,a).subscribe(res=>{return this.sample.push(res);
+     this.role.updateRole(this.domainname,a).subscribe(res=>{ this.sample.push(res);
+      this.getMember();
     });
   }
   selectCore(core) {
@@ -51,7 +60,7 @@ export class MemberEditComponent {
   }
 
 ngOnInit() {
-    
+    this.getMember();
   }
 
 }

@@ -9,3 +9,7 @@
 .communityNameFont {
     text-transform: capitalize;
 }
+
+.visibilityDesc {
+    color: gray ;
+}
