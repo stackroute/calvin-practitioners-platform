@@ -56,6 +56,22 @@ router.patch('/communityrole/:domainname/roles/:rolename', (req, res) => {
   }
 });
 
+router.patch('/communitymembership/:domain/members', (req, res) => {
+  try {
+   console.log(req.params.domain,"domain name");
+   console.log(req.body,"sgwrgwrgwrgrew");
+    controller.updateRole(req.params.domain,req.body, (err, result) => {
+      if (err) {
+        return res.status(500).send({ error: 'Unexpected error occurred, try again later' });
+      }
+      return res.status(200).send(result);
+    });
+  } catch (err) {
+    return res.status(500).send({
+      error: 'Unexpected error occurred, try again later' });
+  }
+});
+
 
 router.post('/communityrole/:domainName', (req, res) => {
   try {

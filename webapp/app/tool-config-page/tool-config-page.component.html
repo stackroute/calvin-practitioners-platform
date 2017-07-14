@@ -1,9 +1,49 @@
-<!--<form #tool="ngForm">
-  <md-input-container fxLayoutAlign="start">
-    <input mdInput placeholder="Domain (disabled)" disabled value={{community.domain}}>
-  </md-input-container>
-</form>-->
+<div fxLayout fxLayout.xs="row" fxLayoutGap="0px" fxLayoutGap.xs="0">
+  <div fxFlex="20%" fxLayout="row"> </div>
+  <!--<div fxFlex="100%" fxLayout="row" fxLayoutAlign=" start">-->
+    
+    <form #tool="ngForm" class="form">
+      <h2>ToolInfo</h2>
+      <div *ngFor="let val of allTool">
+        <!--<label>{{val.toolid}}</label>-->
+        <md-input-container fxLayoutAlign="start">
+          <input mdInput placeholder="" disabled value={{val.toolid}} disabled>
+        </md-input-container>
+        <md-input-container fxLayoutAlign="start">
+          <input mdInput placeholder="" disabled value={{val.purpose}} disabled>
+        </md-input-container>
+        <md-input-container fxLayoutAlign="start">
+          <input mdInput placeholder="" disabled value={{val.toolavatar}} disabled>
+        </md-input-container>
+        <md-input-container fxLayoutAlign="start">
+          <input mdInput placeholder="" disabled value={{val.tooldesc}} disabled>
+        </md-input-container>
+      </div>
+      <h2>ToolAction</h2>
+      <div *ngFor="let val of toolActions">
+        <!--<label>{{val.toolid}}</label>-->
+        <md-input-container fxLayoutAlign="start">
+          <input mdInput placeholder="" disabled value={{val.actionid}} disabled>
+        </md-input-container>
+        <md-input-container fxLayoutAlign="start">
+          <input mdInput placeholder="" disabled value={{val.grantactions}} disabled>
+        </md-input-container>
+        <md-input-container fxLayoutAlign="start">
+          <input mdInput placeholder="" disabled value={{val.name}} disabled>
+        </md-input-container>
+        <md-input-container fxLayoutAlign="start">
+          <input mdInput placeholder="" disabled value={{val.description}} disabled>
+        </md-input-container>
+      </div>
+      <div fxLayout="row">
+        <div fxFlex="33%">flex1</div>
+        <div fxFlex="33%">flex2</div>
+        <div fxFlex="33%">flex3</div>
+      </div>
+    </form>
+  <!--</div>-->
+</div>
 
 <div fxFlex="20%" fxLayoutAlign="end">
-        <button md-raised-button color="primary" class="bottom-button" routerLink="/app/communityDashBoard/:value">submit</button>
-    </div>
+  <button md-raised-button color="primary" class="bottom-button" routerLink="/app/communityDashBoard/:value">submit</button>
+</div>
