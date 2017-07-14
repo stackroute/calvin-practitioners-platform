@@ -141,6 +141,6 @@ module.exports = {
   getMembersDetails,
   postMemberInvite,
   getCommunityMembers,
-  deleteMember,
+  deleteMembers,
 };
 
