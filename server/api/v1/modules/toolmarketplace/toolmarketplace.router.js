@@ -23,9 +23,9 @@ router.get('/', (req, res) => {
   }
 });
 
-router.get('/actions', (req, res) => {
+router.get('/actions/:toolid', (req, res) => {
   try {
-    toolCtrl.getToolAction((err, result) => {
+    toolCtrl.getToolAction(req.params.toolid,(err, result) => {
       if (err) {
         res.status(500).json({
           error: `unable to get toolactions in Calvin..! , Please try again later${err}`,
@@ -60,22 +60,22 @@ router.get('/events', (req, res) => {
 });
 
 router.get('/tool/:toolid', (req, res) => {
-  console.log('inside toolpage APi', req.params.toolid);
+  //console.log('inside toolpage APi', req.params.toolid);
 
   try {
     toolCtrl.getTool(req.params.toolid, (err, result) => {
       if (err) {
-        console.log('error is ', err);
+        //console.log('error is ', err);
         res.status(500).json({
           error: 'unable to get tool in Calvin..! , Please try again later',
         });
       } else {
-        console.log('result in router', result);
+        //console.log('result in router', result);
         res.status(200).json(result);
       }
     });
   } catch (error) {
-    console.log('catch err', error);
+   // console.log('catch err', error);
     res.status(500).json({
       error: 'Internal server error..! Please try again later',
     });
@@ -83,12 +83,12 @@ router.get('/tool/:toolid', (req, res) => {
 });
 
 router.post('/tool', (req, res) => {
-  console.log(' printing body :', req.body);
+  //console.log(' printing body :', req.body);
   const tool = req.body;
   try {
     toolCtrl.addTool(tool, (err) => {
       if (err) {
-       // console.log('error occured');
+        // console.log('error occured');
         res.status(500).json({
           error: 'unable to add tool in Calvin..! , Please try again later',
         });
@@ -103,7 +103,7 @@ router.post('/tool', (req, res) => {
       error: 'Internal server error..! Please try again later',
     });
   }
-//  res.json({success:"tool added"});
+  //  res.json({success:"tool added"});
 });
 
 module.exports = router;

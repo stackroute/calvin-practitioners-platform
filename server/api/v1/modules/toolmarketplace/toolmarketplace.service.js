@@ -10,7 +10,7 @@ const TABLE_NAME = ['toolinfo', 'toolactions', 'toolevents', 'toolcommunity'];
 
 // this function is to check if tool is already present in DB
 function checkIfToolExists(toolid, done) {
-  console.log('check if tool exists');
+  // console.log('check if tool exists');
   const checkQry = `SELECT * FROM ${TABLE_NAME[0]} where toolid = '${toolid}'`;
   client.execute(checkQry, (err, result) => {
     if (err) {
@@ -25,7 +25,7 @@ function checkIfToolExists(toolid, done) {
 
 // this function inserts Tool Basic information in DB
 function insertBasicToolInfo(tool, done) {
-  console.log('tool info is ', tool);
+  // console.log('tool info is ', tool);
   const basicQry = `INSERT INTO ${TABLE_NAME[0]} (toolid,toolname,toolavatar,tooldesc,purpose) VALUES (:id,:name,:avatar,:detail,:purpose);`;
   const basicInfo = {
     id: tool.toolid,
@@ -35,7 +35,7 @@ function insertBasicToolInfo(tool, done) {
     purpose: tool.toolpurpose,
   };
 
-  console.log('tool basic info', basicInfo);
+  // console.log('tool basic info', basicInfo);
 
   client.execute(basicQry, basicInfo, (err, result) => {
     if (err) {
@@ -47,7 +47,7 @@ function insertBasicToolInfo(tool, done) {
 
 // this function inserts tool Action in DB
 function insertToolActionInfo(tool, done) {
-  console.log('tool data in toolaction.....', tool);
+  // console.log('tool data in toolaction.....', tool);
   const query = `INSERT into ${TABLE_NAME[1]} (toolid,actionid,description,grantactions,name) VALUES(?,?,?,?,?)`;
 
   const toolactions = tool.toolAction;
@@ -59,11 +59,11 @@ function insertToolActionInfo(tool, done) {
     actionArray.push({ query, params: [tool.toolid, currentAction.name, currentAction.id, currentAction.grants, currentAction.desc] });
   });
 
-  console.log('actions are ...', actionArray);
+  // console.log('actions are ...', actionArray);
 
   client.batch(actionArray, { prepare: true }, (err, result) => {
     if (err) {
-      console.log('error is ', err);
+      // console.log('error is ', err);
       done(err, 'Unable to insert Action in DB ');
     }
     return done(null, 'sucesss');
@@ -72,7 +72,7 @@ function insertToolActionInfo(tool, done) {
 
 // this function insert tool events in DB
 function insertToolEventInfo(tool, done) {
-  console.log('tool data in toolevent.....', tool);
+  // console.log('tool data in toolevent.....', tool);
   const query = `INSERT into ${TABLE_NAME[2]} (toolid,eventid,name,description,metadata) VALUES(?,?,?,?,?)`;
 
   const toolEvent = tool.toolEvent;
@@ -84,11 +84,11 @@ function insertToolEventInfo(tool, done) {
     eventArray.push({ query, params: [tool.toolid, currentEvent.id, currentEvent.name, currentEvent.description, currentEvent.metadata] });
   });
 
-  console.log('actions are ...', eventArray);
+  // console.log('actions are ...', eventArray);
 
   client.batch(eventArray, { prepare: true }, (err, result) => {
     if (err) {
-      console.log('error is ', err);
+      // console.log('error is ', err);
       done(err, 'Unable to insert event in DB ');
     }
     return done(null, 'sucesss');
@@ -103,7 +103,7 @@ function addToolinDB(tool, done) {
     insertToolEventInfo.bind(null, tool),
   ], (err, results) => {
     if (err) {
-      console.log('error is ....', err);
+      //console.log('error is ....', err);
       return done(err, 'failed');
     }
     return done(null, 'success');
@@ -119,7 +119,7 @@ function AddToolinMarketplace(tool, done) {
       return done(null, 'Tool Already exist');
     }
 
-    console.log('tool doesnt exists');
+    //console.log('tool doesnt exists');
 
     addToolinDB(tool, (err) => {
       if (err) {
@@ -137,15 +137,15 @@ function testing(toolid, done) {
 
 // this function returns a single tool information for given toolid
 function getSingleTool(toolid, done) {
-  console.log('inside get single tool');
+  //console.log('inside get single tool');
 
   const getQuery = ` SELECT * from ${TABLE_NAME[0]} where toolid='${toolid}'`;
   client.execute(getQuery, (err, result) => {
     if (err) {
-      console.log('error is ', err);
+      // console.log('error is ', err);
       return done(err, 'Unable to Find tool');
     }
-    console.log('result is : ', result);
+    // console.log('result is : ', result);
     return done(null, result.rows);
   });
 }
@@ -165,7 +165,7 @@ function getAllTools(done) {
 // get all tool actions 
 function getToolAction(done) {
   // console.log('entered getall tools service');
-  const query = `SELECT * FROM ${TABLE_NAME[1]}`;
+  const query = `SELECT * FROM ${TABLE_NAME[1]} where toolid='${toolid}'`;
   return client.execute(query, (err, results) => {
     if (err) {
       return done({ error: 'Actions not found' });

@@ -4,16 +4,14 @@ const controller = require('./communitytools.controller.js');
 const router = express.Router();
 
 router.get('/:domainname', (request, response) => {
-  console.log(request.params.domainname);
-
   try {
     controller.retrieveAllTools(request.params.domainname, (err, result) => {
       if (err) {
-        console.log('dsvs');
+        //console.log('dsvs');
 
         response.status(500).send({ error: 'Error in getting community details, please try later..!' });
       } else {
-        console.log('dvsdvsdvdsvdg');
+        //console.log('dvsdvsdvdsvdg');
 
         response.status(200).send(result);
       }
@@ -49,4 +47,28 @@ router.get('/:domainname/', (req, res) => {
   return true;
 });
 
+
+router.post('/:domainname/',(req, res) => {
+   try{
+     controller.postTool(req.params.domain, req.body,(err, result) => {
+       if (err) {
+         res.status(500).send({error: 'Internal error ocurred...!!!'});
+       } else{
+         res.status(200).send(result);
+       }
+       return true;
+     });
+   }catch (err){
+
+     return res.status(500).send({
+       error: 'Internal error occurred..!!!' })
+   }
+   return true;
+
+});
+
+
 module.exports = router;
+
+
+

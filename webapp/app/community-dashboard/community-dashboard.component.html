@@ -2,13 +2,13 @@
 <calvin-community-profile [profile]="this.community">
 </calvin-community-profile>
 <div fxLayout="row" fxLayoutGap="">
-  <div fxLayout="column" fxFlex="30%">
+  <div fxLayout="column" fxFlex="30%" fxFlex.md="20%" >
     <calvin-community-tools-widget [community]="this.domain"></calvin-community-tools-widget>
   </div>
-  <div fxFlex="40%">
+  <div fxFlex="40%" fxFlex.md="60%">
     <calvin-activity-page></calvin-activity-page>
   </div>
-  <div fxFlex="30%">
+  <div fxFlex="30%" fxFlex.md="20%">
     <calvin-community-members-widget [community]="this.domain"></calvin-community-members-widget>
   </div>
 </div>
