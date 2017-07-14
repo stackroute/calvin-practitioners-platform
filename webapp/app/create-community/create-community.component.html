@@ -17,7 +17,11 @@
           </div>
         </md-hint>
       </md-input-container>
-      <div><small ng-disabled="!domainName.value">Domain {{ isDomainExists ? " exists already " : " available " }}</small></div>
+      <div *ngIf="flag===1" fxLayoutAlign="center center">
+        <div *ngIf="isDomainExists === false" ><i class="material-icons" style="color: green">check_circle</i></div>
+        <div *ngIf="isDomainExists === true" ><i class="material-icons" style="color: red">close</i></div>
+        <!--<small >Domain {{ isDomainExists ? " exists already " : " available " }}</small>-->
+      </div>
     </div>
   <!--community text field-->
   <div class="inputFields" fxLayout.md="column">
@@ -42,13 +46,13 @@
     </md-input-container>
   </div>
   <!--choose visibitity mode-->
-  <div class="inputFields" fxLayout.md="column">
+  <div class="inputFields" fxLayout.md="column" fxLayoutGap="100px">
     <md-input-container>
       <input mdInput placeholder="Visibility" disabled >
       <md-radio-group name="visibility" formControlName="visibility" > 
         <!--[(ngModel)]="visibility">-->
         <md-radio-button value="Public" >Public <div fxFlex="20%" class="visibilityDesc">Visible to anyone anywhere </div></md-radio-button>
-        <md-radio-button value="Private" >Private <div fxFlex="20%" class="visibilityDesc">Visible only you</div> </md-radio-button>
+        <md-radio-button value="Private" >Private <div fxFlex="20%" class="visibilityDesc">Visible only to you</div> </md-radio-button>
         <md-radio-button value="Moderated" >Moderated <div fxFlex="20%" class="visibilityDesc">Only invited members can join and see community content </div></md-radio-button>
       </md-radio-group>
     </md-input-container>
@@ -123,4 +127,5 @@
   </form>
   <div fxLayout="column" fxFlex="10"></div>
 </div>
+
 <router-outlet></router-outlet>

@@ -12,13 +12,21 @@ export class CreateCommunityService {
     constructor(private _http: Http, private snackBar: MdSnackBar) { }
 
     getTemplates() {
-        return this._http.get('api/v1/communitytemplates').map(res => res.json());
+        // return this._http.get('api/v1/communitytemplates').map(res => res.json());
+           return this._http
+                .get('api/v1/communitytemplates') 
+                .catch(err => {
+                this.snackBar.open('server error..!!!', 'try again!', {
+                    duration: 3000
+                });
+                return Observable.throw(err); // observable needs to be returned or exception raised
+            }).map(res => res.json());
     }
 
-    getuserinfo() {
-        const url = 'api/v1/user/getinfo';
-        return this._http.get(url).map((response: Response) => response.json());
-    }
+    // getuserinfo() {
+    //     const url = 'api/v1/user/getinfo';
+    //     return this._http.get(url).map((response: Response) => response.json());
+    // }
 
     // postNewcommunityDetails(newCommunityObj, domainName) {
     //     return this._http.post(`api/v1/communities/${domainName}`, newCommunityObj).map((res => console.log('helooooooo')));

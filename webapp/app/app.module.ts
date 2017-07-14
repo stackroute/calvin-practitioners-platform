@@ -18,7 +18,7 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
 import 'hammerjs';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MdSelectModule } from '@angular/material';
-import { CreateCommunityComponent, errorHandlingComponent } from './create-community/create-community.component';
+import { CreateCommunityComponent } from './create-community/create-community.component';
 import { CommunityRoleActionsComponent } from './community-role-actions/community-role-actions.component';
 import { CommunityRoleManagementComponent } from './community-role-management/community-role-management.component';
 import { CommunityToolActionsComponent } from './community-tool-actions/community-tool-actions.component';
@@ -96,13 +96,11 @@ import { ToolConfigPageComponent } from './tool-config-page/tool-config-page.com
     SucessDialog,
     MemberEditComponent,
     ToolPageComponent,
-    errorHandlingComponent,
     IntegrateTool,
     CommunityNewRoleCreationComponent,
     CommunityToolManagementComponent,
     CommunityDialogue,
     ToolConfigPageComponent
-
      ],
 
   imports: [
@@ -132,7 +130,7 @@ import { ToolConfigPageComponent } from './tool-config-page/tool-config-page.com
 
   entryComponents: [IntegrateTool,CommunityToolActionsComponent, NewcommunityDialogboxComponent,
                      MemberInvitationComponent, SucessDialog,
-                      MemberEditComponent, updateCommunity,errorHandlingComponent ],
+                      MemberEditComponent, updateCommunity ],
 
   providers: [RoleServices,RoleListServices, ToolActions, CommunityProfileService,ActivityService, updateSpecificCommunityService, ToolMarketService],
   bootstrap: [AppComponent]
