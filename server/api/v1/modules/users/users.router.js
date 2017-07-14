@@ -34,9 +34,9 @@ router.get('/:username', (req, res) => {
     });
   } catch (err) {
     return res.status(500).send({
-      error: 'Internal error occurred....!' });
+      error: 'Internal error occurred....!'
+    });
   }
 });
-
 
 module.exports = router;

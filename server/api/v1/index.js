@@ -1,6 +1,5 @@
 const router = require('express').Router();
 const config = require('./modules/common/config');
-// router.use('/users', require('./modules/users'));
 
 router.use('/login', require('./modules/login'));
 router.use('/logout', (req, res) => {

@@ -61,7 +61,7 @@ import { ToolPageComponent,IntegrateTool } from './tool-page/tool-page.component
 import { AppBarService } from './app-bar/app-bar.service';
 import { CommunityNewRoleCreationComponent } from './community-new-role-creation/community-new-role-creation.component';
 import { CommunityToolManagementComponent } from './community-tool-management/community-tool-management.component';
-
+import { DialogResultExampleDialog } from './user-profile/user-profile.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -98,7 +98,8 @@ import { CommunityToolManagementComponent } from './community-tool-management/co
     IntegrateTool,
     CommunityNewRoleCreationComponent,
     CommunityToolManagementComponent,
-    CommunityDialogue
+    CommunityDialogue,
+    DialogResultExampleDialog 
 
      ],
 
@@ -127,7 +128,7 @@ import { CommunityToolManagementComponent } from './community-tool-management/co
     ReactiveFormsModule
   ],
 
-  entryComponents: [IntegrateTool,CommunityToolActionsComponent, NewcommunityDialogboxComponent, MemberInvitationComponent,SucessDialog,MemberEditComponent,updateCommunity,CommunityDialogue,CommunityNewRoleCreationComponent],
+  entryComponents: [DialogResultExampleDialog,IntegrateTool,CommunityToolActionsComponent, NewcommunityDialogboxComponent, MemberInvitationComponent,SucessDialog,MemberEditComponent,updateCommunity,CommunityDialogue,CommunityNewRoleCreationComponent, DialogResultExampleDialog],
   providers: [RoleServices, ToolActions, CommunityProfileService,ActivityService, updateSpecificCommunityService, ToolMarketService, ToolService,NewRoleService],
   bootstrap: [AppComponent]
 })
