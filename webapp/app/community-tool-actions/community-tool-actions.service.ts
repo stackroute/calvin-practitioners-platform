@@ -8,6 +8,7 @@ import 'rxjs/Rx';
 export class ToolActions {
   constructor(private http: Http) { }
 
+
   listTools(domainName) {
     //console.log('In service');
     const url = '/api/v1/communitytools/'+domainName;

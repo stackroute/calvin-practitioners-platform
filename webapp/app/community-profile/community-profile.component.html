@@ -1,29 +1,30 @@
-<div *ngIf="profile" id="sample"  >
+<div *ngIf="profile" id="sample">
   <div fxLayout fxLayout.xs="row" fxLayoutGap="0px" fxLayoutGap.xs="0" class="content">
-     <div fxFlex="20%" fxFlexAlign='start' >
-       <md-list fxLayoutAlign="start">
-         <md-list-item class="community-image">
-            <img md-list-avatar src={{profile.avatar}}>
-          </md-list-item>
-        </md-list>
-            <div class="community-details-name">
-              <h4> {{profile.domain}}</h4></div>
-              <h5 class="community-details">{{profile.createdon}}</h5>
-             </div>
-             <div fxLayout fxLayout.xs="row" fxLayoutGap="0px" fxLayoutGap.xs="0" fxFlex="60%">
-             <div fxFlex="60%" class="community-profile" >
-               <h1 fxLayoutAlign="start" id="heading">{{profile.name}} </h1>
-               <h4 fxLayoutAlign="start" class="community-description" >{{profile.description}}  </h4>
-               <span  fxLayoutAlign="start" fxLayout.xs="column" fxLayoutGap="20px" >
+    <div fxFlex="20%" fxFlexAlign='start'>
+      <md-list fxLayoutAlign="start">
+        <md-list-item class="community-image">
+          <img md-list-avatar src={{profile.avatar}}>
+        </md-list-item>
+      </md-list>
+      <div class="community-details-name">
+        <h3> {{profile.domain}}</h3>
+      </div>
+      <h5 class="community-details">{{profile.createdon}}</h5>
+    </div>
+    <div fxLayout fxLayout.xs="row" fxLayoutGap="0px" fxLayoutGap.xs="0" fxFlex="60%">
+      <div fxFlex="100%" class="community-profile">
+        <h2 fxLayoutAlign="start" id="heading">{{profile.name}} </h2>
+        <h4 fxLayoutAlign="start" class="community-description">{{profile.description}} </h4>
+        <span fxLayoutAlign="start" fxLayout.xs="column" fxLayoutGap="20px">
                  <div id="chip" *ngFor="let tag of profile.tags">
-               <md-chip  class="tag">{{tag}}</md-chip>
+               <md-chip  class="z-depth-2" >{{tag}}</md-chip>
                  </div>
                </span>
-            </div>
-           </div>
+      </div>
+    </div>
 
-             <div class="item item-4" fxFlex="20%" fxFlexOrder="4">
-              <div class="manage-community-info" >
+  <div class="item item-4" fxFlex="20%" fxFlexOrder="4" >
+              <div class="manage-community-info" *ngIf="this.CommunitiesInfo.role === 'Admin' || 'owner'" >
                <h1>{{role}}</h1>
                 <button md-icon-button [mdMenuTriggerFor]="menu" >
                  <md-icon class="setting" >settings</md-icon>
@@ -41,25 +42,25 @@
           </div>
 
 
-        <md-list class="members" >
-          <md-list-item>
-            <md-icon>person</md-icon>
-            <h6> 212 members  {{profile.members}}</h6>
-            
-          </md-list-item>
-          <md-list-item class="tools" > 
-            <md-icon>build</md-icon>
-            <h6> 10 tools {{profile.tools}}</h6>
-          </md-list-item>
+      <md-list class="members">
+        <md-list-item>
+          <md-icon>person</md-icon>
+          <h6>  members: {{profile.members}}</h6>
 
-     <span> 
+        </md-list-item>
+        <md-list-item class="tools">
+          <md-icon>build</md-icon>
+          <h6> tools: {{profile.tools}}</h6>
+        </md-list-item>
+
+        <span> 
            <md-list-item id="purpose" >
-             {{profile.purpose}} <span> community</span></md-list-item>
+             {{profile.purpose}} </md-list-item>
     </span>
-       </md-list>
-      </div>
+      </md-list>
     </div>
-  </div >
+  </div>
+</div>
 <!--<calvin-manage-community [communitydata]="this.contents"></calvin-manage-community>-->
 
 <!--</div>  -->

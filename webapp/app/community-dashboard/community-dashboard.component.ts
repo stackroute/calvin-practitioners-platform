@@ -27,7 +27,7 @@ export class CommunityDashboardComponent implements OnInit {
   }
   ngOnInit() {
     this.domain = this.route.snapshot.params['domain'];
-    this.commProfileService.getCommunity(this.domain).
+    this.commProfileService.getCommunity(this.domain,this.counter).
       subscribe(res => {
           res.createdon= moment(res.createdon).subtract(1,'days').calendar();
         this.community = res;

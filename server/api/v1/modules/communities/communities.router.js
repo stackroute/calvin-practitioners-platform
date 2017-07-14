@@ -6,14 +6,16 @@ const communityCtrl = require('./communities.controller');
 
 router.get('/communities/:domain', (req, res) => { // eslint-disable-line consistent-return
   try {
-    communityCtrl.getSpecificCommunity(req.params.domain, (err, result) => {
+    communityCtrl.getSpecificCommunity(req.params.domain,req.query.counter, (err, result) => {
       if (err) {
+        console.log("checking for counter",err);
         res.status(500).send({ error: 'Error in getting community details, please try later..!' });
       } else {
         res.status(200).send(result);
       }
     });
   } catch (err) {
+     console.log("checking for counter in error",err);
     return res.status(500).send({
       error: 'Internal error occurred....!' });
   }

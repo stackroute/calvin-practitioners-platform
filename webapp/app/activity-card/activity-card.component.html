@@ -1,13 +1,8 @@
-<!--<div class="search-results"
-           infinite-scroll
-           debounce
-           [infiniteScrollDistance]="10"
-           [infiniteScrollThrottle]="2"
-           (scrolled)="onScroll()">  -->
-<md-card fxFlex="100%">
+
+<md-card fxFlex="100%" calss="activityAlgin">
   <md-card-header class="head" fxFlex="100%" fxLayout="row">
-    <div fxFlex="20%">
-      <img md-card-avatar src="{{activity.community.avatar}}">
+    <div fxFlex="20%" fxLayoutAlgin="start center">
+      <img md-card-avatar algin="left" src="{{activity.community.avatar}}">
     </div>
     <div fxFlex="80%" align="start">
       <md-card-title>{{activity.community.domain}}</md-card-title>
