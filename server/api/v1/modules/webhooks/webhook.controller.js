@@ -4,6 +4,7 @@ const jwt = require('jsonwebtoken');
 const config = require('../common/config');
 const path = require('path');
 const communityController = require('../../modules/communitytools/communitytools.controller');
+const transformEventData = require('./transformEventData');
 
 function verifyToolToken(token, done) {
     jwt.verify(token, config.appConstants.secret, (err, tokenClaims) => {
@@ -15,18 +16,17 @@ function verifyToolToken(token, done) {
 }
 
 function extractEventData(eventPayload, tokenClaims, done) {
-    let toolPath = path.resolve(__dirname, '../', 'toolproxies', tokenClaims.toolId);
-    const toolservice = require(toolPath);
-    toolPath.extractEventData(tokenClaims, (err, extractedData) => {
+    transformEventData(eventPayload, tokenClaims, (err, extractedData) => {
         if (err) {
             return done(err, 'unable to extract data');
         }
-        done(null, extractedData);
+        done(null, {extractedData, tokenClaims});
     });
 }
 
-function sendToCommunityService(eventPayload, extractedData, done) {
-    communityController.postTool(extractedData.domain, extractedData,(err,result)=>{
+function sendToCommunityService({extractedData, tokenClaims}, done) {
+    // tokenClaims will have { domainName, toolId, username }
+    communityController.postTool(tokenClaims.domainName, extractedData,(err,result)=>{
             
             if(err){
                 return done(err,'Unable to POST Tool in Community');
