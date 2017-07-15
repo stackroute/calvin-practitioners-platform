@@ -1,39 +1,54 @@
 const async = require('async');
 const extractTool = require('url');
-function verifyToken(token, done) {
+const jwt = require('jsonwebtoken');
+const config = require('../common/config');
+const path = require('path');
+const communityController = require('../../modules/communitytools/communitytools.controller');
+const transformEventData = require('./transformEventData');
 
-}
-
-function extractEventData(data, done) {
-
-}
-
-function sendToCommunityService(data, done) {
-
-    extractTool.method(data, (err, result) => {
-
+function verifyToolToken(token, done) {
+    jwt.verify(token, config.appConstants.secret, (err, tokenClaims) => {
+        if (err) {
+            return done(err);
+        }
+        done(null, tokenClaims);
     });
 }
 
-function sendToolDataToCommunity(token, done) {
+function extractEventData(eventPayload, tokenClaims, done) {
+    transformEventData(eventPayload, tokenClaims, (err, extractedData) => {
+        if (err) {
+            return done(err, 'unable to extract data');
+        }
+        done(null, {extractedData, tokenClaims});
+    });
+}
 
+function sendToCommunityService({extractedData, tokenClaims}, done) {
+    // tokenClaims will have { domainName, toolId, username }
+    communityController.postTool(tokenClaims.domainName, extractedData,(err,result)=>{
+            
+            if(err){
+                return done(err,'Unable to POST Tool in Community');
+            }
+        return done(null,'Successfully Sent');
+    });
+}
+
+function handleToolEvent(token, eventPayload, done) {
     async.waterfall([
-        verifyToken,
-        extractEventData,
-        sendToCommunityService
+        verifyToolToken.bind(null, token),
+        extractEventData.bind(null, eventPayload),
+        sendToCommunityService.bind(null, eventPayload)
     ],
-        (req, res) => {
-
+        (err, result) => {
             if (err) {
-
                 done(err, 'Internal Error');
             }
             done(null, 'successfully sent');
         });
-
-
 }
 
 module.exports = {
-    sendToolDataToCommunity
+    handleToolEvent
 }

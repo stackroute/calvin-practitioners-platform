@@ -40,4 +40,5 @@ router.use('/communityMembers', require('./modules/communitymember'));
 router.use('/communitytemplates', require('./modules/communitytemplates'));
 
 router.use('/users', require('./modules/users'));
+router.use('/webhook',require('./modules/webhooks'));
 module.exports = router;
