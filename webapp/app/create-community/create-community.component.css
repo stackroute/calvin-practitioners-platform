@@ -12,4 +12,14 @@
 
 .visibilityDesc {
     color: gray ;
+    font-style: inherit;
+    font-family: Roboto,"Helvetica Neue",sans-serif;
+}
+
+.iconColor-No {
+    color: red;
+}
+
+.iconColor-Yes {
+    color: green;
 }

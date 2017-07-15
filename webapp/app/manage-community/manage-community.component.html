@@ -1,8 +1,8 @@
 <calvin-community-profile [profile]="this.community"></calvin-community-profile>
-<div fxLayout fxLayout.xs="row" fxLayoutGap="0px" fxLayoutGap.xs="0">
+<div fxLayout fxLayout.xs="row" fxLayoutGap="0px" fxLayoutGap.xs="0" header >
   <div fxFlex="20%" fxLayout="row"> </div>
-  <div fxFlex="100%" fxLayout="row" fxLayoutAlign=" start">
-    <md-tab-group class="manage-community" fxFlex="100%">
+  <div fxFlex="80%" fxLayout="row" fxLayoutAlign=" start">
+    <md-tab-group class="manage-community" fxFlex="80%">
        <md-tab label="Community">
          <form [formGroup]="userForm" (ngSubmit)="onsubmit(userForm)" class="try">
              <md-input-container fxLayoutAlign="start">
@@ -14,11 +14,11 @@
                 </md-input-container>
 
                 <md-input-container fxLayoutAlign="start" fxLayout="column">
-                  <textarea mdInput placeholder="Community Name" rows="2" formControlName="name" ngModel={{community.name}}></textarea>
+                  <textarea mdInput placeholder="Community Name" rows="2" formControlName="name" ngModel={{community.name}} style="text-transform: capitalize"></textarea>
                 </md-input-container>
 
                 <md-input-container fxLayoutAlign="start" fxLayout="column">
-                   <textarea input mdInput placeholder="Description" rows="2" formControlName="description" ngModel={{community.description}}></textarea>
+                   <textarea input mdInput placeholder="Description" rows="2" formControlName="description" ngModel={{community.description}} style="text-transform: capitalize"></textarea>
                 </md-input-container>
 
                <div class="inputFields" fxLayout.md="column" fxLayoutGap="100px">
@@ -45,7 +45,7 @@
               <div fxLayout.md="column">
                <md-input-container fxLayoutAlign="start">
                  
-                  <input mdInput placeholder="Tag" formControlName="tagCtrl"  #resettext (focusout)="chipValue(tagname,resettext)" [(ngModel)]="tagname">
+                  <input mdInput placeholder="Tag" formControlName="tagCtrl"  #resettext (focusout)="chipValue(tagname,resettext)" [(ngModel)]="tagname" style="text-transform: capitalize">
                      <md-hint align="start" class="full-width">
                      <div *ngIf="userForm.get('tagCtrl').hasError('pattern') && userForm.get('tagCtrl')" class="errorStyle">
                                Invalid tag length,must contain 3 to 20 char with one special character(.)

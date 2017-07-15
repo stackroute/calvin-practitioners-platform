@@ -22,8 +22,8 @@ function getToolAction(toolid,done) {
   toolservice.getToolAction(toolid,done);
 }
 
-function getToolEvent(done) {
-  toolservice.getToolEvent(done);
+function getToolEvent(toolid,done) {
+  toolservice.getToolEvent(toolid,done);
 } 
 // function deleteTool(toolid) {
 //   toolservice.delTool(toolid, done);
@@ -33,5 +33,6 @@ module.exports = {
   getTool,
   getAllTools,
   getToolAction,
+  getToolEvent,
 };
 

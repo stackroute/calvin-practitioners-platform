@@ -55,13 +55,7 @@ export class AddToolComponent implements OnInit {
       tooleventname: ['', Validators.required],
       eventpayload:['', Validators.required],
       eventDesc: ['', Validators.required],
-      termscondition: ['', Validators.required],
-      // termscondition: ['', Validators.required],
-      // visibility: ['Public', Validators.required],
-      // description: [''],
-      // tagCtrl: ['', [Validators.required, Validators.pattern('[a-z]{3,20}')]],
-      
-      
+      termscondition: ['', Validators.required],    
     });
   }
 
@@ -112,9 +106,6 @@ export class AddToolComponent implements OnInit {
 
     this.actions = this.actions.filter(item => item.name !== actionname);
     console.log(this.actions);
-    if (this.actions.length === 0) {
-      this.enableAction();
-    }
   }
 
   // this function is to add each tool event in arrays

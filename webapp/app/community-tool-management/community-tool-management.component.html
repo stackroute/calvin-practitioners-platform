@@ -5,18 +5,19 @@
       <h1></h1>
       <md-list align="start">
         <md-list-item>
-          <img md-list-avatar src="./assets/img/tool.png">
+          <!--<img md-list-avatar src="./assets/img/tool.png">-->
+           <md-icon>build</md-icon>
           <div fxFlex='80'>
             <div>
               <h5><b>{{val.toolid}}</b></h5>
             </div>
           </div>
-          <div><md-icon routerLink="/app/toolconfig">settings</md-icon></div>   <!--(click)="openBox()"-->
+          <div><md-icon (click)="config(val.toolid)">settings</md-icon></div>   <!--(click)="openBox()"routerLink="/app/toolconfig/`${val.toolid}`"-->
         </md-list-item>
       </md-list>
     </div>
   </md-card>
-  <div fxLayoutAlign="center"><button md-raised-button color="primary" class="bottom-button" routerLink="/app/toolmarket">Add</button></div>
+  <div fxLayoutAlign="end"><button md-raised-button color="primary" class="bottom-button" routerLink="/app/toolmarket">Add</button></div>
 </div>
 <div>
   <router-outlet></router-outlet>

@@ -24,14 +24,8 @@ export class ToolMarketPlaceComponent implements OnInit {
     });
     
   }
-   openDialog() {
-    this.dialog.open(toolsPosted);
-  }
 
-  postTools(data, domain){
-    this.toolService.postTools(domain,data).subscribe((data) => this.openDialog());
 
-}
   //searchValue;
   selectedValue(value1) {
     
@@ -71,12 +65,3 @@ export class ToolMarketPlaceComponent implements OnInit {
   
 }
 
-@Component({
-  selector: 'toolsPosted',
-  templateUrl: 'toolsPosted.html',
-})
-export class toolsPosted {
-
-  constructor(private router: Router) { }
- 
-}
