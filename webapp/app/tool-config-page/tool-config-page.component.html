@@ -2,15 +2,15 @@
   <div fxFlex="40%" fxLayout="row"> </div>
   <!--<div fxFlex="100%" fxLayout="row" fxLayoutAlign=" start">-->
 
-  <form #tool="ngForm" class="form">
-    <h2>Tool Info</h2>
+  <form #tool="ngForm" class="form" (ngSubmit)="onSubmit(values)">
+    <h3>Tool Info</h3>
     <div *ngFor="let val of allTool" fxLayout="row" >
       <!--<label>{{val.toolid}}</label>-->
       <div fxFlex="30%" fxLayoutAlign="end">
         <!--<img src="{{val.toolavatar}}">-->
         <md-list>
           <md-list-item>
-        <img  src="./assets/images/member.png">
+        <img  src="./assets/images/member.png" style="margin-top:7%">
           </md-list-item>
         </md-list>
         <!--<md-input-container fxLayoutAlign="start">
@@ -31,7 +31,7 @@
       </div>
     </div>
     <hr>
-    <h4>Tool Action</h4>
+    <h3>Tool Action</h3>
     <hr>
     <div *ngFor="let val of toolActions" fxLayout="row" fxLayoutAlign="center">
       <div fxFlex="25%">
