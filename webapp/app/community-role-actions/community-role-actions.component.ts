@@ -15,14 +15,17 @@ export class CommunityRoleActionsComponent implements OnInit {
   @Input() dummy;
  
   constructor(public dialog: MdDialog, private role: RoleServices, private action: CommunityRoleManagementComponent) { }
-  openDialog(roleName) {
+  openDialog(roleName,dummy) {
     // console.log('dummy data',this.dummy.domain);
     // console.log('dummy data',roleName);
+     console.log('dummy data',this.dummy.toolactions);
     // this.actions=this.dummy.action;
     // console.log('data in actions is ',this.actions);
     const dialog = this.dialog.open(CommunityToolActionsComponent,{
+      disableClose:true,
       data: {domain:this.dummy.domain,
-      role:roleName}     
+      role:roleName,
+      tool:this.dummy.toolactions}     
     });
     //console.log(this.role);
   }

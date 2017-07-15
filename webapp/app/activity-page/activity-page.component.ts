@@ -15,11 +15,9 @@ export class ActivityPageComponent implements OnInit {
   flag = 0;
   public textData = `## Markdown content data`;
   constructor(private activityService: ActivityService, private value: AppBarService) { }
- 
   ngOnInit() { 
     this.getMemberActivities();   
   }
-
   getMemberActivities(){
     this.activityService.getActivities(this.uname, this.community, this.sort, this.order, this.page, this.limit)
     .subscribe(data => { 

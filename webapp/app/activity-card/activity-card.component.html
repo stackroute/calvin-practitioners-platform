@@ -1,28 +1,32 @@
 <md-card>
   <md-card-header class="head" fxFlex="100%" fxLayout="row">
-    <div fxFlex="20%">
+    <div>
       <img md-card-avatar src="{{activity.actor.href}}">
     </div>
-    <div fxFlex="80%" align="start">
+    <div fxFlex="20%" align="center">
       <md-card-title>{{activity.actor.name}}</md-card-title>
+      <md-card-title><a href="">{{activity.object.name}}</a></md-card-title>
     </div>
   </md-card-header>
-  <hr fxFlex="100%">
-  <md-card-header class="head" fxFlex="100%" fxLayout="row">
-    <div fxFlex="20%">
-      <img md-card-avatar src="{{activity.object.href}}">
-    </div>
-    <div fxFlex="80%" align="start">
-      <md-card-title>{{activity.object.name}}</md-card-title>
-    </div>
-  </md-card-header>
-     <div>
-      <md-card-content>{{activity.name}}</md-card-content>
-    </div>
-    <hr fxFlex="100%">
+         <hr fxFlex="100%">
     <md-card-content>
     <img md-card-image src="{{activity.target.content}}">
   </md-card-content>
+  <div>
+      <md-card-content>{{activity.name}}</md-card-content>
+    </div>
+    <div>
+      <md-card-content>
+       {{activity.context.name}}
+        <a href="">{{activity.context.href}}</a>
+      </md-card-content>
+    </div>
+     <div>
+      <md-card-content>
+       {{activity.target.name}}
+        <a href="">{{activity.target.url}}</a>
+      </md-card-content>
+    </div>
 </md-card>
 
 

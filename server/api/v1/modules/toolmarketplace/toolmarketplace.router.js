@@ -24,6 +24,7 @@ router.get('/', (req, res) => {
 });
 
 router.get('/actions/:toolid', (req, res) => {
+  //console.log("toolaction",req.params.toolid);
   try {
     toolCtrl.getToolAction(req.params.toolid,(err, result) => {
       if (err) {
@@ -41,9 +42,10 @@ router.get('/actions/:toolid', (req, res) => {
   }
 });
 
-router.get('/events', (req, res) => {
+router.get('/events/:toolid', (req, res) => {
+  console.log("toolevents",req.params.toolid);
   try {
-    toolCtrl.getToolEvent((err, result) => {
+    toolCtrl.getToolEvent(req.params.toolid,(err, result) => {
       if (err) {
         res.status(500).json({
           error: `unable to get toolEvent in Calvin..! , Please try again later${err}`,

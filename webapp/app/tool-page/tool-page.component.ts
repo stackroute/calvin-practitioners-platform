@@ -1,4 +1,4 @@
-import { Component, OnInit ,Inject } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { ToolPageService } from './tool-page.service';
 import { Params, RouterModule, Routes, Router, ActivatedRoute } from '@angular/router';
 import { MD_DIALOG_DATA, MdDialog, MdDialogRef } from '@angular/material';
@@ -11,13 +11,13 @@ import { UserInfoService } from '../core/user-info.service';
 })
 export class ToolPageComponent implements OnInit {
   toolid: String;
-  toolinfo:any;
-  flag=0;
-  constructor( 
-  private toolpageservice: ToolPageService, 
-  private router:Router,
-  private activeroute: ActivatedRoute,
-   private dialog: MdDialog
+  toolinfo: any;
+  flag = 0;
+  constructor(
+    private toolpageservice: ToolPageService,
+    private router: Router,
+    private activeroute: ActivatedRoute,
+    private dialog: MdDialog
   ) { }
 
   ngOnInit() {
@@ -32,13 +32,16 @@ export class ToolPageComponent implements OnInit {
     });
   }
 
-       integrateTool(){
- 
-              // alert('toolInt called');
+  integrateTool() {
 
-              this.dialog.open(IntegrateTool);
+    // alert('toolInt called');
 
-       } 
+    this.dialog.open(IntegrateTool, {
+      height: '400px',
+      width: '400px',
+    });
+
+  }
 }
 
 @Component({
@@ -48,32 +51,33 @@ export class ToolPageComponent implements OnInit {
   providers: [UserInfoService]
 })
 export class IntegrateTool implements OnInit {
-  
-    integrationFlag=0;
-   adminCommunities=[];
+
+  integrationFlag = 0;
+  adminCommunities = [];
   ngOnInit() {
- 
-      this.userservice.getUserCommunity((result)=>{
-           console.log('communities are',result);
-         result.forEach((community)=>{
 
-              if(community.role==='admin'|| community.role==='owner'){
+    this.userservice.getUserCommunity((result) => {
 
-                this.adminCommunities.push(community.domain);
-              }
-         });
+      console.log('communities are', result);
+      result.forEach((community) => {
 
+        if (community.role === 'admin' || community.role === 'owner') {
+
+          this.adminCommunities.push(community.name);
+        }
       });
 
-      console.log(' the users are admin ',this.adminCommunities) ;    
+    });
+
+    console.log(' the users are admin ', this.adminCommunities);
   }
- 
-  constructor(private userservice: UserInfoService){}
+
+  constructor(private userservice: UserInfoService) { }
 
 
-          integrateToolToCmmunity(){
+  integrateToolToCmmunity() {
 
-               this.integrationFlag=1;
-          }
+    this.integrationFlag = 1;
+  }
 
 }

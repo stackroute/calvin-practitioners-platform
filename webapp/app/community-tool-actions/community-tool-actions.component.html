@@ -1,11 +1,27 @@
-<div fxLayout="column" md-dialog-content *ngIf="sample">
+<div class="style" fxLayout="column" md-dialog-content *ngIf="sample">
     <div *ngFor="let core of sample">
         <md-input-container fxLayoutAlign="start stretch">
-            <input mdInput placeholder="Role Name:" value={{roleName}}/>
+            <input mdInput placeholder="Role Name:" value={{roleName}} disabled/>
         </md-input-container>
+        <div>These are the actions already assigned</div>
+        <div *ngFor="let key of (toolActions| keys)">
+            <md-input-container fxLayoutAlign="start stretch">
+                <input mdInput placeholder="" value=ToolName-{{key.key}} disabled/>
+            </md-input-container>
+                <!--<div *ngFor="let value of key.value" aria-disabled="true" fxFlexLayout.xs="row">
+                    <md-chip>{{value}}</md-chip>
+                </div>-->
+        <md-chip-list>
+        <div class="chip-style" fxFlexLayout.xs='row' *ngFor="let value of key.value" >
+          <md-chip>{{value}}</md-chip>
+        </div>
+      </md-chip-list>
+                <!--<input mdInput placeholder="" value={{new.value}} disabled/>-->
+            
+        </div>
         <div *ngFor="let value of core.tools">
             <md-input-container fxLayoutAlign="start stretch">
-                <input mdInput placeholder="" value={{value.toolid}}/>
+                <input mdInput placeholder="" value={{value.toolid}} disabled/>
             </md-input-container>
             <!--<md-checkbox *ngFor="let value of value.actions"  (change)="getCheckoxValue(value, checked)" fxFlexLayout.xs="row">{{value}}</md-checkbox>-->
             <md-checkbox *ngFor="let key of value.actions" (checked)="exists(value.toolid,key)" (click)="getCheckboxValue(value.toolid,key)"

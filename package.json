@@ -4,7 +4,7 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "concurrently \"ng build --watch\" \"node bin/www\"",
     "build": "ng build --watch",
     "test": "yarn && node_modules/.bin/eslint server/**/*.js && cd webapp/ && ng lint",
     "lint": "ng lint",
@@ -15,8 +15,11 @@
   "private": true,
   "dependencies": {
     "@angular/animations": "^4.2.2",
+    "@angular/cdk": "^2.0.0-beta.8",
+    "@angular/cli": "1.0.3",
     "@angular/common": "^4.0.0",
     "@angular/compiler": "^4.0.0",
+    "@angular/compiler-cli": "^4.0.0",
     "@angular/core": "^4.0.0",
     "@angular/flex-layout": "^2.0.0-beta.8",
     "@angular/forms": "^4.0.0",
@@ -78,6 +81,7 @@
     "mocha": "^3.4.2",
     "nodemon": "^1.11.0",
     "protractor": "~5.1.0",
+    "sass-loader": "^6.0.6",
     "supertest": "^3.0.0",
     "ts-node": "~2.0.0",
     "tslint": "~4.5.0",

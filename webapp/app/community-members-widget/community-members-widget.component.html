@@ -1,5 +1,5 @@
 <md-card>
-  <md-list fxLayoutAlign="center">
+  <md-list fxLayoutAlign="">
     <md-list-item>
       <md-icon>person</md-icon>
       <h4>Members</h4>
@@ -8,9 +8,11 @@
   <md-card-content fxLayoutAlign.xs="column" class="content">
     <md-list>
       <md-list-item *ngFor="let val of this.members.MemberDetails" fxLayoutAlign.xs="column">
-        <img md-list-avatar class="img-responsive center-block" src="./assets/img/girl.png">
+        <img md-list-avatar class="img-responsive center-block" src="./assets/images/member.png">
+        
         <!--<md-list-item>{{val.toolId}}</md-list-item>-->
-        <h3 md-line>{{val.name}}</h3>
+        <!--<md-icon>person</md-icon>-->
+        <h3 md-line>{{val.username}}</h3>
         <p md-line>
           <span>{{val.role}}</span>
         </p>

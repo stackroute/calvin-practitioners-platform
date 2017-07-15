@@ -1,5 +1,89 @@
-<!--<form #tool="ngForm">
-  <md-input-container fxLayoutAlign="start">
-    <input mdInput placeholder="Domain (disabled)" disabled value={{community.domain}}>
-  </md-input-container>
-</form>-->
+<div fxLayout fxLayout.xs="" fxFlex="80" fxLayout="column" fxLayoutGap="10px">
+  <div fxFlex="40%" fxLayout="row"> </div>
+  <!--<div fxFlex="100%" fxLayout="row" fxLayoutAlign=" start">-->
+
+  <form #tool="ngForm" class="form" (ngSubmit)="onSubmit(values)">
+    <h3>Tool Info</h3>
+    <div *ngFor="let val of allTool" fxLayout="row" >
+      <!--<label>{{val.toolid}}</label>-->
+      <div fxFlex="30%" fxLayoutAlign="end">
+        <!--<img src="{{val.toolavatar}}">-->
+        <md-list>
+          <md-list-item>
+        <img  src="./assets/images/member.png" style="margin-top:7%">
+          </md-list-item>
+        </md-list>
+        <!--<md-input-container fxLayoutAlign="start">
+          <input mdInput placeholder="" disabled value={{val.toolavatar}} disabled>
+        </md-input-container>-->
+      </div>
+      <div fxFlex="40%">
+        <md-input-container fxLayoutAlign="start">
+          <input mdInput placeholder="" disabled value={{val.toolid}} disabled>
+        </md-input-container>
+        <md-input-container fxLayoutAlign="start">
+          <input mdInput placeholder="" disabled value={{val.purpose}} disabled>
+        </md-input-container>
+
+        <md-input-container fxLayoutAlign="start">
+          <input mdInput placeholder="" disabled value={{val.tooldesc}} disabled>
+        </md-input-container>
+      </div>
+    </div>
+    <hr>
+    <h3>Tool Action</h3>
+    <hr>
+    <div *ngFor="let val of toolActions" fxLayout="row" fxLayoutAlign="center">
+      <div fxFlex="25%">
+      <label>{{val.toolid}}</label>
+      </div>
+      <div fxFlex="25%">
+      <label>{{val.grantactions}}</label>
+      </div>
+      <div fxFlex="25%">
+      <label>{{val.name}}</label>
+      </div>
+      <div fxFlex="25%">
+      <label>{{val.description}}</label>
+      </div>
+
+     <!--<div>
+      <md-input-container fxLayoutAlign="start">
+        <input mdInput placeholder="" disabled value={{val.actionid}} disabled>
+      </md-input-container>
+      </div>
+      
+      <md-input-container fxLayoutAlign="start">
+        <input mdInput placeholder="" disabled value={{val.grantactions}} disabled>
+      </md-input-container>
+      <md-input-container fxLayoutAlign="start">
+        <input mdInput placeholder="" disabled value={{val.name}} disabled>
+      </md-input-container>
+      <md-input-container fxLayoutAlign="start">
+        <input mdInput placeholder="" disabled value={{val.description}} disabled>
+      </md-input-container>-->
+    </div>
+    <hr>
+    <h3>subscribe to events</h3>
+    <hr>
+    <div fxLayout="row">
+      <div fxFlex="50%" fxFlex="column" *ngFor="let event of toolEvents">
+      <md-checkbox  class="example-margin" [checked]="true">{{event.name}}</md-checkbox>
+      <p>{{event.description}}</p>
+      </div>
+      <div fxFlex="50%">
+        <md-select placeholder="" [(ngModel)]="selectedValue" name="food">
+    <md-option *ngFor="let food of foods" [value]="food.value">
+      {{food.viewValue}}
+    </md-option>
+  </md-select>
+      </div>
+      <!--<div fxFlex="33%">flex3</div>-->
+    </div>
+  </form>
+  <!--</div>-->
+</div>
+
+<div fxFlex="80" fxLayoutAlign="end">
+  <button md-raised-button color="primary" class="bottom-button" routerLink="/app/communityDashBoard/:value">submit</button>
+</div>
