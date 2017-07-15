@@ -23,8 +23,6 @@ export class UserInfoService {
         console.log(token);
         const base64Url = token.split('.')[1];
         const comm = this.decodeJWTtoken(base64Url);
-       // console.log("usercommunities",comm.communities);
-        console.log("usercommunities",comm.communities);
         return done(comm.communities);
     }
 

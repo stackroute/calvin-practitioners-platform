@@ -1,1 +1,1 @@
-module.exports=require('./appconfig');
+// module.exports=require('./appconfig');
