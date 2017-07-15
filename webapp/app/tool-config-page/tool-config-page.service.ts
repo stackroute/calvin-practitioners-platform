@@ -14,9 +14,14 @@ export class ToolConfigService {
             .map((response: Response) => response.json());
     }
     getToolActions(toolid){
-        console.log("toolactions",toolid)
+        
         return this.http
              .get(`api/v1/toolmarketplace/actions/${toolid}`)
              .map((response: Response) => response.json());
+    }
+    getToolEvents(toolid){
+        return this.http
+               .get(`api/v1/toolmarketplace/events/${toolid}`)
+               .map((response: Response) => response.json())
     }
 }

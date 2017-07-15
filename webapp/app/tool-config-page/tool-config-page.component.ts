@@ -15,6 +15,7 @@ export class ToolConfigPageComponent implements OnInit {
   constructor(private config:ToolConfigService,private router:ActivatedRoute ) { }
   allTool=[];
   toolActions=[];
+  toolEvents=[];
   ngOnInit() {
 
     let url=this.router.snapshot.params['toolid'];
@@ -29,5 +30,17 @@ export class ToolConfigPageComponent implements OnInit {
      this.toolActions=data;
      console.log("actions",data);
    });
+
+   //getToolEvents
+   this.config.getToolEvents(this.router.snapshot.params['toolid'])
+   .subscribe(data => {
+     this.toolEvents=data;
+     console.log("actions",data);
+   });
 }
+foods = [
+    {value: 'steak-0', viewValue: 'Steak'},
+    {value: 'pizza-1', viewValue: 'Pizza'},
+    {value: 'tacos-2', viewValue: 'Tacos'}
+  ];
 }

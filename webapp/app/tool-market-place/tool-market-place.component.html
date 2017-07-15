@@ -1,32 +1,32 @@
 <div fxFlex="100%" fxLayoutAlign="center" fxLayout="row" class="align">
-    <div fxFlex="50%" fxLayoutAlign="center">
-    <md-input-container fxFlex="90%">
-        <input mdInput type="search" placeholder="search" [(ngModel)]="value" (keyup.enter)=selectedValue(value)>
-        <!--<md-icon mdSuffix>search</md-icon>-->
-        <i class="material-icons" mdSuffix>search</i>
-    </md-input-container>
+    <div fxFlex="" fxLayoutAlign="end">
+        <i class="material-icons">search</i>
+        <md-input-container fxFlex="">
+            <input mdInput type="search" placeholder="search" [(ngModel)]="value" (keyup.enter)=selectedValue(value)>
+            <!--<md-icon class="material-icons">search</md-icon>-->
+        </md-input-container>
     </div>
-    <div fxFlex="10%" fxLayoutAlign="end" class="align1">
-       
-    <md-select placeholder="purpose" [(ngModel)]="purpose">
-        <md-option *ngFor="let val of this.tools" [value]="val.purpose" (click)="selectpurpose(purpose)">{{ val.purpose }}</md-option>
-    </md-select>
-     <i class="material-icons">tune</i>
+    <div fxFlex="" fxLayoutAlign="center" class="">
+        <i class="material-icons">tune</i>
+        <md-select placeholder="purpose" [(ngModel)]="purpose">
+            <md-option *ngFor="let val of this.tools" [value]="val.purpose" (click)="selectpurpose(purpose)">{{ val.purpose }}</md-option>
+        </md-select>
+
     </div>
-    <div fxFlex="20%" fxLayoutAlign="end">
-        <button md-raised-button color="primary" class="bottom-button" routerLink="/app/addtool">Add New Tool</button>
+    <div fxFlex="" fxLayoutAlign="start">
+        <button md-raised-button color="primary" class="" routerLink="/app/addtool">Register New Tool</button>
     </div>
 </div>
 <div fxFlex="100%" fxLayout="row" fxLayoutWrap>
     <div fxFlex="20%" *ngFor="let val of newTool">
         <md-card (click)="onSelect(val.toolid)">
             <md-card-title>{{val.toolname}}</md-card-title>
-            
+
             <!--<md-card-content>-->
-                <img md-card-image src={{val.toolavatar}}>
-                <!--<p md-line>{{val.toolid}}</p>-->
-                <!--<p md-line>{{val.tooldesc}}</p>-->
-                <!--<p md-line>{{val.purpose}}</p>-->
+            <img md-card-image src={{val.toolavatar}}>
+            <!--<p md-line>{{val.toolid}}</p>-->
+            <!--<p md-line>{{val.tooldesc}}</p>-->
+            <!--<p md-line>{{val.purpose}}</p>-->
             <!--</md-card-content>-->
         </md-card>
     </div>
