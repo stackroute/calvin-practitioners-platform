@@ -135,8 +135,7 @@ import { ToolConfigPageComponent } from './tool-config-page/tool-config-page.com
 //   providers: [RoleServices, ToolActions, CommunityProfileService,ActivityService, updateSpecificCommunityService, ToolMarketService, ToolService,NewRoleService],
 
   entryComponents: [IntegrateTool,CommunityToolActionsComponent, NewcommunityDialogboxComponent,
-                     MemberInvitationComponent, SucessDialog,
-                      MemberEditComponent, updateCommunity,errorHandlingComponent ],
+                     MemberInvitationComponent, SucessDialog,DialogResultExampleDialog,                    MemberEditComponent, updateCommunity,errorHandlingComponent ],
 
   providers: [RoleServices,RoleListServices, ToolActions, CommunityProfileService,ActivityService, updateSpecificCommunityService, ToolMarketService],
   bootstrap: [AppComponent]

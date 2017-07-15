@@ -9,21 +9,22 @@ import { InfiniteScrollModule } from 'angular2-infinite-scroll';
   styleUrls: ['./activity-page.component.css']
 })
 export class ActivityPageComponent implements OnInit {
-  tools = [];
+  activities = [];
   uname;community;sort;order;page;limit;
   user: {};
   flag = 0;
   public textData = `## Markdown content data`;
-  constructor(private activitypage: ActivityService, private value: AppBarService) { }
+  constructor(private activityService: ActivityService, private value: AppBarService) { }
+ 
+  ngOnInit() { 
+    this.getMemberActivities();   
+  }
 
-  // onscroll() {
-  //   console.log('scrolled');
-  // }
-
-  ngOnInit() {
-    this.activitypage.getTools(this.uname, this.community, this.sort, this.order, this.page, this.limit)
-    .subscribe(data => {
-      this.tools = data;
-    });
+  getMemberActivities(){
+    this.activityService.getActivities(this.uname, this.community, this.sort, this.order, this.page, this.limit)
+    .subscribe(data => { 
+      this.activities = data;
+      console.log("Object of activities",this.activities);      
+     });
   }
 }

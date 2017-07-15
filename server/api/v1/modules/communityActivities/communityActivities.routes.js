@@ -18,32 +18,18 @@ const controller = require('./communityActivities.controller');
  * - page : Current page number
  * * Effective URL is /memberactivitypage/:membername
  */
-router.get('/:membername', (req, res) => {
+router.get('/activities', (req, res) => {
   try {
-    const communities = [];
-    const sort = 'ts';
-    const order = 'desc';
-    const limit = 20;
-    const page = 1;
-    if (req.query.communities) {
-        // it will be comma separated list of domains,
-        // hence split them to get the array of domain name
-        // req.query.communities
-        // communities;
-      const filteredMemberCommunities = controller
-      .filterMemberCommunities(req.params.membername, req.query.communities);
-      if (filteredMemberCommunities.length === 0) {
-        return res.status(500).send({
-          error: "Requested community doesn't exsit for the given member",
-        });
+    controller.getMemberActivities((err, result) => {
+      if (err) {
+        res.status(500).send({ error: 'Error in getting community details, please try later..!' });
+      } else {
+        res.status(200).send(result);
       }
-      return res.send(filteredMemberCommunities);
-    }
-    return res.send(controller.getAllCommunitiesOfMember(req.params.membername));
-  } catch (err) {
-    return res.status(500).send({
-      error: 'Error in operation, please try later..!',
     });
+  } catch (err) {
+    console.log("inside route error", err)
+    return res.status(500).send({error: 'Internal error occurred....!' });
   }
 });
 
