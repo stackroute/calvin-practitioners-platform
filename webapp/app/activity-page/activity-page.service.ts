@@ -3,22 +3,24 @@ import { Http, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import { AppBarService } from '../app-bar/app-bar.service';
 import 'rxjs/add/operator/map';
+import { MdSnackBar } from '@angular/material';
 
 @Injectable()
 
 export class ActivityService {
- resJson = [];
- constructor(private http: Http) { }
- getTools(uname, communities, sort, order, page, limit) {
-   //communities=c1,c2,c3&sort=ts&order=desc&limit=20&page=1
-   return this.http
-     // .get(`/api/v1/memberactivitypage/${username}?${communities}?${sort}?${order}?${page}?${limit}`)
-     // .map((response: Response) =>
-     //   response.json());
 
-     .get(`http://localhost:3000/api/v1/memberactivitypage/Rajeshwari`)
-     .map((response: Response) =>
-       response.json());
- }
+  constructor(private http: Http, public snackBar: MdSnackBar) { }
 
+  getActivities(uname, communities, sort, order, page, limit) {
+    return this.http
+      .get(`http://localhost:3000/api/v1/memberactivitypage/activities`)
+      .catch( err => {
+        this.snackBar.open('Unable to get user activities' , 'X', {
+          duration: 3000
+        });
+
+        return Observable.throw(err);
+      })
+      .map((response: Response) => response.json())
+  }
 }

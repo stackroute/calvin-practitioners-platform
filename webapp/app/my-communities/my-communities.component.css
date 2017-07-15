@@ -1,7 +1,7 @@
-md-list-item {
+/*md-list-item {
 	border-bottom: 1px dashed #ddd;
   cursor: pointer;
-}
+}*/
 md-list-item img {
   transition: all 0.5s ease;
 }
@@ -30,6 +30,6 @@ md-list-item:last-child {
 .usercommunitylist{
 margin-left:20%;
 }
-h4, h5 {
+/*h4, h5 {
   color : grey;
-}
+}*/

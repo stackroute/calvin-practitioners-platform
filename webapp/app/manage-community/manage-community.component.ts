@@ -126,6 +126,17 @@ tagname:String;
   //  this.community = res;
   //  console.log("inside managecommunity",this.community);
   // } );
+   
+  //  this.domain = this.route.snapshot.params['domain'];
+  //  this.commProfileService.getCommunity(this.route.snapshot.params['domain'],this.counter). subscribe ( res => {   
+  //  this.domain = res.domain;
+  //  this.updatedBy = res.updatedby;
+  //  this.status = res.status;
+  //  res.createdon= moment(res.createdon).subtract(1,'days').calendar();
+  //  this.community = res;
+  //  console.log("inside managecommunity",this.community);
+   //  this.tagarray.push(res.tags);
+  // });
 
 }
 }
