@@ -88,7 +88,7 @@ tagname:String;
     const formValue = { updatedby, tags, name, visibility, description, avatar, status};
     console.log('total form value',formValue);
     this.commUpdateService.updateSpecificCommunity(formValue,this.domain).subscribe((result)=>{
-            this.openDialog();
+     this.openDialog();
     });
         
 }
@@ -121,7 +121,6 @@ tagname:String;
   templateUrl: 'updateCommunity.html',
 })
 export class updateCommunity {
-
-  constructor(private router: Router) { }
- 
+  domain;
+  constructor(private router: Router, private route: ActivatedRoute) {}
 }

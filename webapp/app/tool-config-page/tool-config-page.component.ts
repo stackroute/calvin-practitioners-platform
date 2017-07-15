@@ -34,44 +34,21 @@ export class ToolConfigPageComponent implements OnInit {
      this.toolActions=data;
      console.log("actions",data);
    }); 
+       //getToolEvents
+ this.config.getToolEvents(this.router.snapshot.params['toolid'])
+   .subscribe(data => {
+     this.toolEvents=data;
+     console.log("actions",data);
+   });
   
-  }
-   postTools(dmain,data)
-
-     {
-        this.config.postTools(this.router.snapshot.params['toolid'],this.data).subscribe((data) => this.openDialog());
-
-     }
-
- openDialog()
- 
-  {
-
-    this.dialog.open(toolsPosted);
-    }
-}
-
-   
-
-   //getToolEvents
-  //  this.config.getToolEvents(this.router.snapshot.params['toolid'])
-  //  .subscribe(data => {
-  //    this.toolEvents=data;
-  //    console.log("actions",data);
-  //  });
-
-   @Component({
-  selector: 'toolsPosted',
-  templateUrl: 'toolsPosted.html',
-})
-export class toolsPosted {
-constructor(private router: Router) { }
- 
 
 
-foods = [
-    {value: 'steak-0', viewValue: 'Steak'},
-    {value: 'pizza-1', viewValue: 'Pizza'},
-    {value: 'tacos-2', viewValue: 'Tacos'}
-  ]
-};
+//    @Component({
+//   selector: 'toolsPosted',
+//   templateUrl: 'toolsPosted.html',
+// })
+// export class toolsPosted {
+// constructor(private router: Router) { }
+// }
+
+  }}
