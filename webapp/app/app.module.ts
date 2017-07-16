@@ -67,7 +67,6 @@ import { ToolConfigPageComponent } from './tool-config-page/tool-config-page.com
 @NgModule({
   declarations: [
     AppComponent,
-    ManageCommunityComponent,
     ToolPageComponent,
     updateCommunity,
     UserDashboardComponent,
@@ -80,7 +79,8 @@ import { ToolConfigPageComponent } from './tool-config-page/tool-config-page.com
     CommunityToolActionsComponent,
     TemplateBrowserComponent,
     CommunityActivitylogsComponent,
-    CommunityDashboardComponent,
+    CommunityDashboardComponent, 
+    ManageCommunityComponent,
     ActivityCardComponent,
     ActivityPageComponent,
     CommunityProfileComponent,
@@ -133,7 +133,6 @@ import { ToolConfigPageComponent } from './tool-config-page/tool-config-page.com
   entryComponents: [IntegrateTool,CommunityToolActionsComponent,
    NewcommunityDialogboxComponent,DialogResultExampleDialog,MemberInvitationComponent, 
    SucessDialog, MemberEditComponent, updateCommunity,CommunityNewRoleCreationComponent ],
-
   providers: [RoleServices,RoleListServices, ToolActions, CommunityProfileService,ActivityService,
                updateSpecificCommunityService, ToolMarketService,ToolService,NewRoleService,KeysPipe,MembersService,Memberservice],
   bootstrap: [AppComponent]

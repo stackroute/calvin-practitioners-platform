@@ -17,7 +17,6 @@ export class UserInfoService {
 
     }
 
-
     getUserCommunity(done) {
 
         const token = Cookie.get('userCommunity');

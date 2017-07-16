@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Output } from '@angular/core';
 import * as moment from 'moment/moment';
 import { UserInfoService } from '../core/user-info.service';
+import { ManageCommunityComponent } from '../manage-community/manage-community.component'
 
 @Component({
   selector: 'calvin-community-profile',

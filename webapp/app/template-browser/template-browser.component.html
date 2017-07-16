@@ -1,5 +1,5 @@
 <!--<div fxLayout.md="column" >-->
-      <md-select placeholder="Select template">
+      <md-select *ngIf="template" placeholder="Select template">
         <md-option *ngFor="let core of template" (click)="selectcore(core.name)" [value]="core.name" >
             {{core.name}}
         </md-option>

@@ -106,9 +106,6 @@ export class AddToolComponent implements OnInit {
 
     this.actions = this.actions.filter(item => item.name !== actionname);
     console.log(this.actions);
-    if (this.actions.length === 0) {
-      this.enableAction();
-    }
   }
 
   // this function is to add each tool event in arrays
