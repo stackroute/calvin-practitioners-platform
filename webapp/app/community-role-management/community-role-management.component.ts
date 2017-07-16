@@ -27,8 +27,12 @@ export class CommunityRoleManagementComponent implements OnInit {
     // console.log(this.route.snapshot.params['domain']);    
     //console.log(this.resultArray)
   }
-  ngOnInit() {    
-    this.role.listRoles(this.route.snapshot.params['domain']).subscribe(res => {
+  ngOnInit() {   
+    this.roleManagement(); 
+    
+   }
+   roleManagement(){
+     this.role.listRoles(this.route.snapshot.params['domain']).subscribe(res => {
       this.sample.push(res);{
       this.sample.forEach((val) => {
         (val.roleactions).forEach((data) => {
@@ -64,7 +68,6 @@ export class CommunityRoleManagementComponent implements OnInit {
     const dialog = this.dialog.open(CommunityNewRoleCreationComponent, {
       disableClose:true,
       data: this.route.snapshot.params['domain']
-
     });
   }
 

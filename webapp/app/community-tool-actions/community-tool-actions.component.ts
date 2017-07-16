@@ -2,7 +2,7 @@ import { Component, OnInit,Input, Inject, Pipe, PipeTransform } from '@angular/c
 import { ToolActions } from './community-tool-actions.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Params, RouterModule, Routes, Router, ActivatedRoute } from '@angular/router';
-import { MD_DIALOG_DATA, MdDialog, MdDialogRef} from '@angular/material';
+import { MD_DIALOG_DATA, MdDialog, MdDialogRef, MdSnackBar} from '@angular/material';
 import { KeysPipe } from './community-tool-actions.pipe';
 
 @Component({
@@ -23,7 +23,7 @@ export class CommunityToolActionsComponent implements OnInit {
   y={};
   @Input() community;
  
-  constructor(private tool: ToolActions, private route:ActivatedRoute,@Inject(MD_DIALOG_DATA) public data: any,
+  constructor(private tool: ToolActions, private snackBar:MdSnackBar, private route:ActivatedRoute,@Inject(MD_DIALOG_DATA) public data: any,
   public dialogRef: MdDialogRef<CommunityToolActionsComponent>) { 
   this.domainName = data.domain ; 
   this.roleName=data.role;
@@ -52,21 +52,27 @@ export class CommunityToolActionsComponent implements OnInit {
     } else {
       this.selected.splice(index, 1);
     }
-    //console.log(this.selected,"fdsgsdgsdg");
+    console.log(this.selected,"fdsgsdgsdg");
     
     return this.selected;
-    // 
+    
   }
   
-  exists(toolName, status) {
-    return this.selected.indexOf({toolName,status}) > -1;
+  exists(toolId, status) {
+    console.log(this.selected);
+    return this.selected.indexOf({toolId,status}) > -1;
   }
   update()
   {
     // console.log(this.selected);
     // console.log(this.domainName);
     // console.log(this.roleName);
-    return this.tool.updateTools(this.domainName,this.roleName,this.selected).subscribe(res=>{return this.sample.push(res);
+    return this.tool.updateTools(this.domainName,this.roleName,this.selected).subscribe(res=>{
+      this.dialogRef.close('close');
+      this.snackBar.open('Updated Actions Successfully','X',{
+        duration:2000
+      });
+      return this.sample.push(res);
     });
   }
 

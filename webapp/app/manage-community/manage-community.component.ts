@@ -11,8 +11,6 @@ import { CommunityProfileService } from '../community-profile/community-profile.
 
 import { updateSpecificCommunityService } from '../manage-community/manage-community.service';
 
-
-
 @Component({
   selector: 'calvin-manage-community',
   templateUrl: './manage-community.component.html',
