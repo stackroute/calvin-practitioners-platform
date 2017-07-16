@@ -1,5 +1,5 @@
 
-<calvin-community-profile [profile]="this.community">
+<calvin-community-profile [profile]="this.community" changebody >
 </calvin-community-profile>
 <div fxLayout="row" fxLayoutGap="">
   <div fxLayout="column" fxFlex="30%" fxFlex.md="20%" >
@@ -11,6 +11,6 @@
   <div fxFlex="30%" fxFlex.md="20%">
     <calvin-community-members-widget [community]="this.domain"></calvin-community-members-widget>
   </div>
-</div>
+
 
 <router-outlet></router-outlet>

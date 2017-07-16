@@ -1,5 +1,5 @@
 <h1> Integrate Tool  </h1>
-<div *ngIf="integrationFlag===0">
+<div *ngIf="integrationFlag===0 && adminCommunities.length!=0">
 <md-radio-group class="example-radio-group" [(ngModel)]="favoriteSeason">
   <md-radio-button class="example-radio-button" *ngFor="let community of adminCommunities" [value]="community">
     {{community}}
@@ -12,7 +12,11 @@
           <button md-raised-button color="primary" (click)="integrateToolToCmmunity()">Submit</button>
         </div>
 </div>     
-<div *ngIf="integrationFlag===1">
+<div *ngIf="integrationFlag===1 ">
     <h3> Tool Integrated With Commities </h3>
      <button md-raised-button color="primary" [md-dialog-close]="true">Close</button>
+</div>
+<div *ngIf="adminCommunities.length===0"> 
+	     <p> Hi.. It seems you are not a member of Any Group .. please create a community to Intergatre a tool </p>
+		  <button md-raised-button color="primary" (click)="navigateToCC()">Create Community</button> 
 </div>

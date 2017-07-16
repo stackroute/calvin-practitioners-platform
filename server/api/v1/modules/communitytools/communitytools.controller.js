@@ -42,12 +42,14 @@ function getTool(domain, done) {
 
  // Call community tools service to post tools
 function postTool(domain, data, done) {
+  console.log('data is ',data);
   const url = `${BASE_COMMUNITY_SERVICE_URL}/communitytools/${domain}/tools`;
   request
  .post(url)
  .send(data) // query string
  .end((err, res) => {
    if (err) {
+     console.log('error is ',err);
      return done(err);
    }
    return done(null, res.body);

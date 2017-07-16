@@ -1,3 +1,4 @@
+
 const registerGroup = require('./newgroup');
 const registerWebhook = require('./registerWebhook');
 
@@ -20,11 +21,10 @@ function intializeWebhook(webhookDetails, done) {
         }
         done(null, res);
     });
-}
 
-function exactEventData({eventPayload}, done) {
-	done(null, {message: 'not implemented'});
-	return;
+let eventTypeExtractors = {
+	"post": discoursePOSTEventExtractor,
+	"topic": discourseTOPICEventExtractor,
 }
 
 module.exports = {

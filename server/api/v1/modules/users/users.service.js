@@ -89,7 +89,7 @@ function getUserCommunities(username, done) {
  .query({ username }) // query string
  .end((err, res) => {
    if (err) {
-     //console.log('error is ', err);
+     console.log('error is ', err);
      return done(err);
    }
    //console.log('result is ', res.body);

@@ -132,6 +132,7 @@ export class CreateCommunityComponent implements OnInit {
   // open dialog box if form submitted successfuly
   openDialog(newCommunityObj) {
     let dialogRef = this.dialog.open(NewcommunityDialogboxComponent, {
+      disableClose: true ,
       data:newCommunityObj
     });
   }
