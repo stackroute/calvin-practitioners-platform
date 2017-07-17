@@ -2,17 +2,23 @@ import { Injectable } from '@angular/core';
 import { Headers, RequestOptions } from '@angular/http';
 import { Http, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
+import { MdSnackBar} from '@angular/material';
 import 'rxjs/Rx';
 
 @Injectable()
 export class NewRoleService {
-  constructor(private http: Http) { }
+  constructor(private http: Http,private snackBar:MdSnackBar) { }
 
   listTools(domainName) {
     //console.log('In service');
     const url = '/api/v1/communitytools/'+domainName;
     //console.log(url)
-    return this.http.get(url).map(res => res.json());
+    return this.http.get(url).catch(err => {
+                this.snackBar.open('server error..!!!', 'please try again later!', {
+                    duration: 3000
+                });
+                return Observable.throw(err); // observable needs to be returned or exception raised
+            }).map(res => res.json());
   }
 
 updateTools(domainName,data) {
@@ -27,6 +33,22 @@ updateTools(domainName,data) {
   const body = JSON.stringify(data);
   //console.log(body);
   const url = '/api/v1/communityroleactions/communityrole/'+domainName;
-  return this.http.post(url, body,options).map(res => res.json());
+  return this.http.post(url, body,options).catch(err => {
+                this.snackBar.open('server error..!!!', 'please try again later!', {
+                    duration: 3000
+                });
+                return Observable.throw(err); // observable needs to be returned or exception raised
+            }).map(res => res.json());
  }
+   listUniqueRoles(domainname) {
+    //console.log('In service');
+    const url = '/api/v1/communityroleactions/' + domainname + '?onlyroles=true';
+    // console.log(url)
+    return this.http.get(url).catch(err => {
+                this.snackBar.open('server error..!!!', 'try again!', {
+                    duration: 3000
+                });
+                return Observable.throw(err); // observable needs to be returned or exception raised
+            }).map(res => res.json());
+  }
 }

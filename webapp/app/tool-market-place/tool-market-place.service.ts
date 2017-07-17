@@ -13,19 +13,4 @@ export class ToolMarketService {
             .get('api/v1/toolmarketplace')
             .map((response: Response) => response.json());
     }
-    
-
-     postTools(domain,data) {
-
-    const url = `/api/v1/communitytools/${domain}/tools`;
-
-    return this.http.post(url, data).catch(err => {
-      this.snackBar.open('Unable to Post Tools.. Please try again later..!!!', 'Close', {
-        duration: 3000
-      });
-      return Observable.throw(err); // observable needs to be returned or exception raised
-    })
-      .map(() => data);
-}
-
 }

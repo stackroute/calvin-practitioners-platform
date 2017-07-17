@@ -7,35 +7,54 @@ const communityController = require('../../modules/communitytools/communitytools
 const transformEventData = require('./transformEventData');
 
 function verifyToolToken(token, done) {
+    console.log('3.inside verify token');
     jwt.verify(token, config.appConstants.secret, (err, tokenClaims) => {
         if (err) {
-            return done(err);
+            console.log('error is ', err);
+            return done(err, 'unauhtorized');
         }
+        console.log('token is', tokenClaims);
         done(null, tokenClaims);
     });
 }
 
 function extractEventData(eventPayload, tokenClaims, done) {
-    transformEventData(eventPayload, tokenClaims, (err, extractedData) => {
+    console.log('3.inside extract event datat');
+    let obj;
+    transformEventData.extractEventData(eventPayload, tokenClaims, (err, extractedData) => {
         if (err) {
             return done(err, 'unable to extract data');
         }
-        done(null, {extractedData, tokenClaims});
+        else {
+         obj={ extractedData, tokenClaims };
+        //  console.log('obj is ..',obj);
+        done(null, obj);
+        }
     });
 }
 
-function sendToCommunityService({extractedData, tokenClaims}, done) {
+function sendToCommunityService(payload,obj,done) {
+
     // tokenClaims will have { domainName, toolId, username }
-    communityController.postTool(tokenClaims.domainName, extractedData,(err,result)=>{
-            
-            if(err){
-                return done(err,'Unable to POST Tool in Community');
-            }
-        return done(null,'Successfully Sent');
+    // console.log('6.inside token claim',obj.tokenClaims);
+    communityController.postTool(obj.tokenClaims.domainName,obj.extractedData, (err, result) => {
+
+        if (err) {
+            return done(err, 'Unable to POST Tool in Community');
+        }
+        return done(null, 'Successfully Sent');
     });
 }
 
 function handleToolEvent(token, eventPayload, done) {
+
+    token = jwt.sign({
+        "domainName": "digital",
+        "toolId": "discourse",
+        "username": "ceanstackdev@gmal.com"
+    }, config.appConstants.secret, { expiresIn: config.appConstants.expiryTime });
+
+    console.log('2.getting inside handle tool event');
     async.waterfall([
         verifyToolToken.bind(null, token),
         extractEventData.bind(null, eventPayload),

@@ -2,13 +2,17 @@ import { Component, OnInit,Input, Inject, Pipe, PipeTransform } from '@angular/c
 import { ToolActions } from './community-tool-actions.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Params, RouterModule, Routes, Router, ActivatedRoute } from '@angular/router';
-import { MD_DIALOG_DATA, MdDialog, MdDialogRef} from '@angular/material';
+import { MD_DIALOG_DATA, MdDialog, MdDialogRef, MdSnackBar} from '@angular/material';
 import { KeysPipe } from './community-tool-actions.pipe';
+import { CommunityRoleManagementComponent } from '../community-role-management/community-role-management.component';
+import { RoleServices } from '../community-role-management/community-role-management.service';
+
 
 @Component({
   selector: 'calvin-community-tool-actions',
   templateUrl: './community-tool-actions.component.html',
-  styleUrls: ['./community-tool-actions.component.css']
+  styleUrls: ['./community-tool-actions.component.css'],
+  providers:[CommunityRoleManagementComponent,RoleServices]
 })
 export class CommunityToolActionsComponent implements OnInit {
   selected = [];
@@ -23,55 +27,70 @@ export class CommunityToolActionsComponent implements OnInit {
   y={};
   @Input() community;
  
-  constructor(private tool: ToolActions, private route:ActivatedRoute,@Inject(MD_DIALOG_DATA) public data: any,
-  public dialogRef: MdDialogRef<CommunityToolActionsComponent>) { 
+  constructor(private tool: ToolActions,private role: RoleServices, private snackBar:MdSnackBar, private route:ActivatedRoute,@Inject(MD_DIALOG_DATA) public data: any,
+  public dialogRef: MdDialogRef<CommunityToolActionsComponent>,private roleManage:CommunityRoleManagementComponent) { 
   this.domainName = data.domain ; 
   this.roleName=data.role;
   this.toolActions=data.tool;
+  console.log(data.domain);
   console.log('domain name from dialog',this.roleName);  
-  console.log('tool',this.toolActions)  ; 
-    this.tool.listTools(this.domainName).subscribe(res => {return this.sample.push(res);
-    });
-    
+  console.log('tool',this.toolActions); 
+      
 }
 
   getCheckboxValue(toolId, status) {
     // console.log(id);
-    const grant="true";
+    //console.log(role);
+    const grant = "true";
     //console.log(status)
-    const x={};
-    x[status]=grant;
-    
-    //console.log(x)
+    const x = {};
+    x[status] = grant;
+
+   // console.log(x)
     // console.log(action);
-    const actions=x;
-     const index = this.selected.indexOf(toolId);
-     //console.log(index)
+    const actions = x;
+    const deleted = this.selected
+   const index = this.selected.indexOf({toolId,actions});
+  
+   // console.log({toolId,actions,role});
+    //console.log(this.selected.indexOf({toolId,actions,role}));
     if (index === -1) {
       this.selected.push({toolId,actions});
-    } else {
-      this.selected.splice(index, 1);
     }
-    //console.log(this.selected,"fdsgsdgsdg");
-    
+    if(index > -1) {
+      console.log(index)
+      this.selected.splice(index,1);
+    }
+    console.log(this.selected, "fdsgsdgsdg");
     return this.selected;
-    // 
+
   }
   
-  exists(toolName, status) {
-    return this.selected.indexOf({toolName,status}) > -1;
+  exists(toolId, status) {
+    console.log(this.selected);
+    return this.selected.indexOf({toolId,status}) > -1;
   }
   update()
   {
-    // console.log(this.selected);
-    // console.log(this.domainName);
-    // console.log(this.roleName);
-    return this.tool.updateTools(this.domainName,this.roleName,this.selected).subscribe(res=>{return this.sample.push(res);
+    console.log(this.selected);
+    console.log(this.domainName);
+    console.log(this.roleName);
+    return this.tool.updateTools(this.domainName,this.roleName,this.selected).subscribe(res=>{
+      this.dialogRef.close('close');
+      this.snackBar.open('Updated Actions Successfully','X',{
+        duration:2000
+      });
+      this.sample.push(res);
+      console.log(this.sample);
+      //this.roleManage.roleManagement();
     });
+    
   }
 
   ngOnInit() {
-    
+    this.tool.listTools(this.domainName).subscribe(res => {return this.sample.push(res);
+    });
+   
   }
  
  }
