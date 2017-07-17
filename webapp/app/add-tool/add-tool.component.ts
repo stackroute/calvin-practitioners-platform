@@ -196,9 +196,9 @@ export class AddToolComponent implements OnInit {
       // alert('data'+result);
 
       // opening Dialogue to show success message
-      this.dialog.open(SucessDialog,{
-        data:this.id
-      });
+      // this.dialog.open(SucessDialog,{
+      //   data:this.id
+      // });
       this.dialog.open(SucessDialog, {
       data:this.id
     });
