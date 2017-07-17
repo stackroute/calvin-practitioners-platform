@@ -23,15 +23,4 @@
     <calvin-community-members-widget [community]="this.domain"></calvin-community-members-widget>
   </div>
 </div>
-
 <router-outlet></router-outlet>
-
-
-
-<div class="activity-board item item-3" fxLayout="rows">
- <div *ngIf="tools" fxFlex="100%"   fxLayoutWrap >
-     <div class="list-activities" fxFlex="31%" *ngFor="let sample of tools" fx-flex-fill >
-       <calvin-activity-card  [activity]="sample"></calvin-activity-card>
-     </div>
- </div>
-</div>
