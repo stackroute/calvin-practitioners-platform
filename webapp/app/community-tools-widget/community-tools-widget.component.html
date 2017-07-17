@@ -8,12 +8,17 @@
   </md-list>
   <md-card-content fxLayoutAlign.xs="column" class="content">
     <md-list>
-      <md-list-item *ngFor="let val of tools.tools" fxLayoutAlign.xs="column">
-        <!--<img md-list-avatar class="img-responsive center-block"  src="./assets/img/tool.png">-->
+      <md-list-item *ngFor="let val of tools.tools" fxLayoutAlign.xs="row">
+        <img md-list-avatar class="img-responsive center-block"  src={{val.avatar}}>
         <!--<md-list-item>{{val.toolId}}</md-list-item>-->
-        <md-icon>build</md-icon>
+        <!--<md-icon>build</md-icon>-->
         <p>{{val.toolid}}</p>
+         <p md-line>
+           <span>{{val.toolname}}</span>
+          <!--<span>{{val.createdon}}</span>-->
+        </p>
         <p md-line>
+         <span>  {{val.purpose}}</span>
           <!--<span>{{val.createdon}}</span>-->
         </p>
       </md-list-item>

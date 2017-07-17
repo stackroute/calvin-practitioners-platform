@@ -23,7 +23,7 @@ function generateWebhook ({token, domainName, toolId, username}, res,  done){
             "secret": "secure_taken_id",
             "wildcard_web_hook": true,
             "web_hook_event_type_ids": [ ],
-            "group_ids": [43]
+            "group_ids": 43
         }
 
 	registerWebhook.generateWebhook(postDetails, (err, result)=>{

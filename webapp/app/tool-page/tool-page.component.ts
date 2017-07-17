@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, Input, OnInit, Inject } from '@angular/core';
 import { ToolPageService } from './tool-page.service';
 import { Params, RouterModule, Routes, Router, ActivatedRoute } from '@angular/router';
 import { MD_DIALOG_DATA, MdDialog, MdDialogRef } from '@angular/material';
@@ -10,7 +10,8 @@ import { UserInfoService } from '../core/user-info.service';
   providers: [ToolPageService]
 })
 export class ToolPageComponent implements OnInit {
-  toolid: String;
+    
+ @Input() toolid: String;
   toolinfo: any;
   flag = 0;
   constructor(
@@ -22,6 +23,7 @@ export class ToolPageComponent implements OnInit {
 
   ngOnInit() {
     this.toolid = this.activeroute.snapshot.params['toolid'];
+    //console.log("toolid",this.toolid);
     this.toolpageservice.getToolinfo(this.toolid).subscribe(result => {
       let body = result.json();
       // console.log('body is ',body);
@@ -36,11 +38,12 @@ export class ToolPageComponent implements OnInit {
 
     // alert('toolInt called');
 
+    // this.dialog.open(IntegrateTool,{
+    //   data:this.toolid;
+    //   });
     this.dialog.open(IntegrateTool, {
-      height: '400px',
-      width: '400px',
+      data:this.toolid
     });
-
   }
 }
 
@@ -51,7 +54,8 @@ export class ToolPageComponent implements OnInit {
   providers: [UserInfoService]
 })
 export class IntegrateTool implements OnInit {
-
+  toolid:any;
+  domain: string;
   integrationFlag = 0;
   adminCommunities = [];
   ngOnInit() {
@@ -72,12 +76,29 @@ export class IntegrateTool implements OnInit {
     console.log(' the users are admin ', this.adminCommunities);
   }
 
-  constructor(private userservice: UserInfoService) { }
+  // constructor(
+  //   private userservice: UserInfoService,
+  //   private router: Router,
+  //   @Inject(MD_DIALOG_DATA) public data: any, 
+  //   public dialogRef: MdDialogRef<AddToolComponent>) {
+  //   this.toolid=data;
+  // ) { }
+ constructor( 
+  private userservice: UserInfoService,
+  private router: Router, 
+  @Inject(MD_DIALOG_DATA) public data: any, 
+  public dialogRef: MdDialogRef<ToolPageComponent>) {
+  this.toolid=data;
+  }
 
+  integrateToolToCmmunity(domainname) {
 
-  integrateToolToCmmunity() {
+    console.log('domain name is ',domainname);
 
-    this.integrationFlag = 1;
+    this.domain=domainname;
+    console.log('inside',this.domain);
+    // this.router.navigate[(`/app/toolconfig/${this.toolid}`)];
+     this.router.navigate([`/app/toolconfig/${this.toolid}`]);
   }
 
 }
