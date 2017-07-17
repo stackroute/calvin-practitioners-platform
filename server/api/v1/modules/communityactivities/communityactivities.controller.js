@@ -80,7 +80,7 @@ const activities = {
        target: {
          type: 'Group',
          name: 'Stackroute',
-         content: 'https://cdn.elegantthemes.com/blog/wp-content/uploads/2016/04/community-wordpress.jpg',
+         content: 'https://www.planwallpaper.com/static/images/desktop-year-of-the-tiger-images-wallpaper.jpg',
          url: 'http://groups.com/group/Stackroute'
        },
        context: {
@@ -109,7 +109,7 @@ const activities = {
        target: {
          type: 'Group',
          name: 'Stackroute',
-         content: 'https://cdn.elegantthemes.com/blog/wp-content/uploads/2016/04/community-wordpress.jpg',
+         content: 'https://images.pexels.com/photos/34950/pexels-photo.jpg?h=350&auto=compress&cs=tinysrgb',
          url: 'http://groups.com/group/Stackroute'
        },
        context: {
@@ -138,7 +138,7 @@ const activities = {
        target: {
          type: 'Group',
          name: 'Stackroute',
-         content: 'https://cdn.elegantthemes.com/blog/wp-content/uploads/2016/04/community-wordpress.jpg',
+         content: 'https://cdn.pixabay.com/photo/2016/10/27/22/53/heart-1776746_960_720.jpg',
          url: 'http://groups.com/group/Stackroute'
        },
        context: {
@@ -167,7 +167,7 @@ const activities = {
        target: {
          type: 'Group',
          name: 'Stackroute',
-         content: 'https://cdn.elegantthemes.com/blog/wp-content/uploads/2016/04/community-wordpress.jpg',
+         content: 'https://www.planwallpaper.com/static/images/nasas-images-of-most-remarkable-events-you-cant-miss.jpg',
          url: 'http://groups.com/group/Stackroute'
        },
        context: {
