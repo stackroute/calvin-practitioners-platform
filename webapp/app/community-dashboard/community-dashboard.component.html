@@ -1,5 +1,16 @@
 
-<calvin-community-profile [profile]="this.community" changebody >
+<calvin-community-profile [profile]="this.community"  >
+   <div class="manage-community-info" *ngIf="this.CommunitiesInfo.role === 'Admin' || 'owner'" >
+    <button md-icon-button [mdMenuTriggerFor]="menu" class="setting">
+    <md-icon>settings</md-icon>
+  </button>
+  <md-menu #menu="mdMenu">
+    <button routerLink="/app/managecommunity/{{this.domain}}" md-menu-item>
+      <md-icon>dialpad</md-icon>
+      <span>Manage Community</span>
+    </button>
+  </md-menu>
+   </div>
 </calvin-community-profile>
 <div fxLayout="row" fxLayoutGap="">
   <div fxLayout="column" fxFlex="30%" fxFlex.md="20%" >
