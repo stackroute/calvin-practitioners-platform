@@ -39,6 +39,7 @@ status;
 counter = true;
 ans;
 tagname:String;
+
   
    constructor(private route: ActivatedRoute, private router: Router, private fb: FormBuilder, 
    private commProfileService: CommunityProfileService,private dialog: MdDialog, private commUpdateService: updateSpecificCommunityService) { 
@@ -70,10 +71,11 @@ tagname:String;
   }
    // store the tag value in array 
   chipValue(tag,resetText) {
-    resetText.value='';
+     resetText.value='';
     if(!this.tagarray.includes(tag)) {
       this.tagarray.push(tag);
       console.log(this.tagarray);
+      // this.tagname='';
     }
   }
 routeToHome() {
