@@ -15,19 +15,10 @@
        
       </div>
       <div fxFlex="50%">
-        <label>{{val.toolid}}</label>
-        <label>{{val.purpose}}</label>
-        <label>{{val.tooldesc}}</label>
-        <!--<md-input-container fxLayoutAlign="start">
-          <input mdInput placeholder="" disabled value={{val.toolid}} disabled>
-        </md-input-container>-->
-        <!--<md-input-container fxLayoutAlign="start">
-          <input mdInput placeholder="" disabled value={{val.purpose}} disabled>
-        </md-input-container>-->
-
-        <!--<md-input-container fxLayoutAlign="start">
-          <input mdInput placeholder="" disabled value={{val.tooldesc}} disabled>
-        </md-input-container>-->
+         <md-card-title><h2>{{val.toolname}}</h2></md-card-title>
+        <md-card-subtitle>{{val.toolid}}</md-card-subtitle>
+        <md-card-subtitle>{{val.purpose}}</md-card-subtitle>
+        <md-card-subtitle>{{val.tooldesc}}</md-card-subtitle>
       </div>
     </div>
     <hr>
@@ -85,14 +76,6 @@
   </md-select>
     </div>
       </div>
-      <!--<div fxLayout="row" fxFlex="50%">
-    <md-select placeholder="" [(ngModel)]="selectedValue" name="food">
-    <md-option *ngFor="let food of foods" [value]="food.value">
-      {{food.viewValue}}
-    </md-option>
-  </md-select>
-    </div>-->
-      
     </div>
     <div fxFlex="80" fxLayoutAlign="end">
   <button md-raised-button color="primary" class="bottom-button">submit</button>

@@ -30,13 +30,14 @@
   <md-card class="card-align" fxFlex="100">
     <div class="community-list" *ngFor="let val of tools.tools">
       <div class="fix">
+        <md-icon align="end" (click)="config(val.toolid)">settings</md-icon>
         <md-card-header align="start">
           <img md-card-avatar src="{{val.avatar}}">
           <md-card-title><b>{{val.toolname}}</b></md-card-title>
           <md-card-title>{{val.toolid}}</md-card-title>
           <md-card-title>{{val.purpose}}</md-card-title>
-          <md-icon align="end" (click)="config(val.toolid)">settings</md-icon>
         </md-card-header>
+        <!--<div align="end">-->
       </div>
     </div>
   </md-card>
