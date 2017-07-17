@@ -1,6 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Inject } from '@angular/core';
 import { Params, RouterModule, Routes, Router, ActivatedRoute } from '@angular/router';
-import { MdDialog } from '@angular/material';
+// import { MdDialog } from '@angular/material';
 import { FormGroup, FormControl, Validators, FormBuilder, AbstractControl} from '@angular/forms';
 1
 import * as moment from 'moment/moment';
@@ -10,6 +10,9 @@ import { Http, Response } from '@angular/http';
 import { CommunityProfileService } from '../community-profile/community-profile.service';
 
 import { updateSpecificCommunityService } from '../manage-community/manage-community.service';
+
+import { MD_DIALOG_DATA, MdDialog, MdDialogRef} from '@angular/material';
+
 
 
 
@@ -42,6 +45,18 @@ tagname:String;
      this.updateForm(); 
    }
 
+   getAllCommunityDetails() {
+   this.domain = this.route.snapshot.params['domain'];
+   this.commProfileService.getCommunity(this.route.snapshot.params['domain'],this.counter). subscribe ( res => {   
+   this.domain = res.domain;
+   this.updatedBy = res.updatedby;
+   this.status = res.status;
+   res.createdon= moment(res.createdon).subtract(1,'days').calendar();
+   this.community = res;
+   console.log("inside managecommunity",this.community);
+  } );
+   }
+
 
   // reactive form validation for userForm
   updateForm() {
@@ -68,8 +83,11 @@ tagname:String;
     this.tagarray = this.tagarray.filter(item => item !== tagvalue);
     console.log('deselect tag',this.tagarray);
   }
-  openDialog() {
-    this.dialog.open(updateCommunity);
+  openDialog(domain) {
+    let dialogRef = this.dialog.open(updateCommunity, {
+      disableClose: true ,
+      data: this.domain
+    });
   }
 
 
@@ -88,8 +106,9 @@ tagname:String;
     const formValue = { updatedby, tags, name, visibility, description, avatar, status};
     console.log('total form value',formValue);
     this.commUpdateService.updateSpecificCommunity(formValue,this.domain).subscribe((result)=>{
-     this.openDialog();
+     this.openDialog(this.domain);
     });
+    this.getAllCommunityDetails();
         
 }
  
@@ -97,21 +116,27 @@ tagname:String;
 
 
  ngOnInit() {
+   this.getAllCommunityDetails();
+  //  this.domain = this.route.snapshot.params['domain'];
+  //  this.commProfileService.getCommunity(this.route.snapshot.params['domain'],this.counter). subscribe ( res => {   
+  //  this.domain = res.domain;
+  //  this.updatedBy = res.updatedby;
+  //  this.status = res.status;
+  //  res.createdon= moment(res.createdon).subtract(1,'days').calendar();
+  //  this.community = res;
+  //  console.log("inside managecommunity",this.community);
+  // } );
    
-   this.domain = this.route.snapshot.params['domain'];
-   this.commProfileService.getCommunity(this.route.snapshot.params['domain'],this.counter). subscribe ( res => {   
-   this.domain = res.domain;
-   this.updatedBy = res.updatedby;
-   this.status = res.status;
-   res.createdon= moment(res.createdon).subtract(1,'days').calendar();
-   this.community = res;
-   console.log("inside managecommunity",this.community);
- 
-
- 
-  
-  //  this.tagarray.push(res.tags);
-  } );
+  //  this.domain = this.route.snapshot.params['domain'];
+  //  this.commProfileService.getCommunity(this.route.snapshot.params['domain'],this.counter). subscribe ( res => {   
+  //  this.domain = res.domain;
+  //  this.updatedBy = res.updatedby;
+  //  this.status = res.status;
+  //  res.createdon= moment(res.createdon).subtract(1,'days').calendar();
+  //  this.community = res;
+  //  console.log("inside managecommunity",this.community);
+   //  this.tagarray.push(res.tags);
+  // });
 
 }
 }
@@ -122,5 +147,13 @@ tagname:String;
 })
 export class updateCommunity {
   domain;
-  constructor(private router: Router, private route: ActivatedRoute) {}
+  constructor(private router: Router, private route: ActivatedRoute, 
+  @Inject(MD_DIALOG_DATA) public data: any, 
+  public dialogRef: MdDialogRef<updateCommunity>) {
+    this.domain = data;
+  }
+
+   routeToManage() {
+    this.router.navigate([`/app/managecommunity/${this.domain}`]);
+  }
 }
