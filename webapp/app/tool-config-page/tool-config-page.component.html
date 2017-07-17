@@ -1,23 +1,22 @@
-<div fxLayout fxLayout.xs="" fxFlex="80" fxLayout="column" fxLayoutGap="10px">
-  <div fxFlex="40%" fxLayout="row"> </div>
+<!--<div fxLayout fxLayout.xs="" fxFlex="80" fxLayout="row" fxLayoutGap="10px">
+  <div fxFlex="40%" fxLayout="row"> </div>-->
   <!--<div fxFlex="100%" fxLayout="row" fxLayoutAlign=" start">-->
-
+<md-card>
+  <md-card-content>
   <form #tool="ngForm" class="form" (ngSubmit)="onSubmit(values)">
     <h3>Tool Info</h3>
     <div *ngFor="let val of allTool" fxLayout="row" >
       <!--<label>{{val.toolid}}</label>-->
-      <div fxFlex="50%" fxLayoutAlign="end">
+      <div fxFlex="30%" fxLayoutAlign="">
         <!--<img src="{{val.toolavatar}}">-->
         <md-list>
           <md-list-item>
-        <img  src="{{val.toolavatar}}" class="img">
+        <img  md-list-avatar src="{{val.toolavatar}}" class="img" style="height:200px;width:300px">
           </md-list-item>
         </md-list>
-        <!--<md-input-container fxLayoutAlign="start">
-          <input mdInput placeholder="" disabled value={{val.toolavatar}} disabled>
-        </md-input-container>-->
+       
       </div>
-      <div fxFlex="40%">
+      <div fxFlex="50%">
         <md-input-container fxLayoutAlign="start">
           <input mdInput placeholder="" disabled value={{val.toolid}} disabled>
         </md-input-container>
@@ -33,8 +32,29 @@
     <hr>
     <h3>Tool Action</h3>
     <hr>
-    <div *ngFor="let val of toolActions" fxLayout="row" fxLayoutAlign="center">
-      <div fxFlex="25%">
+    <div *ngFor="let val of toolActions"  fxLayout.md="column" fxLayout.xs="column" fxLayout.sm="column" fxLayoutGap="40px" fxLayoutAlign="center">
+      <!--<div fxLayout.xs="row">
+          <md-input-container class="example-full-width">
+            <input name="" mdInput placeholder="" disabled value={{val.toolid}}>
+          </md-input-container>
+        </div>-->
+        <div fxLayout.xs="row">
+          <md-input-container class="example-full-width">
+            <input name="" mdInput placeholder="" disabled value={{val.grantactions}}>
+          </md-input-container>
+        </div>
+        <div fxLayout.xs="row">
+          <md-input-container class="example-full-width">
+            <input name="" mdInput placeholder="" disabled value={{val.name}}>
+          </md-input-container>
+        </div>
+        <div fxLayout.xs="row">
+          <md-input-container class="example-full-width">
+            <input name="" mdInput placeholder="" disabled value={{val.description}}>
+          </md-input-container>
+        </div>
+      
+      <!--<div fxFlex="25%">
       <label>{{val.toolid}}</label>
       </div>
       <div fxFlex="25%">
@@ -45,45 +65,40 @@
       </div>
       <div fxFlex="25%">
       <label>{{val.description}}</label>
-      </div>
+      </div>-->
 
-     <!--<div>
-      <md-input-container fxLayoutAlign="start">
-        <input mdInput placeholder="" disabled value={{val.actionid}} disabled>
-      </md-input-container>
-      </div>
-      
-      <md-input-container fxLayoutAlign="start">
-        <input mdInput placeholder="" disabled value={{val.grantactions}} disabled>
-      </md-input-container>
-      <md-input-container fxLayoutAlign="start">
-        <input mdInput placeholder="" disabled value={{val.name}} disabled>
-      </md-input-container>
-      <md-input-container fxLayoutAlign="start">
-        <input mdInput placeholder="" disabled value={{val.description}} disabled>
-      </md-input-container>-->
+    
     </div>
     <hr>
     <h3>subscribe to events</h3>
     <hr>
-    <div fxFlex="100%" fxLayout="" >
-      <div fxFlex="50%" fxLayoutAlign="start"  fxLayout="column" *ngFor="let event of toolEvents">
-      <md-checkbox  class="example-margin" [checked]="">{{event.name}}</md-checkbox>
-      <p class="">{{event.description}}</p>
-      </div>
-      <div fxLayout="" fxFlex="50%">
+    <div fxFlex="100%" fxLayout="column" fxLayoutGap="" >
+      <div fxFlex="50%" fxLayoutAlign="center"  fxLayout="row" *ngFor="let event of toolEvents">
+      <md-checkbox  class="example-margin" [checked]="false">{{event.name}}
+      <p fxLayout="column">{{event.description}}</p></md-checkbox>
+        <div fxLayout="row" fxFlex="50%" fxLayoutAlign="center">
     <md-select placeholder="" [(ngModel)]="selectedValue" name="food">
     <md-option *ngFor="let food of foods" [value]="food.value">
       {{food.viewValue}}
     </md-option>
   </md-select>
     </div>
-      <!--<div fxFlex="33%">flex3</div>-->
+      </div>
+      <!--<div fxLayout="row" fxFlex="50%">
+    <md-select placeholder="" [(ngModel)]="selectedValue" name="food">
+    <md-option *ngFor="let food of foods" [value]="food.value">
+      {{food.viewValue}}
+    </md-option>
+  </md-select>
+    </div>-->
+      
     </div>
+    <div fxFlex="80" fxLayoutAlign="end">
+  <button md-raised-button color="primary" class="bottom-button">submit</button>
+</div>
   </form>
+  </md-card-content>
+</md-card>
   <!--</div>-->
-</div>
+<!--</div>-->
 
-<div fxFlex="80" fxLayoutAlign="end">
-  <button md-raised-button color="primary" class="bottom-button" routerLink="/app/communityDashBoard/:value">submit</button>
-</div>

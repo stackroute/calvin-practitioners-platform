@@ -63,7 +63,7 @@ export class IntegrateTool implements OnInit {
 
         if (community.role === 'admin' || community.role === 'owner') {
 
-          this.adminCommunities.push(community.name);
+          this.adminCommunities.push(community.domain);
         }
       });
 
