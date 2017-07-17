@@ -21,15 +21,16 @@ export class CommunityRoleManagementComponent implements OnInit {
   @Input() community;
 
   constructor(public dialog: MdDialog, private role: RoleServices, private route: ActivatedRoute) {
-    this.role.listUniqueRoles(this.route.snapshot.params['domain']).subscribe(res => {
-      this.getResults = res;
-    });
+    // this.role.listUniqueRoles(this.route.snapshot.params['domain']).subscribe(res => {
+    //   this.getResults = res;
+    //    });
     // console.log(this.route.snapshot.params['domain']);    
     //console.log(this.resultArray)
   }
-  ngOnInit() {    
-    this.role.listRoles(this.route.snapshot.params['domain']).subscribe(res => {
-      this.sample.push(res);{
+ 
+   roleManagement(){ 
+     this.role.listRoles(this.route.snapshot.params['domain']).subscribe(res => {
+      this.sample.push(res);
       this.sample.forEach((val) => {
         (val.roleactions).forEach((data) => {
           const role = data.role;
@@ -45,7 +46,7 @@ export class CommunityRoleManagementComponent implements OnInit {
         this.getResults.forEach((data) => {
         const roles = data.role;
         data.action = this.roleObj[roles];
-        return this.getResults;
+         
       });
       console.log(this.getResults);
       let domain = this.route.snapshot.params['domain'];
@@ -54,9 +55,8 @@ export class CommunityRoleManagementComponent implements OnInit {
       this.resultArray.push({ domain, roleactions,toolactions });
       console.log(this.resultArray)
       return this.resultArray;
-    }
+    }); 
     
-    });
    }
 
   openDialog() {
@@ -64,9 +64,14 @@ export class CommunityRoleManagementComponent implements OnInit {
     const dialog = this.dialog.open(CommunityNewRoleCreationComponent, {
       disableClose:true,
       data: this.route.snapshot.params['domain']
-
     });
   }
-
+   ngOnInit() {   
+    this.role.listUniqueRoles(this.route.snapshot.params['domain']).subscribe(res => {
+      this.getResults = res;
+       });
+     this.roleManagement();
+           
+   }
 }
 

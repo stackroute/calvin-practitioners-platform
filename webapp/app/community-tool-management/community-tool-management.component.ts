@@ -13,14 +13,15 @@ import { Router } from '@angular/router';
   providers:[ ToolService]
 })
 export class CommunityToolManagementComponent implements OnInit {
-
+  loading: boolean;
     @Input('community') domain: string;
   tools = [];
   constructor(public dialog: MdDialog,private toolservice: ToolService,private route: Router) { }
 
   ngOnInit() {
+    this.loading = true;
     this.toolservice.getTools(this.domain).subscribe(data => {
-     
+      this.loading = false;
       this.tools = data;
        console.log(this.tools,this.domain);
   });
