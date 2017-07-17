@@ -63,5 +63,3 @@ foods = [
 // constructor(private router: Router) { }
 // }
 
-  }}
->>>>>>> 996b2ebb0a9e60593ea3b4b04bab86b972159ea7
