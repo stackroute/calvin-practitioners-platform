@@ -6,11 +6,11 @@
     <h3>Tool Info</h3>
     <div *ngFor="let val of allTool" fxLayout="row" >
       <!--<label>{{val.toolid}}</label>-->
-      <div fxFlex="30%" fxLayoutAlign="end">
+      <div fxFlex="50%" fxLayoutAlign="end">
         <!--<img src="{{val.toolavatar}}">-->
         <md-list>
           <md-list-item>
-        <img  src="./assets/images/member.png" style="margin-top:7%">
+        <img  src="{{val.toolavatar}}" class="img">
           </md-list-item>
         </md-list>
         <!--<md-input-container fxLayoutAlign="start">
@@ -66,18 +66,18 @@
     <hr>
     <h3>subscribe to events</h3>
     <hr>
-    <div fxLayout="row">
-      <div fxFlex="50%" fxFlex="column" *ngFor="let event of toolEvents">
-      <md-checkbox  class="example-margin" [checked]="true">{{event.name}}</md-checkbox>
-      <p>{{event.description}}</p>
+    <div fxFlex="100%" fxLayout="" >
+      <div fxFlex="50%" fxLayoutAlign="start"  fxLayout="column" *ngFor="let event of toolEvents">
+      <md-checkbox  class="example-margin" [checked]="">{{event.name}}</md-checkbox>
+      <p class="">{{event.description}}</p>
       </div>
-      <div fxFlex="50%">
-        <md-select placeholder="" [(ngModel)]="selectedValue" name="food">
+      <div fxLayout="" fxFlex="50%">
+    <md-select placeholder="" [(ngModel)]="selectedValue" name="food">
     <md-option *ngFor="let food of foods" [value]="food.value">
       {{food.viewValue}}
     </md-option>
   </md-select>
-      </div>
+    </div>
       <!--<div fxFlex="33%">flex3</div>-->
     </div>
   </form>

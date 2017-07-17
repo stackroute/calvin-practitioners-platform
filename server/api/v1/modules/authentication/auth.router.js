@@ -10,7 +10,8 @@ router.use((req, res, next) => {        // eslint-disable-line consistent-return
     if (token) {
       authCtrl.verifyToken(token, (err) => {
         if (err) {
-          res.clearCookie(config.cookie.name);
+          res.clearCookie(config.cookie.user);
+          res.clearCookie(config.cookie.userCommunity);
           res.status(401).json({ error: ' Session Timeout... Please login again' });
          // console.log('token expired');
 

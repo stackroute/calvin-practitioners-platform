@@ -40,6 +40,18 @@ export class ToolConfigPageComponent implements OnInit {
      this.toolEvents=data;
      console.log("actions",data);
    });
+}
+
+  // onSubmit(value: any){
+  //   const newToolInfo=value.value;
+
+  // }
+foods = [
+    {value: 'steak-0', viewValue: 'calvin'},
+    {value: 'pizza-1', viewValue: 'discous'},
+    {value: 'tacos-2', viewValue: ''}
+  ];
+}
   
 
 
@@ -51,4 +63,3 @@ export class ToolConfigPageComponent implements OnInit {
 // constructor(private router: Router) { }
 // }
 
-  }}
