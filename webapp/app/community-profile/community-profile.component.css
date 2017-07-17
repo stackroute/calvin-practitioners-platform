@@ -171,17 +171,69 @@ md-icon{
 
 
 }
-@media(max-width:760px){
+@media(max-width:760px) {
     .community-image img
     {
-        width: 150%;
-        height:80%
+        width:38%;
+           height:180%;
+           margin-top: 20%;
+           margin-left:12%;
+             box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
     }
 }
-@media(max-width:460px){
+@media (max-width:1064px) and (min-width:810px) {
    .community-image img
     {
-        width:50%;
-        height:40%;
+         width:38%;
+           height:180%;
+           margin-top: 40%;
+           margin-left:12%;
+             box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
     }
+}
+
+@media (max-width:1024px) and (min-width:760px) {
+   .community-image img
+    {
+        width:38%;
+           height:180%;
+           margin-top: 30%;
+           margin-left:12%;
+             box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
+    }
+}
+
+@media(max-width:760px) {
+   .community-details-name h3{
+
+     margin-right: 130px;
+     margin-top:20%;   
+}
+}
+@media(max-width:460px) {
+   .community-details-name h3{
+
+     margin-right: 130px;
+     margin-top:20%;
+     
+   }
+    
+}
+
+@media (max-width:1024px) and (min-width:760px) {
+ .community-details-name h3{
+
+     margin-right: 130px;
+     margin-top:20%;
+        
+}
+}
+
+@media (max-width:1064px) and (min-width:810px) {
+ .community-details-name h3{
+
+     margin-right: 150px;
+     margin-top:20%;
+        
+}
 }

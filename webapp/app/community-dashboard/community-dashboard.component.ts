@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output } from '@angular/core';
 import { CommunityToolsWidgetComponent } from '../community-tools-widget/community-tools-widget.component';
 import { CommunityMembersWidgetComponent } from '../community-members-widget/community-members-widget.component';
 import { Params, RouterModule, Routes, Router, ActivatedRoute } from '@angular/router';
