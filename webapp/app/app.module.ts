@@ -64,7 +64,7 @@ import { CommunityNewRoleCreationComponent } from './community-new-role-creation
 import { CommunityToolManagementComponent } from './community-tool-management/community-tool-management.component';
 import { DialogResultExampleDialog } from './user-profile/user-profile.component';
 import { ToolConfigPageComponent } from './tool-config-page/tool-config-page.component';
-import { CorewwwwComponent } from './corewwww/corewwww.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -105,7 +105,6 @@ import { CorewwwwComponent } from './corewwww/corewwww.component';
     KeysPipe,
     DialogResultExampleDialog,
     ToolConfigPageComponent,
-    CorewwwwComponent
      ],
 
   imports: [
