@@ -6,14 +6,14 @@ const BASE_COMMUNITY_SERVICE_URL = 'http://calvin-communities.blr.stackroute.in/
 
 require('chai').should();
 
-const postdata=[ { "toolId": "www.creativebloq.com", "actions": { "share": "true" } },
- { "toolId": "www.creativebloq.com", "actions": { "upload": "true" } } ];
+const data=[ { "toolId": "www.creativebloq.com", "actions": { "share": "true" } },
+             { "toolId": "www.creativebloq.com", "actions": { "upload": "true" } } ];
 
 describe('patch tool actions to a role ',function(){
        it('should return updated actions',function(done){
               request
               .patch(`${BASE_COMMUNITY_SERVICE_URL}/communityrole/hello.there123/roles/admin`)
-              .send(postdata)
+              .send(data)
               .end(function(err,result){
                    if(err) {
                        done(err);

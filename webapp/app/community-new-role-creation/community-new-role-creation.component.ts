@@ -105,7 +105,7 @@ export class CommunityNewRoleCreationComponent implements OnInit {
   }
 
   ngOnInit() {
- this.tool.listTools(this.domainName).subscribe(res => {
+   this.tool.listTools(this.domainName).subscribe(res => {
       return this.sample.push(res);
     });
     this.roleValidation();
