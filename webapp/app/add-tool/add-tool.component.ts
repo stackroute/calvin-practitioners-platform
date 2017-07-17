@@ -221,7 +221,7 @@ export class SucessDialog {
   }
   
   navigateTool() {
-    alert('hi will navigate to tool'+`/app/toolpage/${this.toolid}`);
+    // alert('hi will navigate to tool'+`/app/toolpage/${this.toolid}`);
     this.router.navigate([`/app/toolpage/${this.toolid}`]);
   }
 

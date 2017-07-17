@@ -76,7 +76,9 @@ tagname:String;
       console.log(this.tagarray);
     }
   }
-
+routeToHome() {
+    this.router.navigate(['/app/Home/']);
+  }
   // deselect chip value/remove tag value from an array
   clearTag(tag) {
     const tagvalue = tag;

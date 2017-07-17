@@ -20,7 +20,7 @@ client.connect()
   })
   .then(() => {
     const query = `create table IF NOT EXISTS ${keyspacename}.${tablename[1]}
-    (toolid text primary key,purpose text, toolavatar blob, tooldesc text,toolname text)`;
+    (toolid text primary key,purpose text, toolavatar text, tooldesc text,toolname text)`;
     return client.execute(query);
   })
   .then(() => {
