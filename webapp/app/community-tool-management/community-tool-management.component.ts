@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ToolService } from './community-tool-management.service';
 import {MD_DIALOG_DATA} from '@angular/material';
 import {MdDialog} from '@angular/material';
+import { Router } from '@angular/router';
 
 
 
@@ -15,7 +16,7 @@ export class CommunityToolManagementComponent implements OnInit {
   loading: boolean;
     @Input('community') domain: string;
   tools = [];
-  constructor(public dialog: MdDialog,private toolservice: ToolService) { }
+  constructor(public dialog: MdDialog,private toolservice: ToolService,private route: Router) { }
 
   ngOnInit() {
     this.loading = true;
@@ -24,12 +25,17 @@ export class CommunityToolManagementComponent implements OnInit {
       this.tools = data;
        console.log(this.tools,this.domain);
   });
-}
-   openBox(){
-     this.dialog.open(CommunityDialogue);
-   }
+ }
 
+  config(toolid){
+    console.log("hello",toolid);
+    this.route.navigate([`/app/toolconfig/${toolid}`]);
+  }
 }
+  //  openBox(){
+  //    this.dialog.open(CommunityDialogue);
+  //  }
+
 
 
 

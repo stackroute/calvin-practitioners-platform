@@ -27,15 +27,12 @@ export class CommunityNewRoleCreationComponent implements OnInit {
 
     //console.log('domin name from dialog', this.domainName);
 
-    this.tool.listTools(this.domainName).subscribe(res => {
-      return this.sample.push(res);
-    });
-    this.roleValidation();
+   
   }
 
   roleValidation(){
     this.roleValue = this.fb.group({
-      roleName: ['', [Validators.required, Validators.pattern('[a-z]{3,20}')]],
+      roleName: ['', [Validators.required, Validators.pattern('[a-z]{4,20}')]],
     });
   }
   isRoleNameUnique(role){
@@ -103,11 +100,15 @@ export class CommunityNewRoleCreationComponent implements OnInit {
         duration:2000
       });
       this.sample.push(res);
+      
     });
   }
 
   ngOnInit() {
-
+ this.tool.listTools(this.domainName).subscribe(res => {
+      return this.sample.push(res);
+    });
+    this.roleValidation();
   }
 
 }

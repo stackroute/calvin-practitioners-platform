@@ -94,7 +94,7 @@
             <input name="actionDesc" mdInput placeholder="Description" disabled value={{action.desc}}>
           </md-input-container>
           <!--<i class="material-icons" (click)="remAction(action.name)">cancel_outline</i>-->
-          <button md-mini-fab type="button" (click)="remAction(action.name)"><md-icon>cancel_outline</md-icon></button>
+          <button md-mini-fab type="button" (click)="remAction(action.name)"><md-icon>clear</md-icon></button>
         </div>
       </div>
       <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxLayoutGap="20px">
@@ -151,7 +151,8 @@
             <input name="evdesc" mdInput placeholder="Description" disabled value={{event.description}}>
           </md-input-container>
           <!--<i class="material-icons" (click)="remEvent(event.name)">cancel_outline</i>-->
-          <button md-mini-fab type="button" (click)="remEvent(event.name)"><md-icon>cancel</md-icon></button>
+          <!--<button md-mini-fab type="button" (click)="remEvent(event.name)"><md-icon>cancel</md-icon></button>-->
+                   <button md-mini-fab type="button" (click)="remEvent(event.name)"><md-icon>clear</md-icon></button>
         </div>
       </div>
 

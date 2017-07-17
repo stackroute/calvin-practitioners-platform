@@ -1,1 +1,1 @@
-module.exports = require('./communityActivities.routes');
+module.exports = require('./communityactivities.routes');

@@ -8,65 +8,76 @@
               <i class="material-icons">close</i></button>
        </div>
      </div>
-     <md-list-item>
+     <md-list-item routerLink="/app/Home">
        <div> <i class="material-icons">home</i></div>
-       <div fxFlex='80'>
-         <a fxAlign="start" routerLink="/app/Home">Home</a>
+       <div fxFlex='32'>
+         <a fxAlign="start" >Home</a>
        </div>
-       
+      
      </md-list-item>
      <!--<a md-list-item routerLink="/app/createCommunity">New Community</a>
      <a md-list-item routerLink="/app/toolmarket">Tool Marketplace</a>
      <a md-list-item routerLink="/app/addtool">Register Tool</a>-->
-      <md-list-item>
-        <div fxFlex='80'>
-          <a fxAlign="start" routerLink="/app/">Home</a>
-        </div>
-        <div> <i class="material-icons">home</i></div>
-      </md-list-item>
-      <a md-list-item routerLink="/app/createCommunity">New Community</a>
-      <a md-list-item routerLink="/app/toolmarket">Tool Marketplace</a>
-      <a md-list-item routerLink="/app/addtool">Register Tool</a>
-    </md-nav-list>
-    <hr>
-  </md-sidenav>
-  <div class="header">
-    <md-toolbar class="mat-primary" color="primary" role="toolbar">
-      <button class="hamburger mat-button" md-button="" (click)="start.open()" title="Docs menu">
-            <span class="mat-button-wrapper">
-               <md-icon>menu</md-icon>
-            </span>
-            <div class="mat-button-ripple mat-ripple" md-ripple=""></div>
-            <div class="mat-button-focus-overlay"></div>
-         </button>
-      <div fxFlex="20%" fxLayout="row">
-        <a class="nav-link logoAlgin" href="/">
-            <strong> CALVIN</strong>      
-            </a>
-      </div>
-      <div fxFlex="80%" fxLayout="row" *ngIf="flag===1" fxLayoutAlign="end center">
-        <md-chip-list>
-          <md-chip md-button (click)="openDialog()" selected="true">
-            <i class="material-icons">notifications_active</i>
-          </md-chip>
-        </md-chip-list>
-        <md-list>
-          <md-list-item>
-            <img md-list-avatar [md-menu-trigger-for]="menu" src={{user.avatar}} alt="User">
-          </md-list-item>
-        </md-list>
-      </div>
-      <md-menu xPosition="before" [overlapTrigger]="false" #menu="mdMenu">
-        <button md-menu-item routerLink="/app/profile">Profile</button>
-        <button md-menu-item (click)="logout()">Logout</button>
-      </md-menu>
-    </md-toolbar>
-  </div>
-  <section class="containeralgin">
-    <router-outlet></router-outlet>
-  </section>
-  <footer fxLayout="row" fxLayoutAlign="center center">
-    <h5>Copyright &#9400; 2017 Stack-Route and Wipro-Digital * All Rights Reserved</h5>
-  </footer>
-
+      <md-list-item routerLink="/app/createCommunity">
+       <div> <i class="material-icons">supervisor_account</i></div>
+       <div fxFlex='60'>
+         <a fxAlign="start" >New Community</a>
+       </div>
+      
+     </md-list-item>
+      <md-list-item routerLink="/app/toolmarket">
+       <div> <i class="material-icons">shopping_cart</i></div>
+       <div fxFlex='60'>
+         <a fxAlign="start" >Tool marketplace</a>
+       </div>
+      
+     </md-list-item>
+      <md-list-item routerLink="/app/addtool">
+       <div> <i class="material-icons">border_color</i></div>
+       <div fxFlex='50'>
+         <a fxAlign="start">Register Tool</a>
+       </div>
+      
+     </md-list-item>
+   </md-nav-list>
+   <hr>
+ </md-sidenav>
+ <div class="header">
+   <md-toolbar class="mat-primary" color="primary" role="toolbar">
+     <button class="hamburger mat-button" md-button="" (click)="start.open()" title="menu">
+           <span class="mat-button-wrapper">
+              <i class="material-icons menu-icon">menu</i>
+           </span>
+           <div class="mat-button-ripple mat-ripple" md-ripple=""></div>
+           <div class="mat-button-focus-overlay"></div>
+        </button>
+     <div fxFlex="20%" fxLayout="row">
+       <a class="nav-link logoAlgin" href="/">
+         <h3>  <strong> CALVIN</strong>   </h3>  
+          </a>
+     </div>
+     <div fxFlex="80%" fxLayout="row" *ngIf="flag===1" fxLayoutAlign="end center">
+       <md-chip-list>
+         <md-chip md-button selected="true">
+           <i class="material-icons bell">notifications_active</i>
+         </md-chip>
+       </md-chip-list>
+       <md-list>
+         <md-list-item>
+           <img md-list-avatar [md-menu-trigger-for]="menu" src={{user.avatar}} alt="User">
+         </md-list-item>
+       </md-list>
+     </div>
+     <md-menu xPosition="before" [overlapTrigger]="false" #menu="mdMenu">
+       <button md-menu-item routerLink="/app/profile">Profile</button>
+       <button md-menu-item (click)="logout()">Logout</button>
+     </md-menu>
+   </md-toolbar>
+ </div>
+ <section class="containeralgin">
+   <router-outlet></router-outlet>
+ </section>
+ <footer fxLayout="row" fxLayoutAlign="center center">
+   <h5>Copyright &#9400; 2017 Stack-Route and Wipro-Digital * All Rights Reserved</h5>
+ </footer>
 </md-sidenav-container>

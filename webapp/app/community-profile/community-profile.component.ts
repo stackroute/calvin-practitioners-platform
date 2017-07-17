@@ -1,6 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output } from '@angular/core';
 import * as moment from 'moment/moment';
 import { UserInfoService } from '../core/user-info.service';
+import { ManageCommunityComponent } from '../manage-community/manage-community.component'
 
 @Component({
   selector: 'calvin-community-profile',
@@ -16,7 +17,6 @@ export class CommunityProfileComponent implements OnInit {
   member;
   user;
   CommunitiesInfo = [];
-
  
  counter = true;
 
@@ -36,7 +36,6 @@ export class CommunityProfileComponent implements OnInit {
 
      this.userInfo.getUserCommunity((userCommunity) => {
        this.CommunitiesInfo = userCommunity;
-       
        console.log("getting user communitiesss in community profile,,",this.CommunitiesInfo);
 
       

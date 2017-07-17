@@ -1,6 +1,6 @@
 <!--<div fxLayout fxLayoutAlign="start">-->
 <md-card>
-  <md-list fxLayoutAlign="center">
+  <md-list fxLayoutAlign="">
     <md-list-item>
       <md-icon>build</md-icon>
       <h4>Tools</h4>
@@ -9,9 +9,10 @@
   <md-card-content fxLayoutAlign.xs="column" class="content">
     <md-list>
       <md-list-item *ngFor="let val of tools.tools" fxLayoutAlign.xs="column">
-        <img md-list-avatar class="img-responsive center-block"  src="./assets/img/tool.png">
+        <!--<img md-list-avatar class="img-responsive center-block"  src="./assets/img/tool.png">-->
         <!--<md-list-item>{{val.toolId}}</md-list-item>-->
-        <h3 md-line>{{val.toolid}}</h3>
+        <md-icon>build</md-icon>
+        <p>{{val.toolid}}</p>
         <p md-line>
           <!--<span>{{val.createdon}}</span>-->
         </p>

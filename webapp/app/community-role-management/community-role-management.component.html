@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container-style">
   <div fxLayout='column'>
     <div *ngIf='resultArray'>
       <div *ngFor='let value of resultArray'>
@@ -6,7 +6,8 @@
         </calvin-community-role-actions>
       </div>
     </div>
-    <button fxFlexAlign="end" md-mini-fab class='button-style' (click)='openDialog()'><md-icon>add</md-icon></button>
+    <div fxLayoutAlign="end" class="button-position">
+    <button fxFlexAlign="end" md-mini-fab class='button-style' (click)='openDialog()'><md-icon>add</md-icon></button></div>
   </div>
 </div>
 <router-outlet></router-outlet>

@@ -17,27 +17,29 @@ import { UserInfoService } from '../core/user-info.service';
 })
 
 export class CreateCommunityComponent implements OnInit {
-  
+
   user;
-  
+
   userForm: FormGroup;
-  
+
   public tagarray = [];  // to insert chip value from textfield
-  
+
   templateValue: string; // to store selected template value
-  
+
   uniqueTemplate;
-  
+
   uniquePurposeArry = [];
-  
+
   isDomainExists = false;
-  
+
   tagCtrl: FormControl;
-  
+
   purposearray;
-  
+
   purposelist;
-  
+
+  flag = 0;
+
   constructor(
   private fb: FormBuilder, 
   private newcommunity: CreateCommunityService, 
@@ -47,7 +49,7 @@ export class CreateCommunityComponent implements OnInit {
   ) {
     this.createForm(); 
   }
-  
+
   // reactive form validation for userForm
   createForm() {
     this.userForm = this.fb.group({
@@ -61,9 +63,10 @@ export class CreateCommunityComponent implements OnInit {
       avatar: ['',Validators.pattern('https?://.+')],
     });
   }
-  
+
   //to check Domain is available or not
   isDomainUnique(control: FormControl){
+    this.flag = 1;
     console.log("Checking if domian ", control.value, " exists already");
     this.newcommunity.isDomainRegisterd(control.value).subscribe(
     (result) =>
@@ -77,13 +80,13 @@ export class CreateCommunityComponent implements OnInit {
       }
     });
   }
-  
+
   // get the selected template value 
   onselect(selectedTemplate: any) {
     this.templateValue = selectedTemplate;
     return selectedTemplate;
   }
-  
+
   // get unique template list based on purpose
   selectTemplate(purposevalue)
   {
@@ -91,7 +94,7 @@ export class CreateCommunityComponent implements OnInit {
       return i.purpose === purposevalue;
     });
   }
-  
+
   // store the tag value in array 
   chipValue(tag,resetText) {
     resetText.value='';
@@ -99,13 +102,13 @@ export class CreateCommunityComponent implements OnInit {
       this.tagarray.push(tag);
     }
   }
-  
+
   // deselect chip value/remove tag value from an array
   deselectchip(tag) {
     const tagvalue = tag;
     this.tagarray = this.tagarray.filter(item => item !== tagvalue);
   }
-  
+
   // submit userForm values and redirect to manageCommunity
   onsubmit(userdata: any) {
     const newCommunityObj = userdata.value;
@@ -125,19 +128,20 @@ export class CreateCommunityComponent implements OnInit {
     this.newcommunity.postNewcommunityDetails(newcommunityDetails, domainName).subscribe(
     (data) => this.openDialog(newCommunityObj));
   }
-  
+
   // open dialog box if form submitted successfuly
   openDialog(newCommunityObj) {
     let dialogRef = this.dialog.open(NewcommunityDialogboxComponent, {
+      disableClose: true ,
       data:newCommunityObj
     });
   }
-  
+
   // route to Home page if action cancelled
   routeToHome() {
     this.router.navigate(['/app/Home/']);
   }
-  
+
   ngOnInit() {
     // this will get the data to list template
     this.newcommunity.getTemplates().subscribe(
@@ -149,20 +153,10 @@ export class CreateCommunityComponent implements OnInit {
     }, error => //console.log(error),
     () => console.log('finished')
     );
-    
     // get the owner name
     this.userservice.getUserDetail((user)=>{
       this.user=user;
       //console.log('user is in comm',this.user);
     });
   }
-}
-
-@Component ({
-  selector: 'errorHandling-dialogbox',
-  templateUrl: 'errorHandling-dialogbox.html',
-})
-
-export class errorHandlingComponent {
-  
 }

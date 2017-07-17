@@ -11,9 +11,9 @@ import 'rxjs/Rx';
 
     constructor(private http: Http , public snackBar: MdSnackBar) { }
 
-    getCommunity(domain) {
+    getCommunity(domain,counter) {
       
-    const url = `/api/v1/communities/communities/${domain}`;
+    const url = `/api/v1/communities/communities/${domain}?counter=${counter}`;
     return this.http.get(url).catch(err => {
                 this.snackBar.open('Unable to Get Data.. Please try again later..!!!', 'Close', {
                     duration: 3000
