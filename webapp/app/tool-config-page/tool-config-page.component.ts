@@ -19,7 +19,7 @@ export class ToolConfigPageComponent implements OnInit {
   toolEvents=[];
   data=[];
   url;
-  domain="wave11";
+  domain="wave12";
   username="ceanstackdev@gmail.com";
 
   ngOnInit() {

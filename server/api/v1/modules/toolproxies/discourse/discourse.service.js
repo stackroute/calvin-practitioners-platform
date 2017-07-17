@@ -1,7 +1,7 @@
 const registerGroup = require('./newgroup');
 const registerWebhook = require('./registerWebhook');
 
-function generateGroup ({domainName, toolId, username}, done){
+function generateGroup ({token, domainName, toolId, username}, done){
     //register Group for the community
     
     const postDetails = {"name": domainName };
@@ -15,11 +15,11 @@ function generateGroup ({domainName, toolId, username}, done){
     }); 
 }
 
-function generateWebhook ({domainName, toolId, username}, res,  done){
-    console.log("inside webhook");
+function generateWebhook ({token, domainName, toolId, username}, res,  done){
+    console.log("token :- ",`http://localhost:3000/api/v1/webhook/${token}`);
     // register webhook for the community
      postDetails =  {
-            "payload_url": "http://dummy.com",
+            "payload_url": `http://localhost:3000/api/v1/webhook/${token}`,
             "secret": "secure_taken_id",
             "wildcard_web_hook": true,
             "web_hook_event_type_ids": [ ],
