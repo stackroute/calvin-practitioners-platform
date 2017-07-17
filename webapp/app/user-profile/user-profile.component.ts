@@ -26,8 +26,11 @@ export class UserProfileComponent implements OnInit {
     this.createprofile();
   }
   openDialog() {
-    let dialogRef = this.dialog.open(DialogResultExampleDialog);
+    let dialogRef = this.dialog.open(DialogResultExampleDialog,{
+    disableClose:true});
+  
     dialogRef.afterClosed().subscribe(result => {
+      
     });
   }
   createprofile() {

@@ -3,6 +3,7 @@ const cassandra = require('cassandra-driver');
 const jwt = require('jsonwebtoken');
 const request = require('superagent');
 // const BASE_COMMUNITY_SERVICE_URL = 'http://calvin-communities.blr.stackroute.in/api/v1';
+
 const BASE_COMMUNITY_SERVICE_URL='http://172.23.238.141:3000/api/v1/';
 
 const cookies = []; // stores Cookies User and Community info tokens
@@ -88,7 +89,7 @@ function getUserCommunities(username, done) {
  .query({ username }) // query string
  .end((err, res) => {
    if (err) {
-     //console.log('error is ', err);
+     console.log('error is ', err);
      return done(err);
    }
    //console.log('result is ', res.body);
