@@ -1,5 +1,5 @@
 const request = require('superagent');
-
+const communityToolService=require('./communitytools.service');
 const BASE_COMMUNITY_SERVICE_URL = 'http://calvin-communities.blr.stackroute.in/api/v1';
 
 function retrieveAllTools(domain, done) {
@@ -42,18 +42,31 @@ function getTool(domain, done) {
 
  // Call community tools service to post tools
 function postTool(domain, data, done) {
-  console.log('data is ',data);
-  const url = `${BASE_COMMUNITY_SERVICE_URL}/communitytools/${domain}/tools`;
-  request
- .post(url)
- .send(data) // query string
- .end((err, res) => {
-   if (err) {
-     console.log('error is ',err);
-     return done(err);
-   }
-   return done(null, res.body);
- });
+  
+  const username=data[0];
+  const toolId=data[1];
+  const domainName=domain;
+  console.log('data is '+username+toolId+domainName);
+
+
+   communityToolService.integrateNewTool({domainName, toolId, username},done);
+
+  // return communityToolService.integrateNewTool.bind(null, {domainName, toolId, username}, done);
+      
+//   console.log('data is ',data);
+//   const url = `${BASE_COMMUNITY_SERVICE_URL}/communitytools/${domain}/tools`;
+//   request
+//  .post(url)
+//  .send(data) // query string
+//  .end((err, res) => {
+//    if (err) {
+//      console.log('error is ',err);
+//      return done(err);
+//    }
+//    return done(null, res.body);
+//  });
+  
+
 }
 
 

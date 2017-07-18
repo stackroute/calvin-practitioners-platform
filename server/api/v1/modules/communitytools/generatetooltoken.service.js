@@ -18,7 +18,6 @@ module.exports = function({domainName, toolId, username}, done) {
         done(err);
         return;
       }
-      console.log("Generated a new token for tool: ", toolId, " domain ", domainName, " token: ", token);
       done(null, token);
     });
 }
