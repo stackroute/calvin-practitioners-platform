@@ -27,4 +27,4 @@ services:
     volumes:
       - ./data:/var/lib/cassandra
     expose:
-      - 9042          
+      - 9042   
