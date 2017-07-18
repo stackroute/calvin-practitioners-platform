@@ -2,11 +2,12 @@
 .card-align
 {
   margin-left:0%;
-
-  
 }
 .point
 {
   cursor:pointer;
 
+}
+.bottom-button{
+  margin-left: 620px;
 }

@@ -18,9 +18,13 @@ export class ToolConfigPageComponent implements OnInit {
   toolActions=[];
   toolEvents=[];
   data=[];
+  url;
+  domain="wave15";
+  username="ceanstackdev@gmail.com";
+
   ngOnInit() {
 
-    let url=this.router.snapshot.params['toolid'];
+    this.url=this.router.snapshot.params['toolid'];
     //getToolinfo
     this.config.getTools(this.router.snapshot.params['toolid']).subscribe(data => {
     this.allTool=data;
@@ -28,7 +32,7 @@ export class ToolConfigPageComponent implements OnInit {
     
   });
    //getToolActions
-   console.log("toolactions",url);
+   console.log("toolactions",this.url);
    this.config.getToolActions(this.router.snapshot.params['toolid'])
    .subscribe(data => {
      this.toolActions=data;
@@ -40,6 +44,26 @@ export class ToolConfigPageComponent implements OnInit {
      this.toolEvents=data;
      console.log("actions",data);
    });
+}
+
+  onSubmit(toolinfo: any){
+  
+    // const newToolInfo=toolinfo.value;
+    // console.log('toolinfo',newToolInfo);  
+     let obj=[];
+     obj.push(this.username);
+     obj.push(this.url);
+    this.config.postTools(this.domain,obj).subscribe(data =>{    
+    });     
+  }
+
+foods = [
+    {value: 'steak-0', viewValue: 'calvin'},
+    {value: 'pizza-1', viewValue: 'discous'},
+    {value: 'tacos-2', viewValue: ''}
+  ];
+}
+
   
 
 
@@ -51,4 +75,3 @@ export class ToolConfigPageComponent implements OnInit {
 // constructor(private router: Router) { }
 // }
 
-  }}

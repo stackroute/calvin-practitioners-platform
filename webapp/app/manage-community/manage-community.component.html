@@ -1,10 +1,24 @@
-<calvin-community-profile [profile]="this.community"></calvin-community-profile>
+<calvin-community-profile [profile]="this.community">
+  <button md-icon-button [mdMenuTriggerFor]="menu" class="setting">
+    <md-icon >settings</md-icon>
+  </button>
+  <md-menu #menu="mdMenu">
+    <button routerLink="/app/communityDashBoard/{{this.domain}}" md-menu-item>
+      <md-icon>dialpad</md-icon>
+      <span>Community</span>
+    </button>
+  </md-menu>
+
+
+  
+  
+</calvin-community-profile>
 <div fxLayout fxLayout.xs="row" fxLayoutGap="0px" fxLayoutGap.xs="0" header >
   <div fxFlex="20%" fxLayout="row"> </div>
   <div fxFlex="80%" fxLayout="row" fxLayoutAlign=" start">
     <md-tab-group class="manage-community" fxFlex="80%">
        <md-tab label="Community">
-         <form [formGroup]="userForm" (ngSubmit)="onsubmit(userForm)" class="try">
+         <form [formGroup]="userForm" (ngSubmit)="onsubmit(userForm)" class="try" >
              <md-input-container fxLayoutAlign="start">
                 <input mdInput placeholder="Domain "  disabled value={{community.domain}} disabled> 
               </md-input-container>
@@ -31,7 +45,9 @@
        <md-radio-button value="Moderated" >Moderated <div fxFlex="20%" class="visibilityDesc">Only invited members can join and see community content </div></md-radio-button>
      </md-radio-group>
    </md-input-container>
+
  </div>
+
                <md-input-container fxLayoutAlign="start" fxLayout="column">
                   <textarea input mdInput placeholder="avatar" rows="2" formControlName="avatar" ngModel={{community.avatar}}></textarea>
                    <md-hint align="start" class="full-width">
@@ -39,13 +55,15 @@
                             Invalid avatar path,must be url
                      </div>
                    </md-hint>
-               </md-input-container>
+               </md-input-container> 
+
+
                
-            <div class="inputFields" fxLayout.md="row">
-              <div fxLayout.md="column">
-               <md-input-container fxLayoutAlign="start">
+ <div class="inputFields" fxLayout.md="row">
+       <div fxLayout.md="column">
+             <md-input-container fxLayoutAlign="start">
                  
-                  <input mdInput placeholder="Tag" formControlName="tagCtrl"  #resettext (focusout)="chipValue(tagname,resettext)" [(ngModel)]="tagname" style="text-transform: capitalize">
+ <input mdInput  placeholder="Tag" formControlName="tagCtrl" #resetText    [(ngModel)]="tagname" style="text-transform: capitalize">
                      <md-hint align="start" class="full-width">
                      <div *ngIf="userForm.get('tagCtrl').hasError('pattern') && userForm.get('tagCtrl')" class="errorStyle">
                                Invalid tag length,must contain 3 to 20 char with one special character(.)
@@ -56,20 +74,25 @@
 
                <md-chip-list>
                  <div fxLayout.md="column" ng-disabled="!tag.value" *ngFor="let tag of tagarray">
-                   <md-chip (click)="clearTag(tag)">{{tag}}<i class="material-icons">clear</i></md-chip>
+                   <md-chip >{{tag}}<i class="material-icons"(click)="clearTag(tag)">clear</i></md-chip>
                  </div>
                </md-chip-list>
 
                 <div fxLayout.md="column" fxLayoutAlign="center center">
-                        <a md-button (click)="chipValue(tagname,resetText)">Add</a>
+                        <a md-button (click)="chipValue(tagname,resetText)">Add</a> 
                </div>
-             </div>  </div>
+             </div> 
+         </div>
+              
+               
+            
   
 
-               <button md-raised-button routerLink="/app/communitydashboard">Cancel</button>
-                              <!-- Submit button to Add the tool-->
-              <button md-raised-button color="primary" type="submit" color="primary" [disabled]="!userForm.valid" >Submit</button>
-         </form>
+          <div fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="5px">
+    <a md-button (click)="routeToHome()">Cancel</a>
+    <button md-raised-button type="submit" color="primary" [disabled]="!userForm.valid">Submit</button>
+  </div>
+  </form>  
       </md-tab>
       <!--Closing community info tab-->
       <md-tab label="Members">

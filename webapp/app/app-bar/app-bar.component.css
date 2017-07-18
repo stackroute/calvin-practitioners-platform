@@ -46,10 +46,10 @@ md-chip-list :focus , md-list-item:focus {
   min-height: 800px;
 }
 footer {
-  margin-top: 20px;
+  margin-top: 720px;
   background-color: #666;
   color: #fff;
-  min-height: 40px
+  min-height: 80px
 }
 i
 {
