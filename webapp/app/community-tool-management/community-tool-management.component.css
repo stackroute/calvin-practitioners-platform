@@ -3,3 +3,16 @@
     margin-left:0%;
     padding-left:0%;
 }
+.fix{
+    margin-left: 40px;
+}
+md-icon{
+margin-left:400px;
+cursor: pointer;
+}
+md-card-title{
+    margin-left: 40px;
+}
+.icon{
+    margin-bottom: 10px;
+}

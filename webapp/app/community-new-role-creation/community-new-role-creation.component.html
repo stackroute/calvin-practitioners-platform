@@ -1,21 +1,29 @@
 <div fxLayout="column" md-dialog-content *ngIf="sample">
-    <div *ngFor="let core of sample">
-        <md-input-container fxLayoutAlign="start stretch">
-            <input mdInput #inputVal placeholder="Enter the Role Name:" value={{roleName}}/>
-        </md-input-container>
-        <div *ngFor="let value of core.tools">
-            <md-input-container fxLayoutAlign="start stretch">
-                <input mdInput placeholder="" value={{value.toolid}} disabled/>
+    <form [formGroup]="roleValue">
+        <div *ngFor="let core of sample">
+            <md-input-container fxLayoutAlign='start stretch'>
+                <input mdInput #inputVal placeholder="Enter the Role Name:" value={{roleName}} formControlName="roleName" (change)="isRoleNameUnique(roleValue.get('roleName'))">
+                <md-hint align="start" class="full-width">
+                    <div *ngIf="roleValue.get('roleName').hasError('required') && roleValue.get('roleName').touched" class="errorStyle">
+                        Role Name is required
+                    </div>
+                    <div *ngIf="roleValue.get('roleName').hasError('pattern') && roleValue.get('roleName')" class="errorStyle">
+                        Invalid RoleName,name must contain 4 to 15 character and in lowercase
+                    </div>
+                </md-hint>
             </md-input-container>
-            <!--<md-checkbox *ngFor="let value of value.actions"  (change)="getCheckoxValue(value, checked)" fxFlexLayout.xs="row">{{value}}</md-checkbox>-->
-            <md-checkbox *ngFor="let key of value.actions" (checked)="exists(value.toolid,key)" (click)="getCheckboxValue(value.toolid,key,inputVal.value)"
-                fxFlexLayout.xs="row">{{key}}</md-checkbox>
-            <!--<md-checkbox *ngFor="let value of value.actions" [checked]="exists(value.toolId,value)" (click)="getCheckoxValue(value.toolId,value)" fxFlexLayout.xs="row">{{value}}</md-checkbox>-->
+            <div *ngFor="let value of core.tools">
+                <md-input-container (onRoleAddition)='onRoleAddition($event)' fxLayoutAlign="start stretch">
+                    <input mdInput placeholder="" value={{value.toolid}} disabled/>
+                </md-input-container>
+                <md-checkbox *ngFor="let key of value.actions" (checked)="exists(value.toolid,key,inputVal.value)" (click)="getCheckboxValue(value.toolid,key,inputVal.value)"
+                    fxFlexLayout.xs="row">{{key}}</md-checkbox>
+            </div>
         </div>
-    </div>
+    </form>
 </div>
 
 <div md-dialog-actions fxLayoutAlign="end">
     <button md-button md-dialog-close>Cancel</button>
-    <button md-raised-button md-dialog-close color="primary" (click)="update(roleName)">Apply</button>
+    <button md-raised-button md-dialog-close color="primary" [disabled]="!roleValue.valid" (click)="update()">Apply</button>
 </div>

@@ -2,11 +2,32 @@
 .card-align
 {
   margin-left:0%;
-
-  
 }
 .point
 {
   cursor:pointer;
 
 }
+
+md-list-item {
+    border-bottom: 1px dashed #ddd;
+  cursor: pointer;
+}
+md-list-item img {
+  transition: all 0.5s ease;
+}
+md-list-item:hover {
+  background-color: #eee;
+}
+md-list-item:hover img {
+  width: 42px;
+  height: 42px;
+}
+md-list-item:last-child {
+  border-bottom: 1px transparent;
+}
+
+.bottom-button{
+  margin-left: 620px;
+}
+

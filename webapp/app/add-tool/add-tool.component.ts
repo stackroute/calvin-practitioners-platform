@@ -196,9 +196,9 @@ export class AddToolComponent implements OnInit {
       // alert('data'+result);
 
       // opening Dialogue to show success message
-      this.dialog.open(SucessDialog,{
-        data:this.id
-      });
+      // this.dialog.open(SucessDialog,{
+      //   data:this.id
+      // });
       this.dialog.open(SucessDialog, {
       data:this.id
     });
@@ -221,7 +221,7 @@ export class SucessDialog {
   }
   
   navigateTool() {
-    alert('hi will navigate to tool'+`/app/toolpage/${this.toolid}`);
+    // alert('hi will navigate to tool'+`/app/toolpage/${this.toolid}`);
     this.router.navigate([`/app/toolpage/${this.toolid}`]);
   }
 

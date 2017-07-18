@@ -1,10 +1,9 @@
-
 <div>
-
-<md-card class="card-align" >
-    <md-card-title fxLayout="row" class="new-community">
-        Members
-        <!--<div class="searchAlgin"> <input mdInput aria-label="search" fxFlex="100%" placeholder="Search" type="search"  dividerColor="accent">
+    <md-card class="card-align">
+        <md-card-title fxLayout="row" class="new-community">
+            Members
+     <!--<div class="searchAlgin"> 
+    <input mdInput aria-label="search" fxFlex="100%" placeholder="Search" type="search"  dividerColor="accent">
    <i class="material-icons ">search</i></div>  -->
     </md-card-title>
     
@@ -20,7 +19,9 @@
             </div>
            
           <div><i class="material-icons point"  [md-menu-trigger-for]="menu">more_vert</i></div>
-        </md-list-item>        
+   
+        </md-list-item>   
+                 
       </md-list>
 
    
@@ -34,13 +35,4 @@
     <button  md-raised-button color="primary"  (click)='openDialog()' class="bottom-button">Invite</button>
         
 </div>
-  </md-card>
- 
-   </div>
-    
-
-
 <router-outlet></router-outlet>
-
-
-

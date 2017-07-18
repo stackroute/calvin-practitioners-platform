@@ -3,7 +3,8 @@ const config = require('./modules/common/config');
 
 router.use('/login', require('./modules/login'));
 router.use('/logout', (req, res) => {
-  res.clearCookie(config.cookie.name);
+  res.clearCookie(config.cookie.user);
+  res.clearCookie(config.cookie.userCommunity);
   res.redirect('/');
 });
 
