@@ -82,7 +82,7 @@ import { MD_DIALOG_DATA, MdDialog, MdDialogRef, MdSnackBar } from '@angular/mate
    });
    this.sample.push(res);
    this.dialogRef.close({
-    res: res
+    res: this.sample;
    });
   });
  }
