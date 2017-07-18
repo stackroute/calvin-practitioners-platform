@@ -3,7 +3,6 @@ const registerGroup = require('./newgroup');
 const registerWebhook = require('./registerWebhook');
 
 function initializeOnIntegration(groupDetails, done) {
-    
 	//register Group for the community
     registerGroup.createGroup(groupDetails, (err, res)=>{
         if (err) {
@@ -21,14 +20,15 @@ function intializeWebhook(webhookDetails, done) {
         }
         done(null, res);
     });
+};
 
 let eventTypeExtractors = {
-	"post": discoursePOSTEventExtractor,
-	"topic": discourseTOPICEventExtractor,
+	// "post": discoursePOSTEventExtractor,
+	// "topic": discourseTOPICEventExtractor,
 }
 
 module.exports = {
 	initializeOnIntegration,
-	exactEventData,
+	eventTypeExtractors,
     intializeWebhook
 }

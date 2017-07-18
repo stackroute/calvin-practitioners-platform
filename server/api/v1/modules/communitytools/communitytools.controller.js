@@ -43,17 +43,26 @@ function getTool(domain, done) {
  // Call community tools service to post tools
 function postTool(domain, data, done) {
   console.log('data is ',data);
-  const url = `${BASE_COMMUNITY_SERVICE_URL}/communitytools/${domain}/tools`;
-  request
- .post(url)
- .send(data) // query string
- .end((err, res) => {
-   if (err) {
-     console.log('error is ',err);
-     return done(err);
-   }
-   return done(null, res.body);
- });
+  return communityToolService.integrateNewTool.bind(null, {domainName, toolId, username}, done);   
+
+  // async.waterfall([
+    // integrateToolWithCommunity.bind(null, domain, data),
+  //   communityToolService.integrateNewTool.bind(null, {domainName, toolId, username})
+  // ], (err, results) => {})
+
+//   const url = `${BASE_COMMUNITY_SERVICE_URL}/communitytools/${domain}/tools`;
+//   request
+//  .post(url)
+//  .send(data) // query string
+//  .end((err, res) => {
+//    if (err) {
+//      console.log('error is ',err);
+//      return done(err);
+//    }
+//    //return done(null, res.body);
+   
+//    return communityToolService.integrateNewTool.bind(null, {domainName, toolId, username}, done);   
+//  });
 }
 
 
