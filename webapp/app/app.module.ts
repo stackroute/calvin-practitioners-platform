@@ -63,6 +63,7 @@ import { AppBarService } from './app-bar/app-bar.service';
 import { CommunityNewRoleCreationComponent } from './community-new-role-creation/community-new-role-creation.component';
 import { CommunityToolManagementComponent } from './community-tool-management/community-tool-management.component';
 import { DialogResultExampleDialog } from './user-profile/user-profile.component';
+import { DialogResultDialog } from './tool-config-page/tool-config-page.component';
 import { ToolConfigPageComponent } from './tool-config-page/tool-config-page.component';
 
 @NgModule({
@@ -105,6 +106,7 @@ import { ToolConfigPageComponent } from './tool-config-page/tool-config-page.com
     KeysPipe,
     DialogResultExampleDialog,
     ToolConfigPageComponent,
+    DialogResultDialog
      ],
 
   imports: [
@@ -134,7 +136,7 @@ import { ToolConfigPageComponent } from './tool-config-page/tool-config-page.com
 
   entryComponents: [IntegrateTool,CommunityToolActionsComponent, NewcommunityDialogboxComponent,DialogResultExampleDialog,
                       MemberInvitationComponent, SucessDialog,
-                      MemberEditComponent,CommunityRoleManagementComponent, updateCommunity,CommunityNewRoleCreationComponent ],
+                      MemberEditComponent,CommunityRoleManagementComponent, updateCommunity,CommunityNewRoleCreationComponent, DialogResultDialog],
 
 
   providers: [RoleServices,RoleListServices, ToolActions, CommunityProfileService,ActivityService,

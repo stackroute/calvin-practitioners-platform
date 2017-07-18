@@ -7,6 +7,16 @@
     
 }
 
+/*.img{
+  height:200px;
+  width:150px;
+}*/
+
+
+.upper{
+    text-transform: uppercase;
+}
+
 /*h2 {
     padding: 20px;
     color: white;

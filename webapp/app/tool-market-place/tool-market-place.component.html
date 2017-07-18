@@ -18,16 +18,17 @@
     </div>
 </div>
 <div fxFlex="100%" fxLayout="row" fxLayoutWrap>
+    <div *ngIf = '!newTool'>
+    <h4> Tool not found..!!!</h4>
+    <span><md-icon>sad</md-icon></span>
+    </div>
     <div fxFlex="20%" *ngFor="let val of newTool">
         <md-card (click)="onSelect(val.toolid)">
-            <md-card-title>{{val.toolname}}</md-card-title>
-
-            <!--<md-card-content>-->
+            <md-card-title class="upper">{{val.toolname}}</md-card-title>
+             <img md-card-avatar src={{val.toolavatar}} class="img">
+            <!--<md-card-content>
             <img md-card-image src={{val.toolavatar}}>
-            <!--<p md-line>{{val.toolid}}</p>-->
-            <!--<p md-line>{{val.tooldesc}}</p>-->
-            <!--<p md-line>{{val.purpose}}</p>-->
-            <!--</md-card-content>-->
+            </md-card-content>-->
         </md-card>
     </div>
 </div>

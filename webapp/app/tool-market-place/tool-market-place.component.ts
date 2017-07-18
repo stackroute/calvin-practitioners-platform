@@ -33,9 +33,10 @@ export class ToolMarketPlaceComponent implements OnInit {
     this.tools.forEach((data) => {
        console.log('this toolname',data.toolname);
         console.log('this toolname type',typeof data.toolname);
-      if (data.toolname.includes(value1.toUpperCase())) {
+      if (data.toolname.includes(value1.toUpperCase())){
        
        console.log("true", data);
+      // console.log("toolname",data.toolname.toUpperCase())
        this.newTool.push(data);
        
       }
