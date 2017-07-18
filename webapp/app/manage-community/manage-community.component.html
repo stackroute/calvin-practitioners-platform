@@ -1,6 +1,4 @@
 <calvin-community-profile [profile]="this.community">
-
-
   <button md-icon-button [mdMenuTriggerFor]="menu" class="setting">
     <md-icon >settings</md-icon>
   </button>
@@ -10,6 +8,9 @@
       <span>Community</span>
     </button>
   </md-menu>
+
+
+  
   
 </calvin-community-profile>
 <div fxLayout fxLayout.xs="row" fxLayoutGap="0px" fxLayoutGap.xs="0" header >
@@ -17,7 +18,7 @@
   <div fxFlex="80%" fxLayout="row" fxLayoutAlign=" start">
     <md-tab-group class="manage-community" fxFlex="80%">
        <md-tab label="Community">
-         <form [formGroup]="userForm" (ngSubmit)="onsubmit(userForm)" class="try">
+         <form [formGroup]="userForm" (ngSubmit)="onsubmit(userForm)" class="try" >
              <md-input-container fxLayoutAlign="start">
                 <input mdInput placeholder="Domain "  disabled value={{community.domain}} disabled> 
               </md-input-container>
@@ -55,11 +56,14 @@
                      </div>
                    </md-hint>
                </md-input-container> 
+
+
+               
  <div class="inputFields" fxLayout.md="row">
-              <div fxLayout.md="column">
-               <md-input-container fxLayoutAlign="start">
+       <div fxLayout.md="column">
+             <md-input-container fxLayoutAlign="start">
                  
-                   <input mdInput  placeholder="Tag" formControlName="tagCtrl"  #resettext (focusout)="chipValue(tagname,resettext)" [(ngModel)]="tagname" style="text-transform: capitalize">
+ <input mdInput  placeholder="Tag" formControlName="tagCtrl" #resetText    [(ngModel)]="tagname" style="text-transform: capitalize">
                      <md-hint align="start" class="full-width">
                      <div *ngIf="userForm.get('tagCtrl').hasError('pattern') && userForm.get('tagCtrl')" class="errorStyle">
                                Invalid tag length,must contain 3 to 20 char with one special character(.)
@@ -75,7 +79,7 @@
                </md-chip-list>
 
                 <div fxLayout.md="column" fxLayoutAlign="center center">
-                        <a md-button (click)="chipValue(tagname,resetText)">Add</a>
+                        <a md-button (click)="chipValue(tagname,resetText)">Add</a> 
                </div>
              </div> 
          </div>
@@ -84,10 +88,11 @@
             
   
 
-                <a md-button (click)="routeToHome()">Cancel</a>
-                              <!-- Submit button to Add the tool-->
-              <button md-raised-button color="primary"  color="primary" [disabled]="!userForm.valid" click ="onsubmit(userForm)">Submit</button>
-         </form>  
+          <div fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="5px">
+    <a md-button (click)="routeToHome()">Cancel</a>
+    <button md-raised-button type="submit" color="primary" [disabled]="!userForm.valid">Submit</button>
+  </div>
+  </form>  
       </md-tab>
       <!--Closing community info tab-->
       <md-tab label="Members">

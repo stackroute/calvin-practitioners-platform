@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Pipe, PipeTransform } from '@angular/core';
+import { Component, OnInit, Input, Output, Pipe, PipeTransform, EventEmitter } from '@angular/core';
 import { MdDialog } from '@angular/material';
 import { CommunityToolActionsComponent } from '../community-tool-actions/community-tool-actions.component';
 import { CommunityRoleManagementComponent } from '../community-role-management/community-role-management.component';
@@ -12,23 +12,32 @@ import {MdProgressSpinnerModule} from '@angular/material';
 })
 export class CommunityRoleActionsComponent implements OnInit {
 
-  @Input() dummy;
+  @Input() roleActionColln;
+  @Output() onRoleModified = new EventEmitter<any>();
  
-  constructor(public dialog: MdDialog, private role: RoleServices, private action: CommunityRoleManagementComponent) { }
-  openDialog(roleName,dummy) {
-    // console.log('dummy data',this.dummy.domain);
-    // console.log('dummy data',roleName);
-     console.log('dummy data',this.dummy.toolactions);
-    // this.actions=this.dummy.action;
-    // console.log('data in actions is ',this.actions);
-    const dialog = this.dialog.open(CommunityToolActionsComponent,{
-      disableClose:true,
-      data: {domain:this.dummy.domain,
-      role:roleName,
-      tool:this.dummy.toolactions}     
-    });
-    //console.log(this.role);
-  }
-  ngOnInit() { }
+  constructor(public dialog: MdDialog, 
+  private role: RoleServices, private action: CommunityRoleManagementComponent) { }
+onRolModifiedInDialog(modifiedRole) {
+ this.onRoleModified.emit(modifiedRole);
 }
 
+openModifyRoleActionsDialog(roleName, roleActionColln) {
+ console.log('dummy data', this.roleActionColln.toolactions);
+ const dialogRef = this.dialog.open(CommunityToolActionsComponent, {
+  disableClose: true,
+  data: {
+   domain: this.roleActionColln.domain,
+   role: roleName,
+   tool: this.roleActionColln.toolactions
+  }
+ });
+ dialogRef.afterClosed()
+  .subscribe(result => {
+   console.log(result, "result", "modify");
+   this.onRolModifiedInDialog(result);
+  });
+
+ console.log(this.onRolModifiedInDialog, "result");
+}
+ngOnInit() {}
+}
