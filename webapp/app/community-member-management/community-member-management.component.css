@@ -2,18 +2,13 @@
 .card-align
 {
   margin-left:0%;
-
-  
 }
 .point
 {
   cursor:pointer;
 
 }
-.bottom-button
-{
-  margin-right:140px;
-}
+
 md-list-item {
     border-bottom: 1px dashed #ddd;
   cursor: pointer;
@@ -31,3 +26,8 @@ md-list-item:hover img {
 md-list-item:last-child {
   border-bottom: 1px transparent;
 }
+
+.bottom-button{
+  margin-left: 620px;
+}
+

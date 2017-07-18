@@ -3,7 +3,7 @@
     <div fxFlex="20%" fxFlexAlign='start'>
       <md-list fxLayoutAlign="start">
         <md-list-item class="community-image">
-          <img md-list-avatar src={{profile.avatar}}>
+          <img md-list-avatar src={{profile.avatar}} >
         </md-list-item>
       </md-list>
       <div class="community-details-name">
@@ -14,7 +14,7 @@
     <div fxLayout fxLayout.xs="row" fxLayoutGap="0px" fxLayoutGap.xs="0" fxFlex="60%">
       <div fxFlex="100%" class="community-profile">
         <h2 fxLayoutAlign="start" id="heading">{{profile.name}} </h2>
-        <h4 fxLayoutAlign="start" class="community-description">{{profile.description}} </h4>
+        <h4 fxLayoutAlign="start" id="community-description">{{profile.description}} </h4>
         <span fxLayoutAlign="start" fxLayout.xs="column" fxLayoutGap="20px">
                  <div id="chip" *ngFor="let tag of profile.tags">
                <md-chip  class="z-depth-2" >{{tag}}</md-chip>
@@ -23,13 +23,14 @@
       </div>
     </div>
 
+  
   <div class="item item-4" fxFlex="20%" fxFlexOrder="4" >
-              <div class="manage-community-info" *ngIf="this.CommunitiesInfo.role === 'Admin' || 'owner'" >
-               <h1>{{role}}</h1>
-                <button md-icon-button [mdMenuTriggerFor]="menu" >
+           
+               <ng-content></ng-content>
+                <!--<button md-icon-button [mdMenuTriggerFor]="menu" >
                  <md-icon class="setting" >settings</md-icon>
-                </button>
-              <md-menu #menu="mdMenu">
+                </button><ng-content></ng-content>-->
+              <!--<md-menu #menu="mdMenu">
                <button routerLink="/app/managecommunity/{{profile.domain}}" md-menu-item >
                  <md-icon>dialpad</md-icon>
                  <span> Manage Community</span>
@@ -38,8 +39,8 @@
               <md-icon>voicemail</md-icon>
              <span>Community</span>
             </button> 
-           </md-menu>
-          </div>
+           </md-menu>-->
+         
 
 
       <md-list class="members">

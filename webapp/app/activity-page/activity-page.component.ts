@@ -15,14 +15,17 @@ export class ActivityPageComponent implements OnInit {
   flag = 0;
   public textData = `## Markdown content data`;
   constructor(private activityService: ActivityService, private value: AppBarService) { }
-  ngOnInit() { 
+  onScroll () {
+        console.log('scrolled!!')
+    }
+  ngOnInit() {
     this.getMemberActivities();   
   }
   getMemberActivities(){
     this.activityService.getActivities(this.uname, this.community, this.sort, this.order, this.page, this.limit)
     .subscribe(data => { 
       this.activities = data;
-      console.log("Object of activities",this.activities);      
+        console.log("Object of activities",this.activities);      
      });
   }
 }

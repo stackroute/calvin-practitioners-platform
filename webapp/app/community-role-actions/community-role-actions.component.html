@@ -1,18 +1,17 @@
-<div *ngIf="dummy">
-  <div *ngFor="let sample of dummy.roleactions">
+<div *ngIf="roleActionColln">
+  <div *ngFor="let sample of roleActionColln.roleactions">
     <md-card class="card-align">
       <div fxLayoutAlign='start stretch'>
-        <md-input-container fxFlex='90'>
+        <md-card-title fxFlex='90'>
           <input mdInput [(ngModel)]='sample.role' disabled/>
-        </md-input-container>
-        <!--<button md-button class='button-style' (click)='update(dummy.id,dummy.role,dummy.actions)'><md-icon>edit</md-icon></button>-->
+        </md-card-title>
       </div>
       <md-chip-list>
-        <div fxFlexLayout.xs='row' *ngFor="let action of sample.action" class="chip-style" >
+        <div fxFlexLayout.xs='row' *ngFor="let action of sample.action" class="chip-style">
           <md-chip>{{action}}</md-chip>
         </div>
       </md-chip-list>
-      <button fxLayoutAlign='left' md-raised-button (click)='openDialog(sample.role,dummy)'>Modify Actions</button>
+      <button fxLayoutAlign='left' md-raised-button (click)='openModifyRoleActionsDialog(sample.role, roleActionColln)'>Modify Actions</button>
     </md-card>
   </div>
 </div>

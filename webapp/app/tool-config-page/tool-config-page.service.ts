@@ -27,9 +27,9 @@ export class ToolConfigService {
     }
 
 
-     postTools(domain,data) {
-
-    const url = `/api/v1/communitytools/${domain}/tools`;
+   postTools(domain,data) {
+   console.log('inside post tool');
+    const url = `/api/v1/communitytools/${domain}`;
 
     return this.http.post(url, data).catch(err => {
       this.snackBar.open('Unable to Post Tools.. Please try again later..!!!', 'Close', {
