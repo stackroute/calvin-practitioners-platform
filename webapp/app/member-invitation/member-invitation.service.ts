@@ -22,15 +22,16 @@ import { MdSnackBar } from '@angular/material';
       headers: headers
     });
     const body = JSON.stringify(inviteInfo);    
-    const url = `/api/v1/communityMembers/communitymembership/${domain}/members`;
+    const url = `/api/v1/communityMembers/memberrequests/${domain}/type/invite`;
     return this.http.post(url, body, options).catch(err => {
       this.snackBar.open('Sending Invitation failed', 'X', {
         duration: 3000
       });
-      return Observable.throw(err);
+      return Observable.throw(err);    
     })
     .map(res => res.json());
   }
+
   listUniqueRoles(domainname){
    const url = '/api/v1/communityroleactions/'+domainname+'?onlyroles=true';
    return this.http.get(url).map(res => res.json());

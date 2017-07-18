@@ -40,7 +40,7 @@ function retrieveAllRoles(domain, done) {
 
 function updateActions(domain, role, values, done) {
    // Call communities service to get all the templates
-  const url = `${BASE_COMMUNITY_SERVICE_URL}/communitymembership/${domain}/roles/${role}`;
+  const url = `${BASE_COMMUNITY_SERVICE_URL}/communityrole/${domain}/roles/${role}`;
   request
  .patch(url)
  .send(values) // query string
@@ -85,6 +85,7 @@ module.exports = {
   retrieveAllUsers,
   retrieveAllRoles,
   updateActions,
+  updateRole,
   createRole,
   updateRole,
 };

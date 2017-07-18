@@ -12,7 +12,7 @@ margin-top:0%;
 
            width:38%;
            height:180%;
-           margin-top: 40%;
+           margin-top: 25%;
            margin-left:12%;
              box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
        }
@@ -24,7 +24,7 @@ margin-top:0%;
 .community-details-name h3{
 
      margin-right: 100px;
-     margin-top:30%;
+     margin-top:23%;
      
 
     
@@ -151,14 +151,17 @@ h1 {
 .z-depth-2 {
   box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
 }
-.community-description{
-
+#community-description{
+    text-transform: capitalize;
     font-style: italic;
     color:grey;
 }
 md-icon{
     color: grey;
 
+}
+#heading{
+    text-transform: capitalize;
 }
 #purpose{
 

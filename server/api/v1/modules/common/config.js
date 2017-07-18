@@ -8,6 +8,8 @@ module.exports = {
     expiryTime: 60 * 500,
   },
   cookie: {
-    name: 'currentUser',
+    user: 'currentUser',
+    userCommunity:'userCommunity'
   },
 };
+// module.exports=require('../../../../appconfig');
