@@ -8,7 +8,7 @@ router.use((req, res, next) => {        // eslint-disable-line consistent-return
        // console.log('cookie', token);
        // to  decode token
     if (token) {
-      authCtrl.verifyToken(token, (err) => {
+      authCtrl.verifyToken(token, (err, decoded) => {
         if (err) {
           res.clearCookie(config.cookie.user);
           res.clearCookie(config.cookie.userCommunity);
@@ -17,6 +17,7 @@ router.use((req, res, next) => {        // eslint-disable-line consistent-return
 
          // res.redirect('/#/login');
         } else {
+          req.user = decoded;
           next();
         }
                // console.log('Token verified');
@@ -26,7 +27,7 @@ router.use((req, res, next) => {        // eslint-disable-line consistent-return
            // if there is no token
            // return an error
       return res.status(403).send({
-        message: 'No token provided.',
+        message: 'User not authenticated.',
       });
     }
   } catch (error) {
