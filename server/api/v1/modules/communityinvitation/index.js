@@ -1,1 +1,1 @@
- module.exports = require('./communityinvitation.router');
+module.exports = require('./communityinvitation.router');

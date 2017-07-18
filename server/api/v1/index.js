@@ -8,7 +8,7 @@ router.use('/logout', (req, res) => {
   res.redirect('/');
 });
 
-router.use('/invite', require('./communityinvitation'))
+router.use('/invite', require('./modules/communityinvitation'))
 
 router.use(require('./modules/authentication'));
 

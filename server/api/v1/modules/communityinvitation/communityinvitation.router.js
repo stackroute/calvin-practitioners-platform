@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const auth = require('../modules/authentication');
+const auth = require('../authentication');
 const communityMember = require('./../communitymember/community-member.controller');
 
 
