@@ -14,7 +14,7 @@
     <div fxLayout fxLayout.xs="row" fxLayoutGap="0px" fxLayoutGap.xs="0" fxFlex="60%">
       <div fxFlex="100%" class="community-profile">
         <h2 fxLayoutAlign="start" id="heading">{{profile.name}} </h2>
-        <h4 fxLayoutAlign="start" class="community-description">{{profile.description}} </h4>
+        <h4 fxLayoutAlign="start" id="community-description">{{profile.description}} </h4>
         <span fxLayoutAlign="start" fxLayout.xs="column" fxLayoutGap="20px">
                  <div id="chip" *ngFor="let tag of profile.tags">
                <md-chip  class="z-depth-2" >{{tag}}</md-chip>
