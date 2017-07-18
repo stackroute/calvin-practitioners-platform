@@ -14,9 +14,10 @@
 			<div *ngIf = "!CommunitiesInfo.length==0">
 	    <md-list-item *ngFor="let userCommunityItem of CommunitiesInfo" (click)="routeToCommunity(userCommunityItem.domain)" >
 	      <!--<img md-list-avatar src="{{userCommunityItem.CommunityUrl}}" alt="Desc 1">-->
-	    <img md-list-avatar src="{{userCommunityItem.avatar}}">  <span>  <h4 md-line>{{userCommunityItem.domain}}</h4></span>
+	    <img md-list-avatar src="{{userCommunityItem.avatar}}"> 
+	  <h4 md-line>{{userCommunityItem.domain}}</h4>
 	      <p md-line>
-	        <span>{{userCommunityItem.role}}</span>
+	       {{userCommunityItem.role}}
 	      </p>
 	    </md-list-item>	
 			</div> 
