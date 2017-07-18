@@ -104,4 +104,4 @@ typings/
 .v8-compile-cache-0
 
 # Remove cassandra data folder
-./data
+/data

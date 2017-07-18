@@ -1,7 +1,7 @@
-/*md-list-item {
-	border-bottom: 1px dashed #ddd;
+md-list-item {
+
   cursor: pointer;
-}*/
+}
 md-list-item img {
   transition: all 0.5s ease;
 }
