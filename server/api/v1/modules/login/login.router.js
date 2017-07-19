@@ -9,11 +9,6 @@ const router = express.Router();
 router.use(passport.initialize());
 router.use(passport.session()); // persistent login sessions
 
-router.get('/auth/logout', (req, res) => {
-  res.clearCookie(config.cookie.name);
-  res.redirect('/');
-});
-
 router.get('/auth/google', passport.authenticate('google', { scope: ['profile', 'email'] }));
 
 router.get('/auth/google/callback', (req, res, next) => {

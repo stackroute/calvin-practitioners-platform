@@ -12,7 +12,8 @@ export class AuthService {
   redirectUrl: string;
   constructor(private http: Http) { }
   login() {
-    window.location.replace('http://localhost:3000/api/v1/login/auth/google');
+
+    window.location.replace('/api/v1/login/auth/google');
   }
   logout() {
 
@@ -22,7 +23,7 @@ export class AuthService {
     // return this.http.get('http://localhost:3000/api/v1/login/auth/logout').map((res: Response) => { res = res; });
 
     // alert('inside logout service');
-    window.location.replace('http://localhost:3000/api/v1/logout');
+    window.location.replace('/api/v1/logout');
     //  this.http.get('http://localhost:3000/api/v1/logout');
 
     }

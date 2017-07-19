@@ -68,9 +68,9 @@ router.post('/:domain/tool',(req, res) => {
 
 });
 
-router.post('/:domain/',(req, res) => {
+router.post('/:domain',(req, res) => {
    try{
-     console.log('api is data',req.param.domain);
+     console.log('api is data',req.params.domain);
      controller.postToolInfo(req.params.domain, req.body,(err, result) => {
        if (err) {
          res.status(500).send({error: 'Internal error ocurred...!!!'});

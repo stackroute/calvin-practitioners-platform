@@ -121,12 +121,14 @@ function postTool(domain, data, done) {
 
 }
 function postToolInfo(domain,data,done){
-           console.log('inside post toolinfo');
-          communityToolService.addToolinCommunity(domain,data,done); 
-}
+    console.log("Now posting tool ", data, " for domain ", domain);
+    communityToolService.integrateNewTool({domainName: domain, toolId: data.toolid, username: data.username},done);
+    // communityToolService.integrateToolinCommunity(domain,data,done); 
+}          
 
 module.exports = {
   retrieveAllTools,
   getTool,
   postTool,
+  postToolInfo
 };

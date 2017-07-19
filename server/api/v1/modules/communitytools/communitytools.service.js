@@ -11,7 +11,7 @@ function integrateNewTool({domainName, toolId, username}, done) {
 	//Generate a new token for the community, tool
 
 	//call tool's specific initializations service for the tool integration
-	console.log('inside integrate tool');
+	console.log('inside integrate tool ', {domainName, toolId, username});
 	async.waterfall([
 			generatetooltoken.bind(null, {domainName, toolId, username}),
 			initializeTool.bind(null, {domainName, toolId, username})

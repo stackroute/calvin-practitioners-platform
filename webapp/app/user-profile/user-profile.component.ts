@@ -84,6 +84,10 @@ export class UserProfileComponent implements OnInit {
     const x = imgsrc.substring(0, (imgsrc.length - 2)) + '300';
     return x;
   }
+  
+  integrateWithTool(toolname){
+    
+  }
 }
 @Component({
   selector: 'user-profile-dialog',
