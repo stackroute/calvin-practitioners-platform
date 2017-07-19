@@ -1,4 +1,4 @@
-.card-align
+/*.card-align
 {
     margin-left:0%;
     padding-left:0%;
@@ -8,12 +8,27 @@
 }
 /*md-icon{
 margin-left:400px;
+md-icon{
+margin-left:300px;
 cursor: pointer;
 }*/
+
+.card-align
+{
+   margin-left:0%;
+   padding-left:0%;
+}
+.fix{
+   margin-left: 40px;
+}
+md-icon{
+margin-left:300px;
+cursor: pointer;
+}
 md-card-title{
-    margin-left: 40px;
+   margin-left: 40px;
 }
 .icon{
-    cursor: pointer;
-    /*margin-top: 10%;*/
+   margin-bottom: 10px;
+   cursor: pointer;
 }

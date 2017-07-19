@@ -3,9 +3,9 @@ const controller = require('./communitytools.controller.js');
 
 const router = express.Router();
 
-router.get('/:domainname', (request, response) => {
+router.get('/:domainnames', (request, response) => {
   try {
-    controller.retrieveAllTools(request.params.domainname, (err, result) => {
+    controller.retrieveAllTools(request.params.domainnames, (err, result) => {
       if (err) {
         //console.log('dsvs');
 
@@ -48,10 +48,30 @@ router.get('/:domainname/', (req, res) => {
 });
 
 
+router.post('/:domain/tool',(req, res) => {
+   try{
+     console.log('api is data',req.params.domain,req.body);
+     controller.postTool(req.params.domain, req.body,(err, result) => {
+       if (err) {
+         res.status(500).send({error: 'Internal error ocurred...!!!'});
+       } else{
+         res.status(200).send(result);
+       }
+       return true;
+     });
+   }catch (err){
+
+     return res.status(500).send({
+       error: 'Internal error occurred..!!!' })
+   }
+   return true;
+
+});
+
 router.post('/:domain/',(req, res) => {
    try{
      console.log('api is data',req.param.domain);
-     controller.postTool(req.params.domain, req.body,(err, result) => {
+     controller.postToolInfo(req.params.domain, req.body,(err, result) => {
        if (err) {
          res.status(500).send({error: 'Internal error ocurred...!!!'});
        } else{

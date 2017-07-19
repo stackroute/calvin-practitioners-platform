@@ -1,12 +1,15 @@
 const request = require('superagent');
 
-const BASE_COMMUNITY_SERVICE_URL = `172.23.238.141:4000/adapter/getallactivities/user`;
-
+const BASE_ACTIVITY_SERVICE_URL = `172.23.238.141:4000`;
+const authToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ik1heWFuayBTZXRoaSIsImFwaSI6ImNpcmNsZSIsInNjb3BlcyI6WyJtYWlsYm94OmFsbCIsImNpcmNsZTphbGwiLCJmb2xsb3c6YWxsIl0sImlhdCI6MTQ5NzkzODEzOX0.cpLAt8BaYZyqyp53iDJGbl3yIBtBjj6_qoSiM4_hDiY'
 function getMemberActivities(userName, done) {
-  const url = `${BASE_COMMUNITY_SERVICE_URL}/${userName}`;
+  const url = `${BASE_ACTIVITY_SERVICE_URL}/adapter/getallactivities/user/${userName}`;
   request
     .get(url)
-    .set({ 'Accept': 'application/json', 'Authorization': 'Bearer ' + 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ik1heWFuayBTZXRoaSIsImFwaSI6ImNpcmNsZSIsInNjb3BlcyI6WyJtYWlsYm94OmFsbCIsImNpcmNsZTphbGwiLCJmb2xsb3c6YWxsIl0sImlhdCI6MTQ5NzkzODEzOX0.cpLAt8BaYZyqyp53iDJGbl3yIBtBjj6_qoSiM4_hDiY' })
+    .set({
+      'Accept': 'application/json',
+      'Authorization': 'Bearer ' + authToken
+    })
     .query({ userName })
     .end((err, res) => {
       if (err) {
@@ -16,13 +19,14 @@ function getMemberActivities(userName, done) {
     });
 }
 
-const BASE_COMMUNITY_SERVICE_URL_DOMAIN = `172.23.238.141:4000/adapter/getallactivities/domain`;
-
 function getDomainActivities(domainName, done) {
-  const url = `${BASE_COMMUNITY_SERVICE_URL_DOMAIN}/${domainName}`;
+  const url = `${BASE_ACTIVITY_SERVICE_URL}/adapter/getallactivities/domain/${domainName}`;
   request
     .get(url)
-    .set({ 'Accept': 'application/json', 'Authorization': 'Bearer ' + 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ik1heWFuayBTZXRoaSIsImFwaSI6ImNpcmNsZSIsInNjb3BlcyI6WyJtYWlsYm94OmFsbCIsImNpcmNsZTphbGwiLCJmb2xsb3c6YWxsIl0sImlhdCI6MTQ5NzkzODEzOX0.cpLAt8BaYZyqyp53iDJGbl3yIBtBjj6_qoSiM4_hDiY' })
+    .set({
+      'Accept': 'application/json',
+      'Authorization': 'Bearer ' + authToken
+    })
     .query({ domainName })
     .end((err, res) => {
       if (err) {

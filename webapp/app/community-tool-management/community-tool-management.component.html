@@ -1,5 +1,4 @@
 <!--<div>
-
   <md-card class="card-align">
     <div class="community-list" *ngFor="let val of tools.tools">
       <h1></h1>
@@ -25,25 +24,52 @@
 </div>
 <div>-->
 
-
+<!-- 
 <div>
+  <md-card class="card-align" fxFlex="100%">
+    <div class="community-list"  *ngFor="let val of tools.tools" fxFlex="80%"> -->
+<!--<div>
   <md-card class="card-align" fxFlex="100">
     <div class="community-list" *ngFor="let val of tools.tools">
+>>>>>>> 86e42527fe70b319e14ab19e9522a485bcba394d
       <div class="fix">
         <md-card-header align="start">
-          <img md-card-avatar src="{{val.avatar}}">
-          <md-card-title><b>{{val.toolname}}</b></md-card-title>
-          <md-card-title>{{val.toolid}}</md-card-title>
-          <div>
-            <md-icon class="icon" (click)="config(val.toolid)">settings</md-icon>
-          </div>
+          <img md-card-avatar fxFlex="5%" src="{{val.avatar}}">
+          <div fxFlex="70%">
+          <md-card-title ><b>{{val.toolname}}</b></md-card-title>
+          <md-card-title>{{val.toolid}}</md-card-title>         
           <md-card-title>{{val.purpose}}</md-card-title>
+          </div>
+          <md-icon fxFlex="5%" fxLayoutAlign="start start"  (click)="config(val.toolid)">settings</md-icon>
         </md-card-header>
       </div>
     </div>
   </md-card>
   <div fxLayoutAlign="end">
-    <button md-raised-button color="primary" class="bottom-button" routerLink="/app/toolmarket">Add</button>
+    <button md-raised-button color="primary" class="bottom-button" routerLink="/app/toolmarket">View Tools</button>
+    <button md-raised-button color="primary" class="bottom-button" routerLink="/app/toolmarket">viewTools</button>
+>>>>>>> 86e42527fe70b319e14ab19e9522a485bcba394d
   </div>
+</div>-->
+
+<div>
+ <md-card class="card-align" fxFlex="100%">
+   <div class="community-list"  *ngFor="let val of tools.tools" fxFlex="80%">
+     <div class="fix">
+       <md-card-header align="start">
+         <img md-card-avatar fxFlex="5%" src="{{val.avatar}}">
+         <div fxFlex="70%">
+         <md-card-title ><b>{{val.toolname}}</b></md-card-title>
+         <md-card-title>{{val.toolid}}</md-card-title>        
+         <md-card-title>{{val.purpose}}</md-card-title>
+         </div>
+         <md-icon fxFlex="5%" fxLayoutAlign="start start"  (click)="config(val.toolid)">settings</md-icon>
+       </md-card-header>
+     </div>
+   </div>
+ </md-card>
+ <div fxLayoutAlign="end">
+   <button md-raised-button color="primary" class="bottom-button" routerLink="/app/toolmarket">View Tools</button>
+ </div>
 </div>
 <router-outlet></router-outlet>

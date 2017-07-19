@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Inject } from '@angular/core';
+import { Component, OnInit, Input, Inject , Output ,EventEmitter } from '@angular/core';
 import { Params, RouterModule, Routes, Router, ActivatedRoute } from '@angular/router';
 // import { MdDialog } from '@angular/material';
 import { FormGroup, FormControl, Validators, FormBuilder, AbstractControl} from '@angular/forms';
@@ -12,6 +12,7 @@ import { CommunityProfileService } from '../community-profile/community-profile.
 import { updateSpecificCommunityService } from '../manage-community/manage-community.service';
 
 import { MD_DIALOG_DATA, MdDialog, MdDialogRef} from '@angular/material';
+
 
 
 
@@ -39,10 +40,12 @@ status;
 counter = true;
 ans;
 tagname:String;
+voted = false;
 
   
    constructor(private route: ActivatedRoute, private router: Router, private fb: FormBuilder, 
-   private commProfileService: CommunityProfileService,private dialog: MdDialog, private commUpdateService: updateSpecificCommunityService) { 
+   private commProfileService: CommunityProfileService,private dialog: MdDialog,
+    private commUpdateService: updateSpecificCommunityService) { 
      this.updateForm(); 
    }
 
@@ -69,6 +72,10 @@ tagname:String;
     name:['']
     });
   }
+  //   vote(agreed: boolean) {
+  //   this.onVoted.emit(agreed);
+  //   this.voted = true;
+  // }
    // store the tag value in array 
   chipValue(tag,resetText) {
      resetText.value='';
@@ -92,10 +99,14 @@ routeToHome() {
       disableClose: true ,
       data: this.domain
     });
+    dialogRef.afterClosed().subscribe()
+   this.getAllCommunityDetails();
   }
 
-
- onsubmit(userForm: any) { 
+//  update(event: object) {
+//     this.counterValue = event.count;
+//   }
+ onsubmit(userForm: any,agreed:boolean) { 
    const myFormValue = userForm.value; 
     const updatedby = myFormValue.updatedby = this.updatedBy;
     const tags = myFormValue.tags = this.tagarray;
@@ -112,7 +123,9 @@ routeToHome() {
     this.commUpdateService.updateSpecificCommunity(formValue,this.domain).subscribe((result)=>{
      this.openDialog(this.domain);
     });
+   
     this.getAllCommunityDetails();
+
         
 }
  
@@ -121,26 +134,7 @@ routeToHome() {
 
  ngOnInit() {
    this.getAllCommunityDetails();
-  //  this.domain = this.route.snapshot.params['domain'];
-  //  this.commProfileService.getCommunity(this.route.snapshot.params['domain'],this.counter). subscribe ( res => {   
-  //  this.domain = res.domain;
-  //  this.updatedBy = res.updatedby;
-  //  this.status = res.status;
-  //  res.createdon= moment(res.createdon).subtract(1,'days').calendar();
-  //  this.community = res;
-  //  console.log("inside managecommunity",this.community);
-  // } );
-   
-  //  this.domain = this.route.snapshot.params['domain'];
-  //  this.commProfileService.getCommunity(this.route.snapshot.params['domain'],this.counter). subscribe ( res => {   
-  //  this.domain = res.domain;
-  //  this.updatedBy = res.updatedby;
-  //  this.status = res.status;
-  //  res.createdon= moment(res.createdon).subtract(1,'days').calendar();
-  //  this.community = res;
-  //  console.log("inside managecommunity",this.community);
-   //  this.tagarray.push(res.tags);
-  // });
+
 
 }
 }

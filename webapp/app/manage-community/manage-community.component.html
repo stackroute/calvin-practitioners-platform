@@ -1,4 +1,4 @@
-<calvin-community-profile [profile]="this.community">
+<calvin-community-profile [(profile)]="this.community" (onVoted)="onsubmit($event)" >
   <button md-icon-button [mdMenuTriggerFor]="menu" class="setting">
     <md-icon >settings</md-icon>
   </button>
@@ -8,11 +8,7 @@
       <span>Community</span>
     </button>
   </md-menu>
-
-
-  
-  
-</calvin-community-profile>
+  </calvin-community-profile>
 <div fxLayout fxLayout.xs="row" fxLayoutGap="0px" fxLayoutGap.xs="0" header >
   <div fxFlex="20%" fxLayout="row"> </div>
   <div fxFlex="80%" fxLayout="row" fxLayoutAlign=" start">
@@ -39,8 +35,7 @@
    <md-input-container>
      <input mdInput placeholder="Visibility" >
      <md-radio-group name="visibility" formControlName="visibility" ngModel={{community.visibility}}>
-       <!--[(ngModel)]="visibility">-->
-       <md-radio-button value="Public" >Public <div fxFlex="20%" class="visibilityDesc">Visible to anyone anywhere </div></md-radio-button>
+           <md-radio-button value="Public" >Public <div fxFlex="20%" class="visibilityDesc">Visible to anyone anywhere </div></md-radio-button>
        <md-radio-button value="Private" >Private <div fxFlex="20%" class="visibilityDesc">Visible only to you</div> </md-radio-button>
        <md-radio-button value="Moderated" >Moderated <div fxFlex="20%" class="visibilityDesc">Only invited members can join and see community content </div></md-radio-button>
      </md-radio-group>
