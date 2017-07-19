@@ -45,7 +45,7 @@ const routes: ModuleWithProviders = RouterModule.forRoot([
       { path: 'addtool', component: AddToolComponent},
       { path: 'toolmarket', component : ToolMarketPlaceComponent},
       { path: 'toolpage/:toolid', component: ToolPageComponent },
-      { path: 'toolconfig/:toolid', component:ToolConfigPageComponent},
+      { path: 'toolconfig/:domain/:toolid', component:ToolConfigPageComponent},
       ]
   },
   { path: '', redirectTo: '/app/home', pathMatch: 'full' },

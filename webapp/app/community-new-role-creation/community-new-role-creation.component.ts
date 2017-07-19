@@ -20,6 +20,7 @@ import { MD_DIALOG_DATA, MdDialog, MdDialogRef, MdSnackBar } from '@angular/mate
  isDomainExists = false;
 
  @Input() community;
+ 
 
 
  constructor(private tool: NewRoleService, private fb: FormBuilder,
@@ -76,7 +77,7 @@ import { MD_DIALOG_DATA, MdDialog, MdDialogRef, MdSnackBar } from '@angular/mate
  }
 
  update() {
-  this.tool.updateTools(this.domainName, this.selected).subscribe(res => {
+  this.tool.createRoles(this.domainName, this.selected).subscribe(res => {
    this.snackBar.open('New Role Created Successfully', 'X', {
     duration: 2000
    });
@@ -84,6 +85,7 @@ import { MD_DIALOG_DATA, MdDialog, MdDialogRef, MdSnackBar } from '@angular/mate
    this.dialogRef.close({
     res: this.sample,
    });
+   console.log("in new role service", res,this.sample)
   });
  }
 

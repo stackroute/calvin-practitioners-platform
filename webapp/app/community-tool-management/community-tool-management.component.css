@@ -1,4 +1,4 @@
-.card-align
+/*.card-align
 {
     margin-left:0%;
     padding-left:0%;
@@ -7,7 +7,7 @@
     margin-left: 40px;
 }
 md-icon{
-margin-left:400px;
+margin-left:300px;
 cursor: pointer;
 }
 md-card-title{
@@ -15,4 +15,25 @@ md-card-title{
 }
 .icon{
     margin-bottom: 10px;
+    cursor: pointer;
+=======
+}*/
+.card-align
+{
+   margin-left:0%;
+   padding-left:0%;
+}
+.fix{
+   margin-left: 40px;
+}
+md-icon{
+margin-left:300px;
+cursor: pointer;
+}
+md-card-title{
+   margin-left: 40px;
+}
+.icon{
+   margin-bottom: 10px;
+   cursor: pointer;
 }

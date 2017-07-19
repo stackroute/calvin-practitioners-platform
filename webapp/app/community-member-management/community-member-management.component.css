@@ -28,6 +28,8 @@ md-list-item:last-child {
 }
 
 .bottom-button{
-  margin-left: 620px;
+margin-left: 370px;
+  /*float: right;
+  overflow: hidden;*/
 }
 
