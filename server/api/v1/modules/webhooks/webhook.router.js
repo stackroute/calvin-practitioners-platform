@@ -3,7 +3,7 @@ const express = require('express');
 const router = express.Router();
 const webhookcontroller = require('./webhook.controller');
 
-router.post('/:token', (req, res) => {
+router.post('/tools/:token', (req, res) => {
     console.log('1.Webhook called');
     const token = req.params.token;
     try {
