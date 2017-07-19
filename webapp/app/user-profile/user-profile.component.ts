@@ -22,22 +22,23 @@ export class UserProfileComponent implements OnInit {
   profileArray = [];
 
   constructor(private fb: FormBuilder, private userservice: UserInfoService,
-   private profileService: SidenavService, public dialog: MdDialog, ) {
+    private profileService: SidenavService, public dialog: MdDialog, ) {
     this.createprofile();
   }
   openDialog() {
-    let dialogRef = this.dialog.open(DialogResultExampleDialog,{
-    disableClose:true});
-  
+    let dialogRef = this.dialog.open(DialogResultExampleDialog, {
+      disableClose: true
+    });
+
     dialogRef.afterClosed().subscribe(result => {
-      
+
     });
   }
   createprofile() {
     this.profileForm = this.fb.group
       ({
         aboutMe: [''],
-        location: ['',Validators.pattern('[A-Za-z]{3,20}')],
+        location: ['', Validators.pattern('[A-Za-z]{3,20}')],
         contact: ['', Validators.pattern('[0-9]{10}')],
         interestField: ['', Validators.required]
       });
@@ -92,6 +93,6 @@ export class UserProfileComponent implements OnInit {
 export class DialogResultExampleDialog {
   constructor(public dialogRef: MdDialogRef<DialogResultExampleDialog>, private router: Router) { }
   routeToProfile() {
-     this.router.navigate(['/app/Home/']);
+    this.router.navigate(['/app/Home/']);
   }
 }
