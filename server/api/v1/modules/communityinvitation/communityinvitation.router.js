@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const auth = require('../authentication');
+const authCtrl = require('../authentication/auth.controller');
 const communityMember = require('./../communitymember/community-member.controller');
 const config = require('../common/config');
 
@@ -26,7 +26,7 @@ router.get('/recipient/:token', (req, res, next) => {
                 req.user = decoded;
                 communityMember.verifyInviteeToken(req.params.token, (err, inviteeDetail) => {
                     if(err) {
-                        res.redirect('/#/communityinvite/invalid');
+                        res.redirect('/#/app/communityinvite/invalid');
                         return;
                     }
 
@@ -36,11 +36,11 @@ router.get('/recipient/:token', (req, res, next) => {
                         //current user is the invitee
                         //Take him to the accept/reject page
                         // Community, Role, Who invited
-                        res.redirect(`/#/communityinvite/${inviteeDetail.domain}`);
+                        res.redirect(`/#/app/communityinvite/${inviteeDetail.domain}`);
                         return;
                     } else {
                         //invalid invite or cross user invitation 
-                        res.redirect('/#/communityinvite/invalid');
+                        res.redirect('/#/app/communityinvite/invalid');
                         return;
                     }
                 });
@@ -52,7 +52,8 @@ router.get('/recipient/:token', (req, res, next) => {
         //Also pass the details of invitation
         res.clearCookie(config.cookie.user);
         res.clearCookie(config.cookie.userCommunity);
-        return res.redirect(`/#/login?follow=/invite/recipient/${req.params.token}`);
+        return res.redirect('/#/login/follow');
+       // return res.redirect(`/#/login/follow/invite/recipient/${req.params.token}`);
     }
 });
 

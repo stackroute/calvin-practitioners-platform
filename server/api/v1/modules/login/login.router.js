@@ -4,9 +4,10 @@ const passport = require('passport');
 const config = require('../common/config');
 
 const router = express.Router();
-
-router.get('/',(req, res) => {
-
+//follow=/invite/recipient/
+router.get('/follow',(req, res) => {
+  console.log('req', req);
+  res.send(200).status('done');
 });
 
 router.get('/auth/logout', (req, res) => {
