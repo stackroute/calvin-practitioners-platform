@@ -1,12 +1,13 @@
 const cassandra = require('cassandra-driver');
-const config = require('../common/config');
+//const config = require('../common/config');
+const config = require('../../../../appconfig/env/dev')
 const async = require('async');
 const client = new cassandra.Client({
-  contactPoints: [config.dbconfig.dburl],
-  keyspace: config.dbconfig.keyspacename,
+  contactPoints: [config.connectionString.dburl],
+  keyspace: config.connectionString.keyspacename,
 });
 
-const TABLE_NAME = ['toolinfo', 'toolactions', 'toolevents', 'toolcommunity'];
+const TABLE_NAME = config.TABLE_NAME;
 
 // this function is to check if tool is already present in DB
 function checkIfToolExists(toolid, done) {

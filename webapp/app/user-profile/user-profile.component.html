@@ -62,24 +62,25 @@
 									<button fxLayout.md="column" fxFlex="10" md-raised-button type="submit"color="primary" [disabled]="!profileForm.valid" (click)="openDialog()">Submit</button>
 								</span>
 							</div>
-							<div fxLayout="column" fxLayoutGap="10px" fxLayoutAlign="start end" class="alignToolBtn">
-								<div>
+							<div fxLayout="column" fxLayoutGap="10px" class="alignToolBtn">
+								<span><h5>Integrate with app</h5></span>
+								<div class="integrateToolbtn">
 								<span class="label">Sign in with:</span>
-									<div id="customBtn" class="customGPlusSignIn">
+									<div id="customBtn" class="customGPlusSignIn" (click)="integrateTool('google')">
 										<span class="googleicon"></span>
 										<span class="buttonText">Google</span>
 									</div>
 								</div>
-								<div>
+								<div class="integrateToolbtn">
 								<span class="label">Sign in with:</span>
-									<div id="customBtn" class="customGPlusSignIn">
+									<div id="customBtn"  class="customGPlusSignIn" (click)="integrateTool('discourse')">
 										<span class="discourseicon"></span>
-										<span class="buttonText">Discourse</span>
+										<span class="buttonText" >Discourse</span>
 									</div>
 								</div>
-								<div>
+								<div class="integrateToolbtn">
 								<span class="label">Sign in with:</span>
-									<div id="customBtn" class="customGPlusSignIn">
+									<div id="customBtn" class="customGPlusSignIn" (click)="integrateTool('github')">
 										<span class="githubicon"></span>
 										<span class="buttonText">Github</span>
 									</div>

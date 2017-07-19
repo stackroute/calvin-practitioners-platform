@@ -1,9 +1,12 @@
 const request = require('superagent');
+const config = require('../../../../appconfig/env/dev');
 
-const BASE_ACTIVITY_SERVICE_URL = `172.23.238.141:4000`;
-const authToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ik1heWFuayBTZXRoaSIsImFwaSI6ImNpcmNsZSIsInNjb3BlcyI6WyJtYWlsYm94OmFsbCIsImNpcmNsZTphbGwiLCJmb2xsb3c6YWxsIl0sImlhdCI6MTQ5NzkzODEzOX0.cpLAt8BaYZyqyp53iDJGbl3yIBtBjj6_qoSiM4_hDiY'
+ const urlValue=config.BASE_ACTIVITY_SERVICE_URL;
+  const authToken=config.authToken;
+
 function getMemberActivities(userName, done) {
-  const url = `${BASE_ACTIVITY_SERVICE_URL}/adapter/getallactivities/user/${userName}`;
+ 
+  const url = `${urlValue}/adapter/getallactivities/user/${userName}`;
   request
     .get(url)
     .set({
@@ -20,7 +23,7 @@ function getMemberActivities(userName, done) {
 }
 
 function getDomainActivities(domainName, done) {
-  const url = `${BASE_ACTIVITY_SERVICE_URL}/adapter/getallactivities/domain/${domainName}`;
+  const url = `${urlValue}/adapter/getallactivities/domain/${domainName}`;
   request
     .get(url)
     .set({

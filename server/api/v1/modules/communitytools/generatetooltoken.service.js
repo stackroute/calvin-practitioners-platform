@@ -1,7 +1,8 @@
 const jwt = require('jsonwebtoken');
-const config = require('../common/config');
+const config = require('../../../../appconfig/env/dev');
 
 module.exports = function({domainName, toolId, username}, done) {
+  console.log('inside generate tool token');
   let payload = { domainName, toolId, username };
   let secret = config.appConstants.secret;
   let options = {
@@ -18,6 +19,8 @@ module.exports = function({domainName, toolId, username}, done) {
         done(err);
         return;
       }
+
+      console.log('result ius ', token);
       done(null, token);
     });
 }

@@ -1,12 +1,12 @@
 const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
-const oauthconfig=require('./config');
+const toolConfig=require('./config');
 
 module.exports=(passport)=>{
-passport.use(new GoogleStrategy({
-    clientID: oauthconfig.clientID,
-    clientSecret: oauthconfig.clientSecret,
-    callbackURL: oauthconfig.callbackURL ,
-    scope: oauthconfig.scope
+passport.use('google-calendar', new GoogleStrategy({
+    clientID: toolConfig.clientID,
+    clientSecret: toolConfig.clientSecret,
+    callbackURL: toolConfig.callbackURL,
+    scope: toolConfig.scope
   },
   function(accessToken, refreshToken, profile, done) {
     profile.accessToken = accessToken;

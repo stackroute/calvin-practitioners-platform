@@ -1,11 +1,12 @@
 
 const request = require('superagent');
 
-const BASE_COMMUNITY_SERVICE_URL = 'http://calvin-communities.blr.stackroute.in/api/v1';
+const config = require('../../../../appconfig/env/dev');
+const urlValue =config.BASE_COMMUNITY_SERVICE_URL;
 
  // Call specific community on the basis of domain
 function getSpecificCommunity(domain,counter, done) {
-  const url = `${BASE_COMMUNITY_SERVICE_URL}/communities/${domain}?counter=${counter}`;
+  const url = `${urlValue}/communities/${domain}?counter=${counter}`;
   console.log("checking for counter in controoler");
   // console.log("testing counter",res.body);
 
@@ -24,7 +25,7 @@ function getSpecificCommunity(domain,counter, done) {
 
  // Call communities service to update specific community according to domain
 function updateSpecificCommunity(domain, form, done) {
-  const url = `${BASE_COMMUNITY_SERVICE_URL}/communities/${domain}`;
+  const url = `${urlValue}/communities/${domain}`;
 
   request
  .patch(url)
@@ -58,7 +59,7 @@ function updateSpecificCommunity(domain, form, done) {
 
 // post new community data
 function postNewcommunityDetails(domainName, newCommunityObj, done) {
-  const url = `${BASE_COMMUNITY_SERVICE_URL}/communities/${domainName}`;
+  const url = `${urlValue}/communities/${domainName}`;
   request
   .post(url)
   .send(newCommunityObj) // sends a JSON post body

@@ -1,18 +1,27 @@
-const communityTemplate = require('../app/modules/communityTemplates');
+// const communityTemplate = require('');
+const config = require('../../../../appconfig/env/dev');
+const urlValue =config.BASE_COMMUNITY_SERVICE_URL;
 
 //Require the dev-dependencies
 const chai = require('chai');
-const chaiHttp = require('chai-http');
-const server = require('../server');
-const should = chai.should(); 
-  describe('/GET communityTemplate', () => {
-      it('it should GET all the community template list', (done) => {
-        chai.request(server)
-            .get('/communityTemplates')
+
+const request = require('supertest');
+
+const server = require('../../index.js');
+
+const should = chai.should();
+
+describe('/GET communityTemplate', () => {
+    it('it should GET all the community template list', (done) => {
+        request(server)
+            .get(`${urlValue}/communitytemplates`)
+            .expect(200)
+            .expect('Content-Type', /json/)
             .end((err, res) => {
-                res.should.have.status(200);
-                res.body.should.be.a('array');
-            done();
+                console.log("error" + err);
+                if (err) { done(err); return; }
+                (res.body).to.be.an('array');
+                done();
             });
-      });
-  });
+    });
+});
