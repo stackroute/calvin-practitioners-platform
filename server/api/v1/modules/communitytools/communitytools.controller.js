@@ -49,7 +49,7 @@ function postTool(domain, data, done) {
   const username = data.username;
   const toolId = data.toolid;
   //const domainName = domain;
-  const domainName = 'wave33';
+  const domainName = 'wave34';
   const event = data.events;
   console.log('data is ' + username + toolId + domainName + '' + data.events);
 
