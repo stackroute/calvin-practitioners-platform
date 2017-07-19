@@ -4,6 +4,7 @@ const jwt = require('jsonwebtoken');
 const config = require('../common/config');
 const path = require('path');
 const communityController = require('../../modules/communitytools/communitytools.controller');
+const cummunityToolservice=require('../communitytools/communitytools.service');
 const transformEventData = require('./transformEventData');
 
 function verifyToolToken(token, done) {
@@ -37,13 +38,21 @@ function sendToCommunityService(payload,obj,done) {
 
     // tokenClaims will have { domainName, toolId, username }
     // console.log('6.inside token claim',obj.tokenClaims);
-    communityController.postTool(obj.tokenClaims.domainName,obj.extractedData, (err, result) => {
+cummunityToolservice.addToolinCommunity(obj.tokenClaims.domainName,obj.extractedData,(err,result)=>{
+      if(err) {
 
-        if (err) {
-            return done(err, 'Unable to POST Tool in Community');
-        }
-        return done(null, 'Successfully Sent');
-    });
+          return done(err,'Unable to POST in Community')
+      }
+      return done(null, 'Successfully Sent');
+});
+
+    // communityController.postTool(obj.tokenClaims.domainName,obj.extractedData, (err, result) => {
+
+    //     if (err) {
+    //         return done(err, 'Unable to POST Tool in Community');
+    //     }
+    //     return done(null, 'Successfully Sent');
+    // });
 }
 
 function handleToolEvent(token, eventPayload, done) {

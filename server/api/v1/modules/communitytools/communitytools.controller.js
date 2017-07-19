@@ -43,24 +43,36 @@ function getTool(domain, done) {
 // Call community tools service to post tools
 function postTool(domain, data, done) {
 
+
+
   console.log('inside posting toollllllll', data);
   const username = data.username;
   const toolId = data.toolid;
-  const domainName = domain;
+  //const domainName = domain;
+  const domainName = 'wave33';
   const event = data.events;
   console.log('data is ' + username + toolId + domainName + '' + data.events);
+
+  communityToolService.integrateNewTool({ domainName, toolId, username }, (err, result) => {
+      if (err) {
+        console.log('hi inside integrate new tool error is ', err);
+        return done(err, ' error in tool initialization');
+      }
+      return done(null, 'Tool Success');
+    });
 
 
   communityToolService.integrateToolinCommunity(data, (err, result) => {
     if (err) {
-      console.log('inisde tools',err);
+      console.log('inisde tools', err);
       return done(err, ' unable to post dtaa in community');
     }
-      console.log('result is ',result);
+    console.log('result is ', result);
+    
     communityToolService.integrateNewTool({ domainName, toolId, username }, (err, result) => {
 
       if (err) {
-        console.log('hi inside integrate new tool error is ',err);
+        console.log('hi inside integrate new tool error is ', err);
         return done(err, ' error in tool initialization');
       }
       return done(null, 'Tool Success');
@@ -77,6 +89,23 @@ function postTool(domain, data, done) {
 
   //     return done(err, 'Internal server error');
   //   }
+
+  // communityToolService.integrateNewTool({domainName, toolId, username},done);
+
+  // return communityToolService.integrateNewTool.bind(null, {domainName, toolId, username}, done);
+
+  //   console.log('data is ',data);
+  //   const url = `${BASE_COMMUNITY_SERVICE_URL}/communitytools/${domain}/tools`;
+  //   request
+  //  .post(url)
+  //  .send(data) // query string
+  //  .end((err, res) => {
+  //    if (err) {
+  //      console.log('error is ',err);
+  //      return done(err);
+  //    }
+  //    return done(null, res.body);
+  //  });
 
   //   done(null, 'sucess');
   // });
@@ -101,10 +130,15 @@ function postTool(domain, data, done) {
 
 
 }
-
+function postToolInfo(domain,data,done){
+    console.log("Now posting tool ", data, " for domain ", domain);
+    communityToolService.integrateNewTool({domainName: domain, toolId: data.toolid, username: data.username},done);
+    // communityToolService.integrateToolinCommunity(domain,data,done); 
+}          
 
 module.exports = {
   retrieveAllTools,
   getTool,
   postTool,
+  postToolInfo
 };
