@@ -44,6 +44,7 @@ function getTool(domain, done) {
 function postTool(domain, data, done) {
 
 
+
   console.log('inside posting toollllllll', data);
   const username = data.username;
   const toolId = data.toolid;
@@ -119,7 +120,10 @@ function postTool(domain, data, done) {
 
 
 }
-
+function postToolInfo(domain,data,done){
+           console.log('inside post toolinfo');
+          communityToolService.addToolinCommunity(domain,data,done); 
+}
 
 module.exports = {
   retrieveAllTools,
