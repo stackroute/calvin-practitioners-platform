@@ -18,5 +18,5 @@
 </div>
 <div *ngIf="adminCommunities.length===0"> 
 	     <p> Hi.. It seems you are not a member of Any Group .. please create a community to Intergatre a tool </p>
-		  <button md-raised-button color="primary" (click)="navigateToCC()">Create Community</button> 
+		  <button md-raised-button color="primary" (click)="navigateToCC()" [md-dialog-close]="true">Create Community</button> 
 </div>

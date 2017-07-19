@@ -65,7 +65,7 @@ function postNewcommunityDetails(domainName, newCommunityObj, done) {
   .end((err, res) => {
     if (err) {
      // consoleconsole.log('error-----------------',err);
-      return done(err);
+    return done(err);
     }
     return done(null, res.body);
   });

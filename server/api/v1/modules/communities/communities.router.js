@@ -77,12 +77,8 @@ router.get('/membership/:member/', (req, res) => { // eslint-disable-line consis
 //post new community data
 router.post('/:domainName', (req, res) => {
   try {
-    // console.log('inside server');
-    // console.log(req.body)
-    // console.log(req.params.domainName)
     communityCtrl.postNewcommunityDetails(req.params.domainName, req.body, (err, results) => {
       if (err) {
-       // console.log('error is ',err);
         return res.status(500).send({ error: 'Unexpected errorsss occurred, try again later' });
       }
       return res.status(200).send(results);
