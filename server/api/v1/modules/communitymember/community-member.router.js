@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 router.use(bodyParser.urlencoded({ extended: true }));
 router.use(bodyParser.json());
 
-// add members to community after invite
+//  Send invitation to member
 router.post('/memberrequests/:domain/type/:type', (req, res) => {
   try {
     memberCtrl.postMemberInvite(req, req.params.domain, req.params.type, req.body, (err, result) => {

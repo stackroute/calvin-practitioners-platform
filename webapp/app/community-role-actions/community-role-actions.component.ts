@@ -17,12 +17,13 @@ export class CommunityRoleActionsComponent implements OnInit {
  
   constructor(public dialog: MdDialog, 
   private role: RoleServices, private action: CommunityRoleManagementComponent) { }
+
 onRolModifiedInDialog(modifiedRole) {
  this.onRoleModified.emit(modifiedRole);
 }
 
 openModifyRoleActionsDialog(roleName, roleActionColln) {
- console.log('dummy data', this.roleActionColln.toolactions);
+ console.log('Modified data', this.roleActionColln.toolactions);
  const dialogRef = this.dialog.open(CommunityToolActionsComponent, {
   disableClose: true,
   data: {

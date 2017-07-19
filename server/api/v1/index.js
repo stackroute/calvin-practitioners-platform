@@ -8,9 +8,9 @@ router.use('/logout', (req, res) => {
   res.redirect('/');
 });
 
-// router.use(require('./modules/authentication'));
+router.use('/invite', require('./modules/communityinvitation'))
 
-// router.use(require('./modules/authentication'));
+router.use(require('./modules/authentication'));
 
 // Each Module to be placed after this
 

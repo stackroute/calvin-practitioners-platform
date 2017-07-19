@@ -28,6 +28,9 @@ export class CommunityRoleManagementComponent implements OnInit {
  roleManagement() {
   //Keep it empty, before fetching and populating
   this.roleArray = [];
+  this.resultArray = [];
+  this.roleObj = {};
+  this.toolObj = {}; 
   this.role.listRoles(this.community).subscribe(res => {
   
    this.roleArray.push(res);
@@ -58,11 +61,9 @@ export class CommunityRoleManagementComponent implements OnInit {
     roleactions,
     toolactions
    });
-  this.roleObj = {};
-  this.toolObj = {};  
+   
   });
-  this.roleArray = [];
-  this.resultArray = [];
+  
  }
 
  openNewRoleDialog() {
@@ -72,21 +73,24 @@ export class CommunityRoleManagementComponent implements OnInit {
   });
   dialogRef.afterClosed()
    .subscribe(res => {
-     this.roleArray.push(res);
-    this.roleManagement();
-    console.log(this.roleArray)
+      this.initiliseRoleActions();
+    //console.log(this.roleArray)
    });
  }
  onRoleModified(modifiedRole: any) {
-  this.roleManagement();
+  this.initiliseRoleActions();
  }
 
  ngOnInit() {
-  this.role
-   .listUniqueRoles(this.community)
-   .subscribe(res => {
-    this.toolArray = res;
-    this.roleManagement();
-   });
+  this.initiliseRoleActions();
+ }
+
+ initiliseRoleActions() {
+   this.role
+     .listUniqueRoles(this.community)
+     .subscribe(res => {
+       this.toolArray = res;
+       this.roleManagement();
+     });
  }
 }
