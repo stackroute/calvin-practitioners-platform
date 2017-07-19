@@ -5,7 +5,7 @@ const dbcontrol = require('../../../users/users.controller');
 module.exports = (passport) => {
   // this function gets the access token from google by providing code, clientID,
   // clientSecret
-  passport.use(new GoogleStretegy({
+  passport.use('google', new GoogleStretegy({
     clientID: configAuth.googleAuth.clientID,
     clientSecret: configAuth.googleAuth.clientSecret,
     callbackURL: configAuth.googleAuth.callbackURL,

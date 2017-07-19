@@ -13,7 +13,7 @@ export class ActivityService {
 
   getActivities(uname, communities, sort, order, page, limit) {
     return this.http
-      .get(`http://localhost:3000/api/v1/memberactivitypage/Anis?page=1`)
+      .get(`api/v1/memberactivitypage/Anis?page=1`)
       .catch( err => {
         this.snackBar.open('Unable to get user activities' , 'X', {
           duration: 3000
