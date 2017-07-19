@@ -12,7 +12,9 @@ function getAllCommunityTemplates(purpose, done) {
     if (err) {
       return done(err);
     }
+       console.log(res.body);
     return done(null, res.body);
+ 
   });
 }
 

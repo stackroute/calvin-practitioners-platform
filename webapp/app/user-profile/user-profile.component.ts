@@ -6,11 +6,12 @@ import { MD_DIALOG_DATA } from '@angular/material';
 import { UserInfoService } from '../core/user-info.service';
 import { SidenavService } from "../user-profile/user-profile.service";
 import { Route, Router } from '@angular/router';
+import { ToolIntegrationService } from "../user-profile/tool-integration.service";
 
 @Component({
   templateUrl: './user-profile.component.html',
   styleUrls: ['./user-profile.component.css'],
-  providers: [SidenavService]
+  providers: [SidenavService, ToolIntegrationService]
 })
 export class UserProfileComponent implements OnInit {
   profileForm: FormGroup;
@@ -22,7 +23,7 @@ export class UserProfileComponent implements OnInit {
   profileArray = [];
 
   constructor(private fb: FormBuilder, private userservice: UserInfoService,
-   private profileService: SidenavService, public dialog: MdDialog, ) {
+   private profileService: SidenavService, public dialog: MdDialog,private toolInfoService: ToolIntegrationService  ) {
     this.createprofile();
   }
   openDialog() {
@@ -83,6 +84,33 @@ export class UserProfileComponent implements OnInit {
 
     const x = imgsrc.substring(0, (imgsrc.length - 2)) + '300';
     return x;
+  }
+
+  integrateGooleTool(toolName){
+    alert(toolName);
+    this.toolInfoService.getTool(toolName).subscribe(
+    data => { this.toolInfoService.toolInfo = data;
+    }, error => //console.log(error),
+    () => console.log('finished')
+    );
+
+  }
+  integrateDiscourseTool(toolName){
+    alert(toolName);
+    this.toolInfoService.getTool(toolName).subscribe(
+    data => { this.toolInfoService.toolInfo = data;
+    }, error => //console.log(error),
+    () => console.log('finished')
+    );
+  }
+  integrateGithubTool(toolName){
+    alert(toolName);
+    this.toolInfoService.getTool(toolName).subscribe(
+    data => { this.toolInfoService.toolInfo = data;
+    }, error => //console.log(error),
+    () => console.log('finished')
+    );
+
   }
 }
 @Component({
