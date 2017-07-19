@@ -50,7 +50,6 @@ import {RoleListServices} from './member-edit/member-edit.service';
 import { MarkdownModule } from 'angular2-markdown';
 import{UserInfoService} from './core/user-info.service';
 import { CommunityMemberManagementComponent } from './community-member-management/community-member-management.component';
-
 import { Memberservice } from './community-member-management/community-member-management.service';
 import { ManageCommunityToolsComponent } from './manage-community-tools/manage-community-tools.component';
 import { AddToolComponent,SucessDialog } from './add-tool/add-tool.component';
@@ -65,6 +64,9 @@ import { CommunityToolManagementComponent } from './community-tool-management/co
 import { DialogResultExampleDialog } from './user-profile/user-profile.component';
 import { DialogResultDialog } from './tool-config-page/tool-config-page.component';
 import { ToolConfigPageComponent } from './tool-config-page/tool-config-page.component';
+import { invalidUser } from './member-invitation/member-invitation.component';
+import { acceptPage } from './member-invitation/member-invitation.component';
+
 
 @NgModule({
   declarations: [
@@ -106,7 +108,9 @@ import { ToolConfigPageComponent } from './tool-config-page/tool-config-page.com
     KeysPipe,
     DialogResultExampleDialog,
     ToolConfigPageComponent,
-    DialogResultDialog
+    DialogResultDialog,
+    invalidUser,
+    acceptPage,
      ],
 
   imports: [

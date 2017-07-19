@@ -114,6 +114,18 @@ function getMembersDetails(member, done) {
     }
     return done('Username not present', null);
 }
+function postMember(domain, inviteBody, done) {
+  const url = `${BASE_COMMUNITY_SERVICE_URL}/communitymembership/${domain}/members`;
+  request
+  .post(url)
+  .send(inviteBody)
+  .end((err, res) => {
+    if (err) {
+      return done(err);
+    }
+    return done(null, res.body);
+  });
+}
 
 function verifyInviteeToken(inviteetoken, done) {
     jwt.verify(inviteetoken, config.appConstants.secret, (err, decodedData) => {
@@ -143,9 +155,11 @@ function postMemberInvite(url, domain, type, inviteBody, done) {
             }, this);
             
             function generateToken(payload) {
-                return jwt.sign(payload, config.appConstants.secret, { expiresIn: config.appConstants.expiryTime });                
+                return jwt.sign(payload, config.appConstants.secret, { expiresIn: config.appConstants.expiryTime });  
+                           
             }
             
+
             function generateLink(token){
                 return `https://calvin-pages.stackroute.in/join?invite=${token}`;
             }
@@ -217,5 +231,6 @@ module.exports = {
     postMemberInvite,
     getCommunityMembers,
     deleteMember,
+    postMember,
 };
 

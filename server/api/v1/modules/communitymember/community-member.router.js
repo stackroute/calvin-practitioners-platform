@@ -18,6 +18,18 @@ router.post('/memberrequests/:domain/type/:type', (req, res) => {
     return res.status(500).send({ error: 'Unexpected internal error occurred...!' });
   }
 });
+router.post('/communitymembership/:domain/members', (req, res) => {
+ try {
+    memberCtrl.postMember(req.params.domain, req.body, (err, result) => {
+      if (err) {
+        return res.status(500).send({ error: 'Error in getting values, please try later..!' });
+      }
+      return res.status(200).send(result);
+    });
+  } catch (err) {
+    return res.status(500).send({ error: 'Unexpected internal error occurred...!' });
+  }
+});
 
 router.get('/communitymembership/:domain/members', (req, res) => {
   try {
