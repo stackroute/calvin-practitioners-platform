@@ -22,17 +22,18 @@ function postAppIntegrationToken(tool,data,done){
 
 }
 
-function getToolTokenFromDB({toolId,userName},done){
+function getToolTokenFromDB({toolId,username},done){
   
-    console.log('inside db of db tool token')
-    const query=`select tokenval from userappintegration where username='${userName}' AND toolid='${toolId}'`;
+    console.log('Getting token for ', toolId, ' for user', username)
+    const query=`select tokenval from userappintegration where username='${username}' AND toolid='${toolId}'`;
     client.execute(query,(err,result)=>{
 
         if(err){
             console.log('error is ',err)
             return done(err,'unable to fetch token');
         }
-        return done(null,result.rows);
+        console.log("Got the result for token of user ", result.rows)
+        return done(null, result.rows[0].tokenval);
     });
 }
 

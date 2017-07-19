@@ -66,7 +66,7 @@ export class IntegrateTool implements OnInit {
       console.log('communities are', result);
       result.forEach((community) => {
         console.log('get community avatar', community.avatar);
-        if (community.role === 'admin' || community.role === 'owner') {
+        if (community.roles === 'admin' || community.roles === 'owner') {
 
           this.adminCommunities.push({domain: community.domain, avatar: community.avatar});
         }
