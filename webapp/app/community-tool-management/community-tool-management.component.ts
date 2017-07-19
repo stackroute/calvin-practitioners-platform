@@ -29,7 +29,7 @@ export class CommunityToolManagementComponent implements OnInit {
 
   config(toolid){
     console.log("hello",toolid);
-    this.route.navigate([`/app/toolconfig/${toolid}`]);
+    this.route.navigate([`/app/toolconfig/${this.domain}/${toolid}`]);
   }
 }
   //  openBox(){

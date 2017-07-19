@@ -6,6 +6,7 @@ import { MD_DIALOG_DATA, MdDialog, MdDialogRef } from '@angular/material';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/Rx';
 import { MdSnackBar } from '@angular/material';
+import { UserInfoService } from '../core/user-info.service';
 import { Memberservice } from '../community-member-management/community-member-management.service';
 
 
@@ -24,8 +25,14 @@ export class MemberInvitationComponent {
   addInvite: any;
   getResults = [];
   domain;
+    uservalue: {};
+  username;
+  aboutme;
+  flag = 0;
+  addInterestArr = [];
+  profileArray = [];
 
-  constructor(private membersService: Memberservice,private invite: InvitationServices,  public snackBar: MdSnackBar,private membersWidget: MembersService, private router: Router,
+  constructor(private membersService: Memberservice,private invite: InvitationServices, private userservice: UserInfoService, public snackBar: MdSnackBar,private membersWidget: MembersService, private router: Router,
     @Inject(MD_DIALOG_DATA) public data: any, public dialogRef: MdDialogRef<MemberInvitationComponent>) {
     this.newTodo = '';
     this.inviteMembers = [];
@@ -35,6 +42,15 @@ export class MemberInvitationComponent {
     });
   }
   ngOnInit() {
+     this.userservice.getUserDetail((userdetails) => {
+      this.uservalue = userdetails;
+      this.username = userdetails.username;
+      this.flag = 1;
+      console.log("INVITED BY NAME",this.username);
+    });
+    // this.profileService.getUserProfile(this.username).subscribe(res => {
+    //   this.profileArray = res;
+    // });
   }
 
   addTodo(event) {
@@ -66,14 +82,20 @@ export class MemberInvitationComponent {
       const email = memberVal[`email${i}`];
       const role = memberVal[`role${i}`];
       const temp = {
-        'username': email,
-        'role': role
+       
+        'role': role,
+         'email': email,
       }
       inviteArr.push(temp);
       i++;
     }
 
-    this.invite.inviteMember(inviteArr, this.domain).subscribe(res => {
+    const postInvite = {       
+        "invitee": inviteArr,
+        "invitedby": this.username
+     } 
+    console.log("post array sent",postInvite);
+    this.invite.inviteMember(postInvite, this.domain).subscribe(res => {
       this.dialogRef.close('close');
       this.snackBar.open('Invitaion Sent', 'X', {
         duration: 3000

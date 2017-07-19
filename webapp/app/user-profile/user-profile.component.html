@@ -60,12 +60,60 @@
 								<span fxLayout.md="row" fxLayoutAlign="end end" fxLayoutGap="10px" fxLayoutGap.md="0">
 									<a md-raised-button routerLink="/app/Home">Cancel</a>
 									<button fxLayout.md="column" fxFlex="10" md-raised-button type="submit"color="primary" [disabled]="!profileForm.valid" (click)="openDialog()">Submit</button>
-									</span>
+								</span>
+							</div>
+							<div fxLayout="column" fxLayoutGap="10px" fxLayoutAlign="start end" class="alignToolBtn">
+								<div>
+								<span class="label">Sign in with:</span>
+									<div id="customBtn" class="customGPlusSignIn">
+										<span class="googleicon"></span>
+										<span class="buttonText">Google</span>
+									</div>
+								</div>
+								<div>
+								<span class="label">Sign in with:</span>
+									<div id="customBtn" class="customGPlusSignIn">
+										<span class="discourseicon"></span>
+										<span class="buttonText">Discourse</span>
+									</div>
+								</div>
+								<div>
+								<span class="label">Sign in with:</span>
+									<div id="customBtn" class="customGPlusSignIn">
+										<span class="githubicon"></span>
+										<span class="buttonText">Github</span>
+									</div>
+								</div>
 							</div>
 						</form>
-					</div>
 				</div>
+				
 			</div>
+						
+		</div>
+		 <!-- <div fxLayout.xs="column"  fxLayoutGap="10px" class="fixEventButton">
+						 <div fxFlex="100%" fxLayoutAlign="center center" > 
+							<span class="label">Sign in with:</span>
+							<div id="customBtn" class="customGPlusSignIn">
+								<span class="googleicon"></span>
+								<span class="buttonText">Google</span>
+							</div> -->
+						<!-- </div> -->
+						<!-- <div class="fixEventButton"> -->
+							<!-- <span class="label">Sign in with:</span>
+							<div id="customBtn" class="customGPlusSignIn">
+								<span class="discourseicon"></span>
+								<span class="buttonText">Discourse</span>
+							</div> -->
+						<!-- </div> -->
+						<!-- <div class="fixEventButton"> -->
+							<!-- <span class="label">Sign in with:</span>
+							<div id="customBtn" class="customGPlusSignIn">
+								<span class="githubicon"></span>
+								<span class="buttonText">Github</span>
+							 </div> 
+						 </div>  -->
+					<!-- </div>  -->
 		</md-card>
 	</div>
 </div>

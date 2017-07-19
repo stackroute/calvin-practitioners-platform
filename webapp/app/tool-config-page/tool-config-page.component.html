@@ -1,31 +1,34 @@
 <md-card>
   <md-card-content>
-  <form #tool="ngForm" class="form" (ngSubmit)="onSubmit(values)">
-    <h3 fxLayoutAlign="start">Tool Info</h3>
-    <hr>
-    <div *ngFor="let val of allTool" fxLayout="row" >
-      <!--<label>{{val.toolid}}</label>-->
-      <div fxFlex="20%" fxLayoutAlign="">
-        <!--<img src="{{val.toolavatar}}">-->
-        <md-list>
-          <md-list-item>
-        <img  md-list-avatar src="{{val.toolavatar}}" class="img" style="height:100px;width:150px">
-          </md-list-item>
-        </md-list>
-       
+    <form #tool="ngForm" class="form" (ngSubmit)="onSubmit(values)">
+      <h3 fxLayoutAlign="start">Tool Info</h3>
+      <hr>
+      <div *ngFor="let val of allTool" fxLayout="row">
+        <!--<label>{{val.toolid}}</label>-->
+        <div fxFlex="20%" fxLayoutAlign="">
+          <!--<img src="{{val.toolavatar}}">-->
+          <md-list>
+            <md-list-item>
+              <img  src="{{val.toolavatar}}" style="height:150px;width:150px">
+            </md-list-item>
+          </md-list>
+
+        </div>
+        <div fxFlex="50%">
+          <md-card-title>
+            <h2 align="start">{{val.toolname}}</h2>
+          </md-card-title>
+          <md-card-subtitle align="start">{{val.toolid}}</md-card-subtitle>
+          <md-card-subtitle align="start">{{val.purpose}}</md-card-subtitle>
+          <md-card-subtitle align="start">{{val.tooldesc}}</md-card-subtitle>
+        </div>
       </div>
-      <div fxFlex="50%">
-         <md-card-title><h2>{{val.toolname}}</h2></md-card-title>
-        <md-card-subtitle>{{val.toolid}}</md-card-subtitle>
-        <md-card-subtitle>{{val.purpose}}</md-card-subtitle>
-        <md-card-subtitle>{{val.tooldesc}}</md-card-subtitle>
-      </div>
-    </div>
-    <hr>
-    <h3 fxLayoutAlign="start">Tool Action</h3>
-    <hr>
-    <div *ngFor="let val of toolActions" fxFlex="80%" fxLayout.md="column" fxLayout.xs="column" fxLayout.sm="column" fxLayoutGap="40px" fxLayoutAlign="center">
-      <!--<div fxLayout.xs="row">
+      <hr>
+      <h3 fxLayoutAlign="start">Tool Action</h3>
+      <hr>
+      <div *ngFor="let val of toolActions" fxFlex="80%" fxLayout.md="column" fxLayout.xs="column" fxLayout.sm="column" fxLayoutGap="40px"
+        fxLayoutAlign="center">
+        <!--<div fxLayout.xs="row">
           <md-input-container class="example-full-width">
             <input name="" mdInput placeholder="" disabled value={{val.toolid}}>
           </md-input-container>
@@ -45,44 +48,60 @@
             <input name="" mdInput placeholder="" disabled value={{val.description}}>
           </md-input-container>
         </div>
-      
-      <div fxFlex="10%">
-      <!--<label>{{val.toolid}}</label>-->
-      </div>
-      <div fxFlex="10%">
-      <!--<label>{{val.grantactions}}</label>-->
-      </div>
-      <!--<div fxFlex="25%">
-      <label>{{val.name}}</label>
-      </div>
-      <div fxFlex="25%">
-      <label>{{val.description}}</label>
-      </div>-->
 
-    
-    </div>
-    <hr>
-    <h3 fxLayoutAlign="start">subscribe to events</h3>
-    <hr>
-    <div fxFlex="100%" fxLayout="column" fxLayoutGap="" >
-      <div fxFlex="50%" fxLayoutAlign="start"  fxLayout="row" *ngFor="let event of toolEvents">
-      <md-checkbox  class="example-margin" [checked]="false">{{event.name}}
-      <p fxLayout="column">{{event.description}}</p></md-checkbox>
-        <div fxLayout="row" fxFlex="50%" fxLayoutAlign="center">
-    <md-select placeholder=""  name="food">
-    <md-option *ngFor="let food of foods" [value]="food.value">
-      {{food.viewValue}}
-    </md-option>
-  </md-select>
-    </div>
+        <div fxFlex="10%">
+
+        </div>
+        <div fxFlex="10%">
+
+        </div>
+
+
+
       </div>
-    </div>
-    <div fxFlex="80" fxLayoutAlign="end">
-  <button md-raised-button color="primary" class="bottom-button">submit</button>
-</div>
-  </form>
+      <hr>
+      <h3 fxLayoutAlign="start">Events Subscription</h3>
+      <hr>
+      <div fxFlex="100%" fxLayout="" fxLayoutAlign="start" fxLayoutGap="" *ngFor="let event of toolEvents">
+        <div fxFlex="25%" fxLayoutAlign="start" fxLayout="row">
+          <!--<div fxFlex="25%">-->
+          <md-checkbox class="example-margin" [checked]="value" (click)="toggle(event.name)"></md-checkbox>
+
+          <md-card-header>
+
+            <md-card-title align="start">{{event.name}}</md-card-title>
+            <md-card-title fxLayout="">{{event.description}}</md-card-title>
+          </md-card-header>
+        </div>
+
+        <div fxLayout="row" fxFlex="25%" fxLayoutAlign="center">
+
+          <md-select placeholder="Community Activity" name="food">
+            <md-option *ngFor="let food of foods" [value]="food.value" (click)="select(food.value)">
+              {{food.viewValue}}
+            </md-option>
+          </md-select>
+        </div>
+        <div fxLayout="row" fxFlex="25%" fxLayoutAlign="center">
+
+          <md-select placeholder="Community Activity" name="food">
+            <md-option *ngFor="let food of foods" [value]="food.value" (click)="select(food.value)">
+              {{food.viewValue}}
+            </md-option>
+          </md-select>
+        </div>
+        <div fxLayout="row" fxFlex="25%" fxLayoutAlign="center">
+
+          <md-select placeholder="Community Activity" name="food">
+            <md-option *ngFor="let food of foods" [value]="food.value" (click)="select(food.value)">
+              {{food.viewValue}}
+            </md-option>
+          </md-select>
+        </div>
+      </div>
+      <div fxFlex="100" fxLayoutAlign="end">
+        <button md-raised-button color="primary" class="bottom-button" >Submit</button>                     <!----[routerLink]="/app/communityDashBoard"routerLink="/app/communityDashBoard/:domain"-->
+      </div>
+    </form>
   </md-card-content>
 </md-card>
-  <!--</div>-->
-<!--</div>-->
-

@@ -5,7 +5,7 @@ const discourseController = require('./discourse.controller');
 describe('Added Discouse tool in the community', () => {
     // Test Cases for add New group in discourse tool
     it('New Group created in the community', (testDone) => {
-        let domainName = "wave06";
+        let domainName = "wave07";
         postDetails = {
             "name": domainName
         }
