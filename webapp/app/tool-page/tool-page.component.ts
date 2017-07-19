@@ -65,16 +65,15 @@ export class IntegrateTool implements OnInit {
 
       console.log('communities are', result);
       result.forEach((community) => {
-
+        console.log('get community avatar', community.avatar);
         if (community.role === 'admin' || community.role === 'owner') {
 
-          this.adminCommunities.push(community.domain);
+          this.adminCommunities.push({domain: community.domain, avatar: community.avatar});
         }
       });
-
     });
 
-    console.log(' the users are admin ', this.adminCommunities);
+    // console.log(' the users are admin ', this.adminCommunities);
   }
 
   // constructor(
