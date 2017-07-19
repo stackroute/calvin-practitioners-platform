@@ -85,18 +85,8 @@ export class UserProfileComponent implements OnInit {
     const x = imgsrc.substring(0, (imgsrc.length - 2)) + '300';
     return x;
   }
-<<<<<<< HEAD
 
-  integrateGooleTool(toolName){
-    alert(toolName);
-    this.toolInfoService.getTool(toolName).subscribe(
-    data => { this.toolInfoService.toolInfo = data;
-    }, error => //console.log(error),
-    () => console.log('finished')
-    );
-
-  }
-  integrateDiscourseTool(toolName){
+  integrateTool(toolName){
     alert(toolName);
     this.toolInfoService.getTool(toolName).subscribe(
     data => { this.toolInfoService.toolInfo = data;
@@ -104,20 +94,7 @@ export class UserProfileComponent implements OnInit {
     () => console.log('finished')
     );
   }
-  integrateGithubTool(toolName){
-    alert(toolName);
-    this.toolInfoService.getTool(toolName).subscribe(
-    data => { this.toolInfoService.toolInfo = data;
-    }, error => //console.log(error),
-    () => console.log('finished')
-    );
-
-=======
   
-  integrateWithTool(toolname){
-    
->>>>>>> 2d69028e24c51147d2740f9a12f2be3e5aa185ab
-  }
 }
 @Component({
   selector: 'user-profile-dialog',
