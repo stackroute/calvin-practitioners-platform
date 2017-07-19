@@ -1,4 +1,4 @@
-<calvin-community-profile [(profile)]="this.community" (onVoted)="onsubmit($event)" >
+<calvin-community-profile [profile]="this.community" (onVoted)="onsubmit($event)" >
   <button md-icon-button [mdMenuTriggerFor]="menu" class="setting">
     <md-icon >settings</md-icon>
   </button>
@@ -43,64 +43,55 @@
 
  </div>
 
-               <md-input-container fxLayoutAlign="start" fxLayout="column">
-                  <textarea input mdInput placeholder="avatar" rows="2" formControlName="avatar" ngModel={{community.avatar}}></textarea>
-                   <md-hint align="start" class="full-width">
-                      <div *ngIf="userForm.get('avatar').hasError('pattern') && userForm.get('avatar').touched" class="errorStyle">
-                            Invalid avatar path,must be url
-                     </div>
-                   </md-hint>
-               </md-input-container> 
+   <md-input-container fxLayoutAlign="start" fxLayout="column">
+      <textarea input mdInput placeholder="avatar" rows="2" formControlName="avatar" ngModel={{community.avatar}}></textarea>
+          <md-hint align="start" class="full-width">
+              <div *ngIf="userForm.get('avatar').hasError('pattern') && userForm.get('avatar').touched" class="errorStyle">
+                      Invalid avatar path,must be url
+                  </div>
+              </md-hint>
+          </md-input-container> 
 
-
-               
  <div class="inputFields" fxLayout.md="row">
-       <div fxLayout.md="column">
-             <md-input-container fxLayoutAlign="start">
-                 
- <input mdInput  placeholder="Tag" formControlName="tagCtrl" #resetText    [(ngModel)]="tagname" style="text-transform: capitalize">
-                     <md-hint align="start" class="full-width">
-                     <div *ngIf="userForm.get('tagCtrl').hasError('pattern') && userForm.get('tagCtrl')" class="errorStyle">
+    <div fxLayout.md="row">
+        <md-input-container fxLayoutAlign="start">
+         <input mdInput  placeholder="Tag" formControlName="tagCtrl" #resetText    [(ngModel)]="tagname" style="text-transform: capitalize">
+             <md-hint align="start" class="full-width">
+                <div *ngIf="userForm.get('tagCtrl').hasError('pattern') && userForm.get('tagCtrl')" class="errorStyle">
                                Invalid tag length,must contain 3 to 20 char with one special character(.)
-                      </div>
-                      </md-hint>
-               </md-input-container>
+                  </div>
+                </md-hint>
+            </md-input-container>
 
-
-               <md-chip-list>
-                 <div fxLayout.md="column" ng-disabled="!tag.value" *ngFor="let tag of tagarray">
-                   <md-chip >{{tag}}<i class="material-icons"(click)="clearTag(tag)">clear</i></md-chip>
-                 </div>
-               </md-chip-list>
-
-                <div fxLayout.md="column" fxLayoutAlign="center center">
-                        <a md-button (click)="chipValue(tagname,resetText)">Add</a> 
-               </div>
-             </div> 
-         </div>
-              
+       <md-chip-list>
+          <div ng-disabled="!tag.value" *ngFor="let tag of tagarray">
+              <md-chip >{{tag}}<i class="material-icons"(click)="clearTag(tag)">clear</i>
+              </md-chip>
+           </div>
+          <a md-button (click)="chipValue(tagname,resetText)">Add</a> 
+      </md-chip-list>
                
-            
-  
-
-          <div fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="5px">
+    </div> 
+ </div>
+              
+ <div fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="5px">
     <a md-button (click)="routeToHome()">Cancel</a>
     <button md-raised-button type="submit" color="primary" [disabled]="!userForm.valid">Submit</button>
   </div>
   </form>  
-      </md-tab>
+</md-tab>
       <!--Closing community info tab-->
-      <md-tab label="Members">
-            <calvin-community-member-management [community]="this.domain"></calvin-community-member-management>
-      </md-tab>
+  <md-tab label="Members">
+       <calvin-community-member-management [community]="this.domain"></calvin-community-member-management>
+   </md-tab>
                   <!--tab for manage member component-->
-     <md-tab label="Roles">
+  <md-tab label="Roles">
             <calvin-community-role-managements [community]="this.domain"></calvin-community-role-managements>
-     </md-tab>
+  </md-tab>
                   <!--tab for manage role component-->
-                  <md-tab label="Tools">
-                        <calvin-community-tool-management [community]="this.domain"></calvin-community-tool-management>
-                  </md-tab>
+    <md-tab label="Tools">
+          <calvin-community-tool-management [community]="this.domain"></calvin-community-tool-management>
+  </md-tab>
 
 </md-tab-group>
  </div>

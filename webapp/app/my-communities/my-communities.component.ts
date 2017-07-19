@@ -22,30 +22,23 @@ export class UserWidgetsComponent implements OnInit {
   user;
   CommunitiesInfo = [];
   flag = 0;
- 
+  scrollDistance = 2
   constructor(private userCommunities: UserCommunities, private userInfo: UserInfoService, private router: Router) { }
 
   ngOnInit() {
 
-    // this.userInfo.getUserDetail(this.user). subscribe (res => {this.member = res;});
 
     this.userInfo.getUserDetail((userdetails) => {
 
       this.member = userdetails.username;
-      console.log(userdetails);
-      console.log(typeof userdetails);
-      console.log('user is : ' + this.member);
+     
     });
 
      this.userInfo.getUserCommunity((userCommunity) => {
        this.CommunitiesInfo = userCommunity;
-       console.log("getting user communitiesss,,",this.CommunitiesInfo);
+       
       
-      //  if(this.CommunitiesInfo.length === 0) {
-      //     return this.flag;
-      //  } else {
-      //     return this.flag = 1;
-      //  }
+   
      });
     
 
@@ -60,8 +53,7 @@ export class UserWidgetsComponent implements OnInit {
 
   }
 
-  // onScroll() {
-  // }
+ 
 
   routeToCommunity(domain) {
      this.router.navigate([`/app/communityDashBoard/${domain}`]);
