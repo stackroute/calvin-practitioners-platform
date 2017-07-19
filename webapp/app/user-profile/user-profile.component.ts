@@ -85,6 +85,7 @@ export class UserProfileComponent implements OnInit {
     const x = imgsrc.substring(0, (imgsrc.length - 2)) + '300';
     return x;
   }
+<<<<<<< HEAD
 
   integrateGooleTool(toolName){
     alert(toolName);
@@ -111,6 +112,11 @@ export class UserProfileComponent implements OnInit {
     () => console.log('finished')
     );
 
+=======
+  
+  integrateWithTool(toolname){
+    
+>>>>>>> 2d69028e24c51147d2740f9a12f2be3e5aa185ab
   }
 }
 @Component({
