@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const auth = require('../authentication');
 const communityMember = require('./../communitymember/community-member.controller');
+const config = require('../common/config');
 
 
 router.get('/recipient/:token', (req, res, next) => {
@@ -9,6 +10,7 @@ router.get('/recipient/:token', (req, res, next) => {
 
     //Is the user logged in or not 
     if (userToken) {
+        console.log('already login')
         //If logged in user, user is already a member of calvin
         //Check if the logged in user and the invitee are one and the same, if not same reject the request with a error
         authCtrl.verifyToken(userToken, (err, decoded) => {
@@ -45,6 +47,7 @@ router.get('/recipient/:token', (req, res, next) => {
             }
         });
     } else {
+        console.log('inside new user')
         //invitee is not a logged in user, redirect for login
         //Also pass the details of invitation
         res.clearCookie(config.cookie.user);

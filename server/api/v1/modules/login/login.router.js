@@ -5,6 +5,10 @@ const config = require('../common/config');
 
 const router = express.Router();
 
+router.get('/',(req, res) => {
+
+});
+
 router.get('/auth/logout', (req, res) => {
   res.clearCookie(config.cookie.name);
   res.redirect('/');

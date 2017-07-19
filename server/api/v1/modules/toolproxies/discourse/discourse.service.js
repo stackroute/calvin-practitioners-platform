@@ -10,20 +10,29 @@ function generateGroup ({token, domainName, toolId, username}, done){
         if (err) {
             return done(err);
         }
-        console.log("Group is created with - ",domainName ," and res",res.body)
-        done(null, res.body);
+        console.log("Group is created with - ",domainName ," and res",res)
+        done(null, res);
     }); 
 }
 
 function generateWebhook ({token, domainName, toolId, username}, res,  done){
-    console.log("token :- ",`http://localhost:3000/api/v1/webhook/${token}`);
+    // console.log("token :- ",`http://localhost:3000/api/v1/webhook/${token}`);
     // register webhook for the community
+    console.log('res.id', res.basic_group.id)
+    let arr = [];
+    arr.push(res.basic_group.id);
+
      postDetails =  {
-            "payload_url": `http://localhost:3000/api/v1/webhook/${token}`,
-            "secret": "secure_taken_id",
+            // "payload_url": `${config.CALVIN_APP_BASE_URL}/api/v1/webhook/${token}`,
+            "payload_url": `http://calvin-pages.stackroute.in/api/v1/webhook/${token}`,
+            "secret": token,
             "wildcard_web_hook": true,
-            "web_hook_event_type_ids": [ ],
-            "group_ids": 43
+            "active": true,
+            "web_hook_event_type_ids": [{"id": 1, "name": "topic"},{"id": 2,"name": "post"},{"id": 3,"name": "user"}],
+            "category_ids": [],
+            "group_ids": arr,
+            "content_type": 1,
+            "verify_certificate": false
         }
 
 	registerWebhook.generateWebhook(postDetails, (err, result)=>{
