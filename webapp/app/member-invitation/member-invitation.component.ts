@@ -109,3 +109,25 @@ export class MemberInvitationComponent {
 
 
 }
+
+// Invalid user Invitation component
+@Component({
+  selector: 'invalid-user',
+  templateUrl: 'invalid-user.html',
+})
+
+export class InvalidLoginComponent {
+  constructor() { }
+}
+
+//Accept and Reject Invitation component
+
+@Component({
+  selector: 'accept-page',
+  templateUrl: 'accept-page.html',
+})
+
+export class AcceptPageComponent {
+  memberArray=[];
+  constructor(private invite: InvitationServices){ }
+}

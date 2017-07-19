@@ -18,13 +18,13 @@ services:
       -  /temp/scripts/wait-for-service.sh
       - '0.0.0.0'
       - '9042'
-      - 'npm start'
+      - 'npm run serve'
 
   calvin-cassandra:
     image: cassandra:latest
     network_mode: host
     restart: on-failure
     volumes:
-      - ./data:/var/lib/cassandra
+      - /data:/var/lib/cassandra
     expose:
       - 9042   

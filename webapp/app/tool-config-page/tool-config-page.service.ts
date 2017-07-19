@@ -10,27 +10,27 @@ export class ToolConfigService {
   domainName;
   data;
     constructor(private http: Http, public snackBar: MdSnackBar) { }
-     saveDomain(name){
-
+    saveDomain(name){
       this.domainName=name;
       console.log('saved domai is',this.domainName)
     }
 
     getDomain(){
-
       return this.domainName;
     }
+
     getTools(toolid) {
         return this.http
             .get(`api/v1/toolmarketplace/tool/${toolid}`)
             .map((response: Response) => response.json());
     }
-    getToolActions(toolid){
-        
+
+    getToolActions(toolid){        
         return this.http
              .get(`api/v1/toolmarketplace/actions/${toolid}`)
              .map((response: Response) => response.json());
     }
+    
     getToolEvents(toolid){
         return this.http
                .get(`api/v1/toolmarketplace/events/${toolid}`)
