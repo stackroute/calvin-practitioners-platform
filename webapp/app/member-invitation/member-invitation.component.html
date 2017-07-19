@@ -1,6 +1,6 @@
 <div class="inviteMembers">
   <h3 algin="center">Invite Members to Community</h3>
- <p> {{this.username}}</p>
+ <!--<p> {{this.username}}</p>-->
   <form #memberinvite="ngForm" (ngSubmit)="onSendingInvitation(memberinvite)">
     <input type="hidden"  name="index" ngModel="0" >
     <md-input-container fxFlex="45%"  (keyup.enter)="newTodo=''" class="textfield" name="newTodo">

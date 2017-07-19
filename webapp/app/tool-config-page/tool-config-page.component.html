@@ -73,32 +73,55 @@
             <md-card-title fxLayout="">{{event.description}}</md-card-title>
           </md-card-header>
         </div>
-
+<!--dropdown-->
         <div fxLayout="row" fxFlex="25%" fxLayoutAlign="center">
+ 
+          <md-input-container>
+  <input mdInput placeholder="ActorType" [mdAutocomplete]="autostates" [formControl]="stateCtrl">
+</md-input-container>
 
-          <md-select placeholder="Community Activity" name="food">
-            <md-option *ngFor="let food of foods" [value]="food.value" (click)="select(food.value)">
-              {{food.viewValue}}
-            </md-option>
-          </md-select>
+<md-autocomplete #autostates="mdAutocomplete">
+  <md-option *ngFor="let state of filteredStates | async" [value]="state">
+    {{ state }}
+  </md-option>
+</md-autocomplete>
+
+
         </div>
         <div fxLayout="row" fxFlex="25%" fxLayoutAlign="center">
 
-          <md-select placeholder="Community Activity" name="food">
-            <md-option *ngFor="let food of foods" [value]="food.value" (click)="select(food.value)">
+  <md-input-container>
+  <input mdInput placeholder="ActivityType" [mdAutocomplete]="autoactivity" [formControl]="stateActive">
+</md-input-container>
+
+<md-autocomplete #autoactivity="mdAutocomplete">
+  <md-option *ngFor="let activity of filteredActivity | async" [value]="activity">
+    {{ activity }}
+  </md-option>
+</md-autocomplete>
+          <!--<md-select placeholder="Community Activity" name="events">
+             <md-option *ngFor="let food of foods" [value]="food.value" (click)="select(food.value)">
               {{food.viewValue}}
             </md-option>
-          </md-select>
+          </md-select>-->
         </div>
         <div fxLayout="row" fxFlex="25%" fxLayoutAlign="center">
 
-          <md-select placeholder="Community Activity" name="food">
-            <md-option *ngFor="let food of foods" [value]="food.value" (click)="select(food.value)">
-              {{food.viewValue}}
-            </md-option>
-          </md-select>
+          <md-input-container>
+  <input mdInput placeholder="ObjectType" [mdAutocomplete]="autoobject" [formControl]="stateObject">
+</md-input-container>
+
+<md-autocomplete #autoobject="mdAutocomplete">
+  <md-option *ngFor="let object of filteredObject | async" [value]="object">
+    {{ object }}
+  </md-option>
+</md-autocomplete>
         </div>
       </div>
+
+<!--dropdownnnn-->
+
+
       <div fxFlex="100" fxLayoutAlign="end">
         <button md-raised-button color="primary" class="bottom-button" >Submit</button>                     <!----[routerLink]="/app/communityDashBoard"routerLink="/app/communityDashBoard/:domain"-->
       </div>

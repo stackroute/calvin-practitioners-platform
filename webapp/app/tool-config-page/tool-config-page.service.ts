@@ -36,7 +36,11 @@ export class ToolConfigService {
                .get(`api/v1/toolmarketplace/events/${toolid}`)
                .map((response: Response) => response.json())
     }
-
+   getEvents(){
+     return this.http
+     .get(`api/v1/activityevents/`)
+     .map((response:Response) => response.json())
+   }
 
    postTools(domain,data) {
    console.log('inside post tool');
