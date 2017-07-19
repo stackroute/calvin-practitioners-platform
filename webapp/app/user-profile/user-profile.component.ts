@@ -94,7 +94,15 @@ export class UserProfileComponent implements OnInit {
     () => console.log('finished')
     );
   }
-  
+
+  integrateGithubTool(toolName){
+    alert(toolName);
+    this.toolInfoService.getTool(toolName).subscribe(
+    data => { this.toolInfoService.toolInfo = data;
+    }, error => //console.log(error),
+    () => console.log('finished')
+    );
+}
 }
 @Component({
   selector: 'user-profile-dialog',
