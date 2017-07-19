@@ -6,7 +6,8 @@ const BASE_COMMUNITY_SERVICE_URL = 'http://calvin-communities.blr.stackroute.in/
 
 //const BASE_COMMUNITY_SERVICE_URL='http://172.23.238.141:3000/api/v1/';
 
-const cookies = []; // stores Cookies User and Community info tokens
+let cookies = []; // stores Cookies User and Community info tokens
+
 const USERS_TABLE = 'users';
 const client = new cassandra.Client({
   contactPoints: [config.dbconfig.dburl],
@@ -83,6 +84,7 @@ function updateUser(profile, done) {
 }
 // this function is to get List of Comminities of a User
 function getUserCommunities(username, done) {
+  let tempCookie=[];
   const url = `${BASE_COMMUNITY_SERVICE_URL}/membership/${username}`;
   request
  .get(url)
@@ -96,7 +98,9 @@ function getUserCommunities(username, done) {
    const userCommunityToken = jwt.sign(res.body, config.appConstants.secret,
     { expiresIn: config.appConstants.expiryTime });
    cookies.push(userCommunityToken);
-   return done(null, cookies);
+   tempCookie=cookies;
+   cookies=[];
+   return done(null, tempCookie);
  });
 }
 //update user details in userprofile component

@@ -43,10 +43,7 @@ function getTool(domain, done) {
  // Call community tools service to post tools
 function postTool(domain, data, done) {
   
-  const username=data[0];
-  const toolId=data[1];
-  const domainName=domain;
-  console.log('data is '+username+toolId+domainName);
+ 
 
 
    communityToolService.integrateNewTool({domainName, toolId, username},done);
@@ -68,7 +65,10 @@ function postTool(domain, data, done) {
   
 
 }
+function postToolInfo(domain,data,done){
 
+          communityToolService.addToolinCommunity(domain,data,done); 
+}
 
 module.exports = {
   retrieveAllTools,
