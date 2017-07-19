@@ -44,6 +44,8 @@ export class ToolConfigService {
 
    postTools(domain,data) {
    console.log('inside post tool');
+   console.log("domainname",domain);
+   console.log("data",data);
 const headers = new Headers({
   'Content-Type': 'application/json;charset=utf-8'
  });
@@ -52,10 +54,11 @@ const headers = new Headers({
  });
  const body = JSON.stringify(data);
     const url = `/api/v1/communitytools/${domain}`;
-
+ console.log("i am inside seivce angular",domain);
     return this.http
       .post(url,body,options)
       .catch(err => {
+        console.log("errrorrr",err)
                 this.snackBar.open('Please try again later..!!!', 'try again!', {
                     duration: 3000
                 });

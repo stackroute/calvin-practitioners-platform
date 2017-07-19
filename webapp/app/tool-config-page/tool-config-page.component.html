@@ -60,12 +60,13 @@
 
       </div>
       <hr>
+
       <h3 fxLayoutAlign="start">Events Subscription</h3>
       <hr>
-      <div fxFlex="100%" fxLayout="" fxLayoutAlign="start" fxLayoutGap="" *ngFor="let event of toolEvents">
-        <div fxFlex="25%" fxLayoutAlign="start" fxLayout="row">
+      <div fxFlex="100%" fxLayout="" fxLayoutAlign="start" fxLayoutGap="" *ngFor="let event of toolEvents" >
+        <div fxFlex="25%" fxLayoutAlign="start" fxLayout="row" >
           <!--<div fxFlex="25%">-->
-          <md-checkbox class="example-margin" [checked]="value" (click)="toggle(event.name)"></md-checkbox>
+          <md-checkbox class="example-margin" (click)="toggle(event.eventid, event.name, event.description, $event)"></md-checkbox>
 
           <md-card-header>
 
@@ -76,46 +77,66 @@
 <!--dropdown-->
         <div fxLayout="row" fxFlex="25%" fxLayoutAlign="center">
  
-          <md-input-container>
-  <input mdInput placeholder="ActorType" [mdAutocomplete]="autostates" [formControl]="stateCtrl">
+          <md-select placeholder="Community Activity" name="event1" [ngModel]="cactType" (ngModelChange)="onSelectMapType(event.eventid, 'activity', $event)">     <!--(ngModelChange)="function()"-->
+            <div *ngFor="let activity of events.activitytype">
+             <md-option [value]="activity" (click)="select(activity)">
+              {{activity}}
+            </md-option>
+            </div>
+          </md-select>
+
+
+
+
+          <!--<md-input-container>
+  <input mdInput placeholder="ActorType" [mdAutocomplete]="autostates" [formControl]="stateCtrl" >
 </md-input-container>
 
-<md-autocomplete #autostates="mdAutocomplete">
+<md-autocomplete #autostates="mdAutocomplete"[displayWith]="displayFunc">
   <md-option *ngFor="let state of filteredStates | async" [value]="state">
     {{ state }}
   </md-option>
-</md-autocomplete>
+</md-autocomplete>-->
 
 
         </div>
         <div fxLayout="row" fxFlex="25%" fxLayoutAlign="center">
 
-  <md-input-container>
-  <input mdInput placeholder="ActivityType" [mdAutocomplete]="autoactivity" [formControl]="stateActive">
-</md-input-container>
+  <!--<md-input-container>
+    <input mdInput placeholder="ActivityType" [mdAutocomplete]="autSelectActivty" [formControl]="stateActive">
+  </md-input-container>
 
-<md-autocomplete #autoactivity="mdAutocomplete">
-  <md-option *ngFor="let activity of filteredActivity | async" [value]="activity">
+<md-autocomplete #autSelectActivty="mdAutocomplete" >
+  <md-option *ngFor="let activity of events.actortype | async" [value]="activity">
     {{ activity }}
   </md-option>
-</md-autocomplete>
-          <!--<md-select placeholder="Community Activity" name="events">
-             <md-option *ngFor="let food of foods" [value]="food.value" (click)="select(food.value)">
-              {{food.viewValue}}
+</md-autocomplete>-->
+
+
+
+          <md-select placeholder="Community Actortyper" name="events2" [ngModel]="actorType" (ngModelChange)="onSelectMapType(event.eventid, 'actor', $event)">
+             <md-option *ngFor="let actortype of events.actortype" [value]="actortype" (click)="select(actortype)">
+              {{actortype}}
             </md-option>
-          </md-select>-->
+          </md-select>
         </div>
         <div fxLayout="row" fxFlex="25%" fxLayoutAlign="center">
 
-          <md-input-container>
+          <md-select placeholder="Community Object" name="events3" [ngModel]="objType" (ngModelChange)="onSelectMapType(event.eventid, 'object', $event)">
+             <md-option *ngFor="let objecttype of this.events.objecttype" [value]="objecttype" (click)="select(objecttype)">
+              {{objecttype}}
+            </md-option>
+          </md-select>
+
+          <!--<md-input-container>
   <input mdInput placeholder="ObjectType" [mdAutocomplete]="autoobject" [formControl]="stateObject">
 </md-input-container>
 
-<md-autocomplete #autoobject="mdAutocomplete">
+<md-autocomplete #autoobject="mdAutocomplete" [displayWith]="displayFunc2">
   <md-option *ngFor="let object of filteredObject | async" [value]="object">
     {{ object }}
   </md-option>
-</md-autocomplete>
+</md-autocomplete>-->
         </div>
       </div>
 

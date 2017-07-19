@@ -26,9 +26,9 @@ function integrateNewTool({domainName, toolId, username}, done) {
 }
 
 
-function integrateToolinCommunity(toolid,domain,done){
-	console.log("tooldata inside service",toolid);
-     const url=`${BASE_COMMUNITY_SERVICE_URL}/api/v1/events/${toolid}/${domain}`;
+function integrateToolinCommunity(domain,toolid,done){
+	console.log("tooldata inside service",domain);
+     const url=`${BASE_COMMUNITY_SERVICE_URL}/api/v1/communitytools/${domain}/tools/${toolid}`;
 	 request
  .post(url)
  .send(data) // query string
