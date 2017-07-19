@@ -9,7 +9,7 @@
           <!-- Cancel Button-->
           <button md-raised-button [md-dialog-close]="true">Cancel</button>
           <!-- Submit button to Add the tool-->
-          <button md-raised-button color="primary" (click)="integrateToolToCmmunity(domain)"  >Submit</button>
+          <button md-raised-button color="primary" (click)="integrateToolToCmmunity(domain)" [md-dialog-close]="true"  >Submit</button>
         </div>
 </div>     
 <div *ngIf="integrationFlag===1 ">

@@ -43,6 +43,8 @@ function getTool(domain, done) {
 // Call community tools service to post tools
 function postTool(domain, data, done) {
 
+
+
   console.log('inside posting toollllllll', data);
   const username = data.username;
   const toolId = data.toolid;
@@ -78,6 +80,23 @@ function postTool(domain, data, done) {
   //     return done(err, 'Internal server error');
   //   }
 
+  // communityToolService.integrateNewTool({domainName, toolId, username},done);
+
+ // return communityToolService.integrateNewTool.bind(null, {domainName, toolId, username}, done);
+      
+//   console.log('data is ',data);
+//   const url = `${BASE_COMMUNITY_SERVICE_URL}/communitytools/${domain}/tools`;
+//   request
+//  .post(url)
+//  .send(data) // query string
+//  .end((err, res) => {
+//    if (err) {
+//      console.log('error is ',err);
+//      return done(err);
+//    }
+//    return done(null, res.body);
+//  });
+  
   //   done(null, 'sucess');
   // });
 
@@ -101,7 +120,10 @@ function postTool(domain, data, done) {
 
 
 }
-
+function postToolInfo(domain,data,done){
+           console.log('inside post toolinfo');
+          communityToolService.addToolinCommunity(domain,data,done); 
+}
 
 module.exports = {
   retrieveAllTools,

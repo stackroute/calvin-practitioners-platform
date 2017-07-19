@@ -105,5 +105,8 @@ export class IntegrateTool implements OnInit {
   navigateToCC(){
        this.router.navigate([`/app/createCommunity`]);
   }
+  // navigateToCC() {
+  //   this.router.navigate([`/app/createCommunity`])
+  // }
 
 }

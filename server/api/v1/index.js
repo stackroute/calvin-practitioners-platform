@@ -4,16 +4,18 @@ const config = require('./modules/common/config');
 router.use('/activityevents', require('./modules/communityactivityevents'));
 
 router.use('/login', require('./modules/login'));
+
 router.use('/logout', (req, res) => {
   res.clearCookie(config.cookie.user);
   res.clearCookie(config.cookie.userCommunity);
   res.redirect('/');
 });
 
+
+// router.use('/toolauth', require('./modules/toolauth'));
 router.use('/invite', require('./modules/communityinvitation'))
 
 router.use(require('./modules/authentication'));
-
 // Each Module to be placed after this
 
 router.use('/communities', require('./modules/communities'));
@@ -30,8 +32,6 @@ router.use('/memberactivitypage', require('./modules/communityactivities'));
 // router.use('/community', require('./modules/community'));
 
 router.use('/communityroleactions', require('./modules/communityroleactions'));
-
-
 
 
 
