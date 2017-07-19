@@ -1,4 +1,3 @@
-
 const jwt = require('jsonwebtoken-refresh');
 const config = require('../common/config');
 

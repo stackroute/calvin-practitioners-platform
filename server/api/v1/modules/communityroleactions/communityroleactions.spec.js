@@ -1,7 +1,7 @@
 const app=require('../../../../app.js');
 const supertest=require('supertest');
 const request=supertest(app);
-
+const BASE_COMMUNITY_SERVICE_URL = 'http://calvin-communities.blr.stackroute.in/api/v1';
 require('chai').should();
 
 const data=[ { "toolId": "www.creativebloq.com", "actions": { "share": "true" } },
@@ -10,7 +10,7 @@ const data=[ { "toolId": "www.creativebloq.com", "actions": { "share": "true" } 
 describe('patch tool actions to a role ',function(){
        it('should return updated actions',function(done){
               request
-              .patch(`http://calvin-communities.blr.stackroute.in/api/v1/communityrole/hello.there123/roles/admin`)
+              .patch('http://calvin-communities.blr.stackroute.in/api/v1/communityrole/asdbfe/roles/admin')
               .send(data)
               .end(function(err,result){
                    if(err) {
@@ -20,4 +20,6 @@ describe('patch tool actions to a role ',function(){
                 done();  
               });
        });
+       it('should create new role ')
+       
 });

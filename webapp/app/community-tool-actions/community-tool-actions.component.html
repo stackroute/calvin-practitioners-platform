@@ -3,7 +3,7 @@
         <md-input-container fxLayoutAlign="start stretch">
             <input mdInput placeholder="Role Name:" value={{roleName}} disabled/>
         </md-input-container>
-        <div>These are the actions already assigned</div>
+        <!--<div>These are the actions already assigned</div>
         <div *ngFor="let key of (toolActions | keys)">
             <md-input-container fxLayoutAlign="start stretch">
                 <input mdInput placeholder="" value=ToolName-{{key.key}} disabled/>
@@ -14,7 +14,7 @@
         </div>
       </md-chip-list>
             
-        </div>
+        </div>--> 
         <div *ngFor="let value of core.tools">
             <md-input-container fxLayoutAlign="start stretch">
                 <input mdInput placeholder="" value={{value.toolid}} disabled/>

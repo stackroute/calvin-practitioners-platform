@@ -20,7 +20,7 @@ export class AddToolService {
         //     return this.http.post('http://localhost:3000/api/v1/toolmarketplace/tool', toolobj).map(() => console.log('New community details posted', toolobj));  
 
         const headers = new Headers();
-        const url = 'http://localhost:3000/api/v1/toolmarketplace/tool';
+        const url = '/api/v1/toolmarketplace/tool';
         headers.append('Content-Type', 'application/json');
 
 
