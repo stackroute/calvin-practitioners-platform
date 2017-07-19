@@ -1,9 +1,8 @@
-const async = require('async');
 const calendarService = require('./calendar.service');
 
 function initializeOnIntegration({token, domainName, toolId, username}, done) {
-    
-calendarService.registerForPushNotification.bind(null, {token, domainName, toolId, username}),
+      console.log('inside calander file');
+calendarService.registerForPushNotification({token,username},
     (err, results) => {
 		if(err) {
 			console.log("Error  in Registring Calendar of  the community", err);

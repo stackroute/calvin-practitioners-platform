@@ -121,7 +121,7 @@ function postTool(domain, data, done) {
 
 }
 function postToolInfo(domain,data,done){
-
+           console.log('inside post toolinfo');
           communityToolService.addToolinCommunity(domain,data,done); 
 }
 
