@@ -18,7 +18,7 @@ export class NewRoleService {
   }).map(res => res.json());
  }
 
- updateTools(domainName, data) {
+ createRoles(domainName, data) {
   const headers = new Headers({
    'Content-Type': 'application/json;charset=utf-8'
   });
@@ -35,6 +35,7 @@ export class NewRoleService {
    return Observable.throw(err); // observable needs to be returned or exception raised
   }).map(res => res.json());
  }
+
  listUniqueRoles(domainname) {
   const url = '/api/v1/communityroleactions/' + domainname + '?onlyroles=true';
   return this.http.get(url).catch(err => {
