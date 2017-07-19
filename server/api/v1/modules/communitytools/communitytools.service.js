@@ -1,12 +1,14 @@
 const async = require('async');
 const generatetooltoken = require('./generatetooltoken.service');
 const initializeTool = require('./initializeTool.service');
-const request = require('superagent');
+const request= require('superagent');
 const BASE_COMMUNITY_SERVICE_URL = 'http://calvin-communities.blr.stackroute.in/api/v1';
 const jwt = require('jsonwebtoken');
 
-function integrateNewTool({ domainName, toolId, username }, done) {
+
+function integrateNewTool({domainName, toolId, username}, done) {
 	//Generate a new token for the community, tool
+
 	//call tool's specific initializations service for the tool integration
 	console.log('inside integrate tool');
 	async.waterfall([

@@ -2,6 +2,7 @@ const loginCtrl = require('./login.controller');
 const express = require('express');
 const passport = require('passport');
 const config = require('../common/config');
+require('./strategy/google/passport.js')(passport);
 
 const router = express.Router();
 //follow=/invite/recipient/
@@ -9,6 +10,9 @@ router.get('/follow',(req, res) => {
   console.log('req', req);
   res.send(200).status('done');
 });
+
+router.use(passport.initialize());
+router.use(passport.session()); // persistent login sessions
 
 router.get('/auth/logout', (req, res) => {
   res.clearCookie(config.cookie.name);
