@@ -4,10 +4,11 @@ const bodyParser = require('body-parser');
 router.use(bodyParser.urlencoded({ extended: true }));
 router.use(bodyParser.json());
 
-// add members to community after invite
-router.post('/communitymembership/:domain/members', (req, res) => {
- try {
-    memberCtrl.postMemberInvite(req.params.domain, req.body, (err, result) => {
+//  Send invitation to member
+router.post('/memberrequests/:domain/type/:type', (req, res) => {
+  try {
+    memberCtrl.postMemberInvite(req, req.params.domain, req.params.type, req.body, (err, result) => {
+      // console.log("url is:",req);
       if (err) {
         return res.status(500).send({ error: 'Error in getting values, please try later..!' });
       }
@@ -62,12 +63,12 @@ router.get('/memberrequests/:domain', (req, res) => {
   }
 });
 
- 
+
 router.delete('/communitymembership/:domain/members', (req, res) => {
   try {
     memberCtrl.deleteMember(req.params.domain, req.body, (err, result) => {
       if (err) {
-       return res.status(500).send({ error: 'Error in getting value' });
+        return res.status(500).send({ error: 'Error in getting value' });
       }
       return res.status(200).send(result);
     });
