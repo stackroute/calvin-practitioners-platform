@@ -3,6 +3,7 @@ import { ToolPageService } from './tool-page.service';
 import { Params, RouterModule, Routes, Router, ActivatedRoute } from '@angular/router';
 import { MD_DIALOG_DATA, MdDialog, MdDialogRef } from '@angular/material';
 import { UserInfoService } from '../core/user-info.service';
+import { ToolConfigService } from '../tool-config-page/tool-config-page.service';
 @Component({
   selector: 'calvin-tool-page',
   templateUrl: './tool-page.component.html',
@@ -51,7 +52,7 @@ export class ToolPageComponent implements OnInit {
   selector: 'IntegrateTool-dialog',
   templateUrl: 'IntegrateTool-dialog.html',
   styleUrls: ['tool-page.component.css'],
-  providers: [UserInfoService]
+  providers: [UserInfoService,ToolConfigService]
 })
 export class IntegrateTool implements OnInit {
   toolid:any;
@@ -85,20 +86,24 @@ export class IntegrateTool implements OnInit {
   // ) { }
  constructor( 
   private userservice: UserInfoService,
+  private toolservice: ToolConfigService,
   private router: Router, 
   @Inject(MD_DIALOG_DATA) public data: any, 
   public dialogRef: MdDialogRef<ToolPageComponent>) {
   this.toolid=data;
   }
-
+  
   integrateToolToCmmunity(domainname) {
-
     console.log('domain name is ',domainname);
-
     this.domain=domainname;
+
     console.log('inside',this.domain);
+    this.toolservice.saveDomain(this.domain);
     // this.router.navigate[(`/app/toolconfig/${this.toolid}`)];
-     this.router.navigate([`/app/toolconfig/${this.toolid}`]);
+     this.router.navigate([`/app/toolconfig/${this.domain}/${this.toolid}`]);
+  }
+  navigateToCC(){
+       this.router.navigate([`/app/createCommunity`]);
   }
 
 }
