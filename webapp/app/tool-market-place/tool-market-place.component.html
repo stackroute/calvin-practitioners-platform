@@ -2,7 +2,7 @@
     <div fxFlex="" fxLayoutAlign="end">
         <i class="material-icons">search</i>
         <md-input-container fxFlex="">
-            <input mdInput type="search" placeholder="search" [(ngModel)]="value" (keyup.enter)=selectedValue(value)>
+            <input mdInput #Inputval type="search" placeholder="search" [(ngModel)]="value" (keyup.enter)="selectedValue(value)">
             <!--<md-icon class="material-icons">search</md-icon>-->
         </md-input-container>
     </div>

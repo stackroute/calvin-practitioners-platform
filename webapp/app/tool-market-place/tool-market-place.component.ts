@@ -28,17 +28,17 @@ export class ToolMarketPlaceComponent implements OnInit {
 
   //searchValue;
   selectedValue(value1) {
-    
+    console.log(value1.toUpperCase(),"Entered value");
     this.newTool=[];
     this.tools.forEach((data) => {
-       console.log('this toolname',data.toolname);
-        console.log('this toolname type',typeof data.toolname);
+      //  console.log('this toolname',data.toolname);
+      //   console.log('this toolname type',typeof data.toolname);
       if (data.toolname.includes(value1.toUpperCase())){
        
-       console.log("true", data);
+       console.log("true", data.toolname);
       // console.log("toolname",data.toolname.toUpperCase())
        this.newTool.push(data);
-       
+       console.log(this.newTool,"neewwwwww")
       }
     });
   }

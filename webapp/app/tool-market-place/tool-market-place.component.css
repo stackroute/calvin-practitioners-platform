@@ -7,15 +7,15 @@
     
 }
 
-/*.img{
-  height:200px;
+.img{
+  height:150px;
   width:150px;
-}*/
-
-
-.upper{
-    text-transform: uppercase;
 }
+
+
+/*.upper{
+    text-transform: uppercase;
+}*/
 
 /*h2 {
     padding: 20px;
