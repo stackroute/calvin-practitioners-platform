@@ -8,7 +8,7 @@ const urlValue= config.BASE_COMMUNITY_SERVICE_URL ;
 
 let cookies = []; // stores Cookies User and Community info tokens
 
-const usersTable = config.USERS_TABLE;
+const usersTable = 'users';
 const client = new cassandra.Client({
   contactPoints: [config.connectionString.dburl],
   keyspace: config.connectionString.keyspacename,
@@ -122,6 +122,7 @@ function getUserDetails(emailAddrs, done) {
     if (!err) {
       done(undefined, result.rows);
     } else {
+      console.log("profile",err,usersTable)
       done(err, null);
     }
   });
