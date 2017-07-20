@@ -100,12 +100,13 @@ const headers = new Headers({
   //   console.log("i am inside seivce angular",domain);
     return this.http
     .post(url,body,options)
-    .catch(err => {
-      console.log("errrorrr",err)
-      this.snackBar.open('Please try again later..!!!', 'try again!', {
-        duration: 3000
-      });
-      return Observable.throw(err); // observable needs to be returned or exception raised
-    }).map(data => this.data = data);
+  //   .catch(err => {
+  //    console.log("errrorrr",err)
+  //    this.snackBar.open('Please try again later..!!!', 'try again!', {
+  //      duration: 3000
+  //    });
+  //    return Observable.throw(err); // observable needs to be returned or exception raised
+  //  })
+    .map(data => this.data = data);
   }
 }

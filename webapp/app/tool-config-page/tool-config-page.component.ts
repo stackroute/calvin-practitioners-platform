@@ -137,16 +137,14 @@ export class ToolConfigPageComponent implements OnInit {
     console.log('final datra we are sending is ',JSON.stringify(mappedToolEventObj));
     //console.log('toolss eventsssssss',this.Events);
     this.config.postTools(this.domainName,this.toolid,mappedToolEventObj).subscribe(
-      //(data) => this.openDialog());
-      (data) => console.log(this.data));
+      (data) => this.openDialog());
+      //(data) => console.log(this.data));
   }
 
 
   openDialog() {
-    console.log('my domain page', this.domainName);
-    let dialogRef = this.dialog.open(DialogResultDialog, {
-      data: this.domainName
-    })
+   // console.log('my domain page', this.domainName);
+    let dialogRef = this.dialog.open(DialogResultDialog);
   }
   
   ////check box
@@ -190,9 +188,9 @@ export class ToolConfigPageComponent implements OnInit {
 })
 export class DialogResultDialog {
   constructor(public dialogRef: MdDialogRef<DialogResultDialog>, private router: Router) { }
-  routeToProfile() {
-    this.router.navigate(['/app/Home/']);
-  }
+  // routeToProfile() {
+  //   this.router.navigate(['/app/Home/']);
+  // }
 }
 //    @Component({
 //   selector: 'toolsPosted',
