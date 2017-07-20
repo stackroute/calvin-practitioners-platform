@@ -8,7 +8,7 @@ function retrieveAllTools(domain, done) {
   // Call communities service to get all the templates
  console.log(urlValue);
  // const url = `${urlValue}/communitytools/${domain}/tools`;
-  const url = `${urlValue}/communitytools/${domain}/tools`;
+  const url = `${urlValue}/communitytools/${domain}`;
   
   request
     .get(url)

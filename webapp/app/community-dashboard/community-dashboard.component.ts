@@ -6,6 +6,7 @@ import { CommunityProfileService } from '../community-profile/community-profile.
 import { ActivityPageComponent } from '../activity-page/activity-page.component';
 import * as moment from 'moment/moment';
 import { UserInfoService } from '../core/user-info.service';
+import { UserCommunities } from '../my-communities/my-communities.services';
 
 
 
@@ -13,7 +14,7 @@ import { UserInfoService } from '../core/user-info.service';
   selector: 'calvin-community-dashboard',
   templateUrl: './community-dashboard.component.html',
   styleUrls: ['./community-dashboard.component.css'],
-  providers: [CommunityProfileService,UserInfoService],
+  providers: [CommunityProfileService,UserInfoService,UserCommunities],
 })
 export class CommunityDashboardComponent implements OnInit {
 
@@ -29,7 +30,7 @@ export class CommunityDashboardComponent implements OnInit {
   user;
   CommunitiesInfo = [];
 
-  constructor(private commProfileService: CommunityProfileService, private router: Router, private route: ActivatedRoute,private userInfo: UserInfoService ) {
+  constructor(private commProfileService: CommunityProfileService, private router: Router, private route: ActivatedRoute,private userInfo: UserInfoService ,private userCommunities: UserCommunities) {
   }
   ngOnInit() {
     this.domain = this.route.snapshot.params['domain'];
@@ -46,13 +47,11 @@ export class CommunityDashboardComponent implements OnInit {
       // console.log('user is : ' + this.member);
     });
 
-     this.userInfo.getUserCommunity((userCommunity) => {
-       this.CommunitiesInfo = userCommunity;
-      //  console.log("getting user communitiesss in community profile,,",this.CommunitiesInfo);
+    this.userCommunities.getCommunity(this.member).subscribe(res => {
+    this.communities = res.communities;
+      console.log("checkinggggg", this.communities);
+    });
 
-      
-
-     });
     
   }
 }

@@ -13,12 +13,15 @@ export class CommunityToolsWidgetComponent implements OnInit {
   @Input('community') domain: string;
   tools = [];
   constructor(private toolsWidget: ToolsService) { }
+  
 
   ngOnInit() {
     this.toolsWidget.getTools(this.domain).subscribe(res => {
       this.tools = res;
       console.log("toollllsssss",this.tools)
     });
+
+ 
 
   }
 }
