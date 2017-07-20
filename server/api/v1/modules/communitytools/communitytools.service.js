@@ -28,29 +28,19 @@ function integrateNewTool({domainName, toolId, username},communityToolToken, don
 
 function integrateToolinCommunity(domain,toolid,data,done){
 	console.log("tooldata inside service",domain," toolid  ",toolid," dtsa",data);
-//      const url=`${BASE_COMMUNITY_SERVICE_URL}/communitytools/${domain}/tools/${toolid}`;
-// 	 request
-//  .post(url)
-//  .send(data) // query string
-//  .end((err, res) => {
-//     if (err) {
-//       console.log('error is ',err);
-//      return done(err);
-//     }
-// 	console.log('success....');
-//     return done(null, res.body);
-// function integrateToolinCommunity(domain,toolid,done){
+
 	console.log("tooldata inside service",domain);
      const url=`${urlValue}/communitytools/${domain}/tools/${toolid}`;
-	 console.log(url);
+	 console.log("url in community",url);
 	 request
  .post(url)
  .send(data) // query string
  .end((err, res) => {
     if (err) {
-     //res.status(500).send({error: 'Internal error ocurred...!!!', err: err});
+     console.log('Got error in Integrate tool with community',err);
      return done(err);
     }
+    //console.log('successfully integrated with result',res.body);
     return done(null, res.body);
   });
 // console.log('inisde integarte community');
@@ -101,3 +91,5 @@ module.exports = {
 	integrateNewTool,
 	integrateToolinCommunity
 }
+
+
