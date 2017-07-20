@@ -22,12 +22,12 @@ export class CommunityToolsWidgetComponent implements OnInit {
       console.log("toollllsssss",this.tools)
     });
 
-    //console.log(this.tools.toolid);
-    this.toolsWidget.getToolUrl(this.domain,this.toolid).subscribe(res => {
-      this.events = res;
-      console.log("toollllsssss",this.events)
+    // //console.log(this.tools.toolid);
+    // this.toolsWidget.getToolUrl(this.domain,this.toolid).subscribe(res => {
+    //   this.events = res;
+    //   console.log("toollllsssss",this.events)
 
-    });
+    // });
 
   }
 }
