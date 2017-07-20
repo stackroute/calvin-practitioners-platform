@@ -60,7 +60,7 @@ function integrateToolinCommunity(domain, toolid, data, done) {
                 return done(err);
             }
             //console.log('successfully integrated with result',res.body);
-            return done(null, res.body);
+            return done(null, res.body.communityToolToken);
         });
 }
 

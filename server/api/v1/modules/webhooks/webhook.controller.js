@@ -37,7 +37,7 @@ function extractEventData(eventPayload, tokenClaims, done) {
 
 function sendToCommunityService(payload, obj, done) {
     console.log('got object ....', obj.tokenClaims);
-    cummunityToolservice.postToolEventToCommunity(obj.tokenClaims.domainName, obj.tokenClaims.toolId, obj.tokenClaims.token, obj.extractedData, (err, result) => {
+    cummunityToolservice.postToolEventToCommunity(obj.tokenClaims.domainName, obj.tokenClaims.toolId, obj.tokenClaims.communityToolToken, obj.extractedData, (err, result) => {
         if (err) {
             console.log('error is ', err);
             return done(err, 'Unable to POST in Community')
