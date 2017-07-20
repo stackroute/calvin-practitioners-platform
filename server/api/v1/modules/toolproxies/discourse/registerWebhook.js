@@ -3,7 +3,7 @@ const request = require('superagent');
 const appconfig = require('../../../../../appconfig/appconfig');
 const user = appconfig.discourseAdmin;
 const key = appconfig.discourseKey;
-console.log(appconfig.discourseAdmin,appconfig.discourseKey);
+console.log("Discourse API credentials ", appconfig.discourseAdmin, " | ", appconfig.discourseKey);
 
 function generateWebhook(body, done) {
     
