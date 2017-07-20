@@ -105,32 +105,5 @@ export class MemberInvitationComponent {
       this.getMember();
     });
   }
-}//second html component
-@Component({
-  selector: 'invalid-user',
-  templateUrl: 'invalid-user.html',
-})
-export class invalidUser {
-  constructor() { }
-  
- }
- //third html component
-@Component({
-  selector: 'accept-page',
-  templateUrl: 'accept-page.html',
-})
-export class acceptPage {
-  memberArray=[];
-  constructor(private invite: InvitationServices)
-   {
-        
   }
-//   addNewMember(name,domain)
-// {
-//   memberArray={
-//     "username":name,
-//     "role":role,
-//   }
-// }  
-  
- }
+

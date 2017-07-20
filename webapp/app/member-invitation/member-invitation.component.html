@@ -3,7 +3,7 @@
  <p> {{this.username}}</p>
   <form #memberinvite="ngForm" (ngSubmit)="onSendingInvitation(memberinvite)">
     <input type="hidden"  name="index" ngModel="0" >
-    <md-input-container fxFlex="45%"  (keyup.enter)="newTodo=''" class="textfield" name="newTodo">
+    <md-input-container name="email" required fxFlex="45%"  (keyup.enter)="newTodo=''" class="textfield" name="newTodo">
       <input mdInput ngModel name="email0" placeholder="E-mail Address">
     </md-input-container>
     <md-select ngModel fxFlex="45%"   name="role0" placeholder="Role" (keyup.enter)="newTodo=''" class="textfield">
@@ -14,7 +14,7 @@
     </button>
     <div *ngFor="let member of inviteMembers; let i=index" >
       <input type="hidden"  name="index" ngModel="{{i+1}}" >
-      <md-input-container (keyup.enter)="newTodo=''" class="textfield" name="newTodo">
+      <md-input-container name="email" required (keyup.enter)="newTodo=''" class="textfield" name="newTodo">
         <input mdInput ngModel name="email{{i+1}}" placeholder="E-mail Address">
       </md-input-container>
       <md-select ngModel name="role{{i+1}}" placeholder="Role" (keyup.enter)="newTodo=''" class="textfield">

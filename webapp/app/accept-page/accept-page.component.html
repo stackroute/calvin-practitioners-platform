@@ -1,12 +1,14 @@
 <md-card>
-  <md-card-header>
+
+  
     <img md-card-avatar src="./assets/img/calvin-logo.png">
     <md-card-title>JOIN CALVIN </md-card-title>
     <md-card-subtitle>You have invited  to join Calvin.Join now to start collaborating !</md-card-subtitle>
-  </md-card-header>
+  
 
  <md-card-content>
-      <button md-raised-button color="primary" (click)="addNewMember(val1,val2,val3)">Join</button>
-       <button md-raised-button>Reject</button>
+      <button md-raised-button color="primary" type="submit" (click)="update()" >Join</button>
+       <button md-raised-button routerLink="/app/home">Reject</button>
   </md-card-content>
+
 </md-card>

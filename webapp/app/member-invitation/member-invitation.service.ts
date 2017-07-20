@@ -38,21 +38,21 @@ import { MdSnackBar } from '@angular/material';
  }
 
 
-  addMember(inviteInfo, domain){
-    const headers = new Headers({
-      'Content-Type': 'application/json;charset=utf-8'
-    });
-    const options = new RequestOptions({
-      headers: headers
-    });
-    const body = JSON.stringify(inviteInfo);    
-    const url = `/api/v1/communityMembers/communitymembership/${domain}/members`;
-    return this.http.post(url, body, options).catch(err => {
-      this.snackBar.open('Sending Invitation failed', 'X', {
-        duration: 3000
-      });
-      return Observable.throw(err);
-    })
-    .map(res => res.json());
-  }
+  // addMember(inviteInfo, domain){
+  //   const headers = new Headers({
+  //     'Content-Type': 'application/json;charset=utf-8'
+  //   });
+  //   const options = new RequestOptions({
+  //     headers: headers
+  //   });
+  //   const body = JSON.stringify(inviteInfo);    
+  //   const url = `/api/v1/communityMembers/communitymembership/${domain}/members`;
+  //   return this.http.post(url, body, options).catch(err => {
+  //     this.snackBar.open('Sending Invitation failed', 'X', {
+  //       duration: 3000
+  //     });
+  //     return Observable.throw(err);
+  //   })
+  //   .map(res => res.json());
+  // }
 }

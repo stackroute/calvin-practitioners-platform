@@ -1,15 +1,16 @@
 <h1> Integrate Tool  </h1>
 <div *ngIf="integrationFlag===0 && adminCommunities.length!=0">
 <md-radio-group class="example-radio-group" [(ngModel)]="domain">
-  <md-radio-button class="example-radio-button" *ngFor="let community of adminCommunities" [value]="community" >
-    {{community}}
+  <md-radio-button class="example-radio-button" *ngFor="let object of this.adminCommunities"    [value]="object.domain" >
+<img md-card-avatar src={{(object.avatar)}}>
+    {{object.domain}}
   </md-radio-button>
 </md-radio-group>
 <div fxLayout="row" fxLayoutAlign="center" fxLayoutGap="15px" fxLayoutAlign="end end">
           <!-- Cancel Button-->
           <button md-raised-button [md-dialog-close]="true">Cancel</button>
           <!-- Submit button to Add the tool-->
-          <button md-raised-button color="primary" (click)="integrateToolToCmmunity(domain)"  >Submit</button>
+          <button md-raised-button color="primary" (click)="integrateToolToCmmunity(domain)" [md-dialog-close]="true"  >Submit</button>
         </div>
 </div>     
 <div *ngIf="integrationFlag===1 ">
