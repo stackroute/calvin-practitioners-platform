@@ -1,4 +1,3 @@
-
 const request = require('superagent');
 const uuidv1 = require('uuid/v1');
 
@@ -9,11 +8,11 @@ function registerForPushNotification({token, domainName, toolId, username}, bear
     
     const url=`https://www.googleapis.com/calendar/v3/calendars/tools/${username}/events/watch`;   
 
-    let id=uuidv4();
-    console.log('id is ',id);
+    let id=uuidv4(); 
+    console.log('new channel id for google calander is ',id);
     const body =
     {
-        "id": id, // -> '6c84fb90-12c4-11e1-840d-7b25c5ee775a' 
+        "id": id,
         "type": "web_hook",
         "address": `https://calvin-pages.stackroute.in/webhook/tools/${domainName}/${toolId}/${token}`
     }

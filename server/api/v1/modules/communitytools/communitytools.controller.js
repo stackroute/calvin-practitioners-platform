@@ -1,12 +1,13 @@
 const request = require('superagent');
 const async = require('async');
 const communityToolService = require('./communitytools.service');
-const BASE_COMMUNITY_SERVICE_URL = 'http://calvin-communities.blr.stackroute.in/api/v1';
+const config = require('../../../../appconfig/env/dev');
+const urlValue =config.BASE_COMMUNITY_SERVICE_URL;
 
 function retrieveAllTools(domain, done) {
   // Call communities service to get all the templates
-  // console.log(domain);
-  const url = `${BASE_COMMUNITY_SERVICE_URL}/communitytools/${domain}/tools`;
+ console.log(urlValue);
+  const url = `${urlValue}/communitytools/${domain}/tools`;
   request
     .get(url)
     .query({ domain }) // query string
@@ -29,7 +30,7 @@ function retrieveAllTools(domain, done) {
 // function getTool(domain, done) {
 //   // console.log("i am at get tools", domain);
 //   // Call communities service to get all the templates
-//   const url = `${BASE_TOOLS_SERVICE_URL}/communitytools/${domain}/tools`;
+//   const url = `${urlValue}/communitytools/${domain}/tools`;
 //   request
 //     .get(url)
 //     .query({ domain })
@@ -108,7 +109,11 @@ function postToolInfo(domain,toolid,data,done){
 
 module.exports = {
   retrieveAllTools,
+
   //getTool,
   // postTool,
+
+  //postTool,
+
   postToolInfo
 };

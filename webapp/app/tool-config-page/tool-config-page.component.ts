@@ -95,10 +95,10 @@ export class ToolConfigPageComponent implements OnInit {
   ngOnInit() {
     // console.log("tool-config-page",this.domain1);
     this.userinfoservice.getUserDetail((userdetails) => {
-     //this.user = userdetails;
+     // this.user = userdetails;
      this.username = userdetails.username;
-     //console.log("user detalsss",this.user);
-     console.log("",this.username);
+     // console.log("user detalsss",this.user);
+    // console.log("",this.username);
      this.flag = 1;
    });
    
@@ -111,7 +111,7 @@ export class ToolConfigPageComponent implements OnInit {
       console.log("toolllinforrrrrr",this.allTool);
       
     });
-    //getToolActions
+  //getToolActions
     console.log("toolactions", this.toolid);
     this.config.getToolActions(this.router.snapshot.params['toolid'])
       .subscribe(data => {

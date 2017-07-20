@@ -63,11 +63,11 @@ export class AddToolComponent implements OnInit {
      this.addtoolservice.getTemplates()
     .subscribe(
     data => { this.purpose= data;
-      console.log('JSON value', data);
+      // console.log('JSON value', data);
       const purposeList = [new Set(data.map( item => item.purpose))];
       const myArray = Array.from(purposeList);
       this.uniquePurpose =  Array.from(myArray[0]);
-      console.log('unique array',this.uniquePurpose);
+      // console.log('unique array',this.uniquePurpose);
     },
     error => console.log(error),
     () => console.log('finished')
@@ -79,7 +79,7 @@ export class AddToolComponent implements OnInit {
   // this function is to add each tool action in array
   AddAction() {
 
-    console.log('add action called');
+    // console.log('add action called');
 
     let obj = {
       name: this.toolaction,
@@ -87,7 +87,7 @@ export class AddToolComponent implements OnInit {
       grants: this.toolgrants,
       desc: this.actionDesc,
     };
-    console.log('obj',obj);
+    // console.log('obj',obj);
     this.actions.push(obj);
     this.actionFlag = 1;
     this.toolaction = '';
@@ -105,7 +105,7 @@ export class AddToolComponent implements OnInit {
     // alert(this.toolaction);
 
     this.actions = this.actions.filter(item => item.name !== actionname);
-    console.log(this.actions);
+    // console.log(this.actions);
   }
 
   // this function is to add each tool event in arrays
@@ -129,7 +129,7 @@ export class AddToolComponent implements OnInit {
   remEvent(eventname) {
     // alert(this.tooleventname);
     this.events = this.events.filter(item => item.name !== eventname);
-    console.log(this.actions);
+    // console.log(this.actions);
     if (this.events.length === 0) {
       this.enableEvent();
     }
@@ -163,7 +163,7 @@ export class AddToolComponent implements OnInit {
        };
    this.actions.push(actionobj);
 
-    console.log('tool data is ',tooldata);
+    // console.log('tool data is ',tooldata);
    let eventobj ={
       name: this.tooleventname,
       id:this.tooleventname+(String(this.eventCounter++)),
@@ -183,10 +183,10 @@ export class AddToolComponent implements OnInit {
       toolEvent: this.events
     };
 
-    console.log("final  object.........",toolobj);
+    // console.log("final  object.........",toolobj);
     this.id=tooldata.toolid;
     this.addtoolservice.addTool(toolobj).subscribe(result => {
-      console.log('inside add tool response');
+      // console.log('inside add tool response');
       // RESETTING FIELDS after successfully adding tool
       this.events = [];
       this.actions = [];

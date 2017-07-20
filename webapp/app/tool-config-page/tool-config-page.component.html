@@ -1,27 +1,19 @@
 <md-card>
   <md-card-content>
-    <form #tool="ngForm" class="form" (ngSubmit)="onSubmit(values)">
-      <h3 fxLayoutAlign="start">Tool Info</h3>
-      <hr>
-      <div *ngFor="let val of allTool" fxLayout="row">
-        <!--<label>{{val.toolid}}</label>-->
-        <div fxFlex="20%" fxLayoutAlign="">
-          <!--<img src="{{val.toolavatar}}">-->
-          <md-list>
-            <md-list-item>
-              <img  src="{{val.toolavatar}}" style="height:150px;width:150px">
-            </md-list-item>
-          </md-list>
-
-        </div>
-        <div fxFlex="50%">
-          <md-card-title>
-            <h2 align="start">{{val.toolname}}</h2>
-          </md-card-title>
-          <md-card-subtitle align="start">{{val.toolid}}</md-card-subtitle>
-          <md-card-subtitle align="start">{{val.purpose}}</md-card-subtitle>
-          <md-card-subtitle align="start">{{val.tooldesc}}</md-card-subtitle>
-        </div>
+  <form #tool="ngForm" class="form" (ngSubmit)="onSubmit(values)">
+    <h3 fxLayoutAlign="start">Tool Info</h3>
+    <hr>
+    <div *ngFor="let val of allTool" fxLayout="row" >
+      <!--<label>{{val.toolid}}</label>-->
+      <div fxFlex="20%" fxLayoutAlign="">
+        <!--<img src="{{val.toolavatar}}">-->
+       <img src="{{val.toolavatar}}" class="img">        
+      </div>
+      <div fxFlex="50%">
+         <md-card-title><h2 align="start">{{val.toolname}}</h2></md-card-title>
+        <md-card-subtitle align="start">{{val.toolid}}</md-card-subtitle>
+        <md-card-subtitle align="start">{{val.purpose}}</md-card-subtitle>
+        <md-card-subtitle align="start">{{val.tooldesc}}</md-card-subtitle>
       </div>
       <hr>
       <h3 fxLayoutAlign="start">Tool Action</h3>
@@ -56,7 +48,7 @@
 
         </div>
 
-
+      </div>
 
       </div>
       <hr>

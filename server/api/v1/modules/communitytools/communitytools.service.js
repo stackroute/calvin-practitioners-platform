@@ -1,8 +1,9 @@
 const async = require('async');
+const config = require('../../../../appconfig/env/dev');
 const generatetooltoken = require('./generatetooltoken.service');
 const initializeTool = require('./initializeTool.service');
 const request= require('superagent');
-const BASE_COMMUNITY_SERVICE_URL = 'http://calvin-communities.blr.stackroute.in/api/v1';
+const urlValue = config.BASE_COMMUNITY_SERVICE_URL;
 const jwt = require('jsonwebtoken');
 
 
@@ -24,6 +25,7 @@ function integrateNewTool({domainName, toolId, username},communityToolToken, don
 	});
 }
 
+
 function integrateToolinCommunity(domain,toolid,data,done){
 	console.log("tooldata inside service",domain," toolid  ",toolid," dtsa",data);
 //      const url=`${BASE_COMMUNITY_SERVICE_URL}/communitytools/${domain}/tools/${toolid}`;
@@ -37,15 +39,35 @@ function integrateToolinCommunity(domain,toolid,data,done){
 //     }
 // 	console.log('success....');
 //     return done(null, res.body);
-//   });
-console.log('inisde integarte community');
-  const token= jwt.sign(data,'secret',{ expiresIn: 60*500 },(err,result)=>{
-        if(err)
-		{
-			   return done(err,'token');
-		}
-	   else 	return done(null,token);
+// function integrateToolinCommunity(domain,toolid,done){
+	console.log("tooldata inside service",domain);
+     const url=`${urlValue}/api/v1/communitytools/${domain}/tools/${toolid}`;
+	 request
+ .post(url)
+ .send(data) // query string
+ .end((err, res) => {
+    if (err) {
+      console.log('error is ',err);
+     return done(err);
+    }
+    return done(null, res.body);
   });
+// console.log('inisde integarte community');
+//   const token= jwt.sign(tooldata,'secret',{ expiresIn: 60*500 },(err,result)=>{
+//         if(err)
+// 		{
+// 			   return done(err,'token');
+// 		}
+// 	   else 	return done(null,token);
+//   });
+// console.log('inisde integarte community');
+//   const token= jwt.sign(data,'secret',{ expiresIn: 60*500 },(err,result)=>{
+//         if(err)
+// 		{
+// 			   return done(err,'token');
+// 		}
+// 	   else 	return done(null,token);
+//   });
   
 //------------------------------------------
 // function integrateToolinCommunity(toolid, domain, done) {

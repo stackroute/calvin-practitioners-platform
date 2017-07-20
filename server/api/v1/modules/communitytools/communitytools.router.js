@@ -3,9 +3,9 @@ const controller = require('./communitytools.controller.js');
 
 const router = express.Router();
 
-router.get('/:domainnames', (request, response) => {
+router.get('/:domainname', (request, response) => {
   try {
-    controller.retrieveAllTools(request.params.domainnames, (err, result) => {
+    controller.retrieveAllTools(request.params.domainname, (err, result) => {
       if (err) {
         //console.log('dsvs');
 
@@ -27,7 +27,7 @@ router.get('/:domainnames', (request, response) => {
 // const router = require('express').Router();
 // const toolsCtrl = require('./tools.controller.js');
 
-// router.get('/:domainname/', (req, res) => {
+// router.get('/:domainname', (req, res) => {
 //   // console.log("welcome to router");
 //   try {
 //     // console.log("welcome to router");
@@ -95,6 +95,3 @@ router.post('/:domain/:toolid',(req, res) => {
 
 
 module.exports = router;
-
-
-

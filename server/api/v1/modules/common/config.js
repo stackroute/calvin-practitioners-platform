@@ -8,7 +8,7 @@ module.exports = {
     expiryTime: 60 * 500,
   },
   cookie: {
-    user: 'currentUser',
+    user: 'currentUsers',
     userCommunity:'userCommunity'
   },
 };

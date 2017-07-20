@@ -67,15 +67,15 @@ export class CreateCommunityComponent implements OnInit {
   //to check Domain is available or not
   isDomainUnique(control: FormControl){
     this.flag = 1;
-    console.log("Checking if domian ", control.value, " exists already");
+    // console.log("Checking if domian ", control.value, " exists already");
     this.newcommunity.isDomainRegisterd(control.value).subscribe(
     (result) =>
     {
       if (Object.keys(result).length === 0) {
-        console.log("result false",Object.keys(result).length);
+        // console.log("result false",Object.keys(result).length);
         this.isDomainExists = false;
       } else {
-        console.log("result true",Object.keys(result).length);
+        // console.log("result true",Object.keys(result).length);
         this.isDomainExists = true;
       }
     });
@@ -124,7 +124,7 @@ export class CreateCommunityComponent implements OnInit {
     const domainName = newCommunityObj.domainName;
     const avatar = newCommunityObj.avatar;
     const newcommunityDetails = { purpose, name, visibility, description, template, tags, owner, avatar  };
-    console.log('data we are send ing is ',newcommunityDetails);
+    // console.log('data we are send ing is ',newcommunityDetails);
     this.newcommunity.postNewcommunityDetails(newcommunityDetails, domainName).subscribe(
     (data) => this.openDialog(newCommunityObj));
   }
@@ -146,12 +146,12 @@ export class CreateCommunityComponent implements OnInit {
     // this will get the data to list template
     this.newcommunity.getTemplates().subscribe(
     data => { this.newcommunity.communityDetails = data;
-      console.log('JSON value', data);
+      // console.log('JSON value', data);
       const purposeList = [new Set(data.map( item => item.purpose))];
       const myArray = Array.from(purposeList);
       this.uniquePurposeArry =  Array.from(myArray[0]);
-    }, error => //console.log(error),
-    () => console.log('finished')
+    }, error => { return error },
+     () => { return 'Finished' }
     );
     // get the owner name
     this.userservice.getUserDetail((user)=>{

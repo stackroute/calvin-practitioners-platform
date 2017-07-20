@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const authCtrl = require('./auth.controller');
-const config = require('../common/config');
+const config = require('../../../../appconfig/env/dev');
 
 router.use((req, res, next) => {        // eslint-disable-line consistent-return
   try {
@@ -10,8 +10,8 @@ router.use((req, res, next) => {        // eslint-disable-line consistent-return
     if (token) {
       authCtrl.verifyToken(token, (err, decoded) => {
         if (err) {
-          res.clearCookie(config.cookie.user);
-          res.clearCookie(config.cookie.userCommunity);
+          res.clearCookie(config.cookies.user);
+          res.clearCookie(config.cookies.userCommunity);
           res.status(401).json({ error: ' Session Timeout... Please login again' });
          // console.log('token expired');
 
