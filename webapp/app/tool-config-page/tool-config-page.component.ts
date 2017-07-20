@@ -17,28 +17,7 @@ import { UserInfoService } from '../core/user-info.service';
 })
 export class ToolConfigPageComponent implements OnInit {
   constructor(private userinfoservice:UserInfoService,private config: ToolConfigService, private router: ActivatedRoute, private dialog: MdDialog) {
-
-  //   this.stateCtrl = new FormControl();    
-  //   this.filteredStates = this.stateCtrl.valueChanges
-  //       .startWith(null)
-  //       .map(name => this. filterActorType(name));
-
-  // this.stateActive = new FormControl();
-  //   this.filteredActivity = this.stateActive.valueChanges
-  //       .startWith(null)
-  //       .map(name => this. filterActivityType(name));
-
-  // this.stateObject =new FormControl();
-  //       this.filteredObject = this.stateObject.valueChanges
-  //       .startWith(null)
-  //       .map(name => this. filterObjectType(name));
-   }
-//  stateCtrl: FormControl;
-//  stateActive: FormControl;
-//  stateObject: FormControl;
-//   filteredStates: any;
-//   filteredActivity: any;
-//   filteredObject: any;
+  }
 
 
   allTool = [];
@@ -64,31 +43,7 @@ export class ToolConfigPageComponent implements OnInit {
   selectedEvent1 = [];
 
   eventMappings = new Map();
-  // states = [];
-  // activitytype=[];
-  // objecttype=[];
-
-  // @Input()  domain1:any;
- 
-//  filterActorType(val) {
-//    console.log('actortype*****', this.events.actortype);
-//     return val ? this.states.filter(s => s.toLowerCase().indexOf(val.toLowerCase()) === 0)
-//                : this.states;
-               
-//   }
-//   filterActivityType(val) {
-//    console.log('activity*****', this.events.activitytype);
-//     return val ? this.activitytype.filter(s => s.toLowerCase().indexOf(val.toLowerCase()) === 0)
-//                : this.activitytype;
-               
-//   }
-//   filterObjectType(val) {
-//    console.log('object*****', this.events.objecttype);
-//     return val ? this.objecttype.filter(s => s.toLowerCase().indexOf(val.toLowerCase()) === 0)
-//                : this.objecttype;
-               
-//   }
- 
+  
  
  
  
@@ -166,11 +121,7 @@ export class ToolConfigPageComponent implements OnInit {
     let obj = [];
     
     const mappedToolEventObj = {
-      // "toolname":"sometool",
-// "avatar":"somephoto.jpg",
-// "toolurl":"abcdef.com/12345",
-// "purpose": "maybesomepurposeagain2",
-// "actions": ["action1","action3", "action4",
+     
       toolname: this.toolid,
       avatar:"null",
       toolurl:"null",
@@ -179,8 +130,7 @@ export class ToolConfigPageComponent implements OnInit {
       purpose: "null",   
       actions:["actions"],
       events:Array.from(this.eventMappings.values())
-      // events: this.selectedEvent,
-      //mapping: Array.from(this.eventMappings.values())
+      
     
     };
     //console.log("Mappings: ", mappedToolEventObj,JSON.stringify(Array.from(this.eventMappings.values())));
