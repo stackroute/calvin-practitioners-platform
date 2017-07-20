@@ -54,11 +54,11 @@ function sendToCommunityService(payload, obj, done) {
 
 function handleToolEvent(token, eventPayload, done) {
 
-    token = jwt.sign({
+    /*token = jwt.sign({
         "domainName": "digital",
         "toolId": "discourse",
         "username": "ceanstackdev@gmal.com"
-    }, 'config.appConstants.secret', { expiresIn: 60 * 5000 });
+    }, 'config.appConstants.secret', { expiresIn: 60 * 5000 });*/
 
     // console.log('2.getting inside handle tool event');
     async.waterfall([
