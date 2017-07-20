@@ -85,38 +85,31 @@ export class UserProfileComponent implements OnInit {
     const x = imgsrc.substring(0, (imgsrc.length - 2)) + '300';
     return x;
   }
-<<<<<<< HEAD
 
   integrateGooleTool(toolName){
-    alert(toolName);
+    // alert(toolName);
     this.toolInfoService.getTool(toolName).subscribe(
     data => { this.toolInfoService.toolInfo = data;
-    }, error => //console.log(error),
-    () => console.log('finished')
+    }, error => { return error },
+    () => { return 'success'}
     );
 
   }
   integrateDiscourseTool(toolName){
-    alert(toolName);
+    // alert(toolName);
     this.toolInfoService.getTool(toolName).subscribe(
     data => { this.toolInfoService.toolInfo = data;
-    }, error => //console.log(error),
-    () => console.log('finished')
+    },  error => { return error },
+    () => { return 'success'}
     );
   }
   integrateGithubTool(toolName){
-    alert(toolName);
+    // alert(toolName);
     this.toolInfoService.getTool(toolName).subscribe(
     data => { this.toolInfoService.toolInfo = data;
-    }, error => //console.log(error),
-    () => console.log('finished')
+    },  error => { return error },
+    () => { return 'success'}
     );
-
-=======
-  
-  integrateWithTool(toolname){
-    
->>>>>>> 2d69028e24c51147d2740f9a12f2be3e5aa185ab
   }
 }
 @Component({

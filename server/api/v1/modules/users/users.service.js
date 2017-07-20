@@ -52,7 +52,7 @@ function insertUserInDb(profile, done) {
 // If user already exists in database , last login time gets updated
 // else new record in inserted in database
 function updateUser(profile, done) {
-  console.log('inside update user;');
+  // console.log('inside update user;');
   const userDetails = {
     name: profile.name,
     username: profile.username,
@@ -61,7 +61,7 @@ function updateUser(profile, done) {
 
   const userToken = jwt.sign(userDetails, config.appConstants.secret,
     { expiresIn: config.appConstants.expiryTime });
-  // console.log('userToken', userToken);
+  // // console.log('userToken', userToken);
   cookies.push(userToken);
   checkIfUserExists(profile.username, (error, userExists) => {
     if (userExists) {
@@ -91,10 +91,10 @@ function getUserCommunities(username, done) {
  .query({ username }) // query string
  .end((err, res) => {
    if (err) {
-     console.log('error is ', err);
+     // console.log('error is ', err);
      return done(err);
    }
-   //console.log('result is ', res.body);
+   //// console.log('result is ', res.body);
    const userCommunityToken = jwt.sign(res.body, config.appConstants.secret,
     { expiresIn: config.appConstants.expiryTime });
    cookies.push(userCommunityToken);
@@ -116,7 +116,7 @@ function updateSpecificProfile(emailAddrs, profileData, done) {
 }
 //get user details from user profile component
 function getUserDetails(emailAddrs, done) {
-  console.log('Insise Service');
+  // console.log('Insise Service');
   const query = (`SELECT aboutme,contact,interestedtopics,location from ${USERS_TABLE} where username ='${emailAddrs}'`);
   client.execute(query, (err, result) => {
     if (!err) {

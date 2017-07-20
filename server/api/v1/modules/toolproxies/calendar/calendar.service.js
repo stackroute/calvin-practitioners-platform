@@ -11,7 +11,7 @@ function registerForPushNotification({token,username},done){
  
  const url=`https://www.googleapis.com/calendar/v3/calendars/${username}/events/watch`;
    
-    console.log('hi....',btoken);
+    // console.log('hi....',btoken);
    
     const body =
     {
@@ -26,10 +26,10 @@ function registerForPushNotification({token,username},done){
         .set('Authorization',btoken)
         .end((err, res) => {
             if (err) {
-                console.log('hi got error in calendar',err);
+                // console.log('hi got error in calendar',err);
                 return done(err);
             }
-  console.log('hi got  in calendar',res.body);
+  // console.log('hi got  in calendar',res.body);
             return done(null, res.body);
         });
 

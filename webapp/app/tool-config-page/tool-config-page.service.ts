@@ -12,7 +12,7 @@ export class ToolConfigService {
     constructor(private http: Http, public snackBar: MdSnackBar) { }
     saveDomain(name){
       this.domainName=name;
-      console.log('saved domai is',this.domainName)
+      // console.log('saved domai is',this.domainName)
     }
 
     getDomain(){
@@ -39,7 +39,7 @@ export class ToolConfigService {
 
 
    postTools(domain,data) {
-   console.log('inside post tool');
+  //  console.log('inside post tool');
 const headers = new Headers({
   'Content-Type': 'application/json;charset=utf-8'
  });

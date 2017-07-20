@@ -6,7 +6,7 @@ const BASE_COMMUNITY_SERVICE_URL = 'http://calvin-communities.blr.stackroute.in/
  // Call specific community on the basis of domain
 function getSpecificCommunity(domain,counter, done) {
   const url = `${BASE_COMMUNITY_SERVICE_URL}/communities/${domain}?counter=${counter}`;
-  console.log("checking for counter in controoler");
+  // console.log("checking for counter in controoler");
   // console.log("testing counter",res.body);
 
   request
@@ -14,7 +14,7 @@ function getSpecificCommunity(domain,counter, done) {
  .query({ domain}) // query string
  .end((err, res) => {
    if (err) {
-      console.log("checking for counter in controller",err);
+      // console.log("checking for counter in controller",err);
      return done(err);
    }
 

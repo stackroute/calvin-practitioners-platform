@@ -25,7 +25,7 @@ export class ActivityPageComponent implements OnInit {
     this.activityService.getActivities(this.uname, this.community, this.sort, this.order, this.page, this.limit)
     .subscribe(data => { 
       this.activities = data;
-        console.log("Object of activities",this.activities);      
+        // console.log("Object of activities",this.activities);      
      });
   }
 }

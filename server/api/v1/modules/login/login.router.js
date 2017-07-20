@@ -7,7 +7,7 @@ require('./strategy/google/passport.js')(passport);
 const router = express.Router();
 //follow=/invite/recipient/
 router.get('/follow',(req, res) => {
-  console.log('req', req);
+  // console.log('req', req);
   res.send(200).status('done');
 });
 
@@ -18,7 +18,7 @@ router.get('/auth/google', passport.authenticate('google', { scope: ['profile', 
 
 router.get('/auth/google/callback', (req, res, next) => {
   loginCtrl.redirectGoogle(req, res, next).then((result) => {
-    // console.log('result in cookie', result);
+    // // console.log('result in cookie', result);
     res.cookie(config.cookie.user, result[0]);
     res.cookie(config.cookie.userCommunity, result[1]);
     res.redirect('/#/app/home');

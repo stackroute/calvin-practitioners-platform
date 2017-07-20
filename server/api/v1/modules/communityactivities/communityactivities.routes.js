@@ -28,7 +28,7 @@ router.get('/:membername', (req, res) => {
       }
     });
   } catch (err) {
-    console.log("inside route error", err)
+    // console.log("inside route error", err)
     return res.status(500).send({error: 'Internal error occurred....!' });
   }
 });

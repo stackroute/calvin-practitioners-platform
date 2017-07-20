@@ -33,10 +33,10 @@ export class ToolConfigPageComponent implements OnInit {
   ngOnInit() {
     // console.log("tool-config-page",this.domain1);
     this.userinfoservice.getUserDetail((userdetails) => {
-     //this.user = userdetails;
+     // this.user = userdetails;
      this.username = userdetails.username;
-     //console.log("user detalsss",this.user);
-     console.log("",this.username);
+     // console.log("user detalsss",this.user);
+    // console.log("",this.username);
      this.flag = 1;
    });
    
@@ -50,28 +50,28 @@ export class ToolConfigPageComponent implements OnInit {
     });
 
     //getToolActions
-    console.log("toolactions", this.toolid);
+    // console.log("toolactions", this.toolid);
     this.config.getToolActions(this.router.snapshot.params['toolid'])
       .subscribe(data => {
         this.toolActions = data;
-        console.log("actions", data);
+        // console.log("actions", data);
       });
     //getToolEvents
     this.config.getToolEvents(this.router.snapshot.params['toolid'])
       .subscribe(data => {
         this.toolEvents = data;
-        console.log("events", data);
+        // console.log("events", data);
       });
   }
 
   getTooleventinfo(eventname){
-        console.log('inside get tool event info',eventname);
+        // console.log('inside get tool event info',eventname);
         let foundevent,flag=0;
        this.toolEvents.forEach((event)=>{
-         console.log('evvent is ',event);
+        //  console.log('evvent is ',event);
 
            if(event.name===eventname){
-             console.log('found match',event);
+            //  console.log('found match',event);
              foundevent=event;
              flag=1;
            }
@@ -100,13 +100,13 @@ export class ToolConfigPageComponent implements OnInit {
     // this.domain = this.config.getDomain();
     // console.log('domain is .....', this.domainName);
     //  console.log('domain is .....',this.domainName);
-    console.log('final datra we are sending is ',mappedToolEventObj);
+    // console.log('final datra we are sending is ',mappedToolEventObj);
 
     this.config.postTools(this.domainName, mappedToolEventObj).subscribe(
       (data) => this.openDialog());
   }
   openDialog() {
-    console.log('my domain page', this.domainName);
+    // console.log('my domain page', this.domainName);
     let dialogRef = this.dialog.open(DialogResultDialog, {
       data: this.domainName
     })
@@ -130,7 +130,7 @@ export class ToolConfigPageComponent implements OnInit {
            }
     });
     // this.event=this.getTooleventinfo(selectedEvent);
-    console.log('this i event is ',this.event); 
+    // console.log('this i event is ',this.event); 
     
   }
 
@@ -138,9 +138,9 @@ export class ToolConfigPageComponent implements OnInit {
   select(coomunityEvent) {
     //console.log(value);
       this.event.communityactivityevent=coomunityEvent;
-      console.log('this.event',this.event);
+      // console.log('this.event',this.event);
       this.selectedEvent.push(this.event);
-      console.log('over all obejct uis',this.selectedEvent);
+      // console.log('over all obejct uis',this.selectedEvent);
   }
   
   //  dashboard(){

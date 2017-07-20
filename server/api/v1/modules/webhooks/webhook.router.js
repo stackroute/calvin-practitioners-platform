@@ -4,7 +4,7 @@ const router = express.Router();
 const webhookcontroller = require('./webhook.controller');
 
 router.post('/:token', (req, res) => {
-    console.log('1.Webhook called');
+    // console.log('1.Webhook called');
     const token = req.params.token;
     try {
         webhookcontroller.handleToolEvent(token, req.body, (err, result) => {

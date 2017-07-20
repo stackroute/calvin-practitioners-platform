@@ -17,7 +17,7 @@ describe('Tool integration workflow services ', function() {
 				// expect(err).to.be.undefined;
 				expect(results).to.not.be.undefined;
 
-				console.log("Test Result of tool integration ", results);
+				// console.log("Test Result of tool integration ", results);
 
 				testDone();
 		});

@@ -10,7 +10,7 @@ passport.use('google-calendar', new GoogleStrategy({
   },
   function(accessToken, refreshToken, profile, done) {
     profile.accessToken = accessToken;
-    console.log('token is',accessToken);
+    // console.log('token is',accessToken);
     return done(null, profile);
   }
 ));
