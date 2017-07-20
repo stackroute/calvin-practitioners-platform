@@ -9,6 +9,7 @@ router.post('/tools/:domain/:toolid/:token', (req, res) => {
     try {
         webhookcontroller.handleToolEvent(token, req.body, (err, result) => {
             if (err) {
+                console.log('error is ',err);
                 res.status(500).send('Internal Server Error');
             }
             else {
@@ -17,6 +18,7 @@ router.post('/tools/:domain/:toolid/:token', (req, res) => {
         });
     }
     catch (err) {
+        console.log('err is catch',err);
         res.status(500).send('Internal Server Error');
     }
 });

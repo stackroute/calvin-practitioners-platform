@@ -17,14 +17,14 @@ const postdata={ "post":
      "topic_title": "Secod topic created",
     "display_username": "Nitin Joshi"
       } 
-};
+}
 
 describe('post tooldata to community ',function(){
            token="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkb21haW5OYW1lIjoiZGlnaXRhbCIsInRvb2xJZCI6ImRpc2NvdXJzZSIsInVzZXJuYW1lIjoiY2VhbnN0YWNrZGV2QGdtYWwuY29tIn0.2lqcZGRuvJZqRVWLMoYijIbmEXMIkIkZ51BIAoxTpxY";
 
        it('should ',function(done){
               request
-              .post(`/api/v1/webhook/${token}`)
+              .post(`/api/v1/webhook/tools/wipro/discourse/${token}`)
               .send(postdata)
               .end(function(err,result){
                    if(err) {
