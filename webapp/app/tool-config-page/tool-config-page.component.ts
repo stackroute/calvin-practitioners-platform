@@ -63,7 +63,6 @@ export class ToolConfigPageComponent implements OnInit {
   selectedEvent = [];
   selectedEvent1 = [];
 
-
   eventMappings = new Map();
   // states = [];
   // activitytype=[];
@@ -108,8 +107,8 @@ export class ToolConfigPageComponent implements OnInit {
     //getToolinfo
     this.config.getTools(this.router.snapshot.params['toolid']).subscribe(data => {
       this.allTool = data;
-
-      console.log("toolllinforrrrrr");
+      // this.toolname=this.allTool.toolname;
+      console.log("toolllinforrrrrr",this.allTool);
       
     });
     //getToolActions
@@ -187,7 +186,7 @@ export class ToolConfigPageComponent implements OnInit {
     //console.log("Mappings: ", mappedToolEventObj,JSON.stringify(Array.from(this.eventMappings.values())));
     console.log('final datra we are sending is ',JSON.stringify(mappedToolEventObj));
     //console.log('toolss eventsssssss',this.Events);
-    this.config.postTools(this.domainName, mappedToolEventObj).subscribe(
+    this.config.postTools(this.domainName,this.toolid,mappedToolEventObj).subscribe(
       //(data) => this.openDialog());
       (data) => console.log(this.data));
   }
@@ -202,7 +201,7 @@ export class ToolConfigPageComponent implements OnInit {
   
   ////check box
   toggle(eventId, eventName, eventDescription, $event) {
-    this.eventMappings.set(eventId, {eventid: eventId, eventname: eventName, description: eventDescription, metadata: {}});
+    this.eventMappings.set(eventId, {eventid: eventId, eventname: eventName, description: eventDescription, metadata: ""});
 
   }
   

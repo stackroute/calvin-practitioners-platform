@@ -97,11 +97,13 @@ export class IntegrateTool implements OnInit {
     this.domain=domainname;
 
     console.log('inside',this.domain);
+      // alert(`/app/toolconfig/${this.domain}/${this.toolid}`);
     this.toolservice.saveDomain(this.domain);
-    this.router.navigate[(`/app/toolconfig/${this.domain}/${this.toolid}`)];
+    this.router.navigate([`/app/toolconfig/${this.domain}/${this.toolid}`]);
     // this.router.navigate([`/app/toolconfig/${this.domain}/${this.toolid}`]);
   }
   navigateToCC(){
+  
       this.router.navigate([`/app/toolconfig/${this.domain}/${this.toolid}`]);
   }
   // navigateToCC() {

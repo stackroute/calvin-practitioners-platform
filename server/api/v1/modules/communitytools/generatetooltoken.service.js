@@ -1,9 +1,9 @@
 const jwt = require('jsonwebtoken');
 const config = require('../common/config');
 
-module.exports = function({domainName, toolId, username}, done) {
+module.exports = function({domainName, toolId, username,communityToolToken}, done) {
   console.log('inside generate tool token');
-  let payload = { domainName, toolId, username };
+  let payload = { domainName, toolId, username ,communityToolToken};
   let secret = config.appConstants.secret;
   let options = {
     expiresIn: config.appConstants.expiryTime,

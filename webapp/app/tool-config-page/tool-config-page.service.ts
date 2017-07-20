@@ -42,9 +42,9 @@ export class ToolConfigService {
      .map((response:Response) => response.json())
    }
 
-   postTools(domain,data) {
+   postTools(domain,toolid,data) {
    console.log('inside post tool');
-   console.log("domainname",domain);
+   console.log("domainname",domain,"toolid",toolid);
    console.log("data",data);
 const headers = new Headers({
   'Content-Type': 'application/json;charset=utf-8'
@@ -53,7 +53,7 @@ const headers = new Headers({
   headers: headers
  });
  const body = JSON.stringify(data);
-    const url = `/api/v1/communitytools/${domain}`;
+    const url = `/api/v1/communitytools/${domain}/${toolid}`;
  console.log("i am inside seivce angular",domain);
     return this.http
       .post(url,body,options)
