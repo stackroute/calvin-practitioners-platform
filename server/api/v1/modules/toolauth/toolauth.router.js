@@ -13,40 +13,25 @@ router.get('/auth/calendar',passport.authenticate('google-calendar', { session: 
 router.get('/auth/calendar/callback', 
   passport.authenticate('google-calendar', { session: false, failureRedirect: '/login' }),
   function(req, res) { 
-    req.session.access_token = req.user.accessToken;
+    // req.session.access_token = req.user.accessToken;
     res.redirect('/');
   });
 
-// router.get('/auth/calendar',(req,res)=>{
-     
-//        try {
+router.get('/:toolid/:username/token',(req,res)=>{
 
-//             toolauthcontroller.getCalnderToken((err,result)=>{
-                 
-//                     if(err){
+      try{
 
-//                         console.log('error while authenticating',err);
-//                       res.status(500).json({
-//                           error:'Unable to authenticate'
-//                       });      
-//                 } else {
+            toolauthcontroller.getToolToken(req.params.toolid,req.params.username,(err,result)=>{
 
-//                     res.status(200).
-//                 }
-
-
-                  
-//             })
-          
-//        }
-
-// });
-
-// router.get('/auth/calendar/callback', 
-//   passport.authenticate('google', { session: false, failureRedirect: '/login' }),
-//   function(req, res) { 
-//     req.session.access_token = req.user.accessToken;
-//     res.redirect('/');
-//   });
+                if(err){
+               return    res.status(500).send('internal Server Error.. Unable to fetch toolinfo ');
+                }
+                   return res.send(result);
+            })
+             
+      } catch(err){
+             res.status(500).send('Unexpected internal Server Error.. ');
+      }
+});
 
 module.exports=router;

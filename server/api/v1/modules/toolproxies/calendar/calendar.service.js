@@ -1,38 +1,37 @@
 
 const request = require('superagent');
+const uuidv1 = require('uuid/v1');
 
-// function getCalendarList(){
+function registerForPushNotification({token, domainName, toolId, username}, bearerToken, done){
+    console.log("Proceeding to register the push notification for google calander ", bearerToken);
+    const btoken=`Bearer ${bearerToken}`; 
+    //  ya29.GluMBMkeVO045z0HXNlM4vOgb63W-dzshTANCpYnpm2mlVjjkVvZahKksdW3CoDzvWKh1tjLx0mSsLPlYW3_cDsIpfXT07TATcBgWl1hBM7XGIcs_lcoCI6aspWR';
+    
+    const url=`https://www.googleapis.com/calendar/v3/calendars/tools/${username}/events/watch`;   
 
-
-// }
-
-function registerForPushNotification({token,username},done){
- const btoken='Bearer ya29.GluMBMkeVO045z0HXNlM4vOgb63W-dzshTANCpYnpm2mlVjjkVvZahKksdW3CoDzvWKh1tjLx0mSsLPlYW3_cDsIpfXT07TATcBgWl1hBM7XGIcs_lcoCI6aspWR';
- 
- const url=`https://www.googleapis.com/calendar/v3/calendars/${username}/events/watch`;
-   
-    console.log('hi....',btoken);
-   
+    let id=uuidv4();
+    console.log('id is ',id);
     const body =
     {
-  "id": "01234567-89ab-cdef-0123456789abbb",
-  "type": "web_hook",
-  "address": "https://calvin-pages.stackroute.in/"
-}
+        "id": id, // -> '6c84fb90-12c4-11e1-840d-7b25c5ee775a' 
+        "type": "web_hook",
+        "address": `https://calvin-pages.stackroute.in/webhook/tools/${domainName}/${toolId}/${token}`
+    }
 
- request
-        .post(url)
-        .send(body)
-        .set('Authorization',btoken)
-        .end((err, res) => {
-            if (err) {
-                console.log('hi got error in calendar',err);
-                return done(err);
-            }
-  console.log('hi got  in calendar',res.body);
-            return done(null, res.body);
-        });
-
+    console.log("Bearer token for google calander ", btoken);
+    
+    request
+    .post(url)
+    .set('Authorization',btoken)
+    .send(body)    
+    .end((err, res) => {
+        if (err) {
+            console.log('hi got error in calendar',err);
+            return done(err);
+        }
+        console.log('hi got  in calendar',res.body);
+        return done(null, res.body);
+    });
 }
 
 module.exports={

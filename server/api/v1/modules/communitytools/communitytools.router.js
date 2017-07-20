@@ -27,25 +27,25 @@ router.get('/:domainnames', (request, response) => {
 // const router = require('express').Router();
 // const toolsCtrl = require('./tools.controller.js');
 
-router.get('/:domainname/', (req, res) => {
-  // console.log("welcome to router");
-  try {
-    // console.log("welcome to router");
-    controller.getTool(req.params.domain, (err, result) => {
-      if (err) {
-        // console.log("Error in toolsCtrl.getTool, error: ", err);
-        res.status(500).send({ error: 'Internal error occurred....!' });
-      } else {
-        res.status(200).send(result);
-      }
-      return true;
-    });
-  } catch (err) {
-    return res.status(500).send({
-      error: 'Internal error occurred....!' });
-  }
-  return true;
-});
+// router.get('/:domainname/', (req, res) => {
+//   // console.log("welcome to router");
+//   try {
+//     // console.log("welcome to router");
+//     controller.getTool(req.params.domain, (err, result) => {
+//       if (err) {
+//         // console.log("Error in toolsCtrl.getTool, error: ", err);
+//         res.status(500).send({ error: 'Internal error occurred....!' });
+//       } else {
+//         res.status(200).send(result);
+//       }
+//       return true;
+//     });
+//   } catch (err) {
+//     return res.status(500).send({
+//       error: 'Internal error occurred....!' });
+//   }
+//   return true;
+// });
 
 
 router.post('/:domain/tool',(req, res) => {
@@ -70,7 +70,12 @@ router.post('/:domain/tool',(req, res) => {
 
 router.post('/:domain',(req, res) => {
    try{
+
+    //  console.log('api  renuks is data',req.params.domain);
+    //  console.log(req.body);
+
      console.log('api is data',req.params.domain);
+
      controller.postToolInfo(req.params.domain, req.body,(err, result) => {
        if (err) {
          res.status(500).send({error: 'Internal error ocurred...!!!'});
