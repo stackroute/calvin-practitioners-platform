@@ -14,37 +14,12 @@ export class AddToolService {
 
     addTool(toolobj) {
 
-        //    const headers = new Headers(
-        //         { 'Content-Type': 'application/json', 'Access-Control-Allow-Methods': ' GET, POST, PATCH, PUT, DEconstE, OPTIONS' });
-        //     const options = new RequestOptions({ headers: headers });
-        //     return this.http.post('http://localhost:3000/api/v1/toolmarketplace/tool', toolobj).map(() => console.log('New community details posted', toolobj));  
+        
 
         const headers = new Headers();
         const url = '/api/v1/toolmarketplace/tool';
         headers.append('Content-Type', 'application/json');
 
-
-        // return this.http.post(url, toolobj, { headers: headers }).map(data => {
-        //     console.log("ok");
-        // }, error => {
-        //     console.log('------------------------------------',error);
-        // });
-        // this.http.post(url,toolobj).map(res => {
-
-        //       if(res.status !==200) {
-        //              throw new Error('The request has failed !'+res.status);
-        //       }
-        //      else {
-        //          return res;
-        //      } 
-        // });
-
-        //   this.http
-        //   .post(url,toolobj)
-        //   .map(res => res)
-        //   .subscribe(
-        //     (data) => this.data = data,
-        //     (err) => this.error = err);
 
 
         return this.http
@@ -60,13 +35,7 @@ export class AddToolService {
             })
             .map(data => this.data = data); // handle success
 
-        //         if(this.error)
-        //         {
-        //             alert('error'+this.error);
-        //             this.snackBar.open('Message archived', 'Undo', {
-        //              duration: 3000
-        // });
-        //         }
+       
     }
 
     getTemplates(){

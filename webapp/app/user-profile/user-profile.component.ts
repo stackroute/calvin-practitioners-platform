@@ -94,6 +94,7 @@ export class UserProfileComponent implements OnInit {
     }, error => //console.log(error),
     () => console.log('finished')
     );
+<<<<<<< HEAD
 
   }
   // integrateDiscourseTool(toolName){
@@ -113,6 +114,18 @@ export class UserProfileComponent implements OnInit {
   //   );
 
   // }
+=======
+  }
+
+  integrateGithubTool(toolName){
+    alert(toolName);
+    this.toolInfoService.getTool(toolName).subscribe(
+    data => { this.toolInfoService.toolInfo = data;
+    }, error => //console.log(error),
+    () => console.log('finished')
+    );
+}
+>>>>>>> f9908e983e4dbbc230374cfa254702d8145f1245
 }
 @Component({
   selector: 'user-profile-dialog',
