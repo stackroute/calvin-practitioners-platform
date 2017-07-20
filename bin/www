@@ -6,6 +6,7 @@
 
 // Create instance of express based web app
 let app = require('../server/app');
+let socketServer = require('../server/socketserver');
 let debug = require('debug')('dataDisplayApp:server');
 let http = require('http');
 
@@ -23,6 +24,7 @@ let server = http.createServer(app);
 /**
  * Listen on provided port, on all network interfaces.
  */
+// socketServer.attach(server);
 
 server.listen(port);
 server.on('error', onError);

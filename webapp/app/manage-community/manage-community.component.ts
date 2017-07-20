@@ -57,7 +57,7 @@ voted = false;
    this.status = res.status;
    res.createdon= moment(res.createdon).subtract(1,'days').calendar();
    this.community = res;
-   console.log("inside managecommunity",this.community);
+   
   } );
    }
 
@@ -81,7 +81,7 @@ voted = false;
      resetText.value='';
     if(!this.tagarray.includes(tag)) {
       this.tagarray.push(tag);
-      console.log(this.tagarray);
+      
       // this.tagname='';
     }
   }
@@ -92,7 +92,7 @@ routeToHome() {
   clearTag(tag) {
     const tagvalue = tag;
     this.tagarray = this.tagarray.filter(item => item !== tagvalue);
-    console.log('deselect tag',this.tagarray);
+    
   }
   openDialog(domain) {
     let dialogRef = this.dialog.open(updateCommunity, {
