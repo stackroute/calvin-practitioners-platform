@@ -13,9 +13,21 @@ export class ActivityService {
 
   getActivities(uname, communities, sort, order, page, limit) {
     return this.http
-      .get(`api/v1/memberactivitypage/Anis?page=1`)
-      .catch( err => {
-        this.snackBar.open('Unable to get user activities' , 'X', {
+      .get(`api/v1/memberactivitypage/` + uname)
+      .catch(err => {
+        this.snackBar.open('Unable to get user activities', 'X', {
+          duration: 3000
+        });
+
+        return Observable.throw(err);
+      })
+      .map((response: Response) => response.json())
+  }
+    getActivitiesByDomainName(domainName) {
+    return this.http
+      .get(`api/v1/memberactivitypage/community/`+ domainName)
+      .catch(err => {
+        this.snackBar.open('Unable to get domain activities', 'X', {
           duration: 3000
         });
 

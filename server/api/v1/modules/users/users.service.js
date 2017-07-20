@@ -1,22 +1,22 @@
-const config = require('../common/config');
+const config = require('../../../../appconfig/env/dev');
 const cassandra = require('cassandra-driver');
 const jwt = require('jsonwebtoken');
 const request = require('superagent');
-const BASE_COMMUNITY_SERVICE_URL = 'http://calvin-communities.blr.stackroute.in/api/v1';
+const urlValue= config.BASE_COMMUNITY_SERVICE_URL ;
 
 //const BASE_COMMUNITY_SERVICE_URL='http://172.23.238.141:3000/api/v1/';
 
 let cookies = []; // stores Cookies User and Community info tokens
 
-const USERS_TABLE = 'users';
+const usersTable = config.USERS_TABLE;
 const client = new cassandra.Client({
-  contactPoints: [config.dbconfig.dburl],
-  keyspace: config.dbconfig.keyspacename,
+  contactPoints: [config.connectionString.dburl],
+  keyspace: config.connectionString.keyspacename,
 });
 
 // this function is to check if user record is already present in database
 function checkIfUserExists(email, done) {
-  const chkQuery = `SELECT * FROM ${USERS_TABLE} where username = '${email}'`;
+  const chkQuery = `SELECT * FROM ${usersTable} where username = '${email}'`;
   client.execute(chkQuery, (err, results) => {
     if (err) {
       return done(err, 'db error');
@@ -31,7 +31,7 @@ function checkIfUserExists(email, done) {
 }
 // this function is to update last login time in database
 function updateLastLoginTime(profile, done) {
-  const updateQuery = (`UPDATE ${USERS_TABLE} set lastlogin=:lastlogin where username=:username`);
+  const updateQuery = (`UPDATE ${usersTable} set lastlogin=:lastlogin where username=:username`);
   client.execute(updateQuery, profile, (err) => {
     if (err) { return done(err, 'db err'); }
     return done();
@@ -39,7 +39,7 @@ function updateLastLoginTime(profile, done) {
 }
 // this function is to insert new user in database
 function insertUserInDb(profile, done) {
-  const insertQuery = `INSERT into ${USERS_TABLE}(userhandle,username,lastlogin,role,name,profilepic) VALUES (:uh,:username,:lastlogin,:role,:name,:image)`;
+  const insertQuery = `INSERT into ${usersTable}(userhandle,username,lastlogin,role,name,profilepic) VALUES (:uh,:username,:lastlogin,:role,:name,:image)`;
   client.execute(insertQuery, profile, (err) => {
     if (err) {
       return done(err);
@@ -52,7 +52,7 @@ function insertUserInDb(profile, done) {
 // If user already exists in database , last login time gets updated
 // else new record in inserted in database
 function updateUser(profile, done) {
-  console.log('inside update user;');
+  // console.log('inside update user;');
   const userDetails = {
     name: profile.name,
     username: profile.username,
@@ -61,7 +61,7 @@ function updateUser(profile, done) {
 
   const userToken = jwt.sign(userDetails, config.appConstants.secret,
     { expiresIn: config.appConstants.expiryTime });
-  // console.log('userToken', userToken);
+  // // console.log('userToken', userToken);
   cookies.push(userToken);
   checkIfUserExists(profile.username, (error, userExists) => {
     if (userExists) {
@@ -85,16 +85,16 @@ function updateUser(profile, done) {
 // this function is to get List of Comminities of a User
 function getUserCommunities(username, done) {
   let tempCookie=[];
-  const url = `${BASE_COMMUNITY_SERVICE_URL}/membership/${username}`;
+  const url = `${urlValue}/membership/${username}`;
   request
  .get(url)
  .query({ username }) // query string
  .end((err, res) => {
    if (err) {
-     console.log('error is ', err);
+     // console.log('error is ', err);
      return done(err);
    }
-   //console.log('result is ', res.body);
+   //// console.log('result is ', res.body);
    const userCommunityToken = jwt.sign(res.body, config.appConstants.secret,
     { expiresIn: config.appConstants.expiryTime });
    cookies.push(userCommunityToken);
@@ -105,7 +105,7 @@ function getUserCommunities(username, done) {
 }
 //update user details in userprofile component
 function updateSpecificProfile(emailAddrs, profileData, done) {
-  const query = (`UPDATE ${USERS_TABLE} SET aboutMe = '${profileData.about}',contact = '${profileData.contact}',interestedtopics= {'${profileData.interest}'},location = '${profileData.loc}' WHERE username = '${emailAddrs}'`);
+  const query = (`UPDATE ${usersTable} SET aboutMe = '${profileData.about}',contact = '${profileData.contact}',interestedtopics= {'${profileData.interest}'},location = '${profileData.loc}' WHERE username = '${emailAddrs}'`);
   client.execute(query, (err) => {
     if (!err) {
       done(null);
@@ -117,8 +117,10 @@ function updateSpecificProfile(emailAddrs, profileData, done) {
 //get user details from user profile component
 function getUserDetails(emailAddrs, done) {
   console.log('Insise Service');
-  const query = (`SELECT aboutme,contact,interestedtopics,location from ${USERS_TABLE} where username ='${emailAddrs}'`);
+  console.log('****table name***', usersTable);
+  const query = (`SELECT aboutme,contact,interestedtopics,location from ${usersTable} where username ='${emailAddrs}'`);
   client.execute(query, (err, result) => {
+    console.log('*********userdetails*****************', query );
     if (!err) {
       done(undefined, result.rows);
     } else {

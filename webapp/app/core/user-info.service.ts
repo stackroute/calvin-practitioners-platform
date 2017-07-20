@@ -10,7 +10,7 @@ export class UserInfoService {
     getUserDetail(done) {
 
 
-        const token = Cookie.get('currentUser');
+        const token = Cookie.get('currentUsers');
         const base64Url = token.split('.')[1];
         return done(this.decodeJWTtoken(base64Url));
 
@@ -20,7 +20,7 @@ export class UserInfoService {
     getUserCommunity(done) {
 
         const token = Cookie.get('userCommunity');
-        console.log(token);
+        // console.log(token);
         const base64Url = token.split('.')[1];
         const comm = this.decodeJWTtoken(base64Url);
         return done(comm.communities);

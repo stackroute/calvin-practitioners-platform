@@ -67,13 +67,15 @@ import { DialogResultDialog } from './tool-config-page/tool-config-page.componen
 import { ToolConfigPageComponent } from './tool-config-page/tool-config-page.component';
 import { NotificationsComponent } from './notifications/notifications.component';
 import { MdAutocompleteModule } from '@angular/material';
+<<<<<<< HEAD
 import { InvalidLoginComponent } from './member-invitation/member-invitation.component';
 import { AcceptPageComponent } from './member-invitation/member-invitation.component';
+=======
+
+>>>>>>> 9c1851646e819289dd67e5d732c7f45ec93e5771
 
 @NgModule({
   declarations: [
-    InvalidLoginComponent,
-    AcceptPageComponent,
     AppComponent,
     ToolPageComponent,
     updateCommunity,

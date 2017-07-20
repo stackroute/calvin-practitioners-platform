@@ -1,334 +1,26 @@
-// const activityServices = require('./communityActivities.service');
-const activities = {
-  activity: [ 
-    {
-       "@context": 'http://avatar.com/group/stackroute',
-       id:'27d13830-5efa-4fec-9317-abe2e444d9c6',
-       type: 'Create',
-       name: 'Anis has created a new calendar wave18 for Stackroute',
-       actor: {
-         type: 'Link',
-         name: 'Anis',
-         href: 'https://docs.atlassian.com/aui/5.1/docs/img/user-avatar-blue-96@2x.png',
-         mediaType: 'image/svg+xml'
-       },
-       object: {
-         type: 'Link',
-         name: 'wave18',
-         href: 'http://australiancommunityphilanthropy.org.au/wp-content/uploads/2015/02/cropped-community-group.jpg',
-         mediaType: 'image/svg+xml'
-       },
-       target: {
-         type: 'Group',
-         name: 'Stackroute',
-         content: 'https://cdn.elegantthemes.com/blog/wp-content/uploads/2016/04/community-wordpress.jpg',
-         url: 'http://groups.com/group/Stackroute'
-       },
-       context: {
-         type: 'Link',
-         name: 'Calendar',
-         href: 'http://tools.com/tools/calendar',
-         mediaType: 'image/svg+xml'
-       }
-     },
-     {
-       "@context": 'http://avatar.com/group/stackroute',
-       id:'27d13830-5efa-4fec-9317-abe2e444d9c6',
-       type: 'Create',
-       name: 'Anis has created a new calendar wave18 for Stackroute',
-       actor: {
-         type: 'Link',
-         name: 'Anis',
-         href: 'https://docs.atlassian.com/aui/5.1/docs/img/user-avatar-blue-96@2x.png',
-         mediaType: 'image/svg+xml'
-       },
-       object: {
-         type: 'Link',
-         name: 'wave18',
-         href: 'http://australiancommunityphilanthropy.org.au/wp-content/uploads/2015/02/cropped-community-group.jpg',
-         mediaType: 'image/svg+xml'
-       },
-       target: {
-         type: 'Group',
-         name: 'Stackroute',
-         content: 'http://www.impublications.com/sites/default/files/community.jpg',
-         url: 'http://groups.com/group/Stackroute'
-       },
-       context: {
-         type: 'Link',
-         name: 'Calendar',
-         href: 'http://tools.com/tools/calendar',
-         mediaType: 'image/svg+xml'
-       }
-     },{
-       "@context": 'http://avatar.com/group/stackroute',
-       id:'27d13830-5efa-4fec-9317-abe2e444d9c6',
-       type: 'Create',
-       name: 'Anis has created a new calendar wave18 for Stackroute',
-       actor: {
-         type: 'Link',
-         name: 'Anis',
-         href: 'https://docs.atlassian.com/aui/5.1/docs/img/user-avatar-blue-96@2x.png',
-         mediaType: 'image/svg+xml'
-       },
-       object: {
-         type: 'Link',
-         name: 'wave18',
-         href: 'http://australiancommunityphilanthropy.org.au/wp-content/uploads/2015/02/cropped-community-group.jpg',
-         mediaType: 'image/svg+xml'
-       },
-       target: {
-         type: 'Group',
-         name: 'Stackroute',
-         content: 'https://www.planwallpaper.com/static/images/desktop-year-of-the-tiger-images-wallpaper.jpg',
-         url: 'http://groups.com/group/Stackroute'
-       },
-       context: {
-         type: 'Link',
-         name: 'Calendar',
-         href: 'http://tools.com/tools/calendar',
-         mediaType: 'image/svg+xml'
-       }
-     },{
-       "@context": 'http://avatar.com/group/stackroute',
-       id:'27d13830-5efa-4fec-9317-abe2e444d9c6',
-       type: 'Create',
-       name: 'Anis has created a new calendar wave18 for Stackroute',
-       actor: {
-         type: 'Link',
-         name: 'Anis',
-         href: 'https://docs.atlassian.com/aui/5.1/docs/img/user-avatar-blue-96@2x.png',
-         mediaType: 'image/svg+xml'
-       },
-       object: {
-         type: 'Link',
-         name: 'wave18',
-         href: 'http://australiancommunityphilanthropy.org.au/wp-content/uploads/2015/02/cropped-community-group.jpg',
-         mediaType: 'image/svg+xml'
-       },
-       target: {
-         type: 'Group',
-         name: 'Stackroute',
-         content: 'https://images.pexels.com/photos/34950/pexels-photo.jpg?h=350&auto=compress&cs=tinysrgb',
-         url: 'http://groups.com/group/Stackroute'
-       },
-       context: {
-         type: 'Link',
-         name: 'Calendar',
-         href: 'http://tools.com/tools/calendar',
-         mediaType: 'image/svg+xml'
-       }
-     },{
-       "@context": 'http://avatar.com/group/stackroute',
-       id:'27d13830-5efa-4fec-9317-abe2e444d9c6',
-       type: 'Create',
-       name: 'Anis has created a new calendar wave18 for Stackroute',
-       actor: {
-         type: 'Link',
-         name: 'Anis',
-         href: 'https://docs.atlassian.com/aui/5.1/docs/img/user-avatar-blue-96@2x.png',
-         mediaType: 'image/svg+xml'
-       },
-       object: {
-         type: 'Link',
-         name: 'wave18',
-         href: 'http://australiancommunityphilanthropy.org.au/wp-content/uploads/2015/02/cropped-community-group.jpg',
-         mediaType: 'image/svg+xml'
-       },
-       target: {
-         type: 'Group',
-         name: 'Stackroute',
-         content: 'https://cdn.pixabay.com/photo/2016/10/27/22/53/heart-1776746_960_720.jpg',
-         url: 'http://groups.com/group/Stackroute'
-       },
-       context: {
-         type: 'Link',
-         name: 'Calendar',
-         href: 'http://tools.com/tools/calendar',
-         mediaType: 'image/svg+xml'
-       }
-     },{
-       "@context": 'http://avatar.com/group/stackroute',
-       id:'27d13830-5efa-4fec-9317-abe2e444d9c6',
-       type: 'Create',
-       name: 'Anis has created a new calendar wave18 for Stackroute',
-       actor: {
-         type: 'Link',
-         name: 'Anis',
-         href: 'https://docs.atlassian.com/aui/5.1/docs/img/user-avatar-blue-96@2x.png',
-         mediaType: 'image/svg+xml'
-       },
-       object: {
-         type: 'Link',
-         name: 'wave18',
-         href: 'http://australiancommunityphilanthropy.org.au/wp-content/uploads/2015/02/cropped-community-group.jpg',
-         mediaType: 'image/svg+xml'
-       },
-       target: {
-         type: 'Group',
-         name: 'Stackroute',
-         content: 'https://www.planwallpaper.com/static/images/nasas-images-of-most-remarkable-events-you-cant-miss.jpg',
-         url: 'http://groups.com/group/Stackroute'
-       },
-       context: {
-         type: 'Link',
-         name: 'Calendar',
-         href: 'http://tools.com/tools/calendar',
-         mediaType: 'image/svg+xml'
-       }
-     },{
-       "@context": 'http://avatar.com/group/stackroute',
-       id:'27d13830-5efa-4fec-9317-abe2e444d9c6',
-       type: 'Create',
-       name: 'Anis has created a new calendar wave18 for Stackroute',
-       actor: {
-         type: 'Link',
-         name: 'Anis',
-         href: 'https://docs.atlassian.com/aui/5.1/docs/img/user-avatar-blue-96@2x.png',
-         mediaType: 'image/svg+xml'
-       },
-       object: {
-         type: 'Link',
-         name: 'wave18',
-         href: 'http://australiancommunityphilanthropy.org.au/wp-content/uploads/2015/02/cropped-community-group.jpg',
-         mediaType: 'image/svg+xml'
-       },
-       target: {
-         type: 'Group',
-         name: 'Stackroute',
-         content: 'https://cdn.elegantthemes.com/blog/wp-content/uploads/2016/04/community-wordpress.jpg',
-         url: 'http://groups.com/group/Stackroute'
-       },
-       context: {
-         type: 'Link',
-         name: 'Calendar',
-         href: 'http://tools.com/tools/calendar',
-         mediaType: 'image/svg+xml'
-       }
-     },{
-       "@context": 'http://avatar.com/group/stackroute',
-       id:'27d13830-5efa-4fec-9317-abe2e444d9c6',
-       type: 'Create',
-       name: 'Anis has created a new calendar wave18 for Stackroute',
-       actor: {
-         type: 'Link',
-         name: 'Anis',
-         href: 'https://docs.atlassian.com/aui/5.1/docs/img/user-avatar-blue-96@2x.png',
-         mediaType: 'image/svg+xml'
-       },
-       object: {
-         type: 'Link',
-         name: 'wave18',
-         href: 'http://australiancommunityphilanthropy.org.au/wp-content/uploads/2015/02/cropped-community-group.jpg',
-         mediaType: 'image/svg+xml'
-       },
-       target: {
-         type: 'Group',
-         name: 'Stackroute',
-         content: 'https://cdn.elegantthemes.com/blog/wp-content/uploads/2016/04/community-wordpress.jpg',
-         url: 'http://groups.com/group/Stackroute'
-       },
-       context: {
-         type: 'Link',
-         name: 'Calendar',
-         href: 'http://tools.com/tools/calendar',
-         mediaType: 'image/svg+xml'
-       }
-     },{
-       "@context": 'http://avatar.com/group/stackroute',
-       id:'27d13830-5efa-4fec-9317-abe2e444d9c6',
-       type: 'Create',
-       name: 'Anis has created a new calendar wave18 for Stackroute',
-       actor: {
-         type: 'Link',
-         name: 'Anis',
-         href: 'https://docs.atlassian.com/aui/5.1/docs/img/user-avatar-blue-96@2x.png',
-         mediaType: 'image/svg+xml'
-       },
-       object: {
-         type: 'Link',
-         name: 'wave18',
-         href: 'http://australiancommunityphilanthropy.org.au/wp-content/uploads/2015/02/cropped-community-group.jpg',
-         mediaType: 'image/svg+xml'
-       },
-       target: {
-         type: 'Group',
-         name: 'Stackroute',
-         content: 'https://cdn.elegantthemes.com/blog/wp-content/uploads/2016/04/community-wordpress.jpg',
-         url: 'http://groups.com/group/Stackroute'
-       },
-       context: {
-         type: 'Link',
-         name: 'Calendar',
-         href: 'http://tools.com/tools/calendar',
-         mediaType: 'image/svg+xml'
-       }
-     },{
-       "@context": 'http://avatar.com/group/stackroute',
-       id:'27d13830-5efa-4fec-9317-abe2e444d9c6',
-       type: 'Create',
-       name: 'Anis has created a new calendar wave18 for Stackroute',
-       actor: {
-         type: 'Link',
-         name: 'Anis',
-         href: 'https://docs.atlassian.com/aui/5.1/docs/img/user-avatar-blue-96@2x.png',
-         mediaType: 'image/svg+xml'
-       },
-       object: {
-         type: 'Link',
-         name: 'wave18',
-         href: 'http://australiancommunityphilanthropy.org.au/wp-content/uploads/2015/02/cropped-community-group.jpg',
-         mediaType: 'image/svg+xml'
-       },
-       target: {
-         type: 'Group',
-         name: 'Stackroute',
-         content: 'https://cdn.elegantthemes.com/blog/wp-content/uploads/2016/04/community-wordpress.jpg',
-         url: 'http://groups.com/group/Stackroute'
-       },
-       context: {
-         type: 'Link',
-         name: 'Calendar',
-         href: 'http://tools.com/tools/calendar',
-         mediaType: 'image/svg+xml'
-       }
-     },{
-       "@context": 'http://avatar.com/group/stackroute',
-       id:'27d13830-5efa-4fec-9317-abe2e444d9c6',
-       type: 'Create',
-       name: 'Anis has created a new calendar wave18 for Stackroute',
-       actor: {
-         type: 'Link',
-         name: 'Anis',
-         href: 'https://docs.atlassian.com/aui/5.1/docs/img/user-avatar-blue-96@2x.png',
-         mediaType: 'image/svg+xml'
-       },
-       object: {
-         type: 'Link',
-         name: 'wave18',
-         href: 'http://australiancommunityphilanthropy.org.au/wp-content/uploads/2015/02/cropped-community-group.jpg',
-         mediaType: 'image/svg+xml'
-       },
-       target: {
-         type: 'Group',
-         name: 'Stackroute',
-         content: 'https://cdn.elegantthemes.com/blog/wp-content/uploads/2016/04/community-wordpress.jpg',
-         url: 'http://groups.com/group/Stackroute'
-       },
-       context: {
-         type: 'Link',
-         name: 'Calendar',
-         href: 'http://tools.com/tools/calendar',
-         mediaType: 'image/svg+xml'
-       }
-     }
-  ]
+const request = require('superagent');
+const config = require('../../../../appconfig/env/dev');
+
+ const urlValue=config.BASE_ACTIVITY_SERVICE_URL;
+  const authToken=config.authToken;
+
+function getMemberActivities(userName, done) {
+ 
+  const url = `${urlValue}/adapter/getallactivities/user/${userName}`;
+  request
+    .get(url)
+    .set({
+      'Accept': 'application/json',
+      'Authorization': 'Bearer ' + authToken
+    })
+    .query({ userName })
+    .end((err, res) => {
+      if (err) {
+        return done(err);
+      }
+      return done(null, res.body);
+    });
 }
-
- const tempStorage = {
-   memberDetails: [],
- };
-
 
 // function getAllCommunitiesOfMember(memberName) {
 //   // activityServices.getActivityData();
@@ -339,20 +31,31 @@ const activities = {
 //   return memberFilteredArray;
 // }
 // get all the activities according to member Name
- function getMemberActivities(done) {   
-   return done(null,activities);
- }
-
-//  function filterMemberCommunities(memberName, communityNames) {
-//    getAllCommunitiesOfMember(memberName);
-//    communityNames = communityNames.split(',');
-//    memberCommunityFilteredArray = memberFilteredArray.filter(community => communityNames.indexOf(object.name) > -1);
-//    return memberCommunityFilteredArray;
+//  function getMemberActivities(done) {   
+//    return done(null,activities);
 //  }
 
-//  function getLimitOfPages(limit) {
-//    return limit;
-//  }
+function getDomainActivities(domainName, done) {
+  const url = `${urlValue}/adapter/getallactivities/domain/${domainName}`;
+  request
+    .get(url)
+    .set({
+      'Accept': 'application/json',
+      'Authorization': 'Bearer ' + authToken
+    })
+    .query({ domainName })
+    .end((err, res) => {
+      if (err) {
+        return done(err);
+      }
+      return done(null, res.body);
+    });
+}
+
+module.exports = {
+  getMemberActivities,
+  getDomainActivities,
+};
 
 
 
@@ -360,11 +63,3 @@ const activities = {
 
 
 
-
- module.exports =
- {
-  //  getAllCommunitiesOfMember,
-  //  filterMemberCommunities,
-   getMemberActivities,
-  //  getLimitOfPages,
- };

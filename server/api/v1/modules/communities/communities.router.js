@@ -8,14 +8,22 @@ router.get('/communities/:domain', (req, res) => { // eslint-disable-line consis
   try {
     communityCtrl.getSpecificCommunity(req.params.domain,req.query.counter, (err, result) => {
       if (err) {
+<<<<<<< HEAD
         
+=======
+        // console.log("checking for counter",err);
+>>>>>>> 9c1851646e819289dd67e5d732c7f45ec93e5771
         res.status(500).send({ error: 'Error in getting community details, please try later..!' });
       } else {
         res.status(200).send(result);
       }
     });
   } catch (err) {
+<<<<<<< HEAD
     
+=======
+    //  console.log("checking for counter in error",err);
+>>>>>>> 9c1851646e819289dd67e5d732c7f45ec93e5771
     return res.status(500).send({
       error: 'Internal error occurred....!' });
   }

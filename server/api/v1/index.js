@@ -1,13 +1,13 @@
 const router = require('express').Router();
-const config = require('./modules/common/config');
+const config = require('./../../appconfig/env/dev');
 
 router.use('/activityevents', require('./modules/communityactivityevents'));
 
 router.use('/login', require('./modules/login'));
 
 router.use('/logout', (req, res) => {
-  res.clearCookie(config.cookie.user);
-  res.clearCookie(config.cookie.userCommunity);
+  res.clearCookie(config.cookies.user);
+  res.clearCookie(config.cookies.userCommunity);
   res.redirect('/');
 });
 

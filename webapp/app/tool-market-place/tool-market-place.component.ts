@@ -19,7 +19,7 @@ export class ToolMarketPlaceComponent implements OnInit {
     this.toolService.getTools().subscribe(data => {
       this.tools = data;
       this.newTool=data;
-      console.log('this.tools', this.tools);
+      // console.log('this.tools', this.tools);
       
     });
     
@@ -28,30 +28,30 @@ export class ToolMarketPlaceComponent implements OnInit {
 
   //searchValue;
   selectedValue(value1) {
-    console.log(value1.toUpperCase(),"Entered value");
+    // console.log(value1.toUpperCase(),"Entered value");
     this.newTool=[];
     this.tools.forEach((data) => {
       //  console.log('this toolname',data.toolname);
       //   console.log('this toolname type',typeof data.toolname);
       if (data.toolname.includes(value1)){
        
-       console.log("true", data.toolname);
+      //  console.log("true", data.toolname);
       // console.log("toolname",data.toolname.toUpperCase())
        this.newTool.push(data);
-       console.log(this.newTool,"neewwwwww")
+      //  console.log(this.newTool,"neewwwwww")
       }
     });
   }
 
   selectpurpose(value){
-    console.log(value);
+    // console.log(value);
     //value="test";
     this.newTool=[];
     this.tools.forEach((data) => {
-      console.log('this toolname',data.purpose);
+      // console.log('this toolname',data.purpose);
       if (data.purpose===value) {
        
-       console.log("purpose true", data);
+      //  console.log("purpose true", data);
        this.newTool.push(data);
       }
     });
@@ -60,7 +60,7 @@ export class ToolMarketPlaceComponent implements OnInit {
 
 
   onSelect(toolid){
-    console.log(toolid);
+    // console.log(toolid);
     this.router.navigate([`app/toolpage/${toolid}`]);
   }
   

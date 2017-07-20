@@ -1,10 +1,11 @@
 const request = require('superagent');
 
-const BASE_COMMUNITY_SERVICE_URL = 'http://calvin-communities.blr.stackroute.in/api/v1';
+const config = require('../../../../appconfig/env/dev');
+const urlValue =config.BASE_COMMUNITY_SERVICE_URL;
 
 function getAllCommunityTemplates(purpose, done) {
     // Call communities service to get all the templates
-  const url = `${BASE_COMMUNITY_SERVICE_URL}/communitytemplates`;
+  const url = `${urlValue}/communitytemplates`;
   request
   .get(url)
   .query({ purpose }) // query string
@@ -12,7 +13,7 @@ function getAllCommunityTemplates(purpose, done) {
     if (err) {
       return done(err);
     }
-       console.log(res.body);
+      //  console.log(res.body);
     return done(null, res.body);
  
   });

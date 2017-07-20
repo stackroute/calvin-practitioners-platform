@@ -25,8 +25,8 @@ import { ToolPageComponent } from '../tool-page/tool-page.component';
 import { CommunityMemberManagementComponent } from '../community-member-management/community-member-management.component';
 import { MemberInvitationComponent } from "../member-invitation/member-invitation.component";
 import { ToolConfigPageComponent } from '../tool-config-page/tool-config-page.component';
-import { InvalidLoginComponent } from '../member-invitation/member-invitation.component';
-import { AcceptPageComponent } from '../member-invitation/member-invitation.component';
+// import { InvalidLoginComponent } from '../member-invitation/member-invitation.component';
+// import { AcceptPageComponent } from '../member-invitation/member-invitation.component';
 
 // Calvin routes
 const routes: ModuleWithProviders = RouterModule.forRoot([
@@ -49,9 +49,9 @@ const routes: ModuleWithProviders = RouterModule.forRoot([
       { path: 'addtool', component: AddToolComponent},
       { path: 'toolmarket', component : ToolMarketPlaceComponent},
       { path: 'toolpage/:toolid', component: ToolPageComponent },
-      { path: 'toolconfig/:domain/:toolid', component:ToolConfigPageComponent},
-      { path: 'communityinvite/invalid', component:InvalidLoginComponent},
-      { path: 'communityinvite/invalid', component:AcceptPageComponent}
+      { path: 'toolconfig/:domain/:toolid', component:ToolConfigPageComponent}
+      // { path: 'communityinvite/invalid', component:InvalidLoginComponent},
+      // { path: 'communityinvite/invalid', component:AcceptPageComponent}
     ]
   },
   { path: '', redirectTo: '/app/home', pathMatch: 'full' },

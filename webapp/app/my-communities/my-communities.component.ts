@@ -31,12 +31,22 @@ export class UserWidgetsComponent implements OnInit {
     this.userInfo.getUserDetail((userdetails) => {
 
       this.member = userdetails.username;
+<<<<<<< HEAD
      
+=======
+      // console.log(userdetails);
+      // console.log(typeof userdetails);
+      // console.log('user is : ' + this.member);
+>>>>>>> 9c1851646e819289dd67e5d732c7f45ec93e5771
     });
 
      this.userInfo.getUserCommunity((userCommunity) => {
        this.CommunitiesInfo = userCommunity;
+<<<<<<< HEAD
        
+=======
+      //  console.log("getting user communitiesss,,",this.CommunitiesInfo);
+>>>>>>> 9c1851646e819289dd67e5d732c7f45ec93e5771
       
    
      });

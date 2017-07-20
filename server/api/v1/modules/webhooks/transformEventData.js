@@ -20,7 +20,7 @@ const topicMappingConfig = {
 
 
 function extractEventData(eventPayload, { domainName, toolId, username }, done) {
-	console.log('4.inside extract event data');
+	// console.log('4.inside extract event data');
 	let eventData = {};
 
 	const DCMapping = {
@@ -48,7 +48,7 @@ function extractEventData(eventPayload, { domainName, toolId, username }, done) 
 			break;
 	}
 
-	console.log(eventType);
+	// console.log(eventType);
 	requireMapping = MappedObj[eventType];
 	done(null, convertData(eventPayload, requireMapping));
 
@@ -56,14 +56,14 @@ function extractEventData(eventPayload, { domainName, toolId, username }, done) 
 }
 
 function convertData(eventPayload, mappingConfig) {
-   console.log('5.inside convert data');
+   // console.log('5.inside convert data');
 	let convertedData = {};
 
 	Object.keys(mappingConfig).forEach((fieldKey) => {
 		convertedData[fieldKey] = lodash.get(eventPayload, mappingConfig[fieldKey]);
 	});
 
-	console.log("POST data ", convertedData);
+	// console.log("POST data ", convertedData);
 	return convertedData;
 }
 
