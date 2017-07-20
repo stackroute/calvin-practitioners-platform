@@ -39,22 +39,22 @@ function updateSpecificCommunity(domain, form, done) {
 }
 
 
-// function getUserCommunity(member, done) {
-//    // Call specific user communities on the basis of username
-//   //console.log('value of memmebvr in server', member);
-//   const url = `${BASE_COMMUNITY_SERVICE_URL}/membership/${member}`;
-//   request
-//  .get(url)
-//  .query({ member }) // query string
-//  .end((err, res) => {
-//    if (err) {
-//      //console.log('error in server for getting community', err);
-//      return done(err);
-//    }
-//    //console.log('printing res body', res.body);
-//    return done(null, res.body);
-//  });
-// }
+function getUserCommunity(member, done) {
+   // Call specific user communities on the basis of username
+  console.log('value of memmebvr in server', member);
+  const url = `${urlValue}/membership/${member}`;
+  request
+ .get(url)
+ .query({ member }) // query string
+ .end((err, res) => {
+   if (err) {
+     console.log('error in server for getting community', err);
+     return done(err);
+   }
+   console.log('printing res body', res.body);
+   return done(null, res.body);
+ });
+}
 
 
 // post new community data
@@ -80,7 +80,7 @@ function GetCommunity(done) {
 
 
 module.exports = {
-  // getUserCommunity,
+  getUserCommunity,
   postNewcommunityDetails,
   getSpecificCommunity,
   updateSpecificCommunity,

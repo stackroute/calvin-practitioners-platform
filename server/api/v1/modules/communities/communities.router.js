@@ -55,23 +55,23 @@ router.get('/community-details', (req, res) => { // eslint-disable-line consiste
   }
 });
 
-// router.get('/membership/:member/', (req, res) => { // eslint-disable-line consistent-return
-//   try {
-//     //console.log('1.insoide gettong communities for a user.....');
-//     communityCtrl.getUserCommunity(req.params.member, (err, result) => {
-//       if (err) {
-//         res.status(500).send({ error: 'Error in getting community details, please try later..!' });
-//       } else {
-//        // console.log('got  communities of user as : ', result);
-//         res.status(200).send(result);
-//       }
-//     });
-//   } catch (err) {
-//     //console.log('got error communities of user as : ', err);
-//     return res.status(500).send({
-//       error: 'Internal error occurred....!' });
-//   }
-// });
+router.get('/membership/:member/', (req, res) => { // eslint-disable-line consistent-return
+  try {
+    console.log('1.insoide gettong communities for a user.....');
+    communityCtrl.getUserCommunity(req.params.member, (err, result) => {
+      if (err) {
+        res.status(500).send({ error: 'Error in getting community details, please try later..!' });
+      } else {
+       console.log('got  communities of user as : ', result);
+        res.status(200).send(result);
+      }
+    });
+  } catch (err) {
+    console.log('got error communities of user as : ', err);
+    return res.status(500).send({
+      error: 'Internal error occurred....!' });
+  }
+});
 
 //post new community data
 router.post('/:domainName', (req, res) => {
