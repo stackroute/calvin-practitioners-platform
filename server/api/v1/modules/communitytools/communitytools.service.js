@@ -24,9 +24,9 @@ function integrateNewTool({domainName, toolId, username}, done) {
 	});
 }
 
-function integrateToolinCommunity(domain,toolid,done){
+function integrateToolinCommunity(domain,token,toolid,data,done){
 	console.log("tooldata inside service",domain);
-     const url=`${BASE_COMMUNITY_SERVICE_URL}/api/v1/communitytools/${domain}/tools/${toolid}`;
+     const url=`${BASE_COMMUNITY_SERVICE_URL}/communitytools/${domain}/tools/${toolid}`;
 	 request
  .post(url)
  .send(data) // query string
@@ -37,43 +37,29 @@ function integrateToolinCommunity(domain,toolid,done){
     }
     return done(null, res.body);
   });
-// console.log('inisde integarte community');
-//   const token= jwt.sign(tooldata,'secret',{ expiresIn: 60*500 },(err,result)=>{
-//         if(err)
-// 		{
-// 			   return done(err,'token');
-// 		}
-// 	   else 	return done(null,token);
-//   });
-  
-//------------------------------------------
-// function integrateToolinCommunity(toolid, domain, done) {
-// 	console.log("tooldata inside service", toolid);
-// 	const url = `${BASE_COMMUNITY_SERVICE_URL}/api/v1/events/${toolid}/${domain}`;
-// 	request
-// 		.post(url)
-// 		.send(data) // query string
-// 		.end((err, res) => {
-// 			if (err) {
-// 				console.log('error is ', err);
-// 				return done(err);
-// 			}
-// 			return done(null, res.body);
-// 		});
-	// console.log('inisde integarte community');
-	//   const token= jwt.sign(tooldata,'secret',{ expiresIn: 60*500 },(err,result)=>{
-	//         if(err)
-	// 		{
-	// 			   return done(err,'token');
-	// 		}
-	// 	   else 	return done(null,token);
-	//   });
 
-
-//}
-////===============================
 }
+
+function postToolEventToCommunity(domain,toolid,tokens,EventMsg,done){
+
+let token='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkb21haW4iOiJpbGx1bWluYXRpIiwidG9vbGlkIjoicmFzdGVyIiwiZXZlbnRzIjpbImV2aWQxIiwiZXZpZDIiXSwiaWF0IjoxNTAwNDc3MzI2fQ.eH5Nn2iIXLdiXGjncYABLkHG9rgQCmkqvKpnFqQLcn8';
+console.log('hi got domain',domain," toolid ",toolid," token ",token, "ebent msg ",EventMsg);
+ const url=`${BASE_COMMUNITY_SERVICE_URL}/webhooks/${token}`;
+	 request
+ .post(url)
+ .send(EventMsg) // query string
+ .end((err, res) => {
+ 
+    if (err) {
+      console.log('error is ',err);
+     return done(err);
+    }
+    return done(null,'successfully sent');
+});
+}
+
 module.exports = {
 	integrateNewTool,
-	integrateToolinCommunity
+	integrateToolinCommunity,
+	postToolEventToCommunity
 }

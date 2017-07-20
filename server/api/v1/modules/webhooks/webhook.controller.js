@@ -9,7 +9,7 @@ const transformEventData = require('./transformEventData');
 
 function verifyToolToken(token, done) {
     console.log('3.inside verify token');
-    jwt.verify(token, config.appConstants.secret, (err, tokenClaims) => {
+    jwt.verify(token, 'config.appConstants.secret', (err, tokenClaims) => {
         if (err) {
             console.log('error is ', err);
             return done(err, 'unauhtorized');
@@ -24,6 +24,7 @@ function extractEventData(eventPayload, tokenClaims, done) {
     let obj;
     transformEventData.extractEventData(eventPayload, tokenClaims, (err, extractedData) => {
         if (err) {
+            console.log('error is ',err);
             return done(err, 'unable to extract data');
         }
         else {
@@ -38,9 +39,10 @@ function sendToCommunityService(payload,obj,done) {
 
     // tokenClaims will have { domainName, toolId, username }
     // console.log('6.inside token claim',obj.tokenClaims);
-cummunityToolservice.addToolinCommunity(obj.tokenClaims.domainName,obj.extractedData,(err,result)=>{
+    console.log('got object ....',obj.tokenClaims);
+cummunityToolservice.postToolEventToCommunity(obj.tokenClaims.domainName,obj.tokenClaims.toolId,obj.tokenClaims.token,obj.extractedData,(err,result)=>{
       if(err) {
-
+          console.log('error is ',err);
           return done(err,'Unable to POST in Community')
       }
       return done(null, 'Successfully Sent');
@@ -61,7 +63,7 @@ function handleToolEvent(token, eventPayload, done) {
         "domainName": "digital",
         "toolId": "discourse",
         "username": "ceanstackdev@gmal.com"
-    }, config.appConstants.secret, { expiresIn: config.appConstants.expiryTime });
+    }, 'config.appConstants.secret', { expiresIn: 60*5000 });
 
     console.log('2.getting inside handle tool event');
     async.waterfall([
@@ -71,6 +73,7 @@ function handleToolEvent(token, eventPayload, done) {
     ],
         (err, result) => {
             if (err) {
+                console.log('error is ',err);
                 done(err, 'Internal Error');
             }
             done(null, 'successfully sent');
