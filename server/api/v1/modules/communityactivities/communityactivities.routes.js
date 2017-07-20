@@ -18,68 +18,38 @@ const controller = require('./communityactivities.controller');
  * - page : Current page number
  * * Effective URL is /memberactivitypage/:membername
  */
-router.get('/:membername', (req, res) => {
+router.get('/:userName', (req, res) => {
   try {
-    controller.getMemberActivities((err, result) => {
+    controller.getMemberActivities(req.params.userName, (err, result) => {
       if (err) {
-        res.status(500).send({ error: 'Error in getting community details, please try later..!' });
+        console.log("checking for counter",err);
+        res.status(500).send({ error: 'Error in getting Activity details, please try later..!' });
       } else {
         res.status(200).send(result);
       }
     });
   } catch (err) {
-    // console.log("inside route error", err)
-    return res.status(500).send({error: 'Internal error occurred....!' });
+     console.log("checking for counter in error",err);
+    return res.status(500).send({
+      error: 'Internal error occurred....!' });
   }
 });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// router.get('/:membername', (req, res) => {
-//   try {
-//     let communities = [];
-//     const sort = 'ts';
-//     const order = 'desc';
-//     const limit = 20; 
-//     const page = 1;
-//     if (req.query.communities) {
-//         // it will be comma separated list of domains,
-//         // hence split them to get the array of domain name
-//         // req.query.communities
-//         // communities;
-//         console.log("req.params.membername",req.params.membername);
-//       const filteredMemberCommunities = controller
-//       .filterMemberCommunities(req.params.membername, req.query.communities);
-//       if (filteredMemberCommunities.length === 0) {
-//         return res.status(500).send({
-//           error: "Requested community doesn't exsit for the given member",
-//         });
-//       }
-//       return res.send(filteredMemberCommunities);
-//     }
-//        return res.send(controller.getAllCommunitiesOfMember(req.params.membername));
-//   } catch (err) {
-//     console.log(err);
-//     return res.status(500).send({
-//       error: 'Error in operation, please try later..!',
-//     });
-//   }
-// });
+router.get('/community/:domainName', (req, res) => {
+  try {
+    controller.getDomainActivities(req.params.domainName, (err, result) => {
+      if (err) {
+        console.log("checking for counter",err);
+        res.status(500).send({ error: 'Error in getting Activity details, please try later..!' });
+      } else {
+        res.status(200).send(result);
+      }
+    });
+  } catch (err) {
+     console.log("checking for counter in error",err);
+    return res.status(500).send({
+      error: 'Internal error occurred....!' });
+  }
+});
 
 module.exports = router;

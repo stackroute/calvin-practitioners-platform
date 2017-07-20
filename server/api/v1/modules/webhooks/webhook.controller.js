@@ -1,7 +1,7 @@
 const async = require('async');
 const extractTool = require('url');
 const jwt = require('jsonwebtoken');
-const config = require('../common/config');
+const config = require('../../../../appconfig/env/dev');
 const path = require('path');
 const communityController = require('../../modules/communitytools/communitytools.controller');
 const cummunityToolservice=require('../communitytools/communitytools.service');

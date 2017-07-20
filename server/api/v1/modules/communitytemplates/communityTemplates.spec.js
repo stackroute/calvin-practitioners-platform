@@ -1,5 +1,6 @@
 // const communityTemplate = require('');
-const BASE_COMMUNITY_SERVICE_URL = 'calvin-communities.blr.stackroute.in/api/v1';
+const config = require('../../../../appconfig/env/dev');
+const urlValue =config.BASE_COMMUNITY_SERVICE_URL;
 
 //Require the dev-dependencies
 const chai = require('chai');
@@ -13,7 +14,7 @@ const should = chai.should();
 describe('/GET communityTemplate', () => {
     it('it should GET all the community template list', (done) => {
         request(server)
-            .get(`${BASE_COMMUNITY_SERVICE_URL}/communitytemplates`)
+            .get(`${urlValue}/communitytemplates`)
             .expect(200)
             .expect('Content-Type', /json/)
             .end((err, res) => {

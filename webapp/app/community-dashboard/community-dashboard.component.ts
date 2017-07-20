@@ -3,6 +3,7 @@ import { CommunityToolsWidgetComponent } from '../community-tools-widget/communi
 import { CommunityMembersWidgetComponent } from '../community-members-widget/community-members-widget.component';
 import { Params, RouterModule, Routes, Router, ActivatedRoute } from '@angular/router';
 import { CommunityProfileService } from '../community-profile/community-profile.service';
+import { ActivityPageComponent } from '../activity-page/activity-page.component';
 import * as moment from 'moment/moment';
 import { UserInfoService } from '../core/user-info.service';
 

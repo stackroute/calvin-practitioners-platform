@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken');
-const config = require('../common/config');
+const config = require('../../../../appconfig/env/dev');
 
 module.exports = function({domainName, toolId, username}, done) {
   // console.log('inside generate tool token');

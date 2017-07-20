@@ -27,18 +27,19 @@ export class UserProfileComponent implements OnInit {
     this.createprofile();
   }
   openDialog() {
-    let dialogRef = this.dialog.open(DialogResultExampleDialog,{
-    disableClose:true});
-  
+    let dialogRef = this.dialog.open(DialogResultExampleDialog, {
+      disableClose: true
+    });
+
     dialogRef.afterClosed().subscribe(result => {
-      
+
     });
   }
   createprofile() {
     this.profileForm = this.fb.group
       ({
         aboutMe: [''],
-        location: ['',Validators.pattern('[A-Za-z]{3,20}')],
+        location: ['', Validators.pattern('[A-Za-z]{3,20}')],
         contact: ['', Validators.pattern('[0-9]{10}')],
         interestField: ['', Validators.required]
       });
@@ -88,13 +89,14 @@ export class UserProfileComponent implements OnInit {
 
   integrateTool(toolName){
     this.toolInfoService.getTool(toolName)
-    /*.subscribe(
-    data => { this.toolInfoService.toolInfo = data;
-    }, error => //console.log(error),
-    () => console.log('finished')
-    );*/
+    // .subscribe(
+    // data => { this.toolInfoService.toolInfo = data;
+    // }, error => //console.log(error),
+    // () => console.log('finished')
+    // );
   }
 }
+
 @Component({
   selector: 'user-profile-dialog',
   templateUrl: 'user-profile-dialog.html',
@@ -102,6 +104,6 @@ export class UserProfileComponent implements OnInit {
 export class DialogResultExampleDialog {
   constructor(public dialogRef: MdDialogRef<DialogResultExampleDialog>, private router: Router) { }
   routeToProfile() {
-     this.router.navigate(['/app/Home/']);
+    this.router.navigate(['/app/Home/']);
   }
 }

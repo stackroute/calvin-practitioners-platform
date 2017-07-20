@@ -1,8 +1,9 @@
 const async = require('async');
+const config = require('../../../../appconfig/env/dev');
 const generatetooltoken = require('./generatetooltoken.service');
 const initializeTool = require('./initializeTool.service');
 const request= require('superagent');
-const BASE_COMMUNITY_SERVICE_URL = 'http://calvin-communities.blr.stackroute.in/api/v1';
+const urlValue = config.BASE_COMMUNITY_SERVICE_URL;
 const jwt = require('jsonwebtoken');
 
 
@@ -26,7 +27,7 @@ function integrateNewTool({domainName, toolId, username}, done) {
 
 function integrateToolinCommunity(domain,toolid,done){
 	console.log("tooldata inside service",domain);
-     const url=`${BASE_COMMUNITY_SERVICE_URL}/api/v1/communitytools/${domain}/tools/${toolid}`;
+     const url=`${urlValue}/api/v1/communitytools/${domain}/tools/${toolid}`;
 	 request
  .post(url)
  .send(data) // query string
