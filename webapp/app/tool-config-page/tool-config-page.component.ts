@@ -20,7 +20,7 @@ export class ToolConfigPageComponent implements OnInit {
   }
 
 
-  allTool = [];
+  toolObj;
   toolActions = [];
   toolEvents = [];
   eventname;
@@ -29,6 +29,7 @@ export class ToolConfigPageComponent implements OnInit {
   toolname;
   toolid;
   activityEvent;
+  toolurl;
   // domain = "wave15";
   // username = "ceanstackdev@gmail.com";
   domainName;
@@ -36,12 +37,12 @@ export class ToolConfigPageComponent implements OnInit {
   flag=0;
   username;
   toolavatar;
-  toolurl;
   purpose;
   Events;
   selectedEvent = [];
   selectedEvent1 = [];
-
+url:any;
+//console.log(url);
   eventMappings = new Map();
   
  
@@ -52,8 +53,6 @@ export class ToolConfigPageComponent implements OnInit {
     this.userinfoservice.getUserDetail((userdetails) => {
      // this.user = userdetails;
      this.username = userdetails.username;
-     // console.log("user detalsss",this.user);
-    // console.log("",this.username);
      this.flag = 1;
    });
    
@@ -61,10 +60,8 @@ export class ToolConfigPageComponent implements OnInit {
     this.domainName = this.router.snapshot.params['domain'];
     //getToolinfo
     this.config.getTools(this.router.snapshot.params['toolid']).subscribe(data => {
-      this.allTool = data;
-      // this.toolname=this.allTool.toolname;
-      console.log("toolllinforrrrrr",this.allTool);
-      
+      this.toolObj = data[0];           
+      console.log("Got tool data ", this.toolObj);
     });
   //getToolActions
     console.log("toolactions", this.toolid);
@@ -73,10 +70,12 @@ export class ToolConfigPageComponent implements OnInit {
         this.toolActions = data;
         console.log("actions", data);
       });
+
     //getToolEvents
     this.config.getToolEvents(this.router.snapshot.params['toolid'])
       .subscribe(data => {
         this.toolEvents = data;
+
         console.log("events from getttoolllsssss", data);
       });
      //get communityinfo
@@ -89,16 +88,9 @@ export class ToolConfigPageComponent implements OnInit {
        console.log('my actor type------', this.events.actortype);
        console.log('my activity type------', this.events.activitytype);
        console.log('my object type------', this.events.object);
-
-
       });
       // console.log('actortype*****', this.events.actortype);
   }
-
-
-
-
-
 
   getTooleventinfo(eventname){
         console.log('inside get tool event info',eventname);
@@ -119,15 +111,14 @@ export class ToolConfigPageComponent implements OnInit {
     // console.log("Mappings: ", JSON.stringify(Array.from(this.eventMappings.values())));
   
     let obj = [];
-    
+//console.log("rerrrrre",toolinfo.toolurl);
     const mappedToolEventObj = {
-     
       toolname: this.toolid,
-      avatar:"null",
-      toolurl:"null",
+      avatar: (this.toolObj.toolavatar || ''), 
+      toolurl:toolinfo.value.toolurl,
      // domain: this.domainName,
       username:this.username, 
-      purpose: "null",   
+      purpose: (this.toolObj.purpose || ''),   
       actions:["actions"],
       events:Array.from(this.eventMappings.values())
       

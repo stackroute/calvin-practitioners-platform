@@ -14,7 +14,7 @@ const connectionString = { // config for cassandra
 //      category: 'communities',
 //    }],
 //  };
-
+// const BASE_COMMUNITY_SERVICE_URL = 'http://172.23.238.141:3000/api/v1'; // config for calling Community API
 const BASE_COMMUNITY_SERVICE_URL = 'http://calvin-communities.blr.stackroute.in/api/v1'; // config for calling Community API
 const BASE_ACTIVITY_SERVICE_URL = '172.23.238.141:4000';
 
