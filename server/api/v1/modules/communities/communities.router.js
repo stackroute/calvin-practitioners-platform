@@ -8,15 +8,14 @@ router.get('/communities/:domain', (req, res) => { // eslint-disable-line consis
   try {
     communityCtrl.getSpecificCommunity(req.params.domain,req.query.counter, (err, result) => {
       if (err) {
-        console.log("checking for counter",err);
+        
         res.status(500).send({ error: 'Error in getting community details, please try later..!' });
       } else {
         res.status(200).send(result);
       }
     });
   } catch (err) {
-     console.log("checking for counter in error",err);
-    return res.status(500).send({
+     return res.status(500).send({
       error: 'Internal error occurred....!' });
   }
 });

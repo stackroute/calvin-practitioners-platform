@@ -132,7 +132,7 @@ function postMemberInvite(url, domain, type, inviteBody, done) {
         
         if (res.message === 'Inserted') {
             inviteBody.invitee.forEach((data) => {
-                console.log("invitation", data);
+                // console.log("invitation", data);
                 let payload = {
                     domain: domain,
                     invitee: data.email
@@ -173,19 +173,19 @@ function postMemberInvite(url, domain, type, inviteBody, done) {
                 
                 transporter.verify(function(error, success) {
                     if (error) {
-                        console.log("Error in verifyication of mail transporter ", error);
+                        // console.log("Error in verifyication of mail transporter ", error);
                         callback(error);
                         return
                     } else {
-                        console.log('Server is ready to take our messages');
+                        // console.log('Server is ready to take our messages');
                         // send mail with defined transport object
                         transporter.sendMail(mailOptions, (error, info) => {
                             if (error) {
-                                console.log("Error in sending invitaiton mail ", error);
+                                // console.log("Error in sending invitaiton mail ", error);
                                 callback(error.Error);
                                 return;
                             }
-                            console.log('Message %s sent', info.messageId);
+                            // console.log('Message %s sent', info.messageId);
                             callback(null, info);
                             return;
                         });

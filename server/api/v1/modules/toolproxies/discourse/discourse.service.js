@@ -5,20 +5,20 @@ function generateGroup ({token, domainName, toolId, username}, done){
     //register Group for the community
     
     const postDetails = {"name": domainName };
-    console.log('domain', domainName)
+    // console.log('domain', domainName)
     registerGroup.createGroup(postDetails, (err, res)=>{
         if (err) {
             return done(err);
         }
-        console.log("Group is created with - ",domainName ," and res",res)
+        // console.log("Group is created with - ",domainName ," and res",res)
         done(null, res);
     }); 
 }
 
 function generateWebhook ({token, domainName, toolId, username}, res,  done){
-    // console.log("token :- ",`http://localhost:3000/api/v1/webhook/${token}`);
+    // // console.log("token :- ",`http://localhost:3000/api/v1/webhook/${token}`);
     // register webhook for the community
-    console.log('res.id', res.basic_group.id)
+    // console.log('res.id', res.basic_group.id)
     let arr = [];
     arr.push(res.basic_group.id);
 
@@ -29,7 +29,7 @@ function generateWebhook ({token, domainName, toolId, username}, res,  done){
             "wildcard_web_hook": true,
             "active": true,
             "web_hook_event_type_ids": [{"id": 1, "name": "topic"},{"id": 2,"name": "post"},{"id": 3,"name": "user"}],
-            "category_ids": [],
+            "category_ids": [{"id":1}],
             "group_ids": arr,
             "content_type": 1,
             "verify_certificate": false

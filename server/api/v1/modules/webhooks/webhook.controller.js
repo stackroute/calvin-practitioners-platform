@@ -1,7 +1,7 @@
 const async = require('async');
 const extractTool = require('url');
 const jwt = require('jsonwebtoken');
-const config = require('../common/config');
+const config = require('../../../../appconfig/env/dev');
 const path = require('path');
 const communityController = require('../../modules/communitytools/communitytools.controller');
 const cummunityToolservice=require('../communitytools/communitytools.service');
@@ -11,16 +11,16 @@ function verifyToolToken(token, done) {
     console.log('3.inside verify token');
     jwt.verify(token, 'config.appConstants.secret', (err, tokenClaims) => {
         if (err) {
-            console.log('error is ', err);
+            // console.log('error is ', err);
             return done(err, 'unauhtorized');
         }
-        console.log('token is', tokenClaims);
+        // console.log('token is', tokenClaims);
         done(null, tokenClaims);
     });
 }
 
 function extractEventData(eventPayload, tokenClaims, done) {
-    console.log('3.inside extract event datat');
+    // console.log('3.inside extract event datat');
     let obj;
     transformEventData.extractEventData(eventPayload, tokenClaims, (err, extractedData) => {
         if (err) {
@@ -29,16 +29,13 @@ function extractEventData(eventPayload, tokenClaims, done) {
         }
         else {
          obj={ extractedData, tokenClaims };
-        //  console.log('obj is ..',obj);
+        //  // console.log('obj is ..',obj);
         done(null, obj);
         }
     });
 }
 
 function sendToCommunityService(payload,obj,done) {
-
-    // tokenClaims will have { domainName, toolId, username }
-    // console.log('6.inside token claim',obj.tokenClaims);
     console.log('got object ....',obj.tokenClaims);
 cummunityToolservice.postToolEventToCommunity(obj.tokenClaims.domainName,obj.tokenClaims.toolId,obj.tokenClaims.token,obj.extractedData,(err,result)=>{
       if(err) {
@@ -65,7 +62,7 @@ function handleToolEvent(token, eventPayload, done) {
         "username": "ceanstackdev@gmal.com"
     }, 'config.appConstants.secret', { expiresIn: 60*5000 });
 
-    console.log('2.getting inside handle tool event');
+    // console.log('2.getting inside handle tool event');
     async.waterfall([
         verifyToolToken.bind(null, token),
         extractEventData.bind(null, eventPayload),

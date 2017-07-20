@@ -63,7 +63,6 @@ export class ToolConfigPageComponent implements OnInit {
   selectedEvent = [];
   selectedEvent1 = [];
 
-
   eventMappings = new Map();
   // states = [];
   // activitytype=[];
@@ -96,10 +95,10 @@ export class ToolConfigPageComponent implements OnInit {
   ngOnInit() {
     // console.log("tool-config-page",this.domain1);
     this.userinfoservice.getUserDetail((userdetails) => {
-     //this.user = userdetails;
+     // this.user = userdetails;
      this.username = userdetails.username;
-     //console.log("user detalsss",this.user);
-     console.log("",this.username);
+     // console.log("user detalsss",this.user);
+    // console.log("",this.username);
      this.flag = 1;
    });
    
@@ -108,11 +107,11 @@ export class ToolConfigPageComponent implements OnInit {
     //getToolinfo
     this.config.getTools(this.router.snapshot.params['toolid']).subscribe(data => {
       this.allTool = data;
-
-      console.log("toolllinforrrrrr");
+      // this.toolname=this.allTool.toolname;
+      console.log("toolllinforrrrrr",this.allTool);
       
     });
-    //getToolActions
+  //getToolActions
     console.log("toolactions", this.toolid);
     this.config.getToolActions(this.router.snapshot.params['toolid'])
       .subscribe(data => {
@@ -179,7 +178,7 @@ export class ToolConfigPageComponent implements OnInit {
       username:this.username, 
       purpose: "null",   
       actions:["actions"],
-      events:JSON.stringify(Array.from(this.eventMappings.values()))
+      events:Array.from(this.eventMappings.values())
       // events: this.selectedEvent,
       //mapping: Array.from(this.eventMappings.values())
     
@@ -187,7 +186,7 @@ export class ToolConfigPageComponent implements OnInit {
     //console.log("Mappings: ", mappedToolEventObj,JSON.stringify(Array.from(this.eventMappings.values())));
     console.log('final datra we are sending is ',JSON.stringify(mappedToolEventObj));
     //console.log('toolss eventsssssss',this.Events);
-    this.config.postTools(this.domainName, mappedToolEventObj).subscribe(
+    this.config.postTools(this.domainName,this.toolid,mappedToolEventObj).subscribe(
       //(data) => this.openDialog());
       (data) => console.log(this.data));
   }
@@ -202,7 +201,7 @@ export class ToolConfigPageComponent implements OnInit {
   
   ////check box
   toggle(eventId, eventName, eventDescription, $event) {
-    this.eventMappings.set(eventId, {eventid: eventId, eventname: eventName, description: eventDescription, metadata: {}});
+    this.eventMappings.set(eventId, {eventid: eventId, eventname: eventName, description: eventDescription, metadata: ""});
 
   }
   

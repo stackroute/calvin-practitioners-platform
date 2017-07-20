@@ -6,6 +6,7 @@ import { UserDashboardComponent } from '../user-dashboard/user-dashboard.compone
 import { UserProfileComponent } from '../user-profile/user-profile.component';
 import { CanDeactivateGuard } from './can-deactivate-guard.service';
 import { ManageCommunityComponent } from '../manage-community/manage-community.component';
+import { NotificationsComponent } from '../notifications/notifications.component';
 import { AppBarComponent } from '../app-bar/app-bar.component';
 import { CommunityRoleActionsComponent } from '../community-role-actions/community-role-actions.component';
 import { CommunityRoleManagementComponent } from '../community-role-management/community-role-management.component';
@@ -24,8 +25,8 @@ import { ToolPageComponent } from '../tool-page/tool-page.component';
 import { CommunityMemberManagementComponent } from '../community-member-management/community-member-management.component';
 import { MemberInvitationComponent } from "../member-invitation/member-invitation.component";
 import { ToolConfigPageComponent } from '../tool-config-page/tool-config-page.component';
-import { InvalidLoginComponent } from '../member-invitation/member-invitation.component';
-import { AcceptPageComponent } from '../member-invitation/member-invitation.component';
+// import { InvalidLoginComponent } from '../member-invitation/member-invitation.component';
+// import { AcceptPageComponent } from '../member-invitation/member-invitation.component';
 
 // Calvin routes
 const routes: ModuleWithProviders = RouterModule.forRoot([
@@ -40,6 +41,7 @@ const routes: ModuleWithProviders = RouterModule.forRoot([
       { path: 'actions', component: CommunityRoleManagementComponent },
       { path: 'communityDashBoard/:domain', component: CommunityDashboardComponent },
       { path: 'managecommunity/:domain', component: ManageCommunityComponent },
+      { path: 'notification', component: NotificationsComponent },
       { path: 'activity', component: ActivityPageComponent },
       { path: 'members', component: MemberInvitationComponent },
       { path: 'members:domain', component: CommunityMemberManagementComponent },
@@ -47,9 +49,9 @@ const routes: ModuleWithProviders = RouterModule.forRoot([
       { path: 'addtool', component: AddToolComponent},
       { path: 'toolmarket', component : ToolMarketPlaceComponent},
       { path: 'toolpage/:toolid', component: ToolPageComponent },
-      { path: 'toolconfig/:domain/:toolid', component:ToolConfigPageComponent},
-      { path: 'communityinvite/invalid', component:InvalidLoginComponent},
-      { path: 'communityinvite/invalid', component:AcceptPageComponent}
+      { path: 'toolconfig/:domain/:toolid', component:ToolConfigPageComponent}
+      // { path: 'communityinvite/invalid', component:InvalidLoginComponent},
+      // { path: 'communityinvite/invalid', component:AcceptPageComponent}
     ]
   },
   { path: '', redirectTo: '/app/home', pathMatch: 'full' },
