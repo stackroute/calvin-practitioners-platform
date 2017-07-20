@@ -17,28 +17,7 @@ import { UserInfoService } from '../core/user-info.service';
 })
 export class ToolConfigPageComponent implements OnInit {
   constructor(private userinfoservice:UserInfoService,private config: ToolConfigService, private router: ActivatedRoute, private dialog: MdDialog) {
-
-  //   this.stateCtrl = new FormControl();    
-  //   this.filteredStates = this.stateCtrl.valueChanges
-  //       .startWith(null)
-  //       .map(name => this. filterActorType(name));
-
-  // this.stateActive = new FormControl();
-  //   this.filteredActivity = this.stateActive.valueChanges
-  //       .startWith(null)
-  //       .map(name => this. filterActivityType(name));
-
-  // this.stateObject =new FormControl();
-  //       this.filteredObject = this.stateObject.valueChanges
-  //       .startWith(null)
-  //       .map(name => this. filterObjectType(name));
-   }
-//  stateCtrl: FormControl;
-//  stateActive: FormControl;
-//  stateObject: FormControl;
-//   filteredStates: any;
-//   filteredActivity: any;
-//   filteredObject: any;
+  }
 
 
   allTool = [];
@@ -63,33 +42,8 @@ export class ToolConfigPageComponent implements OnInit {
   selectedEvent = [];
   selectedEvent1 = [];
 
-
   eventMappings = new Map();
-  // states = [];
-  // activitytype=[];
-  // objecttype=[];
-
-  // @Input()  domain1:any;
- 
-//  filterActorType(val) {
-//    console.log('actortype*****', this.events.actortype);
-//     return val ? this.states.filter(s => s.toLowerCase().indexOf(val.toLowerCase()) === 0)
-//                : this.states;
-               
-//   }
-//   filterActivityType(val) {
-//    console.log('activity*****', this.events.activitytype);
-//     return val ? this.activitytype.filter(s => s.toLowerCase().indexOf(val.toLowerCase()) === 0)
-//                : this.activitytype;
-               
-//   }
-//   filterObjectType(val) {
-//    console.log('object*****', this.events.objecttype);
-//     return val ? this.objecttype.filter(s => s.toLowerCase().indexOf(val.toLowerCase()) === 0)
-//                : this.objecttype;
-               
-//   }
- 
+  
  
  
  
@@ -108,8 +62,8 @@ export class ToolConfigPageComponent implements OnInit {
     //getToolinfo
     this.config.getTools(this.router.snapshot.params['toolid']).subscribe(data => {
       this.allTool = data;
-
-      console.log("toolllinforrrrrr");
+      // this.toolname=this.allTool.toolname;
+      console.log("toolllinforrrrrr",this.allTool);
       
     });
   //getToolActions
@@ -167,11 +121,7 @@ export class ToolConfigPageComponent implements OnInit {
     let obj = [];
     
     const mappedToolEventObj = {
-      // "toolname":"sometool",
-// "avatar":"somephoto.jpg",
-// "toolurl":"abcdef.com/12345",
-// "purpose": "maybesomepurposeagain2",
-// "actions": ["action1","action3", "action4",
+     
       toolname: this.toolid,
       avatar:"null",
       toolurl:"null",
@@ -179,30 +129,27 @@ export class ToolConfigPageComponent implements OnInit {
       username:this.username, 
       purpose: "null",   
       actions:["actions"],
-      events:JSON.stringify(Array.from(this.eventMappings.values()))
-      // events: this.selectedEvent,
-      //mapping: Array.from(this.eventMappings.values())
+      events:Array.from(this.eventMappings.values())
+      
     
     };
     //console.log("Mappings: ", mappedToolEventObj,JSON.stringify(Array.from(this.eventMappings.values())));
     console.log('final datra we are sending is ',JSON.stringify(mappedToolEventObj));
     //console.log('toolss eventsssssss',this.Events);
-    this.config.postTools(this.domainName, mappedToolEventObj).subscribe(
-      //(data) => this.openDialog());
-      (data) => console.log(this.data));
+    this.config.postTools(this.domainName,this.toolid,mappedToolEventObj).subscribe(
+      (data) => this.openDialog());
+      //(data) => console.log(this.data));
   }
 
 
   openDialog() {
-    console.log('my domain page', this.domainName);
-    let dialogRef = this.dialog.open(DialogResultDialog, {
-      data: this.domainName
-    })
+   // console.log('my domain page', this.domainName);
+    let dialogRef = this.dialog.open(DialogResultDialog);
   }
   
   ////check box
   toggle(eventId, eventName, eventDescription, $event) {
-    this.eventMappings.set(eventId, {eventid: eventId, eventname: eventName, description: eventDescription, metadata: {}});
+    this.eventMappings.set(eventId, {eventid: eventId, eventname: eventName, description: eventDescription, metadata: ""});
 
   }
   
@@ -241,9 +188,9 @@ export class ToolConfigPageComponent implements OnInit {
 })
 export class DialogResultDialog {
   constructor(public dialogRef: MdDialogRef<DialogResultDialog>, private router: Router) { }
-  routeToProfile() {
-    this.router.navigate(['/app/Home/']);
-  }
+  // routeToProfile() {
+  //   this.router.navigate(['/app/Home/']);
+  // }
 }
 //    @Component({
 //   selector: 'toolsPosted',

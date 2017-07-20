@@ -15,6 +15,7 @@
         <md-card-subtitle align="start">{{val.purpose}}</md-card-subtitle>
         <md-card-subtitle align="start">{{val.tooldesc}}</md-card-subtitle>
       </div>
+    </div>
       <hr>
       <h3 fxLayoutAlign="start">Tool Action</h3>
       <hr>
@@ -50,7 +51,7 @@
 
       </div>
 
-      </div>
+      <!--</div>-->
       <hr>
 
       <h3 fxLayoutAlign="start">Events Subscription</h3>
@@ -136,7 +137,7 @@
 
 
       <div fxFlex="100" fxLayoutAlign="end">
-        <button md-raised-button color="primary" class="bottom-button" >Submit</button>                     <!----[routerLink]="/app/communityDashBoard"routerLink="/app/communityDashBoard/:domain"-->
+        <button md-raised-button color="primary" class="bottom-button" (click)="openDialog()">Submit</button>                     <!----[routerLink]="/app/communityDashBoard"routerLink="/app/communityDashBoard/:domain"-->
       </div>
     </form>
   </md-card-content>

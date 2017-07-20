@@ -1,8 +1,8 @@
 const request = require('superagent');
 const config = require('../../../../appconfig/env/dev');
 
- const urlValue=config.BASE_ACTIVITY_SERVICE_URL;
-  const authToken=config.authToken;
+const urlValue=config.BASE_ACTIVITY_SERVICE_URL;
+const authToken=config.authToken;
 
 function getMemberActivities(userName, done) {
  

@@ -1,5 +1,5 @@
 const request = require('superagent');
-const uuidv1 = require('uuid/v1');
+const uuidv4 = require('uuid/v4');
 
 function registerForPushNotification({token, domainName, toolId, username}, bearerToken, done){
     console.log("Proceeding to register the push notification for google calander ", bearerToken);

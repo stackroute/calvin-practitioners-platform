@@ -1,8 +1,14 @@
 FROM mhart/alpine-node
 
+# RUN apk update && \
+#     apk add git && \
+#     apk add python build-base
+
 RUN mkdir -p /usr/src/
 
 WORKDIR /usr/src/
+
+# RUN npm install -g @angular/cli@latest
 
 COPY package.json .
 
@@ -13,4 +19,4 @@ COPY . .
 
 EXPOSE 3000
 
-CMD ["npm", "run", "serve"]
+CMD ["npm", "start"]

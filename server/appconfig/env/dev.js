@@ -26,7 +26,7 @@ const discourseAdmin ='calvin';
 
 
 const cookies = {    // to store cookie
-    user: 'currentUsers',
+    user: 'currentUser',
     userCommunity: 'userCommunity'
 };
 

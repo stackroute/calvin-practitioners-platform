@@ -1,4 +1,5 @@
 const request = require('superagent');
+const async = require('async');
 const communityToolService = require('./communitytools.service');
 const config = require('../../../../appconfig/env/dev');
 const urlValue =config.BASE_COMMUNITY_SERVICE_URL;
@@ -6,7 +7,9 @@ const urlValue =config.BASE_COMMUNITY_SERVICE_URL;
 function retrieveAllTools(domain, done) {
   // Call communities service to get all the templates
  console.log(urlValue);
+ // const url = `${urlValue}/communitytools/${domain}/tools`;
   const url = `${urlValue}/communitytools/${domain}/tools`;
+  
   request
     .get(url)
     .query({ domain }) // query string
@@ -41,100 +44,67 @@ function retrieveAllTools(domain, done) {
 //     });
 // }
 
-// Call community tools service to post tools
-function postTool(domain, data, done) {
+// // Call community tools service to post tools
+// function postTool(domain, data, done) {
 
 
 
-  console.log('inside posting toollllllll', data);
-  const username = data.username;
-  const toolId = data.toolid;
-  //const domainName = domain;
-  const domainName = 'wave33';
-  const event = data.events;
-  console.log('data is ' + username + toolId + domainName + '' + data.events);
 
-  communityToolService.integrateNewTool({ domainName, toolId, username }, (err, result) => {
-      if (err) {
-        console.log('hi inside integrate new tool error is ', err);
-        return done(err, ' error in tool initialization');
-      }
-      return done(null, 'Tool Success');
-    });
+//   console.log('inside posting toollllllll', data);
+//   const username = data.username;
+//   const toolId = data.toolid;
+//   //const domainName = domain;
+//   const domainName = 'wave33';
+//   const event = data.events;
+//   console.log('data is ' + username + toolId + domainName + '' + data.events);
 
 
-  communityToolService.integrateToolinCommunity(data, (err, result) => {
-    if (err) {
-      console.log('inisde tools', err);
-      return done(err, ' unable to post dtaa in community');
-    }
-    console.log('result is ', result);
+//   communityToolService.integrateNewTool({ domainName, toolId, username }, (err, result) => {
+//       if (err) {
+//         console.log('hi inside integrate new tool error is ', err);
+//         return done(err, ' error in tool initialization');
+//       }
+//       return done(null, 'Tool Success');
+//     });
+
+
+//   communityToolService.integrateToolinCommunity(data, (err, result) => {
+//     if (err) {
+//       console.log('inisde tools', err);
+//       return done(err, ' unable to post dtaa in community');
+//     }
+//     console.log('result is ', result);
     
-    communityToolService.integrateNewTool({ domainName, toolId, username }, (err, result) => {
+//     communityToolService.integrateNewTool({ domainName, toolId, username }, (err, result) => {
 
-      if (err) {
-        console.log('hi inside integrate new tool error is ', err);
-        return done(err, ' error in tool initialization');
-      }
-      return done(null, 'Tool Success');
-    });
+//       if (err) {
+//         console.log('hi inside integrate new tool error is ', err);
+//         return done(err, ' error in tool initialization');
+//       }
+//       return done(null, 'Tool Success');
+//     });
 
+//   });
+// }
+
+function postToolInfo(domain,toolid,data,done){
+  
+  console.log('** waterfall about to call');
+
+  async.waterfall([
+    communityToolService.integrateToolinCommunity.bind(null, domain, toolid, data),
+    communityToolService.integrateNewTool.bind(null, {domainName: domain, toolId: toolid, username: data.username})
+  ], (err, result) => {
+    if (err) {
+      console.log("Error occurred in postToolInfo ", err);
+      return done(err, 'Internal server error');
+    }
+    return done(null,'Sucess');
   });
 
-  // async.waterfall([
-  //   communityToolService.integrateToolinCommunity.bind(null, data),
-  //   communityToolService.integrateNewTool.bind(null, { domainName, toolId, username })
-  // ], (err, result) => {
-
-  //   if (err) {
-
-  //     return done(err, 'Internal server error');
-  //   }
-
-  // communityToolService.integrateNewTool({domainName, toolId, username},done);
-
-  // return communityToolService.integrateNewTool.bind(null, {domainName, toolId, username}, done);
-
-  //   console.log('data is ',data);
-  //   const url = `${BASE_COMMUNITY_SERVICE_URL}/communitytools/${domain}/tools`;
-  //   request
-  //  .post(url)
-  //  .send(data) // query string
-  //  .end((err, res) => {
-  //    if (err) {
-  //      console.log('error is ',err);
-  //      return done(err);
-  //    }
-  //    return done(null, res.body);
-  //  });
-
-  //   done(null, 'sucess');
-  // });
-
-
-  // communityToolService.integrateNewTool({ domainName, toolId, username }, done);
-
-  // return communityToolService.integrateNewTool.bind(null, {domainName, toolId, username}, done);
-
-  //   console.log('data is ',data);
-  //   const url = `${BASE_COMMUNITY_SERVICE_URL}/communitytools/${domain}/tools`;
-  //   request
-  //  .post(url)
-  //  .send(data) // query string
-  //  .end((err, res) => {
-  //    if (err) {
-  //      console.log('error is ',err);
-  //      return done(err);
-  //    }
-  //    return done(null, res.body);
-  //  });
-
-
-}
-function postToolInfo(domain,data,done){
-           console.log('inside post toolinfo');
-          // communityToolService.addToolinCommunity(domain,data,done); 
-          communityToolService.integrateToolinCommunity(domain,data,done);
+          //  console.log('inside post toolinfo');
+          // // communityToolService.addToolinCommunity(domain,data,done); 
+          // communityToolService.integrateToolinCommunity(domain,toolid,data,done);
 }
 
     // console.log("Now posting tool ", data, " for domain ", domain);
@@ -143,6 +113,11 @@ function postToolInfo(domain,data,done){
 
 module.exports = {
   retrieveAllTools,
-  postTool,
+
+  //getTool,
+  // postTool,
+
+  //postTool,
+
   postToolInfo
 };
