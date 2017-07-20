@@ -1,23 +1,32 @@
 <md-card>
   <md-card-content>
-  <form #tool="ngForm" class="form" (ngSubmit)="onSubmit(values)">
+  <form #tool="ngForm" class="form" (ngSubmit)="onSubmit(tool)">
     <h3 fxLayoutAlign="start">Tool Info</h3>
     <hr>
-    <div *ngFor="let val of allTool" fxLayout="row" >
+    <!--<div *ngFor="let val of allTool" fxLayout="row" >-->
+      <div fxLayout="row" >
       <!--<label>{{val.toolid}}</label>-->
       <div fxFlex="20%" fxLayoutAlign="">
         <!--<img src="{{val.toolavatar}}">-->
-       <img src="{{val.toolavatar}}" class="img">        
+       <img src="{{toolObj.toolavatar}}" class="img">        
       </div>
       <div fxFlex="50%">
-         <md-card-title><h2 align="start">{{val.toolname}}</h2></md-card-title>
-        <md-card-subtitle align="start">{{val.toolid}}</md-card-subtitle>
-        <md-card-subtitle align="start">{{val.purpose}}</md-card-subtitle>
-        <md-card-subtitle align="start">{{val.tooldesc}}</md-card-subtitle>
+         <md-card-title><h2 align="start">{{toolObj.toolname}}</h2></md-card-title>
+        <md-card-subtitle align="start">{{toolObj.toolid}}</md-card-subtitle>
+        <md-card-subtitle align="start">{{toolObj.purpose}}</md-card-subtitle>
+        <md-card-subtitle align="start">{{toolObj.tooldesc}}</md-card-subtitle>
       </div>
     </div>
       <hr>
-      <h3 fxLayoutAlign="start">Tool Action</h3>
+      <h3 fxLayoutAlign="start">Redirect Url</h3>
+      <div align="start">
+
+        <md-input-container>
+           <input mdInput ngModel name="toolurl" placeholder="URL to redirect for use of tool" formControllName="toolurl.value">
+        </md-input-container>
+      </div>
+      <hr>
+      <h3 fxLayout>Tool Action</h3>
       <hr>
       <div *ngFor="let val of toolActions" fxFlex="80%" fxLayout.md="column" fxLayout.xs="column" fxLayout.sm="column" fxLayoutGap="40px"
         fxLayoutAlign="center">

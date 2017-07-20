@@ -30,7 +30,7 @@ export class acceptService {
     return this.http.patch(url,options).map(res => res.json());
   }
 
-   deleteRequest(domain,name) {
+   deleteRequest(domain,person) {
       let url =`api/v1/communityMembers/memberrequests/${domain}/person/${person}`;
       let headers = new Headers({ 'Content-Type': 'application/json;charset=utf-8' });
       let options = new RequestOptions({ headers: headers
@@ -38,7 +38,7 @@ export class acceptService {
 
   //console.log(body)
 
-  return this._http.delete(url,options).map(res => res.json());
+  return this.http.delete(url,options).map(res => res.json());
 
  } 
 
