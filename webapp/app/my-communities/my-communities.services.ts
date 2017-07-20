@@ -10,19 +10,18 @@ import { Observable } from 'rxjs/Observable';
 export class UserCommunities {
  
  constructor (private http: Http,public snackBar: MdSnackBar) { }
-//  member = "mr.w" ;
-    // getCommunity(member) {
-    // const url = `/api/v1/communities/membership/${member}`;
-    // return this.http.get(url).catch(err => {
-    // this.snackBar.open('Unable to get Communities.. Please try again later..!!!','Close',{
-    //     duration: 3000
-    //   });
-    //   return Observable.throw(err); // observable needs to be returned or exception raised
-    // })
-    // .map( response => response.json());
+    getCommunity(member) {
+    const url = `/api/v1/communities/membership/${member}`;
+    return this.http.get(url).catch(err => {
+    this.snackBar.open('Unable to get Communities.. Please try again later..!!!','Close',{
+        duration: 3000
+      });
+      return Observable.throw(err); // observable needs to be returned or exception raised
+    })
+    .map( response => response.json());
   
 
 
 
 }
-  
+}

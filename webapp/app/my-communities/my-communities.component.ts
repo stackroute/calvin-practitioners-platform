@@ -3,7 +3,6 @@ import { UserCommunities } from './my-communities.services';
 import { Route, Router } from '@angular/router';
 import 'rxjs/add/operator/switchMap';
 import { UserInfoService } from '../core/user-info.service';
-import { CommunityProfileService } from '../community-profile/community-profile.service';
 
 
 @Component({
@@ -16,49 +15,47 @@ import { CommunityProfileService } from '../community-profile/community-profile.
 
 export class UserWidgetsComponent implements OnInit {
 
-  userCommunityListArray = [];
+  userCommunityListArray = [ ];
   communities = [];
-  member;
+  member  ;
   user;
-  CommunitiesInfo = [];
-  flag = 0;
-  scrollDistance = 2
-  constructor(private userCommunities: UserCommunities, private userInfo: UserInfoService, private router: Router) { }
 
-  ngOnInit() {
+  constructor(private userCommunities: UserCommunities,private userInfo: UserInfoService, private router: Router) { }
+  
+  ngOnInit() { 
 
-
-    this.userInfo.getUserDetail((userdetails) => {
-
-      this.member = userdetails.username;
-     
-    });
-
-     this.userInfo.getUserCommunity((userCommunity) => {
-       this.CommunitiesInfo = userCommunity;
-      
-   
-     });
+    // this.userInfo.getUserDetail(this.user). subscribe (res => {this.member = res;});
     
-
-
-    // this.userCommunities.getCommunity(this.member).subscribe(res => {
-    // this.communitiesAvatar = res;
+    this.userInfo.getUserDetail((userdetails)=>{
      
-    //   console.log("inside the component of my-communities", this.communitiesAvatar);
-    // });
+      this.member=userdetails.username;
+      console.log(userdetails);
+      console.log(typeof userdetails);
+       console.log('user is : '+this.member);
+});
 
+this.userCommunities.getCommunity(this.member). subscribe ( res => {  this.communities = res; 
+
+  } );
 
 
   }
-
- 
-
-  routeToCommunity(domain) {
-     this.router.navigate([`/app/communityDashBoard/${domain}`]);
-
-
+  
+  onScroll() {
   }
 
+  routeToCommunity (communityDomain){
+    this.router.navigate(['/app/userCommunity', communityDomain]);
+  }
 
+  //  Get user community list
+  // getUserCommunity() {
+  //   this.userCommunities
+  //     .getCommunity()
+  //     .subscribe(userCommunityList => {
+  //       userCommunityList.forEach(element => {
+  //         this.userCommunityListArray.push(element)
+  //       });
+  //     });
+  //  }
 }

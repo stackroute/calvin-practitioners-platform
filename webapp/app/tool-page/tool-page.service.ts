@@ -28,5 +28,10 @@ getToolinfo(toolid) {
 //    });
 
 }
+getToolActions(toolid){        
+        return this.http
+             .get(`api/v1/toolmarketplace/actions/${toolid}`)
+             .map((response: Response) => response.json());
+    }
 
  }

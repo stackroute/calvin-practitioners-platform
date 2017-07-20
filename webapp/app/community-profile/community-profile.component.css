@@ -155,6 +155,7 @@ h1 {
     text-transform: capitalize;
     font-style: italic;
     color:grey;
+    margin-top: 0%;    
 }
 md-icon{
     color: grey;
