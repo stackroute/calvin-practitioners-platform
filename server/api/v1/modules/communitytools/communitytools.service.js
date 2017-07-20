@@ -1,4 +1,4 @@
-		const async = require('async');
+const async = require('async');
 		const config = require('../../../../appconfig/env/dev');
 		const generatetooltoken = require('./generatetooltoken.service');
 		const initializeTool = require('./initializeTool.service');
@@ -87,4 +87,3 @@
 			integrateToolinCommunity,
 			postToolEventToCommunity
 		}
-

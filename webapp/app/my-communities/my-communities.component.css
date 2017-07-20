@@ -23,6 +23,7 @@ md-list-item:last-child {
 .community-list {
   max-height: 600px;
   overflow-y: scroll;
+  color: grey;
 }
 .community-list::-webkit-scrollbar { 
     display: none; 

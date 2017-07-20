@@ -4,17 +4,15 @@ const jwt = require('jsonwebtoken');
 const config = require('../../../../appconfig/env/dev');
 const path = require('path');
 const communityController = require('../../modules/communitytools/communitytools.controller');
-const cummunityToolservice=require('../communitytools/communitytools.service');
+const cummunityToolservice = require('../communitytools/communitytools.service');
 const transformEventData = require('./transformEventData');
 
 function verifyToolToken(token, done) {
     console.log('3.inside verify token');
     jwt.verify(token, 'config.appConstants.secret', (err, tokenClaims) => {
         if (err) {
-            // console.log('error is ', err);
             return done(err, 'unauhtorized');
         }
-        // console.log('token is', tokenClaims);
         done(null, tokenClaims);
     });
 }
@@ -24,26 +22,26 @@ function extractEventData(eventPayload, tokenClaims, done) {
     let obj;
     transformEventData.extractEventData(eventPayload, tokenClaims, (err, extractedData) => {
         if (err) {
-            console.log('error is ',err);
+            console.log('error is ', err);
             return done(err, 'unable to extract data');
         }
         else {
-         obj={ extractedData, tokenClaims };
-        //  // console.log('obj is ..',obj);
-        done(null, obj);
+            obj = { extractedData, tokenClaims };
+            //  // console.log('obj is ..',obj);
+            done(null, obj);
         }
     });
 }
 
-function sendToCommunityService(payload,obj,done) {
-    console.log('got object ....',obj.tokenClaims);
-cummunityToolservice.postToolEventToCommunity(obj.tokenClaims.domainName,obj.tokenClaims.toolId,obj.tokenClaims.token,obj.extractedData,(err,result)=>{
-      if(err) {
-          console.log('error is ',err);
-          return done(err,'Unable to POST in Community')
-      }
-      return done(null, 'Successfully Sent');
-});
+function sendToCommunityService(payload, obj, done) {
+    console.log('got object ....', obj.tokenClaims);
+    cummunityToolservice.postToolEventToCommunity(obj.tokenClaims.domainName, obj.tokenClaims.toolId, obj.tokenClaims.token, obj.extractedData, (err, result) => {
+        if (err) {
+            console.log('error is ', err);
+            return done(err, 'Unable to POST in Community')
+        }
+        return done(null, 'Successfully Sent');
+    });
 
     // communityController.postTool(obj.tokenClaims.domainName,obj.extractedData, (err, result) => {
 
@@ -60,7 +58,7 @@ function handleToolEvent(token, eventPayload, done) {
         "domainName": "digital",
         "toolId": "discourse",
         "username": "ceanstackdev@gmal.com"
-    }, 'config.appConstants.secret', { expiresIn: 60*5000 });
+    }, 'config.appConstants.secret', { expiresIn: 60 * 5000 });
 
     // console.log('2.getting inside handle tool event');
     async.waterfall([
@@ -70,7 +68,7 @@ function handleToolEvent(token, eventPayload, done) {
     ],
         (err, result) => {
             if (err) {
-                console.log('error is ',err);
+                console.log('error is ', err);
                 done(err, 'Internal Error');
             }
             done(null, 'successfully sent');

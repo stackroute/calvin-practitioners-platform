@@ -28,18 +28,18 @@
 							<div *ngFor="let data of profileArray">
 								<div>
 									<md-input-container fxLayoutAlign="start stretch" fxFlex="100%">
-										<textarea mdInput placeholder="About me" rows="5" cols="100" formControlName="aboutMe" value={{data.aboutme}}></textarea>
+										<textarea mdInput placeholder="About me" rows="5" cols="100" formControlName="aboutMe" value={{data.aboutme}} style="text-transform: capitalize"></textarea>
 									</md-input-container>
 								</div>
 								<div>
 									<md-input-container fxLayoutAlign="start" fxFlex="100%" class="example-full-width">
-										<textarea mdInput placeholder="Location" rows="1" cols="100" formControlName="location" value={{data.location}}></textarea>
+										<textarea mdInput placeholder="Location" rows="1" cols="100" formControlName="location" value={{data.location}} style="text-transform: capitalize"></textarea>
 									</md-input-container>
 								</div>
 								<div fxLayoutAlign="start" fxFlex="100%">
 									<md-input-container>
 										<textarea mdInput placeholder="InterestedFields" rows="1" cols="20" [(ngModel)]="interest" #resetText formControlName="interestField"
-										 value={{data.interestedtopics}}></textarea>
+										 value={{data.interestedtopics}} style="text-transform: capitalize"></textarea>
 										<!--<md-hint>Tag is required</md-hint>-->
 									</md-input-container>
 									<div fxLayoutAlign="center center">
