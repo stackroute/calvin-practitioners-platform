@@ -47,22 +47,18 @@ function extractEventData(eventPayload, { domainName, toolId, username }, done) 
 	let MappedObj;
 	let requireMapping;
 
-	switch (toolId) {
-
-		case 'discourse':
-			eventType = Object.keys(eventPayload)[0];
+  if(toolId == 'discourse') {
+  	  eventType = Object.keys(eventPayload)[0];
 			MappedObj = DCMapping;
 			let unifiedEventData = convertData(eventPayload, MappedObj[eventType])
 			let convertedData = transformDiscourseEvent(eventPayload, unifiedEventData, { domainName, toolId, username })
 			done(null, convertedData);
-			break;
-	}
-
-	// console.log(eventType);
-	requireMapping = MappedObj[eventType];
-	done(null, convertData(eventPayload, requireMapping));
-
-	return;
+  } else {
+  	// console.log(eventType);
+		requireMapping = MappedObj[eventType];
+		done(null, convertData(eventPayload, requireMapping));
+		return;
+  }
 }
 
 function convertData(eventPayload, mappingConfig) {
