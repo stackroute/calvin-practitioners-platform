@@ -31,7 +31,7 @@ newActivitynewActivity
     public get(username: string) {
         console.log("checkinggg the notificationsss",{"mid":null, "user":username});
         let observable = new Observable(observer => {
-           // this.socket = io('172.23.238.141:4000');
+            this.socket = io('172.23.238.141:4000');
 
             this.socket.emit('authorize', `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ik1heWFuayBTZXRoaSIsImFwaSI6ImNpcmNsZSIsInNjb3BlcyI6WyJtYWlsYm94OmFsbCIsImNpcmNsZTphbGwiLCJmb2xsb3c6YWxsIl0sImlhdCI6MTQ5NzkzODEzOX0.cpLAt8BaYZyqyp53iDJGbl3yIBtBjj6_qoSiM4_hDiY`);
             

@@ -29,7 +29,7 @@ function generateWebhook ({token, domainName, toolId, username}, res,  done){
             "wildcard_web_hook": true,
             "active": true,
             "web_hook_event_type_ids": [{"id": 1, "name": "topic"},{"id": 2,"name": "post"},{"id": 3,"name": "user"}],
-            "category_ids": [],
+            "category_ids": [{"id":1}],
             "group_ids": arr,
             "content_type": 1,
             "verify_certificate": false

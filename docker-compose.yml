@@ -18,7 +18,7 @@ services:
       -  /temp/scripts/wait-for-service.sh
       - '0.0.0.0'
       - '9042'
-      - 'npm run serve'
+      - 'npm start'
 
   calvin-cassandra:
     image: cassandra:latest

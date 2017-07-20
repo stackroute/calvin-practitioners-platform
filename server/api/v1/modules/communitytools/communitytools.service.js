@@ -41,7 +41,8 @@ function integrateToolinCommunity(domain,toolid,data,done){
 //     return done(null, res.body);
 // function integrateToolinCommunity(domain,toolid,done){
 	console.log("tooldata inside service",domain);
-     const url=`${urlValue}/api/v1/communitytools/${domain}/tools/${toolid}`;
+     const url=`${urlValue}/communitytools/${domain}/tools/${toolid}`;
+	 console.log(url);
 	 request
  .post(url)
  .send(data) // query string

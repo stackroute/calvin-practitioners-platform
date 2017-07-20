@@ -47,6 +47,7 @@ function retrieveAllTools(domain, done) {
 
 
 
+
 //   console.log('inside posting toollllllll', data);
 //   const username = data.username;
 //   const toolId = data.toolid;
@@ -54,6 +55,7 @@ function retrieveAllTools(domain, done) {
 //   const domainName = 'wave33';
 //   const event = data.events;
 //   console.log('data is ' + username + toolId + domainName + '' + data.events);
+
 
 //   communityToolService.integrateNewTool({ domainName, toolId, username }, (err, result) => {
 //       if (err) {
