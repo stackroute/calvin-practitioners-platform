@@ -329,6 +329,7 @@ const activities = {
    memberDetails: [],
  };
 
+
 // function getAllCommunitiesOfMember(memberName) {
 //   // activityServices.getActivityData();
 //   const allCommunities = activities.activity;
@@ -352,6 +353,14 @@ const activities = {
 //  function getLimitOfPages(limit) {
 //    return limit;
 //  }
+
+
+
+
+
+
+
+
  module.exports =
  {
   //  getAllCommunitiesOfMember,

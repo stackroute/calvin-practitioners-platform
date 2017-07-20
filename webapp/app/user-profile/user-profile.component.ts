@@ -86,30 +86,13 @@ export class UserProfileComponent implements OnInit {
     return x;
   }
 
-  integrateGooleTool(toolName){
-    // alert(toolName);
-    this.toolInfoService.getTool(toolName).subscribe(
+  integrateTool(toolName){
+    this.toolInfoService.getTool(toolName)
+    /*.subscribe(
     data => { this.toolInfoService.toolInfo = data;
-    }, error => { return error },
-    () => { return 'success'}
-    );
-
-  }
-  integrateDiscourseTool(toolName){
-    // alert(toolName);
-    this.toolInfoService.getTool(toolName).subscribe(
-    data => { this.toolInfoService.toolInfo = data;
-    },  error => { return error },
-    () => { return 'success'}
-    );
-  }
-  integrateGithubTool(toolName){
-    // alert(toolName);
-    this.toolInfoService.getTool(toolName).subscribe(
-    data => { this.toolInfoService.toolInfo = data;
-    },  error => { return error },
-    () => { return 'success'}
-    );
+    }, error => //console.log(error),
+    () => console.log('finished')
+    );*/
   }
 }
 @Component({
