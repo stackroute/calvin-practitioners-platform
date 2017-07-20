@@ -20,13 +20,12 @@ import { ManageCommunityToolsComponent } from '../manage-community-tools/manage-
 import { AddToolComponent } from '../add-tool/add-tool.component';
 import { UserCommunities } from '../my-communities/my-communities.services';
 import { ToolMarketPlaceComponent } from '../tool-market-place/tool-market-place.component';
-
 import { ToolPageComponent } from '../tool-page/tool-page.component';
 import { CommunityMemberManagementComponent } from '../community-member-management/community-member-management.component';
 import { MemberInvitationComponent } from "../member-invitation/member-invitation.component";
 import { ToolConfigPageComponent } from '../tool-config-page/tool-config-page.component';
-// import { InvalidLoginComponent } from '../member-invitation/member-invitation.component';
-// import { AcceptPageComponent } from '../member-invitation/member-invitation.component';
+import { AcceptPageComponent } from '../accept-page/accept-page.component';
+import { InvalidUserComponent } from '../invalid-user/invalid-user.component'
 
 // Calvin routes
 const routes: ModuleWithProviders = RouterModule.forRoot([
@@ -49,9 +48,9 @@ const routes: ModuleWithProviders = RouterModule.forRoot([
       { path: 'addtool', component: AddToolComponent},
       { path: 'toolmarket', component : ToolMarketPlaceComponent},
       { path: 'toolpage/:toolid', component: ToolPageComponent },
-      { path: 'toolconfig/:domain/:toolid', component:ToolConfigPageComponent}
-      // { path: 'communityinvite/invalid', component:InvalidLoginComponent},
-      // { path: 'communityinvite/invalid', component:AcceptPageComponent}
+      { path: 'toolconfig/:domain/:toolid', component:ToolConfigPageComponent},
+      { path: 'communityinvite/invalid', component:InvalidUserComponent},
+      { path: 'communityinvite/invitation/:domain/:role', component:AcceptPageComponent}
     ]
   },
   { path: '', redirectTo: '/app/home', pathMatch: 'full' },

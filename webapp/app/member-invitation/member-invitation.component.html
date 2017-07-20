@@ -6,15 +6,12 @@
     <md-input-container name="email" required fxFlex="45%"  (keyup.enter)="newTodo=''" class="textfield" name="newTodo">
       <input mdInput ngModel name="email0" placeholder="E-mail Address">
     </md-input-container>
-
     <md-select ngModel fxFlex="45%"   name="role0" placeholder="Role" (keyup.enter)="newTodo=''" class="textfield">
       <md-option *ngFor="let access of getResults" [value]="access.role">{{access.role}} </md-option>
     </md-select>
-
     <button md-icon-button fxFlex="10%"   (click)="addTodo($event)" class="bottomright" align="end">
       <i class="material-icons">add_circle_outline</i>
     </button>
-
     <div *ngFor="let member of inviteMembers; let i=index" >
       <input type="hidden"  name="index" ngModel="{{i+1}}" >
       <md-input-container name="email" required (keyup.enter)="newTodo=''" class="textfield" name="newTodo">
@@ -23,12 +20,10 @@
       <md-select ngModel name="role{{i+1}}" placeholder="Role" (keyup.enter)="newTodo=''" class="textfield">
         <md-option *ngFor="let access of getResults" [value]="access.role">{{access.role}} </md-option>
       </md-select>
-
       <button md-icon-button class="bottomright" align="end">
         <i class="material-icons" md-icon-button (click)="deleteTodo(i)">close</i>
       </button>
     </div>
-
     <div fxLayout="row" fxLayoutAlign="end end">
       <button md-raised-button md-dialog-close  class="bottom-button">Cancel</button>
       <button md-raised-button color="primary" class="bottom-button" type="submit">Invite</button>
