@@ -22,6 +22,19 @@ function getMemberActivities(userName, done) {
     });
 }
 
+// function getAllCommunitiesOfMember(memberName) {
+//   // activityServices.getActivityData();
+//   const allCommunities = activities.activity;
+//   memberFilteredArray = allCommunities.filter((community) => {
+//     return community.actor.name === memberName;
+//   });
+//   return memberFilteredArray;
+// }
+// get all the activities according to member Name
+//  function getMemberActivities(done) {   
+//    return done(null,activities);
+//  }
+
 function getDomainActivities(domainName, done) {
   const url = `${urlValue}/adapter/getallactivities/domain/${domainName}`;
   request
@@ -43,3 +56,10 @@ module.exports = {
   getMemberActivities,
   getDomainActivities,
 };
+
+
+
+
+
+
+

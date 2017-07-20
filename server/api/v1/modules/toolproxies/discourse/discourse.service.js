@@ -24,7 +24,7 @@ function generateWebhook ({token, domainName, toolId, username}, res,  done){
 
      postDetails =  {
             // "payload_url": `${config.CALVIN_APP_BASE_URL}/api/v1/webhook/${token}`,
-            "payload_url": `http://calvin-pages.stackroute.in/api/v1/webhook/tools/${token}`,
+            "payload_url": `http://calvin-pages.stackroute.in/api/v1/webhook/tools/${domainName}/${toolId}/${token}`,
             "secret": token,
             "wildcard_web_hook": true,
             "active": true,

@@ -12,14 +12,15 @@ export class ToolIntegrationService {
     constructor(private _http: Http, private snackBar: MdSnackBar) { }
 
     getTool(toolName) {
-        console.log('***inside component service***', toolName);
-           return this._http
-                .get('') 
-                .catch(err => {
-                this.snackBar.open('server error..!!!', 'try again!', {
-                    duration: 3000
-                });
-                return Observable.throw(err); // observable needs to be returned or exception raised
-            }).map(res => res.json());
+        window.location.replace('/api/v1/toolauth/auth/'+toolName);
+        // console.log('***inside component service***', toolName);
+        //    return this._http
+        //         .get('/api/v1/toolauth/auth/'+toolName) 
+        //         .catch(err => {
+        //         this.snackBar.open('server error..!!!', 'try again!', {
+        //             duration: 3000
+        //         });
+        //         return Observable.throw(err); // observable needs to be returned or exception raised
+        //     }).map(res => res.json());
     }
 }
