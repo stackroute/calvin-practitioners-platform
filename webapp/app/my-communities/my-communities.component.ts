@@ -15,47 +15,49 @@ import { UserInfoService } from '../core/user-info.service';
 
 export class UserWidgetsComponent implements OnInit {
 
-  userCommunityListArray = [ ];
+  userCommunityListArray = [];
   communities = [];
-  member  ;
+  member;
   user;
 
-  constructor(private userCommunities: UserCommunities,private userInfo: UserInfoService, private router: Router) { }
-  
-  ngOnInit() { 
+  constructor(private userCommunities: UserCommunities, private userInfo: UserInfoService, private router: Router) { }
+
+  ngOnInit() {
 
     // this.userInfo.getUserDetail(this.user). subscribe (res => {this.member = res;});
-    
-    this.userInfo.getUserDetail((userdetails)=>{
-     
-      this.member=userdetails.username;
-      console.log(userdetails);
-      console.log(typeof userdetails);
-       console.log('user is : '+this.member);
-});
 
-this.userCommunities.getCommunity(this.member). subscribe ( res => {  this.communities = res; 
+    this.userInfo.getUserDetail((userdetails) => {
 
-  } );
+      this.member = userdetails.username;
+
+      console.log('user is : ' + this.member);
+
+    });
+
+
+    this.userCommunities.getCommunity(this.member).subscribe(res => {
+    this.communities = res.communities;
+      console.log("checkinggggg", this.communities);
+    });
 
 
   }
-  
+
   onScroll() {
   }
 
-  routeToCommunity (communityDomain){
-    this.router.navigate(['/app/userCommunity', communityDomain]);
-  }
+  routeToCommunity(domain) {
+    this.router.navigate([`/app/communityDashBoard/${domain}`])
 
-  //  Get user community list
-  // getUserCommunity() {
-  //   this.userCommunities
-  //     .getCommunity()
-  //     .subscribe(userCommunityList => {
-  //       userCommunityList.forEach(element => {
-  //         this.userCommunityListArray.push(element)
-  //       });
-  //     });
-  //  }
+    //  Get user community list
+    // getUserCommunity() {
+    //   this.userCommunities
+    //     .getCommunity()
+    //     .subscribe(userCommunityList => {
+    //       userCommunityList.forEach(element => {
+    //         this.userCommunityListArray.push(element)
+    //       });
+    //     });
+    //  }
+  }
 }

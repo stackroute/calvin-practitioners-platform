@@ -13,12 +13,14 @@ function verifyToolToken(token, done) {
         if (err) {
             return done(err, 'unauhtorized');
         }
+        
         done(null, tokenClaims);
     });
 }
 
 function extractEventData(eventPayload, tokenClaims, done) {
     // console.log('3.inside extract event datat');
+    console.log("***********Post ",JSON.stringify(eventPayload),'************');
     let obj;
     transformEventData.extractEventData(eventPayload, tokenClaims, (err, extractedData) => {
         if (err) {
