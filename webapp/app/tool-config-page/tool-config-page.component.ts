@@ -178,7 +178,7 @@ export class ToolConfigPageComponent implements OnInit {
       username:this.username, 
       purpose: "null",   
       actions:["actions"],
-      events:JSON.stringify(Array.from(this.eventMappings.values()))
+      events:Array.from(this.eventMappings.values())
       // events: this.selectedEvent,
       //mapping: Array.from(this.eventMappings.values())
     

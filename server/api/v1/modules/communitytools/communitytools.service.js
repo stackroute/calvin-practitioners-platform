@@ -48,7 +48,7 @@ function integrateToolinCommunity(domain,toolid,data,done){
  .send(data) // query string
  .end((err, res) => {
     if (err) {
-      console.log('error is ',err);
+     //res.status(500).send({error: 'Internal error ocurred...!!!', err: err});
      return done(err);
     }
     return done(null, res.body);

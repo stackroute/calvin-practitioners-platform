@@ -7,7 +7,9 @@ const urlValue =config.BASE_COMMUNITY_SERVICE_URL;
 function retrieveAllTools(domain, done) {
   // Call communities service to get all the templates
  console.log(urlValue);
-  const url = `${urlValue}/communitytools/${domain}/tools`;
+ // const url = `${urlValue}/communitytools/${domain}/tools`;
+  const url = `172.23.238.158/communitytools/${domain}/tools`;
+  
   request
     .get(url)
     .query({ domain }) // query string
