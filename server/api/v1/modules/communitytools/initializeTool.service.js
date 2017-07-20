@@ -9,6 +9,6 @@ module.exports = function({domainName, toolId, username}, token, done) {
 		toolService.initializeOnIntegration({token, domainName, toolId, username}, done);
 	} catch (err) {
 		// console.log("Error in initializing tool ", err);
-		done({error: "Error loading tool services..!"});
+		done(null, {error: "Error loading tool services..!"});
 	}
 }

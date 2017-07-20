@@ -9,49 +9,95 @@ import { Headers, RequestOptions } from '@angular/http';
 export class ToolConfigService {
   domainName;
   data;
-  constructor(private http: Http, public snackBar: MdSnackBar) { }
-  saveDomain(name){
-    this.domainName=name;
-    // console.log('saved domai is',this.domainName)
-  }
+    constructor(private http: Http, public snackBar: MdSnackBar) { }
+    saveDomain(name){
+      this.domainName=name;
+      console.log('saved domai is',this.domainName)
+    }
+
+    getDomain(){
+      return this.domainName;
+    }
+
+    getTools(toolid) {
+        return this.http
+            .get(`api/v1/toolmarketplace/tool/${toolid}`)
+            .map((response: Response) => response.json());
+    }
+
+    getToolActions(toolid){        
+        return this.http
+             .get(`api/v1/toolmarketplace/actions/${toolid}`)
+             .map((response: Response) => response.json());
+    }
+    
+    getToolEvents(toolid){
+        return this.http
+               .get(`api/v1/toolmarketplace/events/${toolid}`)
+               .map((response: Response) => response.json())
+    }
+   getEvents(){
+     return this.http
+     .get(`api/v1/activityevents/`)
+     .map((response:Response) => response.json())
+   }
+
+   postTools(domain,toolid,data) {
+   console.log('inside post tool');
+   console.log("domainname",domain,"toolid",toolid);
+   console.log("data",data);
+const headers = new Headers({
+  'Content-Type': 'application/json;charset=utf-8'
+ });
+ const options = new RequestOptions({
+  headers: headers
+ });
+ const body = JSON.stringify(data);
+    const url = `/api/v1/communitytools/${domain}/${toolid}`;
+ console.log("i am inside seivce angular",domain);
+  // constructor(private http: Http, public snackBar: MdSnackBar) { }
+  // saveDomain(name){
+  //   this.domainName=name;
+  //   // console.log('saved domai is',this.domainName)
+  // }
   
-  getDomain(){
-    return this.domainName;
-  }
+  // getDomain(){
+  //   return this.domainName;
+  // }
   
-  getTools(toolid) {
-    return this.http
-    .get(`api/v1/toolmarketplace/tool/${toolid}`)
-    .map((response: Response) => response.json());
-  }
+  // getTools(toolid) {
+  //   return this.http
+  //   .get(`api/v1/toolmarketplace/tool/${toolid}`)
+  //   .map((response: Response) => response.json());
+  // }
   
-  getToolActions(toolid){        
-    return this.http
-    .get(`api/v1/toolmarketplace/actions/${toolid}`)
-    .map((response: Response) => response.json());
-  }
+  // getToolActions(toolid){        
+  //   return this.http
+  //   .get(`api/v1/toolmarketplace/actions/${toolid}`)
+  //   .map((response: Response) => response.json());
+  // }
   
-  getToolEvents(toolid){
-    return this.http
-    .get(`api/v1/toolmarketplace/events/${toolid}`)
-    .map((response: Response) => response.json())
-  }
-  getEvents(){
-    return this.http
-    .get(`api/v1/activityevents/`)
-    .map((response:Response) => response.json())
-  }
+  // getToolEvents(toolid){
+  //   return this.http
+  //   .get(`api/v1/toolmarketplace/events/${toolid}`)
+  //   .map((response: Response) => response.json())
+  // }
+  // getEvents(){
+  //   return this.http
+  //   .get(`api/v1/activityevents/`)
+  //   .map((response:Response) => response.json())
+  // }
   
-  postTools(domain,data) {
-    const headers = new Headers({
-      'Content-Type': 'application/json;charset=utf-8'
-    });
-    const options = new RequestOptions({
-      headers: headers
-    });
-    const body = JSON.stringify(data);
-    const url = `/api/v1/communitytools/${domain}`;
-    console.log("i am inside seivce angular",domain);
+  // postTools(domain,data) {
+  //   const headers = new Headers({
+  //     'Content-Type': 'application/json;charset=utf-8'
+  //   });
+  //   const options = new RequestOptions({
+  //     headers: headers
+  //   });
+  //   const body = JSON.stringify(data);
+  //   const url = `/api/v1/communitytools/${domain}`;
+  //   console.log("i am inside seivce angular",domain);
     return this.http
     .post(url,body,options)
     .catch(err => {

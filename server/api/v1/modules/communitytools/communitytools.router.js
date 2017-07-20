@@ -68,15 +68,15 @@ router.post('/:domain/tool',(req, res) => {
 
 });
 
-router.post('/:domain',(req, res) => {
+router.post('/:domain/:toolid',(req, res) => {
    try{
 
     //  console.log('api  renuks is data',req.params.domain);
-    //  console.log(req.body);
+      console.log(req.body);
 
-     console.log('api is data',req.params.domain);
+     console.log('api is data',req.params.domain,"toolid is ",req.params.toolid);
 
-     controller.postToolInfo(req.params.domain, req.body,(err, result) => {
+     controller.postToolInfo(req.params.domain,req.params.toolid, req.body,(err, result) => {
        if (err) {
          res.status(500).send({error: 'Internal error ocurred...!!!'});
        } else{
