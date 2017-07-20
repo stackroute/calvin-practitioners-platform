@@ -41,14 +41,14 @@ export class CommunityDashboardComponent implements OnInit {
           this.userInfo.getUserDetail((userdetails) => {
 
       this.member = userdetails.username;
-      console.log(userdetails);
-      console.log(typeof userdetails);
-      console.log('user is : ' + this.member);
+      // console.log(userdetails);
+      // console.log(typeof userdetails);
+      // console.log('user is : ' + this.member);
     });
 
      this.userInfo.getUserCommunity((userCommunity) => {
        this.CommunitiesInfo = userCommunity;
-       console.log("getting user communitiesss in community profile,,",this.CommunitiesInfo);
+      //  console.log("getting user communitiesss in community profile,,",this.CommunitiesInfo);
 
       
 

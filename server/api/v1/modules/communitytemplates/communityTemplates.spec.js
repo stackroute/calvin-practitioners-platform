@@ -18,7 +18,7 @@ describe('/GET communityTemplate', () => {
             .expect(200)
             .expect('Content-Type', /json/)
             .end((err, res) => {
-                console.log("error" + err);
+                // console.log("error" + err);
                 if (err) { done(err); return; }
                 (res.body).to.be.an('array');
                 done();

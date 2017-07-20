@@ -15,7 +15,7 @@ function getSpecificCommunity(domain,counter, done) {
  .query({ domain}) // query string
  .end((err, res) => {
    if (err) {
-      console.log("checking for counter in controller",err);
+      // console.log("checking for counter in controller",err);
      return done(err);
    }
 

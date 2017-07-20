@@ -95,6 +95,3 @@ router.post('/:domain',(req, res) => {
 
 
 module.exports = router;
-
-
-

@@ -7,7 +7,7 @@ require('./strategy/google/passport.js')(passport);
 const router = express.Router();
 //follow=/invite/recipient/
 router.get('/follow',(req, res) => {
-  console.log('req', req);
+  // console.log('req', req);
   res.send(200).status('done');
 });
 

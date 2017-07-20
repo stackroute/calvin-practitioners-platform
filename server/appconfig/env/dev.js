@@ -47,5 +47,7 @@ module.exports = {
     cookies,
     discourseKey,
     discourseAdmin,
-    appConstants
+    appConstants,
+    USERS_TABLE,
+    TABLE_NAME
 };

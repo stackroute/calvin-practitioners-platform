@@ -7,10 +7,10 @@ function initializeOnIntegration({token, domainName, toolId, username}, done) {
         discourseService.generateWebhook.bind(null, {token, domainName, toolId, username}),
     ],(err, results) => {
 		if(err) {
-			console.log("Error occurs in creating group and webhook for the community", err);
+			// console.log("Error occurs in creating group and webhook for the community", err);
 			return done(err);
 		}
-        console.log('after waterfall', results);
+        // console.log('after waterfall', results);
 		return done(null, results);
     });
 }
