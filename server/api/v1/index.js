@@ -11,7 +11,7 @@ router.use('/logout', (req, res) => {
 
 
 // router.use('/toolauth', require('./modules/toolauth'));
-router.use('/invite', require('./modules/communityinvitation'))
+router.use('/invite', require('./modules/communityinvitation'));
 
 router.use(require('./modules/authentication'));
 // Each Module to be placed after this

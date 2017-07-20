@@ -31,12 +31,13 @@ router.get('/recipient/:token', (req, res, next) => {
                     }
 
                     //Its Valid invitee token
-
+                    console.log('inviteeDetail.domain',inviteeDetail.domain)
                     if(req.user.username === inviteeDetail.invitee) {
                         //current user is the invitee
                         //Take him to the accept/reject page
                         // Community, Role, Who invited
-                        res.redirect(`/#/app/communityinvite/${inviteeDetail.domain}`);
+                        res.redirect(`/#/app/communityinvite/invitation/${inviteeDetail.domain}/${inviteeDetail.role}`);
+                        //res.redirect(`/api/v1/communityMembers/communityinvite/${inviteeDetail.domain}`);
                         return;
                     } else {
                         //invalid invite or cross user invitation 
@@ -52,8 +53,7 @@ router.get('/recipient/:token', (req, res, next) => {
         //Also pass the details of invitation
         res.clearCookie(config.cookie.user);
         res.clearCookie(config.cookie.userCommunity);
-        return res.redirect('/#/login/follow');
-       // return res.redirect(`/#/login/follow/invite/recipient/${req.params.token}`);
+        return res.redirect(`#/login`);
     }
 });
 

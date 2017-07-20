@@ -147,7 +147,8 @@ function postMemberInvite(url, domain, type, inviteBody, done) {
                 console.log("invitation", data);
                 let payload = {
                     domain: domain,
-                    invitee: data.email
+                    invitee: data.email,
+                    role: data.role
                 }
                 const token = generateToken(payload)
                 const link = generateLink(token);
@@ -161,7 +162,7 @@ function postMemberInvite(url, domain, type, inviteBody, done) {
             
 
             function generateLink(token){
-                return `https://calvin-pages.stackroute.in/join?invite=${token}`;
+                return `http://localhost:3000/api/v1/invite/recipient/${token}`;
             }
             
             function sendInvitationMail(data, link, callback) {      
@@ -222,6 +223,47 @@ function deleteMember(domain, data, callback) {
         return callback(null, res.body);
     });
 }
+function updateMember(domain,person,role,done) {
+   async.waterfall([
+       acceptMembership.bind(null,domain,person),
+       addNewMember.bind(null, domain, person, role)
+   ], (err, res) => {
+   })
+}
+
+function acceptMembership(domain,person,done) {
+   // Call communities service to get all the templates
+   console.log("Inside controller")
+  const url = `${BASE_COMMUNITY_SERVICE_URL}/memberrequests/invite/${domain}/person/${person}`;
+  request
+ .patch(url) // query string
+ .end((err, res) => {
+   if (err) {
+     return done(err);
+   }
+   return done(null, res);
+ });
+}
+
+function addNewMember(domain, person, role, res, done) {
+  let inviteArr=[];
+  inviteArr.push({"role": role,"username": person});
+  console.log("inviteArr",inviteArr);
+
+  const url = `${BASE_COMMUNITY_SERVICE_URL}/communitymembership/${domain}/members`;
+  
+  request
+  .post(url)
+  .send(inviteArr)
+  .end((err, res) => {
+    if (err) {
+      console.log("error in adding new members ", err);
+      return done(err);      
+    }
+    return done(null, res.body);
+  });
+  
+}
 
 
 module.exports = {
@@ -232,5 +274,6 @@ module.exports = {
     getCommunityMembers,
     deleteMember,
     postMember,
+    updateMember,
 };
 
