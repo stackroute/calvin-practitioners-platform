@@ -1,5 +1,5 @@
 <calvin-community-profile [profile]="this.community">
-  <div class="manage-community-info" *ngIf="this.CommunitiesInfo.role === 'Admin' || 'owner'">
+  <div class="manage-community-info" *ngIf="this.communities.roles === 'Admin' || 'owner'">
     <button md-icon-button [mdMenuTriggerFor]="menu" class="setting">
     <md-icon>settings</md-icon>
   </button>

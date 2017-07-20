@@ -29,7 +29,7 @@ const topicMappingConfig = {
 function extractEventData(eventPayload, { domainName, toolId, username }, done) {
 	// console.log('4.inside extract event data');
 	let eventData = {};
-
+	console.log('topic');
 	const DCMapping = {
 		post: postMappingConfig,
 		topic: topicMappingConfig
@@ -74,7 +74,7 @@ function convertData(eventPayload, mappingConfig) {
 			convertedData[fieldKey] = lodash.get(eventPayload, mappingConfig[fieldKey]);
 	});
 
-	// console.log("POST data ", convertedData);
+	console.log("POST data ", convertedData);
 	return convertedData;
 }
 
