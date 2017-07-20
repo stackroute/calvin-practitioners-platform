@@ -28,6 +28,7 @@
     "@angular/platform-browser": "^4.0.0",
     "@angular/platform-browser-dynamic": "^4.0.0",
     "@angular/router": "^4.0.0",
+    "@types/socket.io-client": "^1.4.29",
     "angular2-infinite-scroll": "^0.3.5",
     "angular2-markdown": "^1.6.0",
     "angular2-polyfill": "0.0.32",
@@ -59,6 +60,7 @@
     "sass-loader": "^6.0.6",
     "superagent": "^3.5.2",
     "typescript": "~2.2.0",
+    "uuid": "^3.1.0",
     "yarn-install": "^0.3.0",
     "zone.js": "^0.8.4"
   },

@@ -1,3 +1,46 @@
-<p>
-  notifications works!
-</p>
+
+
+
+<md-card fxFlex="20%" class="usercommunitylist">
+	<md-card-title fxLayout="row" class="new-community">
+		Notifications ( {{notifications.length}} )
+	</md-card-title>
+
+	<div class="community-list">
+
+		<md-list align="start">
+			<div *ngIf="!notifications.length==0">
+				<h4> no activities to display..!!!
+				</h4><span><md-icon>sad</md-icon></span>
+			</div>
+			<div *ngIf="notifications.length==0">
+				<md-list-item >
+
+					
+					<h2 md-line>Nikita posted a question</h2>
+					
+				</md-list-item>
+        		<md-list-item >
+
+					
+					<h2 md-line>Nikita posted a question</h2>
+					
+				</md-list-item>
+        		<md-list-item >
+
+					
+					<h2 md-line>Nikita posted a question</h2>
+					
+				</md-list-item>
+
+        		<md-list-item >
+
+					
+					<h2 md-line>Nikita posted a question</h2>
+					
+				</md-list-item>
+			</div>
+		2de>-->
+		</md-list>
+	</div>
+</md-card>
