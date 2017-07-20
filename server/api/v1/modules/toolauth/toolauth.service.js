@@ -1,9 +1,15 @@
-const config = require('../common/config');
+//const config = require('../common/config');
+const config = require('../../../../appconfig/env/dev');
 const cassandra= require('cassandra-driver');
 
+//const client = new cassandra.Client({
+//  contactPoints: [config.dbconfig.dburl],
+//  keyspace: config.dbconfig.keyspacename,
+//});
+
 const client = new cassandra.Client({
-  contactPoints: [config.dbconfig.dburl],
-  keyspace: config.dbconfig.keyspacename,
+  contactPoints: [config.connectionString.dburl],
+  keyspace: config.connectionString.keyspacename,
 });
 
 function postAppIntegrationToken(tool,data,done){
