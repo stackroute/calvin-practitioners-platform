@@ -37,6 +37,6 @@ module.exports = function(eventPayload, unifiedEventData, { domainName, toolId, 
       mediaType: 'image/svg+xml'
     }
   }
-
+  console.log("Converted tool event message ", eventMessage);
   return eventMessage;
 }
