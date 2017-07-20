@@ -9,7 +9,6 @@ import { Headers, RequestOptions } from '@angular/http';
 export class ToolConfigService {
   domainName;
   data;
-<<<<<<< HEAD
     constructor(private http: Http, public snackBar: MdSnackBar) { }
     saveDomain(name){
       this.domainName=name;
