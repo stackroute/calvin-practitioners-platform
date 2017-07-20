@@ -16,7 +16,6 @@ function createGroup(body, done) {
             if (err) {
                 return done(err);
             }
-
             return done(null, res.body);
         });
 }
