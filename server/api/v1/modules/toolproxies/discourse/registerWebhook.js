@@ -1,13 +1,11 @@
 const request = require('superagent');
 
-const appconfig = require('../../../../../appconfig/appconfig');
-const user = appconfig.discourseAdmin;
-const key = appconfig.discourseKey;
-console.log(appconfig.discourseAdmin,appconfig.discourseKey);
+const appconfig = require('../../../../../appconfig/');
+
+console.log("Discourse API credentials ", appconfig.discourseAdmin, " | ", appconfig.discourseKey);
 
 function generateWebhook(body, done) {
-    
-    const url = `http://discourse.calvin.stackroute.in/admin/api/web_hooks?api_username=${discourseAdmin}&api_key=${discourseKey}`;
+    const url = `http://discourse.calvin.stackroute.in/admin/api/web_hooks?api_username=${appconfig.discourseAdmin}&api_key=${appconfig.discourseKey}`;
     request
         .post(url)
         .send(body)

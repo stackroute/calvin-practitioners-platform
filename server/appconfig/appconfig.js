@@ -9,7 +9,7 @@
    development: extend(require('./env/dev'), defaults),
  };
 
- const env = process.env.NODE_ENV || 'dev';
+ const env = process.env.NODE_ENV || 'development';
 
  process.stdout.write(`\nConfiguring for environment: ${env}`);
 
