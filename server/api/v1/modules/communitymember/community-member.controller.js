@@ -162,7 +162,7 @@ function postMemberInvite(url, domain, type, inviteBody, done) {
             
 
             function generateLink(token){
-                return `http://localhost:3000/api/v1/invite/recipient/${token}`;
+                return `https://calvin-pages.stackroute.in/api/v1/invite/recipient/${token}`;
             }
             
             function sendInvitationMail(data, link, callback) {      
@@ -264,7 +264,17 @@ function addNewMember(domain, person, role, res, done) {
   });
   
 }
-
+function deleteRequest(domain, person, callback) {
+    const url = `${BASE_COMMUNITY_SERVICE_URL}/memberrequests/${domain}/person/${person}`;
+    request.delete(url)
+    .send(data)
+    .end((err, res) => {
+        if (err) {
+            return callback(err);
+        }
+        return callback(null, res.body);
+    });
+}
 
 module.exports = {
     verifyInviteeToken,
@@ -275,5 +285,6 @@ module.exports = {
     deleteMember,
     postMember,
     updateMember,
+    deleteRequest
 };
 

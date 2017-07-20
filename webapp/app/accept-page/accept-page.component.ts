@@ -21,7 +21,7 @@ export class AcceptPageComponent implements OnInit {
 
   
   constructor(private route: ActivatedRoute,private userservice: UserInfoService,
-  private profileService: acceptService) 
+  private AcceptService: acceptService) 
   { 
     this.domain=route.snapshot.params.domain;
     console.log('domainName is',this.domain); 
@@ -43,10 +43,17 @@ export class AcceptPageComponent implements OnInit {
   
   update()
   {
-     this.profileService.updateMember(this.domain,this.username,this.role).subscribe(res=>{
+     this.AcceptService.updateMember(this.domain,this.username,this.role).subscribe(res=>{
        console.log("result",res);
      });
     
+  }
+  delete()
+  {
+    this.AcceptService.deleteRequest(this.domain,this.username).subscribe(res=>{
+       console.log("result",res);
+     });
+
   }
   // routeToCommunity(){
    

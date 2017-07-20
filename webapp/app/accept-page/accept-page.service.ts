@@ -17,18 +17,30 @@ export class acceptService {
   getUserProfile(emailAddrs){
   return this.http.get(`api/v1/users/${emailAddrs}`).map( res => res.json());
  }
- updateMember(domain,person,role) {
- console.log("hhhhhhhhh",domain,role,person);
-  const headers = new Headers({
-   'Content-Type': 'application/json;charset=utf-8'
-  });
-  const options = new RequestOptions({
-   headers: headers
-  });
-//   const body = JSON.stringify(data);
-  //console.log(body);
-  const url = `/api/v1/communityMembers/memberrequests/invite/${domain}/person/${person}/${role}`;
-  return this.http.patch(url,options).map(res => res.json());
- }
+  updateMember(domain,person,role) {
+  // console.log("hhhhhhhhh",domain,role,person);
+    const headers = new Headers({
+    'Content-Type': 'application/json;charset=utf-8'
+    });
+    const options = new RequestOptions({
+    headers: headers
+    });
+  
+    const url = `/api/v1/communityMembers/memberrequests/invite/${domain}/person/${person}/${role}`;
+    return this.http.patch(url,options).map(res => res.json());
+  }
+
+   deleteRequest(domain,name) {
+      let url =`api/v1/communityMembers/memberrequests/${domain}/person/${person}`;
+      let headers = new Headers({ 'Content-Type': 'application/json;charset=utf-8' });
+      let options = new RequestOptions({ headers: headers
+       });
+
+  //console.log(body)
+
+  return this._http.delete(url,options).map(res => res.json());
+
+ } 
+
  
 }

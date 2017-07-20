@@ -124,4 +124,18 @@ router.post('/communitymembership/:domain/members', (req, res) => {
   }
 });
 
+router.delete('/memberrequests/:domain/person/:person', (req, res) => {
+  try {
+    memberCtrl.deleteRequest(req.params.domain, req.params.person, (err, result) => {
+      if (err) {
+        return res.status(500).send({ error: 'Error in getting value' });
+      }
+      return res.status(200).send(result);
+    });
+  } catch (err) {
+    return res.status(500).send({ error: 'Internal error occurred....!' });
+  }
+  return true;
+});
+
 module.exports = router;
