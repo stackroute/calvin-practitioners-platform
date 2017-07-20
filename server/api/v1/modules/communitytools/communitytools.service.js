@@ -62,16 +62,13 @@
 		//console.log('successfully integrated with result',res.body);
 		return done(null, res.body);
 	});
-
-
 		}
 
-
-		function postToolEventToCommunity(domain,toolid,tokens,EventMsg,done){
+	function postToolEventToCommunity(domain,toolid,tokens,EventMsg,done){	
 
 		let token='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkb21haW4iOiJpbGx1bWluYXRpIiwidG9vbGlkIjoicmFzdGVyIiwiZXZlbnRzIjpbImV2aWQxIiwiZXZpZDIiXSwiaWF0IjoxNTAwNDc3MzI2fQ.eH5Nn2iIXLdiXGjncYABLkHG9rgQCmkqvKpnFqQLcn8';
 		console.log('hi got domain',domain," toolid ",toolid," token ",token, "ebent msg ",EventMsg);
-		const url=`${BASE_COMMUNITY_SERVICE_URL}/webhooks/${token}`;
+		const url=`${urlValue}/webhooks/${token}`;
 			request
 		.post(url)
 		.send(EventMsg) // query string
@@ -88,6 +85,6 @@
 		module.exports = {
 			integrateNewTool,
 			integrateToolinCommunity,
-			postToolEventToCommunity,
+			postToolEventToCommunity
 		}
 

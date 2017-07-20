@@ -60,7 +60,7 @@ import { MD_DIALOG_DATA, MdDialog, MdDialogRef, MdSnackBar } from '@angular/mate
    toolId,
    actions,
    role
-  });
+  }); 
   if (index === -1) {
    this.selected.push({
     toolId,

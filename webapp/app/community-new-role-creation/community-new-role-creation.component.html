@@ -6,7 +6,7 @@
                 <md-hint align="start" class="full-width">
                     <div *ngIf="roleValue.get('roleName').hasError('required') && roleValue.get('roleName').touched" class="errorStyle">
                         Role Name is required
-                    </div>
+                    </div> 
                     <div *ngIf="roleValue.get('roleName').hasError('pattern') && roleValue.get('roleName')" class="errorStyle">
                         Invalid RoleName,name must contain 4 to 15 character and in lowercase
                     </div>
