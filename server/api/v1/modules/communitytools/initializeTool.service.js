@@ -1,7 +1,7 @@
 const path = require('path');
 
 module.exports = function({domainName, toolId, username}, token, done) {
-	// console.log("Now initilising tool ", toolId);
+	console.log("Now initilising tool with tokrn", token);
 	let toolPath = path.resolve(__dirname, '../', 'toolproxies', toolId);
 	// console.log("Trying to initilise tool from ", toolPath);  
 	try {
