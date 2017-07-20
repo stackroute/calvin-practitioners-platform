@@ -14,9 +14,9 @@ const connectionString = { // config for cassandra
 //      category: 'communities',
 //    }],
 //  };
-
+// const BASE_COMMUNITY_SERVICE_URL = 'http://172.23.238.141:3000/api/v1'; // config for calling Community API
 const BASE_COMMUNITY_SERVICE_URL = 'http://calvin-communities.blr.stackroute.in/api/v1'; // config for calling Community API
-const BASE_ACTIVITY_SERVICE_URL = '172.23.238.141:4000';
+const BASE_ACTIVITY_SERVICE_URL = '172.23.238.134:4000';
 
 
 const authToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ik1heWFuayBTZXRoaSIsImFwaSI6ImNpcmNsZSIsInNjb3BlcyI6WyJtYWlsYm94OmFsbCIsImNpcmNsZTphbGwiLCJmb2xsb3c6YWxsIl0sImlhdCI6MTQ5NzkzODEzOX0.cpLAt8BaYZyqyp53iDJGbl3yIBtBjj6_qoSiM4_hDiY';

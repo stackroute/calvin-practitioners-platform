@@ -12,5 +12,11 @@ export class ToolsService {
             .get('/api/v1/communitytools/' + domainName)
             .map((response: Response) => response.json());
     }
+
+    //  getToolUrl(domainName,toolid) {
+    //     return this.http
+    //         .get(`/api/v1/communitytools/${domainName}/${toolid}`)
+    //         .map((response: Response) => response.json());
+    // }
 }
 

@@ -23,6 +23,29 @@ function retrieveAllTools(domain, done) {
       return done(null, res.body);
     });
 }
+// function getToolUrl(domain,toolid, done) {
+//   // Call communities service to get all the templates
+//  console.log(urlValue);
+//  // const url = `${urlValue}/communitytools/${domain}/tools`;
+//   const url = `${urlValue}/communitytools/${domain}/tools/${toolid}`;
+  
+//   request
+//     .get(url)
+//     .query({ domain }) // query string
+//     .end((err, res) => {
+//       if (err) {
+//         // console.log('server.controller file');
+//         return done(err);
+//       }
+//       //  console.log('server.controller  success file');
+//       //  console.log(res.body);
+//       return done(null, res.body);
+//     });
+//}
+
+
+
+
 
 // module.exports = {
 //   retrieveAllTools,

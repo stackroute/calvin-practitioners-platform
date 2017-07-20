@@ -25,8 +25,9 @@ function getSpecificCommunity(domain,counter, done) {
 
  // Call communities service to update specific community according to domain
 function updateSpecificCommunity(domain, form, done) {
+  
   const url = `${urlValue}/communities/${domain}`;
-
+console.log('url',url);
   request
  .patch(url)
  .send(form) // query string

@@ -21,8 +21,9 @@ router.get('/communities/:domain', (req, res) => { // eslint-disable-line consis
 });
 
 router.patch('/communities/:domain', (req, res) => {
+  console.log('1.inside communities patch.....');
   try {
-    //console.log('1.inside communities patch.....');
+    
     communityCtrl.updateSpecificCommunity(req.params.domain, req.body, (err, result) => {
       if (err) {
         return res.status(500).send({ error: 'Unexpected error occurred, try again later' });

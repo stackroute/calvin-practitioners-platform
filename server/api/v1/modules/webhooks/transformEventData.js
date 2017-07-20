@@ -1,7 +1,9 @@
 let lodash = require('lodash');
+let transformDiscourseEvent = require('./transformDiscourseEvent');
 
 const postMappingConfig = {
 	username: "post.username",
+	useravatar: "",
 	displayName: "post.display_username",
 	createdOn: "post.created_at",
 	topicId: "post.topic_id",
@@ -12,17 +14,22 @@ const postMappingConfig = {
 }
 
 const topicMappingConfig = {
+	username: "topic.details.created_by.username",
+	useravatar: "",
+	displayName: "topic.details.created_by.username",
 	createdOn: "topic.created_at",
 	topicId: "topic.id",
 	topicSlug: "topic.slug",
 	topicTitle: "topic.title",
+	message: "topic.fancy_title",
+	groupName: "topic.details.participants.primary_group_name",
 }
 
 
 function extractEventData(eventPayload, { domainName, toolId, username }, done) {
 	// console.log('4.inside extract event data');
 	let eventData = {};
-
+	console.log('topic');
 	const DCMapping = {
 		post: postMappingConfig,
 		topic: topicMappingConfig
@@ -45,6 +52,9 @@ function extractEventData(eventPayload, { domainName, toolId, username }, done) 
 		case 'discourse':
 			eventType = Object.keys(eventPayload)[0];
 			MappedObj = DCMapping;
+			let unifiedEventData = convertData(eventPayload, MappedObj[eventType])
+			let convertedData = transformDiscourseEvent(eventPayload, unifiedEventData, { domainName, toolId, username })
+			done(null, convertedData);
 			break;
 	}
 
@@ -60,10 +70,11 @@ function convertData(eventPayload, mappingConfig) {
 	let convertedData = {};
 
 	Object.keys(mappingConfig).forEach((fieldKey) => {
-		convertedData[fieldKey] = lodash.get(eventPayload, mappingConfig[fieldKey]);
+		if(mappingConfig[fieldKey])
+			convertedData[fieldKey] = lodash.get(eventPayload, mappingConfig[fieldKey]);
 	});
 
-	// console.log("POST data ", convertedData);
+	console.log("POST data ", convertedData);
 	return convertedData;
 }
 

@@ -9,16 +9,18 @@ const transformEventData = require('./transformEventData');
 
 function verifyToolToken(token, done) {
     console.log('3.inside verify token');
-    jwt.verify(token, 'config.appConstants.secret', (err, tokenClaims) => {
+    jwt.verify(token, config.appConstants.secret, (err, tokenClaims) => {
         if (err) {
             return done(err, 'unauhtorized');
         }
+        
         done(null, tokenClaims);
     });
 }
 
 function extractEventData(eventPayload, tokenClaims, done) {
     // console.log('3.inside extract event datat');
+    console.log("***********Post ",JSON.stringify(eventPayload),'************');
     let obj;
     transformEventData.extractEventData(eventPayload, tokenClaims, (err, extractedData) => {
         if (err) {
@@ -54,11 +56,11 @@ function sendToCommunityService(payload, obj, done) {
 
 function handleToolEvent(token, eventPayload, done) {
 
-    token = jwt.sign({
+    /*token = jwt.sign({
         "domainName": "digital",
         "toolId": "discourse",
         "username": "ceanstackdev@gmal.com"
-    }, 'config.appConstants.secret', { expiresIn: 60 * 5000 });
+    }, 'config.appConstants.secret', { expiresIn: 60 * 5000 });*/
 
     // console.log('2.getting inside handle tool event');
     async.waterfall([
@@ -70,6 +72,7 @@ function handleToolEvent(token, eventPayload, done) {
             if (err) {
                 console.log('error is ', err);
                 done(err, 'Internal Error');
+                return;
             }
             done(null, 'successfully sent');
         });

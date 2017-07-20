@@ -37,7 +37,7 @@ export class ToolPageComponent implements OnInit {
 
   integrateTool() {
 
-    // alert('toolInt called');
+    
 
     // this.dialog.open(IntegrateTool,{
     //   data:this.toolid;
@@ -60,7 +60,7 @@ export class IntegrateTool implements OnInit {
   integrationFlag = 0;
   adminCommunities = [];
   ngOnInit() {
-
+    
     this.userservice.getUserCommunity((result) => {
 
       console.log('communities are', result);
@@ -98,14 +98,14 @@ export class IntegrateTool implements OnInit {
 
     console.log('inside',this.domain);
     this.toolservice.saveDomain(this.domain);
-    this.router.navigate([`/app/toolconfig/${this.domain}/${this.toolid}`]);
+   this.router.navigate([`/app/toolconfig/${this.domain}/${this.toolid}`]);
     // this.router.navigate([`/app/toolconfig/${this.domain}/${this.toolid}`]);
   }
-  navigateToCC(){
-      this.router.navigate([`/app/toolconfig/${this.domain}/${this.toolid}`]);
-  }
-  // navigateToCC() {
-  //   this.router.navigate([`/app/createCommunity`])
+  // navigateToCC(){
+  //     this.router.navigate([`/app/toolconfig/${this.domain}/${this.toolid}`]);
   // }
+  navigateToCC() {
+    this.router.navigate([`/app/createCommunity`])
+  }
 
 }
