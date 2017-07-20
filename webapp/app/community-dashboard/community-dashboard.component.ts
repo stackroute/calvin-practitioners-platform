@@ -3,6 +3,7 @@ import { CommunityToolsWidgetComponent } from '../community-tools-widget/communi
 import { CommunityMembersWidgetComponent } from '../community-members-widget/community-members-widget.component';
 import { Params, RouterModule, Routes, Router, ActivatedRoute } from '@angular/router';
 import { CommunityProfileService } from '../community-profile/community-profile.service';
+import { ActivityPageComponent } from '../activity-page/activity-page.component';
 import * as moment from 'moment/moment';
 import { UserInfoService } from '../core/user-info.service';
 
@@ -40,14 +41,14 @@ export class CommunityDashboardComponent implements OnInit {
           this.userInfo.getUserDetail((userdetails) => {
 
       this.member = userdetails.username;
-      console.log(userdetails);
-      console.log(typeof userdetails);
-      console.log('user is : ' + this.member);
+      // console.log(userdetails);
+      // console.log(typeof userdetails);
+      // console.log('user is : ' + this.member);
     });
 
      this.userInfo.getUserCommunity((userCommunity) => {
        this.CommunitiesInfo = userCommunity;
-       console.log("getting user communitiesss in community profile,,",this.CommunitiesInfo);
+      //  console.log("getting user communitiesss in community profile,,",this.CommunitiesInfo);
 
       
 

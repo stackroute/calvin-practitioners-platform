@@ -29,7 +29,7 @@ export class ToolPageComponent implements OnInit {
       let body = result.json();
       // console.log('body is ',body);
       this.toolinfo = body.data || body;
-      console.log('tooinfo is :', this.toolinfo);
+      // console.log('tooinfo is :', this.toolinfo);
       this.toolinfo = this.toolinfo[0];
       this.flag = 1;
     });
@@ -63,11 +63,10 @@ export class IntegrateTool implements OnInit {
 
     this.userservice.getUserCommunity((result) => {
 
-      console.log('communities are', result);
+      // console.log('communities are', result);
       result.forEach((community) => {
-        console.log('get community avatar', community.avatar);
+        // console.log('get community avatar', community.avatar);
         if (community.role === 'admin' || community.role === 'owner') {
-
           this.adminCommunities.push({domain: community.domain, avatar: community.avatar});
         }
       });
@@ -93,16 +92,16 @@ export class IntegrateTool implements OnInit {
   }
   
   integrateToolToCmmunity(domainname) {
-    console.log('domain name is ',domainname);
+    // console.log('domain name is ',domainname);
     this.domain=domainname;
 
-    console.log('inside',this.domain);
+    // console.log('inside',this.domain);
     this.toolservice.saveDomain(this.domain);
-    // this.router.navigate[(`/app/toolconfig/${this.toolid}`)];
-     this.router.navigate([`/app/toolconfig/${this.domain}/${this.toolid}`]);
+    this.router.navigate[(`/app/toolconfig/${this.domain}/${this.toolid}`)];
+    // this.router.navigate([`/app/toolconfig/${this.domain}/${this.toolid}`]);
   }
   navigateToCC(){
-       this.router.navigate([`/app/createCommunity`]);
+      this.router.navigate([`/app/toolconfig/${this.domain}/${this.toolid}`]);
   }
   // navigateToCC() {
   //   this.router.navigate([`/app/createCommunity`])

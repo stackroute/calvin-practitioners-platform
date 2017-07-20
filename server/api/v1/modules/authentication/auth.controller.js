@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken-refresh');
-const config = require('../common/config');
+const config = require('../../../../appconfig/env/dev');
 
 const verifyToken = (usertoken, done) => {
   jwt.verify(usertoken, config.appConstants.secret, (err, res) => {

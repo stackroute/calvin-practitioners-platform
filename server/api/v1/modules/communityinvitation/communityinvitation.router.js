@@ -3,14 +3,13 @@ const authCtrl = require('../authentication/auth.controller');
 const communityMember = require('./../communitymember/community-member.controller');
 const config = require('../common/config');
 
-
 router.get('/recipient/:token', (req, res, next) => {
 
     const userToken = req.cookies.currentUser;
-
+    console.log('inside router');
     //Is the user logged in or not 
     if (userToken) {
-        console.log('already login')
+         console.log('already login')
         //If logged in user, user is already a member of calvin
         //Check if the logged in user and the invitee are one and the same, if not same reject the request with a error
         authCtrl.verifyToken(userToken, (err, decoded) => {
@@ -26,9 +25,12 @@ router.get('/recipient/:token', (req, res, next) => {
                 req.user = decoded;
                 communityMember.verifyInviteeToken(req.params.token, (err, inviteeDetail) => {
                     if(err) {
+                        console.log("Invalid or expired invtee token recieved..!")
                         res.redirect('/#/app/communityinvite/invalid');
                         return;
                     }
+
+                    console.log("Processing invitation for ", inviteeDetail);
 
                     //Its Valid invitee token
                     console.log('inviteeDetail.domain',inviteeDetail.domain)
@@ -40,6 +42,7 @@ router.get('/recipient/:token', (req, res, next) => {
                         //res.redirect(`/api/v1/communityMembers/communityinvite/${inviteeDetail.domain}`);
                         return;
                     } else {
+                        console.log("Cross user invitation acceptance handled..!");
                         //invalid invite or cross user invitation 
                         res.redirect('/#/app/communityinvite/invalid');
                         return;
@@ -48,12 +51,12 @@ router.get('/recipient/:token', (req, res, next) => {
             }
         });
     } else {
-        console.log('inside new user')
+         console.log('inside new user')
         //invitee is not a logged in user, redirect for login
         //Also pass the details of invitation
         res.clearCookie(config.cookie.user);
         res.clearCookie(config.cookie.userCommunity);
-        return res.redirect(`#/login`);
+        return res.redirect(`/#/login`);
     }
 });
 

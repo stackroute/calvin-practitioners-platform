@@ -1,11 +1,13 @@
 const request = require('superagent');
+const config = require('../../../../appconfig/env/dev');
+const urlValue =config.BASE_COMMUNITY_SERVICE_URL;
 
-const BASE_COMMUNITY_SERVICE_URL = 'http://calvin-communities.blr.stackroute.in/api/v1';
+
 
 function retrieveAllUsers(domain, done) {
    // Call communities service to get all the templates
   //console.log(domain);
-  const url = `${BASE_COMMUNITY_SERVICE_URL}/communityrole/${domain}`;
+  const url = `${urlValue}/communityrole/${domain}`;
   request
  .get(url)
  .query({ domain }) // query string
@@ -22,7 +24,7 @@ function retrieveAllUsers(domain, done) {
 function retrieveAllRoles(domain, done) {
    // Call communities service to get all the templates
   //console.log(domain);
-  const url = `${BASE_COMMUNITY_SERVICE_URL}/communityrole/${domain}?onlyroles=true`;
+  const url = `${urlValue}/communityrole/${domain}?onlyroles=true`;
   request
  .get(url)
  .query({ domain }) // query string
@@ -40,7 +42,7 @@ function retrieveAllRoles(domain, done) {
 
 function updateActions(domain, role, values, done) {
    // Call communities service to get all the templates
-  const url = `${BASE_COMMUNITY_SERVICE_URL}/communityrole/${domain}/roles/${role}`;
+  const url = `${urlValue}/communityrole/${domain}/roles/${role}`;
   request
  .patch(url)
  .send(values) // query string
@@ -55,7 +57,7 @@ function updateActions(domain, role, values, done) {
 
 function updateRole(domain,values, done) {
    // Call communities service to get all the templates
-  const url = `${BASE_COMMUNITY_SERVICE_URL}/communitymembership/${domain}/members`;
+  const url = `${urlValue}/communitymembership/${domain}/members`;
   request
  .patch(url)
  .send(values) // query string
@@ -68,7 +70,7 @@ function updateRole(domain,values, done) {
 }
 function createRole(domain, values, done) {
    // Call communities service to get all the templates
-  const url = `${BASE_COMMUNITY_SERVICE_URL}/communityrole/${domain}`;
+  const url = `${urlValue}/communityrole/${domain}`;
   request
  .post(url)
  .send(values) // query string

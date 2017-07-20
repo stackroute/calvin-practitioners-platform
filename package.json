@@ -14,9 +14,9 @@
   },
   "private": true,
   "dependencies": {
-    "@angular/cli": "^1.2.1",
     "@angular/animations": "^4.2.2",
     "@angular/cdk": "^2.0.0-beta.8",
+    "@angular/cli": "^1.2.1",
     "@angular/common": "^4.0.0",
     "@angular/compiler": "^4.0.0",
     "@angular/compiler-cli": "^4.0.0",
@@ -28,6 +28,7 @@
     "@angular/platform-browser": "^4.0.0",
     "@angular/platform-browser-dynamic": "^4.0.0",
     "@angular/router": "^4.0.0",
+    "@types/socket.io-client": "^1.4.29",
     "angular2-infinite-scroll": "^0.3.5",
     "angular2-markdown": "^1.6.0",
     "async": "^2.5.0",
@@ -55,8 +56,9 @@
     "passport-google-oauth": "^1.0.0",
     "rxjs": "^5.1.0",
     "superagent": "^3.5.2",
-    "yarn-install": "^0.3.0",
     "typescript": "~2.2.0",
+    "uuid": "^3.1.0",
+    "yarn-install": "^0.3.0",
     "zone.js": "^0.8.4"
   },
   "devDependencies": {

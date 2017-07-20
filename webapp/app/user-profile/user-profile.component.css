@@ -4,9 +4,6 @@
 border-radius: 50%;
 margin-left: 10%;
 }
-/*.material-icons{
-margin-top: 100px;
-}*/
 .fixprofile{
     margin-left: -30%;
 }
@@ -14,8 +11,7 @@ md-card-img{
     margin-left: 1%;
     margin-right: 100%;
 }
-
-/*google signin button style  */
+/*Integrate tool button style  */
 
 .fixEventButton{
      margin-left: -20%; 
@@ -67,10 +63,17 @@ span.buttonText {
       padding-right: 42px;
       font-size: 14px;
       font-weight: bold;
-      /* Use the Roboto font that is loaded in the <head> */
       font-family: 'Roboto', sans-serif;
     }
 .alignToolBtn {
  margin-top: 20px;
-    /* padding: 11px; */
+}
+.integrateToolbtn {
+    margin-right: 420px;
+}
+.toolTitle {
+        margin-right: 32    0px;
+        font-size : 18px;
+        font-family: 'Roboto', sans-serif;
+
 }

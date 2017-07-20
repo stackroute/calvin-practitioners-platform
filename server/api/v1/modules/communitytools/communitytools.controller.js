@@ -1,11 +1,12 @@
 const request = require('superagent');
 const communityToolService = require('./communitytools.service');
-const BASE_COMMUNITY_SERVICE_URL = 'http://calvin-communities.blr.stackroute.in/api/v1';
+const config = require('../../../../appconfig/env/dev');
+const urlValue =config.BASE_COMMUNITY_SERVICE_URL;
 
 function retrieveAllTools(domain, done) {
   // Call communities service to get all the templates
-  // console.log(domain);
-  const url = `${BASE_COMMUNITY_SERVICE_URL}/communitytools/${domain}/tools`;
+ console.log(urlValue);
+  const url = `${urlValue}/communitytools/${domain}/tools`;
   request
     .get(url)
     .query({ domain }) // query string
@@ -25,20 +26,20 @@ function retrieveAllTools(domain, done) {
 //  };
 // const BASE_TOOLS_SERVICE_URL = 'http://calvin-communities.blr.stackroute.in/api/v1';
 
-function getTool(domain, done) {
-  // console.log("i am at get tools", domain);
-  // Call communities service to get all the templates
-  const url = `${BASE_TOOLS_SERVICE_URL}/communitytools/${domain}/tools`;
-  request
-    .get(url)
-    .query({ domain })
-    .end((err, res) => {
-      if (err) {
-        return done(err);
-      }
-      return done(null, res.body);
-    });
-}
+// function getTool(domain, done) {
+//   // console.log("i am at get tools", domain);
+//   // Call communities service to get all the templates
+//   const url = `${urlValue}/communitytools/${domain}/tools`;
+//   request
+//     .get(url)
+//     .query({ domain })
+//     .end((err, res) => {
+//       if (err) {
+//         return done(err);
+//       }
+//       return done(null, res.body);
+//     });
+// }
 
 // Call community tools service to post tools
 function postTool(domain, data, done) {
@@ -132,11 +133,16 @@ function postTool(domain, data, done) {
 }
 function postToolInfo(domain,data,done){
            console.log('inside post toolinfo');
-          communityToolService.addToolinCommunity(domain,data,done); 
+          // communityToolService.addToolinCommunity(domain,data,done); 
+          communityToolService.integrateToolinCommunity(domain,data,done);
 }
+
+    // console.log("Now posting tool ", data, " for domain ", domain);
+    // communityToolService.integrateNewTool({domainName: domain, toolId: data.toolid, username: data.username},done);
+    // communityToolService.integrateToolinCommunity(domain,data,done); 
 
 module.exports = {
   retrieveAllTools,
-  getTool,
   postTool,
+  postToolInfo
 };

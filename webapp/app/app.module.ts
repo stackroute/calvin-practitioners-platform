@@ -67,6 +67,7 @@ import { ToolConfigPageComponent } from './tool-config-page/tool-config-page.com
 import { NotificationsComponent } from './notifications/notifications.component';
 import { AcceptPageComponent } from './accept-page/accept-page.component';
 import { InvalidUserComponent } from './invalid-user/invalid-user.component'
+import { MdAutocompleteModule } from '@angular/material';
 
 
 @NgModule({
@@ -113,8 +114,7 @@ import { InvalidUserComponent } from './invalid-user/invalid-user.component'
     NotificationsComponent,
     DialogResultDialog,
     AcceptPageComponent,
-    InvalidUserComponent,
-
+    InvalidUserComponent
      ],
 
   imports: [
@@ -139,7 +139,8 @@ import { InvalidUserComponent } from './invalid-user/invalid-user.component'
     MdInputModule,
     MdSlideToggleModule,
     MdDialogModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MdAutocompleteModule,
   ],
 
   entryComponents: [IntegrateTool,CommunityToolActionsComponent, NewcommunityDialogboxComponent,DialogResultExampleDialog,
