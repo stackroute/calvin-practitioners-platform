@@ -7,7 +7,7 @@ module.exports = function(eventPayload, unifiedEventData, { domainName, toolId, 
   let activityType = { 'post': 'Add', 'topic': 'Create' }[eventType];
   let objectType = { 'post': 'Article', 'topic': 'Article' }[eventType];
 
-  let eventPayload = {
+  let payload = {
     "@context": 'https://www.w3.org/ns/activitystreams',
     id: uuidv4(),
     type: activityType,
@@ -41,7 +41,7 @@ module.exports = function(eventPayload, unifiedEventData, { domainName, toolId, 
     domain: domainName,
     toolid: toolId,
     activitytype: activityType,
-    payload: eventPayload
+    payload: payload
   }
   console.log("Converted tool event message ", JSON.stringify(eventMessage));
   return eventMessage;
