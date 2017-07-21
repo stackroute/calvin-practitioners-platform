@@ -60,25 +60,23 @@ function integrateToolinCommunity(domain, toolid, data, done) {
                 return done(err);
             }
             //console.log('successfully integrated with result',res.body);
-            return done(null, res.body);
+            return done(null, res.body.communityToolToken);
         });
 }
 
-function postToolEventToCommunity(domain, toolid, tokens, EventMsg, done) {
-
-    let token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkb21haW4iOiJpbGx1bWluYXRpIiwidG9vbGlkIjoicmFzdGVyIiwiZXZlbnRzIjpbImV2aWQxIiwiZXZpZDIiXSwiaWF0IjoxNTAwNDc3MzI2fQ.eH5Nn2iIXLdiXGjncYABLkHG9rgQCmkqvKpnFqQLcn8';
-    console.log('hi got domain', domain, " toolid ", toolid, " token ", token, "ebent msg ", EventMsg);
+function postToolEventToCommunity(domain, toolid, token, eventMsg, done) {
+    // let token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkb21haW4iOiJpbGx1bWluYXRpIiwidG9vbGlkIjoicmFzdGVyIiwiZXZlbnRzIjpbImV2aWQxIiwiZXZpZDIiXSwiaWF0IjoxNTAwNDc3MzI2fQ.eH5Nn2iIXLdiXGjncYABLkHG9rgQCmkqvKpnFqQLcn8';
+    console.log('Got request to post to community webhook for domain', domain, " toolid ", toolid, " token ", token, " event msg ", eventMsg);
     const url = `${urlValue}/webhooks/${token}`;
     request
         .post(url)
-        .send(EventMsg) // query string
+        .send(eventMsg) // query string
         .end((err, res) => {
-
             if (err) {
-                console.log('error is ', err);
+                console.log('Error in publishing message to community server ', err);
                 return done(err);
             }
-            return done(null, 'successfully sent');
+            return done(null, 'successfully sent message to communityWebhook ', res.body);
         });
 }
 
