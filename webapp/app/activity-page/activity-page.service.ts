@@ -35,4 +35,17 @@ export class ActivityService {
       })
       .map((response: Response) => response.json())
   }
+
+   getActivity() {
+       
+   return this.http
+     .get(`api/v1/memberactivitypage/community/nitin`)
+     .catch(err => {
+        this.snackBar.open('Unable to get domain activities', 'X', {
+          duration: 3000
+        });
+        return Observable.throw(err);
+      })
+     .map((response: Response) => response.json())
+ }
 }

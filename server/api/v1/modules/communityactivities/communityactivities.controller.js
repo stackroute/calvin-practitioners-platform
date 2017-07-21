@@ -1,5 +1,6 @@
 const request = require('superagent');
 const config = require('../../../../appconfig/env/dev');
+const activitiesService = require('./communityactivities.service');
 
 const urlValue=config.BASE_ACTIVITY_SERVICE_URL;
 const authToken=config.authToken;
@@ -22,18 +23,15 @@ function getMemberActivities(userName, done) {
     });
 }
 
-// function getAllCommunitiesOfMember(memberName) {
-//   // activityServices.getActivityData();
-//   const allCommunities = activities.activity;
-//   memberFilteredArray = allCommunities.filter((community) => {
-//     return community.actor.name === memberName;
-//   });
-//   return memberFilteredArray;
-// }
-// get all the activities according to member Name
-//  function getMemberActivities(done) {   
-//    return done(null,activities);
-//  }
+function getAllActivity(done){     
+  activitiesService.getMemberActivities((err,res)=>{
+    if (err) {
+        return done(err);
+    }
+    done (null, res);
+  })
+}
+
 
 function getDomainActivities(domainName, done) {
   const url = `${urlValue}/adapter/getallactivities/domain/${domainName}`;
@@ -55,6 +53,7 @@ function getDomainActivities(domainName, done) {
 module.exports = {
   getMemberActivities,
   getDomainActivities,
+  getAllActivity,
 };
 
 

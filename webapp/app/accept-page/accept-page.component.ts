@@ -10,7 +10,7 @@ import { acceptService } from '../accept-page/accept-page.service';
   providers:[acceptService]
 })
 export class AcceptPageComponent implements OnInit {
-  
+  activity = [];
   user: {};
   username;
   flag = 0;
@@ -30,12 +30,12 @@ export class AcceptPageComponent implements OnInit {
   }
 
   ngOnInit() {
-    
+       
        this.userservice.getUserDetail((userdetails) => {
       this.user = userdetails;
       this.username = userdetails.username;
       this.flag = 1;
-      console.log("UserName is",this.username);
+      // console.log("UserName is",this.username);
       
     });
   }
@@ -55,6 +55,8 @@ export class AcceptPageComponent implements OnInit {
      });
 
   }
+
+  
   // routeToCommunity(){
    
   //   console.log(this.domainName);

@@ -1,16 +1,16 @@
 <md-card>
   <md-card-header class="head" fxFlex="100%" fxLayout="row">
-    <div>
-      <img md-card-avatar src="{{activity.actor.href}}">
+    <div fxFlex="10%" >
+  <img class="example-header-image" md-card-avatar src="{{activity.actor.href}}" alt="">
     </div>
-    <div fxFlex="20%" align="center">
-      <md-card-title>{{activity.actor.name}}</md-card-title>
-      <md-card-title><a href="">{{activity.object.name}}</a></md-card-title>
+    <div align="start" fxFlex="80%">
+     <md-card-title>{{activity.actor.name}} {{activity.type}}</md-card-title>
+      <md-card-subtitle>{{activity.object.name}}</md-card-subtitle>
     </div>
   </md-card-header>
          <hr fxFlex="100%">
     <md-card-content>
-    <img md-card-image src="{{activity.target.content}}">
+    <img md-card-image src="{{activity.target.content}}" height="=50%">
   </md-card-content>
   <div>
       <md-card-content>{{activity.name}}</md-card-content>
@@ -28,6 +28,7 @@
       </md-card-content>
     </div>
 </md-card>
+
 
 
 <!--<md-card fxFlex="100%">
