@@ -7,7 +7,7 @@ module.exports = function(eventPayload, unifiedEventData, { domainName, toolId, 
   let activityType = { 'post': 'Add', 'topic': 'Create' }[eventType];
   let objectType = { 'post': 'Article', 'topic': 'Article' }[eventType];
 
-  let eventMessage = {
+  let eventPayload = {
     "@context": 'https://www.w3.org/ns/activitystreams',
     id: uuidv4(),
     type: activityType,
@@ -36,6 +36,12 @@ module.exports = function(eventPayload, unifiedEventData, { domainName, toolId, 
       href: 'http://discourse.calvin.stackroute.in/',
       mediaType: 'image/svg+xml'
     }
+  }
+  let eventMessage = {
+    domain: domainName,
+    toolid: toolId,
+    activitytype: activityType
+    payload: eventPayload
   }
   console.log("Converted tool event message ", JSON.stringify(eventMessage));
   return eventMessage;
