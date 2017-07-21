@@ -40,7 +40,7 @@ module.exports = function(eventPayload, unifiedEventData, { domainName, toolId, 
   let eventMessage = {
     domain: domainName,
     toolid: toolId,
-    activitytype: activityType
+    activitytype: activityType,
     payload: eventPayload
   }
   console.log("Converted tool event message ", JSON.stringify(eventMessage));
