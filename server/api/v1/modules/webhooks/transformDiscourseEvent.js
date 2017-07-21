@@ -11,7 +11,7 @@ module.exports = function(eventPayload, unifiedEventData, { domainName, toolId, 
     "@context": 'https://www.w3.org/ns/activitystreams',
     id: uuidv4(),
     type: activityType,
-    name: unifiedEventData.message,
+    name: (unifiedEventData.topicTitle || unifiedEventData.topicSlug),
     actor: {
       type: 'Link',
       name: unifiedEventData.username,
@@ -27,8 +27,8 @@ module.exports = function(eventPayload, unifiedEventData, { domainName, toolId, 
     target: {
       type: 'Group',
       name: domainName,
-      content: '',
-      url: 'http://calvin-pages.stackroute.in/#/app/communityDashboard/${domainName}'
+      content: unifiedEventData.message,
+      url: `http://calvin-pages.stackroute.in/#/app/communityDashboard/${domainName}`
     },
     context: {
       type: 'Link',
@@ -37,6 +37,6 @@ module.exports = function(eventPayload, unifiedEventData, { domainName, toolId, 
       mediaType: 'image/svg+xml'
     }
   }
-  console.log("Converted tool event message ", eventMessage);
+  console.log("Converted tool event message ", JSON.stringify(eventMessage));
   return eventMessage;
 }
