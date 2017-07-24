@@ -18,27 +18,9 @@ const controller = require('./communityactivities.controller');
  * - page : Current page number
  * * Effective URL is /memberactivitypage/:membername
  */
-// router.get('/:userName', (req, res) => {
-//   try {
-//     controller.getMemberActivities(req.params.userName, (err, result) => {
-//       if (err) {
-//         console.log("checking for counter",err);
-//         res.status(500).send({ error: 'Error in getting Activity details, please try later..!' });
-//       } else {
-//         res.status(200).send(result);
-//       }
-//     });
-//   } catch (err) {
-//      console.log("checking for counter in error",err);
-//     return res.status(500).send({
-//       error: 'Internal error occurred....!' });
-//   }
-// });
-
-
-router.get('/community/:domainName', (req, res) => {
+router.get('/:userName', (req, res) => {
   try {
-    controller.getAllActivity( (err, result) => {
+    controller.getMemberActivities(req.params.userName, (err, result) => {
       if (err) {
         console.log("checking for counter",err);
         res.status(500).send({ error: 'Error in getting Activity details, please try later..!' });
@@ -56,7 +38,7 @@ router.get('/community/:domainName', (req, res) => {
 
 // router.get('/community/:domainName', (req, res) => {
 //   try {
-//     controller.getDomainActivities(req.params.domainName, (err, result) => {
+//     controller.getAllActivity( (err, result) => {
 //       if (err) {
 //         console.log("checking for counter",err);
 //         res.status(500).send({ error: 'Error in getting Activity details, please try later..!' });
@@ -70,5 +52,23 @@ router.get('/community/:domainName', (req, res) => {
 //       error: 'Internal error occurred....!' });
 //   }
 // });
+
+
+router.get('/community/:domainName', (req, res) => {
+  try {
+    controller.getDomainActivities(req.params.domainName, (err, result) => {
+      if (err) {
+        console.log("checking for counter",err);
+        res.status(500).send({ error: 'Error in getting Activity details, please try later..!' });
+      } else {
+        res.status(200).send(result);
+      }
+    });
+  } catch (err) {
+     console.log("checking for counter in error",err);
+    return res.status(500).send({
+      error: 'Internal error occurred....!' });
+  }
+});
 
 module.exports = router;

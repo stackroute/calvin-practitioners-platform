@@ -1,22 +1,20 @@
 <!--<textarea [(ngModel)]="textData"></textarea>
 <markdown [data]="textData"></markdown>-->
-<!--collect activity cards for display activity page-->  
-<div class="search-results"
-            infinite-scroll
-            [infiniteScrollDistance]="1"
-            [infiniteScrollThrottle]="50"
-            (scrolled)="onScroll()"
-            [scrollWindow]="false">                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
-<div class="activity-board item item-3" fxLayout="rows">
-  <div *ngIf="activities" fxFlex="100%" fxlayout="column"  fxLayoutGap="2%" fxLayoutWrap>
+<!--collect activity cards for display activity page-->
+<div class="search-results" infinite-scroll [infiniteScrollDistance]="1" [infiniteScrollThrottle]="50" (scrolled)="onScroll()"
+  [scrollWindow]="false">
+  <div class="activity-board item item-3" fxLayout="rows">
+    <div *ngIf="activities" fxFlex="100%" fxlayout="column" fxLayoutGap="2%" fxLayoutWrap>
       <div class="list-activities" fxFlex="100%" fxlayout="column" *ngFor="let activity of activities let i = index;">
-        <calvin-activity-card  [activity]="activity"></calvin-activity-card>        
-      </div>       
+        <calvin-activity-card [activity]="activity"></calvin-activity-card>
+      </div>
+    </div>
+
+    <div *ngIf="(activities.length===0)">
+      <md-card-title align="center" class="title">
+        No activities yet for you.!Time to perform some actions!
+      </md-card-title>
+    </div>
+    
   </div>
 </div>
-</div>
-<!--<md-card>
-<md-card-title align="center">
-  Perform More Actions in Tools for getting Activity Logs
-  </md-card-title>
-</md-card>-->

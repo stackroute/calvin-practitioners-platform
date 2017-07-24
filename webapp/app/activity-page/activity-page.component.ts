@@ -26,34 +26,34 @@ export class ActivityPageComponent implements OnInit {
   constructor(private activityService: ActivityService, private userservice: UserInfoService, private value: AppBarService) { }
 
   ngOnInit() {
-    this.getActivities();
+    //this.getActivities();
     this.userservice.getUserDetail((userdetails) => {
       this.user = userdetails;
       this.username = userdetails.username;
       this.flag = 1;
     });
-    //this.getMemberActivities();
-    // this.getDomainActivities();
+    this.getMemberActivities();
+    this.getDomainActivities();
   }
-  getActivities(){    
-    this.activityService.getActivity()
-    .subscribe(data => {
-      this.activities = data;
-      console.log("Object of activities", this.activities);
-    });
+  // getActivities(){    
+  //   this.activityService.getActivity()
+  //   .subscribe(data => {
+  //     this.activities = data;
+  //     console.log("Object of activities", this.activities);
+  //   });
+  // }
+  getMemberActivities() {
+    this.activityService.getActivities(this.username, this.community, this.sort, this.order, this.page, this.limit)
+      .subscribe(data => {
+        this.activities = data;
+        console.log("Object of activities", this.activities);
+      });
   }
-  // getMemberActivities() {
-  //   this.activityService.getActivities(this.username, this.community, this.sort, this.order, this.page, this.limit)
-  //     .subscribe(data => {
-  //       this.activities = data;
-  //       console.log("Object of activities", this.activities);
-  //     });
-  // }
-  // getDomainActivities() {
-  //   this.activityService.getActivitiesByDomainName(this.community)
-  //     .subscribe(data => {
-  //       this.activities = data;
-  //       console.log("Object of activities", this.activities);
-  //     });
-  // }
+  getDomainActivities() {
+    this.activityService.getActivitiesByDomainName(this.community)
+      .subscribe(data => {
+        this.activities = data;
+        console.log("Object of activities", this.activities);
+      });
+  }
 }
