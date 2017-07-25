@@ -1,67 +1,29 @@
 <md-card>
   <md-card-header class="head" fxFlex="100%" fxLayout="row">
     <div fxFlex="10%" >
-  <img class="example-header-image" md-card-avatar src="{{activity.actor.href}}" alt="">
+    <img class="example-header-image" md-card-avatar src="{{decoratedActivity.actor.href}}" alt="">
     </div>
     <div align="start" fxFlex="80%">
-     <md-card-title>{{activity.actor.name}} {{activity.type}}</md-card-title>
-      <md-card-subtitle>{{activity.object.name}}</md-card-subtitle>
+     <md-card-title style="text-transform: capitalize">{{decoratedActivity.actor.name}}</md-card-title>
+      <md-card-subtitle>{{decoratedActivity.object.name}}</md-card-subtitle>
     </div>
   </md-card-header>
-         <hr fxFlex="100%">
-    <md-card-content>
-    <img md-card-image src="{{activity.target.content}}" height="=50%">
+         <hr fxFlex="100%" />
+    <md-card-content fxFlex="100%" fxLayout="column" fxLayoutAlign="start" align="start" >
+      <h4>{{decoratedActivity.type}}</h4>
+      <markdown [data]="decoratedActivity.target.content"></markdown>    
   </md-card-content>
   <div>
-      <md-card-content>{{activity.name}}</md-card-content>
+      <md-card-content>{{decoratedActivity.name}}</md-card-content>
     </div>
     <div>
-      <md-card-content>
-       {{activity.context.name}}
-        <a href="">{{activity.context.href}}</a>
+      <md-card-content>       
+        <a href="decoratedActivity.context.href">{{decoratedActivity.context.name}}</a>
       </md-card-content>
     </div>
      <div>
-      <md-card-content>
-       {{activity.target.name}}
-        <a href="">{{activity.target.url}}</a>
+      <md-card-content>       
+        <a href="decoratedActivity.target.url">{{decoratedActivity.target.name}}</a>
       </md-card-content>
     </div>
 </md-card>
-
-
-
-<!--<md-card fxFlex="100%">
-  <md-card-header class="head" fxFlex="100%" fxLayout="row">
-    <div fxFlex="20%">
-      <img md-card-avatar src="{{activity.community.avatar}}">
-    </div>
-    <div fxFlex="80%" align="start">
-      <md-card-title>{{activity.name}}</md-card-title>
-      <md-card-subtitle><a href="{{activity.community.url}}">{{activity.community.name}}</a></md-card-subtitle>
-    </div>
-  </md-card-header>
- 
-  <hr fxFlex="100%">
-  <md-card-header fxFlex="100%" fxLayout="row">
-    <div fxFlex="20%">
-      <img md-card-avatar src="{{activity.member.avatar}}">
-    </div>
-    <div fxFlex="80%" align="start">
-      <md-card-title>{{activity.member.name}} posted <a href="{{activity.activity.actionUrl}}">
-        {{activity.activity.eventType}}</a> in {{activity.tool.name}}
-      </md-card-title>
-    </div>
-  </md-card-header>
-  
-  <md-card-content>
-    {{activity.message.title}}
-  </md-card-content>
-  <hr fxFlex="100%">
-  
-  <md-card-content>
-    <img md-card-image src="{{activity.message.actions[0].link}}">
-    {{activity.message.embeds[0].title}}
-  </md-card-content>
-</md-card>-->
-<!--</div>-->

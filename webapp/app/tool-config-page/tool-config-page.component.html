@@ -3,12 +3,12 @@
   <form #tool="ngForm" class="form" (ngSubmit)="onSubmit(tool)">
     <h3 fxLayoutAlign="start">Tool Info</h3>
     <hr>
-    <!--<div *ngFor="let val of allTool" fxLayout="row" >-->
+    <div *ngFor="let val of allTool" fxLayout="row" >
       <div fxLayout="row" >
       <!--<label>{{val.toolid}}</label>-->
       <div fxFlex="20%" fxLayoutAlign="">
         <!--<img src="{{val.toolavatar}}">-->
-       <img src="{{toolObj.toolavatar}}" class="img">        
+       <img src="{{val.toolavatar}}" class="img">        
       </div>
       <div fxFlex="50%">
          <md-card-title><h2 align="start">{{toolObj.toolname}}</h2></md-card-title>
@@ -16,6 +16,7 @@
         <md-card-subtitle align="start">{{toolObj.purpose}}</md-card-subtitle>
         <md-card-subtitle align="start">{{toolObj.tooldesc}}</md-card-subtitle>
       </div>
+    </div>
     </div>
       <hr>
       <h3 fxLayoutAlign="start">Redirect Url</h3>

@@ -1,20 +1,22 @@
-<!--<textarea [(ngModel)]="textData"></textarea>
-<markdown [data]="textData"></markdown>-->
+
 <!--collect activity cards for display activity page-->
 <div class="search-results" infinite-scroll [infiniteScrollDistance]="1" [infiniteScrollThrottle]="50" (scrolled)="onScroll()"
   [scrollWindow]="false">
-  <div class="activity-board item item-3" fxLayout="rows">
-    <div *ngIf="activities" fxFlex="100%" fxlayout="column" fxLayoutGap="2%" fxLayoutWrap>
-      <div class="list-activities" fxFlex="100%" fxlayout="column" *ngFor="let activity of activities let i = index;">
-        <calvin-activity-card [activity]="activity"></calvin-activity-card>
+  <div class="activity-board item item-3" fxLayout="rows">    
+    <div fxFlex="100%" fxlayout="column" fxLayoutGap="2%" fxLayoutWrap>
+      <div *ngIf="activities.length !== 0" fxFlex="100%" >
+        <div class="list-activities" fxFlex="100%" fxlayout="column" *ngFor="let activity of activities let i = index;">
+          <calvin-activity-card [activity]="activity"></calvin-activity-card>
+        </div>
       </div>
-    </div>
-
-    <div *ngIf="(activities.length===0)">
-      <md-card-title align="center" class="title">
+      <md-card *ngIf="activities.length === 0" align="center" class="title">
         No activities yet for you.!Time to perform some actions!
-      </md-card-title>
+      </md-card>     
     </div>
-    
   </div>
 </div>
+
+
+
+
+

@@ -1,18 +1,4 @@
-
-/*.head{
-    background-color: lightgrey;
-}*/
-/*
-.search-results {
-      height: 20%;
-          overflow: scroll;
-    }*/
-
-/*.head{
-    background-color:#ccc;
-}*/
-
-    .example-header-image {
+.example-header-image {
   background-image: url('http://www.radiowey.org/wp-content/uploads/2017/02/holding_avatar.png');
   background-size: cover;
 }

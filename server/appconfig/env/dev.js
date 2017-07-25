@@ -35,8 +35,14 @@ const TABLE_NAME = ['toolinfo', 'toolactions', 'toolevents', 'toolcommunity'];
 const USERS_TABLE = 'users';
 
 const appConstants = {            // config  for signing JWT token
-    secret: 'secret key',
-    expiryTime: 60 * 500,
+    secret: 'WAVE-18-ANISH-NITIN-STACKROUTE',
+    // expiryTime: 60 * 500,
+    expiryTime: "2 days", //expressed in seconds or a string describing a time span zeit/ms. Eg: 60, "2 days", 
+};
+
+const toolToken = {            // config  for signing JWT token
+    secret: 'ABCDEFGHIJKLMN0123456-WAVE-18',
+    expiryTime: "300 days",
 };
 
 module.exports = {

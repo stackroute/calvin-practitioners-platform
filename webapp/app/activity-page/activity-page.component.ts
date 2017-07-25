@@ -18,42 +18,38 @@ export class ActivityPageComponent implements OnInit {
   username;
   flag = 0;
   domainName;
-  //activity = [];
- 
-  public textData = `## Markdown content data`;
-
   @Input() community;
   constructor(private activityService: ActivityService, private userservice: UserInfoService, private value: AppBarService) { }
 
   ngOnInit() {
-    //this.getActivities();
     this.userservice.getUserDetail((userdetails) => {
       this.user = userdetails;
       this.username = userdetails.username;
       this.flag = 1;
     });
-    this.getMemberActivities();
-    this.getDomainActivities();
+    if(!this.community){
+      console.log("inside activites page");      
+      this.getMemberActivities();
+    }
+    if(this.community){
+      console.log("inside community page");
+      this.getDomainActivities();
+    }    
   }
-  // getActivities(){    
-  //   this.activityService.getActivity()
-  //   .subscribe(data => {
-  //     this.activities = data;
-  //     console.log("Object of activities", this.activities);
-  //   });
-  // }
+
   getMemberActivities() {
     this.activityService.getActivities(this.username, this.community, this.sort, this.order, this.page, this.limit)
       .subscribe(data => {
-        this.activities = data;
-        console.log("Object of activities", this.activities);
+        this.activities = data['items'];
+        console.log("Member activities", this.activities);
       });
   }
+  
   getDomainActivities() {
     this.activityService.getActivitiesByDomainName(this.community)
       .subscribe(data => {
-        this.activities = data;
-        console.log("Object of activities", this.activities);
+        this.activities = data['items'];
+        console.log("Member activities", this.activities);
       });
   }
 }
