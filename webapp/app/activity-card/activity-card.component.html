@@ -1,29 +1,17 @@
 <md-card>
   <md-card-header class="head" fxFlex="100%" fxLayout="row">
-    <div fxFlex="10%" >
-    <img class="example-header-image" md-card-avatar src="{{decoratedActivity.actor.href}}" alt="">
+    <div fxFlex="10%">
+      <img class="example-header-image" md-card-avatar src="{{decoratedActivity.actor.href}}" alt="">
     </div>
     <div align="start" fxFlex="80%">
-     <md-card-title style="text-transform: capitalize">{{decoratedActivity.actor.name}}</md-card-title>
-      <md-card-subtitle>{{decoratedActivity.object.name}}</md-card-subtitle>
+      <md-card-title style="text-transform: capitalize">{{decoratedActivity.actor.name}} {{decoratedActivity.type}} {{decoratedActivity.object.type}} in {{decoratedActivity.context.name}}
+        @{{decoratedActivity.object.name}} in {{decoratedActivity.target.name}}
+      </md-card-title>
+      <md-card-subtitle></md-card-subtitle>
     </div>
   </md-card-header>
-         <hr fxFlex="100%" />
-    <md-card-content fxFlex="100%" fxLayout="column" fxLayoutAlign="start" align="start" >
-      <h4>{{decoratedActivity.type}}</h4>
-      <markdown [data]="decoratedActivity.target.content"></markdown>    
+  <hr fxFlex="100%">
+  <md-card-content fxFlex="100%" fxLayout="column" fxLayoutAlign="start" align="start">
+    <markdown [data]="decoratedActivity.target.content"></markdown>
   </md-card-content>
-  <div>
-      <md-card-content>{{decoratedActivity.name}}</md-card-content>
-    </div>
-    <div>
-      <md-card-content>       
-        <a href="decoratedActivity.context.href">{{decoratedActivity.context.name}}</a>
-      </md-card-content>
-    </div>
-     <div>
-      <md-card-content>       
-        <a href="decoratedActivity.target.url">{{decoratedActivity.target.name}}</a>
-      </md-card-content>
-    </div>
 </md-card>
