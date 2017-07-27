@@ -25,6 +25,6 @@ services:
     network_mode: host
     restart: on-failure
     volumes:
-      - ./data:/var/lib/cassandra
+      - /data:/var/lib/cassandra
     expose:
       - 9042   

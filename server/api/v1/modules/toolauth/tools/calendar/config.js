@@ -14,6 +14,8 @@
 
 
 module.exports = {
-    clientID: '53591272126-uj5qsbkkc194ngg0ruhljl3ghu9h6l26.apps.googleusercontent.com',
-    clientSecret: 'bKJJ-eIcpmuB8_6kmPlA42Ai'
+    clientID		:'53591272126-uj5qsbkkc194ngg0ruhljl3ghu9h6l26.apps.googleusercontent.com',
+    clientSecret :     'bKJJ-eIcpmuB8_6kmPlA42Ai',
+    callbackURL : '/api/v1/toolauth/auth/calendar/callback',
+    scope: ['openid', 'email', 'https://www.googleapis.com/auth/calendar']
 }
