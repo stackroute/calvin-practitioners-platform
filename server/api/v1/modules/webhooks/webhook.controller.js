@@ -12,8 +12,7 @@ function verifyToolToken(token, done) {
     jwt.verify(token, config.toolToken.secret, (err, tokenClaims) => {
         if (err) {
             return done(err, 'unauhtorized');
-        }
-        
+        }        
         done(null, tokenClaims);
     });
 }
