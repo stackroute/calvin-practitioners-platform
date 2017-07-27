@@ -85,7 +85,7 @@ router.get('/tool/:toolid', (req, res) => {
 });
 
 router.post('/tool', (req, res) => {
-  //// console.log(' printing body :', req.body);
+  console.log(' printing body :', req.body);
   const tool = req.body;
   try {
     toolCtrl.addTool(tool, (err) => {

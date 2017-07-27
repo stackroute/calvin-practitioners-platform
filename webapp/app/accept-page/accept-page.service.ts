@@ -29,10 +29,8 @@ export class acceptService {
   return this.http.get(`api/v1/users/${emailAddrs}`).map( res => res.json());
 
  }
-
+ 
   updateMember(domain,person,role) {
-
-  // console.log("hhhhhhhhh",domain,role,person);
 
     const headers = new Headers({
 

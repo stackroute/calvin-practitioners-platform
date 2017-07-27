@@ -20,6 +20,8 @@
   text-transform: uppercase;
   padding: 21px 0;
   text-decoration: none;
+  outline: none;
+  cursor: pointer;
 }
 .searchAlgin {
   position: relative;

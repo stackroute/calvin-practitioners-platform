@@ -183,7 +183,7 @@ export class AddToolComponent implements OnInit {
       toolEvent: this.events
     };
 
-    // console.log("final  object.........",toolobj);
+    console.log("final  object.........",toolobj);
     this.id=tooldata.toolid;
     this.addtoolservice.addTool(toolobj).subscribe(result => {
       // console.log('inside add tool response');

@@ -7,9 +7,9 @@ module.exports = function({domainName, toolId, username,communityToolToken}, don
 // module.exports = function({domainName, toolId, username}, done) {
 //   // console.log('inside generate tool token');
 //   let payload = { domainName, toolId, username };
-  let secret = config.appConstants.secret;
+  let secret = config.toolToken.secret;
   let options = {
-    expiresIn: config.appConstants.expiryTime,
+    expiresIn: config.toolToken.expiryTime,
     issuer: 'calvin-pages'
   };
 

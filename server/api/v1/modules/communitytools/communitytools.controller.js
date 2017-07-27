@@ -110,7 +110,7 @@ function retrieveAllTools(domain, done) {
 //   });
 // }
 
-function postToolInfo(domain,toolid,data,done){
+function  postToolInfo(domain,toolid,data,done){
   
   console.log('** waterfall about to call');
 

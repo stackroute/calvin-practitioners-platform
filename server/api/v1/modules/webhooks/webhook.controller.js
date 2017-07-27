@@ -9,7 +9,7 @@ const transformEventData = require('./transformEventData');
 
 function verifyToolToken(token, done) {
     console.log('3.inside verify token');
-    jwt.verify(token, config.appConstants.secret, (err, tokenClaims) => {
+    jwt.verify(token, config.toolToken.secret, (err, tokenClaims) => {
         if (err) {
             return done(err, 'unauhtorized');
         }

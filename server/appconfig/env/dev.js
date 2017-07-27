@@ -55,5 +55,6 @@ module.exports = {
     discourseAdmin,
     appConstants,
     USERS_TABLE,
-    TABLE_NAME
+    TABLE_NAME,
+    toolToken
 };

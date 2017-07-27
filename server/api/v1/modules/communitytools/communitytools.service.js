@@ -27,23 +27,22 @@ function integrateNewTool({ domainName, toolId, username }, communityToolToken, 
 
 
 
-function integrateToolinCommunity(domain, toolid, data, done) {
-    console.log("tooldata inside service", domain, " toolid  ", toolid, " dtsa", data);
-    console.log("tooldata inside service", domain);
-    const url = `${urlValue}/communitytools/${domain}/tools/${toolid}`;
-    console.log(url);
-    request
-        .post(url)
-        .send(data) // query string
-        .end((err, res) => {
-            if (err) {
-                //res.status(500).send({error: 'Internal error ocurred...!!!', err: err});
-                return done(err);
-            }
-            return done(null, res.body);
-        });
-
-}
+// function integrateToolinCommunity(domain, toolid, data, done) {
+//     console.log("tooldata inside service", domain, " toolid  ", toolid, " dtsa", data);
+//     console.log("tooldata inside service", domain);
+//     const url = `${urlValue}/communitytools/${domain}/tools/${toolid}`;
+//     console.log(url);
+//     request
+//         .post(url)
+//         .send(data) // query string
+//         .end((err, res) => {
+//             if (err) {
+//                 //res.status(500).send({error: 'Internal error ocurred...!!!', err: err});
+//                 return done(err);
+//             }
+//             return done(null, res.body);
+//         });
+// }
 
 function integrateToolinCommunity(domain, toolid, data, done) {
     console.log("tooldata inside service", domain, " toolid  ", toolid, " dtsa", data);
