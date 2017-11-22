@@ -6,13 +6,15 @@ services:
     build: 
       context: ./
       dockerfile: DockerFile
-    network_mode: host
+    # network_mode: host
     restart: on-failure
     volumes:
       - ./dockerScripts:/temp/scripts
     ports:
       - 3000:3000
     depends_on:
+      - calvin-cassandra
+    links:
       - calvin-cassandra
     entrypoint:
       -  /temp/scripts/wait-for-service.sh
@@ -22,9 +24,9 @@ services:
 
   calvin-cassandra:
     image: cassandra:latest
-    network_mode: host
+    # network_mode: host
     restart: on-failure
     volumes:
-      - /data:/var/lib/cassandra
+      - /data/calvin-app:/var/lib/cassandra
     expose:
-      - 9042   
+      - 9042
