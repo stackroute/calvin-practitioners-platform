@@ -3,7 +3,7 @@ services:
 
   calvin-app:
     image: calvinapp
-    build: 
+    build:
       context: ./
       dockerfile: DockerFile
     # network_mode: host
