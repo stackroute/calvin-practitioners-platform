@@ -69,7 +69,7 @@ function postNewcommunityDetails(domainName, newCommunityObj, done) {
   .send(newCommunityObj) // sends a JSON post body
   .end((err, res) => {
     if (err) {
-     consoleconsole.log('Error in creating new community ',err);
+     console.log('Error in creating new community ',err);
     return done(err);
     }
     return done(null, res.body);
