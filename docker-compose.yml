@@ -25,7 +25,7 @@ services:
       -  /temp/scripts/wait-for-service.sh
       - '10.20.1.218'
       - '9042'
-      - 'npm run svc.toolsink'
+      - 'npm start'
     environment:
       ZOOKEEPER_HOST: 10.20.1.218
       REDIS_HOST: 10.20.1.218
