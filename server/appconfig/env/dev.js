@@ -1,7 +1,7 @@
 
 const connectionString = { // config for cassandra
     keyspacename: 'calvin',
-    dburl: '127.0.0.1',
+    dburl: (process.env.CASSANDRA_HOST || '127.0.0.1'),
     port: '9042',
 };
 
@@ -15,8 +15,8 @@ const connectionString = { // config for cassandra
 //    }],
 //  };
 
-const BASE_COMMUNITY_SERVICE_URL = 'http://calvin-communities.blr.stackroute.in/api/v1'; // config for calling Community API
-const BASE_ACTIVITY_SERVICE_URL = 'http://activitystreams.blr.stackroute.in';
+const BASE_COMMUNITY_SERVICE_URL = ((process.env.BASE_COMMUNITY_SERVICE_URL || 'http://calvin-communities.blr.stackroute.in') + '/api/v1'); // config for calling Community API
+const BASE_ACTIVITY_SERVICE_URL = (process.env.BASE_ACTIVITY_SERVICE_URL || 'http://activitystreams.blr.stackroute.in');
 
 
 const authToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ik1heWFuayBTZXRoaSIsImFwaSI6ImNpcmNsZSIsInNjb3BlcyI6WyJtYWlsYm94OmFsbCIsImNpcmNsZTphbGwiLCJmb2xsb3c6YWxsIl0sImlhdCI6MTQ5NzkzODEzOX0.cpLAt8BaYZyqyp53iDJGbl3yIBtBjj6_qoSiM4_hDiY';
