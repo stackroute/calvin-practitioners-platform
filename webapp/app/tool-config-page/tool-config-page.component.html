@@ -1,0 +1,149 @@
+<md-card>
+  <md-card-content>
+    <form #tool="ngForm" class="form" (ngSubmit)="onSubmit(tool)">
+      <h3 fxLayoutAlign="start">Tool Info</h3>
+      <hr>
+      <div *ngFor="let val of allTool" fxLayout="row">
+        <div fxLayout="row">
+          <div fxFlex="20%" fxLayoutAlign="">
+            <img src="{{val.toolavatar}}" class="img">
+          </div>
+          <div fxFlex="50%">
+            <md-card-title>
+              <h2 align="start">{{toolObj.toolname}}</h2>
+            </md-card-title>
+            <md-card-subtitle align="start">{{toolObj.toolid}}</md-card-subtitle>
+            <md-card-subtitle align="start">{{toolObj.purpose}}</md-card-subtitle>
+            <md-card-subtitle align="start">{{toolObj.tooldesc}}</md-card-subtitle>
+          </div>
+        </div>
+      </div>
+      <hr>
+      <h3 fxLayoutAlign="start">Redirect Url</h3>
+      <div align="start">
+
+        <md-input-container>
+          <input required type="url" mdInput ngModel name="toolurl" placeholder="URL to redirect for use of tool" formControllName="toolurl.value">
+        </md-input-container>
+      </div>
+      <hr>
+      <h3 fxLayout>Tool Action</h3>
+      <hr>
+      <div *ngFor="let val of toolActions" fxFlex="80%" fxLayout.md="column" fxLayout.xs="column" fxLayout.sm="column" fxLayoutGap="40px"
+        fxLayoutAlign="center">
+        <div fxLayout.xs="row">
+          <md-input-container class="example-full-width">
+            <input name="" mdInput placeholder="" disabled value={{val.grantactions}}>
+          </md-input-container>
+        </div>
+        <div fxLayout.xs="row">
+          <md-input-container class="example-full-width">
+            <input name="" mdInput placeholder="" disabled value={{val.name}}>
+          </md-input-container>
+        </div>
+        <div fxLayout.xs="row">
+          <md-input-container class="example-full-width">
+            <input name="" mdInput placeholder="" disabled value={{val.description}}>
+          </md-input-container>
+        </div>
+
+        <div fxFlex="10%">
+
+        </div>
+        <div fxFlex="10%">
+
+        </div>
+
+      </div>
+
+      <!--</div>-->
+      <hr>
+
+      <h3 fxLayoutAlign="start">Events Subscription</h3>
+      <hr>
+      <div fxFlex="100%" fxLayout="" fxLayoutAlign="start" fxLayoutGap="" *ngFor="let event of toolEvents">
+        <div fxFlex="25%" fxLayoutAlign="start" fxLayout="row">
+          <!--<div fxFlex="25%">-->
+          <md-checkbox class="example-margin" (click)="toggle(event.eventid, event.name, event.description, $event)"></md-checkbox>
+
+          <md-card-header>
+            <md-card-title align="start">{{event.name}}</md-card-title>
+            <md-card-title fxLayout="">{{event.description}}</md-card-title>
+          </md-card-header>
+        </div>
+        <!--dropdown-->
+        <div fxLayout="row" fxFlex="25%" fxLayoutAlign="center">
+          <md-select placeholder="Activity Type" name="event1" [ngModel]="cactType" (ngModelChange)="onSelectMapType(event.eventid, 'activity', $event)">
+            <!--(ngModelChange)="function()"-->
+            <div *ngFor="let activity of events.activitytype">
+              <md-option [value]="activity" (click)="select(activity)">
+                {{activity}}
+              </md-option>
+            </div>
+          </md-select>
+
+
+
+
+          <!--<md-input-container>
+  <input mdInput placeholder="ActorType" [mdAutocomplete]="autostates" [formControl]="stateCtrl" >
+</md-input-container>
+
+<md-autocomplete #autostates="mdAutocomplete"[displayWith]="displayFunc">
+  <md-option *ngFor="let state of filteredStates | async" [value]="state">
+    {{ state }}
+  </md-option>
+</md-autocomplete>-->
+
+
+        </div>
+        <div fxLayout="row" fxFlex="25%" fxLayoutAlign="center">
+
+          <!--<md-input-container>
+    <input mdInput placeholder="ActivityType" [mdAutocomplete]="autSelectActivty" [formControl]="stateActive">
+  </md-input-container>
+
+<md-autocomplete #autSelectActivty="mdAutocomplete" >
+  <md-option *ngFor="let activity of events.actortype | async" [value]="activity">
+    {{ activity }}
+  </md-option>
+</md-autocomplete>-->
+
+
+
+          <md-select required placeholder="Actor Type" name="events2" [ngModel]="actorType" (ngModelChange)="onSelectMapType(event.eventid, 'actor', $event)">
+            <md-option *ngFor="let actortype of events.actortype" [value]="actortype" (click)="select(actortype)">
+              {{actortype}}
+            </md-option>
+          </md-select>
+        </div>
+        <div fxLayout="row" fxFlex="25%" fxLayoutAlign="center">
+
+          <md-select required placeholder="Object Type" name="events3" [ngModel]="objType" (ngModelChange)="onSelectMapType(event.eventid, 'object', $event)">
+            <md-option *ngFor="let objecttype of this.events.objecttype" [value]="objecttype" (click)="select(objecttype)">
+              {{objecttype}}
+            </md-option>
+          </md-select>
+
+          <!--<md-input-container>
+  <input mdInput placeholder="ObjectType" [mdAutocomplete]="autoobject" [formControl]="stateObject">
+</md-input-container>
+
+<md-autocomplete #autoobject="mdAutocomplete" [displayWith]="displayFunc2">
+  <md-option *ngFor="let object of filteredObject | async" [value]="object">
+    {{ object }}
+  </md-option>
+</md-autocomplete>-->
+        </div>
+      </div>
+
+      <!--dropdownnnn-->
+
+
+      <div fxFlex="100" fxLayoutAlign="end">
+        <button md-raised-button color="primary" class="bottom-button" (click)="openDialog()">Submit</button>
+        <!-- [routerLink]="/app/communityDashBoard"routerLink="/app/communityDashBoard/:domain"-->
+      </div>
+    </form>
+  </md-card-content>
+</md-card>

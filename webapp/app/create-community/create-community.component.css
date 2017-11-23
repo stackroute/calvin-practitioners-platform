@@ -1,0 +1,17 @@
+.material-icons {
+    font-size: 18px;
+}
+
+.inputFields {
+    padding-top: 20px;
+}
+
+.communityNameFont {
+    text-transform: capitalize;
+}
+
+.visibilityDesc {
+    color: gray ;
+    font-style: inherit;
+    font-family: Roboto,"Helvetica Neue",sans-serif;
+}

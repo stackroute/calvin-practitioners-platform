@@ -1,0 +1,19 @@
+<div >
+<md-card>
+  <md-card-title>Modify role</md-card-title>
+  <div>
+ <div>   <md-input-container >
+      <input fxFlex='30%' mdInput placeholder="username:" value="{{data.val}}" disabled/>
+    </md-input-container></div>
+<div> <span><md-select placeholder="role" (keyup.enter)="value=''" class="textfield" name="value">
+      <md-option *ngFor="let access of getResults" (click)="selectCore(access.role)" [value]="access.role">{{access.role}} </md-option>
+
+    </md-select></span></div>
+  </div>
+ 
+</md-card>
+<div md-dialog-actions fxLayoutAlign="end">
+    <button md-button md-dialog-close>Cancel</button>
+    <button md-raised-button md-dialog-close color="primary" (click)="update(data.val)">Apply</button>
+</div>
+</div>

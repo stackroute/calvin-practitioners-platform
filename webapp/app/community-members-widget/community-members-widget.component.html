@@ -1,0 +1,14 @@
+<md-card>
+  <h2 align="start">Members</h2>
+  <md-card-content fxLayoutAlign.xs="column" class="content">
+    <md-list>
+      <md-list-item *ngFor="let val of this.members.MemberDetails" fxLayoutAlign.xs="column">
+        <img md-list-avatar class="img-responsive center-block" src="./assets/images/member.png">
+        <h3 md-line><b>{{val.username}}</b></h3>
+        <p md-line align="start">
+          <span>{{val.role}}</span>
+        </p>
+      </md-list-item>
+    </md-list>
+  </md-card-content>
+</md-card>

@@ -1,0 +1,43 @@
+version: '2'
+services:
+
+  calvin-app:
+    image: calvinapp
+    build:
+      context: ./
+      dockerfile: DockerFile
+    # network_mode: host
+    restart: on-failure
+    volumes:
+      - ./dockerScripts:/temp/scripts
+    ports:
+      - 3000:3000
+    # depends_on:
+    #   - calvin-cassandra
+    # links:
+    #   - calvin-cassandra
+    # entrypoint:
+    #   -  /temp/scripts/wait-for-service.sh
+    #   - '0.0.0.0'
+    #   - '9042'
+    #   - 'npm start'
+    entrypoint:
+      -  /temp/scripts/wait-for-service.sh
+      - '10.20.1.218'
+      - '9042'
+      - 'npm start'
+    environment:
+      ZOOKEEPER_HOST: 10.20.1.218
+      REDIS_HOST: 10.20.1.218
+      CASSANDRA_HOST: 10.20.1.218
+      BASE_COMMUNITY_SERVICE_URL: https://calvin-communities.stackroute.in
+      BASE_ACTIVITY_SERVICE_URL: https://calvin-activities.stackroute.in
+
+  # calvin-cassandra:
+  #   image: cassandra:latest
+  #   # network_mode: host
+  #   restart: on-failure
+  #   volumes:
+  #     - /data/calvin-app:/var/lib/cassandra
+  #   expose:
+  #     - 9042

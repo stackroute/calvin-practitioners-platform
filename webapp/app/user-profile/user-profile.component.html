@@ -1,0 +1,96 @@
+<div class="container" fxLayout fxLayout.xs="row" fxLayoutAlign="center">
+	<div class="item item-1" fxFlex="2%"></div>
+	<div class="item item-2" fxFlex="2%" fxFlexOrder="3"></div>
+	<div class="item item-3" fxFlex class="form-div" *ngIf="flag===1">
+		<md-card fxFlex=90%>
+			<div fxFlex="100%" fxLayoutAlign="center">
+				<md-card-content class="Head">
+					<markdown>
+						<md-card-title>Profile</md-card-title>
+					</markdown>
+				</md-card-content>
+			</div>
+			<div fxLayout.xs="row" fxLayoutGap="0px" fxLayoutGap.xs="0" *ngIf="flag===1">
+				<div fxFlex="50%" Align="start center">
+					<img md-card-image fxFlex=50% fxLayoutAlign="start" class="img-placing" src={{maximizepic(user.avatar)}} alt="User">
+					<div class="fixprofile">
+						<md-card-title>
+							<markdown>{{user.name}}</markdown>
+						</md-card-title>
+						<md-card-subtitle>
+							<h4>{{user.username}}</h4>
+						</md-card-subtitle>
+					</div>
+				</div>
+				<div fxLayout.xs="row" fxLayoutGap="0px" fxLayoutGap.xs="0" fxFlex="50%">
+					<div fxLayoutAlign="start" fxFlex="100%">
+						<form class="placing" fxFlex="100%" [formGroup]="profileForm" (ngSubmit)="updateProfile(profileForm)">
+							<div *ngFor="let data of profileArray">
+								<div>
+									<md-input-container fxLayoutAlign="start stretch" fxFlex="100%">
+										<textarea mdInput placeholder="About me" rows="5" cols="100" formControlName="aboutMe" value={{data.aboutme}} style="text-transform: capitalize"></textarea>
+									</md-input-container>
+								</div>
+								<div>
+									<md-input-container fxLayoutAlign="start" fxFlex="100%" class="example-full-width">
+										<textarea mdInput placeholder="Location" rows="1" cols="100" formControlName="location" value={{data.location}} style="text-transform: capitalize"></textarea>
+									</md-input-container>
+								</div>
+								<div fxLayoutAlign="start" fxFlex="100%">
+									<md-input-container>
+										<textarea mdInput placeholder="InterestedFields" rows="1" cols="20" [(ngModel)]="interest" #resetText formControlName="interestField"
+										 value={{data.interestedtopics}} style="text-transform: capitalize"></textarea>
+										<!--<md-hint>Tag is required</md-hint>-->
+									</md-input-container>
+									<div fxLayoutAlign="center center">
+										<a md-button (click)="addInterest(interest,resetText)">Add</a>
+									</div>
+								</div>
+								<md-chip-list>
+									<div ng-disabled="!interest.value" *ngFor="let interest of addInterestArr" ng-model="ctrl.vegObjs" (click)="deselectchip(interest)">
+										<md-chip>{{interest}}
+										</md-chip>
+									</div>
+								</md-chip-list>
+								<div>
+									<md-input-container fxLayoutAlign="start" fxFlex="100%" class="example-full-width">
+										<textarea mdInput placeholder="Mobile number" rows="1" cols="100" formControlName="contact" value={{data.contact}}></textarea>
+									</md-input-container>
+								</div>
+								<span fxLayout.md="row" fxLayoutAlign="end end" fxLayoutGap="10px" fxLayoutGap.md="0">
+									<a md-raised-button routerLink="/app/Home">Cancel</a>
+									<button fxLayout.md="column" fxFlex="10" md-raised-button type="submit"color="primary" [disabled]="!profileForm.valid" (click)="openDialog()">Submit</button>
+								</span>
+							</div>
+							<div fxLayout="column" fxLayoutGap="10px" class="alignToolBtn">
+								<span class="toolTitle">Integrate with app</span>
+								<div class="integrateToolbtn">
+								<span class="label">Sign in with:</span>
+									<div id="customBtn" class="customGPlusSignIn" (click)="integrateTool('calendar')">
+										<span class="googleicon"></span>
+										<span class="buttonText">Google</span>
+									</div>
+								</div>
+								<div class="integrateToolbtn">
+								<span class="label">Sign in with:</span>
+									<!--<div id="customBtn"  class="customGPlusSignIn" (click)="integrateTool('discourse')">-->
+									<div id="customBtn"  class="customGPlusSignIn">
+										<span class="discourseicon"></span>
+										<span class="buttonText">Discourse</span>
+									</div>
+								</div>
+								<div class="integrateToolbtn">
+								<span class="label">Sign in with:</span>
+									<div id="customBtn" class="customGPlusSignIn" (click)="integrateTool('github')">
+										<span class="githubicon"></span>
+										<span class="buttonText">Github</span>
+									</div>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</md-card>
+	</div>
+</div>

@@ -1,0 +1,98 @@
+<calvin-community-profile [profile]="this.community" (onVoted)="onsubmit($event)" >
+  <button md-icon-button [mdMenuTriggerFor]="menu" class="setting">
+    <md-icon >settings</md-icon>
+  </button>
+  <md-menu #menu="mdMenu">
+    <button routerLink="/app/communityDashBoard/{{this.domain}}" md-menu-item>
+      <md-icon>dialpad</md-icon>
+      <span>Community</span>
+    </button>
+  </md-menu>
+  </calvin-community-profile>
+<div fxLayout fxLayout.xs="row" fxLayoutGap="0px" fxLayoutGap.xs="0" header >
+  <div fxFlex="20%" fxLayout="row"> </div>
+  <div fxFlex="80%" fxLayout="row" fxLayoutAlign=" start">
+    <md-tab-group class="manage-community" fxFlex="80%">
+       <md-tab label="Community">
+         <form [formGroup]="userForm" (ngSubmit)="onsubmit(userForm)" class="try" >
+             <md-input-container fxLayoutAlign="start">
+                <input mdInput placeholder="Domain "  disabled value={{community.domain}} disabled> 
+              </md-input-container>
+
+                <md-input-container fxLayoutAlign="start">
+                 <input mdInput placeholder="Purpose"   value={{community.purpose}} disabled>
+                </md-input-container>
+
+                <md-input-container fxLayoutAlign="start" fxLayout="column">
+                  <textarea mdInput placeholder="Community Name" rows="2" formControlName="name" ngModel={{community.name}} style="text-transform: capitalize"></textarea>
+                </md-input-container>
+
+                <md-input-container fxLayoutAlign="start" fxLayout="column">
+                   <textarea input mdInput placeholder="Description" rows="2" formControlName="description" ngModel={{community.description}} style="text-transform: capitalize"></textarea>
+                </md-input-container>
+
+               <div class="inputFields" fxLayout.md="column" fxLayoutGap="100px">
+   <md-input-container>
+     <input mdInput placeholder="Visibility" >
+     <md-radio-group name="visibility" formControlName="visibility" ngModel={{community.visibility}}>
+           <md-radio-button value="Public" >Public <div fxFlex="20%" class="visibilityDesc">Visible to anyone anywhere </div></md-radio-button>
+       <md-radio-button value="Private" >Private <div fxFlex="20%" class="visibilityDesc">Visible only to you</div> </md-radio-button>
+       <md-radio-button value="Moderated" >Moderated <div fxFlex="20%" class="visibilityDesc">Only invited members can join and see community content </div></md-radio-button>
+     </md-radio-group>
+   </md-input-container>
+
+ </div>
+
+   <md-input-container fxLayoutAlign="start" fxLayout="column">
+      <textarea input mdInput placeholder="avatar" rows="2" formControlName="avatar" ngModel={{community.avatar}}></textarea>
+          <md-hint align="start" class="full-width">
+              <div *ngIf="userForm.get('avatar').hasError('pattern') && userForm.get('avatar').touched" class="errorStyle">
+                      Invalid avatar path,must be url
+                  </div>
+              </md-hint>
+          </md-input-container> 
+
+ <div class="inputFields" fxLayout.md="row">
+    <div fxLayout.md="row">
+        <md-input-container fxLayoutAlign="start">
+         <input mdInput  placeholder="Tag" formControlName="tagCtrl" #resetText    [(ngModel)]="tagname" style="text-transform: capitalize">
+             <md-hint align="start" class="full-width">
+                <div *ngIf="userForm.get('tagCtrl').hasError('pattern') && userForm.get('tagCtrl')" class="errorStyle">
+                               Invalid tag length,must contain 3 to 20 char with one special character(.)
+                  </div>
+                </md-hint>
+            </md-input-container>
+
+       <md-chip-list>
+          <div ng-disabled="!tag.value" *ngFor="let tag of tagarray">
+              <md-chip >{{tag}}<i class="material-icons"(click)="clearTag(tag)">clear</i>
+              </md-chip>
+           </div>
+          <a md-button (click)="chipValue(tagname,resetText)">Add</a> 
+      </md-chip-list>
+               
+    </div> 
+ </div>
+              
+ <div fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="5px">
+    <a md-button (click)="routeToHome()">Cancel</a>
+    <button md-raised-button type="submit" color="primary" [disabled]="!userForm.valid">Submit</button>
+  </div>
+  </form>  
+</md-tab>
+      <!--Closing community info tab-->
+  <md-tab label="Members">
+       <calvin-community-member-management [community]="this.domain"></calvin-community-member-management>
+   </md-tab>
+                  <!--tab for manage member component-->
+  <md-tab label="Roles">
+            <calvin-community-role-managements [community]="this.domain"></calvin-community-role-managements>
+  </md-tab>
+                  <!--tab for manage role component-->
+    <md-tab label="Tools">
+          <calvin-community-tool-management [community]="this.domain"></calvin-community-tool-management>
+  </md-tab>
+
+</md-tab-group>
+ </div>
+</div>

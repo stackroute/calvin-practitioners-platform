@@ -1,0 +1,31 @@
+<div class="style" fxLayout="column" md-dialog-content *ngIf="sample">
+    <div *ngFor="let core of sample">
+        <md-input-container fxLayoutAlign="start stretch">
+            <input mdInput placeholder="Role Name:" value={{roleName}} disabled/>
+        </md-input-container>
+        <!--<div>These are the actions already assigned</div>
+        <div *ngFor="let key of (toolActions | keys)">
+            <md-input-container fxLayoutAlign="start stretch">
+                <input mdInput placeholder="" value=ToolName-{{key.key}} disabled/>
+            </md-input-container>
+        <md-chip-list>
+        <div class="chip-style" fxFlexLayout.xs='row' *ngFor="let value of key.value">
+          <md-chip>{{value}}</md-chip>
+        </div>
+      </md-chip-list>
+            
+        </div>--> 
+        <div *ngFor="let value of core.tools">
+            <md-input-container fxLayoutAlign="start stretch">
+                <input mdInput placeholder="" value={{value.toolid}} disabled/>
+            </md-input-container>
+            <md-checkbox *ngFor="let key of value.actions" (checked)="exists(value.toolid,key)" (click)="getCheckboxValue(value.toolid,key)"
+                fxFlexLayout.xs="row">{{key}}</md-checkbox>
+        </div>
+    </div>
+</div>
+
+<div md-dialog-actions fxLayoutAlign="end">
+    <button md-button md-dialog-close>Cancel</button>
+    <button md-raised-button md-dialog-close color="primary" (click)="update()">Apply</button>
+</div>

@@ -1,0 +1,30 @@
+<md-card fxFlex="100%" class="usercommunitylist">
+	<md-card-title fxLayout="row" class="new-community">
+		Communities ({{communities.length}})
+	</md-card-title>
+
+	<div class="community-list">
+
+		<md-list align="start">
+			<div *ngIf="communities.length==0">
+				<h4> It seems you are not a part of any community..!!!</h4>
+				<h5> It's time to create a new community..</h5>
+				
+				<span><md-icon>sad</md-icon></span>
+			</div>
+			<div *ngIf="!communities.length==0" class="content">
+				<md-list-item *ngFor="let userCommunityItem of communities" (click)="routeToCommunity(userCommunityItem.domain)">
+
+					<img md-list-avatar src="{{userCommunityItem.avatar}}">
+					<h2 md-line>{{userCommunityItem.domain}}</h2>
+					<p md-line>
+						{{userCommunityItem.roles}}
+					</p>
+				</md-list-item>
+			</div>
+		</md-list>
+	</div>
+	<md-card-actions fxLayoutAlign="end">
+		<button md-mini-fab routerLink="/app/createCommunity" class="button"><md-icon>add</md-icon></button>
+	</md-card-actions>
+</md-card>

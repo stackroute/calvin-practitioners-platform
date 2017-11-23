@@ -1,0 +1,34 @@
+<div fxFlex="100%" fxLayoutAlign="center" fxLayout="row" class="align">
+    <div fxFlex="" fxLayoutAlign="end">
+        <i class="material-icons">search</i>
+        <md-input-container fxFlex="">
+            <input mdInput #Inputval type="search" placeholder="search" [(ngModel)]="value" (keyup.enter)="selectedValue(value)">
+            <!--<md-icon class="material-icons">search</md-icon>-->
+        </md-input-container>
+    </div>
+    <div fxFlex="" fxLayoutAlign="center" class="">
+        <i class="material-icons">tune</i>
+        <md-select placeholder="purpose" [(ngModel)]="purpose">
+            <md-option *ngFor="let val of this.tools" [value]="val.purpose" (click)="selectpurpose(purpose)">{{ val.purpose }}</md-option>
+        </md-select>
+
+    </div>
+    <div fxFlex="" fxLayoutAlign="start">
+        <button md-raised-button color="primary" class="" routerLink="/app/addtool">Register New Tool</button>
+    </div>
+</div>
+<div fxFlex="100%" fxLayout="row" fxLayoutWrap>
+    <div *ngIf = '!newTool'>
+    <h4> Tool not found..!!!</h4>
+    <span><md-icon>sad</md-icon></span>
+    </div>
+    <div fxFlex="20%" *ngFor="let val of newTool">
+        <md-card (click)="onSelect(val.toolid)">
+            <md-card-title class="upper">{{val.toolname}}</md-card-title>
+             <img md-card-avatar src={{val.toolavatar}} class="img">
+            <!--<md-card-content>
+            <img md-card-image src={{val.toolavatar}}>
+            </md-card-content>-->
+        </md-card>
+    </div>
+</div>

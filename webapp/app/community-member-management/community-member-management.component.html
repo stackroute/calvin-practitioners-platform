@@ -1,0 +1,39 @@
+<div>
+    <md-card class="card-align">
+        <md-card-title fxLayout="row" class="new-community">
+            Members
+     <!--<div class="searchAlgin"> 
+    <input mdInput aria-label="search" fxFlex="100%" placeholder="Search" type="search"  dividerColor="accent">
+   <i class="material-icons ">search</i></div>  -->
+    </md-card-title>
+    
+    <div class="community-list" *ngFor="let val of members.MemberDetails" >
+        <!--<h1></h1>-->
+      <md-list align="start" >
+        <md-list-item>
+            <img md-list-avatar class="img-responsive" src="./assets/images/member.png">
+            <div  fxFlex='80'>
+               
+                <div><h5><b>{{val.username}}</b></h5></div>
+                <div>{{val.role}}</div>
+            </div>
+           
+          <div><i class="material-icons point"  [md-menu-trigger-for]="menu">more_vert</i></div>
+   
+        </md-list-item>   
+                 
+      </md-list>
+
+   
+
+  <md-menu #menu="mdMenu">
+      <button md-menu-item (click)='edit(val.username)'>Edit</button>
+      <button md-menu-item (click)='deleteMember(val.username)'>Delete</button>
+    
+  </md-menu></div>
+  <div class="bottom-button">
+    <button  md-raised-button color="primary"  (click)='openDialog()' >Invite</button>
+        
+</div>
+   
+<router-outlet></router-outlet>

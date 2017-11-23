@@ -1,0 +1,13 @@
+.content{
+    height:300px;
+    overflow-y: auto;
+}
+.content::-webkit-scrollbar {
+   display: none;
+}
+md-icon{
+    color:grey;
+}
+md-card-title{
+    margin-left: 20px;
+}

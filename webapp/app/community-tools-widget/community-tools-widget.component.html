@@ -1,0 +1,17 @@
+<div>
+  <md-card class="card-align" fxFlex="100">
+    <h2 align="start">Tools</h2>
+    <div class="community-list" *ngFor="let val of tools.tools">
+      <div>
+        <md-card-header align="start">
+          <md-card-title><a target="_blank" href={{val.toolurl}}>
+            <img md-card-avatar src="{{val.avatar}}" alt="Tool Image"></a></md-card-title>      
+          <!--<img md-card-avatar src="./assets/img/tool.jpg" >-->
+          <md-card-title><b>{{val.toolname}}</b></md-card-title>
+          <md-card-title>{{val.toolid}}</md-card-title>
+          <md-card-title>{{val.purpose}}</md-card-title>
+        </md-card-header>
+      </div>
+    </div>
+  </md-card>
+</div>
