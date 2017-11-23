@@ -66,10 +66,12 @@ function updateUser(profile, done) {
   checkIfUserExists(profile.username, (error, userExists) => {
     if (userExists) {
       if (error) {
+        console.log("Error in checkIfUserExists ", error)
         return done(error, 'Unable to find user table');
       }
       updateLastLoginTime(profile, (err) => {
         if (err) {
+          console.log("Error updateLastLoginTime ", err)
           return done(err, 'db error');
         }
         return done(null, cookies);
@@ -91,7 +93,7 @@ function getUserCommunities(username, done) {
  .query({ username }) // query string
  .end((err, res) => {
    if (err) {
-     // console.log('error is ', err);
+     console.log('error in getting user communities ', err);
      return done(err);
    }
    //// console.log('result is ', res.body);

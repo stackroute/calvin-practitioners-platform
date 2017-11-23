@@ -13,7 +13,7 @@ module.exports = (passport) => {
 
   (accessToken, refreshToken, profile, done) => {
     process.nextTick(() => {
-      //console.log('inside passport');
+      console.log('inside passport');
       const time = new Date();
       const namees = profile.displayName;
       const params = {
@@ -28,10 +28,10 @@ module.exports = (passport) => {
 
       // calling getUser function to Update or insert profile in database
       dbcontrol.getUser(params, (err, results) => {
-        // console.log('inside db token', results);
+        console.log('inside db token', results);
 
         if (err) {
-          //  console.log('err is :',err);
+           console.log('err is :',err);
           return done(err, 'Unable to Proceed');
         }
         return done(null, results);

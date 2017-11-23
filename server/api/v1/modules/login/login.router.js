@@ -25,7 +25,7 @@ router.get('/auth/google/callback', (req, res, next) => {
   }, (err) => { 
     // eslint-disable-line no-unused-vars
     // res.json(err);
-    console.log("Error in authentication ", err);
+    console.log("Error in authentication **[ ", err, " ]** ");
     res.redirect(500, '/#/login');
   });
 });
