@@ -30,8 +30,8 @@ services:
       ZOOKEEPER_HOST: 10.20.1.218
       REDIS_HOST: 10.20.1.218
       CASSANDRA_HOST: 10.20.1.218
-      BASE_COMMUNITY_SERVICE_URL: http://calvin-communities.stackroute.in
-      BASE_ACTIVITY_SERVICE_URL: http://calvin-activities.stackroute.in
+      BASE_COMMUNITY_SERVICE_URL: https://calvin-communities.stackroute.in
+      BASE_ACTIVITY_SERVICE_URL: https://calvin-activities.stackroute.in
 
   # calvin-cassandra:
   #   image: cassandra:latest

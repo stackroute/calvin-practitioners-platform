@@ -62,7 +62,8 @@ function getUserCommunity(member, done) {
 function postNewcommunityDetails(domainName, newCommunityObj, done) {
   const url = `${urlValue}/communities/${domainName}`;
 
-  console.log("Requested for community creation to ", url);
+  console.log("Requesting for community creation to ", url, " for community ", newCommunityObj);
+
   request
   .post(url)
   .send(newCommunityObj) // sends a JSON post body
