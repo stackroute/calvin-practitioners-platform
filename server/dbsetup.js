@@ -1,8 +1,9 @@
 const cassandra = require('cassandra-driver');
+const config = require('./appconfig');
 
-const client = new cassandra.Client({ contactPoints: ['127.0.0.1'] });
+const client = new cassandra.Client({contactPoints: [config.connectionString.dburl]});
 
-const keyspacename = 'calvin';
+const keyspacename = config.connectionString.keyspacename;
 
 const tablename = ['users', 'toolinfo', 'toolactions', 'toolevents', 'userappintegration','userappintegration'];
 
